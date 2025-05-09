@@ -1,0 +1,22 @@
+- create a local user in windows:
+	username: HC-IT
+	password: HC-IT_*#2022
+
+// if your are just changing from old server to a new one,
+just copy the folder  D:\MicroImages from the old device to the same path on the new device. 
+// else if you are configuring new center and server:
+- create a folder: MicroImages in D:\ drive
+
+- share the folder D:\MicroImages with the user HC-IT and grant all privilages (read - write = delete) 
+
+- click on xampp -> filezille -> Admin
+- click OK
+- click on Edit -> Users
+- click on Add Users,
+	username: Admin
+- enable the Password checkbox and write,
+	password: admin54321
+- go to Shared Folders -> Add then select the folder D:\MicroImages 
+- check all permissions: 
+	Files(read-write-delete) 
+	Directories(create-delete-list-subdirs)
