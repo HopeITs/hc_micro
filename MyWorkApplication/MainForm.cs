@@ -323,10 +323,10 @@ namespace MyWorkApplication
                     return;
                 }
 
-                var applicationItems = GetAllChildren(menuStrip1.Items["applicationToolStripMenuItem"]);
-                var financialItems = GetAllChildren(menuStrip1.Items["financialToolStripMenuItem"]);
-                var mEItems = GetAllChildren(menuStrip1.Items["mEToolStripMenuItem"]);
-                var toolsItems = GetAllChildren(menuStrip1.Items["toolsToolStripMenuItem"]);
+                var applicationItems = GetAllChildren(menuStrip1.Items["applicationToolStripMenuItem1"]);
+                var financialItems = GetAllChildren(menuStrip1.Items["financialToolStripMenuItem1"]);
+                var mEItems = GetAllChildren(menuStrip1.Items["mEToolStripMenuItem1"]);
+                var toolsItems = GetAllChildren(menuStrip1.Items["toolsToolStripMenuItem1"]);
 
                 //show or hide select databases for all users
                 Bind_DataBase_comboBox();
@@ -353,7 +353,7 @@ namespace MyWorkApplication
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[1], Keys.Alt | Keys.L);//Loans 
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[2], Keys.Alt | Keys.P);//Payments schedule
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[3], Keys.Alt | Keys.I);//Attachments
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[4], Keys.Alt | Keys.F);//Executive 
+                            //ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[4], Keys.Alt | Keys.F);//Executive 
 
                             // --------------------------------------------------------------------- 
 
@@ -397,7 +397,7 @@ namespace MyWorkApplication
                             HideMenuItemWithShortcut((ToolStripMenuItem)financialItems[1]);//Loans
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[2], Keys.Alt | Keys.P);//Payments schedule
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[3], Keys.Alt | Keys.I);//Attachments
-                            HideMenuItemWithShortcut((ToolStripMenuItem)financialItems[4]);//Executive 
+                            //HideMenuItemWithShortcut((ToolStripMenuItem)financialItems[4]);//Executive 
 
                             // --------------------------------------------------------------------- 
 
@@ -773,44 +773,7 @@ namespace MyWorkApplication
          
         private void moveVisitsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var UserNotification = new UserNotification();
 
-                Program.buildConnection();
-                var qqq = @"select `Pay_ID`,`Pay_Amount`,`Pay_DueDate`, loan.MicroProject_ID as 'MicroProject_ID'
- ,CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName) as 'المستفيد'
- from `payment` 
- left join `loan` on payment.Loan_ID = loan.Loan_ID  
- left join `microproject` on microproject.MP_ID = loan.MicroProject_ID  
- left join `donorgroup` on donorgroup.ID = microproject.DonorGroup_ID  
- left join `person_microproject` on person_microproject.MicroProject_ID = loan.MicroProject_ID 
- left join `person` on person.P_ID = person_microproject.Person_ID 
- Where Month(`Pay_DueDate`) like 12 and Year(`Pay_DueDate`) like 2020 and Pay_IsPaid Like 'Not Paid' order by Pay_DueDate asc";
-                var da = new MySqlDataAdapter(qqq, Program.MyConn);
-                var my_dt = new DataTable();
-                da.Fill(my_dt);
-                if (my_dt != null || my_dt.Rows.Count > 0)
-                    for (var i = 0; i < my_dt.Rows.Count; i++)
-                    {
-                        var Pay_ID = int.Parse(my_dt.Rows[i]["Pay_ID"].ToString());
-                        var Pay_Amount = float.Parse(my_dt.Rows[i]["Pay_Amount"].ToString());
-                        var date1 = (DateTime)my_dt.Rows[i]["Pay_DueDate"];
-                        var MP_ID = int.Parse(my_dt.Rows[i]["MicroProject_ID"].ToString());
-                        var name = my_dt.Rows[i]["المستفيد"].ToString();
-
-                        UserNotification.Insert_UserNotification(date1.ToString("yyyy/MM/dd"), Pay_Amount.ToString(), name, MP_ID, 25,
-                            Program.userID, Pay_ID);
-                        UserNotification.Insert_UserNotification(date1.ToString("yyyy/MM/dd"), Pay_Amount.ToString(), name, MP_ID, 5,
-                            Program.userID, Pay_ID);
-                    }
-
-                Program.MyConn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void RejectReasonsToolStripMenuItem_Click(object sender, EventArgs e)

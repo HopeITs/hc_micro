@@ -248,41 +248,57 @@ namespace MyWorkApplication.Classes
                         continue;
                     } 
 
-                        c.BackColor = dark_grey1;
-                        c.ForeColor = light_white;
+                    c.BackColor = dark_grey1;
+                    c.ForeColor = light_white;
 
-                        foreach (Control aa in c.Controls)
-                            if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
-                                aa.GetType() == typeof(CheckBox))
+                    foreach (Control aa in c.Controls)
+                        if (aa.GetType() == typeof(Label) || 
+                            aa.GetType() == typeof(Button))
+                        {
+                            aa.ForeColor = light_white; 
+                            if (aa.Name == "X_button")
+                                aa.BackgroundImage = Resources.X_Dark;
+                            else if (aa.Name == "R_button")
+                                aa.BackgroundImage = Resources.R_Dark;
+                            else if (aa.Name == "M_button")
+                                aa.BackgroundImage = Resources.M_Dark;
+                        }
+                        else if (aa.GetType() == typeof(PictureBox))
+                        {
+                            if (aa.Name == "Logo_Large_pictureBox")
+                                aa.BackgroundImage = Resources.Logo_Large_D;
+                        }
+                        else if (aa.GetType() == typeof(TableLayoutPanel))
+                        {
+                            aa.BackColor = dark_grey1;
+                            aa.ForeColor = light_white;
+                            foreach (Control bb in aa.Controls)
                             {
-                                aa.ForeColor = light_white;
-                                if (aa.Name == "Notifications_button" && has_notification)
-                                    aa.BackgroundImage = Resources.Red_Bell_DD;
-                                else if (aa.Name == "Notifications_button" && !has_notification)
-                                    aa.BackgroundImage = Resources.Bell_DD;
-                                else if (aa.Name == "X_button")
-                                    aa.BackgroundImage = Resources.X_Dark;
-                                else if (aa.Name == "R_button")
-                                    aa.BackgroundImage = Resources.R_Dark;
-                                else if (aa.Name == "M_button")
-                                    aa.BackgroundImage = Resources.M_Dark;
-                            }
-                            else if (aa.GetType() == typeof(PictureBox))
-                            {
-                                if (aa.Name == "Logo_Large_pictureBox")
-                                    aa.BackgroundImage = Resources.Logo_Large_D;
-                            }
-                            else if (aa.GetType() == typeof(TableLayoutPanel))
-                            {
-                                aa.BackColor = dark_grey1;
-                                aa.ForeColor = light_white;
-                                foreach (Control bb in aa.Controls)
-                                    if (bb.GetType() == typeof(Label))
-                                        bb.ForeColor = light_white;
+                                if (bb.GetType() == typeof(Label))
+                                    bb.ForeColor = light_white;
 
-                                    else if (bb.Name == "Logo_Small_pictureBox")
-                                        bb.BackgroundImage = Resources.Logo_Small_D;
-                            } 
+                                else if (bb.GetType() == typeof(FlowLayoutPanel))
+                                {
+                                    bb.ForeColor = light_white;
+                                    foreach (Control qwe in bb.Controls)
+                                        if (qwe.GetType() == typeof(Label) ||
+                                            qwe.GetType() == typeof(Button) ||
+                                            qwe.GetType() == typeof(CheckBox))
+                                        {
+                                            qwe.ForeColor = light_white;
+                                            if (qwe.Name == "Notifications_button" && has_notification)
+                                                qwe.BackgroundImage = Resources.Red_Bell_DD;
+                                            else if (qwe.Name == "Notifications_button" && !has_notification)
+                                                qwe.BackgroundImage = Resources.Bell_DD;
+                                        }
+                                        else if (qwe.GetType() == typeof(ComboBox))
+                                        {
+                                            qwe.BackColor = dark_grey2;
+                                            qwe.ForeColor = light_white;
+                                        }
+                                } 
+                            }
+                        } 
                 }
                 else if (c.GetType() == typeof(PictureBox))
                 {
@@ -345,41 +361,55 @@ namespace MyWorkApplication.Classes
                         continue;
                     }
                      
-                        c.BackColor = light_grey1;
-                        c.ForeColor = light_grey4;
+                    c.BackColor = light_grey1;
+                    c.ForeColor = light_grey4;
 
-                        foreach (Control aa in c.Controls)
-                            if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
-                                aa.GetType() == typeof(CheckBox))
-                            {
-                                aa.ForeColor = light_grey4;
-
-                                if (aa.Name == "Notifications_button" && has_notification)
-                                    aa.BackgroundImage = Resources.Bell_Red_L;
-                                else if (aa.Name == "Notifications_button" && !has_notification)
-                                    aa.BackgroundImage = Resources.Bell_L;
-                                else if (aa.Name == "X_button")
-                                    aa.BackgroundImage = Resources.X_Light;
-                                else if (aa.Name == "R_button")
-                                    aa.BackgroundImage = Resources.R_Light;
-                                else if (aa.Name == "M_button")
-                                    aa.BackgroundImage = Resources.M_Light;
-                            }
-                            else if (aa.GetType() == typeof(PictureBox))
-                            {
-                                if (aa.Name == "Logo_Large_pictureBox")
-                                    aa.BackgroundImage = Resources.Logo_Large_L;
-                            }
-                            else if (aa.GetType() == typeof(TableLayoutPanel))
-                            {
-                                aa.BackColor = light_grey1;
-                                aa.ForeColor = light_grey4;
-                                foreach (Control bb in aa.Controls)
-                                    if (bb.GetType() == typeof(Label))
-                                        bb.ForeColor = light_grey4;
-                                    else if (bb.Name == "Logo_Small_pictureBox")
-                                        bb.BackgroundImage = Resources.Logo_Small_L;
-                            } 
+                    foreach (Control aa in c.Controls)
+                        if (aa.GetType() == typeof(Label) || 
+                            aa.GetType() == typeof(Button) )
+                        {
+                            aa.ForeColor = light_grey4;
+                             
+                            if (aa.Name == "X_button")
+                                aa.BackgroundImage = Resources.X_Light;
+                            else if (aa.Name == "R_button")
+                                aa.BackgroundImage = Resources.R_Light;
+                            else if (aa.Name == "M_button")
+                                aa.BackgroundImage = Resources.M_Light;
+                        }
+                        else if (aa.GetType() == typeof(PictureBox))
+                        {
+                            if (aa.Name == "Logo_Large_pictureBox")
+                                aa.BackgroundImage = Resources.Logo_Large_L;
+                        }
+                        else if (aa.GetType() == typeof(TableLayoutPanel))
+                        {
+                            aa.BackColor = light_grey1;
+                            aa.ForeColor = light_grey4;
+                            foreach (Control bb in aa.Controls)
+                                if (bb.GetType() == typeof(Label))
+                                    bb.ForeColor = light_grey4;
+                                else if (bb.GetType() == typeof(FlowLayoutPanel))
+                                {
+                                    bb.ForeColor = light_grey4;
+                                    foreach (Control qwe in bb.Controls)
+                                        if (qwe.GetType() == typeof(Label) ||
+                                            qwe.GetType() == typeof(Button) ||
+                                            qwe.GetType() == typeof(CheckBox))
+                                        {
+                                            qwe.ForeColor = light_grey4;
+                                            if (qwe.Name == "Notifications_button" && has_notification)
+                                                qwe.BackgroundImage = Resources.Bell_Red_L;
+                                            else if (qwe.Name == "Notifications_button" && !has_notification)
+                                                qwe.BackgroundImage = Resources.Bell_L;
+                                        }
+                                        else if (qwe.GetType() == typeof(ComboBox))
+                                        {
+                                            qwe.BackColor = light_white;
+                                            qwe.ForeColor = light_grey4;
+                                        }
+                                }
+                        } 
                 }
                 else if (c.GetType() == typeof(PictureBox))
                 {

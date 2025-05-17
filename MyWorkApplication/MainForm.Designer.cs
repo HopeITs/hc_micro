@@ -45,10 +45,10 @@
             this.TopLine_panel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.DataBase_comboBox = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.applicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NewApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,16 +93,55 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Home_panel = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.applicationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.App_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AdminPanel_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.newStreet_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newEdu_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newWork_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newDonor_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newAid_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Checklist_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.financialToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Loan_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Payments_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Attachments_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mEToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Visit_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.VDates_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.VResults_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.VStatistics_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SpecialCase_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Search_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Statistics_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Taskboard_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Log_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem27 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Dark_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Light_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Message_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem31 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Backup_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Restore_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Users_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NationalNum_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutUs_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FeedBack_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Manual_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_Large_pictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Home_panel)).BeginInit();
-            this.flowLayoutPanel2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -182,7 +221,7 @@
             this.Online_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Online_checkBox.AutoSize = true;
             this.Online_checkBox.BackColor = System.Drawing.Color.Transparent;
-            this.Online_checkBox.Location = new System.Drawing.Point(0, 0);
+            this.Online_checkBox.Location = new System.Drawing.Point(0, 5);
             this.Online_checkBox.Margin = new System.Windows.Forms.Padding(0);
             this.Online_checkBox.Name = "Online_checkBox";
             this.Online_checkBox.Size = new System.Drawing.Size(86, 31);
@@ -363,6 +402,16 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(213, 70);
             this.tableLayoutPanel3.TabIndex = 418;
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.Online_checkBox);
+            this.flowLayoutPanel2.Controls.Add(this.DataBase_comboBox);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 36);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(213, 34);
+            this.flowLayoutPanel2.TabIndex = 425;
+            // 
             // DataBase_comboBox
             // 
             this.DataBase_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -403,19 +452,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(689, 28);
             this.tableLayoutPanel1.TabIndex = 417;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.AutoSize = false;
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.menuStrip1.Font = new System.Drawing.Font("Rubik", 10F);
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Location = new System.Drawing.Point(0, 87);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1262, 33);
-            this.menuStrip1.TabIndex = 417;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // applicationToolStripMenuItem
             // 
@@ -773,15 +809,326 @@
             this.Home_panel.TabIndex = 422;
             this.Home_panel.TabStop = false;
             // 
-            // flowLayoutPanel2
+            // menuStrip1
             // 
-            this.flowLayoutPanel2.Controls.Add(this.Online_checkBox);
-            this.flowLayoutPanel2.Controls.Add(this.DataBase_comboBox);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 36);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(213, 34);
-            this.flowLayoutPanel2.TabIndex = 425;
+            this.menuStrip1.AutoSize = false;
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.menuStrip1.Font = new System.Drawing.Font("Rubik", 10F);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.applicationToolStripMenuItem1,
+            this.financialToolStripMenuItem1,
+            this.mEToolStripMenuItem1,
+            this.toolsToolStripMenuItem1,
+            this.helpToolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 87);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1262, 33);
+            this.menuStrip1.TabIndex = 423;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // applicationToolStripMenuItem1
+            // 
+            this.applicationToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.applicationToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.App_toolStripMenuItem,
+            this.AdminPanel_toolStripMenuItem,
+            this.toolStripMenuItem4,
+            this.Checklist_toolStripMenuItem});
+            this.applicationToolStripMenuItem1.Name = "applicationToolStripMenuItem1";
+            this.applicationToolStripMenuItem1.ShowShortcutKeys = false;
+            this.applicationToolStripMenuItem1.Size = new System.Drawing.Size(114, 29);
+            this.applicationToolStripMenuItem1.Text = "&Application";
+            // 
+            // App_toolStripMenuItem
+            // 
+            this.App_toolStripMenuItem.Name = "App_toolStripMenuItem";
+            this.App_toolStripMenuItem.Size = new System.Drawing.Size(226, 30);
+            this.App_toolStripMenuItem.Text = "New Application";
+            this.App_toolStripMenuItem.Click += new System.EventHandler(this.NewApplicationToolStripMenuItem_Click);
+            // 
+            // AdminPanel_toolStripMenuItem
+            // 
+            this.AdminPanel_toolStripMenuItem.Name = "AdminPanel_toolStripMenuItem";
+            this.AdminPanel_toolStripMenuItem.Size = new System.Drawing.Size(226, 30);
+            this.AdminPanel_toolStripMenuItem.Text = "ADMIN Panel";
+            this.AdminPanel_toolStripMenuItem.Click += new System.EventHandler(this.adminPageToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newStreet_toolStripMenuItem,
+            this.newEdu_toolStripMenuItem,
+            this.newWork_toolStripMenuItem,
+            this.newDonor_toolStripMenuItem,
+            this.newAid_toolStripMenuItem});
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(226, 30);
+            this.toolStripMenuItem4.Text = "ADMIN Tools";
+            // 
+            // newStreet_toolStripMenuItem
+            // 
+            this.newStreet_toolStripMenuItem.Name = "newStreet_toolStripMenuItem";
+            this.newStreet_toolStripMenuItem.Size = new System.Drawing.Size(418, 30);
+            this.newStreet_toolStripMenuItem.Text = "(مناطق السكن والعمل) Street";
+            this.newStreet_toolStripMenuItem.Click += new System.EventHandler(this.editProjectStreetNamesToolStripMenuItem_Click);
+            // 
+            // newEdu_toolStripMenuItem
+            // 
+            this.newEdu_toolStripMenuItem.Name = "newEdu_toolStripMenuItem";
+            this.newEdu_toolStripMenuItem.Size = new System.Drawing.Size(418, 30);
+            this.newEdu_toolStripMenuItem.Text = "(التحصيل العلمي) Education";
+            this.newEdu_toolStripMenuItem.Click += new System.EventHandler(this.Education_ToolStripMenuItem_Click);
+            // 
+            // newWork_toolStripMenuItem
+            // 
+            this.newWork_toolStripMenuItem.Name = "newWork_toolStripMenuItem";
+            this.newWork_toolStripMenuItem.Size = new System.Drawing.Size(418, 30);
+            this.newWork_toolStripMenuItem.Text = "(العمل والخبرات السابقة) Work/Experience";
+            this.newWork_toolStripMenuItem.Click += new System.EventHandler(this.workExperience_ToolStripMenuItem_Click);
+            // 
+            // newDonor_toolStripMenuItem
+            // 
+            this.newDonor_toolStripMenuItem.Name = "newDonor_toolStripMenuItem";
+            this.newDonor_toolStripMenuItem.Size = new System.Drawing.Size(418, 30);
+            this.newDonor_toolStripMenuItem.Text = "(الجهة الممولة) Donors";
+            this.newDonor_toolStripMenuItem.Click += new System.EventHandler(this.donorToolStripMenuItem_Click);
+            // 
+            // newAid_toolStripMenuItem
+            // 
+            this.newAid_toolStripMenuItem.Name = "newAid_toolStripMenuItem";
+            this.newAid_toolStripMenuItem.Size = new System.Drawing.Size(418, 30);
+            this.newAid_toolStripMenuItem.Text = "(جهات داعمة) Aid Sources";
+            this.newAid_toolStripMenuItem.Click += new System.EventHandler(this.aidSourcesToolStripMenuItem_Click);
+            // 
+            // Checklist_toolStripMenuItem
+            // 
+            this.Checklist_toolStripMenuItem.Name = "Checklist_toolStripMenuItem";
+            this.Checklist_toolStripMenuItem.Size = new System.Drawing.Size(226, 30);
+            this.Checklist_toolStripMenuItem.Text = "Check List";
+            this.Checklist_toolStripMenuItem.Click += new System.EventHandler(this.newCheckListToolStripMenuItem_Click);
+            // 
+            // financialToolStripMenuItem1
+            // 
+            this.financialToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Loan_toolStripMenuItem,
+            this.Payments_toolStripMenuItem,
+            this.Attachments_toolStripMenuItem});
+            this.financialToolStripMenuItem1.Name = "financialToolStripMenuItem1";
+            this.financialToolStripMenuItem1.Size = new System.Drawing.Size(95, 29);
+            this.financialToolStripMenuItem1.Text = "&Financial";
+            // 
+            // Loan_toolStripMenuItem
+            // 
+            this.Loan_toolStripMenuItem.Name = "Loan_toolStripMenuItem";
+            this.Loan_toolStripMenuItem.Size = new System.Drawing.Size(256, 30);
+            this.Loan_toolStripMenuItem.Text = "Loans && Payments";
+            this.Loan_toolStripMenuItem.Click += new System.EventHandler(this.loansPaymentsToolStripMenuItem_Click);
+            // 
+            // Payments_toolStripMenuItem
+            // 
+            this.Payments_toolStripMenuItem.Name = "Payments_toolStripMenuItem";
+            this.Payments_toolStripMenuItem.Size = new System.Drawing.Size(256, 30);
+            this.Payments_toolStripMenuItem.Text = "Payments Schedule";
+            this.Payments_toolStripMenuItem.Click += new System.EventHandler(this.paymentsSchedualToolStripMenuItem_Click_1);
+            // 
+            // Attachments_toolStripMenuItem
+            // 
+            this.Attachments_toolStripMenuItem.Name = "Attachments_toolStripMenuItem";
+            this.Attachments_toolStripMenuItem.Size = new System.Drawing.Size(256, 30);
+            this.Attachments_toolStripMenuItem.Text = "Attachments";
+            this.Attachments_toolStripMenuItem.Click += new System.EventHandler(this.newAttachmentToolStripMenuItem_Click);
+            // 
+            // mEToolStripMenuItem1
+            // 
+            this.mEToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Visit_toolStripMenuItem,
+            this.VDates_toolStripMenuItem,
+            this.VResults_toolStripMenuItem,
+            this.VStatistics_toolStripMenuItem,
+            this.SpecialCase_toolStripMenuItem});
+            this.mEToolStripMenuItem1.Name = "mEToolStripMenuItem1";
+            this.mEToolStripMenuItem1.ShowShortcutKeys = false;
+            this.mEToolStripMenuItem1.Size = new System.Drawing.Size(69, 29);
+            this.mEToolStripMenuItem1.Text = "&M && E";
+            // 
+            // Visit_toolStripMenuItem
+            // 
+            this.Visit_toolStripMenuItem.Name = "Visit_toolStripMenuItem";
+            this.Visit_toolStripMenuItem.Size = new System.Drawing.Size(262, 30);
+            this.Visit_toolStripMenuItem.Text = "Visit Forms";
+            // 
+            // VDates_toolStripMenuItem
+            // 
+            this.VDates_toolStripMenuItem.Name = "VDates_toolStripMenuItem";
+            this.VDates_toolStripMenuItem.Size = new System.Drawing.Size(262, 30);
+            this.VDates_toolStripMenuItem.Text = "Visit Dates Schedule";
+            this.VDates_toolStripMenuItem.Click += new System.EventHandler(this.visitDatesSchedualToolStripMenuItem_Click);
+            // 
+            // VResults_toolStripMenuItem
+            // 
+            this.VResults_toolStripMenuItem.Name = "VResults_toolStripMenuItem";
+            this.VResults_toolStripMenuItem.Size = new System.Drawing.Size(262, 30);
+            this.VResults_toolStripMenuItem.Text = "Visit Results";
+            this.VResults_toolStripMenuItem.Click += new System.EventHandler(this.monitorVisitResultsToolStripMenuItem_Click);
+            // 
+            // VStatistics_toolStripMenuItem
+            // 
+            this.VStatistics_toolStripMenuItem.Name = "VStatistics_toolStripMenuItem";
+            this.VStatistics_toolStripMenuItem.Size = new System.Drawing.Size(262, 30);
+            this.VStatistics_toolStripMenuItem.Text = "Visitors Statistics";
+            this.VStatistics_toolStripMenuItem.Click += new System.EventHandler(this.visitorsStatisticsToolStripMenuItem_Click);
+            // 
+            // SpecialCase_toolStripMenuItem
+            // 
+            this.SpecialCase_toolStripMenuItem.Name = "SpecialCase_toolStripMenuItem";
+            this.SpecialCase_toolStripMenuItem.Size = new System.Drawing.Size(262, 30);
+            this.SpecialCase_toolStripMenuItem.Text = "New Special Case";
+            this.SpecialCase_toolStripMenuItem.Click += new System.EventHandler(this.specialCaseToolStripMenuItem_Click);
+            // 
+            // toolsToolStripMenuItem1
+            // 
+            this.toolsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Search_toolStripMenuItem,
+            this.Statistics_toolStripMenuItem,
+            this.Taskboard_toolStripMenuItem,
+            this.Log_toolStripMenuItem,
+            this.toolStripMenuItem27,
+            this.Message_toolStripMenuItem,
+            this.toolStripMenuItem31,
+            this.Users_toolStripMenuItem,
+            this.NationalNum_toolStripMenuItem});
+            this.toolsToolStripMenuItem1.Name = "toolsToolStripMenuItem1";
+            this.toolsToolStripMenuItem1.Size = new System.Drawing.Size(67, 29);
+            this.toolsToolStripMenuItem1.Text = "&Tools";
+            // 
+            // Search_toolStripMenuItem
+            // 
+            this.Search_toolStripMenuItem.Name = "Search_toolStripMenuItem";
+            this.Search_toolStripMenuItem.Size = new System.Drawing.Size(269, 30);
+            this.Search_toolStripMenuItem.Text = "Search";
+            this.Search_toolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // Statistics_toolStripMenuItem
+            // 
+            this.Statistics_toolStripMenuItem.Name = "Statistics_toolStripMenuItem";
+            this.Statistics_toolStripMenuItem.Size = new System.Drawing.Size(269, 30);
+            this.Statistics_toolStripMenuItem.Text = "Statistics";
+            this.Statistics_toolStripMenuItem.Click += new System.EventHandler(this.statisticsToolStripMenuItem_Click);
+            // 
+            // Taskboard_toolStripMenuItem
+            // 
+            this.Taskboard_toolStripMenuItem.Name = "Taskboard_toolStripMenuItem";
+            this.Taskboard_toolStripMenuItem.Size = new System.Drawing.Size(269, 30);
+            this.Taskboard_toolStripMenuItem.Text = "Task Board";
+            this.Taskboard_toolStripMenuItem.Click += new System.EventHandler(this.taskBoardToolStripMenuItem1_Click);
+            // 
+            // Log_toolStripMenuItem
+            // 
+            this.Log_toolStripMenuItem.Name = "Log_toolStripMenuItem";
+            this.Log_toolStripMenuItem.Size = new System.Drawing.Size(269, 30);
+            this.Log_toolStripMenuItem.Text = "Log";
+            this.Log_toolStripMenuItem.Click += new System.EventHandler(this.logToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem27
+            // 
+            this.toolStripMenuItem27.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Dark_toolStripMenuItem,
+            this.Light_toolStripMenuItem});
+            this.toolStripMenuItem27.Name = "toolStripMenuItem27";
+            this.toolStripMenuItem27.Size = new System.Drawing.Size(269, 30);
+            this.toolStripMenuItem27.Text = "Theme";
+            // 
+            // Dark_toolStripMenuItem
+            // 
+            this.Dark_toolStripMenuItem.Name = "Dark_toolStripMenuItem";
+            this.Dark_toolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.Dark_toolStripMenuItem.Text = "Dark";
+            this.Dark_toolStripMenuItem.Click += new System.EventHandler(this.darkToolStripMenuItem_Click_1);
+            // 
+            // Light_toolStripMenuItem
+            // 
+            this.Light_toolStripMenuItem.Name = "Light_toolStripMenuItem";
+            this.Light_toolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.Light_toolStripMenuItem.Text = "Light";
+            this.Light_toolStripMenuItem.Click += new System.EventHandler(this.lightToolStripMenuItem_Click_1);
+            // 
+            // Message_toolStripMenuItem
+            // 
+            this.Message_toolStripMenuItem.Name = "Message_toolStripMenuItem";
+            this.Message_toolStripMenuItem.Size = new System.Drawing.Size(269, 30);
+            this.Message_toolStripMenuItem.Text = "Send a Message";
+            this.Message_toolStripMenuItem.Click += new System.EventHandler(this.sendAMessageToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem31
+            // 
+            this.toolStripMenuItem31.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Backup_toolStripMenuItem,
+            this.Restore_toolStripMenuItem});
+            this.toolStripMenuItem31.Name = "toolStripMenuItem31";
+            this.toolStripMenuItem31.Size = new System.Drawing.Size(269, 30);
+            this.toolStripMenuItem31.Text = "Data Backup/Restore";
+            // 
+            // Backup_toolStripMenuItem
+            // 
+            this.Backup_toolStripMenuItem.Name = "Backup_toolStripMenuItem";
+            this.Backup_toolStripMenuItem.Size = new System.Drawing.Size(235, 30);
+            this.Backup_toolStripMenuItem.Text = "Backup && Save";
+            this.Backup_toolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
+            // 
+            // Restore_toolStripMenuItem
+            // 
+            this.Restore_toolStripMenuItem.Name = "Restore_toolStripMenuItem";
+            this.Restore_toolStripMenuItem.Size = new System.Drawing.Size(235, 30);
+            this.Restore_toolStripMenuItem.Text = "Restore from File";
+            this.Restore_toolStripMenuItem.Click += new System.EventHandler(this.restoreFromFileToolStripMenuItem_Click);
+            // 
+            // Users_toolStripMenuItem
+            // 
+            this.Users_toolStripMenuItem.Name = "Users_toolStripMenuItem";
+            this.Users_toolStripMenuItem.Size = new System.Drawing.Size(269, 30);
+            this.Users_toolStripMenuItem.Text = "Users";
+            this.Users_toolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
+            // 
+            // NationalNum_toolStripMenuItem
+            // 
+            this.NationalNum_toolStripMenuItem.Name = "NationalNum_toolStripMenuItem";
+            this.NationalNum_toolStripMenuItem.Size = new System.Drawing.Size(269, 30);
+            this.NationalNum_toolStripMenuItem.Text = "Check ID Number";
+            this.NationalNum_toolStripMenuItem.Click += new System.EventHandler(this.checkIDNumberToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem1
+            // 
+            this.helpToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AboutUs_toolStripMenuItem,
+            this.FeedBack_toolStripMenuItem,
+            this.Manual_toolStripMenuItem});
+            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(62, 29);
+            this.helpToolStripMenuItem1.Text = "&Help";
+            // 
+            // AboutUs_toolStripMenuItem
+            // 
+            this.AboutUs_toolStripMenuItem.Name = "AboutUs_toolStripMenuItem";
+            this.AboutUs_toolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F1)));
+            this.AboutUs_toolStripMenuItem.Size = new System.Drawing.Size(233, 30);
+            this.AboutUs_toolStripMenuItem.Text = "&About Us";
+            this.AboutUs_toolStripMenuItem.Click += new System.EventHandler(this.aboutHopeCenterToolStripMenuItem_Click);
+            // 
+            // FeedBack_toolStripMenuItem
+            // 
+            this.FeedBack_toolStripMenuItem.Name = "FeedBack_toolStripMenuItem";
+            this.FeedBack_toolStripMenuItem.Size = new System.Drawing.Size(233, 30);
+            this.FeedBack_toolStripMenuItem.Text = "Send Feedback";
+            this.FeedBack_toolStripMenuItem.Click += new System.EventHandler(this.sendFeedbackToolStripMenuItem_Click);
+            // 
+            // Manual_toolStripMenuItem
+            // 
+            this.Manual_toolStripMenuItem.Name = "Manual_toolStripMenuItem";
+            this.Manual_toolStripMenuItem.Size = new System.Drawing.Size(233, 30);
+            this.Manual_toolStripMenuItem.Text = "Read The Manual";
+            this.Manual_toolStripMenuItem.Click += new System.EventHandler(this.readTheManualToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -798,7 +1145,6 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(800, 800);
             this.Name = "MainForm";
@@ -813,13 +1159,15 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Home_panel)).EndInit();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -838,7 +1186,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         public System.Windows.Forms.Label ProjectNumber_label;
         public System.Windows.Forms.Label Project_label;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem applicationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem NewApplicationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminPageToolStripMenuItem;
@@ -889,5 +1236,44 @@
         private System.Windows.Forms.ToolStripMenuItem newNewApplicationToolStripMenuItem;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem applicationToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem App_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AdminPanel_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem newStreet_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newEdu_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newWork_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newDonor_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newAid_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Checklist_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem financialToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem Loan_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Payments_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Attachments_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mEToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem Visit_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem VDates_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem VResults_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem VStatistics_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SpecialCase_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem Search_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Statistics_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Taskboard_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Log_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem27;
+        private System.Windows.Forms.ToolStripMenuItem Dark_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Light_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Message_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem31;
+        private System.Windows.Forms.ToolStripMenuItem Backup_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Restore_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Users_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NationalNum_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem AboutUs_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FeedBack_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Manual_toolStripMenuItem;
     }
 }
