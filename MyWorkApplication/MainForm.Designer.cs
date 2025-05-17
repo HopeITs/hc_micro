@@ -33,7 +33,6 @@
             this.tabControl1 = new Jacksiro.MdiTab.TabControl();
             this.Notifications_button = new System.Windows.Forms.Button();
             this.Online_checkBox = new System.Windows.Forms.CheckBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.Username_label = new System.Windows.Forms.Label();
             this.Logo_Large_pictureBox = new System.Windows.Forms.PictureBox();
             this.Project_label = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.DataBase_comboBox = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.applicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,6 +59,8 @@
             this.donorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aidSourcesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newCheckListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newZeroApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newNewApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loansPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paymentsSchedualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,14 +93,16 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Home_panel = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_Large_pictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Home_panel)).BeginInit();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -118,10 +122,10 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ForeColor = System.Drawing.Color.Black;
             this.tabControl1.ForeColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tabControl1.Location = new System.Drawing.Point(0, 114);
+            this.tabControl1.Location = new System.Drawing.Point(0, 122);
             this.tabControl1.MenuRenderer = null;
             this.tabControl1.Name = "tabControl1";
-            this.tabControl1.Size = new System.Drawing.Size(1262, 639);
+            this.tabControl1.Size = new System.Drawing.Size(1262, 631);
             this.tabControl1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.tabControl1.TabBackHighColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.tabControl1.TabBackHighColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(216)))), ((int)(((byte)(214)))));
@@ -162,12 +166,11 @@
             this.Notifications_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Notifications_button.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Notifications_button.ForeColor = System.Drawing.Color.White;
-            this.Notifications_button.Location = new System.Drawing.Point(905, 11);
+            this.Notifications_button.Location = new System.Drawing.Point(88, 2);
             this.Notifications_button.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Notifications_button.MaximumSize = new System.Drawing.Size(55, 55);
-            this.Notifications_button.MinimumSize = new System.Drawing.Size(45, 45);
             this.Notifications_button.Name = "Notifications_button";
-            this.Notifications_button.Size = new System.Drawing.Size(55, 55);
+            this.Notifications_button.Size = new System.Drawing.Size(30, 30);
             this.Notifications_button.TabIndex = 412;
             this.Notifications_button.UseVisualStyleBackColor = false;
             this.Notifications_button.Click += new System.EventHandler(this.Notifications_button_Click);
@@ -179,39 +182,27 @@
             this.Online_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Online_checkBox.AutoSize = true;
             this.Online_checkBox.BackColor = System.Drawing.Color.Transparent;
-            this.Online_checkBox.Location = new System.Drawing.Point(120, 39);
+            this.Online_checkBox.Location = new System.Drawing.Point(0, 0);
             this.Online_checkBox.Margin = new System.Windows.Forms.Padding(0);
             this.Online_checkBox.Name = "Online_checkBox";
-            this.Online_checkBox.Padding = new System.Windows.Forms.Padding(2);
-            this.Online_checkBox.Size = new System.Drawing.Size(90, 32);
+            this.Online_checkBox.Size = new System.Drawing.Size(86, 31);
             this.Online_checkBox.TabIndex = 9;
             this.Online_checkBox.Text = "Online";
             this.Online_checkBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Online_checkBox.UseVisualStyleBackColor = false;
             this.Online_checkBox.CheckedChanged += new System.EventHandler(this.Online_checkBox_CheckedChanged);
             // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel2.Location = new System.Drawing.Point(967, 10);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1, 60);
-            this.panel2.TabIndex = 413;
-            // 
             // Username_label
             // 
             this.Username_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Username_label.AutoSize = true;
             this.Username_label.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel3.SetColumnSpan(this.Username_label, 2);
             this.Username_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.Username_label.Location = new System.Drawing.Point(0, 1);
+            this.Username_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Username_label.Location = new System.Drawing.Point(0, 0);
             this.Username_label.Margin = new System.Windows.Forms.Padding(0);
             this.Username_label.Name = "Username_label";
-            this.Username_label.Size = new System.Drawing.Size(210, 37);
+            this.Username_label.Size = new System.Drawing.Size(84, 37);
             this.Username_label.TabIndex = 414;
             this.Username_label.Text = "Name";
             this.Username_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -220,9 +211,11 @@
             // 
             this.Logo_Large_pictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Logo_Large_pictureBox.BackgroundImage")));
             this.Logo_Large_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Logo_Large_pictureBox.Location = new System.Drawing.Point(3, 4);
+            this.Logo_Large_pictureBox.Location = new System.Drawing.Point(18, 9);
+            this.Logo_Large_pictureBox.MaximumSize = new System.Drawing.Size(135, 65);
+            this.Logo_Large_pictureBox.MinimumSize = new System.Drawing.Size(135, 65);
             this.Logo_Large_pictureBox.Name = "Logo_Large_pictureBox";
-            this.Logo_Large_pictureBox.Size = new System.Drawing.Size(200, 73);
+            this.Logo_Large_pictureBox.Size = new System.Drawing.Size(135, 65);
             this.Logo_Large_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Logo_Large_pictureBox.TabIndex = 415;
             this.Logo_Large_pictureBox.TabStop = false;
@@ -232,6 +225,7 @@
             this.Project_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Project_label.AutoSize = true;
             this.Project_label.Font = new System.Drawing.Font("Rubik", 14F);
+            this.Project_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Project_label.Location = new System.Drawing.Point(252, 0);
             this.Project_label.Margin = new System.Windows.Forms.Padding(0);
             this.Project_label.Name = "Project_label";
@@ -245,6 +239,7 @@
             // 
             this.TabName_label.AutoSize = true;
             this.TabName_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.TabName_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.TabName_label.Location = new System.Drawing.Point(408, 0);
             this.TabName_label.Margin = new System.Windows.Forms.Padding(0);
             this.TabName_label.Name = "TabName_label";
@@ -259,6 +254,7 @@
             this.ProjectNumber_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ProjectNumber_label.AutoSize = true;
             this.ProjectNumber_label.Font = new System.Drawing.Font("Rubik", 14F);
+            this.ProjectNumber_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ProjectNumber_label.Location = new System.Drawing.Point(211, 0);
             this.ProjectNumber_label.Name = "ProjectNumber_label";
             this.ProjectNumber_label.Size = new System.Drawing.Size(196, 28);
@@ -271,6 +267,7 @@
             // 
             this.MP_ID_label.AutoSize = true;
             this.MP_ID_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.MP_ID_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.MP_ID_label.Location = new System.Drawing.Point(413, 0);
             this.MP_ID_label.Name = "MP_ID_label";
             this.MP_ID_label.Size = new System.Drawing.Size(58, 28);
@@ -289,12 +286,11 @@
             this.panel1.Controls.Add(this.tableLayoutPanel3);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.Logo_Large_pictureBox);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.Notifications_button);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1262, 79);
+            this.panel1.Size = new System.Drawing.Size(1262, 87);
             this.panel1.TabIndex = 415;
             // 
             // ProfilePicture_pictureBox
@@ -303,11 +299,11 @@
             this.ProfilePicture_pictureBox.BackColor = System.Drawing.Color.Transparent;
             this.ProfilePicture_pictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ProfilePicture_pictureBox.BackgroundImage")));
             this.ProfilePicture_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ProfilePicture_pictureBox.Location = new System.Drawing.Point(972, 7);
+            this.ProfilePicture_pictureBox.Location = new System.Drawing.Point(952, 11);
             this.ProfilePicture_pictureBox.MaximumSize = new System.Drawing.Size(68, 68);
             this.ProfilePicture_pictureBox.MinimumSize = new System.Drawing.Size(64, 64);
             this.ProfilePicture_pictureBox.Name = "ProfilePicture_pictureBox";
-            this.ProfilePicture_pictureBox.Size = new System.Drawing.Size(68, 68);
+            this.ProfilePicture_pictureBox.Size = new System.Drawing.Size(68, 64);
             this.ProfilePicture_pictureBox.TabIndex = 427;
             this.ProfilePicture_pictureBox.TabStop = false;
             this.ProfilePicture_pictureBox.Click += new System.EventHandler(this.ProfilePicture_button_Click);
@@ -318,7 +314,7 @@
             this.BottomLine_panel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomLine_panel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BottomLine_panel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BottomLine_panel.Location = new System.Drawing.Point(0, 77);
+            this.BottomLine_panel.Location = new System.Drawing.Point(0, 85);
             this.BottomLine_panel.Name = "BottomLine_panel";
             this.BottomLine_panel.Size = new System.Drawing.Size(1262, 2);
             this.BottomLine_panel.TabIndex = 419;
@@ -344,7 +340,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.40404F));
             this.tableLayoutPanel2.Controls.Add(this.MP_ID_label, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.ProjectNumber_label, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(209, 43);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(209, 46);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -354,19 +350,17 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel3.Controls.Add(this.Username_label, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.DataBase_comboBox, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.Online_checkBox, 1, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(1049, 4);
+            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel2, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(1039, 9);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.17241F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.82759F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.6129F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.3871F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(210, 71);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(213, 70);
             this.tableLayoutPanel3.TabIndex = 418;
             // 
             // DataBase_comboBox
@@ -375,12 +369,23 @@
             this.DataBase_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DataBase_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DataBase_comboBox.FormattingEnabled = true;
-            this.DataBase_comboBox.Location = new System.Drawing.Point(3, 43);
+            this.DataBase_comboBox.Location = new System.Drawing.Point(89, 3);
             this.DataBase_comboBox.Name = "DataBase_comboBox";
-            this.DataBase_comboBox.Size = new System.Drawing.Size(114, 35);
+            this.DataBase_comboBox.Size = new System.Drawing.Size(111, 35);
             this.DataBase_comboBox.TabIndex = 423;
             this.DataBase_comboBox.Visible = false;
             this.DataBase_comboBox.SelectionChangeCommitted += new System.EventHandler(this.DataBase_comboBox_SelectionChangeCommitted);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.Username_label);
+            this.flowLayoutPanel1.Controls.Add(this.Notifications_button);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(213, 36);
+            this.flowLayoutPanel1.TabIndex = 424;
             // 
             // tableLayoutPanel1
             // 
@@ -392,7 +397,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.63861F));
             this.tableLayoutPanel1.Controls.Add(this.TabName_label, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.Project_label, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(209, 11);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(209, 15);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -405,13 +410,7 @@
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.menuStrip1.Font = new System.Drawing.Font("Rubik", 10F);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.applicationToolStripMenuItem,
-            this.financialToolStripMenuItem,
-            this.mEToolStripMenuItem,
-            this.toolsToolStripMenuItem,
-            this.aboutUsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 79);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 87);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1262, 33);
@@ -425,7 +424,9 @@
             this.NewApplicationToolStripMenuItem,
             this.adminPageToolStripMenuItem,
             this.aDMINToolsToolStripMenuItem,
-            this.newCheckListToolStripMenuItem});
+            this.newCheckListToolStripMenuItem,
+            this.newZeroApplicationToolStripMenuItem,
+            this.newNewApplicationToolStripMenuItem});
             this.applicationToolStripMenuItem.Name = "applicationToolStripMenuItem";
             this.applicationToolStripMenuItem.ShowShortcutKeys = false;
             this.applicationToolStripMenuItem.Size = new System.Drawing.Size(114, 29);
@@ -434,14 +435,14 @@
             // NewApplicationToolStripMenuItem
             // 
             this.NewApplicationToolStripMenuItem.Name = "NewApplicationToolStripMenuItem";
-            this.NewApplicationToolStripMenuItem.Size = new System.Drawing.Size(226, 30);
+            this.NewApplicationToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.NewApplicationToolStripMenuItem.Text = "New Application";
             this.NewApplicationToolStripMenuItem.Click += new System.EventHandler(this.NewApplicationToolStripMenuItem_Click);
             // 
             // adminPageToolStripMenuItem
             // 
             this.adminPageToolStripMenuItem.Name = "adminPageToolStripMenuItem";
-            this.adminPageToolStripMenuItem.Size = new System.Drawing.Size(226, 30);
+            this.adminPageToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.adminPageToolStripMenuItem.Text = "ADMIN Panel";
             this.adminPageToolStripMenuItem.Click += new System.EventHandler(this.adminPageToolStripMenuItem_Click);
             // 
@@ -454,50 +455,64 @@
             this.donorToolStripMenuItem,
             this.aidSourcesToolStripMenuItem});
             this.aDMINToolsToolStripMenuItem.Name = "aDMINToolsToolStripMenuItem";
-            this.aDMINToolsToolStripMenuItem.Size = new System.Drawing.Size(226, 30);
+            this.aDMINToolsToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.aDMINToolsToolStripMenuItem.Text = "ADMIN Tools";
             // 
             // editProjectStreetNamesمناطقالسكنوالعملToolStripMenuItem
             // 
             this.editProjectStreetNamesمناطقالسكنوالعملToolStripMenuItem.Name = "editProjectStreetNamesمناطقالسكنوالعملToolStripMenuItem";
-            this.editProjectStreetNamesمناطقالسكنوالعملToolStripMenuItem.Size = new System.Drawing.Size(418, 30);
+            this.editProjectStreetNamesمناطقالسكنوالعملToolStripMenuItem.Size = new System.Drawing.Size(364, 26);
             this.editProjectStreetNamesمناطقالسكنوالعملToolStripMenuItem.Text = "(مناطق السكن والعمل) Street";
             this.editProjectStreetNamesمناطقالسكنوالعملToolStripMenuItem.Click += new System.EventHandler(this.editProjectStreetNamesToolStripMenuItem_Click);
             // 
             // تعديلالتحصيلالعلميEducationToolStripMenuItem
             // 
             this.تعديلالتحصيلالعلميEducationToolStripMenuItem.Name = "تعديلالتحصيلالعلميEducationToolStripMenuItem";
-            this.تعديلالتحصيلالعلميEducationToolStripMenuItem.Size = new System.Drawing.Size(418, 30);
+            this.تعديلالتحصيلالعلميEducationToolStripMenuItem.Size = new System.Drawing.Size(364, 26);
             this.تعديلالتحصيلالعلميEducationToolStripMenuItem.Text = "(التحصيل العلمي) Education";
             this.تعديلالتحصيلالعلميEducationToolStripMenuItem.Click += new System.EventHandler(this.Education_ToolStripMenuItem_Click);
             // 
             // workExperienceتعديلالعملوالخبراتالسابقةToolStripMenuItem
             // 
             this.workExperienceتعديلالعملوالخبراتالسابقةToolStripMenuItem.Name = "workExperienceتعديلالعملوالخبراتالسابقةToolStripMenuItem";
-            this.workExperienceتعديلالعملوالخبراتالسابقةToolStripMenuItem.Size = new System.Drawing.Size(418, 30);
+            this.workExperienceتعديلالعملوالخبراتالسابقةToolStripMenuItem.Size = new System.Drawing.Size(364, 26);
             this.workExperienceتعديلالعملوالخبراتالسابقةToolStripMenuItem.Text = "(العمل والخبرات السابقة) Work/Experience";
             this.workExperienceتعديلالعملوالخبراتالسابقةToolStripMenuItem.Click += new System.EventHandler(this.workExperience_ToolStripMenuItem_Click);
             // 
             // donorToolStripMenuItem
             // 
             this.donorToolStripMenuItem.Name = "donorToolStripMenuItem";
-            this.donorToolStripMenuItem.Size = new System.Drawing.Size(418, 30);
+            this.donorToolStripMenuItem.Size = new System.Drawing.Size(364, 26);
             this.donorToolStripMenuItem.Text = "(الجهة الممولة) Donors";
             this.donorToolStripMenuItem.Click += new System.EventHandler(this.donorToolStripMenuItem_Click);
             // 
             // aidSourcesToolStripMenuItem
             // 
             this.aidSourcesToolStripMenuItem.Name = "aidSourcesToolStripMenuItem";
-            this.aidSourcesToolStripMenuItem.Size = new System.Drawing.Size(418, 30);
+            this.aidSourcesToolStripMenuItem.Size = new System.Drawing.Size(364, 26);
             this.aidSourcesToolStripMenuItem.Text = "(جهات داعمة) Aid Sources";
             this.aidSourcesToolStripMenuItem.Click += new System.EventHandler(this.aidSourcesToolStripMenuItem_Click);
             // 
             // newCheckListToolStripMenuItem
             // 
             this.newCheckListToolStripMenuItem.Name = "newCheckListToolStripMenuItem";
-            this.newCheckListToolStripMenuItem.Size = new System.Drawing.Size(226, 30);
+            this.newCheckListToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.newCheckListToolStripMenuItem.Text = "Check List";
             this.newCheckListToolStripMenuItem.Click += new System.EventHandler(this.newCheckListToolStripMenuItem_Click);
+            // 
+            // newZeroApplicationToolStripMenuItem
+            // 
+            this.newZeroApplicationToolStripMenuItem.Name = "newZeroApplicationToolStripMenuItem";
+            this.newZeroApplicationToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.newZeroApplicationToolStripMenuItem.Text = "New Zero Application";
+            this.newZeroApplicationToolStripMenuItem.Click += new System.EventHandler(this.newZeroApplicationToolStripMenuItem_Click);
+            // 
+            // newNewApplicationToolStripMenuItem
+            // 
+            this.newNewApplicationToolStripMenuItem.Name = "newNewApplicationToolStripMenuItem";
+            this.newNewApplicationToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.newNewApplicationToolStripMenuItem.Text = "New New Application";
+            this.newNewApplicationToolStripMenuItem.Click += new System.EventHandler(this.newNewApplicationToolStripMenuItem_Click);
             // 
             // financialToolStripMenuItem
             // 
@@ -513,28 +528,28 @@
             // loansPaymentsToolStripMenuItem
             // 
             this.loansPaymentsToolStripMenuItem.Name = "loansPaymentsToolStripMenuItem";
-            this.loansPaymentsToolStripMenuItem.Size = new System.Drawing.Size(256, 30);
+            this.loansPaymentsToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.loansPaymentsToolStripMenuItem.Text = "Loans && Payments";
             this.loansPaymentsToolStripMenuItem.Click += new System.EventHandler(this.loansPaymentsToolStripMenuItem_Click);
             // 
             // paymentsSchedualToolStripMenuItem
             // 
             this.paymentsSchedualToolStripMenuItem.Name = "paymentsSchedualToolStripMenuItem";
-            this.paymentsSchedualToolStripMenuItem.Size = new System.Drawing.Size(256, 30);
+            this.paymentsSchedualToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.paymentsSchedualToolStripMenuItem.Text = "Payments Schedule";
             this.paymentsSchedualToolStripMenuItem.Click += new System.EventHandler(this.paymentsSchedualToolStripMenuItem_Click_1);
             // 
             // newAttachmentToolStripMenuItem
             // 
             this.newAttachmentToolStripMenuItem.Name = "newAttachmentToolStripMenuItem";
-            this.newAttachmentToolStripMenuItem.Size = new System.Drawing.Size(256, 30);
+            this.newAttachmentToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.newAttachmentToolStripMenuItem.Text = "Attachments";
             this.newAttachmentToolStripMenuItem.Click += new System.EventHandler(this.newAttachmentToolStripMenuItem_Click);
             // 
             // newExecutiveFileToolStripMenuItem
             // 
             this.newExecutiveFileToolStripMenuItem.Name = "newExecutiveFileToolStripMenuItem";
-            this.newExecutiveFileToolStripMenuItem.Size = new System.Drawing.Size(256, 30);
+            this.newExecutiveFileToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.newExecutiveFileToolStripMenuItem.Text = "Executive Files";
             this.newExecutiveFileToolStripMenuItem.Click += new System.EventHandler(this.newExecutiveFileToolStripMenuItem_Click);
             // 
@@ -554,35 +569,35 @@
             // monitoringVisitsToolStripMenuItem
             // 
             this.monitoringVisitsToolStripMenuItem.Name = "monitoringVisitsToolStripMenuItem";
-            this.monitoringVisitsToolStripMenuItem.Size = new System.Drawing.Size(262, 30);
+            this.monitoringVisitsToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.monitoringVisitsToolStripMenuItem.Text = "Visit Forms";
             this.monitoringVisitsToolStripMenuItem.Click += new System.EventHandler(this.monitoringVisitsToolStripMenuItem_Click);
             // 
             // visitDatesSchedualToolStripMenuItem
             // 
             this.visitDatesSchedualToolStripMenuItem.Name = "visitDatesSchedualToolStripMenuItem";
-            this.visitDatesSchedualToolStripMenuItem.Size = new System.Drawing.Size(262, 30);
+            this.visitDatesSchedualToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.visitDatesSchedualToolStripMenuItem.Text = "Visit Dates Schedule";
             this.visitDatesSchedualToolStripMenuItem.Click += new System.EventHandler(this.visitDatesSchedualToolStripMenuItem_Click);
             // 
             // monitorVisitResultsToolStripMenuItem
             // 
             this.monitorVisitResultsToolStripMenuItem.Name = "monitorVisitResultsToolStripMenuItem";
-            this.monitorVisitResultsToolStripMenuItem.Size = new System.Drawing.Size(262, 30);
+            this.monitorVisitResultsToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.monitorVisitResultsToolStripMenuItem.Text = "Visit Results";
             this.monitorVisitResultsToolStripMenuItem.Click += new System.EventHandler(this.monitorVisitResultsToolStripMenuItem_Click);
             // 
             // visitorsStatisticsToolStripMenuItem
             // 
             this.visitorsStatisticsToolStripMenuItem.Name = "visitorsStatisticsToolStripMenuItem";
-            this.visitorsStatisticsToolStripMenuItem.Size = new System.Drawing.Size(262, 30);
+            this.visitorsStatisticsToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.visitorsStatisticsToolStripMenuItem.Text = "Visitors Statistics";
             this.visitorsStatisticsToolStripMenuItem.Click += new System.EventHandler(this.visitorsStatisticsToolStripMenuItem_Click);
             // 
             // specialCaseToolStripMenuItem
             // 
             this.specialCaseToolStripMenuItem.Name = "specialCaseToolStripMenuItem";
-            this.specialCaseToolStripMenuItem.Size = new System.Drawing.Size(262, 30);
+            this.specialCaseToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.specialCaseToolStripMenuItem.Text = "New Special Case";
             this.specialCaseToolStripMenuItem.Click += new System.EventHandler(this.specialCaseToolStripMenuItem_Click);
             // 
@@ -605,28 +620,28 @@
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(269, 30);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.searchToolStripMenuItem.Text = "Search";
             this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // statisticsToolStripMenuItem
             // 
             this.statisticsToolStripMenuItem.Name = "statisticsToolStripMenuItem";
-            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(269, 30);
+            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.statisticsToolStripMenuItem.Text = "Statistics";
             this.statisticsToolStripMenuItem.Click += new System.EventHandler(this.statisticsToolStripMenuItem_Click);
             // 
             // taskBoardToolStripMenuItem1
             // 
             this.taskBoardToolStripMenuItem1.Name = "taskBoardToolStripMenuItem1";
-            this.taskBoardToolStripMenuItem1.Size = new System.Drawing.Size(269, 30);
+            this.taskBoardToolStripMenuItem1.Size = new System.Drawing.Size(232, 26);
             this.taskBoardToolStripMenuItem1.Text = "Task Board";
             this.taskBoardToolStripMenuItem1.Click += new System.EventHandler(this.taskBoardToolStripMenuItem1_Click);
             // 
             // logToolStripMenuItem
             // 
             this.logToolStripMenuItem.Name = "logToolStripMenuItem";
-            this.logToolStripMenuItem.Size = new System.Drawing.Size(269, 30);
+            this.logToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.logToolStripMenuItem.Text = "Log";
             this.logToolStripMenuItem.Click += new System.EventHandler(this.logToolStripMenuItem_Click);
             // 
@@ -636,27 +651,27 @@
             this.darkToolStripMenuItem,
             this.lightToolStripMenuItem});
             this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            this.themeToolStripMenuItem.Size = new System.Drawing.Size(269, 30);
+            this.themeToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.themeToolStripMenuItem.Text = "Theme";
             // 
             // darkToolStripMenuItem
             // 
             this.darkToolStripMenuItem.Name = "darkToolStripMenuItem";
-            this.darkToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
+            this.darkToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
             this.darkToolStripMenuItem.Text = "Dark";
             this.darkToolStripMenuItem.Click += new System.EventHandler(this.darkToolStripMenuItem_Click_1);
             // 
             // lightToolStripMenuItem
             // 
             this.lightToolStripMenuItem.Name = "lightToolStripMenuItem";
-            this.lightToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
+            this.lightToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
             this.lightToolStripMenuItem.Text = "Light";
             this.lightToolStripMenuItem.Click += new System.EventHandler(this.lightToolStripMenuItem_Click_1);
             // 
             // sendAMessageToolStripMenuItem
             // 
             this.sendAMessageToolStripMenuItem.Name = "sendAMessageToolStripMenuItem";
-            this.sendAMessageToolStripMenuItem.Size = new System.Drawing.Size(269, 30);
+            this.sendAMessageToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.sendAMessageToolStripMenuItem.Text = "Send a Message";
             this.sendAMessageToolStripMenuItem.Click += new System.EventHandler(this.sendAMessageToolStripMenuItem_Click);
             // 
@@ -666,34 +681,34 @@
             this.backupToolStripMenuItem,
             this.restoreFromFileToolStripMenuItem});
             this.dataBackupRestoreToolStripMenuItem.Name = "dataBackupRestoreToolStripMenuItem";
-            this.dataBackupRestoreToolStripMenuItem.Size = new System.Drawing.Size(269, 30);
+            this.dataBackupRestoreToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.dataBackupRestoreToolStripMenuItem.Text = "Data Backup/Restore";
             // 
             // backupToolStripMenuItem
             // 
             this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(235, 30);
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.backupToolStripMenuItem.Text = "Backup && Save";
             this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
             // restoreFromFileToolStripMenuItem
             // 
             this.restoreFromFileToolStripMenuItem.Name = "restoreFromFileToolStripMenuItem";
-            this.restoreFromFileToolStripMenuItem.Size = new System.Drawing.Size(235, 30);
+            this.restoreFromFileToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.restoreFromFileToolStripMenuItem.Text = "Restore from File";
             this.restoreFromFileToolStripMenuItem.Click += new System.EventHandler(this.restoreFromFileToolStripMenuItem_Click);
             // 
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(269, 30);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.usersToolStripMenuItem.Text = "Users";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // checkIDNumberToolStripMenuItem
             // 
             this.checkIDNumberToolStripMenuItem.Name = "checkIDNumberToolStripMenuItem";
-            this.checkIDNumberToolStripMenuItem.Size = new System.Drawing.Size(269, 30);
+            this.checkIDNumberToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.checkIDNumberToolStripMenuItem.Text = "Check ID Number";
             this.checkIDNumberToolStripMenuItem.Click += new System.EventHandler(this.checkIDNumberToolStripMenuItem_Click);
             // 
@@ -711,21 +726,21 @@
             // 
             this.aboutHopeCenterToolStripMenuItem.Name = "aboutHopeCenterToolStripMenuItem";
             this.aboutHopeCenterToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F1)));
-            this.aboutHopeCenterToolStripMenuItem.Size = new System.Drawing.Size(233, 30);
+            this.aboutHopeCenterToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.aboutHopeCenterToolStripMenuItem.Text = "&About Us";
             this.aboutHopeCenterToolStripMenuItem.Click += new System.EventHandler(this.aboutHopeCenterToolStripMenuItem_Click);
             // 
             // sendFeedbackToolStripMenuItem
             // 
             this.sendFeedbackToolStripMenuItem.Name = "sendFeedbackToolStripMenuItem";
-            this.sendFeedbackToolStripMenuItem.Size = new System.Drawing.Size(233, 30);
+            this.sendFeedbackToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.sendFeedbackToolStripMenuItem.Text = "Send Feedback";
             this.sendFeedbackToolStripMenuItem.Click += new System.EventHandler(this.sendFeedbackToolStripMenuItem_Click);
             // 
             // readTheManualToolStripMenuItem
             // 
             this.readTheManualToolStripMenuItem.Name = "readTheManualToolStripMenuItem";
-            this.readTheManualToolStripMenuItem.Size = new System.Drawing.Size(233, 30);
+            this.readTheManualToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.readTheManualToolStripMenuItem.Text = "Read The Manual";
             this.readTheManualToolStripMenuItem.Click += new System.EventHandler(this.readTheManualToolStripMenuItem_Click);
             // 
@@ -735,7 +750,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel3.Location = new System.Drawing.Point(0, 112);
+            this.panel3.Location = new System.Drawing.Point(0, 120);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1262, 2);
             this.panel3.TabIndex = 421;
@@ -751,12 +766,22 @@
             this.Home_panel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Home_panel.BackgroundImage")));
             this.Home_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Home_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Home_panel.Location = new System.Drawing.Point(0, 114);
+            this.Home_panel.Location = new System.Drawing.Point(0, 122);
             this.Home_panel.Name = "Home_panel";
-            this.Home_panel.Size = new System.Drawing.Size(1262, 639);
+            this.Home_panel.Size = new System.Drawing.Size(1262, 631);
             this.Home_panel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Home_panel.TabIndex = 422;
             this.Home_panel.TabStop = false;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.Online_checkBox);
+            this.flowLayoutPanel2.Controls.Add(this.DataBase_comboBox);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 36);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(213, 34);
+            this.flowLayoutPanel2.TabIndex = 425;
             // 
             // MainForm
             // 
@@ -784,17 +809,17 @@
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.Logo_Large_pictureBox)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Home_panel)).EndInit();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -803,7 +828,6 @@
         public Jacksiro.MdiTab.TabControl tabControl1;
         private System.Windows.Forms.Button Notifications_button;
         private System.Windows.Forms.CheckBox Online_checkBox;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox Logo_Large_pictureBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -861,5 +885,9 @@
         private System.Windows.Forms.ToolStripMenuItem checkIDNumberToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem specialCaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aidSourcesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newZeroApplicationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newNewApplicationToolStripMenuItem;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }

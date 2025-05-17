@@ -590,6 +590,29 @@ namespace MyWorkApplication.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to //if there is Kaspersky on the server laptop 
+        ///check firewall settings 
+        ///packet rules
+        ///set UDP = allow
+        ///set TCP = allow
+        ///
+        ///---------------------------------------------------
+        /////check windows firewall settings
+        ///go to Windows Defender Firewall With Advanced Security: 
+        ///1) click on Inbound Rules -&gt; then click New Rule 
+        ///	-&gt; select Port -&gt; Next -&gt; all local ports -&gt; then allow the connection
+        ///	-&gt; next -&gt; write in Name field = port -&gt; then Finish
+        ///
+        ///2) click on Outbound Rules -&gt; then click New Rule 
+        ///	-&gt; select [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Local_Server_xampp_Read_Me_FINAL_2025 {
+            get {
+                return ResourceManager.GetString("Local_Server_xampp_Read_Me_FINAL_2025", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Lock {

@@ -313,9 +313,10 @@
             // 
             // ImagesCount_comboBox
             // 
-            this.ImagesCount_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ImagesCount_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ImagesCount_comboBox.FormattingEnabled = true;
-            this.ImagesCount_comboBox.Location = new System.Drawing.Point(392, 2);
+            this.ImagesCount_comboBox.Location = new System.Drawing.Point(392, 1);
             this.ImagesCount_comboBox.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.ImagesCount_comboBox.Name = "ImagesCount_comboBox";
             this.ImagesCount_comboBox.Size = new System.Drawing.Size(88, 35);
@@ -514,7 +515,7 @@
             // 
             this.ImageName_comboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ImageName_comboBox.FormattingEnabled = true;
-            this.ImageName_comboBox.Location = new System.Drawing.Point(75, 557);
+            this.ImageName_comboBox.Location = new System.Drawing.Point(75, 561);
             this.ImageName_comboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ImageName_comboBox.Name = "ImageName_comboBox";
             this.ImageName_comboBox.Size = new System.Drawing.Size(86, 35);

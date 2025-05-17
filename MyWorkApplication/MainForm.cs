@@ -1469,6 +1469,25 @@ namespace MyWorkApplication
             form.Show();
         }
 
+        private void newZeroApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new Application_zero_Form();
+            form.Show();
+        }
+
+        private void newNewApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form Form = new Application_New_Form();
+                showNewTab(Form, "Application", 0);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
 
 
         //       private void clickmeToolStripMenuItem_Click(object sender, EventArgs e)

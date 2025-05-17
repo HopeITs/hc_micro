@@ -11,35 +11,67 @@ namespace MyWorkApplication.Classes
 {
     public class NewTheme
     {
+        public static Color light_white       = Color.FromArgb(255, 255, 255);
+        public static Color light_transparent = Color.Transparent;
+
+        public static Color light_grey1  = Color.FromArgb(240, 240, 240);
+        public static Color light_grey11 = Color.FromArgb(214, 214, 214);
+        public static Color light_grey2  = Color.FromArgb(189, 189, 189); 
+        
+        public static Color light_grey3 = Color.FromArgb(96, 96, 96);
+        public static Color light_grey4 = Color.FromArgb(60, 60, 60);
+        public static Color light_grey5 = Color.FromArgb(48, 48, 48);
+
+        public static Color dark_grey0 = Color.FromArgb(233, 233, 233);
+        public static Color dark_grey1 = Color.FromArgb(83, 83, 83);
+        public static Color dark_grey2 = Color.FromArgb(75, 75, 75);
+        public static Color dark_grey3 = Color.FromArgb(56, 56, 56);
+        public static Color dark_grey4 = Color.FromArgb(31, 31, 31);
+
+        private ToolStripItem[] GetAllChildren(ToolStripItem item)
+        {
+            var Items = new List<ToolStripItem> { item };
+            if (item is ToolStripMenuItem)
+                foreach (ToolStripItem i in ((ToolStripMenuItem)item).DropDownItems)
+                    Items.AddRange(GetAllChildren(i));
+            else if (item is ToolStripSplitButton)
+                foreach (ToolStripItem i in ((ToolStripSplitButton)item).DropDownItems)
+                    Items.AddRange(GetAllChildren(i));
+            else if (item is ToolStripDropDownButton)
+                foreach (ToolStripItem i in ((ToolStripDropDownButton)item).DropDownItems)
+                    Items.AddRange(GetAllChildren(i));
+            return Items.ToArray();
+        }
+        
         public void Visit_User_ToNight(Form form) {
             foreach (Control f in form.Controls)
                 if (f.GetType() == typeof(TableLayoutPanel))  
                 {
-                    f.BackColor = Color.FromArgb(96, 96, 96);
-                    f.ForeColor = Color.White;
+                    f.BackColor = light_grey3;
+                    f.ForeColor = light_white;
                     foreach (Control c in f.Controls)
                     {
                         if (c.GetType() == typeof(TableLayoutPanel)) /// inner table
                         {
-                            c.BackColor = Color.FromArgb(96, 96, 96);
-                            c.ForeColor = Color.White;
+                            c.BackColor = light_grey3;
+                            c.ForeColor = light_white;
 
                             foreach (Control aa in c.Controls)
                                 if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                                     aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                                 {
-                                    aa.ForeColor = Color.White;
-                                    aa.BackColor = Color.Transparent;
+                                    aa.ForeColor = light_white;
+                                    aa.BackColor = light_transparent;
                                     if (aa.Name.Contains("Header"))
                                     {
-                                        aa.BackColor = Color.FromArgb(189, 189, 189);
-                                        aa.ForeColor = Color.FromArgb(75, 75, 75);
+                                        aa.BackColor = light_grey2;
+                                        aa.ForeColor = dark_grey2;
                                     }
                                 }
                                 else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                                 {
-                                    aa.BackColor = Color.FromArgb(75, 75, 75);
-                                    aa.ForeColor = Color.White;
+                                    aa.BackColor = dark_grey2;
+                                    aa.ForeColor = light_white;
                                 }
                              
                         }
@@ -50,58 +82,58 @@ namespace MyWorkApplication.Classes
                                 MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                                     MP_dataGridView.DefaultCellStyle.BackColor =
                                         MP_dataGridView.RowsDefaultCellStyle.BackColor =
-                                            Color.FromArgb(75, 75, 75);
+                                            dark_grey2;
                             MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor =
-                                Color.FromArgb(96, 96, 96);
+                                light_grey3;
 
                             MP_dataGridView.ForeColor =
                                 MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                                     MP_dataGridView.DefaultCellStyle.ForeColor =
                                         MP_dataGridView.RowsDefaultCellStyle.ForeColor =
                                             MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor =
-                                                Color.FromArgb(189, 189, 189);
+                                                light_grey2;
 
-                            MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
+                            MP_dataGridView.GridColor = light_grey2;
 
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.DefaultCellStyle.SelectionBackColor
                                     = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                         MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                            Color.FromArgb(56, 56, 56);
+                                            dark_grey3;
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                                 MP_dataGridView.DefaultCellStyle.SelectionForeColor
                                     = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
                                         MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor =
-                                            Color.FromArgb(189, 189, 189);
+                                            light_grey2;
 
                             for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                             {
                                 MP_dataGridView.Columns[i].HeaderCell.Style.BackColor =
-                                    Color.FromArgb(75, 75, 75);
+                                    dark_grey2;
                                 MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor =
-                                    Color.FromArgb(189, 189, 189);
+                                    light_grey2;
                             }
                         }
                         else if (c.GetType() == typeof(AdvancedDataGridViewSearchToolBar))
                         {
                             //var searchToolBar = c as AdvancedDataGridViewSearchToolBar;
-                            //searchToolBar.BackColor = Color.FromArgb(75, 75, 75);
-                            //searchToolBar.ForeColor = Color.White;
+                            //searchToolBar.BackColor = dark_grey1;
+                            //searchToolBar.ForeColor = light_white;
 
-                            c.BackColor = Color.FromArgb(96, 96, 96);
-                            c.ForeColor = Color.White;
+                            c.BackColor = light_grey3;
+                            c.ForeColor = light_white;
                             
                             foreach (Control aa in c.Controls)
                                 if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                                     aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                                 {
-                                    aa.ForeColor = Color.White;
-                                    aa.BackColor = Color.Transparent;
+                                    aa.ForeColor = light_white;
+                                    aa.BackColor = light_transparent;
                                 }
                                 else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                                 {
-                                    aa.BackColor = Color.FromArgb(75, 75, 75);
-                                    aa.ForeColor = Color.White;
+                                    aa.BackColor = dark_grey2;
+                                    aa.ForeColor = light_white;
                                 } 
                         }
                     }
@@ -113,26 +145,26 @@ namespace MyWorkApplication.Classes
             foreach (Control f in form.Controls)
                 if (f.GetType() == typeof(TableLayoutPanel))  
                 {
-                    f.BackColor = Color.FromArgb(240, 240, 240);
-                    f.ForeColor = Color.Black;
+                    f.BackColor = light_grey1;
+                    f.ForeColor = light_grey4;
                     foreach (Control c in f.Controls)
                     {
                         if (c.GetType() == typeof(TableLayoutPanel)) /// inner table
                         {
-                            c.BackColor = Color.FromArgb(240, 240, 240);
-                            c.ForeColor = Color.Black;
+                            c.BackColor = light_grey1;
+                            c.ForeColor = light_grey4;
 
                             foreach (Control aa in c.Controls)
                                 if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                                     aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                                 {
-                                    aa.ForeColor = Color.Black;
-                                    aa.BackColor = Color.Transparent;
+                                    aa.ForeColor = light_grey4;
+                                    aa.BackColor = light_transparent;
                                 }
                                 else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                                 {
-                                    aa.BackColor = Color.White;
-                                    aa.ForeColor = Color.Black;
+                                    aa.BackColor = light_white;
+                                    aa.ForeColor = light_grey4;
                                 }
 
 
@@ -143,56 +175,56 @@ namespace MyWorkApplication.Classes
                             MP_dataGridView.BackgroundColor =
                                 MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                                     MP_dataGridView.DefaultCellStyle.BackColor =
-                                        MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
+                                        MP_dataGridView.RowsDefaultCellStyle.BackColor = light_white;
                             MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor =
-                                Color.FromArgb(240, 240, 240);
+                                light_grey1;
 
                             MP_dataGridView.ForeColor =
                                 MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                                     MP_dataGridView.DefaultCellStyle.ForeColor =
                                         MP_dataGridView.RowsDefaultCellStyle.ForeColor =
                                             MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor =
-                                                Color.Black;
+                                                light_grey4;
 
-                            MP_dataGridView.GridColor = Color.FromArgb(96, 96, 96);
+                            MP_dataGridView.GridColor = light_grey3;
 
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.DefaultCellStyle.SelectionBackColor
                                     = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                         MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                            Color.FromArgb(189, 189, 189);
+                                            light_grey2;
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                                 MP_dataGridView.DefaultCellStyle.SelectionForeColor
                                     = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
                                         MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor =
-                                            Color.Black;
+                                            light_grey4;
 
                             for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                             {
-                                MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-                                MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
+                                MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+                                MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
                             }
                         }
                         else if (c.GetType() == typeof(AdvancedDataGridViewSearchToolBar))
                         {
                             //var searchToolBar = c as AdvancedDataGridViewSearchToolBar;
-                            //searchToolBar.BackColor = Color.White;
-                            //searchToolBar.ForeColor = Color.Black;
+                            //searchToolBar.BackColor = light_white;
+                            //searchToolBar.ForeColor = light_grey4;
 
-                            c.BackColor = Color.FromArgb(240, 240, 240);
-                            c.ForeColor = Color.Black;
+                            c.BackColor = light_grey1;
+                            c.ForeColor = light_grey4;
 
                             foreach (Control aa in c.Controls)
                                 if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                                     aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                                 {
-                                    aa.ForeColor = Color.Black;
-                                    aa.BackColor = Color.Transparent;
+                                    aa.ForeColor = light_grey4;
+                                    aa.BackColor = light_transparent;
                                 }
                                 else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                                 {
-                                    aa.BackColor = Color.White;
-                                    aa.ForeColor = Color.Black;
+                                    aa.BackColor = light_white;
+                                    aa.ForeColor = light_grey4;
                                 }
                         }
 
@@ -202,43 +234,28 @@ namespace MyWorkApplication.Classes
             form.Refresh();
         }
 
-        private ToolStripItem[] GetAllChildren(ToolStripItem item)
-        {
-            var Items = new List<ToolStripItem> {item};
-            if (item is ToolStripMenuItem)
-                foreach (ToolStripItem i in ((ToolStripMenuItem) item).DropDownItems)
-                    Items.AddRange(GetAllChildren(i));
-            else if (item is ToolStripSplitButton)
-                foreach (ToolStripItem i in ((ToolStripSplitButton) item).DropDownItems)
-                    Items.AddRange(GetAllChildren(i));
-            else if (item is ToolStripDropDownButton)
-                foreach (ToolStripItem i in ((ToolStripDropDownButton) item).DropDownItems)
-                    Items.AddRange(GetAllChildren(i));
-            return Items.ToArray();
-        }
-
         public void Main_ToNight(Form form, bool has_notification)
         {
-            form.BackColor = Color.FromArgb(83, 83, 83);
-            form.ForeColor = Color.White;
+            form.BackColor = dark_grey1;
+            form.ForeColor = light_white;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(Panel))
                 {
                     if (c.Name == "TopLine_panel" || c.Name == "BottomLine_panel" || c.Name == "panel3")
                     {
-                        c.ForeColor = Color.Black;
-                        c.BackColor = Color.Black;
+                        c.ForeColor = light_grey4;
+                        c.BackColor = light_grey4;
                         continue;
                     } 
 
-                        c.BackColor = Color.FromArgb(83, 83, 83);
-                        c.ForeColor = Color.White;
+                        c.BackColor = dark_grey1;
+                        c.ForeColor = light_white;
 
                         foreach (Control aa in c.Controls)
                             if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                                 aa.GetType() == typeof(CheckBox))
                             {
-                                aa.ForeColor = Color.White;
+                                aa.ForeColor = light_white;
                                 if (aa.Name == "Notifications_button" && has_notification)
                                     aa.BackgroundImage = Resources.Red_Bell_DD;
                                 else if (aa.Name == "Notifications_button" && !has_notification)
@@ -257,11 +274,11 @@ namespace MyWorkApplication.Classes
                             }
                             else if (aa.GetType() == typeof(TableLayoutPanel))
                             {
-                                aa.BackColor = Color.FromArgb(83, 83, 83);
-                                aa.ForeColor = Color.White;
+                                aa.BackColor = dark_grey1;
+                                aa.ForeColor = light_white;
                                 foreach (Control bb in aa.Controls)
                                     if (bb.GetType() == typeof(Label))
-                                        bb.ForeColor = Color.White;
+                                        bb.ForeColor = light_white;
 
                                     else if (bb.Name == "Logo_Small_pictureBox")
                                         bb.BackgroundImage = Resources.Logo_Small_D;
@@ -269,12 +286,12 @@ namespace MyWorkApplication.Classes
                 }
                 else if (c.GetType() == typeof(PictureBox))
                 {
-                    c.BackColor = Color.FromArgb(83, 83, 83);
-                    c.ForeColor = Color.White;
+                    c.BackColor = dark_grey1;
+                    c.ForeColor = light_white;
                     if (c.Name == "Home_panel")
                     {
-                        c.ForeColor = Color.Black;
-                        c.BackColor = Color.White;
+                        c.ForeColor = light_grey4;
+                        c.BackColor = light_white;
                         continue;
                     }
                 }
@@ -282,31 +299,31 @@ namespace MyWorkApplication.Classes
                 {
                     var menuStrip1 = c as MenuStrip;
                     menuStrip1.Renderer = new MenuStripRenderer();
-                    menuStrip1.BackColor = Color.FromArgb(83, 83, 83);
-                    menuStrip1.ForeColor = Color.White;
+                    menuStrip1.BackColor = dark_grey1;
+                    menuStrip1.ForeColor = light_white;
                 }
                 else if (c is TabControl)
                 {
                     var tabControl = c as TabControl;
-                    tabControl.BackColor = Color.FromArgb(31, 31, 31);
-                    tabControl.BackHighColor = Color.FromArgb(31, 31, 31);
-                    tabControl.BackLowColor = Color.FromArgb(31, 31, 31);
+                    tabControl.BackColor = dark_grey4;
+                    tabControl.BackHighColor = dark_grey4;
+                    tabControl.BackLowColor = dark_grey4;
 
-                    tabControl.BorderColor = Color.FromArgb(83, 83, 83);
-                    tabControl.BorderColorDisabled = Color.FromArgb(83, 83, 83);
+                    tabControl.BorderColor = dark_grey1;
+                    tabControl.BorderColorDisabled = dark_grey1;
 
-                    tabControl.ControlButtonBackHighColor = Color.FromArgb(83, 83, 83);
-                    tabControl.ControlButtonBackLowColor = Color.FromArgb(83, 83, 83);
-                    tabControl.ControlButtonBorderColor = Color.FromArgb(189, 189, 189);
-                    tabControl.ControlButtonForeColor = Color.FromArgb(189, 189, 189);
+                    tabControl.ControlButtonBackHighColor = dark_grey1;
+                    tabControl.ControlButtonBackLowColor = dark_grey1;
+                    tabControl.ControlButtonBorderColor = light_grey2;
+                    tabControl.ControlButtonForeColor = light_grey2;
 
-                    tabControl.ForeColor = Color.FromArgb(189, 189, 189);
-                    tabControl.ForeColorDisabled = Color.FromArgb(189, 189, 189);
+                    tabControl.ForeColor = light_grey2;
+                    tabControl.ForeColorDisabled = light_grey2;
 
-                    tabControl.TabBackHighColor = Color.FromArgb(83, 83, 83);
-                    tabControl.TabBackHighColorDisabled = Color.FromArgb(50, 50, 50);
-                    tabControl.TabBackLowColor = Color.FromArgb(83, 83, 83);
-                    tabControl.TabBackLowColorDisabled = Color.FromArgb(50, 50, 50);
+                    tabControl.TabBackHighColor = dark_grey1;
+                    tabControl.TabBackHighColorDisabled = dark_grey3;
+                    tabControl.TabBackLowColor = dark_grey1;
+                    tabControl.TabBackLowColorDisabled = dark_grey3;
                     tabControl.TabCloseButtonImage = Resources.Exit_L;
                     tabControl.TabCloseButtonImageDisabled = Resources.Exit_L;
                     tabControl.TabCloseButtonImageHot = Resources.Exit_L;
@@ -314,29 +331,28 @@ namespace MyWorkApplication.Classes
 
             form.Refresh();
         }
-
         public void Main_ToLight(Form form, bool has_notification)
         {
-            form.BackColor = Color.FromArgb(240, 240, 240);
-            form.ForeColor = Color.Black;
+            form.BackColor = light_grey1;
+            form.ForeColor = light_grey4;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(Panel))
                 {
                     if (c.Name == "TopLine_panel" || c.Name == "BottomLine_panel" || c.Name == "panel3")
                     {
-                        c.ForeColor = Color.FromArgb(189, 189, 189);
-                        c.BackColor = Color.FromArgb(189, 189, 189);
+                        c.ForeColor = light_grey2;
+                        c.BackColor = light_grey2;
                         continue;
                     }
                      
-                        c.BackColor = Color.FromArgb(240, 240, 240);
-                        c.ForeColor = Color.Black;
+                        c.BackColor = light_grey1;
+                        c.ForeColor = light_grey4;
 
                         foreach (Control aa in c.Controls)
                             if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                                 aa.GetType() == typeof(CheckBox))
                             {
-                                aa.ForeColor = Color.Black;
+                                aa.ForeColor = light_grey4;
 
                                 if (aa.Name == "Notifications_button" && has_notification)
                                     aa.BackgroundImage = Resources.Bell_Red_L;
@@ -356,23 +372,23 @@ namespace MyWorkApplication.Classes
                             }
                             else if (aa.GetType() == typeof(TableLayoutPanel))
                             {
-                                aa.BackColor = Color.FromArgb(240, 240, 240);
-                                aa.ForeColor = Color.Black;
+                                aa.BackColor = light_grey1;
+                                aa.ForeColor = light_grey4;
                                 foreach (Control bb in aa.Controls)
                                     if (bb.GetType() == typeof(Label))
-                                        bb.ForeColor = Color.Black;
+                                        bb.ForeColor = light_grey4;
                                     else if (bb.Name == "Logo_Small_pictureBox")
                                         bb.BackgroundImage = Resources.Logo_Small_L;
                             } 
                 }
                 else if (c.GetType() == typeof(PictureBox))
                 {
-                    c.BackColor = Color.FromArgb(240, 240, 240);
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_grey1;
+                    c.ForeColor = light_grey4;
                     if (c.Name == "Home_panel")
                     {
-                        c.ForeColor = Color.Black;
-                        c.BackColor = Color.White;
+                        c.ForeColor = light_grey4;
+                        c.BackColor = light_white;
                         continue;
                     }
                 }
@@ -380,44 +396,44 @@ namespace MyWorkApplication.Classes
                 {
                     var menuStrip1 = c as MenuStrip;
                     menuStrip1.Renderer = new MenuStripRenderer(0);
-                    menuStrip1.BackColor = Color.FromArgb(240, 240, 240);
-                    menuStrip1.ForeColor = Color.Black;
+                    menuStrip1.BackColor = light_grey1;
+                    menuStrip1.ForeColor = light_grey4;
                 }
                 else if (c is TabControl)
                 {
                     var tabControl = c as TabControl;
-                    tabControl.BackColor = Color.FromArgb(189, 189, 189);
-                    tabControl.BackHighColor = Color.FromArgb(189, 189, 189);
-                    tabControl.BackLowColor = Color.FromArgb(189, 189, 189);
+                    tabControl.BackColor = light_grey2;
+                    tabControl.BackHighColor = light_grey2;
+                    tabControl.BackLowColor = light_grey2;
 
-                    tabControl.BorderColor = Color.FromArgb(240, 240, 240);
-                    tabControl.BorderColorDisabled = Color.FromArgb(240, 240, 240);
+                    tabControl.BorderColor = light_grey1;
+                    tabControl.BorderColorDisabled = light_grey1;
 
-                    tabControl.ControlButtonBackHighColor = Color.FromArgb(240, 240, 240);
-                    tabControl.ControlButtonBackLowColor = Color.FromArgb(240, 240, 240);
-                    tabControl.ControlButtonBorderColor = Color.FromArgb(48, 48, 48);
-                    tabControl.ControlButtonForeColor = Color.FromArgb(48, 48, 48);
+                    tabControl.ControlButtonBackHighColor = light_grey1;
+                    tabControl.ControlButtonBackLowColor = light_grey1;
+                    tabControl.ControlButtonBorderColor = light_grey5;
+                    tabControl.ControlButtonForeColor = light_grey5;
 
-                    tabControl.ForeColor = Color.Black;
-                    tabControl.ForeColorDisabled = Color.Black;
+                    tabControl.ForeColor = light_grey4;
+                    tabControl.ForeColorDisabled = light_grey4;
 
-                    tabControl.TabBackHighColor = Color.FromArgb(240, 240, 240);
-                    tabControl.TabBackHighColorDisabled = Color.FromArgb(217, 216, 214);
-                    tabControl.TabBackLowColor = Color.FromArgb(240, 240, 240);
-                    tabControl.TabBackLowColorDisabled = Color.FromArgb(217, 216, 214);
+                    tabControl.TabBackHighColor = light_grey1;
+                    tabControl.TabBackHighColorDisabled = light_grey11;
+                    tabControl.TabBackLowColor = light_grey1;
+                    tabControl.TabBackLowColorDisabled = light_grey11;
 
-                    //tabControl.TabCloseButtonBackHighColor = Color.FromArgb(48, 48, 48);
-                    //tabControl.TabCloseButtonBackHighColorDisabled = Color.FromArgb(48, 48, 48);
-                    //tabControl.TabCloseButtonBackHighColorHot = Color.FromArgb(48, 48, 48);
-                    //tabControl.TabCloseButtonBackLowColor = Color.FromArgb(48, 48, 48);
-                    //tabControl.TabCloseButtonBackLowColorDisabled = Color.FromArgb(48, 48, 48);
-                    //tabControl.TabCloseButtonBackLowColorHot = Color.FromArgb(48, 48, 48);
-                    //tabControl.TabCloseButtonBorderColor = Color.FromArgb(48, 48, 48);
-                    //tabControl.TabCloseButtonBorderColorDisabled = Color.FromArgb(48, 48, 48);
-                    //tabControl.TabCloseButtonBorderColorHot = Color.FromArgb(48, 48, 48);
-                    //tabControl.TabCloseButtonForeColor = Color.FromArgb(48, 48, 48);
-                    //tabControl.TabCloseButtonForeColorDisabled = Color.FromArgb(48, 48, 48);
-                    //tabControl.TabCloseButtonForeColorHot = Color.FromArgb(48, 48, 48);
+                    //tabControl.TabCloseButtonBackHighColor = light_grey5;
+                    //tabControl.TabCloseButtonBackHighColorDisabled = light_grey5;
+                    //tabControl.TabCloseButtonBackHighColorHot = light_grey5;
+                    //tabControl.TabCloseButtonBackLowColor = light_grey5;
+                    //tabControl.TabCloseButtonBackLowColorDisabled = light_grey5;
+                    //tabControl.TabCloseButtonBackLowColorHot = light_grey5;
+                    //tabControl.TabCloseButtonBorderColor = light_grey5;
+                    //tabControl.TabCloseButtonBorderColorDisabled = light_grey5;
+                    //tabControl.TabCloseButtonBorderColorHot = light_grey5;
+                    //tabControl.TabCloseButtonForeColor = light_grey5;
+                    //tabControl.TabCloseButtonForeColorDisabled = light_grey5;
+                    //tabControl.TabCloseButtonForeColorHot = light_grey5;
 
                     tabControl.TabCloseButtonImage = Resources.Exit_D;
                     tabControl.TabCloseButtonImageDisabled = Resources.Exit_D;
@@ -432,43 +448,43 @@ namespace MyWorkApplication.Classes
             foreach (Control f in form.Controls)
                 if (f.GetType() == typeof(Panel)) /// main panel
                 {
-                    f.BackColor = Color.FromArgb(96, 96, 96);
-                    f.ForeColor = Color.White;
+                    f.BackColor = light_grey3;
+                    f.ForeColor = light_white;
                     foreach (Control c in f.Controls)
                         if (c.GetType() == typeof(TableLayoutPanel)) /// first & second
                         {
-                            c.BackColor = Color.FromArgb(96, 96, 96);
-                            c.ForeColor = Color.White;
+                            c.BackColor = light_grey3;
+                            c.ForeColor = light_white;
 
                             foreach (Control aa in c.Controls)
                                 if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                                     aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                                 {
-                                    aa.ForeColor = Color.White;
+                                    aa.ForeColor = light_white;
                                     if (aa.Name == "SaveFamily_button" || aa.Name == "SaveWork_button")
                                     {
                                         aa.BackgroundImage = Resources.Save2_L;
                                     }
                                     else if (aa.Name.Contains("Header"))
                                     {
-                                        aa.BackColor = Color.FromArgb(189, 189, 189);
-                                        aa.ForeColor = Color.FromArgb(75, 75, 75);
+                                        aa.BackColor = light_grey2;
+                                        aa.ForeColor = dark_grey2;
                                     }
                                     else if (aa.Name == "OverallSyrian_label")
                                     {
-                                        aa.BackColor = Color.FromArgb(75, 75, 75);
+                                        aa.BackColor = dark_grey2;
                                     }
                                 }
                                 else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                                 {
-                                    aa.BackColor = Color.FromArgb(75, 75, 75);
-                                    aa.ForeColor = Color.White;
+                                    aa.BackColor = dark_grey2;
+                                    aa.ForeColor = light_white;
                                 }
                                 else if (aa.GetType() == typeof(BCDateTimePicker))
                                 {
                                     var dd = aa as BCDateTimePicker;
-                                    dd.BackColor = Color.FromArgb(75, 75, 75);
-                                    dd.ForeColor = Color.White;
+                                    dd.BackColor = dark_grey2;
+                                    dd.ForeColor = light_white;
                                 }
                                 else if (aa.GetType() == typeof(DataGridView))
                                 {
@@ -477,46 +493,46 @@ namespace MyWorkApplication.Classes
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                                             MP_dataGridView.DefaultCellStyle.BackColor =
                                                 MP_dataGridView.RowsDefaultCellStyle.BackColor =
-                                                    Color.FromArgb(75, 75, 75);
+                                                    dark_grey2;
                                     MP_dataGridView.ForeColor =
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                                             MP_dataGridView.DefaultCellStyle.ForeColor =
-                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor = Color.White;
+                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor = light_white;
 
-                                    MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
+                                    MP_dataGridView.GridColor = light_grey2;
 
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
-                                                Color.FromArgb(96, 96, 96);
+                                                light_grey3;
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
-                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = light_white;
 
 
                                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                                     {
                                         MP_dataGridView.Columns[i].HeaderCell.Style.BackColor =
-                                            Color.FromArgb(75, 75, 75);
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.White;
+                                            dark_grey2;
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_white;
                                         for (var j = 0; j < MP_dataGridView.Rows.Count; j++)
                                         {
                                             MP_dataGridView.Rows[j].Cells[i].Style.BackColor =
-                                                Color.FromArgb(75, 75, 75);
-                                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = Color.White;
+                                                dark_grey2;
+                                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = light_white;
                                         }
                                     }
                                 }
                                 else if (aa.GetType() == typeof(TableLayoutPanel))
                                 {
-                                    aa.BackColor = Color.FromArgb(96, 96, 96);
-                                    aa.ForeColor = Color.White;
+                                    aa.BackColor = light_grey3;
+                                    aa.ForeColor = light_white;
                                     foreach (Control bb in aa.Controls)
                                         if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
                                             bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
                                         {
-                                            bb.ForeColor = Color.White;
-                                            bb.BackColor = Color.Transparent;
+                                            bb.ForeColor = light_white;
+                                            bb.BackColor = light_transparent;
                                             if (bb.Name == "Save_Beneficiary_Update_button" ||
                                                 bb.Name == "Save_MP_Update_button")
                                                 bb.BackgroundImage = Resources.Save2_L;
@@ -535,104 +551,103 @@ namespace MyWorkApplication.Classes
                                         }
                                         else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                         {
-                                            bb.BackColor = Color.FromArgb(75, 75, 75);
-                                            bb.ForeColor = Color.White;
+                                            bb.BackColor = dark_grey2;
+                                            bb.ForeColor = light_white;
                                         }
                                         else if (bb.GetType() == typeof(BCDateTimePicker))
                                         {
                                             var dd = bb as BCDateTimePicker;
-                                            dd.BackColor = Color.FromArgb(75, 75, 75);
-                                            dd.ForeColor = Color.White;
+                                            dd.BackColor = dark_grey2;
+                                            dd.ForeColor = light_white;
                                         }
                                         else if (bb.GetType() == typeof(TableLayoutPanel))
                                         {
-                                            bb.BackColor = Color.FromArgb(96, 96, 96);
-                                            bb.ForeColor = Color.White;
+                                            bb.BackColor = light_grey3;
+                                            bb.ForeColor = light_white;
                                             foreach (Control zx in bb.Controls)
                                                 if (zx.GetType() == typeof(Label) || zx.GetType() == typeof(Button) ||
                                                     zx.GetType() == typeof(CheckBox) ||
                                                     zx.GetType() == typeof(RadioButton))
                                                 {
-                                                    zx.ForeColor = Color.White;
+                                                    zx.ForeColor = light_white;
                                                 }
                                                 else if (zx.GetType() == typeof(TextBox) ||
                                                          zx.GetType() == typeof(ComboBox))
                                                 {
-                                                    zx.BackColor = Color.FromArgb(75, 75, 75);
-                                                    zx.ForeColor = Color.White;
+                                                    zx.BackColor = dark_grey2;
+                                                    zx.ForeColor = light_white;
                                                 }
                                         }
                                 }
                                 else if (aa.GetType() == typeof(GroupBox))
                                 {
-                                    aa.BackColor = Color.FromArgb(96, 96, 96);
-                                    aa.ForeColor = Color.White;
+                                    aa.BackColor = light_grey3;
+                                    aa.ForeColor = light_white;
                                     foreach (Control bb in aa.Controls)
                                         if (bb.GetType() == typeof(TableLayoutPanel))
                                         {
-                                            bb.BackColor = Color.FromArgb(96, 96, 96);
-                                            bb.ForeColor = Color.White;
+                                            bb.BackColor = light_grey3;
+                                            bb.ForeColor = light_white;
                                             foreach (Control mm in bb.Controls)
                                                 if (mm.GetType() == typeof(Label) || mm.GetType() == typeof(Button) ||
                                                     mm.GetType() == typeof(CheckBox) ||
                                                     mm.GetType() == typeof(RadioButton))
                                                 {
-                                                    mm.ForeColor = Color.White;
+                                                    mm.ForeColor = light_white;
                                                 }
                                                 else if (mm.GetType() == typeof(TextBox) ||
                                                          mm.GetType() == typeof(ComboBox))
                                                 {
-                                                    mm.BackColor = Color.FromArgb(75, 75, 75);
-                                                    mm.ForeColor = Color.White;
+                                                    mm.BackColor = dark_grey2;
+                                                    mm.ForeColor = light_white;
                                                 }
                                         }
                                 }
                         }
                 }
         }
-
         public void Application_ToLight(Form form)
         {
             foreach (Control f in form.Controls)
                 if (f.GetType() == typeof(Panel)) /// main panel
                 {
-                    f.BackColor = Color.FromArgb(240, 240, 240);
-                    f.ForeColor = Color.Black;
+                    f.BackColor = light_grey1;
+                    f.ForeColor = light_grey4;
                     foreach (Control c in f.Controls)
                         if (c.GetType() == typeof(TableLayoutPanel)) /// first & second
                         {
-                            c.BackColor = Color.FromArgb(240, 240, 240);
-                            c.ForeColor = Color.Black;
+                            c.BackColor = light_grey1;
+                            c.ForeColor = light_grey4;
 
                             foreach (Control aa in c.Controls)
                                 if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                                     aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                                 {
-                                    aa.ForeColor = Color.Black;
+                                    aa.ForeColor = light_grey4;
                                     if (aa.Name == "SaveFamily_button" || aa.Name == "SaveWork_button")
                                     {
                                         aa.BackgroundImage = Resources.Save2_D;
                                     }
                                     else if (aa.Name.Contains("Header"))
                                     {
-                                        aa.BackColor = Color.FromArgb(96, 96, 96);
-                                        aa.ForeColor = Color.White;
+                                        aa.BackColor = light_grey3;
+                                        aa.ForeColor = light_white;
                                     }
                                     else if (aa.Name == "OverallSyrian_label")
                                     {
-                                        aa.BackColor = Color.White;
+                                        aa.BackColor = light_white;
                                     }
                                 }
                                 else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                                 {
-                                    aa.BackColor = Color.White;
-                                    aa.ForeColor = Color.Black;
+                                    aa.BackColor = light_white;
+                                    aa.ForeColor = light_grey4;
                                 }
                                 else if (aa.GetType() == typeof(BCDateTimePicker))
                                 {
                                     var dd = aa as BCDateTimePicker;
-                                    dd.BackColor = Color.White;
-                                    dd.ForeColor = Color.Black;
+                                    dd.BackColor = light_white;
+                                    dd.ForeColor = light_grey4;
                                 }
                                 else if (aa.GetType() == typeof(DataGridView))
                                 {
@@ -640,44 +655,44 @@ namespace MyWorkApplication.Classes
                                     MP_dataGridView.BackgroundColor =
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                                             MP_dataGridView.DefaultCellStyle.BackColor =
-                                                MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
+                                                MP_dataGridView.RowsDefaultCellStyle.BackColor = light_white;
 
                                     MP_dataGridView.ForeColor =
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                                             MP_dataGridView.DefaultCellStyle.ForeColor =
-                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor = Color.Black;
+                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor = light_grey4;
 
-                                    MP_dataGridView.GridColor = Color.FromArgb(96, 96, 96);
+                                    MP_dataGridView.GridColor = light_grey3;
 
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
-                                                Color.FromArgb(189, 189, 189);
+                                                light_grey2;
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
-                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = light_grey4;
 
                                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                                     {
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
                                         for (var j = 0; j < MP_dataGridView.Rows.Count; j++)
                                         {
-                                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor = Color.White;
-                                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = Color.Black;
+                                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor = light_white;
+                                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = light_grey4;
                                         }
                                     }
                                 }
                                 else if (aa.GetType() == typeof(TableLayoutPanel))
                                 {
-                                    aa.BackColor = Color.FromArgb(240, 240, 240);
-                                    aa.ForeColor = Color.Black;
+                                    aa.BackColor = light_grey1;
+                                    aa.ForeColor = light_grey4;
                                     foreach (Control bb in aa.Controls)
                                         if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
                                             bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
                                         {
-                                            bb.ForeColor = Color.Black;
-                                            bb.BackColor = Color.Transparent;
+                                            bb.ForeColor = light_grey4;
+                                            bb.BackColor = light_transparent;
 
                                             if (bb.Name == "Save_Beneficiary_Update_button" ||
                                                 bb.Name == "Save_MP_Update_button")
@@ -697,55 +712,55 @@ namespace MyWorkApplication.Classes
                                         }
                                         else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                         {
-                                            bb.BackColor = Color.White;
-                                            bb.ForeColor = Color.Black;
+                                            bb.BackColor = light_white;
+                                            bb.ForeColor = light_grey4;
                                         }
                                         else if (bb.GetType() == typeof(BCDateTimePicker))
                                         {
                                             var dd = bb as BCDateTimePicker;
-                                            dd.BackColor = Color.White;
-                                            dd.ForeColor = Color.Black;
+                                            dd.BackColor = light_white;
+                                            dd.ForeColor = light_grey4;
                                         }
                                         else if (bb.GetType() == typeof(TableLayoutPanel))
                                         {
-                                            bb.BackColor = Color.FromArgb(240, 240, 240);
-                                            bb.ForeColor = Color.Black;
+                                            bb.BackColor = light_grey1;
+                                            bb.ForeColor = light_grey4;
                                             foreach (Control zx in bb.Controls)
                                                 if (zx.GetType() == typeof(Label) || zx.GetType() == typeof(Button) ||
                                                     zx.GetType() == typeof(CheckBox) ||
                                                     zx.GetType() == typeof(RadioButton))
                                                 {
-                                                    zx.ForeColor = Color.Black;
+                                                    zx.ForeColor = light_grey4;
                                                 }
                                                 else if (zx.GetType() == typeof(TextBox) ||
                                                          zx.GetType() == typeof(ComboBox))
                                                 {
-                                                    zx.BackColor = Color.White;
-                                                    zx.ForeColor = Color.Black;
+                                                    zx.BackColor = light_white;
+                                                    zx.ForeColor = light_grey4;
                                                 }
                                         }
                                 }
                                 else if (aa.GetType() == typeof(GroupBox))
                                 {
-                                    aa.BackColor = Color.FromArgb(240, 240, 240);
-                                    aa.ForeColor = Color.Black;
+                                    aa.BackColor = light_grey1;
+                                    aa.ForeColor = light_grey4;
                                     foreach (Control bb in aa.Controls)
                                         if (bb.GetType() == typeof(TableLayoutPanel))
                                         {
-                                            bb.BackColor = Color.FromArgb(240, 240, 240);
-                                            bb.ForeColor = Color.Black;
+                                            bb.BackColor = light_grey1;
+                                            bb.ForeColor = light_grey4;
                                             foreach (Control zx in bb.Controls)
                                                 if (zx.GetType() == typeof(Label) || zx.GetType() == typeof(Button) ||
                                                     zx.GetType() == typeof(CheckBox) ||
                                                     zx.GetType() == typeof(RadioButton))
                                                 {
-                                                    zx.ForeColor = Color.Black;
+                                                    zx.ForeColor = light_grey4;
                                                 }
                                                 else if (zx.GetType() == typeof(TextBox) ||
                                                          zx.GetType() == typeof(ComboBox))
                                                 {
-                                                    zx.BackColor = Color.White;
-                                                    zx.ForeColor = Color.Black;
+                                                    zx.BackColor = light_white;
+                                                    zx.ForeColor = light_grey4;
                                                 }
                                         }
                                 }
@@ -758,42 +773,42 @@ namespace MyWorkApplication.Classes
             foreach (Control f in form.Controls)
                 if (f.GetType() == typeof(Panel)) /// main panel
                 {
-                    f.BackColor = Color.FromArgb(96, 96, 96);
-                    f.ForeColor = Color.White;
+                    f.BackColor = light_grey3;
+                    f.ForeColor = light_white;
                     foreach (Control c in f.Controls)
                         if (c.GetType() == typeof(TableLayoutPanel)) /// main table
                         {
-                            c.BackColor = Color.FromArgb(96, 96, 96);
-                            c.ForeColor = Color.White;
+                            c.BackColor = light_grey3;
+                            c.ForeColor = light_white;
 
                             foreach (Control aa in c.Controls)
                                 if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                                     aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                                 {
-                                    aa.ForeColor = Color.White;
-                                    aa.BackColor = Color.Transparent;
+                                    aa.ForeColor = light_white;
+                                    aa.BackColor = light_transparent;
                                     if (aa.Name.Contains("Header"))
                                     {
-                                        aa.BackColor = Color.FromArgb(189, 189, 189);
-                                        aa.ForeColor = Color.FromArgb(75, 75, 75);
+                                        aa.BackColor = light_grey2;
+                                        aa.ForeColor = dark_grey2;
                                     }
                                 }
                                 else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                                 {
-                                    aa.BackColor = Color.FromArgb(75, 75, 75);
-                                    aa.ForeColor = Color.White;
+                                    aa.BackColor = dark_grey2;
+                                    aa.ForeColor = light_white;
                                 }
                                 else if (aa.GetType() == typeof(BunifuDatepicker))
                                 {
                                     var dd = aa as BunifuDatepicker;
-                                    dd.BackColor = Color.FromArgb(75, 75, 75);
-                                    dd.ForeColor = Color.White;
+                                    dd.BackColor = dark_grey2;
+                                    dd.ForeColor = light_white;
                                 }
                                 else if (aa.GetType() == typeof(BCDateTimePicker))
                                 {
                                     var dd = aa as BCDateTimePicker;
-                                    dd.BackColor = Color.FromArgb(75, 75, 75);
-                                    dd.ForeColor = Color.White;
+                                    dd.BackColor = dark_grey2;
+                                    dd.ForeColor = light_white;
                                 }
                                 else if (aa.GetType() == typeof(AdvancedDataGridView))
                                 { 
@@ -803,47 +818,47 @@ namespace MyWorkApplication.Classes
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                                             MP_dataGridView.DefaultCellStyle.BackColor =
                                                 MP_dataGridView.RowsDefaultCellStyle.BackColor =
-                                                    Color.FromArgb(75, 75, 75);
+                                                    dark_grey2;
 
                                     MP_dataGridView.ForeColor =
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                                             MP_dataGridView.DefaultCellStyle.ForeColor =
-                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor = Color.White;
+                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor = light_white;
 
-                                    MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
+                                    MP_dataGridView.GridColor = light_grey2;
 
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
-                                                Color.FromArgb(96, 96, 96);
+                                                light_grey3;
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
-                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = light_white;
 
 
                                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                                     {
                                         MP_dataGridView.Columns[i].HeaderCell.Style.BackColor =
-                                            Color.FromArgb(75, 75, 75);
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.White;
+                                            dark_grey2;
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_white;
                                         for (var j = 0; j < MP_dataGridView.Rows.Count; j++)
                                         {
                                             MP_dataGridView.Rows[j].Cells[i].Style.BackColor =
-                                                Color.FromArgb(75, 75, 75);
-                                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = Color.White;
+                                                dark_grey2;
+                                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = light_white;
                                         }
                                     }
                                 }
                                 
                                 else if (aa.GetType() == typeof(TableLayoutPanel)) // inner table
                                 {
-                                    aa.BackColor = Color.FromArgb(96, 96, 96);
-                                    aa.ForeColor = Color.White;
+                                    aa.BackColor = light_grey3;
+                                    aa.ForeColor = light_white;
                                     foreach (Control bb in aa.Controls)
                                         if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
                                             bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
                                         {
-                                            bb.ForeColor = Color.White;
+                                            bb.ForeColor = light_white;
                                             if (bb.Name == "InsertVisit_button" || bb.Name == "Save_button")
                                                 bb.BackgroundImage = Resources.Save2_L;
                                             else if (bb.Name == "Delete_button")
@@ -851,8 +866,8 @@ namespace MyWorkApplication.Classes
                                         }
                                         else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                         {
-                                            bb.BackColor = Color.FromArgb(75, 75, 75);
-                                            bb.ForeColor = Color.White;
+                                            bb.BackColor = dark_grey2;
+                                            bb.ForeColor = light_white;
                                         }
                                         else if (bb.GetType() == typeof(PictureBox))
                                         {  
@@ -864,19 +879,18 @@ namespace MyWorkApplication.Classes
 
             form.Refresh();
         }
-
         public void Visit_ToLight(Form form)
         {
             foreach (Control f in form.Controls)
                 if (f.GetType() == typeof(Panel)) /// main panel
                 {
-                    f.BackColor = Color.FromArgb(240, 240, 240);
-                    f.ForeColor = Color.Black;
+                    f.BackColor = light_grey1;
+                    f.ForeColor = light_grey4;
                     foreach (Control c in f.Controls)
                         if (c.GetType() == typeof(TableLayoutPanel)) /// main table
                         {
-                            c.BackColor = Color.FromArgb(240, 240, 240);
-                            c.ForeColor = Color.Black;
+                            c.BackColor = light_grey1;
+                            c.ForeColor = light_grey4;
 
                             foreach (Control aa in c.Controls)
                                 if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
@@ -884,29 +898,29 @@ namespace MyWorkApplication.Classes
                                 {
                                     if (aa.Name.Contains("Header"))
                                     {
-                                        aa.BackColor = Color.FromArgb(96, 96, 96);
-                                        aa.ForeColor = Color.White;
+                                        aa.BackColor = light_grey3;
+                                        aa.ForeColor = light_white;
                                     }
 
-                                    aa.ForeColor = Color.Black;
-                                    aa.BackColor = Color.Transparent;
+                                    aa.ForeColor = light_grey4;
+                                    aa.BackColor = light_transparent;
                                 }
                                 else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                                 {
-                                    aa.BackColor = Color.White;
-                                    aa.ForeColor = Color.Black;
+                                    aa.BackColor = light_white;
+                                    aa.ForeColor = light_grey4;
                                 }
                                 else if (aa.GetType() == typeof(BunifuDatepicker))
                                 {
                                     var dd = aa as BunifuDatepicker;
-                                    dd.BackColor = Color.White;
-                                    dd.ForeColor = Color.Black;
+                                    dd.BackColor = light_white;
+                                    dd.ForeColor = light_grey4;
                                 }
                                 else if (aa.GetType() == typeof(BCDateTimePicker))
                                 {
                                     var dd = aa as BCDateTimePicker;
-                                    dd.BackColor = Color.White;
-                                    dd.ForeColor = Color.Black;
+                                    dd.BackColor = light_white;
+                                    dd.ForeColor = light_grey4;
                                 }
                                 else if (aa.GetType() == typeof(AdvancedDataGridView))
                                 {
@@ -914,46 +928,46 @@ namespace MyWorkApplication.Classes
                                     MP_dataGridView.BackgroundColor =
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                                             MP_dataGridView.DefaultCellStyle.BackColor =
-                                                MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
+                                                MP_dataGridView.RowsDefaultCellStyle.BackColor = light_white;
 
                                     MP_dataGridView.ForeColor =
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                                             MP_dataGridView.DefaultCellStyle.ForeColor =
-                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor = Color.Black;
+                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor = light_grey4;
 
-                                    MP_dataGridView.GridColor = Color.FromArgb(96, 96, 96);
+                                    MP_dataGridView.GridColor = light_grey3;
 
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
-                                                Color.FromArgb(189, 189, 189);
+                                                light_grey2;
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
-                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = light_grey4;
 
 
                                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                                     {
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
                                         for (var j = 0; j < MP_dataGridView.Rows.Count; j++)
                                         {
-                                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor = Color.White;
-                                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = Color.Black;
+                                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor = light_white;
+                                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = light_grey4;
                                         }
                                     }
                                 }
 
                                 else if (aa.GetType() == typeof(TableLayoutPanel)) // inner table
                                 {
-                                    aa.BackColor = Color.FromArgb(240, 240, 240);
-                                    aa.ForeColor = Color.Black;
+                                    aa.BackColor = light_grey1;
+                                    aa.ForeColor = light_grey4;
                                     foreach (Control bb in aa.Controls)
                                         if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
                                             bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
                                         {
-                                            bb.ForeColor = Color.Black;
-                                            bb.BackColor = Color.Transparent;
+                                            bb.ForeColor = light_grey4;
+                                            bb.BackColor = light_transparent;
                                             if (bb.Name == "InsertVisit_button" || bb.Name == "Save_button")
                                                 bb.BackgroundImage = Resources.Save2_D;
                                             else if (bb.Name == "Delete_button")
@@ -961,8 +975,8 @@ namespace MyWorkApplication.Classes
                                         }
                                         else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                         {
-                                            bb.BackColor = Color.White;
-                                            bb.ForeColor = Color.Black;
+                                            bb.BackColor = light_white;
+                                            bb.ForeColor = light_grey4;
                                         }
                                         else if (bb.GetType() == typeof(PictureBox))
                                         {
@@ -975,247 +989,28 @@ namespace MyWorkApplication.Classes
             form.Refresh();
         }
 
-        public void Evaluation_ToNight(Form form)
-        {
-            form.BackColor = Color.FromArgb(96, 96, 96);
-            form.ForeColor = Color.FromArgb(189, 189, 189);
-            foreach (Control c in form.Controls)
-                if (c.GetType() == typeof(Panel))
-                {
-                    c.BackColor = Color.FromArgb(96, 96, 96);
-                    c.ForeColor = Color.FromArgb(189, 189, 189);
-
-                    foreach (Control aa in c.Controls)
-                        if (aa.GetType() == typeof(Panel))
-                        {
-                            aa.BackColor = Color.FromArgb(96, 96, 96);
-                            aa.ForeColor = Color.FromArgb(189, 189, 189);
-                            foreach (Control sq in aa.Controls)
-                                if (sq.GetType() == typeof(Label) || sq.GetType() == typeof(Button))
-                                {
-                                    sq.ForeColor = Color.White;
-                                    if (sq.Name == "Old_Header_label" || sq.Name == "M_Header_label")
-                                    {
-                                        sq.BackColor = Color.FromArgb(189, 189, 189);
-                                        sq.ForeColor = Color.FromArgb(75, 75, 75);
-                                    }
-                                }
-                                else if (sq.GetType() == typeof(TextBox) || sq.GetType() == typeof(ComboBox))
-                                {
-                                    sq.BackColor = Color.FromArgb(75, 75, 75);
-                                    sq.ForeColor = Color.FromArgb(189, 189, 189);
-                                }
-                                else if (sq.GetType() == typeof(BCDateTimePicker))
-                                {
-                                    var dd = sq as BCDateTimePicker;
-                                    dd.BackColor = Color.FromArgb(75, 75, 75);
-                                    dd.ForeColor = Color.White;
-                                }
-                                else if (sq.GetType() == typeof(DataGridView))
-                                {
-                                    var MP_dataGridView = sq as DataGridView;
-                                    MP_dataGridView.BackgroundColor =
-                                        MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
-                                            MP_dataGridView.DefaultCellStyle.BackColor =
-                                                MP_dataGridView.RowsDefaultCellStyle.BackColor =
-                                                    Color.FromArgb(75, 75, 75);
-                                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor =
-                                        Color.FromArgb(96, 96, 96);
-
-                                    MP_dataGridView.ForeColor =
-                                        MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
-                                            MP_dataGridView.DefaultCellStyle.ForeColor =
-                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor =
-                                                    MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor =
-                                                        Color.FromArgb(189, 189, 189);
-
-                                    MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
-
-                                    MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
-                                        MP_dataGridView.DefaultCellStyle.SelectionBackColor
-                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
-                                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                                    Color.FromArgb(56, 56, 56);
-                                    MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
-                                        MP_dataGridView.DefaultCellStyle.SelectionForeColor
-                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
-                                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor =
-                                                    Color.FromArgb(189, 189, 189);
-
-                                    for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
-                                    {
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor =
-                                            Color.FromArgb(75, 75, 75);
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor =
-                                            Color.FromArgb(189, 189, 189);
-                                    }
-                                }
-                                else if (sq.GetType() == typeof(TableLayoutPanel)) /// table
-                                {
-                                    sq.BackColor = Color.FromArgb(96, 96, 96);
-                                    sq.ForeColor = Color.FromArgb(189, 189, 189);
-
-                                    foreach (Control bb in sq.Controls)
-                                        if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(CheckBox) ||
-                                            bb.GetType() == typeof(RadioButton))
-                                        {
-                                            bb.ForeColor = Color.White;
-                                            if (bb.Name.Contains("Header_label"))
-                                            {
-                                                bb.BackColor = Color.FromArgb(189, 189, 189);
-                                                bb.ForeColor = Color.FromArgb(75, 75, 75);
-                                            }
-                                        }
-                                        else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
-                                        {
-                                            bb.BackColor = Color.FromArgb(75, 75, 75);
-                                            bb.ForeColor = Color.FromArgb(189, 189, 189);
-                                        }
-                                        else if (bb.GetType() == typeof(TrackBar))
-                                        {
-                                            bb.BackColor = Color.FromArgb(96, 96, 96);
-                                            bb.ForeColor = Color.FromArgb(189, 189, 189);
-                                        }
-                                        else if (bb.GetType() == typeof(Button))
-                                        {
-                                            if (bb.Name == "Save_button")
-                                                bb.BackgroundImage = Resources.Save2_L;
-                                        }
-                                }
-                        }
-                }
-        }
-
-        public void Evaluation_ToLight(Form form)
-        {
-            form.BackColor = Color.FromArgb(240, 240, 240);
-            form.ForeColor = Color.Black;
-            foreach (Control c in form.Controls)
-                if (c.GetType() == typeof(Panel))
-                {
-                    c.BackColor = Color.FromArgb(240, 240, 240);
-                    c.ForeColor = Color.Black;
-
-                    foreach (Control aa in c.Controls)
-                        if (aa.GetType() == typeof(Panel))
-                        {
-                            aa.BackColor = Color.FromArgb(240, 240, 240);
-                            aa.ForeColor = Color.Black;
-                            foreach (Control sq in aa.Controls)
-                                if (sq.GetType() == typeof(Label) || sq.GetType() == typeof(Button))
-                                {
-                                    sq.ForeColor = Color.Black;
-                                    if (sq.Name.Contains("Header_label"))
-                                    {
-                                        sq.BackColor = Color.FromArgb(96, 96, 96);
-                                        sq.ForeColor = Color.White;
-                                    }
-                                }
-                                else if (sq.GetType() == typeof(TextBox) || sq.GetType() == typeof(ComboBox))
-                                {
-                                    sq.BackColor = Color.White;
-                                    sq.ForeColor = Color.Black;
-                                }
-                                else if (sq.GetType() == typeof(BCDateTimePicker))
-                                {
-                                    var dd = sq as BCDateTimePicker;
-                                    dd.BackColor = Color.White;
-                                    dd.ForeColor = Color.Black;
-                                }
-                                else if (sq.GetType() == typeof(DataGridView))
-                                {
-                                    var MP_dataGridView = sq as DataGridView;
-                                    MP_dataGridView.BackgroundColor =
-                                        MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
-                                            MP_dataGridView.DefaultCellStyle.BackColor =
-                                                MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
-                                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor =
-                                        Color.FromArgb(240, 240, 240);
-
-                                    MP_dataGridView.ForeColor =
-                                        MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
-                                            MP_dataGridView.DefaultCellStyle.ForeColor =
-                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor =
-                                                    MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor =
-                                                        Color.Black;
-
-                                    MP_dataGridView.GridColor = Color.FromArgb(96, 96, 96);
-
-                                    MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
-                                        MP_dataGridView.DefaultCellStyle.SelectionBackColor
-                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
-                                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                                    Color.FromArgb(189, 189, 189);
-                                    MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
-                                        MP_dataGridView.DefaultCellStyle.SelectionForeColor
-                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
-                                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor =
-                                                    Color.Black;
-
-                                    for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
-                                    {
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
-                                    }
-                                }
-                                else if (sq.GetType() == typeof(TableLayoutPanel)) /// table
-                                {
-                                    sq.BackColor = Color.FromArgb(240, 240, 240);
-                                    sq.ForeColor = Color.Black;
-
-                                    foreach (Control bb in sq.Controls)
-                                        if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(CheckBox) ||
-                                            bb.GetType() == typeof(RadioButton))
-                                        {
-                                            bb.ForeColor = Color.Black;
-                                            if (bb.Name.Contains("Header_label"))
-                                            {
-                                                bb.BackColor = Color.FromArgb(96, 96, 96);
-                                                bb.ForeColor = Color.White;
-                                            }
-                                        }
-                                        else if (bb.GetType() == typeof(TrackBar))
-                                        {
-                                            bb.BackColor = Color.FromArgb(240, 240, 240);
-                                            bb.ForeColor = Color.Black;
-                                        }
-                                        else if (bb.GetType() == typeof(Button))
-                                        {
-                                            if (bb.Name == "Save_button")
-                                                bb.BackgroundImage = Resources.Save2_D;
-                                        }
-                                        else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
-                                        {
-                                            bb.BackColor = Color.White;
-                                            bb.ForeColor = Color.Black;
-                                        }
-                                }
-                        }
-                }
-        }
-
         public void ME_Visit_ToNight(Form form)
         {
             foreach (Control f in form.Controls)
                 if (f.GetType() == typeof(Panel)) /// main panel
                 {
-                    f.BackColor = Color.FromArgb(96, 96, 96);
-                    f.ForeColor = Color.White;
+                    f.BackColor = light_grey3;
+                    f.ForeColor = light_white;
                     foreach (Control c in f.Controls)
                         if (c.GetType() == typeof(TableLayoutPanel)) /// tables 
                         {
-                            c.BackColor = Color.FromArgb(96, 96, 96);
-                            c.ForeColor = Color.White;
+                            c.BackColor = light_grey3;
+                            c.ForeColor = light_white;
 
                             foreach (Control aa in c.Controls)
                                 if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button))
                                 {
-                                    aa.ForeColor = Color.White;
-                                    aa.BackColor = Color.Transparent;
+                                    aa.ForeColor = light_white;
+                                    aa.BackColor = light_transparent;
                                     if (aa.Name.Contains("Header"))
                                     {
-                                        aa.BackColor = Color.FromArgb(189, 189, 189);
-                                        aa.ForeColor = Color.FromArgb(75, 75, 75);
+                                        aa.BackColor = light_grey2;
+                                        aa.ForeColor = dark_grey2;
                                     }
                                     else if (aa.Name == "Save_button")
                                     {
@@ -1228,45 +1023,45 @@ namespace MyWorkApplication.Classes
                                 }
                                 else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                                 {
-                                    aa.BackColor = Color.FromArgb(75, 75, 75);
-                                    aa.ForeColor = Color.White;
+                                    aa.BackColor = dark_grey2;
+                                    aa.ForeColor = light_white;
                                 }
                                 else if (aa.GetType() == typeof(BunifuDatepicker))
                                 {
                                     var dd = aa as BunifuDatepicker;
-                                    dd.BackColor = Color.FromArgb(75, 75, 75);
-                                    dd.ForeColor = Color.White;
+                                    dd.BackColor = dark_grey2;
+                                    dd.ForeColor = light_white;
                                 }
                                 else if (aa.GetType() == typeof(BCDateTimePicker))
                                 {
                                     var dd = aa as BCDateTimePicker;
-                                    dd.BackColor = Color.FromArgb(75, 75, 75);
-                                    dd.ForeColor = Color.White;
+                                    dd.BackColor = dark_grey2;
+                                    dd.ForeColor = light_white;
                                 }
                                 else if (aa.GetType() == typeof(TableLayoutPanel)) // inner table
                                 {
-                                    aa.BackColor = Color.FromArgb(96, 96, 96);
-                                    aa.ForeColor = Color.White;
+                                    aa.BackColor = light_grey3;
+                                    aa.ForeColor = light_white;
                                     foreach (Control bb in aa.Controls)
                                         if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
                                             bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
                                         {
                                             if (bb.GetType() == typeof(Label) && aa.Name.Contains("_h"))
                                             {
-                                                bb.BackColor = Color.FromArgb(189, 189, 189);
-                                                bb.ForeColor = Color.FromArgb(75, 75, 75);
+                                                bb.BackColor = light_grey2;
+                                                bb.ForeColor = dark_grey2;
                                             }
                                             else
                                             {
-                                                bb.ForeColor = Color.White;
+                                                bb.ForeColor = light_white;
                                                 if (bb.Name.Contains("id")) //Make it invisible//
-                                                    bb.BackColor = bb.ForeColor = Color.FromArgb(96, 96, 96);
+                                                    bb.BackColor = bb.ForeColor = light_grey3;
                                             }
                                         }
                                         else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                         {
-                                            bb.BackColor = Color.FromArgb(75, 75, 75);
-                                            bb.ForeColor = Color.White;
+                                            bb.BackColor = dark_grey2;
+                                            bb.ForeColor = light_white;
                                         }
                                 }
                         }
@@ -1274,29 +1069,28 @@ namespace MyWorkApplication.Classes
 
             form.Refresh();
         }
-
         public void ME_Visit_ToLight(Form form)
         {
             foreach (Control f in form.Controls)
                 if (f.GetType() == typeof(Panel)) /// main panel
                 {
-                    f.BackColor = Color.FromArgb(240, 240, 240);
-                    f.ForeColor = Color.Black;
+                    f.BackColor = light_grey1;
+                    f.ForeColor = light_grey4;
                     foreach (Control c in f.Controls)
                         if (c.GetType() == typeof(TableLayoutPanel)) /// tables
                         {
-                            c.BackColor = Color.FromArgb(240, 240, 240);
-                            c.ForeColor = Color.Black;
+                            c.BackColor = light_grey1;
+                            c.ForeColor = light_grey4;
 
                             foreach (Control aa in c.Controls)
                                 if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button))
                                 {
-                                    aa.ForeColor = Color.Black;
-                                    aa.BackColor = Color.Transparent;
+                                    aa.ForeColor = light_grey4;
+                                    aa.BackColor = light_transparent;
                                     if (aa.Name.Contains("Header"))
                                     {
-                                        aa.BackColor = Color.FromArgb(96, 96, 96);
-                                        aa.ForeColor = Color.White;
+                                        aa.BackColor = light_grey3;
+                                        aa.ForeColor = light_white;
                                     }
                                     else if (aa.Name == "Save_button")
                                     {
@@ -1309,46 +1103,46 @@ namespace MyWorkApplication.Classes
                                 }
                                 else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                                 {
-                                    aa.BackColor = Color.White;
-                                    aa.ForeColor = Color.Black;
+                                    aa.BackColor = light_white;
+                                    aa.ForeColor = light_grey4;
                                 }
                                 else if (aa.GetType() == typeof(BunifuDatepicker))
                                 {
                                     var dd = aa as BunifuDatepicker;
-                                    dd.BackColor = Color.White;
-                                    dd.ForeColor = Color.Black;
+                                    dd.BackColor = light_white;
+                                    dd.ForeColor = light_grey4;
                                 }
                                 else if (aa.GetType() == typeof(BCDateTimePicker))
                                 {
                                     var dd = aa as BCDateTimePicker;
-                                    dd.BackColor = Color.White;
-                                    dd.ForeColor = Color.Black;
+                                    dd.BackColor = light_white;
+                                    dd.ForeColor = light_grey4;
                                 }
                                 else if (aa.GetType() == typeof(TableLayoutPanel)) // inner table
                                 {
-                                    aa.BackColor = Color.FromArgb(240, 240, 240);
-                                    aa.ForeColor = Color.Black;
+                                    aa.BackColor = light_grey1;
+                                    aa.ForeColor = light_grey4;
                                     foreach (Control bb in aa.Controls)
                                         if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
                                             bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
                                         {
                                             if (bb.GetType() == typeof(Label) && aa.Name.Contains("_h"))
                                             {
-                                                bb.BackColor = Color.FromArgb(96, 96, 96);
-                                                bb.ForeColor = Color.White;
+                                                bb.BackColor = light_grey3;
+                                                bb.ForeColor = light_white;
                                             }
                                             else
                                             {
-                                                bb.ForeColor = Color.Black;
-                                                bb.BackColor = Color.Transparent;
+                                                bb.ForeColor = light_grey4;
+                                                bb.BackColor = light_transparent;
                                                 if (bb.Name.Contains("id")) //Make it invisible
-                                                    bb.BackColor = bb.ForeColor = Color.FromArgb(240, 240, 240);
+                                                    bb.BackColor = bb.ForeColor = light_grey1;
                                             }
                                         }
                                         else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                         {
-                                            bb.BackColor = Color.White;
-                                            bb.ForeColor = Color.Black;
+                                            bb.BackColor = light_white;
+                                            bb.ForeColor = light_grey4;
                                         }
                                 }
                         }
@@ -1362,38 +1156,38 @@ namespace MyWorkApplication.Classes
             foreach (Control f in form.Controls)
                 if (f.GetType() == typeof(Panel)) /// main panel
                 {
-                    f.BackColor = Color.FromArgb(96, 96, 96);
-                    f.ForeColor = Color.White;
+                    f.BackColor = light_grey3;
+                    f.ForeColor = light_white;
                     foreach (Control c in f.Controls)
                         if (c.GetType() == typeof(TableLayoutPanel))
                         {
                             /// main table
-                            c.BackColor = Color.FromArgb(96, 96, 96);
-                            c.ForeColor = Color.FromArgb(189, 189, 189);
+                            c.BackColor = light_grey3;
+                            c.ForeColor = light_grey2;
                             foreach (Control aa in c.Controls)
                                 if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                                     aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                                 {
-                                    aa.ForeColor = Color.White;
+                                    aa.ForeColor = light_white;
                                 }
                                 else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                                 {
-                                    aa.BackColor = Color.FromArgb(75, 75, 75);
-                                    aa.ForeColor = Color.White;
+                                    aa.BackColor = dark_grey2;
+                                    aa.ForeColor = light_white;
                                 }
                                 else if (aa.GetType() == typeof(Panel))
                                 {
-                                    aa.BackColor = Color.FromArgb(75, 75, 75);
-                                    aa.ForeColor = Color.FromArgb(189, 189, 189);
+                                    aa.BackColor = dark_grey2;
+                                    aa.ForeColor = light_grey2;
                                     if (aa.Controls["pictureBox1"] != null) 
-                                        aa.Controls["pictureBox1"].BackColor = Color.FromArgb(75, 75, 75);
+                                        aa.Controls["pictureBox1"].BackColor = dark_grey2;
                                 }
                                 else if (aa.GetType() == typeof(TableLayoutPanel))
                                 {
                                     if (aa.Name == "Bottom_tableLayoutPanel")
                                     {
-                                        aa.BackColor = Color.FromArgb(50, 50, 50);
-                                        aa.ForeColor = Color.FromArgb(189, 189, 189);
+                                        aa.BackColor = dark_grey3;
+                                        aa.ForeColor = light_grey2;
                                         foreach (Control bb in aa.Controls)
                                         {
                                             if (bb.Name == "AddImage_button")
@@ -1409,13 +1203,13 @@ namespace MyWorkApplication.Classes
                                             if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
                                                 bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
                                             {
-                                                bb.ForeColor = Color.White;
+                                                bb.ForeColor = light_white;
                                             }
                                             else if (bb.GetType() == typeof(TextBox) ||
                                                      bb.GetType() == typeof(ComboBox))
                                             {
-                                                bb.BackColor = Color.FromArgb(75, 75, 75);
-                                                bb.ForeColor = Color.White;
+                                                bb.BackColor = dark_grey2;
+                                                bb.ForeColor = light_white;
                                             }
                                         }
                                     }
@@ -1425,45 +1219,44 @@ namespace MyWorkApplication.Classes
 
             form.Refresh();
         }
-
         public void Attachment_ToLight(Form form)
         {
             foreach (Control f in form.Controls)
                 if (f.GetType() == typeof(Panel)) /// main panel
                 {
-                    f.BackColor = Color.FromArgb(96, 96, 96);
-                    f.ForeColor = Color.White;
+                    f.BackColor = light_grey3;
+                    f.ForeColor = light_white;
                     foreach (Control c in f.Controls)
                         if (c.GetType() == typeof(TableLayoutPanel))
                         {
                             /// main table
 
-                            c.BackColor = Color.FromArgb(240, 240, 240);
-                            c.ForeColor = Color.Black;
+                            c.BackColor = light_grey1;
+                            c.ForeColor = light_grey4;
                             foreach (Control aa in c.Controls)
                                 if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                                     aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                                 {
-                                    aa.ForeColor = Color.Black;
+                                    aa.ForeColor = light_grey4;
                                 }
                                 else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                                 {
-                                    aa.BackColor = Color.White;
-                                    aa.ForeColor = Color.Black;
+                                    aa.BackColor = light_white;
+                                    aa.ForeColor = light_grey4;
                                 }
                                 else if (aa.GetType() == typeof(Panel))
                                 {
-                                    aa.BackColor = Color.FromArgb(240, 240, 240);
-                                    aa.ForeColor = Color.Black;
+                                    aa.BackColor = light_grey1;
+                                    aa.ForeColor = light_grey4;
                                     if(aa.Controls["pictureBox1"] != null)
-                                        aa.Controls["pictureBox1"].BackColor = Color.FromArgb(240, 240, 240);
+                                        aa.Controls["pictureBox1"].BackColor = light_grey1;
                                 }
                                 else if (aa.GetType() == typeof(TableLayoutPanel))
                                 {
                                     if (aa.Name == "Bottom_tableLayoutPanel")
                                     {
-                                        aa.BackColor = Color.FromArgb(189, 189, 189);
-                                        aa.ForeColor = Color.Black;
+                                        aa.BackColor = light_grey2;
+                                        aa.ForeColor = light_grey4;
                                         foreach (Control bb in aa.Controls)
                                         {
                                             if (bb.Name == "AddImage_button")
@@ -1479,13 +1272,13 @@ namespace MyWorkApplication.Classes
                                             if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
                                                 bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
                                             {
-                                                bb.ForeColor = Color.Black;
+                                                bb.ForeColor = light_grey4;
                                             }
                                             else if (bb.GetType() == typeof(TextBox) ||
                                                      bb.GetType() == typeof(ComboBox))
                                             {
-                                                bb.BackColor = Color.White;
-                                                bb.ForeColor = Color.Black;
+                                                bb.BackColor = light_white;
+                                                bb.ForeColor = light_grey4;
                                             }
                                         }
                                     }
@@ -1498,37 +1291,37 @@ namespace MyWorkApplication.Classes
 
         public void Loan_ToNight(Form form)
         {
-            form.BackColor = Color.FromArgb(96, 96, 96);
-            form.ForeColor = Color.White;
+            form.BackColor = light_grey3;
+            form.ForeColor = light_white;
             foreach (Control f in form.Controls)
                 if (f.GetType() == typeof(Panel)) /// main panel
                 {
-                    f.BackColor = Color.FromArgb(96, 96, 96);
-                    f.ForeColor = Color.White;
+                    f.BackColor = light_grey3;
+                    f.ForeColor = light_white;
                     foreach (Control c in f.Controls)
                         if (c.GetType() == typeof(TableLayoutPanel)) /// main table
                         {
-                            c.BackColor = Color.FromArgb(96, 96, 96);
-                            c.ForeColor = Color.White;
+                            c.BackColor = light_grey3;
+                            c.ForeColor = light_white;
 
                             foreach (Control aa in c.Controls)
                                 if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                                     aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                                 {
-                                    aa.ForeColor = Color.White;
-                                    aa.BackColor = Color.Transparent;
+                                    aa.ForeColor = light_white;
+                                    aa.BackColor = light_transparent;
                                 }
                                 else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox) ||
                                          aa.GetType() == typeof(MaskedTextBox))
                                 {
-                                    aa.BackColor = Color.FromArgb(75, 75, 75);
-                                    aa.ForeColor = Color.White;
+                                    aa.BackColor = dark_grey2;
+                                    aa.ForeColor = light_white;
                                 }
                                 else if (aa.GetType() == typeof(BCDateTimePicker))
                                 {
                                     var dd = aa as BCDateTimePicker;
-                                    dd.BackColor = Color.FromArgb(75, 75, 75);
-                                    dd.ForeColor = Color.White;
+                                    dd.BackColor = dark_grey2;
+                                    dd.ForeColor = light_white;
                                 }
                                 else if (aa.GetType() == typeof(DataGridView))
                                 {
@@ -1537,47 +1330,47 @@ namespace MyWorkApplication.Classes
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                                             MP_dataGridView.DefaultCellStyle.BackColor =
                                                 MP_dataGridView.RowsDefaultCellStyle.BackColor =
-                                                    Color.FromArgb(75, 75, 75);
+                                                    dark_grey2;
 
                                     MP_dataGridView.ForeColor =
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                                             MP_dataGridView.DefaultCellStyle.ForeColor =
-                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor = Color.White;
+                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor = light_white;
 
-                                    MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
+                                    MP_dataGridView.GridColor = light_grey2;
 
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
-                                                Color.FromArgb(96, 96, 96);
+                                                light_grey3;
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
-                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = light_white;
 
 
                                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                                     {
                                         MP_dataGridView.Columns[i].HeaderCell.Style.BackColor =
-                                            Color.FromArgb(75, 75, 75);
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.White;
+                                            dark_grey2;
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_white;
                                         for (var j = 0; j < MP_dataGridView.Rows.Count; j++)
                                         {
                                             MP_dataGridView.Rows[j].Cells[i].Style.BackColor =
-                                                Color.FromArgb(75, 75, 75);
-                                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = Color.White;
+                                                dark_grey2;
+                                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = light_white;
                                         }
                                     }
                                 }
                                 else if (aa.GetType() == typeof(TableLayoutPanel)) // inner table
                                 {
-                                    aa.BackColor = Color.FromArgb(96, 96, 96);
-                                    aa.ForeColor = Color.White;
+                                    aa.BackColor = light_grey3;
+                                    aa.ForeColor = light_white;
                                     foreach (Control bb in aa.Controls)
                                     {
                                         if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
                                             bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
                                         {
-                                            bb.ForeColor = Color.White;
+                                            bb.ForeColor = light_white;
                                             if (bb.Name.Contains("Add") || bb.Name.Contains("Save"))
                                                 bb.BackgroundImage = Resources.Save2_L;
                                             else if (bb.Name.Contains("Delete"))
@@ -1590,45 +1383,44 @@ namespace MyWorkApplication.Classes
 
             form.Refresh();
         }
-
         public void Loan_ToLight(Form form)
         {
-            form.BackColor = Color.FromArgb(240, 240, 240);
-            form.ForeColor = Color.Black;
+            form.BackColor = light_grey1;
+            form.ForeColor = light_grey4;
             foreach (Control f in form.Controls)
                 if (f.GetType() == typeof(Panel)) /// main panel
                 {
-                    f.BackColor = Color.FromArgb(240, 240, 240);
-                    f.ForeColor = Color.Black;
+                    f.BackColor = light_grey1;
+                    f.ForeColor = light_grey4;
                     foreach (Control c in f.Controls)
                         if (c.GetType() == typeof(TableLayoutPanel)) /// main table
                         {
-                            c.BackColor = Color.FromArgb(240, 240, 240);
-                            c.ForeColor = Color.Black;
+                            c.BackColor = light_grey1;
+                            c.ForeColor = light_grey4;
 
                             foreach (Control aa in c.Controls)
                                 if (aa.GetType() == typeof(Label) || 
                                     aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                                 {
-                                    aa.ForeColor = Color.Black;
-                                    aa.BackColor = Color.Transparent;
+                                    aa.ForeColor = light_grey4;
+                                    aa.BackColor = light_transparent;
                                 }
                             else if(aa.GetType() == typeof(Button))
                                 {
-                                    aa.ForeColor = Color.White;
-                                    aa.BackColor = Color.Transparent;
+                                    aa.ForeColor = light_white;
+                                    aa.BackColor = light_transparent;
                                 }
                                 else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox) ||
                                          aa.GetType() == typeof(MaskedTextBox))
                                 {
-                                    aa.BackColor = Color.White;
-                                    aa.ForeColor = Color.Black;
+                                    aa.BackColor = light_white;
+                                    aa.ForeColor = light_grey4;
                                 }
                                 else if (aa.GetType() == typeof(BCDateTimePicker))
                                 {
                                     var dd = aa as BCDateTimePicker;
-                                    dd.BackColor = Color.White;
-                                    dd.ForeColor = Color.Black;
+                                    dd.BackColor = light_white;
+                                    dd.ForeColor = light_grey4;
                                 }
                                 else if (aa.GetType() == typeof(DataGridView))
                                 {
@@ -1636,44 +1428,44 @@ namespace MyWorkApplication.Classes
                                     MP_dataGridView.BackgroundColor =
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                                             MP_dataGridView.DefaultCellStyle.BackColor =
-                                                MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
+                                                MP_dataGridView.RowsDefaultCellStyle.BackColor = light_white;
 
                                     MP_dataGridView.ForeColor =
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                                             MP_dataGridView.DefaultCellStyle.ForeColor =
-                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor = Color.Black;
+                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor = light_grey4;
 
-                                    MP_dataGridView.GridColor = Color.FromArgb(96, 96, 96);
+                                    MP_dataGridView.GridColor = light_grey3;
 
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
-                                                Color.FromArgb(189, 189, 189);
+                                                light_grey2;
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
-                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = light_grey4;
 
 
                                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                                     {
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
                                         for (var j = 0; j < MP_dataGridView.Rows.Count; j++)
                                         {
-                                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor = Color.White;
-                                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = Color.Black;
+                                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor = light_white;
+                                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = light_grey4;
                                         }
                                     }
                                 }
                                 else if (aa.GetType() == typeof(TableLayoutPanel)) // inner table
                                 {
-                                    aa.BackColor = Color.FromArgb(240, 240, 240);
-                                    aa.ForeColor = Color.Black;
+                                    aa.BackColor = light_grey1;
+                                    aa.ForeColor = light_grey4;
                                     foreach (Control bb in aa.Controls)
                                         if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
                                             bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
                                         {
-                                            bb.ForeColor = Color.Black; 
+                                            bb.ForeColor = light_grey4; 
                                             if (bb.Name.Contains("Add") || bb.Name.Contains("Save"))
                                                 bb.BackgroundImage = Resources.Save2_D; 
                                             else if (bb.Name.Contains("Delete"))
@@ -1688,19 +1480,19 @@ namespace MyWorkApplication.Classes
 
         public void Tasks_ToNight(Form form)
         {
-            form.BackColor = Color.FromArgb(96, 96, 96);
-            form.ForeColor = Color.White;
+            form.BackColor = light_grey3;
+            form.ForeColor = light_white;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(TableLayoutPanel))
                 {
-                    c.BackColor = Color.FromArgb(96, 96, 96);
-                    c.ForeColor = Color.White;
+                    c.BackColor = light_grey3;
+                    c.ForeColor = light_white;
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.White;
-                            aa.BackColor = Color.Transparent;
+                            aa.ForeColor = light_white;
+                            aa.BackColor = light_transparent;
 
                             if (aa.Name == "Refresh_button")
                                 aa.BackgroundImage = Resources.Refresh2_L;
@@ -1709,34 +1501,34 @@ namespace MyWorkApplication.Classes
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.FromArgb(75, 75, 75);
-                            aa.ForeColor = Color.White;
+                            aa.BackColor = dark_grey2;
+                            aa.ForeColor = light_white;
                         }
                 }
                 else if (c.GetType() == typeof(Panel))
                 {
-                    c.BackColor = Color.FromArgb(96, 96, 96);
-                    c.ForeColor = Color.White;
+                    c.BackColor = light_grey3;
+                    c.ForeColor = light_white;
 
                     foreach (Control bb in c.Controls)
                         if (bb.GetType() == typeof(TableLayoutPanel)) /// combo
                         {
                             if (bb.Name.Contains("Filter"))
-                                bb.BackColor = Color.FromArgb(75, 75, 75);
+                                bb.BackColor = dark_grey2;
                             else
-                                bb.BackColor = Color.FromArgb(96, 96, 96);
-                            bb.ForeColor = Color.White;
+                                bb.BackColor = light_grey3;
+                            bb.ForeColor = light_white;
 
                             foreach (Control aa in bb.Controls)
                                 if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                                 {
-                                    aa.BackColor = Color.FromArgb(75, 75, 75);
-                                    aa.ForeColor = Color.White;
+                                    aa.BackColor = dark_grey2;
+                                    aa.ForeColor = light_white;
                                     if (aa.Name.Contains("Filter"))
-                                        aa.BackColor = Color.FromArgb(75, 75, 75);
+                                        aa.BackColor = dark_grey2;
                                     else
-                                        aa.BackColor = Color.FromArgb(96, 96, 96);
-                                    aa.ForeColor = Color.White;
+                                        aa.BackColor = light_grey3;
+                                    aa.ForeColor = light_white;
                                 }
                                 else if (aa.GetType() == typeof(DataGridView))
                                 {
@@ -1745,58 +1537,57 @@ namespace MyWorkApplication.Classes
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                                             MP_dataGridView.DefaultCellStyle.BackColor =
                                                 MP_dataGridView.RowsDefaultCellStyle.BackColor =
-                                                    Color.FromArgb(75, 75, 75);
+                                                    dark_grey2;
                                     MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor =
-                                        Color.FromArgb(96, 96, 96);
+                                        light_grey3;
 
                                     MP_dataGridView.ForeColor =
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                                             MP_dataGridView.DefaultCellStyle.ForeColor =
                                                 MP_dataGridView.RowsDefaultCellStyle.ForeColor =
                                                     MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor =
-                                                        Color.FromArgb(189, 189, 189);
+                                                        light_grey2;
 
-                                    MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
+                                    MP_dataGridView.GridColor = light_grey2;
 
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                                    Color.FromArgb(56, 56, 56);
+                                                    dark_grey3;
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
                                             = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
                                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor =
-                                                    Color.FromArgb(189, 189, 189);
+                                                    light_grey2;
 
                                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                                     {
                                         MP_dataGridView.Columns[i].HeaderCell.Style.BackColor =
-                                            Color.FromArgb(75, 75, 75);
+                                            dark_grey2;
                                         MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor =
-                                            Color.FromArgb(189, 189, 189);
+                                            light_grey2;
                                     }
                                 }
                         }
                 }
         }
-
         public void Tasks_ToLight(Form form)
         {
-            form.BackColor = Color.FromArgb(240, 240, 240);
-            form.ForeColor = Color.Black;
+            form.BackColor = light_grey1;
+            form.ForeColor = light_grey4;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(TableLayoutPanel))
                 {
-                    c.BackColor = Color.FromArgb(240, 240, 240);
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_grey1;
+                    c.ForeColor = light_grey4;
 
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.Black;
-                            aa.BackColor = Color.Transparent;
+                            aa.ForeColor = light_grey4;
+                            aa.BackColor = light_transparent;
 
                             if (aa.Name == "Refresh_button")
                                 aa.BackgroundImage = Resources.Refresh2_D;
@@ -1805,27 +1596,27 @@ namespace MyWorkApplication.Classes
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.White;
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_white;
+                            aa.ForeColor = light_grey4;
                         }
                 }
                 else if (c.GetType() == typeof(Panel))
                 {
                     // grid panel & filters panel
-                    c.BackColor = Color.FromArgb(240, 240, 240);
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_grey1;
+                    c.ForeColor = light_grey4;
 
                     foreach (Control bb in c.Controls)
                         if (bb.GetType() == typeof(TableLayoutPanel)) /// for combo
                         {
-                            bb.BackColor = Color.FromArgb(240, 240, 240);
-                            bb.ForeColor = Color.Black;
+                            bb.BackColor = light_grey1;
+                            bb.ForeColor = light_grey4;
 
                             foreach (Control aa in bb.Controls)
                                 if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                                 {
-                                    aa.BackColor = Color.White;
-                                    aa.ForeColor = Color.Black;
+                                    aa.BackColor = light_white;
+                                    aa.ForeColor = light_grey4;
                                 }
                                 else if (aa.GetType() == typeof(DataGridView))
                                 {
@@ -1833,34 +1624,34 @@ namespace MyWorkApplication.Classes
                                     MP_dataGridView.BackgroundColor =
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                                             MP_dataGridView.DefaultCellStyle.BackColor =
-                                                MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
+                                                MP_dataGridView.RowsDefaultCellStyle.BackColor = light_white;
                                     MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor =
-                                        Color.FromArgb(217, 216, 214);
+                                        light_grey11;
 
                                     MP_dataGridView.ForeColor =
                                         MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                                             MP_dataGridView.DefaultCellStyle.ForeColor =
                                                 MP_dataGridView.RowsDefaultCellStyle.ForeColor =
                                                     MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor =
-                                                        Color.Black;
+                                                        light_grey4;
 
-                                    MP_dataGridView.GridColor = Color.FromArgb(96, 96, 96);
+                                    MP_dataGridView.GridColor = light_grey3;
 
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                                    Color.FromArgb(189, 189, 189);
+                                                    light_grey2;
                                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
                                             = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
                                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor =
-                                                    Color.Black;
+                                                    light_grey4;
 
                                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                                     {
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
                                     }
                                 }
                         }
@@ -1869,20 +1660,20 @@ namespace MyWorkApplication.Classes
 
         public void Search_ToNight(Form form, bool Show)
         {
-            form.BackColor = Color.FromArgb(96, 96, 96);
-            form.ForeColor = Color.FromArgb(189, 189, 189);
+            form.BackColor = light_grey3;
+            form.ForeColor = light_grey2;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(TableLayoutPanel)) /// main table
                 {
-                    c.BackColor = Color.FromArgb(96, 96, 96);
-                    c.ForeColor = Color.FromArgb(189, 189, 189);
+                    c.BackColor = light_grey3;
+                    c.ForeColor = light_grey2;
 
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.White;
-                            //   aa.BackColor = Color.Transparent;
+                            aa.ForeColor = light_white;
+                            //   aa.BackColor = light_transparent;
 
                             if (aa.Name == "Delete_button")
                                 aa.BackgroundImage = Resources.Trash_L;
@@ -1891,20 +1682,20 @@ namespace MyWorkApplication.Classes
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.FromArgb(75, 75, 75);
-                            aa.ForeColor = Color.FromArgb(189, 189, 189);
+                            aa.BackColor = dark_grey2;
+                            aa.ForeColor = light_grey2;
                         }
                 }
                 else if (c.GetType() == typeof(Panel))
                 {
-                    c.BackColor = Color.FromArgb(96, 96, 96);
-                    c.ForeColor = Color.FromArgb(189, 189, 189);
+                    c.BackColor = light_grey3;
+                    c.ForeColor = light_grey2;
 
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.White;
+                            aa.ForeColor = light_white;
                             if (aa.Name == "ShowHide_button")
                             {
                                 if (Show)
@@ -1914,24 +1705,24 @@ namespace MyWorkApplication.Classes
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.FromArgb(75, 75, 75);
-                            aa.ForeColor = Color.FromArgb(189, 189, 189);
+                            aa.BackColor = dark_grey2;
+                            aa.ForeColor = light_grey2;
                         }
                         else if (aa.GetType() == typeof(TableLayoutPanel)) /// filter table
                         {
-                            aa.BackColor = Color.FromArgb(96, 96, 96);
-                            aa.ForeColor = Color.FromArgb(189, 189, 189);
+                            aa.BackColor = light_grey3;
+                            aa.ForeColor = light_grey2;
 
                             foreach (Control zz in aa.Controls)
                                 if (zz.GetType() == typeof(Label) || zz.GetType() == typeof(Button) ||
                                     zz.GetType() == typeof(CheckBox) || zz.GetType() == typeof(RadioButton))
                                 {
-                                    zz.ForeColor = Color.White;
+                                    zz.ForeColor = light_white;
                                 }
                                 else if (zz.GetType() == typeof(TextBox) || zz.GetType() == typeof(ComboBox))
                                 {
-                                    zz.BackColor = Color.FromArgb(75, 75, 75);
-                                    zz.ForeColor = Color.FromArgb(189, 189, 189);
+                                    zz.BackColor = dark_grey2;
+                                    zz.ForeColor = light_grey2;
                                 }
                                 else if (zz.GetType() == typeof(PresentationControls.CheckBoxComboBox)
                                             || zz.GetType() == typeof(PresentationControls.CheckBoxComboBoxItem)
@@ -1939,8 +1730,8 @@ namespace MyWorkApplication.Classes
                                             || zz.GetType() == typeof(PresentationControls.CheckBoxComboBoxListControl)
                                             || zz.GetType() == typeof(PresentationControls.CheckBoxComboBoxListControlContainer))
                                 {
-                                    zz.BackColor = Color.FromArgb(75, 75, 75);
-                                    zz.ForeColor = Color.FromArgb(189, 189, 189);
+                                    zz.BackColor = dark_grey2;
+                                    zz.ForeColor = light_grey2;
                                     zz.Font = new System.Drawing.Font("Rubik", 10F);
                                 }
                         }
@@ -1950,32 +1741,32 @@ namespace MyWorkApplication.Classes
                     var MP_dataGridView = c as DataGridView;
                     MP_dataGridView.BackgroundColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                         MP_dataGridView.DefaultCellStyle.BackColor =
-                            MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.FromArgb(75, 75, 75);
-                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(96, 96, 96);
+                            MP_dataGridView.RowsDefaultCellStyle.BackColor = dark_grey2;
+                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = light_grey3;
 
                     MP_dataGridView.ForeColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                         MP_dataGridView.DefaultCellStyle.ForeColor =
                             MP_dataGridView.RowsDefaultCellStyle.ForeColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor =
-                                    Color.FromArgb(189, 189, 189);
+                                    light_grey2;
 
-                    MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
+                    MP_dataGridView.GridColor = light_grey2;
 
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                    Color.FromArgb(56, 56, 56);
+                                    dark_grey3;
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor =
-                                    Color.FromArgb(189, 189, 189);
+                                    light_grey2;
 
                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                     {
-                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.FromArgb(75, 75, 75);
-                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.FromArgb(189, 189, 189);
+                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = dark_grey2;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey2;
                     }
                 }
                 else if (c.GetType() == typeof(AdvancedDataGridView))
@@ -1983,52 +1774,51 @@ namespace MyWorkApplication.Classes
                     var MP_dataGridView = c as AdvancedDataGridView;
                     MP_dataGridView.BackgroundColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                         MP_dataGridView.DefaultCellStyle.BackColor =
-                            MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.FromArgb(75, 75, 75);
-                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(96, 96, 96);
+                            MP_dataGridView.RowsDefaultCellStyle.BackColor = dark_grey2;
+                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = light_grey3;
 
                     MP_dataGridView.ForeColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                         MP_dataGridView.DefaultCellStyle.ForeColor =
                             MP_dataGridView.RowsDefaultCellStyle.ForeColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor =
-                                    Color.FromArgb(189, 189, 189);
+                                    light_grey2;
 
-                    MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
+                    MP_dataGridView.GridColor = light_grey2;
 
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                    Color.FromArgb(56, 56, 56);
+                                    dark_grey3;
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor =
-                                    Color.FromArgb(189, 189, 189);
+                                    light_grey2;
 
                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                     {
-                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.FromArgb(75, 75, 75);
-                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.FromArgb(189, 189, 189);
+                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = dark_grey2;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey2;
                     }
                 }
         }
-
         public void Search_ToLight(Form form, bool Show)
         {
-            form.BackColor = Color.FromArgb(240, 240, 240);
-            form.ForeColor = Color.Black;
+            form.BackColor = light_grey1;
+            form.ForeColor = light_grey4;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(TableLayoutPanel)) /// main table
                 {
-                    c.BackColor = Color.FromArgb(240, 240, 240);
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_grey1;
+                    c.ForeColor = light_grey4;
 
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.Black;
-                            //   aa.BackColor = Color.Transparent;
+                            aa.ForeColor = light_grey4;
+                            //   aa.BackColor = light_transparent;
 
                             if (aa.Name == "Delete_button")
                                 aa.BackgroundImage = Resources.Trash_D;
@@ -2037,20 +1827,20 @@ namespace MyWorkApplication.Classes
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.White;
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_white;
+                            aa.ForeColor = light_grey4;
                         }
                 }
                 else if (c.GetType() == typeof(Panel))
                 {
-                    c.BackColor = Color.FromArgb(240, 240, 240);
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_grey1;
+                    c.ForeColor = light_grey4;
 
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.Black;
+                            aa.ForeColor = light_grey4;
                             if (aa.Name == "ShowHide_button")
                             {
                                 if (Show)
@@ -2060,24 +1850,24 @@ namespace MyWorkApplication.Classes
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.White;
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_white;
+                            aa.ForeColor = light_grey4;
                         }
                         else if (aa.GetType() == typeof(TableLayoutPanel)) /// filter table
                         {
-                            aa.BackColor = Color.FromArgb(240, 240, 240);
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_grey1;
+                            aa.ForeColor = light_grey4;
 
                             foreach (Control zz in aa.Controls)
                                 if (zz.GetType() == typeof(Label) || zz.GetType() == typeof(Button) ||
                                     zz.GetType() == typeof(CheckBox) || zz.GetType() == typeof(RadioButton))
                                 {
-                                    zz.ForeColor = Color.Black;
+                                    zz.ForeColor = light_grey4;
                                 }
                                 else if (zz.GetType() == typeof(TextBox) || zz.GetType() == typeof(ComboBox))
                                 {
-                                    zz.BackColor = Color.White;
-                                    zz.ForeColor = Color.Black;
+                                    zz.BackColor = light_white;
+                                    zz.ForeColor = light_grey4;
                                 }
                                 else if (zz.GetType() == typeof(PresentationControls.CheckBoxComboBox)
                                             || zz.GetType() == typeof(PresentationControls.CheckBoxComboBoxItem)
@@ -2085,8 +1875,8 @@ namespace MyWorkApplication.Classes
                                             || zz.GetType() == typeof(PresentationControls.CheckBoxComboBoxListControl)
                                             || zz.GetType() == typeof(PresentationControls.CheckBoxComboBoxListControlContainer))
                                 {
-                                    zz.BackColor = Color.White;
-                                    zz.ForeColor = Color.Black;
+                                    zz.BackColor = light_white;
+                                    zz.ForeColor = light_grey4;
                                     zz.Font = new System.Drawing.Font("Rubik", 10F);
                                 }
                         }
@@ -2096,30 +1886,30 @@ namespace MyWorkApplication.Classes
                     var MP_dataGridView = c as DataGridView;
                     MP_dataGridView.BackgroundColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                         MP_dataGridView.DefaultCellStyle.BackColor =
-                            MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
-                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+                            MP_dataGridView.RowsDefaultCellStyle.BackColor = light_white;
+                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = light_grey1;
 
                     MP_dataGridView.ForeColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                         MP_dataGridView.DefaultCellStyle.ForeColor =
                             MP_dataGridView.RowsDefaultCellStyle.ForeColor =
-                                MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+                                MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor = light_grey4;
 
-                    MP_dataGridView.GridColor = Color.FromArgb(96, 96, 96);
+                    MP_dataGridView.GridColor = light_grey3;
 
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                    Color.FromArgb(189, 189, 189);
+                                    light_grey2;
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
-                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor = light_grey4;
 
                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                     {
-                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
                     }
                 }
                 else if (c.GetType() == typeof(AdvancedDataGridView))
@@ -2127,69 +1917,69 @@ namespace MyWorkApplication.Classes
                     var MP_dataGridView = c as AdvancedDataGridView;
                     MP_dataGridView.BackgroundColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                         MP_dataGridView.DefaultCellStyle.BackColor =
-                            MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
-                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+                            MP_dataGridView.RowsDefaultCellStyle.BackColor = light_white;
+                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = light_grey1;
 
                     MP_dataGridView.ForeColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                         MP_dataGridView.DefaultCellStyle.ForeColor =
                             MP_dataGridView.RowsDefaultCellStyle.ForeColor =
-                                MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+                                MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor = light_grey4;
 
-                    MP_dataGridView.GridColor = Color.FromArgb(96, 96, 96);
+                    MP_dataGridView.GridColor = light_grey3;
 
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                    Color.FromArgb(189, 189, 189);
+                                    light_grey2;
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
-                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor = light_grey4;
 
                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                     {
-                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
                     }
                 }
         }
 
         public void Statistics_ToNight(Form form, bool Show)
         {
-            form.BackColor = Color.FromArgb(96, 96, 96);
-            form.ForeColor = Color.FromArgb(189, 189, 189);
+            form.BackColor = light_grey3;
+            form.ForeColor = light_grey2;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(TableLayoutPanel)) /// main table
                 {
-                    c.BackColor = Color.FromArgb(96, 96, 96);
-                    c.ForeColor = Color.FromArgb(189, 189, 189);
+                    c.BackColor = light_grey3;
+                    c.ForeColor = light_grey2;
 
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.White;
+                            aa.ForeColor = light_white;
 
                             if (aa.Name == "ExportToExcel_button")
                                 aa.BackgroundImage = Resources.Excel_L;
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.FromArgb(75, 75, 75);
-                            aa.ForeColor = Color.FromArgb(189, 189, 189);
+                            aa.BackColor = dark_grey2;
+                            aa.ForeColor = light_grey2;
                         }
                 }
                 else if (c.GetType() == typeof(Panel))
                 {
-                    c.BackColor = Color.FromArgb(96, 96, 96);
-                    c.ForeColor = Color.FromArgb(189, 189, 189);
+                    c.BackColor = light_grey3;
+                    c.ForeColor = light_grey2;
 
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.White;
+                            aa.ForeColor = light_white;
 
                             if (aa.Name == "AdvancedSearch_button")
                                 if (Show)
@@ -2198,24 +1988,24 @@ namespace MyWorkApplication.Classes
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.FromArgb(75, 75, 75);
-                            aa.ForeColor = Color.FromArgb(189, 189, 189);
+                            aa.BackColor = dark_grey2;
+                            aa.ForeColor = light_grey2;
                         }
                         else if (aa.GetType() == typeof(TableLayoutPanel)) /// filter table
                         {
-                            aa.BackColor = Color.FromArgb(96, 96, 96);
-                            aa.ForeColor = Color.FromArgb(189, 189, 189);
+                            aa.BackColor = light_grey3;
+                            aa.ForeColor = light_grey2;
 
                             foreach (Control bb in aa.Controls)
                                 if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
                                     bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
                                 {
-                                    bb.ForeColor = Color.White;
+                                    bb.ForeColor = light_white;
                                 }
                                 else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                 {
-                                    bb.BackColor = Color.FromArgb(75, 75, 75);
-                                    bb.ForeColor = Color.FromArgb(189, 189, 189);
+                                    bb.BackColor = dark_grey2;
+                                    bb.ForeColor = light_grey2;
                                 }
                                 else if (bb.GetType() == typeof(PresentationControls.CheckBoxComboBox)
                                     || bb.GetType() == typeof(PresentationControls.CheckBoxComboBoxItem)
@@ -2223,8 +2013,8 @@ namespace MyWorkApplication.Classes
                                     || bb.GetType() == typeof(PresentationControls.CheckBoxComboBoxListControl)
                                     || bb.GetType() == typeof(PresentationControls.CheckBoxComboBoxListControlContainer))
                                             {
-                                                bb.BackColor = Color.FromArgb(75, 75, 75);
-                                                bb.ForeColor = Color.FromArgb(189, 189, 189);
+                                                bb.BackColor = dark_grey2;
+                                                bb.ForeColor = light_grey2;
                                                 bb.Font = new System.Drawing.Font("Rubik", 10F);
                                 }
                         }
@@ -2232,82 +2022,81 @@ namespace MyWorkApplication.Classes
                 else if (c.GetType() == typeof(Chart))
                 {
                     var chart = c as Chart;
-                    chart.BackColor = Color.FromArgb(75, 75, 75);
-                    chart.ForeColor = Color.White;
+                    chart.BackColor = dark_grey2;
+                    chart.ForeColor = light_white;
 
                     for (int s = 0; s < chart.Series.Count; s++)
                     {
-                        if (s % 2 == 0) chart.Series[s].Color =Color.FromArgb(96, 96, 96); 
-                        else chart.Series[s].Color = Color.FromArgb(189, 189, 189);
-                        chart.Series[s].LabelForeColor = Color.FromArgb(189, 189, 189);
-                        chart.Series[s].ShadowColor = Color.FromArgb(189, 189, 189);
+                        if (s % 2 == 0) chart.Series[s].Color =light_grey3; 
+                        else chart.Series[s].Color = light_grey2;
+                        chart.Series[s].LabelForeColor = light_grey2;
+                        chart.Series[s].ShadowColor = light_grey2;
                         chart.Series[s].ShadowOffset = 2;
-                        chart.Series[s].BorderColor = Color.FromArgb(233, 233, 233);
+                        chart.Series[s].BorderColor = dark_grey0;
                     }
 
                     foreach (var ca in chart.ChartAreas)
                     {
-                        ca.BackColor = Color.FromArgb(75, 75, 75);
+                        ca.BackColor = dark_grey2;
                         ca.BackHatchStyle = ChartHatchStyle.None;
-                        ca.BorderColor = Color.FromArgb(189, 189, 189);
+                        ca.BorderColor = light_grey2;
 
-                        ca.AxisX.InterlacedColor = Color.FromArgb(96, 96, 96);
-                        ca.AxisX.LineColor = Color.FromArgb(189, 189, 189);
-                        ca.AxisX.TitleForeColor = Color.FromArgb(189, 189, 189);
-                        ca.AxisX.LabelStyle.ForeColor = Color.FromArgb(189, 189, 189);
-                        ca.AxisX.MajorGrid.LineColor = Color.FromArgb(96, 96, 96);
-                        ca.AxisX.MinorGrid.LineColor = Color.FromArgb(96, 96, 96);
+                        ca.AxisX.InterlacedColor = light_grey3;
+                        ca.AxisX.LineColor = light_grey2;
+                        ca.AxisX.TitleForeColor = light_grey2;
+                        ca.AxisX.LabelStyle.ForeColor = light_grey2;
+                        ca.AxisX.MajorGrid.LineColor = light_grey3;
+                        ca.AxisX.MinorGrid.LineColor = light_grey3;
 
-                        ca.AxisY.InterlacedColor = Color.FromArgb(96, 96, 96);
-                        ca.AxisY.LineColor = Color.FromArgb(189, 189, 189);
-                        ca.AxisY.TitleForeColor = Color.FromArgb(189, 189, 189);
-                        ca.AxisY.LabelStyle.ForeColor = Color.FromArgb(189, 189, 189);
-                        ca.AxisY.MajorGrid.LineColor = Color.FromArgb(96, 96, 96);
-                        ca.AxisY.MinorGrid.LineColor = Color.FromArgb(96, 96, 96);
+                        ca.AxisY.InterlacedColor = light_grey3;
+                        ca.AxisY.LineColor = light_grey2;
+                        ca.AxisY.TitleForeColor = light_grey2;
+                        ca.AxisY.LabelStyle.ForeColor = light_grey2;
+                        ca.AxisY.MajorGrid.LineColor = light_grey3;
+                        ca.AxisY.MinorGrid.LineColor = light_grey3;
                     }
 
                     foreach (var l in chart.Legends)
                     {
-                        l.BackColor = Color.FromArgb(75, 75, 75);
-                        l.ForeColor = Color.White;
+                        l.BackColor = dark_grey2;
+                        l.ForeColor = light_white;
                     }
                 }
         }
-
         public void Statistics_ToLight(Form form, bool Show)
         {
-            form.BackColor = Color.FromArgb(240, 240, 240);
-            form.ForeColor = Color.Black;
+            form.BackColor = light_grey1;
+            form.ForeColor = light_grey4;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(TableLayoutPanel)) /// main table
                 {
-                    c.BackColor = Color.FromArgb(240, 240, 240);
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_grey1;
+                    c.ForeColor = light_grey4;
 
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.Black;
+                            aa.ForeColor = light_grey4;
                             if (aa.Name == "ExportToExcel_button")
                                 aa.BackgroundImage = Resources.Excel_D;
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.White;
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_white;
+                            aa.ForeColor = light_grey4;
                         }
                 }
                 else if (c.GetType() == typeof(Panel))
                 {
-                    c.BackColor = Color.FromArgb(240, 240, 240);
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_grey1;
+                    c.ForeColor = light_grey4;
 
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.Black;
+                            aa.ForeColor = light_grey4;
                             if (aa.Name == "AdvancedSearch_button")
                                 if (Show)
                                     aa.BackgroundImage = Resources.Show2_D;
@@ -2315,24 +2104,24 @@ namespace MyWorkApplication.Classes
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.White;
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_white;
+                            aa.ForeColor = light_grey4;
                         }
                         else if (aa.GetType() == typeof(TableLayoutPanel)) /// filter table
                         {
-                            aa.BackColor = Color.FromArgb(240, 240, 240);
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_grey1;
+                            aa.ForeColor = light_grey4;
 
                             foreach (Control bb in aa.Controls)
                                 if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
                                     bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
                                 {
-                                    bb.ForeColor = Color.Black;
+                                    bb.ForeColor = light_grey4;
                                 }
                                 else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                 {
-                                    bb.BackColor = Color.White;
-                                    bb.ForeColor = Color.Black;
+                                    bb.BackColor = light_white;
+                                    bb.ForeColor = light_grey4;
                                 }
                                 else if (bb.GetType() == typeof(PresentationControls.CheckBoxComboBox)
                                         || bb.GetType() == typeof(PresentationControls.CheckBoxComboBoxItem)
@@ -2340,8 +2129,8 @@ namespace MyWorkApplication.Classes
                                         || bb.GetType() == typeof(PresentationControls.CheckBoxComboBoxListControl)
                                         || bb.GetType() == typeof(PresentationControls.CheckBoxComboBoxListControlContainer))
                                 {
-                                    bb.BackColor = Color.White;
-                                    bb.ForeColor = Color.Black;
+                                    bb.BackColor = light_white;
+                                    bb.ForeColor = light_grey4;
                                     bb.Font = new System.Drawing.Font("Rubik", 10F);
                                 }
                         }
@@ -2349,18 +2138,18 @@ namespace MyWorkApplication.Classes
                 else if (c.GetType() == typeof(Chart))
                 {
                     var chart = c as Chart;
-                    chart.BackColor = Color.White;
-                    chart.ForeColor = Color.Black;
+                    chart.BackColor = light_white;
+                    chart.ForeColor = light_grey4;
 
                     for(int s = 0;s< chart.Series.Count; s++)
                     {
                         if (s%2==0) chart.Series[s].Color = Color.FromArgb(129, 20, 20); //زوجي
-                        else chart.Series[s].Color = Color.FromArgb(96, 96, 96); //فردي
+                        else chart.Series[s].Color = light_grey3; //فردي
 
-                        chart.Series[s].LabelForeColor = Color.Black;
-                        chart.Series[s].ShadowColor = Color.Black;
+                        chart.Series[s].LabelForeColor = light_grey4;
+                        chart.Series[s].ShadowColor = light_grey4;
                         chart.Series[s].ShadowOffset = 2;
-                        chart.Series[s].BorderColor = Color.FromArgb(75, 75, 75);
+                        chart.Series[s].BorderColor = dark_grey2;
 
                     }
 
@@ -2368,215 +2157,214 @@ namespace MyWorkApplication.Classes
                     {
                         ca.BackColor = Color.FromArgb(224, 224, 224);
                         ca.BackHatchStyle = ChartHatchStyle.None;
-                        ca.BorderColor = Color.FromArgb(75, 75, 75);
+                        ca.BorderColor = dark_grey2;
 
-                        ca.AxisX.InterlacedColor = Color.Black;
-                        ca.AxisX.LineColor = Color.Black;
-                        ca.AxisX.TitleForeColor = Color.Black;
-                        ca.AxisX.LabelStyle.ForeColor = Color.Black;
-                        ca.AxisX.MajorGrid.LineColor = Color.FromArgb(189, 189, 189);
-                        ca.AxisX.MinorGrid.LineColor = Color.FromArgb(96, 96, 96);
+                        ca.AxisX.InterlacedColor = light_grey4;
+                        ca.AxisX.LineColor = light_grey4;
+                        ca.AxisX.TitleForeColor = light_grey4;
+                        ca.AxisX.LabelStyle.ForeColor = light_grey4;
+                        ca.AxisX.MajorGrid.LineColor = light_grey2;
+                        ca.AxisX.MinorGrid.LineColor = light_grey3;
 
-                        ca.AxisY.InterlacedColor = Color.Black;
-                        ca.AxisY.LineColor = Color.Black;
-                        ca.AxisY.TitleForeColor = Color.Black;
-                        ca.AxisY.LabelStyle.ForeColor = Color.Black;
-                        ca.AxisY.MajorGrid.LineColor = Color.FromArgb(189, 189, 189);
-                        ca.AxisY.MinorGrid.LineColor = Color.FromArgb(96, 96, 96);
+                        ca.AxisY.InterlacedColor = light_grey4;
+                        ca.AxisY.LineColor = light_grey4;
+                        ca.AxisY.TitleForeColor = light_grey4;
+                        ca.AxisY.LabelStyle.ForeColor = light_grey4;
+                        ca.AxisY.MajorGrid.LineColor = light_grey2;
+                        ca.AxisY.MinorGrid.LineColor = light_grey3;
                     }
 
                     foreach (var l in chart.Legends)
                     {
-                        l.BackColor = Color.White;
-                        l.ForeColor = Color.Black;
+                        l.BackColor = light_white;
+                        l.ForeColor = light_grey4;
                     }
                 }
         }
 
         public void Timeline_ToNight(Form form)
         {
-            form.BackColor = Color.FromArgb(96, 96, 96);
-            form.ForeColor = Color.FromArgb(189, 189, 189);
+            form.BackColor = light_grey3;
+            form.ForeColor = light_grey2;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(TableLayoutPanel)) /// main table
                 {
-                    c.BackColor = Color.FromArgb(96, 96, 96);
-                    c.ForeColor = Color.FromArgb(189, 189, 189);
+                    c.BackColor = light_grey3;
+                    c.ForeColor = light_grey2;
 
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.White;
+                            aa.ForeColor = light_white;
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.FromArgb(75, 75, 75);
-                            aa.ForeColor = Color.FromArgb(189, 189, 189);
+                            aa.BackColor = dark_grey2;
+                            aa.ForeColor = light_grey2;
                         }
                         else if (aa.GetType() == typeof(DataGridView))
                         {
                             var MP_dataGridView = aa as DataGridView;
                             MP_dataGridView.BackgroundColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                                 MP_dataGridView.DefaultCellStyle.BackColor =
-                                    MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.FromArgb(75, 75, 75);
-                            MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(96, 96, 96);
+                                    MP_dataGridView.RowsDefaultCellStyle.BackColor = dark_grey2;
+                            MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = light_grey3;
 
                             MP_dataGridView.ForeColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                                 MP_dataGridView.DefaultCellStyle.ForeColor =
                                     MP_dataGridView.RowsDefaultCellStyle.ForeColor =
                                         MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor =
-                                            Color.FromArgb(189, 189, 189);
+                                            light_grey2;
 
-                            MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
+                            MP_dataGridView.GridColor = light_grey2;
 
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.DefaultCellStyle.SelectionBackColor
                                     = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                         MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                            Color.FromArgb(56, 56, 56);
+                                            dark_grey3;
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                                 MP_dataGridView.DefaultCellStyle.SelectionForeColor
                                     = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
                                         MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor =
-                                            Color.FromArgb(189, 189, 189);
+                                            light_grey2;
 
                             for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                             {
-                                MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.FromArgb(75, 75, 75);
-                                MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.FromArgb(189, 189, 189);
+                                MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = dark_grey2;
+                                MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey2;
                             }
                         }
                 }
                 else if (c.GetType() == typeof(Chart))
                 {
                     var chart = c as Chart;
-                    chart.BackColor = Color.FromArgb(75, 75, 75);
-                    chart.ForeColor = Color.White;
+                    chart.BackColor = dark_grey2;
+                    chart.ForeColor = light_white;
 
                     foreach (var s in chart.Series)
                     {
                         //if (s.Name != "6")
-                        s.Color = Color.FromArgb(189, 189, 189);
-                        //else s.Color = Color.FromArgb(96, 96, 96);
-                        s.LabelForeColor = Color.FromArgb(189, 189, 189);
+                        s.Color = light_grey2;
+                        //else s.Color = light_grey3;
+                        s.LabelForeColor = light_grey2;
                     }
 
-                    chart.Legends[0].BackColor = Color.FromArgb(75, 75, 75);
-                    chart.Legends[0].ForeColor = Color.White;
+                    chart.Legends[0].BackColor = dark_grey2;
+                    chart.Legends[0].ForeColor = light_white;
                 }
         }
-
         public void Timeline_ToLight(Form form)
         {
-            form.BackColor = Color.FromArgb(240, 240, 240);
-            form.ForeColor = Color.Black;
+            form.BackColor = light_grey1;
+            form.ForeColor = light_grey4;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(TableLayoutPanel)) /// main table
                 {
-                    c.BackColor = Color.FromArgb(240, 240, 240);
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_grey1;
+                    c.ForeColor = light_grey4;
 
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.Black;
+                            aa.ForeColor = light_grey4;
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.White;
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_white;
+                            aa.ForeColor = light_grey4;
                         }
                         else if (aa.GetType() == typeof(DataGridView))
                         {
                             var MP_dataGridView = aa as DataGridView;
                             MP_dataGridView.BackgroundColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                                 MP_dataGridView.DefaultCellStyle.BackColor =
-                                    MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
-                            MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+                                    MP_dataGridView.RowsDefaultCellStyle.BackColor = light_white;
+                            MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = light_grey1;
 
                             MP_dataGridView.ForeColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                                 MP_dataGridView.DefaultCellStyle.ForeColor =
                                     MP_dataGridView.RowsDefaultCellStyle.ForeColor =
-                                        MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+                                        MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor = light_grey4;
 
-                            MP_dataGridView.GridColor = Color.FromArgb(96, 96, 96);
+                            MP_dataGridView.GridColor = light_grey3;
 
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.DefaultCellStyle.SelectionBackColor
                                     = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                         MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                            Color.FromArgb(189, 189, 189);
+                                            light_grey2;
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                                 MP_dataGridView.DefaultCellStyle.SelectionForeColor
                                     = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
                                         MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor =
-                                            Color.Black;
+                                            light_grey4;
 
                             for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                             {
-                                MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-                                MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
+                                MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+                                MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
                             }
                         }
                 }
                 else if (c.GetType() == typeof(Chart))
                 {
                     var chart = c as Chart;
-                    chart.BackColor = Color.White;
-                    chart.ForeColor = Color.Black;
+                    chart.BackColor = light_white;
+                    chart.ForeColor = light_grey4;
 
                     foreach (var s in chart.Series)
                     {
-                        if (s.Name == "6") s.Color = Color.FromArgb(217, 216, 214);
+                        if (s.Name == "6") s.Color = light_grey11;
                         else s.Color = Color.FromArgb(129, 20, 20);
-                        s.LabelForeColor = Color.Black;
+                        s.LabelForeColor = light_grey4;
                     }
 
-                    chart.Legends[0].BackColor = Color.White;
-                    chart.Legends[0].ForeColor = Color.Black;
+                    chart.Legends[0].BackColor = light_white;
+                    chart.Legends[0].ForeColor = light_grey4;
                 }
         }
 
         public void AdminPanel_ToNight(Form form, bool Show)
         {
-            form.BackColor = Color.FromArgb(96, 96, 96);
-            form.ForeColor = Color.FromArgb(189, 189, 189);
+            form.BackColor = light_grey3;
+            form.ForeColor = light_grey2;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(Panel))
                 {
-                    c.BackColor = Color.FromArgb(96, 96, 96);
-                    c.ForeColor = Color.FromArgb(189, 189, 189);
+                    c.BackColor = light_grey3;
+                    c.ForeColor = light_grey2;
 
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.White;
-                            aa.BackColor = Color.Transparent;
+                            aa.ForeColor = light_white;
+                            aa.BackColor = light_transparent;
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.FromArgb(75, 75, 75);
-                            aa.ForeColor = Color.FromArgb(189, 189, 189);
+                            aa.BackColor = dark_grey2;
+                            aa.ForeColor = light_grey2;
                         }
                         else if (aa.GetType() == typeof(TableLayoutPanel)) /// filter table
                         {
-                            aa.BackColor = Color.FromArgb(96, 96, 96);
-                            aa.ForeColor = Color.White;
+                            aa.BackColor = light_grey3;
+                            aa.ForeColor = light_white;
 
                             foreach (Control bb in aa.Controls)
                                 if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(CheckBox) ||
                                     bb.GetType() == typeof(RadioButton))
                                 {
-                                    bb.ForeColor = Color.White;
-                                    bb.BackColor = Color.Transparent;
+                                    bb.ForeColor = light_white;
+                                    bb.BackColor = light_transparent;
                                 }
                                 else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                 {
-                                    bb.BackColor = Color.FromArgb(75, 75, 75);
-                                    bb.ForeColor = Color.FromArgb(189, 189, 189);
+                                    bb.BackColor = dark_grey2;
+                                    bb.ForeColor = light_grey2;
                                 }
                                 else if (bb.GetType() == typeof(PresentationControls.CheckBoxComboBox)
                                         || bb.GetType() == typeof(PresentationControls.CheckBoxComboBoxItem)
@@ -2584,8 +2372,8 @@ namespace MyWorkApplication.Classes
                                         || bb.GetType() == typeof(PresentationControls.CheckBoxComboBoxListControl)
                                         || bb.GetType() == typeof(PresentationControls.CheckBoxComboBoxListControlContainer))
                                 {
-                                    bb.BackColor = Color.FromArgb(75, 75, 75);
-                                    bb.ForeColor = Color.FromArgb(189, 189, 189);
+                                    bb.BackColor = dark_grey2;
+                                    bb.ForeColor = light_grey2;
                                     bb.Font = new System.Drawing.Font("Rubik", 10F);
                                 }
                         }
@@ -2593,47 +2381,47 @@ namespace MyWorkApplication.Classes
                         {
                             var MP_dataGridView = c as AdvancedDataGridView;
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
-                                MP_dataGridView.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(75, 75, 75);
+                                MP_dataGridView.RowHeadersDefaultCellStyle.BackColor = dark_grey2;
 
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
-                                MP_dataGridView.RowHeadersDefaultCellStyle.ForeColor = Color.FromArgb(189, 189, 189);
+                                MP_dataGridView.RowHeadersDefaultCellStyle.ForeColor = light_grey2;
 
-                            MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
+                            MP_dataGridView.GridColor = light_grey2;
 
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.DefaultCellStyle.SelectionBackColor
                                     = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                         MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                            Color.FromArgb(56, 56, 56);
+                                            dark_grey3;
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                                 MP_dataGridView.DefaultCellStyle.SelectionForeColor
                                     = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
                                         MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor =
-                                            Color.FromArgb(189, 189, 189);
+                                            light_grey2;
 
                             for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                             {
-                                MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.FromArgb(75, 75, 75);
-                                MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.FromArgb(189, 189, 189);
+                                MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = dark_grey2;
+                                MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey2;
                             }
                         }
                         else if (c.GetType() == typeof(TableLayoutPanel)) /// colors table
                         {
-                            c.BackColor = Color.FromArgb(96, 96, 96);
-                            c.ForeColor = Color.White;
+                            c.BackColor = light_grey3;
+                            c.ForeColor = light_white;
 
                             foreach (Control bb in c.Controls)
                             {
                                 if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(CheckBox) ||
                                     bb.GetType() == typeof(RadioButton))
                                 {
-                                    bb.ForeColor = Color.White;
-                                    bb.BackColor = Color.Transparent;
+                                    bb.ForeColor = light_white;
+                                    bb.BackColor = light_transparent;
                                 }
 
                                 if (bb.GetType() == typeof(Button))
                                 {
-                                    bb.ForeColor = Color.White;
+                                    bb.ForeColor = light_white;
                                     if (bb.Name == "Refresh_button")
                                     {
                                         bb.BackgroundImage = Resources.Refresh2_L;
@@ -2651,52 +2439,51 @@ namespace MyWorkApplication.Classes
                                 }
                                 else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                 {
-                                    bb.BackColor = Color.FromArgb(75, 75, 75);
-                                    bb.ForeColor = Color.FromArgb(189, 189, 189);
+                                    bb.BackColor = dark_grey2;
+                                    bb.ForeColor = light_grey2;
                                 }
                             }
                         }
                 }
         }
-
         public void AdminPanel_ToLight(Form form, bool Show)
         {
-            form.BackColor = Color.FromArgb(240, 240, 240);
-            form.ForeColor = Color.Black;
+            form.BackColor = light_grey1;
+            form.ForeColor = light_grey4;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(Panel))
                 {
-                    c.BackColor = Color.FromArgb(240, 240, 240);
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_grey1;
+                    c.ForeColor = light_grey4;
 
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.Black;
-                            aa.BackColor = Color.Transparent;
+                            aa.ForeColor = light_grey4;
+                            aa.BackColor = light_transparent;
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.White;
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_white;
+                            aa.ForeColor = light_grey4;
                         }
                         else if (aa.GetType() == typeof(TableLayoutPanel))
                         {
-                            aa.BackColor = Color.FromArgb(240, 240, 240);
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_grey1;
+                            aa.ForeColor = light_grey4;
 
                             foreach (Control bb in aa.Controls)
                                 if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(CheckBox) ||
                                     bb.GetType() == typeof(RadioButton))
                                 {
-                                    bb.ForeColor = Color.Black;
-                                    bb.BackColor = Color.Transparent;
+                                    bb.ForeColor = light_grey4;
+                                    bb.BackColor = light_transparent;
                                 }
                                 else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                 {
-                                    bb.BackColor = Color.White;
-                                    bb.ForeColor = Color.Black;
+                                    bb.BackColor = light_white;
+                                    bb.ForeColor = light_grey4;
                                 }
                                 else if (bb.GetType() == typeof(PresentationControls.CheckBoxComboBox)
                                                 || bb.GetType() == typeof(PresentationControls.CheckBoxComboBoxItem)
@@ -2704,8 +2491,8 @@ namespace MyWorkApplication.Classes
                                                 || bb.GetType() == typeof(PresentationControls.CheckBoxComboBoxListControl)
                                                 || bb.GetType() == typeof(PresentationControls.CheckBoxComboBoxListControlContainer))
                                 {
-                                    bb.BackColor = Color.White;
-                                    bb.ForeColor = Color.Black;
+                                    bb.BackColor = light_white;
+                                    bb.ForeColor = light_grey4;
                                     bb.Font = new System.Drawing.Font("Rubik", 10F);
                                 }
                         }
@@ -2714,43 +2501,43 @@ namespace MyWorkApplication.Classes
                 {
                     var MP_dataGridView = c as AdvancedDataGridView;
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
-                        MP_dataGridView.RowHeadersDefaultCellStyle.BackColor = Color.White;
+                        MP_dataGridView.RowHeadersDefaultCellStyle.BackColor = light_white;
 
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
-                        MP_dataGridView.RowHeadersDefaultCellStyle.ForeColor = Color.Black;
-                    MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
+                        MP_dataGridView.RowHeadersDefaultCellStyle.ForeColor = light_grey4;
+                    MP_dataGridView.GridColor = light_grey2;
 
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                    Color.FromArgb(217, 216, 214);
+                                    light_grey11;
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
-                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor = light_grey4;
 
                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                     {
-                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
                     }
                 }
                 else if (c.GetType() == typeof(TableLayoutPanel))
                 {
-                    c.BackColor = Color.FromArgb(240, 240, 240);
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_grey1;
+                    c.ForeColor = light_grey4;
 
                     foreach (Control bb in c.Controls)
                         if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(CheckBox) ||
                             bb.GetType() == typeof(RadioButton))
                         {
-                            bb.ForeColor = Color.Black;
-                            bb.BackColor = Color.Transparent;
+                            bb.ForeColor = light_grey4;
+                            bb.BackColor = light_transparent;
                         }
                         else if (bb.GetType() == typeof(Button))
                         {
-                            bb.ForeColor = Color.Black;
+                            bb.ForeColor = light_grey4;
                             if (bb.Name == "Refresh_button")
                                 bb.BackgroundImage = Resources.Refresh2_D;
                             else if (bb.Name == "ExportToExcel_button")
@@ -2764,126 +2551,125 @@ namespace MyWorkApplication.Classes
                         }
                         else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                         {
-                            bb.BackColor = Color.White;
-                            bb.ForeColor = Color.Black;
+                            bb.BackColor = light_white;
+                            bb.ForeColor = light_grey4;
                         }
                 }
         }
 
         public void NotificationBox_ToNight(Form form)
         {
-            form.BackColor = Color.FromArgb(96, 96, 96);
-            form.ForeColor = Color.White;
+            form.BackColor = light_grey3;
+            form.ForeColor = light_white;
             form.BackgroundImage = Resources.Back_600_D;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(Label) || c.GetType() == typeof(Button) || c.GetType() == typeof(CheckBox) ||
                     c.GetType() == typeof(RadioButton))
                 {
-                    c.ForeColor = Color.White;
+                    c.ForeColor = light_white;
                 }
                 else if (c.GetType() == typeof(TextBox) || c.GetType() == typeof(ComboBox))
                 {
-                    c.BackColor = Color.FromArgb(75, 75, 75);
-                    c.ForeColor = Color.White;
+                    c.BackColor = dark_grey2;
+                    c.ForeColor = light_white;
                 }
                 else if (c.GetType() == typeof(DataGridView))
                 {
                     var MP_dataGridView = c as DataGridView;
                     MP_dataGridView.BackgroundColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                         MP_dataGridView.DefaultCellStyle.BackColor =
-                            MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.FromArgb(75, 75, 75);
+                            MP_dataGridView.RowsDefaultCellStyle.BackColor = dark_grey2;
 
                     MP_dataGridView.ForeColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                         MP_dataGridView.DefaultCellStyle.ForeColor =
-                            MP_dataGridView.RowsDefaultCellStyle.ForeColor = Color.White;
+                            MP_dataGridView.RowsDefaultCellStyle.ForeColor = light_white;
 
-                    MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
+                    MP_dataGridView.GridColor = light_grey2;
 
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
-                            = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(96, 96, 96);
+                            = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor = light_grey3;
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
-                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = light_white;
 
 
                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                     {
-                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.FromArgb(75, 75, 75);
-                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.White;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = dark_grey2;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_white;
                         for (var j = 0; j < MP_dataGridView.Rows.Count; j++)
                         {
-                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor = Color.FromArgb(75, 75, 75);
-                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = Color.White;
+                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor = dark_grey2;
+                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = light_white;
                         }
                     }
                 }
         }
-
         public void NotificationBox_ToLight(Form form)
         {
-            form.BackColor = Color.FromArgb(240, 240, 240);
-            form.ForeColor = Color.Black;
+            form.BackColor = light_grey1;
+            form.ForeColor = light_grey4;
             form.BackgroundImage = Resources.Back_600;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(Label) || c.GetType() == typeof(Button) || c.GetType() == typeof(CheckBox) ||
                     c.GetType() == typeof(RadioButton))
                 {
-                    c.ForeColor = Color.Black;
-                    c.BackColor = Color.Transparent;
+                    c.ForeColor = light_grey4;
+                    c.BackColor = light_transparent;
 
                     if (c.Name == "Refresh_button")
                         c.BackgroundImage = Resources.Refresh2_D;
                 }
                 else if (c.GetType() == typeof(TextBox) || c.GetType() == typeof(ComboBox))
                 {
-                    c.BackColor = Color.White;
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_white;
+                    c.ForeColor = light_grey4;
                 }
                 else if (c.GetType() == typeof(DataGridView))
                 {
                     var MP_dataGridView = c as DataGridView;
                     MP_dataGridView.BackgroundColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                         MP_dataGridView.DefaultCellStyle.BackColor =
-                            MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
-                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(217, 216, 214);
+                            MP_dataGridView.RowsDefaultCellStyle.BackColor = light_white;
+                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = light_grey11;
 
                     MP_dataGridView.ForeColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                         MP_dataGridView.DefaultCellStyle.ForeColor =
                             MP_dataGridView.RowsDefaultCellStyle.ForeColor =
-                                MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+                                MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor = light_grey4;
 
-                    MP_dataGridView.GridColor = Color.FromArgb(96, 96, 96);
+                    MP_dataGridView.GridColor = light_grey3;
 
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                    Color.FromArgb(189, 189, 189);
+                                    light_grey2;
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
-                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor = light_grey4;
 
                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                     {
-                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
                     }
                 }
         }
 
         public void MessageBox_ToNight(Form form)
         {
-            form.BackColor = Color.FromArgb(96, 96, 96);
-            form.ForeColor = Color.White;
+            form.BackColor = light_grey3;
+            form.ForeColor = light_white;
             form.BackgroundImage = Resources.Back_700_D;
 
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(Label) || c.GetType() == typeof(Button) || c.GetType() == typeof(CheckBox) ||
                     c.GetType() == typeof(RadioButton))
                 {
-                    c.ForeColor = Color.White;
+                    c.ForeColor = light_white;
                     if (c.Name == "Close_button")
                         c.BackgroundImage = Resources.Exit_L;
                     else if (c.Name.Contains("_button"))
@@ -2891,39 +2677,38 @@ namespace MyWorkApplication.Classes
                 }
                 else if (c.GetType() == typeof(TextBox) || c.GetType() == typeof(ComboBox))
                 {
-                    c.BackColor = Color.FromArgb(75, 75, 75);
-                    c.ForeColor = Color.White;
+                    c.BackColor = dark_grey2;
+                    c.ForeColor = light_white;
                 }
                 else if (c.GetType() == typeof(TableLayoutPanel)) /// colors table
                 {
-                    c.BackColor = Color.FromArgb(96, 96, 96);
-                    c.ForeColor = Color.White;
+                    c.BackColor = light_grey3;
+                    c.ForeColor = light_white;
 
                     foreach (Control bb in c.Controls)
                         if (bb.GetType() == typeof(Label))
                         {
-                            bb.ForeColor = Color.White;
+                            bb.ForeColor = light_white;
                         }
                         else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(RichTextBox) ||
                                  bb.GetType() == typeof(ComboBox))
                         {
-                            bb.BackColor = Color.FromArgb(75, 75, 75);
-                            bb.ForeColor = Color.White;
+                            bb.BackColor = dark_grey2;
+                            bb.ForeColor = light_white;
                         }
                 }
         }
-
         public void MessageBox_ToLight(Form form)
         {
-            form.BackColor = Color.FromArgb(240, 240, 240);
-            form.ForeColor = Color.Black;
+            form.BackColor = light_grey1;
+            form.ForeColor = light_grey4;
             form.BackgroundImage = Resources.Back_700;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(Label) || c.GetType() == typeof(Button) || c.GetType() == typeof(CheckBox) ||
                     c.GetType() == typeof(RadioButton))
                 {
-                    c.ForeColor = Color.Black;
-                    c.BackColor = Color.Transparent;
+                    c.ForeColor = light_grey4;
+                    c.BackColor = light_transparent;
                     if (c.Name == "Close_button")
                         c.BackgroundImage = Resources.Exit_D;
                     else if (c.Name.Contains("_button"))
@@ -2931,34 +2716,34 @@ namespace MyWorkApplication.Classes
                 }
                 else if (c.GetType() == typeof(TableLayoutPanel))
                 {
-                    c.BackColor = Color.Transparent;
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_transparent;
+                    c.ForeColor = light_grey4;
 
                     foreach (Control bb in c.Controls)
                         if (bb.GetType() == typeof(Label))
                         {
-                            bb.ForeColor = Color.Black;
-                            bb.BackColor = Color.Transparent;
+                            bb.ForeColor = light_grey4;
+                            bb.BackColor = light_transparent;
                         }
                         else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(RichTextBox) ||
                                  bb.GetType() == typeof(ComboBox))
                         {
-                            bb.BackColor = Color.White;
-                            bb.ForeColor = Color.Black;
+                            bb.BackColor = light_white;
+                            bb.ForeColor = light_grey4;
                         }
                 }
         }
 
         public void ShowDetails_Form_ToNight(Form form)
         {
-            form.BackColor = Color.FromArgb(96, 96, 96);
-            form.ForeColor = Color.White;
+            form.BackColor = light_grey3;
+            form.ForeColor = light_white;
             form.BackgroundImage = Resources.Back_700_D;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(Label) || c.GetType() == typeof(Button) || c.GetType() == typeof(CheckBox) ||
                     c.GetType() == typeof(RadioButton))
                 {
-                    c.ForeColor = Color.White;
+                    c.ForeColor = light_white;
                 }
                 else if (c.GetType() == typeof(AdvancedDataGridView))
                 {
@@ -2967,67 +2752,67 @@ namespace MyWorkApplication.Classes
                         MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                             MP_dataGridView.DefaultCellStyle.BackColor =
                                 MP_dataGridView.RowsDefaultCellStyle.BackColor =
-                                    Color.FromArgb(75, 75, 75);
+                                    dark_grey2;
                     MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor =
-                        Color.FromArgb(96, 96, 96);
+                        light_grey3;
 
                     MP_dataGridView.ForeColor =
                         MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                             MP_dataGridView.DefaultCellStyle.ForeColor =
                                 MP_dataGridView.RowsDefaultCellStyle.ForeColor =
                                     MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor =
-                                        Color.FromArgb(189, 189, 189);
+                                        light_grey2;
 
-                    MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
+                    MP_dataGridView.GridColor = light_grey2;
 
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                    Color.FromArgb(56, 56, 56);
+                                    dark_grey3;
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor =
-                                    Color.FromArgb(189, 189, 189);
+                                    light_grey2;
 
                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                     {
                         MP_dataGridView.Columns[i].HeaderCell.Style.BackColor =
-                            Color.FromArgb(75, 75, 75);
+                            dark_grey2;
                         MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor =
-                            Color.FromArgb(189, 189, 189);
+                            light_grey2;
                     }
                 }
                 else if (c.GetType() == typeof(AdvancedDataGridViewSearchToolBar))
                 { 
-                    c.BackColor = Color.FromArgb(96, 96, 96);
-                    c.ForeColor = Color.White;
+                    c.BackColor = light_grey3;
+                    c.ForeColor = light_white;
 
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.White;
-                            aa.BackColor = Color.Transparent;
+                            aa.ForeColor = light_white;
+                            aa.BackColor = light_transparent;
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.FromArgb(75, 75, 75);
-                            aa.ForeColor = Color.White;
+                            aa.BackColor = dark_grey2;
+                            aa.ForeColor = light_white;
                         }
                 }
                 else if (c.GetType() == typeof(TableLayoutPanel)) /// main table
             {
-                c.BackColor = Color.FromArgb(96, 96, 96);
-                c.ForeColor = Color.FromArgb(189, 189, 189);
+                c.BackColor = light_grey3;
+                c.ForeColor = light_grey2;
 
                 foreach (Control aa in c.Controls)
                     if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                         aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                     {
-                        aa.ForeColor = Color.White;
-                        //   aa.BackColor = Color.Transparent;
+                        aa.ForeColor = light_white;
+                        //   aa.BackColor = light_transparent;
 
                         if (aa.Name == "Delete_button")
                             aa.BackgroundImage = Resources.Trash_L;
@@ -3036,22 +2821,21 @@ namespace MyWorkApplication.Classes
                     }
                     else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                     {
-                        aa.BackColor = Color.FromArgb(75, 75, 75);
-                        aa.ForeColor = Color.FromArgb(189, 189, 189);
+                        aa.BackColor = dark_grey2;
+                        aa.ForeColor = light_grey2;
                     }
             }
         }
-
         public void ShowDetails_Form_ToLight(Form form)
         {
-            form.BackColor = Color.FromArgb(240, 240, 240);
-            form.ForeColor = Color.Black;
+            form.BackColor = light_grey1;
+            form.ForeColor = light_grey4;
             form.BackgroundImage = Resources.Back_700;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(Label) || c.GetType() == typeof(Button) || c.GetType() == typeof(CheckBox) ||
                     c.GetType() == typeof(RadioButton))
                 {
-                    c.ForeColor = Color.Black;
+                    c.ForeColor = light_grey4;
                 }
                 else if (c.GetType() == typeof(AdvancedDataGridView))
                 {
@@ -3059,69 +2843,69 @@ namespace MyWorkApplication.Classes
                     MP_dataGridView.BackgroundColor =
                         MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                             MP_dataGridView.DefaultCellStyle.BackColor =
-                                MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
+                                MP_dataGridView.RowsDefaultCellStyle.BackColor = light_white;
                     MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor =
-                        Color.FromArgb(240, 240, 240);
+                        light_grey1;
 
                     MP_dataGridView.ForeColor =
                         MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                             MP_dataGridView.DefaultCellStyle.ForeColor =
                                 MP_dataGridView.RowsDefaultCellStyle.ForeColor =
                                     MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor =
-                                        Color.Black;
+                                        light_grey4;
 
-                    MP_dataGridView.GridColor = Color.FromArgb(96, 96, 96);
+                    MP_dataGridView.GridColor = light_grey3;
 
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                    Color.FromArgb(189, 189, 189);
+                                    light_grey2;
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor =
-                                    Color.Black;
+                                    light_grey4;
 
                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                     {
-                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
                     }
                 }
                 else if (c.GetType() == typeof(AdvancedDataGridViewSearchToolBar))
                 {
                     //var searchToolBar = c as AdvancedDataGridViewSearchToolBar;
-                    //searchToolBar.BackColor = Color.White;
-                    //searchToolBar.ForeColor = Color.Black;
+                    //searchToolBar.BackColor = light_white;
+                    //searchToolBar.ForeColor = light_grey4;
 
-                    c.BackColor = Color.FromArgb(240, 240, 240);
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_grey1;
+                    c.ForeColor = light_grey4;
 
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.Black;
-                            aa.BackColor = Color.Transparent;
+                            aa.ForeColor = light_grey4;
+                            aa.BackColor = light_transparent;
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.White;
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_white;
+                            aa.ForeColor = light_grey4;
                         }
                 }
                 else if (c.GetType() == typeof(TableLayoutPanel)) /// main table
             {
-                c.BackColor = Color.FromArgb(240, 240, 240);
-                c.ForeColor = Color.Black;
+                c.BackColor = light_grey1;
+                c.ForeColor = light_grey4;
 
                 foreach (Control aa in c.Controls)
                     if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                         aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                     {
-                        aa.ForeColor = Color.Black;
-                        //   aa.BackColor = Color.Transparent;
+                        aa.ForeColor = light_grey4;
+                        //   aa.BackColor = light_transparent;
 
                         if (aa.Name == "Delete_button")
                             aa.BackgroundImage = Resources.Trash_D;
@@ -3130,41 +2914,41 @@ namespace MyWorkApplication.Classes
                     }
                     else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                     {
-                        aa.BackColor = Color.White;
-                        aa.ForeColor = Color.Black;
+                        aa.BackColor = light_white;
+                        aa.ForeColor = light_grey4;
                     }
             }
         }
 
         public void Category_ToNight(Form form)
         {
-            form.BackColor = Color.FromArgb(96, 96, 96);
-            form.ForeColor = Color.White;
+            form.BackColor = light_grey3;
+            form.ForeColor = light_white;
             form.BackgroundImage = Resources.Background_Border_D;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(TableLayoutPanel)) /// header table
                 {
-                    c.BackColor = Color.Transparent;
-                    c.ForeColor = Color.White;
+                    c.BackColor = light_transparent;
+                    c.ForeColor = light_white;
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.White;
-                            aa.BackColor = Color.Transparent;
+                            aa.ForeColor = light_white;
+                            aa.BackColor = light_transparent;
                             if (aa.Name == "Close_button")
                                 aa.BackgroundImage = Resources.Exit_L;
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.FromArgb(75, 75, 75);
-                            aa.ForeColor = Color.White;
+                            aa.BackColor = dark_grey2;
+                            aa.ForeColor = light_white;
                         }
                 }
                 else if (c.GetType() == typeof(Label) || c.GetType() == typeof(Button) ||
                          c.GetType() == typeof(CheckBox) || c.GetType() == typeof(RadioButton))
                 {
-                    c.ForeColor = Color.White;
+                    c.ForeColor = light_white;
                     if (c.Name == "Save_button")
                         c.BackgroundImage = Resources.Save_CL;
                     else if (c.Name == "Delete_button")
@@ -3172,72 +2956,71 @@ namespace MyWorkApplication.Classes
                 }
                 else if (c.GetType() == typeof(TextBox) || c.GetType() == typeof(ComboBox))
                 {
-                    c.BackColor = Color.FromArgb(75, 75, 75);
-                    c.ForeColor = Color.White;
+                    c.BackColor = dark_grey2;
+                    c.ForeColor = light_white;
                 }
                 else if (c.GetType() == typeof(DataGridView))
                 {
                     var MP_dataGridView = c as DataGridView;
                     MP_dataGridView.BackgroundColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                         MP_dataGridView.DefaultCellStyle.BackColor =
-                            MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.FromArgb(75, 75, 75);
+                            MP_dataGridView.RowsDefaultCellStyle.BackColor = dark_grey2;
 
                     MP_dataGridView.ForeColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                         MP_dataGridView.DefaultCellStyle.ForeColor =
-                            MP_dataGridView.RowsDefaultCellStyle.ForeColor = Color.White;
+                            MP_dataGridView.RowsDefaultCellStyle.ForeColor = light_white;
 
-                    MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
+                    MP_dataGridView.GridColor = light_grey2;
 
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
-                            = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(96, 96, 96);
+                            = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor = light_grey3;
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
-                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = light_white;
 
                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                     {
-                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.FromArgb(75, 75, 75);
-                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.White;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = dark_grey2;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_white;
                         for (var j = 0; j < MP_dataGridView.Rows.Count; j++)
                         {
-                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor = Color.FromArgb(75, 75, 75);
-                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = Color.White;
+                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor = dark_grey2;
+                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = light_white;
                         }
                     }
                 }
         }
-
         public void Category_ToLight(Form form)
         {
-            form.BackColor = Color.FromArgb(240, 240, 240);
-            form.ForeColor = Color.Black;
+            form.BackColor = light_grey1;
+            form.ForeColor = light_grey4;
             form.BackgroundImage = Resources.Background_Border;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(TableLayoutPanel)) /// header table
                 {
-                    c.BackColor = Color.Transparent;
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_transparent;
+                    c.ForeColor = light_grey4;
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.Black;
-                            aa.BackColor = Color.Transparent;
+                            aa.ForeColor = light_grey4;
+                            aa.BackColor = light_transparent;
                             if (aa.Name == "Close_button")
                                 aa.BackgroundImage = Resources.Exit_D;
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.White;
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_white;
+                            aa.ForeColor = light_grey4;
                         }
                 }
                 else if (c.GetType() == typeof(Label) || c.GetType() == typeof(Button) ||
                          c.GetType() == typeof(CheckBox) || c.GetType() == typeof(RadioButton))
                 {
-                    c.ForeColor = Color.Black;
-                    c.BackColor = Color.Transparent;
+                    c.ForeColor = light_grey4;
+                    c.BackColor = light_transparent;
 
                     if (c.Name == "Save_button")
                         c.BackgroundImage = Resources.Save_CD;
@@ -3246,71 +3029,71 @@ namespace MyWorkApplication.Classes
                 }
                 else if (c.GetType() == typeof(TextBox) || c.GetType() == typeof(ComboBox))
                 {
-                    c.BackColor = Color.White;
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_white;
+                    c.ForeColor = light_grey4;
                 }
                 else if (c.GetType() == typeof(DataGridView))
                 {
                     var MP_dataGridView = c as DataGridView;
                     MP_dataGridView.BackgroundColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                         MP_dataGridView.DefaultCellStyle.BackColor =
-                            MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
-                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(217, 216, 214);
+                            MP_dataGridView.RowsDefaultCellStyle.BackColor = light_white;
+                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = light_grey11;
 
                     MP_dataGridView.ForeColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                         MP_dataGridView.DefaultCellStyle.ForeColor =
                             MP_dataGridView.RowsDefaultCellStyle.ForeColor =
-                                MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+                                MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor = light_grey4;
 
-                    MP_dataGridView.GridColor = Color.FromArgb(96, 96, 96);
+                    MP_dataGridView.GridColor = light_grey3;
 
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                    Color.FromArgb(189, 189, 189);
+                                    light_grey2;
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
-                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor = light_grey4;
 
                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                     {
-                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
                     }
                 }
         }
 
         public void About_ToNight(Form form)
         {
-            form.BackColor = Color.FromArgb(96, 96, 96);
-            form.ForeColor = Color.White;
+            form.BackColor = light_grey3;
+            form.ForeColor = light_white;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(Panel)) /// header table
                 {
-                    c.BackColor = Color.Transparent;
-                    c.ForeColor = Color.White;
+                    c.BackColor = light_transparent;
+                    c.ForeColor = light_white;
                     foreach (Control aa in c.Controls)
                     {
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(Panel))
                         {
-                            aa.ForeColor = Color.White;
-                            aa.BackColor = Color.Transparent;
+                            aa.ForeColor = light_white;
+                            aa.BackColor = light_transparent;
                             if (aa.Name == "Close_button")
                                 aa.BackgroundImage = Resources.Exit_L;
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.FromArgb(75, 75, 75);
-                            aa.ForeColor = Color.White;
+                            aa.BackColor = dark_grey2;
+                            aa.ForeColor = light_white;
                         }
 
                         if (aa.GetType() == typeof(TableLayoutPanel)) /// header table
                         {
-                            aa.BackColor = Color.Transparent;
-                            aa.ForeColor = Color.White;
+                            aa.BackColor = light_transparent;
+                            aa.ForeColor = light_white;
                             foreach (Control bb in aa.Controls)
                                 if (bb.GetType() == typeof(PictureBox))
                                     if (bb.Name == "Logo_Large_pictureBox")
@@ -3319,36 +3102,35 @@ namespace MyWorkApplication.Classes
                     }
                 }
         }
-
         public void About_ToLight(Form form)
         {
-            form.BackColor = Color.FromArgb(240, 240, 240);
-            form.ForeColor = Color.Black;
+            form.BackColor = light_grey1;
+            form.ForeColor = light_grey4;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(Panel)) /// header table
                 {
-                    c.BackColor = Color.Transparent;
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_transparent;
+                    c.ForeColor = light_grey4;
                     foreach (Control aa in c.Controls)
                     {
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(Panel))
                         {
-                            aa.ForeColor = Color.Black;
-                            aa.BackColor = Color.Transparent;
+                            aa.ForeColor = light_grey4;
+                            aa.BackColor = light_transparent;
                             if (aa.Name == "Close_button")
                                 aa.BackgroundImage = Resources.Exit_D;
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.White;
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_white;
+                            aa.ForeColor = light_grey4;
                         }
 
                         if (aa.GetType() == typeof(TableLayoutPanel)) /// header table
                         {
-                            aa.BackColor = Color.Transparent;
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_transparent;
+                            aa.ForeColor = light_grey4;
                             foreach (Control bb in aa.Controls)
                                 if (bb.GetType() == typeof(PictureBox))
                                     if (bb.Name == "Logo_Large_pictureBox")
@@ -3360,76 +3142,76 @@ namespace MyWorkApplication.Classes
 
         public void User_ToNight(Form form)
         {
-            form.BackColor = Color.FromArgb(96, 96, 96);
-            form.ForeColor = Color.White;
+            form.BackColor = light_grey3;
+            form.ForeColor = light_white;
 
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(TableLayoutPanel)) /// 3 Tables
                 {
-                    c.BackColor = Color.FromArgb(96, 96, 96);
-                    c.ForeColor = Color.White;
+                    c.BackColor = light_grey3;
+                    c.ForeColor = light_white;
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.White;
+                            aa.ForeColor = light_white;
                             if (aa.Name.Contains("Header"))
                             {
-                                aa.BackColor = Color.FromArgb(189, 189, 189);
-                                aa.ForeColor = Color.FromArgb(75, 75, 75);
+                                aa.BackColor = light_grey2;
+                                aa.ForeColor = dark_grey2;
                             }
                             else if (aa.Name.Contains("Save_button") || aa.Name.Contains("New_button"))
                             {
-                                aa.BackColor = Color.FromArgb(189, 189, 189);
-                                aa.ForeColor = Color.FromArgb(75, 75, 75);
+                                aa.BackColor = light_grey2;
+                                aa.ForeColor = dark_grey2;
                             }
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.FromArgb(75, 75, 75);
-                            aa.ForeColor = Color.White;
+                            aa.BackColor = dark_grey2;
+                            aa.ForeColor = light_white;
                         }
                         else if (aa.GetType() == typeof(DataGridView))
                         {
                             var MP_dataGridView = aa as DataGridView;
                             MP_dataGridView.BackgroundColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                                 MP_dataGridView.DefaultCellStyle.BackColor =
-                                    MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.FromArgb(75, 75, 75);
+                                    MP_dataGridView.RowsDefaultCellStyle.BackColor = dark_grey2;
                             MP_dataGridView.ForeColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                                 MP_dataGridView.DefaultCellStyle.ForeColor =
-                                    MP_dataGridView.RowsDefaultCellStyle.ForeColor = Color.White;
+                                    MP_dataGridView.RowsDefaultCellStyle.ForeColor = light_white;
 
-                            MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
+                            MP_dataGridView.GridColor = light_grey2;
 
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.DefaultCellStyle.SelectionBackColor
                                     = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
-                                        Color.FromArgb(96, 96, 96);
+                                        light_grey3;
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                                 MP_dataGridView.DefaultCellStyle.SelectionForeColor
-                                    = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+                                    = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = light_white;
 
 
                             for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                             {
-                                MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.FromArgb(75, 75, 75);
-                                MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.White;
+                                MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = dark_grey2;
+                                MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_white;
                                 for (var j = 0; j < MP_dataGridView.Rows.Count; j++)
                                 {
-                                    MP_dataGridView.Rows[j].Cells[i].Style.BackColor = Color.FromArgb(75, 75, 75);
-                                    MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = Color.White;
+                                    MP_dataGridView.Rows[j].Cells[i].Style.BackColor = dark_grey2;
+                                    MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = light_white;
                                 }
                             }
                         }
                         else if (aa.GetType() == typeof(TableLayoutPanel))
                         {
-                            aa.BackColor = Color.FromArgb(96, 96, 96);
-                            aa.ForeColor = Color.White;
+                            aa.BackColor = light_grey3;
+                            aa.ForeColor = light_white;
                             foreach (Control bb in aa.Controls)
                                 if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
                                     bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
                                 {
-                                    bb.ForeColor = Color.White;
+                                    bb.ForeColor = light_white;
                                     if (bb.Name == "AddImage_button")
                                         bb.BackgroundImage = Resources.Plus_Sq_L;
                                     else if (bb.Name == "DeleteImage_button")
@@ -3438,77 +3220,76 @@ namespace MyWorkApplication.Classes
                         }
                 }
         }
-
         public void User_ToLight(Form form)
         {
-            form.BackColor = Color.FromArgb(240, 240, 240);
-            form.ForeColor = Color.Black;
+            form.BackColor = light_grey1;
+            form.ForeColor = light_grey4;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(TableLayoutPanel)) /// 3 tables
                 {
-                    c.BackColor = Color.FromArgb(240, 240, 240);
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_grey1;
+                    c.ForeColor = light_grey4;
                     foreach (Control aa in c.Controls)
                         if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
                             aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
                         {
-                            aa.ForeColor = Color.Black;
+                            aa.ForeColor = light_grey4;
                             if (aa.Name.Contains("Header"))
                             {
-                                aa.BackColor = Color.Transparent;
+                                aa.BackColor = light_transparent;
                             }
                             else if (aa.Name.Contains("Save_button") || aa.Name.Contains("New_button"))
                             {
-                                aa.BackColor = Color.FromArgb(96, 96, 96);
-                                aa.ForeColor = Color.White;
+                                aa.BackColor = light_grey3;
+                                aa.ForeColor = light_white;
                             }
                         }
                         else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
                         {
-                            aa.BackColor = Color.White;
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_white;
+                            aa.ForeColor = light_grey4;
                         }
                         else if (aa.GetType() == typeof(DataGridView))
                         {
                             var MP_dataGridView = aa as DataGridView;
                             MP_dataGridView.BackgroundColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                                 MP_dataGridView.DefaultCellStyle.BackColor =
-                                    MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
+                                    MP_dataGridView.RowsDefaultCellStyle.BackColor = light_white;
 
                             MP_dataGridView.ForeColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                                 MP_dataGridView.DefaultCellStyle.ForeColor =
-                                    MP_dataGridView.RowsDefaultCellStyle.ForeColor = Color.Black;
+                                    MP_dataGridView.RowsDefaultCellStyle.ForeColor = light_grey4;
 
-                            MP_dataGridView.GridColor = Color.FromArgb(96, 96, 96);
+                            MP_dataGridView.GridColor = light_grey3;
 
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.DefaultCellStyle.SelectionBackColor
                                     = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
-                                        Color.FromArgb(189, 189, 189);
+                                        light_grey2;
                             MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                                 MP_dataGridView.DefaultCellStyle.SelectionForeColor
-                                    = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                                    = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = light_grey4;
 
                             for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                             {
-                                MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-                                MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
+                                MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+                                MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
                                 for (var j = 0; j < MP_dataGridView.Rows.Count; j++)
                                 {
-                                    MP_dataGridView.Rows[j].Cells[i].Style.BackColor = Color.White;
-                                    MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = Color.Black;
+                                    MP_dataGridView.Rows[j].Cells[i].Style.BackColor = light_white;
+                                    MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = light_grey4;
                                 }
                             }
                         }
                         else if (aa.GetType() == typeof(TableLayoutPanel))
                         {
-                            aa.BackColor = Color.FromArgb(240, 240, 240);
-                            aa.ForeColor = Color.Black;
+                            aa.BackColor = light_grey1;
+                            aa.ForeColor = light_grey4;
                             foreach (Control bb in aa.Controls)
                                 if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
                                     bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
                                 {
-                                    bb.ForeColor = Color.Black;
+                                    bb.ForeColor = light_grey4;
                                     if (bb.Name == "AddImage_button")
                                         bb.BackgroundImage = Resources.Plus_Sq_D;
                                     else if (bb.Name == "DeleteImage_button")
@@ -3516,8 +3297,8 @@ namespace MyWorkApplication.Classes
                                 }
                                 else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                 {
-                                    bb.BackColor = Color.White;
-                                    bb.ForeColor = Color.Black;
+                                    bb.BackColor = light_white;
+                                    bb.ForeColor = light_grey4;
                                 }
                         }
                 }
@@ -3525,56 +3306,56 @@ namespace MyWorkApplication.Classes
 
         public void ChooseVisit_ToNight(Form form)
         {
-            form.BackColor = Color.FromArgb(96, 96, 96);
-            form.ForeColor = Color.White;
+            form.BackColor = light_grey3;
+            form.ForeColor = light_white;
             form.BackgroundImage = Resources.Back_700_D;
             foreach (Control c in form.Controls)
                 //if (c.GetType() == typeof(TableLayoutPanel)) /// 
                 //{
-                //    c.BackColor = Color.Transparent;
-                //    c.ForeColor = Color.White;
+                //    c.BackColor = light_transparent;
+                //    c.ForeColor = light_white;
                 //    foreach (Control aa in c.Controls) 
                 //} 
                 if (c.GetType() == typeof(Label) ||
                             c.GetType() == typeof(CheckBox) || c.GetType() == typeof(RadioButton))
                 {
-                    c.ForeColor = Color.White;
-                    c.BackColor = Color.Transparent;
+                    c.ForeColor = light_white;
+                    c.BackColor = light_transparent;
 
                 }
                 else if (c.GetType() == typeof(TextBox) || c.GetType() == typeof(ComboBox))
                 {
-                    c.BackColor = Color.FromArgb(75, 75, 75);
-                    c.ForeColor = Color.White;
+                    c.BackColor = dark_grey2;
+                    c.ForeColor = light_white;
                 }
                 else if (c.GetType() == typeof(DataGridView))
                 {
                     var MP_dataGridView = c as DataGridView;
                     MP_dataGridView.BackgroundColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                         MP_dataGridView.DefaultCellStyle.BackColor =
-                            MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.FromArgb(75, 75, 75);
+                            MP_dataGridView.RowsDefaultCellStyle.BackColor = dark_grey2;
 
                     MP_dataGridView.ForeColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                         MP_dataGridView.DefaultCellStyle.ForeColor =
-                            MP_dataGridView.RowsDefaultCellStyle.ForeColor = Color.White;
+                            MP_dataGridView.RowsDefaultCellStyle.ForeColor = light_white;
 
-                    MP_dataGridView.GridColor = Color.FromArgb(189, 189, 189);
+                    MP_dataGridView.GridColor = light_grey2;
 
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
-                            = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(96, 96, 96);
+                            = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor = light_grey3;
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
-                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = light_white;
 
                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                     {
-                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.FromArgb(75, 75, 75);
-                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.White;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = dark_grey2;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_white;
                         for (var j = 0; j < MP_dataGridView.Rows.Count; j++)
                         {
-                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor = Color.FromArgb(75, 75, 75);
-                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = Color.White;
+                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor = dark_grey2;
+                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = light_white;
                         }
                     }
                 }
@@ -3586,49 +3367,49 @@ namespace MyWorkApplication.Classes
         }
         public void ChooseVisit_ToLight(Form form)
         {
-            form.BackColor = Color.FromArgb(240, 240, 240);
-            form.ForeColor = Color.Black;
+            form.BackColor = light_grey1;
+            form.ForeColor = light_grey4;
             form.BackgroundImage = Resources.Back_700;
             foreach (Control c in form.Controls)
                 if (c.GetType() == typeof(Label) ||  c.GetType() == typeof(CheckBox) || c.GetType() == typeof(RadioButton))
                 {
-                    c.ForeColor = Color.Black;
-                    c.BackColor = Color.Transparent;
+                    c.ForeColor = light_grey4;
+                    c.BackColor = light_transparent;
                 }
                 else if (c.GetType() == typeof(TextBox) || c.GetType() == typeof(ComboBox))
                 {
-                    c.BackColor = Color.White;
-                    c.ForeColor = Color.Black;
+                    c.BackColor = light_white;
+                    c.ForeColor = light_grey4;
                 }
                 else if (c.GetType() == typeof(DataGridView))
                 {
                     var MP_dataGridView = c as DataGridView;
                     MP_dataGridView.BackgroundColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
                         MP_dataGridView.DefaultCellStyle.BackColor =
-                            MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
-                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(217, 216, 214);
+                            MP_dataGridView.RowsDefaultCellStyle.BackColor = light_white;
+                    MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = light_grey11;
 
                     MP_dataGridView.ForeColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
                         MP_dataGridView.DefaultCellStyle.ForeColor =
                             MP_dataGridView.RowsDefaultCellStyle.ForeColor =
-                                MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+                                MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor = light_grey4;
 
-                    MP_dataGridView.GridColor = Color.FromArgb(96, 96, 96);
+                    MP_dataGridView.GridColor = light_grey3;
 
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
                         MP_dataGridView.DefaultCellStyle.SelectionBackColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
                                 MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-                                    Color.FromArgb(189, 189, 189);
+                                    light_grey2;
                     MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                         MP_dataGridView.DefaultCellStyle.SelectionForeColor
                             = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
-                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                                MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor = light_grey4;
 
                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                     {
-                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
                     }
                 }
                 else if (c.GetType() == typeof(Button))
@@ -3638,49 +3419,49 @@ namespace MyWorkApplication.Classes
                 }
             //if (c.GetType() == typeof(TableLayoutPanel)) /// table
             //{
-            //    c.BackColor = Color.Transparent;
-            //    c.ForeColor = Color.Black;
+            //    c.BackColor = light_transparent;
+            //    c.ForeColor = light_grey4;
             //    foreach (Control aa in c.Controls)
             //        if (aa.GetType() == typeof(Label) || 
             //            aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
             //        {
-            //            aa.ForeColor = Color.Black;
-            //            aa.BackColor = Color.Transparent;
+            //            aa.ForeColor = light_grey4;
+            //            aa.BackColor = light_transparent;
             //        }
             //        else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
             //        {
-            //            aa.BackColor = Color.White;
-            //            aa.ForeColor = Color.Black;
+            //            aa.BackColor = light_white;
+            //            aa.ForeColor = light_grey4;
             //        } 
             //        else if (aa.GetType() == typeof(DataGridView))
             //        {
             //            var MP_dataGridView = aa as DataGridView;
             //            MP_dataGridView.BackgroundColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
             //                MP_dataGridView.DefaultCellStyle.BackColor =
-            //                    MP_dataGridView.RowsDefaultCellStyle.BackColor = Color.White;
-            //            MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(217, 216, 214);
+            //                    MP_dataGridView.RowsDefaultCellStyle.BackColor = light_white;
+            //            MP_dataGridView.AlternatingRowsDefaultCellStyle.BackColor = light_grey11;
 
             //            MP_dataGridView.ForeColor = MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
             //                MP_dataGridView.DefaultCellStyle.ForeColor =
             //                    MP_dataGridView.RowsDefaultCellStyle.ForeColor =
-            //                        MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+            //                        MP_dataGridView.AlternatingRowsDefaultCellStyle.ForeColor = light_grey4;
 
-            //            MP_dataGridView.GridColor = Color.FromArgb(96, 96, 96);
+            //            MP_dataGridView.GridColor = light_grey3;
 
             //            MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
             //                MP_dataGridView.DefaultCellStyle.SelectionBackColor
             //                    = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
             //                        MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionBackColor =
-            //                            Color.FromArgb(189, 189, 189);
+            //                            light_grey2;
             //            MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
             //                MP_dataGridView.DefaultCellStyle.SelectionForeColor
             //                    = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor =
-            //                        MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.Black;
+            //                        MP_dataGridView.AlternatingRowsDefaultCellStyle.SelectionForeColor = light_grey4;
 
             //            for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
             //            {
-            //                MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = Color.White;
-            //                MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = Color.Black;
+            //                MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+            //                MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
             //            }
             //        } 
             //}

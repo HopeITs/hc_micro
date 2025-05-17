@@ -34,9 +34,10 @@ namespace MyWorkApplication.Classes
                 string OfflinePath = Program.OfflineRoot + $@"/{Name}";
                 string OnlinePath = Program.OnlineRoot + $@"/{Name}";
 
-                //Saving to offline Server
-                FtpConnector.WriteFile(OfflinePath, FullName, Program.OfflineserversCredentials);
-             
+                if (!Settings.Default.Online)
+                { //Saving to offline Server
+                    FtpConnector.WriteFile(OfflinePath, FullName, Program.OfflineserversCredentials);
+                }
                 //Saving to online Server 
                 FtpConnector.WriteFile(OnlinePath, FullName, Program.OnlineserversCredentials);
                 return true;

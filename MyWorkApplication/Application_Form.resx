@@ -244,20 +244,19 @@
   <data name="AddWork_button.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAF0AAABcCAYAAAAMLblmAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
-        IgAALiIBquLdkgAAAvhJREFUeF7t3N1N41AYhGFKoIQtgRIoAYkGKIESKGFLoARKoARK2BK2g+w3F5FQ
-        9iUc+3hsjj0Xz80k4PGnyHH8d3M6nWJlGIYXhuGFYXhhGF4YhheG4YVheGEYXhiGF4bhhWF4YRheGIYX
-        hkt5fHy8LfflZRDP5Z7WZUkY9qriD+W9nAb1t7yWX7R+vTCcSyXLyMMmL7SuPTCco8rdFX1CqPjo9EG6
-        pfWeA8OpqtCeB372Qes+B4ZTVBl9Wf75VG7PftMMpsJwChW5KLZ33Xs3GLaqAvripGJ79k6zmALDVlVA
-        +7VUbO+6diUxbFUL39vuYasnmkcrDFtBmaPo2nfHsBWUOYqu7TqGraDMUWToGzjc0D+KvsDPtvhhdpih
-        a9i4q1a5jmrS37gcZuhXd9Pq9beL9zsdZuhXf37X6zoJQX/nkKFLvZ6hG2ToAmWcMnSBMk4ZukAZpwxd
-        oIxThi5QxilDFyjjlKELlHHK0AXKTPX5wNV37qjDWb3+dPH+a3Qch/q0GnLoXx68WkstX9dYUrcWQw69
-        6xzjUqqHPvXU7ztDDv3q9nkt1WPu90CGPlf1yNDXVj0y9LVVj0MNffFrvueoHnPPrw45dK3sA/3PNdSy
-        daVxz4+pIYc+R36RCpRxytAFyjhl6AJlnDJ0gTJOGbpAGacMXaCMU4YuUMYpQxco45ShC5RxytAFyjhl
-        6AJlnJ6pw1m93nvec4rDDF3PHvjvNF9luoF4zU+5HGboP0mGvoEMfQMZ+gbeaB6tMGxVC9/7g3W+sult
-        6mve0faTdJ1qxLBVLVzXD1Kpvet6nheGrbTwcrRNzCvNYgoMp6gSa/8w2ZI+YN0XvmI4VRWZeyHmaBa5
-        8BXDqaqMNjNrHvvYQvdm5QzDOarUnge/yKMBzzDsUQX3tI23XImGYa8qqiN/el7jqA/J1HeU7cYFDJdU
-        5bXZ0a0mI7h6X9NSMAwvDMMLw/DCMLwwDC8MwwvD8MIwvDAMLwzDC8PwwjC8MAwvDMPpdPMPD7R4sCTe
-        JPAAAAAASUVORK5CYII=
+        IgAALiIBquLdkgAAAtlJREFUeF7t3OtN5EAQBGBCIIQLgRAuBKROgBAIgRAuBEIgBEIgBEK4DPbU0qyE
+        unp9zKM82FM/vj8llm2XLL/Xd5fL5U72BYHwQSB8EAgfBMIHgfBBIHwQCB8EwgeB8EEgfBAIHwTCB4Hw
+        QTCSmd2b2W8zezmIZ583LsdoEIxgZo9m9m5ml4P6a2avZvYrLtsIEPTwIQ9eduYlLmcvCFqZ2UNZQ+LQ
+        Z+Ar0n1c5lYQtDh54VcfcblbQVCr7Cw/kyHP6E9c/hYQ1PJBkuHOrPvoBoIaZccZhzq799hDLQhqlOPa
+        ONQKug4lIahxwsPD73qKXdSAoEYyzCq6jt0hqJEMs4qu7ToENZJhVqHSJ1iu9I+yA7+acWK2TOlednqo
+        Vq5qxr9nWqb0zcM0M3tLPsOyTOmbp9/lJkT8DItKL7OodAKV7pJhmFS6S4ZhUukuGYZJpbtkGCaV7pJh
+        mFS6S4ZhUukuGYZJpbtkmFpfL1z9z0P8/jDLU/KZW/w6TpylxiFLv3nxai/lGcs413cdsvTNi1d7KWt9
+        nO07Dln65vZ5Lx37AZXeSqVPoNInWK30rudGRum4v3rI0n1hH+P/20t50rh1LXeHLL3F5iaps8RaKr3M
+        otIJVLpLhmFS6S4Zhkmlu2QYJpXukmGYVLpLhmFS6S4Zhkmlu2QYJpXukmGYVLpLhmF6jt8fZum971lj
+        mdL93QNwm6/8gHjPtdwtU/pPotInUOkTqPQJ3mIXNSCoscCLdW7put0IQY2df9H2k3TdaoSgRnl+MA60
+        gq73eUFQo9zgXW0T8xp7qAVBrQknJjP5Ctb94CsELfwQKhnwjOCMuAUELcpmZs9rHzN0b1auIGh18uKH
+        vBrwCoJeJ9vGU55Eg2CEcuXP39fY+qzgbL6PGrL9zkAw2pfXeR/B5u+aRoFA+CAQPgiEDwLhg0D4IBA+
+        CIQPAuGDQPggED4IhA8C4YNA+CAQvn8PtHiwlTOWcQAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="WP_ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

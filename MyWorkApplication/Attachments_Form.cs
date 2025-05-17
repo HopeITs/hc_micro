@@ -83,9 +83,7 @@ namespace MyWorkApplication
                 img = new Images();
 
                 user_type_ids = LoadImageTypes();
-                // Find the "all" RadioButton by its Name
-                //RadioButton allRadioButton = this.ImageTypes_panel.Controls["All_radioButton"] as RadioButton;
-                //allRadioButton.Checked = true; 
+
 
                 var newTheme = new NewTheme();
                 if (Settings.Default.theme == "Dark")
@@ -118,7 +116,10 @@ namespace MyWorkApplication
                             MicroProject_ID = int.Parse(MySS.dt.Rows[0]["MicroProject_ID"].ToString());
                             Person_Name_textBox.Text = MySS.dt.Rows[0]["Beneficiary Name"].ToString();
 
-                            Image_bind(MicroProject_ID, user_type_ids);
+                            // Find the "all" RadioButton by its Name
+                            RadioButton allRadioButton = this.ImageTypes_panel.Controls["All_radioButton"] as RadioButton;
+                            allRadioButton.Checked = true;
+                            RadioButton_CheckedChanged(sender, e);
 
                             mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = true;
                             mainForm.MP_ID_label.Text = MicroProject_ID.ToString();
@@ -329,27 +330,16 @@ namespace MyWorkApplication
                 RadioButton allRadioButton = this.ImageTypes_panel.Controls["All_radioButton"] as RadioButton;
                 allRadioButton.Text = $"الكل ({images_ds.Tables[2].Rows[0][0].ToString()})";
 
-                //if (ImageName_comboBox.Items.Count == 0)
-                //{
-                //    imageFilePath = "";
-                //    Image_ID = -1;
-                //    pictureBox1.Image = null;
-                //    ImageName_comboBox.DataSource = null;
-                //    ImageName_comboBox.Text = "";
-                //}
-                //else
-                //{
-
-                user_mode = true;
+                ImagesCount_comboBox.Items.Clear();
                 if (ImageName_comboBox.Items.Count != 0)
-                { 
-                    ImagesCount_comboBox.Items.Clear();
+                {  
                     for (var i = 0; i < ImageName_comboBox.Items.Count; i++)
-                        ImagesCount_comboBox.Items.Add(i + 1); 
-
+                        ImagesCount_comboBox.Items.Add(i + 1);                    
+                    
                     ImagesCount_comboBox.SelectedIndex = 0;
                 }
 
+                user_mode = true; 
 
             }
             catch (Exception ex)
@@ -485,7 +475,7 @@ namespace MyWorkApplication
                         //pictureBox1.Image.Dispose();
                         pictureBox1.Image = null;
                         pictureBox1.ImageLocation = "";
-                        Image_bind(MicroProject_ID, user_type_ids);
+                        RadioButton_CheckedChanged(sender, e);
                     }
                 }
                 else
@@ -508,15 +498,6 @@ namespace MyWorkApplication
             }
         }
 
-        //public string Select_Image(int ID)
-        //{
-        //    Program.buildConnection(); 
-        //    string query = "select Image_NewPath from `image` where Image_ID = " + ID + " ";
-        //    MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-        //    string result = sc.ExecuteScalar().ToString();
-        //    Program.MyConn.Close();
-        //    return result;
-        //}
 
         private void CheckUserPermission()
         {
@@ -567,14 +548,19 @@ namespace MyWorkApplication
                     }
                 }
 
-                if (FullPicNames != null && FullPicNames.Length > 0)
-                    MessageBox.Show("تم حفظ المعلومات بنجاح" + Environment.NewLine + "المرفقات: نجح" + FullPicNames.Length.ToString() + "/" + success.ToString());
-                else MessageBox.Show("تعذّر الحفظ، الرجاء التأكد من اختيار صورة ثم المحاولة مرة ثانية");
+                if (success == 0 || success != FullPicNames.Length)
+                    MessageBox.Show("تعذّر حفظ  المرفقات: "
+                        + FullPicNames.Length.ToString() + "/" + success.ToString() + Environment.NewLine 
+                        + " الرجاء التأكد من اختيار صورة ثم المحاولة مرة ثانية", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("تم حفظ المعلومات بنجاح" 
+                    + Environment.NewLine + "المرفقات: نجح" 
+                    + FullPicNames.Length.ToString() + "/" + success.ToString(), "Success", MessageBoxButtons.OK);
 
-                // Find the "all" RadioButton by its Name
-                RadioButton allRadioButton = this.ImageTypes_panel.Controls["All_radioButton"] as RadioButton;
-                allRadioButton.Checked = true;
-                Image_bind(MicroProject_ID, user_type_ids);
+
+                ////// Find the "all" RadioButton by its Name
+                //RadioButton allRadioButton = this.ImageTypes_panel.Controls["All_radioButton"] as RadioButton;
+                //allRadioButton.Checked = true;
+                Image_bind(MicroProject_ID, ImageType_ID.ToString()); 
             }
             catch (Exception ex)
             {
@@ -591,9 +577,6 @@ namespace MyWorkApplication
                 throw new InvalidOperationException("Please choose the image type you want");
 
             bool sucess = false;
-            //foreach (var FullPicName in FullPicNames)
-            //{
-            //Added By Maher 
             string t;
             d.GetNameFromPath(FullAttachName, out t, out _);
 
@@ -610,8 +593,6 @@ namespace MyWorkApplication
             {  
                 ////////////////// Update/save Image path into image //////////////////// 
                 img.InsertImage(MicroProject_ID, new_name, ImageType_ID);
-                //l.Insert_Log("insert image:" + new_name + " to " + MicroProject_ID + " ", "Images", Program.UserName, DateTime.Now);
-
                 sucess = true;
             } 
             return sucess;
@@ -635,12 +616,22 @@ namespace MyWorkApplication
                     {
                         string OfflinePicPath = Program.OfflineRoot + @"/" + PicName; 
                         string OnlinePicPath = Program.OnlineRoot + @"/" + PicName;
-                         
-                        //clear poctureBox1
-                        pictureBox1.Image.Dispose();
-                        pictureBox1.Image = null;
-                        pictureBox1.ImageLocation = "";
 
+                        if (pictureBox1.Visible)
+                        {
+                            //clear poctureBox1
+                            pictureBox1.Image.Dispose();
+                            pictureBox1.Image = null;
+                            pictureBox1.ImageLocation = "";
+                        }
+                        else
+                        {
+                            //clear pdf webBrowser  
+                            webBrowser1.Navigate("about:blank");
+                            webBrowser1.DocumentText = "";
+                            webBrowser1.Visible = false;
+                        }
+                         
                         if (d.Online_Exist(OnlinePicPath)) d.DeleteOnline(OnlinePicPath);
                         if (d.Offline_Exist(OfflinePicPath)) d.DeleteOffline(OfflinePicPath);
                          
@@ -651,9 +642,10 @@ namespace MyWorkApplication
                         Image_ID = -1;
                         FilePicName = PicName = "";
                         // Find the "all" RadioButton by its Name
-                        RadioButton allRadioButton = this.ImageTypes_panel.Controls["All_radioButton"] as RadioButton;
-                        allRadioButton.Checked = true;
-                        Image_bind(MicroProject_ID, user_type_ids);
+                        //RadioButton allRadioButton = this.ImageTypes_panel.Controls["All_radioButton"] as RadioButton;
+                        //allRadioButton.Checked = true;
+                        //Image_bind(MicroProject_ID, user_type_ids);
+                        Image_bind(MicroProject_ID, ImageType_ID.ToString());
                     }
                 }
             }
@@ -874,25 +866,6 @@ namespace MyWorkApplication
         }
         #endregion
 
-        //private void ImageType_radioButton_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (Contract_radioButton.Checked)
-        //        image_type = "Contract";
-        //    else if (Detention_radioButton.Checked)
-        //        image_type = "Detention";
-        //    else if (InsurancePolicy_radioButton.Checked)
-        //        image_type = "InsurancePolicy";
-        //    else if (Invoice_radioButton.Checked)
-        //        image_type = "Invoice";
-        //    else if (Reciept_radioButton.Checked)
-        //        image_type = "Reciept";
-        //    else if (Rent_radioButton.Checked)
-        //        image_type = "Rent";
-        //    else if (EconomicFeasibility_radioButton.Checked)
-        //        image_type = "EconomicFeasibility";
-        //    else if (All_radioButton.Checked) image_type = ""; 
-        //    Image_bind(MicroProject_ID, image_type);
-        //}
 
         private void Attachments_Form_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -983,7 +956,7 @@ namespace MyWorkApplication
             try
             {
                 var index = ImagesCount_comboBox.SelectedIndex;
-                if (index != 0)
+                if (index > 0)
                 {
                     index--;
                     ImagesCount_comboBox.SelectedIndex = index;
@@ -1024,8 +997,8 @@ namespace MyWorkApplication
                             //All_radioButton.Checked = true;
                             // Find the "all" RadioButton by its Name
                             RadioButton allRadioButton = this.ImageTypes_panel.Controls["All_radioButton"] as RadioButton;
-                            allRadioButton.Checked = true; 
-                            Image_bind(MicroProject_ID, user_type_ids);
+                            allRadioButton.Checked = true;  
+                            RadioButton_CheckedChanged(sender, e);
 
                             mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = true;
                             mainForm.MP_ID_label.Text = MicroProject_ID.ToString();
@@ -1070,7 +1043,7 @@ namespace MyWorkApplication
                             // Find the "all" RadioButton by its Name
                             RadioButton allRadioButton = this.ImageTypes_panel.Controls["All_radioButton"] as RadioButton;
                             allRadioButton.Checked = true; 
-                            Image_bind(MicroProject_ID, user_type_ids);
+                            RadioButton_CheckedChanged(sender, e);
 
                             mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = true;
                             mainForm.MP_ID_label.Text = MicroProject_ID.ToString();

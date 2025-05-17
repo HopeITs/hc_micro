@@ -350,6 +350,18 @@
     <Compile Include="Application_MessageBox.Designer.cs">
       <DependentUpon>Application_MessageBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Application_New_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Application_New_Form.Designer.cs">
+      <DependentUpon>Application_New_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Application_zero_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Application_zero_Form.Designer.cs">
+      <DependentUpon>Application_zero_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Attachments_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -535,9 +547,6 @@
     <Compile Include="SpecialCase_Form.Designer.cs">
       <DependentUpon>SpecialCase_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
-    </Compile>
     <Compile Include="User_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -705,6 +714,12 @@
       <DependentUpon>Application_MessageBox.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Application_New_Form.resx">
+      <DependentUpon>Application_New_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Application_zero_Form.resx">
+      <DependentUpon>Application_zero_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Attachments_Form.resx">
       <DependentUpon>Attachments_Form.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -852,6 +867,7 @@
     <Content Include="DocPrint\cl.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Local Server xampp Read Me FINAL 2025.txt" />
     <None Include="Resources\NewDesignIcons\Apply0.png" />
     <None Include="Resources\NewDesignIcons\Apply1.png" />
     <None Include="Resources\show_item16.png" />
@@ -880,7 +896,6 @@
     <None Include="Resources\NewDesignIcons\Download_L.png" />
     <None Include="Resources\NewDesignIcons\Download_D.png" />
     <None Include="Resources\Icons\agriculture.png" />
-    <Content Include="Micro app server configuration.txt" />
     <Content Include="Resources\backgroun0221.jpg" />
     <None Include="Resources\NewDesignIcons\AddExtention_L.png" />
     <None Include="Resources\NewDesignIcons\AddExtention_D.png" />
@@ -1107,12 +1122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Procedures\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="UserControl1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CheckBoxComboBox\CheckBoxComboBox.csproj">

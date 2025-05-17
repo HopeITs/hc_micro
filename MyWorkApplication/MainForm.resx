@@ -181,9 +181,6 @@
         Yqojkx/EOb8AAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="Notifications_button.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="Notifications_button.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAJ8AAACgCAYAAAASN76YAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
@@ -214,9 +211,6 @@
         KBIAUSQAokgARJEAiCIBEEUCIIoEQBQJgCgSAFEkAKL8BwqiuON7ypvGAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="panel2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="Logo_Large_pictureBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAACToAAAMFCAYAAABeMttIAAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7s
@@ -2821,9 +2815,6 @@
         IiIiIrJ9tNDpzEreWck3KvnLCv5Qyacqea5CJxERERER2Qv+Czn9nsJSBKo0AAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="ProfilePicture_pictureBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="ProfilePicture_pictureBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAsUAAALGCAYAAACtX+y2AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu

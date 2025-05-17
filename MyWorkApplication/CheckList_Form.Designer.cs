@@ -171,7 +171,7 @@
             this.tableLayoutPanel6.Controls.Add(this.Save_button, 2, 0);
             this.tableLayoutPanel6.Controls.Add(this.Print_button, 3, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 2185);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 1639);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
@@ -253,14 +253,14 @@
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.Add_C_button, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 1709);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 1281);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.25828F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.59603F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.1457F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1241, 476);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1241, 358);
             this.tableLayoutPanel3.TabIndex = 20;
             // 
             // Header5_label
@@ -273,7 +273,7 @@
             this.Header5_label.Location = new System.Drawing.Point(63, 0);
             this.Header5_label.Name = "Header5_label";
             this.Header5_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Header5_label.Size = new System.Drawing.Size(1122, 53);
+            this.Header5_label.Size = new System.Drawing.Size(1122, 40);
             this.Header5_label.TabIndex = 524;
             this.Header5_label.Text = "اجتماع اللجنة:";
             this.Header5_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -317,7 +317,7 @@
             this.commity_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.commity_dataGridView.EnableHeadersVisualStyles = false;
             this.commity_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.commity_dataGridView.Location = new System.Drawing.Point(63, 107);
+            this.commity_dataGridView.Location = new System.Drawing.Point(63, 81);
             this.commity_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.commity_dataGridView.MultiSelect = false;
             this.commity_dataGridView.Name = "commity_dataGridView";
@@ -334,7 +334,7 @@
             this.commity_dataGridView.RowTemplate.DividerHeight = 1;
             this.commity_dataGridView.RowTemplate.Height = 35;
             this.commity_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.commity_dataGridView.Size = new System.Drawing.Size(1122, 365);
+            this.commity_dataGridView.Size = new System.Drawing.Size(1122, 273);
             this.commity_dataGridView.TabIndex = 21;
             this.commity_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.commity_dataGridView_CellContentClick);
             this.commity_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.commity_dataGridView_CellEndEdit);
@@ -438,12 +438,12 @@
             this.tableLayoutPanel4.Controls.Add(this.CommityDate_checkBox, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label10, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(60, 53);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(60, 40);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(564, 50);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(564, 37);
             this.tableLayoutPanel4.TabIndex = 20;
             this.tableLayoutPanel4.TabStop = true;
             // 
@@ -452,7 +452,7 @@
             this.CommityDate_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.CommityDate_dateTimePicker.CustomFormat = "yyyy/MM/dd";
             this.CommityDate_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.CommityDate_dateTimePicker.Location = new System.Drawing.Point(3, 10);
+            this.CommityDate_dateTimePicker.Location = new System.Drawing.Point(3, 4);
             this.CommityDate_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CommityDate_dateTimePicker.Name = "CommityDate_dateTimePicker";
             this.CommityDate_dateTimePicker.Size = new System.Drawing.Size(181, 29);
@@ -462,10 +462,10 @@
             // 
             this.CommityDate_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.CommityDate_checkBox.AutoSize = true;
-            this.CommityDate_checkBox.Location = new System.Drawing.Point(190, 9);
+            this.CommityDate_checkBox.Location = new System.Drawing.Point(190, 4);
             this.CommityDate_checkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CommityDate_checkBox.Name = "CommityDate_checkBox";
-            this.CommityDate_checkBox.Size = new System.Drawing.Size(116, 31);
+            this.CommityDate_checkBox.Size = new System.Drawing.Size(116, 29);
             this.CommityDate_checkBox.TabIndex = 1;
             this.CommityDate_checkBox.Text = "يحدد لاحقاً";
             this.CommityDate_checkBox.UseVisualStyleBackColor = true;
@@ -476,7 +476,7 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label10.Location = new System.Drawing.Point(331, 11);
+            this.label10.Location = new System.Drawing.Point(331, 5);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label10.Size = new System.Drawing.Size(116, 27);
@@ -497,7 +497,7 @@
             this.Add_C_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Add_C_button.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Add_C_button.ForeColor = System.Drawing.Color.White;
-            this.Add_C_button.Location = new System.Drawing.Point(28, 10);
+            this.Add_C_button.Location = new System.Drawing.Point(28, 4);
             this.Add_C_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Add_C_button.MaximumSize = new System.Drawing.Size(29, 32);
             this.Add_C_button.MinimumSize = new System.Drawing.Size(29, 32);
@@ -528,7 +528,7 @@
             this.tableLayoutPanel5.Controls.Add(this.Visit_checkBox, 2, 1);
             this.tableLayoutPanel5.Controls.Add(this.Add_V_button, 5, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 1009);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 794);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -541,7 +541,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.446808F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.87234F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.446808F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1241, 700);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1241, 487);
             this.tableLayoutPanel5.TabIndex = 7;
             // 
             // visit_dataGridView
@@ -581,7 +581,7 @@
             this.visit_dataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.visit_dataGridView.EnableHeadersVisualStyles = false;
             this.visit_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.visit_dataGridView.Location = new System.Drawing.Point(62, 316);
+            this.visit_dataGridView.Location = new System.Drawing.Point(62, 220);
             this.visit_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.visit_dataGridView.MultiSelect = false;
             this.visit_dataGridView.Name = "visit_dataGridView";
@@ -598,7 +598,7 @@
             this.visit_dataGridView.RowTemplate.DividerHeight = 1;
             this.visit_dataGridView.RowTemplate.Height = 35;
             this.visit_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.visit_dataGridView.Size = new System.Drawing.Size(1121, 327);
+            this.visit_dataGridView.Size = new System.Drawing.Size(1121, 225);
             this.visit_dataGridView.TabIndex = 16;
             this.visit_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.visit_dataGridView_CellContentClick);
             this.visit_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.visit_dataGridView_CellPainting);
@@ -674,7 +674,7 @@
             this.Header4_label.Location = new System.Drawing.Point(62, 0);
             this.Header4_label.Name = "Header4_label";
             this.Header4_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Header4_label.Size = new System.Drawing.Size(1121, 52);
+            this.Header4_label.Size = new System.Drawing.Size(1121, 36);
             this.Header4_label.TabIndex = 525;
             this.Header4_label.Text = "زيارة المنزل:";
             this.Header4_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -684,7 +684,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label7.Location = new System.Drawing.Point(900, 116);
+            this.label7.Location = new System.Drawing.Point(900, 76);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label7.Size = new System.Drawing.Size(175, 27);
@@ -696,7 +696,7 @@
             // 
             this.VisitTime_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.VisitTime_textBox.BackColor = System.Drawing.Color.White;
-            this.VisitTime_textBox.Location = new System.Drawing.Point(628, 115);
+            this.VisitTime_textBox.Location = new System.Drawing.Point(628, 76);
             this.VisitTime_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.VisitTime_textBox.Name = "VisitTime_textBox";
             this.VisitTime_textBox.Size = new System.Drawing.Size(266, 29);
@@ -713,12 +713,12 @@
             this.tableLayoutPanel1.Controls.Add(this.VisitDate_checkBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(59, 104);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(59, 72);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(566, 52);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(566, 36);
             this.tableLayoutPanel1.TabIndex = 535;
             // 
             // VisitDate_dateTimePicker
@@ -726,7 +726,7 @@
             this.VisitDate_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.VisitDate_dateTimePicker.CustomFormat = "yyyy/MM/dd";
             this.VisitDate_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.VisitDate_dateTimePicker.Location = new System.Drawing.Point(3, 11);
+            this.VisitDate_dateTimePicker.Location = new System.Drawing.Point(3, 4);
             this.VisitDate_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.VisitDate_dateTimePicker.Name = "VisitDate_dateTimePicker";
             this.VisitDate_dateTimePicker.Size = new System.Drawing.Size(149, 29);
@@ -736,10 +736,10 @@
             // 
             this.VisitDate_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.VisitDate_checkBox.AutoSize = true;
-            this.VisitDate_checkBox.Location = new System.Drawing.Point(177, 10);
+            this.VisitDate_checkBox.Location = new System.Drawing.Point(177, 4);
             this.VisitDate_checkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.VisitDate_checkBox.Name = "VisitDate_checkBox";
-            this.VisitDate_checkBox.Size = new System.Drawing.Size(116, 31);
+            this.VisitDate_checkBox.Size = new System.Drawing.Size(116, 28);
             this.VisitDate_checkBox.TabIndex = 9;
             this.VisitDate_checkBox.Text = "يحدد لاحقاً";
             this.VisitDate_checkBox.UseVisualStyleBackColor = true;
@@ -750,7 +750,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label2.Location = new System.Drawing.Point(299, 12);
+            this.label2.Location = new System.Drawing.Point(299, 4);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(97, 27);
@@ -763,7 +763,7 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label9.Location = new System.Drawing.Point(900, 64);
+            this.label9.Location = new System.Drawing.Point(900, 40);
             this.label9.Name = "label9";
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label9.Size = new System.Drawing.Size(96, 27);
@@ -779,14 +779,14 @@
             this.VisitNotes_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel5.SetColumnSpan(this.VisitNotes_textBox, 3);
             this.VisitNotes_textBox.ForeColor = System.Drawing.Color.Black;
-            this.VisitNotes_textBox.Location = new System.Drawing.Point(62, 160);
+            this.VisitNotes_textBox.Location = new System.Drawing.Point(62, 112);
             this.VisitNotes_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.VisitNotes_textBox.Multiline = true;
             this.VisitNotes_textBox.Name = "VisitNotes_textBox";
             this.VisitNotes_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel5.SetRowSpan(this.VisitNotes_textBox, 3);
             this.VisitNotes_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.VisitNotes_textBox.Size = new System.Drawing.Size(832, 148);
+            this.VisitNotes_textBox.Size = new System.Drawing.Size(832, 100);
             this.VisitNotes_textBox.TabIndex = 15;
             // 
             // label3
@@ -794,7 +794,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label3.Location = new System.Drawing.Point(900, 168);
+            this.label3.Location = new System.Drawing.Point(900, 112);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label3.Size = new System.Drawing.Size(202, 27);
@@ -807,7 +807,7 @@
             this.Visit_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Visit_checkBox.AutoSize = true;
             this.Visit_checkBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Visit_checkBox.Location = new System.Drawing.Point(786, 62);
+            this.Visit_checkBox.Location = new System.Drawing.Point(786, 38);
             this.Visit_checkBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Visit_checkBox.Name = "Visit_checkBox";
             this.Visit_checkBox.Size = new System.Drawing.Size(109, 31);
@@ -830,7 +830,7 @@
             this.Add_V_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Add_V_button.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Add_V_button.ForeColor = System.Drawing.Color.White;
-            this.Add_V_button.Location = new System.Drawing.Point(27, 10);
+            this.Add_V_button.Location = new System.Drawing.Point(27, 4);
             this.Add_V_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Add_V_button.MaximumSize = new System.Drawing.Size(29, 32);
             this.Add_V_button.MinimumSize = new System.Drawing.Size(29, 32);
@@ -893,7 +893,7 @@
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.927392F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.927392F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.927392F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(1241, 1009);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(1241, 794);
             this.tableLayoutPanel14.TabIndex = 1;
             // 
             // MicroProject_ID_label
@@ -901,7 +901,7 @@
             this.MicroProject_ID_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.MicroProject_ID_label.AutoSize = true;
             this.MicroProject_ID_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.MicroProject_ID_label.Location = new System.Drawing.Point(957, 18);
+            this.MicroProject_ID_label.Location = new System.Drawing.Point(957, 11);
             this.MicroProject_ID_label.Name = "MicroProject_ID_label";
             this.MicroProject_ID_label.Size = new System.Drawing.Size(110, 27);
             this.MicroProject_ID_label.TabIndex = 0;
@@ -914,7 +914,7 @@
             this.MicroProject_ID_textBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.MicroProject_ID_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.MicroProject_ID_textBox.BackColor = System.Drawing.Color.White;
-            this.MicroProject_ID_textBox.Location = new System.Drawing.Point(699, 17);
+            this.MicroProject_ID_textBox.Location = new System.Drawing.Point(699, 10);
             this.MicroProject_ID_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MicroProject_ID_textBox.Name = "MicroProject_ID_textBox";
             this.MicroProject_ID_textBox.Size = new System.Drawing.Size(252, 29);
@@ -926,7 +926,7 @@
             this.Person_Name_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Person_Name_label.AutoSize = true;
             this.Person_Name_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Person_Name_label.Location = new System.Drawing.Point(514, 18);
+            this.Person_Name_label.Location = new System.Drawing.Point(514, 11);
             this.Person_Name_label.Name = "Person_Name_label";
             this.Person_Name_label.Size = new System.Drawing.Size(123, 27);
             this.Person_Name_label.TabIndex = 15;
@@ -971,7 +971,7 @@
             this.team_dataGridView.DefaultCellStyle = dataGridViewCellStyle10;
             this.team_dataGridView.EnableHeadersVisualStyles = false;
             this.team_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.team_dataGridView.Location = new System.Drawing.Point(55, 613);
+            this.team_dataGridView.Location = new System.Drawing.Point(55, 489);
             this.team_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.team_dataGridView.MultiSelect = false;
             this.team_dataGridView.Name = "team_dataGridView";
@@ -989,7 +989,7 @@
             this.team_dataGridView.RowTemplate.DividerHeight = 1;
             this.team_dataGridView.RowTemplate.Height = 35;
             this.team_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.team_dataGridView.Size = new System.Drawing.Size(1134, 328);
+            this.team_dataGridView.Size = new System.Drawing.Size(1134, 258);
             this.team_dataGridView.TabIndex = 6;
             this.team_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.team_dataGridView_CellContentClick);
             this.team_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.team_dataGridView_CellEndEdit);
@@ -1100,12 +1100,12 @@
             this.tableLayoutPanel2.Controls.Add(this.TeamDate_dateTimePicker, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.VisitDate_label, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(52, 561);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(52, 447);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(459, 48);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(459, 38);
             this.tableLayoutPanel2.TabIndex = 5;
             this.tableLayoutPanel2.TabStop = true;
             // 
@@ -1113,10 +1113,10 @@
             // 
             this.TeamDate_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.TeamDate_checkBox.AutoSize = true;
-            this.TeamDate_checkBox.Location = new System.Drawing.Point(154, 8);
+            this.TeamDate_checkBox.Location = new System.Drawing.Point(154, 4);
             this.TeamDate_checkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TeamDate_checkBox.Name = "TeamDate_checkBox";
-            this.TeamDate_checkBox.Size = new System.Drawing.Size(116, 31);
+            this.TeamDate_checkBox.Size = new System.Drawing.Size(116, 30);
             this.TeamDate_checkBox.TabIndex = 1;
             this.TeamDate_checkBox.Text = "يحدد لاحقاً";
             this.TeamDate_checkBox.UseVisualStyleBackColor = true;
@@ -1127,7 +1127,7 @@
             this.TeamDate_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.TeamDate_dateTimePicker.CustomFormat = "yyyy/MM/dd";
             this.TeamDate_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.TeamDate_dateTimePicker.Location = new System.Drawing.Point(3, 9);
+            this.TeamDate_dateTimePicker.Location = new System.Drawing.Point(3, 4);
             this.TeamDate_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TeamDate_dateTimePicker.Name = "TeamDate_dateTimePicker";
             this.TeamDate_dateTimePicker.Size = new System.Drawing.Size(145, 29);
@@ -1138,7 +1138,7 @@
             this.VisitDate_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.VisitDate_label.AutoSize = true;
             this.VisitDate_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.VisitDate_label.Location = new System.Drawing.Point(285, 10);
+            this.VisitDate_label.Location = new System.Drawing.Point(285, 5);
             this.VisitDate_label.Name = "VisitDate_label";
             this.VisitDate_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.VisitDate_label.Size = new System.Drawing.Size(116, 27);
@@ -1153,10 +1153,10 @@
             this.Header3_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Header3_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
             this.Header3_label.ForeColor = System.Drawing.Color.White;
-            this.Header3_label.Location = new System.Drawing.Point(55, 513);
+            this.Header3_label.Location = new System.Drawing.Point(55, 409);
             this.Header3_label.Name = "Header3_label";
             this.Header3_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Header3_label.Size = new System.Drawing.Size(1134, 48);
+            this.Header3_label.Size = new System.Drawing.Size(1134, 38);
             this.Header3_label.TabIndex = 523;
             this.Header3_label.Text = "رأي الفريق:";
             this.Header3_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1169,14 +1169,14 @@
             this.KeyPersonNotes_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.SetColumnSpan(this.KeyPersonNotes_textBox, 4);
             this.KeyPersonNotes_textBox.ForeColor = System.Drawing.Color.Black;
-            this.KeyPersonNotes_textBox.Location = new System.Drawing.Point(55, 373);
+            this.KeyPersonNotes_textBox.Location = new System.Drawing.Point(55, 299);
             this.KeyPersonNotes_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.KeyPersonNotes_textBox.Multiline = true;
             this.KeyPersonNotes_textBox.Name = "KeyPersonNotes_textBox";
             this.KeyPersonNotes_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel14.SetRowSpan(this.KeyPersonNotes_textBox, 2);
             this.KeyPersonNotes_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.KeyPersonNotes_textBox.Size = new System.Drawing.Size(896, 88);
+            this.KeyPersonNotes_textBox.Size = new System.Drawing.Size(896, 68);
             this.KeyPersonNotes_textBox.TabIndex = 4;
             // 
             // label1
@@ -1185,12 +1185,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label1.Location = new System.Drawing.Point(957, 373);
+            this.label1.Location = new System.Drawing.Point(957, 299);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel14.SetRowSpan(this.label1, 2);
-            this.label1.Size = new System.Drawing.Size(169, 88);
+            this.label1.Size = new System.Drawing.Size(169, 68);
             this.label1.TabIndex = 539;
             this.label1.Text = "ملاحظات وآراء أخرى:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1234,7 +1234,7 @@
             this.keyperson_dataGridView.DefaultCellStyle = dataGridViewCellStyle14;
             this.keyperson_dataGridView.EnableHeadersVisualStyles = false;
             this.keyperson_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.keyperson_dataGridView.Location = new System.Drawing.Point(55, 133);
+            this.keyperson_dataGridView.Location = new System.Drawing.Point(55, 109);
             this.keyperson_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.keyperson_dataGridView.MultiSelect = false;
             this.keyperson_dataGridView.Name = "keyperson_dataGridView";
@@ -1252,7 +1252,7 @@
             this.keyperson_dataGridView.RowTemplate.DividerHeight = 1;
             this.keyperson_dataGridView.RowTemplate.Height = 35;
             this.keyperson_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.keyperson_dataGridView.Size = new System.Drawing.Size(1134, 232);
+            this.keyperson_dataGridView.Size = new System.Drawing.Size(1134, 182);
             this.keyperson_dataGridView.TabIndex = 3;
             this.keyperson_dataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.keyperson_dataGridView_CellBeginEdit);
             this.keyperson_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.keyperson_dataGridView_CellContentClick);
@@ -1349,10 +1349,10 @@
             this.Header2_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Header2_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
             this.Header2_label.ForeColor = System.Drawing.Color.White;
-            this.Header2_label.Location = new System.Drawing.Point(55, 81);
+            this.Header2_label.Location = new System.Drawing.Point(55, 67);
             this.Header2_label.Name = "Header2_label";
             this.Header2_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Header2_label.Size = new System.Drawing.Size(1134, 48);
+            this.Header2_label.Size = new System.Drawing.Size(1134, 38);
             this.Header2_label.TabIndex = 529;
             this.Header2_label.Text = "رأي الأشخاص المفتاحيين:";
             this.Header2_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1370,7 +1370,7 @@
             this.Add_K_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Add_K_button.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Add_K_button.ForeColor = System.Drawing.Color.White;
-            this.Add_K_button.Location = new System.Drawing.Point(20, 89);
+            this.Add_K_button.Location = new System.Drawing.Point(20, 71);
             this.Add_K_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Add_K_button.MaximumSize = new System.Drawing.Size(29, 32);
             this.Add_K_button.MinimumSize = new System.Drawing.Size(29, 32);
@@ -1386,7 +1386,7 @@
             this.Person_Name_textBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.Person_Name_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.Person_Name_textBox.BackColor = System.Drawing.Color.White;
-            this.Person_Name_textBox.Location = new System.Drawing.Point(227, 17);
+            this.Person_Name_textBox.Location = new System.Drawing.Point(227, 10);
             this.Person_Name_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Person_Name_textBox.Name = "Person_Name_textBox";
             this.Person_Name_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1408,7 +1408,7 @@
             this.Add_T_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Add_T_button.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Add_T_button.ForeColor = System.Drawing.Color.White;
-            this.Add_T_button.Location = new System.Drawing.Point(20, 521);
+            this.Add_T_button.Location = new System.Drawing.Point(20, 413);
             this.Add_T_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Add_T_button.MaximumSize = new System.Drawing.Size(29, 32);
             this.Add_T_button.MinimumSize = new System.Drawing.Size(29, 32);
