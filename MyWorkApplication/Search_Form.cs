@@ -2457,11 +2457,13 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
         {
             if (tick == 0)
             {
+                user_mode = false;
                 // Set cursor as hourglass
                 Cursor.Current = Cursors.WaitCursor; 
                 bs.Filter = bs.Sort = Original_Filter_String = "";
                 bs.DataSource = null;
                 tick++;
+                user_mode = true;
 
                 // applications //
                 if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
@@ -2737,19 +2739,20 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                     return;
 
                 if (e.ColumnIndex != -1)
-                    if (e.ColumnIndex == MP_dataGridView.Columns["StateHistory"].Index)
-                    {
-                        Image image = Resources.show_item16;
-                        e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
-                        var size = image.Size;
-                        var location = new System.Drawing.Point(
-                            (e.CellBounds.Width - size.Width) / 2,
-                            (e.CellBounds.Height - size.Height) / 2
-                            );
-                        location.Offset(e.CellBounds.Location);
-                        e.Graphics.DrawImage(image, location);
-                        e.Handled = true;
-                    }
+                    if (MP_dataGridView.Columns.Contains("StateHistory"))
+                        if(e.ColumnIndex == MP_dataGridView.Columns["StateHistory"].Index)
+                        {
+                            Image image = Resources.show_item16;
+                            e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
+                            var size = image.Size;
+                            var location = new System.Drawing.Point(
+                                (e.CellBounds.Width - size.Width) / 2,
+                                (e.CellBounds.Height - size.Height) / 2
+                                );
+                            location.Offset(e.CellBounds.Location);
+                            e.Graphics.DrawImage(image, location);
+                            e.Handled = true;
+                        }
             }
             catch (Exception ex)
             {
@@ -2959,62 +2962,65 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
         private void MP_dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             try
-            { 
-                var SelectedRowCount = MP_dataGridView.Rows.GetRowCount(DataGridViewElementStates.Selected);
-                Selected_label.Text = "عدد الأسطر المحددة: " + SelectedRowCount;
-
-                // Applications //
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
+            {
+                if (user_mode)
                 {
-                    if (SelectedRowCount >= 1)
+                    var SelectedRowCount = MP_dataGridView.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                    Selected_label.Text = "عدد الأسطر المحددة: " + SelectedRowCount;
+
+                    // Applications //
+                    if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
                     {
-                        double sum = 0;  
-                        for (var i = 0; i < SelectedRowCount; i++)
+                        if (SelectedRowCount >= 1)
                         {
-                            var SelectedDataRow = ((DataRowView)MP_dataGridView.SelectedRows[i].DataBoundItem).Row;
-                            sum += double.Parse(SelectedDataRow["عدد الأفراد في المنزل"].ToString());
-                        }
+                            double sum = 0;
+                            for (var i = 0; i < SelectedRowCount; i++)
+                            {
+                                var SelectedDataRow = ((DataRowView)MP_dataGridView.SelectedRows[i].DataBoundItem).Row;
+                                sum += double.Parse(SelectedDataRow["عدد الأفراد في المنزل"].ToString());
+                            }
 
-                        Sum_FamilyMembers_label.Text = "عدد الأفراد في المنزل: " + sum.ToString("#,##0");
-                    }
-                }
-
-                // Families //
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(1))
-                    if (SelectedRowCount >= 1)
-                    {
-                        PIDs_array = new int[SelectedRowCount];
-                        P_Names_array = new string[SelectedRowCount];
-
-                        for (var i = 0; i < SelectedRowCount; i++)
-                        {
-                            PersonSelectedDataRow = ((DataRowView)MP_dataGridView.SelectedRows[i].DataBoundItem).Row;
-                            PIDs_array[i] = int.Parse(PersonSelectedDataRow["رقم الفرد"].ToString());
-                            P_Names_array[i] = PersonSelectedDataRow["المستفيد"].ToString();
+                            Sum_FamilyMembers_label.Text = "عدد الأفراد في المنزل: " + sum.ToString("#,##0");
                         }
                     }
 
-                  // Loans //
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(2))
-                {
-                    if (SelectedRowCount >= 1)
-                    {
-                        IDs_array = new int[SelectedRowCount];
-
-                        for (var i = 0; i < SelectedRowCount; i++)
+                    // Families //
+                    if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(1))
+                        if (SelectedRowCount >= 1)
                         {
-                            LoanSelectedDataRow = ((DataRowView)MP_dataGridView.SelectedRows[i].DataBoundItem).Row;
-                            IDs_array[i] = int.Parse(LoanSelectedDataRow["ID"].ToString());
+                            PIDs_array = new int[SelectedRowCount];
+                            P_Names_array = new string[SelectedRowCount];
+
+                            for (var i = 0; i < SelectedRowCount; i++)
+                            {
+                                PersonSelectedDataRow = ((DataRowView)MP_dataGridView.SelectedRows[i].DataBoundItem).Row;
+                                PIDs_array[i] = int.Parse(PersonSelectedDataRow["رقم الفرد"].ToString());
+                                P_Names_array[i] = PersonSelectedDataRow["المستفيد"].ToString();
+                            }
                         }
 
-                        var str = "(" + string.Join(", ",
-                            Array.ConvertAll(IDs_array, v => v.ToString(CultureInfo.InvariantCulture))) + ")";
-
-                        Calculate_ImportExportMoney(str);
-                    }
-                    else
+                    // Loans //
+                    if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(2))
                     {
-                        Calculate_ImportExportMoney("");
+                        if (SelectedRowCount >= 1)
+                        {
+                            IDs_array = new int[SelectedRowCount];
+
+                            for (var i = 0; i < SelectedRowCount; i++)
+                            {
+                                LoanSelectedDataRow = ((DataRowView)MP_dataGridView.SelectedRows[i].DataBoundItem).Row;
+                                IDs_array[i] = int.Parse(LoanSelectedDataRow["ID"].ToString());
+                            }
+
+                            var str = "(" + string.Join(", ",
+                                Array.ConvertAll(IDs_array, v => v.ToString(CultureInfo.InvariantCulture))) + ")";
+
+                            Calculate_ImportExportMoney(str);
+                        }
+                        else
+                        {
+                            Calculate_ImportExportMoney("");
+                        }
                     }
                 }
             }

@@ -490,7 +490,8 @@ namespace MyWorkApplication
             try
             {
                 State = "مقبول";
-                FundedBy_comboBox_Leave(sender, e);
+                //FundedBy_comboBox_Leave(sender, e);
+                ApplyFilter_button_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -503,7 +504,8 @@ namespace MyWorkApplication
             try
             {
                 State = "ممول";
-                FundedBy_comboBox_Leave(sender, e);
+                //FundedBy_comboBox_Leave(sender, e);
+                ApplyFilter_button_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -516,7 +518,8 @@ namespace MyWorkApplication
             try
             {
                 State = "مرفوض";
-                FundedBy_comboBox_Leave(sender, e);
+                //FundedBy_comboBox_Leave(sender, e);
+                ApplyFilter_button_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -529,7 +532,8 @@ namespace MyWorkApplication
             try
             {
                 State = "مؤجل";
-                FundedBy_comboBox_Leave(sender, e);
+                //FundedBy_comboBox_Leave(sender, e);
+                ApplyFilter_button_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -542,7 +546,8 @@ namespace MyWorkApplication
             try
             {
                 State = "بالانتظار";
-                FundedBy_comboBox_Leave(sender, e);
+                //FundedBy_comboBox_Leave(sender, e);
+                ApplyFilter_button_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -555,7 +560,8 @@ namespace MyWorkApplication
             try
             {
                 State = "منتهي";
-                FundedBy_comboBox_Leave(sender, e);
+                //FundedBy_comboBox_Leave(sender, e);
+                ApplyFilter_button_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -568,7 +574,8 @@ namespace MyWorkApplication
             try
             {
                 State = "مغلق";
-                FundedBy_comboBox_Leave(sender, e);
+                //FundedBy_comboBox_Leave(sender, e);
+                ApplyFilter_button_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -581,7 +588,8 @@ namespace MyWorkApplication
             try
             {
                 State = "قيد الدراسة";
-                FundedBy_comboBox_Leave(sender, e);
+                //FundedBy_comboBox_Leave(sender, e);
+                ApplyFilter_button_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -594,7 +602,8 @@ namespace MyWorkApplication
             try
             {
                 State = "منسحب";
-                FundedBy_comboBox_Leave(sender, e);
+                //FundedBy_comboBox_Leave(sender, e);
+                ApplyFilter_button_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -607,7 +616,8 @@ namespace MyWorkApplication
             try
             {
                 State = "ملغى";
-                FundedBy_comboBox_Leave(sender, e);
+                //FundedBy_comboBox_Leave(sender, e);
+                ApplyFilter_button_Click(sender, e);
             }
             catch (Exception ex)
             {

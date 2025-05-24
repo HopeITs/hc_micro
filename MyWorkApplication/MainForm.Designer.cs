@@ -958,6 +958,7 @@
             this.Visit_toolStripMenuItem.Name = "Visit_toolStripMenuItem";
             this.Visit_toolStripMenuItem.Size = new System.Drawing.Size(262, 30);
             this.Visit_toolStripMenuItem.Text = "Visit Forms";
+            this.Visit_toolStripMenuItem.Click += new System.EventHandler(this.monitoringVisitsToolStripMenuItem_Click);
             // 
             // VDates_toolStripMenuItem
             // 
@@ -1043,14 +1044,14 @@
             // Dark_toolStripMenuItem
             // 
             this.Dark_toolStripMenuItem.Name = "Dark_toolStripMenuItem";
-            this.Dark_toolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.Dark_toolStripMenuItem.Size = new System.Drawing.Size(139, 30);
             this.Dark_toolStripMenuItem.Text = "Dark";
             this.Dark_toolStripMenuItem.Click += new System.EventHandler(this.darkToolStripMenuItem_Click_1);
             // 
             // Light_toolStripMenuItem
             // 
             this.Light_toolStripMenuItem.Name = "Light_toolStripMenuItem";
-            this.Light_toolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.Light_toolStripMenuItem.Size = new System.Drawing.Size(139, 30);
             this.Light_toolStripMenuItem.Text = "Light";
             this.Light_toolStripMenuItem.Click += new System.EventHandler(this.lightToolStripMenuItem_Click_1);
             // 

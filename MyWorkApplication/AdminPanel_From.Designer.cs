@@ -1460,7 +1460,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.70951F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.59554F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.49871F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel1.ContextMenuStrip = this.contextMenuStrip1;
             this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.ExportToExcel_button, 1, 0);
@@ -1537,11 +1537,11 @@ namespace MyWorkApplication
             this.Selected_label.AutoSize = true;
             this.Selected_label.BackColor = System.Drawing.Color.Transparent;
             this.Selected_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Selected_label.Location = new System.Drawing.Point(675, 4);
+            this.Selected_label.Location = new System.Drawing.Point(676, 4);
             this.Selected_label.Margin = new System.Windows.Forms.Padding(0);
             this.Selected_label.Name = "Selected_label";
             this.Selected_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Selected_label.Size = new System.Drawing.Size(178, 27);
+            this.Selected_label.Size = new System.Drawing.Size(177, 27);
             this.Selected_label.TabIndex = 474;
             this.Selected_label.Text = "0000";
             this.Selected_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

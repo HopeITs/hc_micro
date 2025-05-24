@@ -1828,7 +1828,7 @@
             this.Main_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.37945F));
             this.Main_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.64804F));
             this.Main_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.674577F));
-            this.Main_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.Main_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.Main_tableLayoutPanel.Controls.Add(this.Header_label0, 1, 0);
             this.Main_tableLayoutPanel.Controls.Add(this.PropertyArea_textBox, 5, 3);
             this.Main_tableLayoutPanel.Controls.Add(this.WorkAddress_textBox, 5, 4);
@@ -1867,10 +1867,10 @@
             this.Header_label0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Header_label0.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
             this.Header_label0.ForeColor = System.Drawing.Color.White;
-            this.Header_label0.Location = new System.Drawing.Point(54, 18);
+            this.Header_label0.Location = new System.Drawing.Point(58, 18);
             this.Header_label0.Name = "Header_label0";
             this.Header_label0.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Header_label0.Size = new System.Drawing.Size(1147, 40);
+            this.Header_label0.Size = new System.Drawing.Size(1143, 40);
             this.Header_label0.TabIndex = 607;
             this.Header_label0.Text = "ملحق ميزانية الترميم";
             this.Header_label0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1881,11 +1881,11 @@
             this.PropertyArea_textBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.PropertyArea_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.PropertyArea_textBox.BackColor = System.Drawing.Color.White;
-            this.PropertyArea_textBox.Location = new System.Drawing.Point(165, 134);
+            this.PropertyArea_textBox.Location = new System.Drawing.Point(169, 134);
             this.PropertyArea_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PropertyArea_textBox.Name = "PropertyArea_textBox";
             this.PropertyArea_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PropertyArea_textBox.Size = new System.Drawing.Size(267, 29);
+            this.PropertyArea_textBox.Size = new System.Drawing.Size(266, 29);
             this.PropertyArea_textBox.TabIndex = 2;
             // 
             // WorkAddress_textBox
@@ -1894,11 +1894,11 @@
             this.WorkAddress_textBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.WorkAddress_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.WorkAddress_textBox.BackColor = System.Drawing.Color.White;
-            this.WorkAddress_textBox.Location = new System.Drawing.Point(165, 178);
+            this.WorkAddress_textBox.Location = new System.Drawing.Point(169, 178);
             this.WorkAddress_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.WorkAddress_textBox.Name = "WorkAddress_textBox";
             this.WorkAddress_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.WorkAddress_textBox.Size = new System.Drawing.Size(267, 29);
+            this.WorkAddress_textBox.Size = new System.Drawing.Size(266, 29);
             this.WorkAddress_textBox.TabIndex = 4;
             // 
             // label42
@@ -1906,7 +1906,7 @@
             this.label42.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label42.AutoSize = true;
             this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label42.Location = new System.Drawing.Point(438, 135);
+            this.label42.Location = new System.Drawing.Point(441, 135);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(117, 27);
             this.label42.TabIndex = 613;
@@ -1918,7 +1918,7 @@
             this.label41.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label41.AutoSize = true;
             this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label41.Location = new System.Drawing.Point(438, 179);
+            this.label41.Location = new System.Drawing.Point(441, 179);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(140, 27);
             this.label41.TabIndex = 614;
@@ -1931,11 +1931,11 @@
             this.PropertyOwner_textBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.PropertyOwner_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.PropertyOwner_textBox.BackColor = System.Drawing.Color.White;
-            this.PropertyOwner_textBox.Location = new System.Drawing.Point(662, 134);
+            this.PropertyOwner_textBox.Location = new System.Drawing.Point(664, 134);
             this.PropertyOwner_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PropertyOwner_textBox.Name = "PropertyOwner_textBox";
             this.PropertyOwner_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PropertyOwner_textBox.Size = new System.Drawing.Size(242, 29);
+            this.PropertyOwner_textBox.Size = new System.Drawing.Size(241, 29);
             this.PropertyOwner_textBox.TabIndex = 1;
             // 
             // Street_comboBox
@@ -1943,10 +1943,10 @@
             this.Street_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Street_comboBox.BackColor = System.Drawing.Color.White;
             this.Street_comboBox.FormattingEnabled = true;
-            this.Street_comboBox.Location = new System.Drawing.Point(662, 175);
+            this.Street_comboBox.Location = new System.Drawing.Point(664, 181);
             this.Street_comboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Street_comboBox.Name = "Street_comboBox";
-            this.Street_comboBox.Size = new System.Drawing.Size(242, 35);
+            this.Street_comboBox.Size = new System.Drawing.Size(241, 35);
             this.Street_comboBox.TabIndex = 3;
             // 
             // label43
@@ -1954,7 +1954,7 @@
             this.label43.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label43.AutoSize = true;
             this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label43.Location = new System.Drawing.Point(910, 135);
+            this.label43.Location = new System.Drawing.Point(911, 135);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(105, 27);
             this.label43.TabIndex = 612;
@@ -1966,7 +1966,7 @@
             this.VisitType_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.VisitType_label.AutoSize = true;
             this.VisitType_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.VisitType_label.Location = new System.Drawing.Point(910, 179);
+            this.VisitType_label.Location = new System.Drawing.Point(911, 179);
             this.VisitType_label.Name = "VisitType_label";
             this.VisitType_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.VisitType_label.Size = new System.Drawing.Size(117, 27);
@@ -1980,12 +1980,12 @@
             this.Person_Name_textBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.Person_Name_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.Person_Name_textBox.BackColor = System.Drawing.Color.White;
-            this.Person_Name_textBox.Location = new System.Drawing.Point(165, 90);
+            this.Person_Name_textBox.Location = new System.Drawing.Point(169, 90);
             this.Person_Name_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Person_Name_textBox.Name = "Person_Name_textBox";
             this.Person_Name_textBox.ReadOnly = true;
             this.Person_Name_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Person_Name_textBox.Size = new System.Drawing.Size(267, 29);
+            this.Person_Name_textBox.Size = new System.Drawing.Size(266, 29);
             this.Person_Name_textBox.TabIndex = 1;
             this.Person_Name_textBox.TabStop = false;
             this.Person_Name_textBox.Leave += new System.EventHandler(this.Person_Name_textBox_Leave);
@@ -1995,7 +1995,7 @@
             this.Person_Name_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Person_Name_label.AutoSize = true;
             this.Person_Name_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Person_Name_label.Location = new System.Drawing.Point(438, 91);
+            this.Person_Name_label.Location = new System.Drawing.Point(441, 91);
             this.Person_Name_label.Name = "Person_Name_label";
             this.Person_Name_label.Size = new System.Drawing.Size(123, 27);
             this.Person_Name_label.TabIndex = 15;
@@ -2008,10 +2008,10 @@
             this.MicroProject_ID_textBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.MicroProject_ID_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.MicroProject_ID_textBox.BackColor = System.Drawing.Color.White;
-            this.MicroProject_ID_textBox.Location = new System.Drawing.Point(662, 90);
+            this.MicroProject_ID_textBox.Location = new System.Drawing.Point(664, 90);
             this.MicroProject_ID_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MicroProject_ID_textBox.Name = "MicroProject_ID_textBox";
-            this.MicroProject_ID_textBox.Size = new System.Drawing.Size(242, 29);
+            this.MicroProject_ID_textBox.Size = new System.Drawing.Size(241, 29);
             this.MicroProject_ID_textBox.TabIndex = 3;
             this.MicroProject_ID_textBox.TabStop = false;
             this.MicroProject_ID_textBox.Leave += new System.EventHandler(this.MicroProject_ID_textBox_Leave);
@@ -2021,7 +2021,7 @@
             this.MicroProject_ID_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.MicroProject_ID_label.AutoSize = true;
             this.MicroProject_ID_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.MicroProject_ID_label.Location = new System.Drawing.Point(910, 91);
+            this.MicroProject_ID_label.Location = new System.Drawing.Point(911, 91);
             this.MicroProject_ID_label.Name = "MicroProject_ID_label";
             this.MicroProject_ID_label.Size = new System.Drawing.Size(110, 27);
             this.MicroProject_ID_label.TabIndex = 0;
@@ -2110,8 +2110,8 @@
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel14.Size = new System.Drawing.Size(1160, 54);
             this.tableLayoutPanel14.TabIndex = 564;
             this.tableLayoutPanel14.TabStop = true;
@@ -3487,9 +3487,9 @@
             this.label_id14.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id14.AutoSize = true;
             this.label_id14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id14.Location = new System.Drawing.Point(1126, 58);
+            this.label_id14.Location = new System.Drawing.Point(1125, 55);
             this.label_id14.Name = "label_id14";
-            this.label_id14.Size = new System.Drawing.Size(32, 23);
+            this.label_id14.Size = new System.Drawing.Size(33, 29);
             this.label_id14.TabIndex = 608;
             this.label_id14.Text = "14";
             this.label_id14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3543,9 +3543,9 @@
             this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label21.AutoSize = true;
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label21.Location = new System.Drawing.Point(1045, 0);
+            this.label21.Location = new System.Drawing.Point(1034, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(87, 52);
+            this.label21.Size = new System.Drawing.Size(110, 52);
             this.label21.TabIndex = 618;
             this.label21.Text = "بواري صحية:";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3555,10 +3555,10 @@
             this.checkBox35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox35.AutoSize = true;
             this.checkBox35.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.checkBox35.Location = new System.Drawing.Point(874, 4);
+            this.checkBox35.Location = new System.Drawing.Point(874, 2);
             this.checkBox35.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox35.Name = "checkBox35";
-            this.checkBox35.Size = new System.Drawing.Size(139, 44);
+            this.checkBox35.Size = new System.Drawing.Size(139, 48);
             this.checkBox35.TabIndex = 1;
             this.checkBox35.Text = "بحاجة";
             this.checkBox35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3569,10 +3569,10 @@
             this.checkBox36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox36.AutoSize = true;
             this.checkBox36.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.checkBox36.Location = new System.Drawing.Point(729, 4);
+            this.checkBox36.Location = new System.Drawing.Point(729, 2);
             this.checkBox36.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox36.Name = "checkBox36";
-            this.checkBox36.Size = new System.Drawing.Size(139, 44);
+            this.checkBox36.Size = new System.Drawing.Size(139, 48);
             this.checkBox36.TabIndex = 2;
             this.checkBox36.Text = "ليس بحاجة";
             this.checkBox36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3631,9 +3631,9 @@
             this.label_id15.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id15.AutoSize = true;
             this.label_id15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id15.Location = new System.Drawing.Point(1126, 58);
+            this.label_id15.Location = new System.Drawing.Point(1126, 55);
             this.label_id15.Name = "label_id15";
-            this.label_id15.Size = new System.Drawing.Size(32, 23);
+            this.label_id15.Size = new System.Drawing.Size(32, 29);
             this.label_id15.TabIndex = 608;
             this.label_id15.Text = "15";
             this.label_id15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3687,9 +3687,9 @@
             this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label23.AutoSize = true;
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label23.Location = new System.Drawing.Point(1052, 0);
+            this.label23.Location = new System.Drawing.Point(1041, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(74, 52);
+            this.label23.Size = new System.Drawing.Size(96, 52);
             this.label23.TabIndex = 618;
             this.label23.Text = "بواري مياه:";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3699,10 +3699,10 @@
             this.checkBox37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox37.AutoSize = true;
             this.checkBox37.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.checkBox37.Location = new System.Drawing.Point(874, 4);
+            this.checkBox37.Location = new System.Drawing.Point(874, 2);
             this.checkBox37.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox37.Name = "checkBox37";
-            this.checkBox37.Size = new System.Drawing.Size(139, 44);
+            this.checkBox37.Size = new System.Drawing.Size(139, 48);
             this.checkBox37.TabIndex = 1;
             this.checkBox37.Text = "بحاجة";
             this.checkBox37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3713,10 +3713,10 @@
             this.checkBox38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox38.AutoSize = true;
             this.checkBox38.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.checkBox38.Location = new System.Drawing.Point(729, 4);
+            this.checkBox38.Location = new System.Drawing.Point(729, 2);
             this.checkBox38.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox38.Name = "checkBox38";
-            this.checkBox38.Size = new System.Drawing.Size(139, 44);
+            this.checkBox38.Size = new System.Drawing.Size(139, 48);
             this.checkBox38.TabIndex = 2;
             this.checkBox38.Text = "ليس بحاجة";
             this.checkBox38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3775,9 +3775,9 @@
             this.label_id16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id16.AutoSize = true;
             this.label_id16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id16.Location = new System.Drawing.Point(1126, 58);
+            this.label_id16.Location = new System.Drawing.Point(1126, 55);
             this.label_id16.Name = "label_id16";
-            this.label_id16.Size = new System.Drawing.Size(32, 23);
+            this.label_id16.Size = new System.Drawing.Size(32, 29);
             this.label_id16.TabIndex = 608;
             this.label_id16.Text = "16";
             this.label_id16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3831,9 +3831,9 @@
             this.label37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label37.AutoSize = true;
             this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label37.Location = new System.Drawing.Point(1045, 0);
+            this.label37.Location = new System.Drawing.Point(1035, 0);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(88, 52);
+            this.label37.Size = new System.Drawing.Size(108, 52);
             this.label37.TabIndex = 618;
             this.label37.Text = "صرف صحي:";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3843,10 +3843,10 @@
             this.checkBox39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox39.AutoSize = true;
             this.checkBox39.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.checkBox39.Location = new System.Drawing.Point(874, 4);
+            this.checkBox39.Location = new System.Drawing.Point(874, 2);
             this.checkBox39.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox39.Name = "checkBox39";
-            this.checkBox39.Size = new System.Drawing.Size(139, 44);
+            this.checkBox39.Size = new System.Drawing.Size(139, 48);
             this.checkBox39.TabIndex = 1;
             this.checkBox39.Text = "بحاجة";
             this.checkBox39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3857,10 +3857,10 @@
             this.checkBox40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox40.AutoSize = true;
             this.checkBox40.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.checkBox40.Location = new System.Drawing.Point(729, 4);
+            this.checkBox40.Location = new System.Drawing.Point(729, 2);
             this.checkBox40.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox40.Name = "checkBox40";
-            this.checkBox40.Size = new System.Drawing.Size(139, 44);
+            this.checkBox40.Size = new System.Drawing.Size(139, 48);
             this.checkBox40.TabIndex = 2;
             this.checkBox40.Text = "ليس بحاجة";
             this.checkBox40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3919,9 +3919,9 @@
             this.label_id17.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id17.AutoSize = true;
             this.label_id17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id17.Location = new System.Drawing.Point(1126, 58);
+            this.label_id17.Location = new System.Drawing.Point(1127, 55);
             this.label_id17.Name = "label_id17";
-            this.label_id17.Size = new System.Drawing.Size(32, 23);
+            this.label_id17.Size = new System.Drawing.Size(31, 29);
             this.label_id17.TabIndex = 608;
             this.label_id17.Text = "17";
             this.label_id17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3975,9 +3975,9 @@
             this.label63.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label63.AutoSize = true;
             this.label63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label63.Location = new System.Drawing.Point(1065, 0);
+            this.label63.Location = new System.Drawing.Point(1053, 0);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(48, 52);
+            this.label63.Size = new System.Drawing.Size(72, 52);
             this.label63.TabIndex = 618;
             this.label63.Text = "مغسلة:";
             this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3987,10 +3987,10 @@
             this.checkBox41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox41.AutoSize = true;
             this.checkBox41.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.checkBox41.Location = new System.Drawing.Point(874, 4);
+            this.checkBox41.Location = new System.Drawing.Point(874, 2);
             this.checkBox41.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox41.Name = "checkBox41";
-            this.checkBox41.Size = new System.Drawing.Size(139, 44);
+            this.checkBox41.Size = new System.Drawing.Size(139, 48);
             this.checkBox41.TabIndex = 1;
             this.checkBox41.Text = "بحاجة";
             this.checkBox41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4001,10 +4001,10 @@
             this.checkBox42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox42.AutoSize = true;
             this.checkBox42.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.checkBox42.Location = new System.Drawing.Point(729, 4);
+            this.checkBox42.Location = new System.Drawing.Point(729, 2);
             this.checkBox42.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox42.Name = "checkBox42";
-            this.checkBox42.Size = new System.Drawing.Size(139, 44);
+            this.checkBox42.Size = new System.Drawing.Size(139, 48);
             this.checkBox42.TabIndex = 2;
             this.checkBox42.Text = "ليس بحاجة";
             this.checkBox42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4063,9 +4063,9 @@
             this.label_id18.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id18.AutoSize = true;
             this.label_id18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id18.Location = new System.Drawing.Point(1126, 58);
+            this.label_id18.Location = new System.Drawing.Point(1125, 55);
             this.label_id18.Name = "label_id18";
-            this.label_id18.Size = new System.Drawing.Size(32, 23);
+            this.label_id18.Size = new System.Drawing.Size(33, 29);
             this.label_id18.TabIndex = 608;
             this.label_id18.Text = "18";
             this.label_id18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4119,9 +4119,9 @@
             this.label65.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label65.AutoSize = true;
             this.label65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label65.Location = new System.Drawing.Point(1059, 0);
+            this.label65.Location = new System.Drawing.Point(1049, 0);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(60, 52);
+            this.label65.Size = new System.Drawing.Size(80, 52);
             this.label65.TabIndex = 618;
             this.label65.Text = "خلّاطات:";
             this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4131,10 +4131,10 @@
             this.checkBox43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox43.AutoSize = true;
             this.checkBox43.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.checkBox43.Location = new System.Drawing.Point(874, 4);
+            this.checkBox43.Location = new System.Drawing.Point(874, 2);
             this.checkBox43.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox43.Name = "checkBox43";
-            this.checkBox43.Size = new System.Drawing.Size(139, 44);
+            this.checkBox43.Size = new System.Drawing.Size(139, 48);
             this.checkBox43.TabIndex = 1;
             this.checkBox43.Text = "بحاجة";
             this.checkBox43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4145,10 +4145,10 @@
             this.checkBox44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox44.AutoSize = true;
             this.checkBox44.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.checkBox44.Location = new System.Drawing.Point(729, 4);
+            this.checkBox44.Location = new System.Drawing.Point(729, 2);
             this.checkBox44.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox44.Name = "checkBox44";
-            this.checkBox44.Size = new System.Drawing.Size(139, 44);
+            this.checkBox44.Size = new System.Drawing.Size(139, 48);
             this.checkBox44.TabIndex = 2;
             this.checkBox44.Text = "ليس بحاجة";
             this.checkBox44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

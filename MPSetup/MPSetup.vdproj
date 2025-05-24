@@ -2494,7 +2494,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:v4.6.1  "
+                "FrameworkVersion" = "8:v4.6.1    "
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=671728"
                 }
@@ -3073,7 +3073,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CheckBoxComboBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:CheckBoxComboBox, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_1AAF879F86ABB1E201923E3FF388C652"
@@ -7772,15 +7772,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Micro Projects"
-        "ProductCode" = "8:{E4077F91-2B3E-4CC0-9B82-9CBAAE3FD9D7}"
-        "PackageCode" = "8:{E1A27E7D-7A53-46E6-9B21-EB221F552AB8}"
+        "ProductCode" = "8:{A5707A37-BB2A-4FD8-98CA-3F9F6B8B8A93}"
+        "PackageCode" = "8:{7D20ED0C-31F6-4913-8D44-A721EC9CBDBC}"
         "UpgradeCode" = "8:{1682D02F-9ACB-401D-BF5F-6B2DE072EC05}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:3.6.13"
+        "ProductVersion" = "8:3.6.15"
         "Manufacturer" = "8:Hope Center"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

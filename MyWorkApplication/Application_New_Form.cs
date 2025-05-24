@@ -16,5 +16,10 @@ namespace MyWorkApplication
         {
             InitializeComponent();
         }
+
+        private void Application_New_Form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
