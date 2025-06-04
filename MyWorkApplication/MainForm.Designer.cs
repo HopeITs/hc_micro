@@ -104,6 +104,8 @@
             this.newDonor_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newAid_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Checklist_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newNewApplicationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.zeroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financialToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.Loan_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Payments_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -471,14 +473,14 @@
             // NewApplicationToolStripMenuItem
             // 
             this.NewApplicationToolStripMenuItem.Name = "NewApplicationToolStripMenuItem";
-            this.NewApplicationToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.NewApplicationToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.NewApplicationToolStripMenuItem.Text = "New Application";
             this.NewApplicationToolStripMenuItem.Click += new System.EventHandler(this.NewApplicationToolStripMenuItem_Click);
             // 
             // adminPageToolStripMenuItem
             // 
             this.adminPageToolStripMenuItem.Name = "adminPageToolStripMenuItem";
-            this.adminPageToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.adminPageToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.adminPageToolStripMenuItem.Text = "ADMIN Panel";
             this.adminPageToolStripMenuItem.Click += new System.EventHandler(this.adminPageToolStripMenuItem_Click);
             // 
@@ -491,7 +493,7 @@
             this.donorToolStripMenuItem,
             this.aidSourcesToolStripMenuItem});
             this.aDMINToolsToolStripMenuItem.Name = "aDMINToolsToolStripMenuItem";
-            this.aDMINToolsToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.aDMINToolsToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.aDMINToolsToolStripMenuItem.Text = "ADMIN Tools";
             // 
             // editProjectStreetNamesمناطقالسكنوالعملToolStripMenuItem
@@ -532,21 +534,19 @@
             // newCheckListToolStripMenuItem
             // 
             this.newCheckListToolStripMenuItem.Name = "newCheckListToolStripMenuItem";
-            this.newCheckListToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.newCheckListToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.newCheckListToolStripMenuItem.Text = "Check List";
             this.newCheckListToolStripMenuItem.Click += new System.EventHandler(this.newCheckListToolStripMenuItem_Click);
             // 
             // newZeroApplicationToolStripMenuItem
             // 
             this.newZeroApplicationToolStripMenuItem.Name = "newZeroApplicationToolStripMenuItem";
-            this.newZeroApplicationToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
-            this.newZeroApplicationToolStripMenuItem.Text = "New Zero Application";
-            this.newZeroApplicationToolStripMenuItem.Click += new System.EventHandler(this.newZeroApplicationToolStripMenuItem_Click);
+            this.newZeroApplicationToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             // 
             // newNewApplicationToolStripMenuItem
             // 
             this.newNewApplicationToolStripMenuItem.Name = "newNewApplicationToolStripMenuItem";
-            this.newNewApplicationToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.newNewApplicationToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.newNewApplicationToolStripMenuItem.Text = "New New Application";
             this.newNewApplicationToolStripMenuItem.Click += new System.EventHandler(this.newNewApplicationToolStripMenuItem_Click);
             // 
@@ -835,7 +835,9 @@
             this.App_toolStripMenuItem,
             this.AdminPanel_toolStripMenuItem,
             this.toolStripMenuItem4,
-            this.Checklist_toolStripMenuItem});
+            this.Checklist_toolStripMenuItem,
+            this.newNewApplicationToolStripMenuItem1,
+            this.zeroToolStripMenuItem});
             this.applicationToolStripMenuItem1.Name = "applicationToolStripMenuItem1";
             this.applicationToolStripMenuItem1.ShowShortcutKeys = false;
             this.applicationToolStripMenuItem1.Size = new System.Drawing.Size(114, 29);
@@ -844,14 +846,14 @@
             // App_toolStripMenuItem
             // 
             this.App_toolStripMenuItem.Name = "App_toolStripMenuItem";
-            this.App_toolStripMenuItem.Size = new System.Drawing.Size(226, 30);
+            this.App_toolStripMenuItem.Size = new System.Drawing.Size(322, 30);
             this.App_toolStripMenuItem.Text = "New Application";
             this.App_toolStripMenuItem.Click += new System.EventHandler(this.NewApplicationToolStripMenuItem_Click);
             // 
             // AdminPanel_toolStripMenuItem
             // 
             this.AdminPanel_toolStripMenuItem.Name = "AdminPanel_toolStripMenuItem";
-            this.AdminPanel_toolStripMenuItem.Size = new System.Drawing.Size(226, 30);
+            this.AdminPanel_toolStripMenuItem.Size = new System.Drawing.Size(322, 30);
             this.AdminPanel_toolStripMenuItem.Text = "ADMIN Panel";
             this.AdminPanel_toolStripMenuItem.Click += new System.EventHandler(this.adminPageToolStripMenuItem_Click);
             // 
@@ -864,7 +866,7 @@
             this.newDonor_toolStripMenuItem,
             this.newAid_toolStripMenuItem});
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(226, 30);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(322, 30);
             this.toolStripMenuItem4.Text = "ADMIN Tools";
             // 
             // newStreet_toolStripMenuItem
@@ -905,9 +907,25 @@
             // Checklist_toolStripMenuItem
             // 
             this.Checklist_toolStripMenuItem.Name = "Checklist_toolStripMenuItem";
-            this.Checklist_toolStripMenuItem.Size = new System.Drawing.Size(226, 30);
+            this.Checklist_toolStripMenuItem.Size = new System.Drawing.Size(322, 30);
             this.Checklist_toolStripMenuItem.Text = "Check List";
             this.Checklist_toolStripMenuItem.Click += new System.EventHandler(this.newCheckListToolStripMenuItem_Click);
+            // 
+            // newNewApplicationToolStripMenuItem1
+            // 
+            this.newNewApplicationToolStripMenuItem1.Name = "newNewApplicationToolStripMenuItem1";
+            this.newNewApplicationToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
+            this.newNewApplicationToolStripMenuItem1.Size = new System.Drawing.Size(322, 30);
+            this.newNewApplicationToolStripMenuItem1.Text = "New New Application";
+            this.newNewApplicationToolStripMenuItem1.Click += new System.EventHandler(this.newNewApplicationToolStripMenuItem_Click);
+            // 
+            // zeroToolStripMenuItem
+            // 
+            this.zeroToolStripMenuItem.Name = "zeroToolStripMenuItem";
+            this.zeroToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Z)));
+            this.zeroToolStripMenuItem.Size = new System.Drawing.Size(322, 30);
+            this.zeroToolStripMenuItem.Text = "Zero Application";
+            this.zeroToolStripMenuItem.Click += new System.EventHandler(this.zeroToolStripMenuItem_Click);
             // 
             // financialToolStripMenuItem1
             // 
@@ -1276,5 +1294,7 @@
         private System.Windows.Forms.ToolStripMenuItem AboutUs_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FeedBack_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Manual_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newNewApplicationToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem zeroToolStripMenuItem;
     }
 }

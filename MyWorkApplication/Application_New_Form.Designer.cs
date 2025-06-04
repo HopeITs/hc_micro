@@ -30,10 +30,23 @@ namespace MyWorkApplication
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -52,33 +65,25 @@ namespace MyWorkApplication
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Application_New_Form));
             this.label2 = new System.Windows.Forms.Label();
-            this.P_Mobile_textBox = new System.Windows.Forms.TextBox();
+            this.P_MobileReadable_textBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label80 = new System.Windows.Forms.Label();
-            this.MP_ID_textBox = new System.Windows.Forms.TextBox();
+            this.MPID_textBox = new System.Windows.Forms.TextBox();
             this.P_FullName_En_textBox = new System.Windows.Forms.TextBox();
             this.label62 = new System.Windows.Forms.Label();
-            this.first_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.First_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.ContentUpdated_checkBox = new System.Windows.Forms.CheckBox();
+            this.MP_Name_textBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Type_lable = new System.Windows.Forms.Label();
             this.Type_comboBox = new System.Windows.Forms.ComboBox();
             this.label74 = new System.Windows.Forms.Label();
             this.ApplyDate_bcDateTimePicker = new MyWorkApplication.Classes.BCDateTimePicker();
-            this.MP_Name_textBox = new System.Windows.Forms.TextBox();
             this.label79 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.SubType_comboBox = new System.Windows.Forms.ComboBox();
@@ -96,45 +101,36 @@ namespace MyWorkApplication
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.SubCategory_comboBox = new System.Windows.Forms.ComboBox();
             this.Career_comboBox = new System.Windows.Forms.ComboBox();
-            this.label31 = new System.Windows.Forms.Label();
+            this.SubHeader1_label = new System.Windows.Forms.Label();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.AddImage_button = new System.Windows.Forms.Button();
             this.DeleteImage_button = new System.Windows.Forms.Button();
             this.Download_button = new System.Windows.Forms.Button();
             this.PersonPicture_pictureBox = new System.Windows.Forms.PictureBox();
+            this.img_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.download_toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.P_FullName_textBox = new System.Windows.Forms.TextBox();
-            this.label95 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel33 = new System.Windows.Forms.FlowLayoutPanel();
+            this.FundType_label = new System.Windows.Forms.Label();
+            this.FundType_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.Loan_radioButton = new System.Windows.Forms.RadioButton();
             this.Grant_radioButton = new System.Windows.Forms.RadioButton();
-            this.label106 = new System.Windows.Forms.Label();
+            this.MP_RequestedAmount_label = new System.Windows.Forms.Label();
             this.MP_RequestedAmount_textBox = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.Save_MP_ID_button = new System.Windows.Forms.Button();
+            this.ImageLocation_textBox = new System.Windows.Forms.TextBox();
             this.label76 = new System.Windows.Forms.Label();
             this.label73 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.Header2_label = new System.Windows.Forms.Label();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.FamilyMember_dataGridView = new System.Windows.Forms.DataGridView();
-            this.FP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.F_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_FatherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_Relation = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.P_MaritalStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.P_NationalNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_DOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_State = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.P_IsStudent = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.P_WorkType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.P_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.P_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label61 = new System.Windows.Forms.Label();
+            this.MainHeader1_label = new System.Windows.Forms.Label();
+            this.t3_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.P_HomeStateNote_label = new System.Windows.Forms.Label();
             this.label81 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
+            this.Military_label2 = new System.Windows.Forms.Label();
+            this.Military_textBox = new System.Windows.Forms.TextBox();
+            this.Military_Date_checkBox = new System.Windows.Forms.CheckBox();
             this.label32 = new System.Windows.Forms.Label();
             this.P_FirstName_textBox = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
@@ -147,8 +143,7 @@ namespace MyWorkApplication
             this.label41 = new System.Windows.Forms.Label();
             this.P_Address_textBox = new System.Windows.Forms.TextBox();
             this.P_MotherName_textBox = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
+            this.P_Registration_label = new System.Windows.Forms.Label();
             this.P_Registration_textBox = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.P_NationalNum_textBox = new System.Windows.Forms.TextBox();
@@ -156,55 +151,72 @@ namespace MyWorkApplication
             this.P_DOB_textBox = new System.Windows.Forms.TextBox();
             this.label63 = new System.Windows.Forms.Label();
             this.P_MaritalState_comboBox = new System.Windows.Forms.ComboBox();
-            this.P_HomeTel_textBox = new System.Windows.Forms.TextBox();
             this.P_HomeStateNote_textBox = new System.Windows.Forms.TextBox();
-            this.Military_label2 = new System.Windows.Forms.Label();
-            this.Military_textBox = new System.Windows.Forms.TextBox();
-            this.Military_Date_checkBox = new System.Windows.Forms.CheckBox();
-            this.Military_Date_dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.Military_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.MilitarySingle_radioButton = new System.Windows.Forms.RadioButton();
-            this.MilitaryFinished_radioButton = new System.Windows.Forms.RadioButton();
-            this.MilitaryNow_radioButton = new System.Windows.Forms.RadioButton();
-            this.Military_label = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.P_NumOfMembers_textBox = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.P_NumAtHome_textBox = new System.Windows.Forms.TextBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.FamilyNum_textBox1 = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
+            this.Street_comboBox = new System.Windows.Forms.ComboBox();
+            this.P_HomeType_comboBox = new System.Windows.Forms.ComboBox();
+            this.P_Mobile2_textBox = new System.Windows.Forms.TextBox();
+            this.Military_Date_dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.Military_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.Military_label = new System.Windows.Forms.Label();
+            this.MilitarySingle_radioButton = new System.Windows.Forms.RadioButton();
+            this.MilitaryFinished_radioButton = new System.Windows.Forms.RadioButton();
+            this.MilitaryNow_radioButton = new System.Windows.Forms.RadioButton();
+            this.P_IntermidiaryName_label = new System.Windows.Forms.Label();
+            this.P_IntermidiaryName_textBox = new System.Windows.Forms.TextBox();
+            this.P_Priest_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.P_Priest2_comboBox = new System.Windows.Forms.ComboBox();
+            this.P_Priest_comboBox = new System.Windows.Forms.ComboBox();
+            this.P_Priest_label = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.P_Parish_comboBox = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.PersonType_comboBox = new System.Windows.Forms.ComboBox();
+            this.PersonType_label = new System.Windows.Forms.Label();
+            this.P_FullName_En_label = new System.Windows.Forms.Label();
+            this.P_Mobile2_label = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.P_HomeTel_textBox = new System.Windows.Forms.TextBox();
+            this.P_Mobile_textBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.FamilyMember_dataGridView = new System.Windows.Forms.DataGridView();
+            this.FP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.F_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_FatherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_Relation = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.P_NationalNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_DOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_State = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.P_EducationLevel = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.P_EducationType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.P_WorkType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.P_Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Work_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.P_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.label46 = new System.Windows.Forms.Label();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.label40 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.Street_comboBox = new System.Windows.Forms.ComboBox();
-            this.P_HomeType_comboBox = new System.Windows.Forms.ComboBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.P_Mobile2_textBox = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.P_Priest2_comboBox = new System.Windows.Forms.ComboBox();
-            this.P_Priest_comboBox = new System.Windows.Forms.ComboBox();
-            this.P_Priest_label = new System.Windows.Forms.Label();
-            this.P_IntermidiaryName_label = new System.Windows.Forms.Label();
-            this.P_IntermidiaryName_textBox = new System.Windows.Forms.TextBox();
-            this.P_Parish_comboBox = new System.Windows.Forms.ComboBox();
-            this.label77 = new System.Windows.Forms.Label();
-            this.s3_textBox = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.P_WorkYears_textBox = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.AidSource_dataGridView = new System.Windows.Forms.DataGridView();
             this.AidP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -221,7 +233,13 @@ namespace MyWorkApplication
             this.Aid_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.Main_panel = new System.Windows.Forms.Panel();
-            this.Users_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Visits_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.payments_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.attachments_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showChecklistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNotesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Final_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.Save_button = new System.Windows.Forms.Button();
             this.AddPartner_button = new System.Windows.Forms.Button();
@@ -234,43 +252,24 @@ namespace MyWorkApplication
             this.label33 = new System.Windows.Forms.Label();
             this.PaperApplicationUser_comboBox = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.MP_SimpleProfit2_textBox = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel19 = new System.Windows.Forms.FlowLayoutPanel();
-            this.radioButton19 = new System.Windows.Forms.RadioButton();
-            this.radioButton20 = new System.Windows.Forms.RadioButton();
-            this.flowLayoutPanel20 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label93 = new System.Windows.Forms.Label();
-            this.label94 = new System.Windows.Forms.Label();
-            this.PowerSource_dataGridView = new System.Windows.Forms.DataGridView();
-            this.Power_MP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Power_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Power_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Power_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Power_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Power_Responsability = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Power_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Power_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Power_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label89 = new System.Windows.Forms.Label();
-            this.label90 = new System.Windows.Forms.Label();
-            this.label97 = new System.Windows.Forms.Label();
-            this.Agreement1_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.Agreement1_No_radioButton = new System.Windows.Forms.RadioButton();
-            this.Agreement1_Yes_radioButton = new System.Windows.Forms.RadioButton();
-            this.Agreement2_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.Agreement2_No_radioButton = new System.Windows.Forms.RadioButton();
-            this.Agreement2_Yes_radioButton = new System.Windows.Forms.RadioButton();
-            this.Agreement3_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.Agreement3_No_radioButton = new System.Windows.Forms.RadioButton();
-            this.Agreement3_Yes_radioButton = new System.Windows.Forms.RadioButton();
             this.label100 = new System.Windows.Forms.Label();
-            this.label99 = new System.Windows.Forms.Label();
-            this.label98 = new System.Windows.Forms.Label();
-            this.label88 = new System.Windows.Forms.Label();
-            this.label87 = new System.Windows.Forms.Label();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.t11_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SubHeader10_label = new System.Windows.Forms.Label();
+            this.P_HasIncomeSource_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.P_HasIncomeSourceNo_radioButton = new System.Windows.Forms.RadioButton();
+            this.P_HasIncomeSourceYes_radioButton = new System.Windows.Forms.RadioButton();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.AidPeriodR_comboBox = new System.Windows.Forms.ComboBox();
+            this.AidPeriodA_comboBox = new System.Windows.Forms.ComboBox();
+            this.label113 = new System.Windows.Forms.Label();
+            this.label112 = new System.Windows.Forms.Label();
+            this.P_OtherIncomeSources_Note_textBox = new System.Windows.Forms.TextBox();
+            this.label70 = new System.Windows.Forms.Label();
+            this.AidA_comboBox = new System.Windows.Forms.ComboBox();
+            this.AidR_comboBox = new System.Windows.Forms.ComboBox();
+            this.SubHeader11_label = new System.Windows.Forms.Label();
+            this.HomePowerSource_dataGridView = new System.Windows.Forms.DataGridView();
             this.HPowerP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HPower_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HPower_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -280,41 +279,24 @@ namespace MyWorkApplication
             this.HPower_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.HPower_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HPower_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.s6_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.s5_textBox = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.MP_Ownership_comboBox = new System.Windows.Forms.ComboBox();
-            this.label109 = new System.Windows.Forms.Label();
-            this.label108 = new System.Windows.Forms.Label();
-            this.s6_label = new System.Windows.Forms.Label();
-            this.flowLayoutPanel27 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label110 = new System.Windows.Forms.Label();
-            this.label111 = new System.Windows.Forms.Label();
-            this.label91 = new System.Windows.Forms.Label();
-            this.label96 = new System.Windows.Forms.Label();
-            this.label92 = new System.Windows.Forms.Label();
-            this.AmperNumber_textBox = new System.Windows.Forms.TextBox();
-            this.P_HasIncomeSource_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.P_HasIncomeSourceNo_radioButton = new System.Windows.Forms.RadioButton();
-            this.P_HasIncomeSourceYes_radioButton = new System.Windows.Forms.RadioButton();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label113 = new System.Windows.Forms.Label();
-            this.label112 = new System.Windows.Forms.Label();
-            this.P_SourceRation_textBox = new System.Windows.Forms.TextBox();
-            this.P_SourceRelatives_textBox = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label90 = new System.Windows.Forms.Label();
+            this.t10_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SubHeader9_label = new System.Windows.Forms.Label();
             this.P_HasAidSource_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.P_HasAidSourceNo_radioButton = new System.Windows.Forms.RadioButton();
             this.P_HasAidSourceYes_radioButton = new System.Windows.Forms.RadioButton();
-            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.P_Debts_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.P_DebtsAmount_textBox = new System.Windows.Forms.TextBox();
             this.label105 = new System.Windows.Forms.Label();
             this.P_DebtsNote_textBox = new System.Windows.Forms.TextBox();
             this.P_HasDebts_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.P_HasDebtsYes_radioButton = new System.Windows.Forms.RadioButton();
             this.P_HasDebtsNo_radioButton = new System.Windows.Forms.RadioButton();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.label55 = new System.Windows.Forms.Label();
+            this.MP_OtherDonors_textBox = new System.Windows.Forms.TextBox();
+            this.t9_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.P_HasLosses_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.P_HasLossesNo_radioButton = new System.Windows.Forms.RadioButton();
             this.P_HasLossesYes_radioButton = new System.Windows.Forms.RadioButton();
@@ -327,12 +309,13 @@ namespace MyWorkApplication
             this.L_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.L_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.L_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_HasAssets_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.P_HasAssetsNo_radioButton = new System.Windows.Forms.RadioButton();
-            this.P_HasAssetsYes_radioButton = new System.Windows.Forms.RadioButton();
+            this.flowLayoutPanel21 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.SubHeader7_label = new System.Windows.Forms.Label();
+            this.SubHeader6_label = new System.Windows.Forms.Label();
             this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -342,9 +325,11 @@ namespace MyWorkApplication
             this.Ill_PName = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Ill_Relation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ill_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Ill_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ill_Aid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Ill_Donor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ill_Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ill_AidPeriod = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Ill_MedicalNeeds = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Ill_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Ill_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ill_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -354,12 +339,13 @@ namespace MyWorkApplication
             this.Assets_dataGridView = new System.Windows.Forms.DataGridView();
             this.APerson_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Asset_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asset_PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asset_Relation = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Asset_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Asset_Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Asset_Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Asset_Relation = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Asset_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn4 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Asset_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Asset_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Asset_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
@@ -372,36 +358,128 @@ namespace MyWorkApplication
             this.P_HasIllness_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.P_HasIllnessNo_radioButton = new System.Windows.Forms.RadioButton();
             this.P_HasIllnessYes_radioButton = new System.Windows.Forms.RadioButton();
-            this.label70 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.SubHeader8_label = new System.Windows.Forms.Label();
+            this.P_HasAssets_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.P_HasAssetsNo_radioButton = new System.Windows.Forms.RadioButton();
+            this.P_HasAssetsYes_radioButton = new System.Windows.Forms.RadioButton();
+            this.t4_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.t21_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.P_NumOfMembers_textBox = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.FamilyNum_textBox1 = new System.Windows.Forms.TextBox();
+            this.P_NumAtHome_textBox = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel17 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label56 = new System.Windows.Forms.Label();
+            this.P_LiveWithFamily_radioButton = new System.Windows.Forms.RadioButton();
+            this.P_NotLiveWithFamily_radioButton = new System.Windows.Forms.RadioButton();
+            this.MainHeader3_label = new System.Windows.Forms.Label();
+            this.t20_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.Materials_dataGridView = new System.Windows.Forms.DataGridView();
+            this.M_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.M_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.M_Comments = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.M_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.M_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MMP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.M_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.M_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flowLayoutPanel27 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label110 = new System.Windows.Forms.Label();
+            this.label111 = new System.Windows.Forms.Label();
+            this.OverallSyrian_label = new System.Windows.Forms.Label();
+            this.s6_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.s5_textBox = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.MP_PlaceType_comboBox = new System.Windows.Forms.ComboBox();
+            this.label109 = new System.Windows.Forms.Label();
+            this.label108 = new System.Windows.Forms.Label();
+            this.s6_label = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.MainHeader4_label = new System.Windows.Forms.Label();
+            this.SubHeader12_label = new System.Windows.Forms.Label();
+            this.PowerSource_dataGridView = new System.Windows.Forms.DataGridView();
+            this.Power_MP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Power_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Power_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Power_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Power_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Power_Responsability = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Power_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Power_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Power_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flowLayoutPanel20 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label93 = new System.Windows.Forms.Label();
+            this.label94 = new System.Windows.Forms.Label();
+            this.label92 = new System.Windows.Forms.Label();
+            this.AmperNumber_textBox = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel19 = new System.Windows.Forms.FlowLayoutPanel();
+            this.radioButton19 = new System.Windows.Forms.RadioButton();
+            this.radioButton20 = new System.Windows.Forms.RadioButton();
+            this.SubHeader14_label = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.Agreement1_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.Agreement1_No_radioButton = new System.Windows.Forms.RadioButton();
+            this.Agreement1_Yes_radioButton = new System.Windows.Forms.RadioButton();
+            this.Agreement2_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.Agreement2_No_radioButton = new System.Windows.Forms.RadioButton();
+            this.Agreement2_Yes_radioButton = new System.Windows.Forms.RadioButton();
+            this.Agreement3_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.Agreement3_No_radioButton = new System.Windows.Forms.RadioButton();
+            this.Agreement3_Yes_radioButton = new System.Windows.Forms.RadioButton();
+            this.Agreement4_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.Agreement4_No_radioButton = new System.Windows.Forms.RadioButton();
+            this.Agreement4_Yes_radioButton = new System.Windows.Forms.RadioButton();
+            this.SubHeader13_label = new System.Windows.Forms.Label();
+            this.t8_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.P_HasEducation_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.P_HasEducationNo_radioButton = new System.Windows.Forms.RadioButton();
+            this.P_HasEducationYes_radioButton = new System.Windows.Forms.RadioButton();
             this.Course_dataGridView = new System.Windows.Forms.DataGridView();
             this.CPerosn_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Course_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_SubCategory_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_SubCategory = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.C_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.C_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_Donor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.C_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Header3_label = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.Work_dataGridView = new System.Windows.Forms.DataGridView();
-            this.WP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.W_WorkType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.W_BeginDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_PlaceState = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.W_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label49 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.SubHeader4_label = new System.Windows.Forms.Label();
+            this.Education_dataGridView = new System.Windows.Forms.DataGridView();
+            this.PE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.E_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.E_Level = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.E_Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.E_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Edu_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Edu_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edu_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.SubHeader5_label = new System.Windows.Forms.Label();
+            this.P_HasCourses_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.P_HasCoursesNo_radioButton = new System.Windows.Forms.RadioButton();
+            this.P_HasCoursesYes_radioButton = new System.Windows.Forms.RadioButton();
+            this.t7_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.t6_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SubHeader3_label = new System.Windows.Forms.Label();
+            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
             this.Exp_dataGridView = new System.Windows.Forms.DataGridView();
             this.ExpP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Exp_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -416,124 +494,115 @@ namespace MyWorkApplication
             this.Exp_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Exp_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Exp_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label67 = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.P_HasCourses_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.P_HasCoursesNo_radioButton = new System.Windows.Forms.RadioButton();
-            this.P_HasCoursesYes_radioButton = new System.Windows.Forms.RadioButton();
-            this.P_HasEducation_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.P_HasEducationYes_radioButton = new System.Windows.Forms.RadioButton();
-            this.P_HasEducationNo_radioButton = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.label56 = new System.Windows.Forms.Label();
-            this.Education_dataGridView = new System.Windows.Forms.DataGridView();
-            this.PE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.E_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.E_Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.E_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.E_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edu_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Edu_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edu_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.t5_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.MainHeader2_label = new System.Windows.Forms.Label();
+            this.Work_dataGridView = new System.Windows.Forms.DataGridView();
+            this.WP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.W_WorkType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.W_BeginDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_PlaceState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.W_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubHeader2_label = new System.Windows.Forms.Label();
+            this.t2_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.P_Loss_textBox = new System.Windows.Forms.TextBox();
-            this.MP_Description_textBox = new System.Windows.Forms.TextBox();
-            this.P_Goals_panel = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.MP_Marketing_textBox = new System.Windows.Forms.TextBox();
-            this.MP_OtherNotes_textBox = new System.Windows.Forms.TextBox();
+            this.P_GoalHow_textBox = new System.Windows.Forms.TextBox();
+            this.P_OtherNotes_textBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel25 = new System.Windows.Forms.FlowLayoutPanel();
             this.label39 = new System.Windows.Forms.Label();
             this.label104 = new System.Windows.Forms.Label();
             this.flowLayoutPanel26 = new System.Windows.Forms.FlowLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.label102 = new System.Windows.Forms.Label();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.dangers1_checkBox = new System.Windows.Forms.CheckBox();
-            this.dangers2_checkBox = new System.Windows.Forms.CheckBox();
-            this.dangers3_checkBox = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.first_tableLayoutPanel.SuspendLayout();
+            this.P_Goal_textBox = new System.Windows.Forms.TextBox();
+            this.P_Goals_panel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.First_tableLayoutPanel.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PersonPicture_pictureBox)).BeginInit();
-            this.flowLayoutPanel33.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FamilyMember_dataGridView)).BeginInit();
-            this.Military_tableLayoutPanel.SuspendLayout();
-            this.flowLayoutPanel4.SuspendLayout();
+            this.img_contextMenuStrip.SuspendLayout();
+            this.FundType_flowLayoutPanel.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.t3_tableLayoutPanel.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
+            this.Military_flowLayoutPanel.SuspendLayout();
+            this.P_Priest_tableLayoutPanel.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FamilyMember_dataGridView)).BeginInit();
             this.tableLayoutPanel8.SuspendLayout();
-            this.flowLayoutPanel9.SuspendLayout();
+            this.flowLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel8.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
-            this.flowLayoutPanel7.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel13.SuspendLayout();
+            this.flowLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AidSource_dataGridView)).BeginInit();
             this.Main_panel.SuspendLayout();
-            this.Users_tableLayoutPanel.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            this.Final_tableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel13.SuspendLayout();
-            this.tableLayoutPanel10.SuspendLayout();
-            this.flowLayoutPanel19.SuspendLayout();
-            this.flowLayoutPanel20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PowerSource_dataGridView)).BeginInit();
-            this.flowLayoutPanel18.SuspendLayout();
-            this.Agreement1_flowLayoutPanel.SuspendLayout();
-            this.Agreement2_flowLayoutPanel.SuspendLayout();
-            this.Agreement3_flowLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-            this.s6_tableLayoutPanel.SuspendLayout();
-            this.flowLayoutPanel27.SuspendLayout();
+            this.t11_tableLayoutPanel.SuspendLayout();
             this.P_HasIncomeSource_flowLayoutPanel.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HomePowerSource_dataGridView)).BeginInit();
+            this.flowLayoutPanel18.SuspendLayout();
+            this.t10_tableLayoutPanel.SuspendLayout();
             this.P_HasAidSource_flowLayoutPanel.SuspendLayout();
-            this.tableLayoutPanel17.SuspendLayout();
+            this.P_Debts_tableLayoutPanel.SuspendLayout();
             this.P_HasDebts_flowLayoutPanel.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
+            this.t9_tableLayoutPanel.SuspendLayout();
             this.P_HasLosses_flowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Loss_dataGridView)).BeginInit();
-            this.P_HasAssets_flowLayoutPanel.SuspendLayout();
+            this.flowLayoutPanel21.SuspendLayout();
             this.flowLayoutPanel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Illness_dataGridView)).BeginInit();
             this.flowLayoutPanel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Assets_dataGridView)).BeginInit();
             this.flowLayoutPanel16.SuspendLayout();
             this.P_HasIllness_flowLayoutPanel.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Course_dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Work_dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Exp_dataGridView)).BeginInit();
-            this.flowLayoutPanel10.SuspendLayout();
-            this.flowLayoutPanel12.SuspendLayout();
-            this.P_HasCourses_flowLayoutPanel.SuspendLayout();
+            this.P_HasAssets_flowLayoutPanel.SuspendLayout();
+            this.t4_tableLayoutPanel.SuspendLayout();
+            this.t21_tableLayoutPanel.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
+            this.flowLayoutPanel17.SuspendLayout();
+            this.t20_tableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Materials_dataGridView)).BeginInit();
+            this.flowLayoutPanel27.SuspendLayout();
+            this.s6_tableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PowerSource_dataGridView)).BeginInit();
+            this.flowLayoutPanel20.SuspendLayout();
+            this.flowLayoutPanel19.SuspendLayout();
+            this.Agreement1_flowLayoutPanel.SuspendLayout();
+            this.Agreement2_flowLayoutPanel.SuspendLayout();
+            this.Agreement3_flowLayoutPanel.SuspendLayout();
+            this.Agreement4_flowLayoutPanel.SuspendLayout();
+            this.t8_tableLayoutPanel.SuspendLayout();
             this.P_HasEducation_flowLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Course_dataGridView)).BeginInit();
+            this.flowLayoutPanel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Education_dataGridView)).BeginInit();
             this.flowLayoutPanel11.SuspendLayout();
-            this.tableLayoutPanel12.SuspendLayout();
+            this.P_HasCourses_flowLayoutPanel.SuspendLayout();
+            this.t7_tableLayoutPanel.SuspendLayout();
+            this.t6_tableLayoutPanel.SuspendLayout();
+            this.flowLayoutPanel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Exp_dataGridView)).BeginInit();
+            this.t5_tableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Work_dataGridView)).BeginInit();
+            this.t2_tableLayoutPanel.SuspendLayout();
             this.flowLayoutPanel25.SuspendLayout();
             this.flowLayoutPanel26.SuspendLayout();
             this.SuspendLayout();
@@ -542,26 +611,27 @@ namespace MyWorkApplication
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
+            this.t7_tableLayoutPanel.SetColumnSpan(this.label2, 2);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label2.Location = new System.Drawing.Point(896, 672);
+            this.label2.Location = new System.Drawing.Point(719, 4);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(192, 42);
+            this.label2.Size = new System.Drawing.Size(369, 29);
             this.label2.TabIndex = 505;
             this.label2.Text = "عدد سنوات الخبرة في مجال المشروع المقدّّم:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // P_Mobile_textBox
+            // P_MobileReadable_textBox
             // 
-            this.P_Mobile_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_Mobile_textBox.BackColor = System.Drawing.Color.White;
-            this.P_Mobile_textBox.Location = new System.Drawing.Point(533, 139);
-            this.P_Mobile_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.P_Mobile_textBox.Name = "P_Mobile_textBox";
-            this.P_Mobile_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.P_Mobile_textBox.Size = new System.Drawing.Size(245, 29);
-            this.P_Mobile_textBox.TabIndex = 526;
-            this.P_Mobile_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.P_MobileReadable_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_MobileReadable_textBox.BackColor = System.Drawing.Color.White;
+            this.P_MobileReadable_textBox.Location = new System.Drawing.Point(533, 139);
+            this.P_MobileReadable_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.P_MobileReadable_textBox.Name = "P_MobileReadable_textBox";
+            this.P_MobileReadable_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.P_MobileReadable_textBox.Size = new System.Drawing.Size(245, 29);
+            this.P_MobileReadable_textBox.TabIndex = 526;
+            this.P_MobileReadable_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -589,30 +659,31 @@ namespace MyWorkApplication
             this.label80.Text = "رقم الجوّال:";
             this.label80.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // MP_ID_textBox
+            // MPID_textBox
             // 
-            this.MP_ID_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.MP_ID_textBox.BackColor = System.Drawing.Color.White;
-            this.MP_ID_textBox.Font = new System.Drawing.Font("Rubik", 11F, System.Drawing.FontStyle.Bold);
-            this.MP_ID_textBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.MP_ID_textBox.Location = new System.Drawing.Point(64, 100);
-            this.MP_ID_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MP_ID_textBox.Name = "MP_ID_textBox";
-            this.MP_ID_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MP_ID_textBox.Size = new System.Drawing.Size(258, 29);
-            this.MP_ID_textBox.TabIndex = 0;
-            this.MP_ID_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.MPID_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.MPID_textBox.BackColor = System.Drawing.Color.White;
+            this.MPID_textBox.Font = new System.Drawing.Font("Rubik", 11F, System.Drawing.FontStyle.Bold);
+            this.MPID_textBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.MPID_textBox.Location = new System.Drawing.Point(50, 4);
+            this.MPID_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MPID_textBox.Name = "MPID_textBox";
+            this.MPID_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MPID_textBox.Size = new System.Drawing.Size(205, 29);
+            this.MPID_textBox.TabIndex = 0;
+            this.MPID_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.MPID_textBox.Leave += new System.EventHandler(this.MPID_textBox_Leave);
             // 
             // P_FullName_En_textBox
             // 
             this.P_FullName_En_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_FullName_En_textBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel6.SetColumnSpan(this.P_FullName_En_textBox, 7);
-            this.P_FullName_En_textBox.Location = new System.Drawing.Point(3, 143);
+            this.t3_tableLayoutPanel.SetColumnSpan(this.P_FullName_En_textBox, 4);
+            this.P_FullName_En_textBox.Location = new System.Drawing.Point(3, 145);
             this.P_FullName_En_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_FullName_En_textBox.Name = "P_FullName_En_textBox";
             this.P_FullName_En_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_FullName_En_textBox.Size = new System.Drawing.Size(924, 29);
+            this.P_FullName_En_textBox.Size = new System.Drawing.Size(528, 29);
             this.P_FullName_En_textBox.TabIndex = 3;
             // 
             // label62
@@ -628,59 +699,107 @@ namespace MyWorkApplication
             this.label62.Text = "الاسم الثلاثي:";
             this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // first_tableLayoutPanel
+            // First_tableLayoutPanel
             // 
-            this.first_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
-            this.first_tableLayoutPanel.ColumnCount = 7;
-            this.first_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.668455F));
-            this.first_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.25748F));
-            this.first_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.49628F));
-            this.first_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.340024F));
-            this.first_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.06299F));
-            this.first_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.9557F));
-            this.first_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.21906F));
-            this.first_tableLayoutPanel.Controls.Add(this.P_Mobile_textBox, 4, 4);
-            this.first_tableLayoutPanel.Controls.Add(this.label3, 2, 4);
-            this.first_tableLayoutPanel.Controls.Add(this.label80, 5, 4);
-            this.first_tableLayoutPanel.Controls.Add(this.MP_ID_textBox, 1, 3);
-            this.first_tableLayoutPanel.Controls.Add(this.label62, 5, 3);
-            this.first_tableLayoutPanel.Controls.Add(this.label1, 2, 3);
-            this.first_tableLayoutPanel.Controls.Add(this.Type_lable, 2, 5);
-            this.first_tableLayoutPanel.Controls.Add(this.Type_comboBox, 1, 5);
-            this.first_tableLayoutPanel.Controls.Add(this.label74, 5, 5);
-            this.first_tableLayoutPanel.Controls.Add(this.ApplyDate_bcDateTimePicker, 4, 5);
-            this.first_tableLayoutPanel.Controls.Add(this.MP_Name_textBox, 4, 6);
-            this.first_tableLayoutPanel.Controls.Add(this.label79, 5, 6);
-            this.first_tableLayoutPanel.Controls.Add(this.label4, 2, 6);
-            this.first_tableLayoutPanel.Controls.Add(this.SubType_comboBox, 1, 6);
-            this.first_tableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 1, 8);
-            this.first_tableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 1, 4);
-            this.first_tableLayoutPanel.Controls.Add(this.label31, 1, 1);
-            this.first_tableLayoutPanel.Controls.Add(this.tableLayoutPanel11, 6, 3);
-            this.first_tableLayoutPanel.Controls.Add(this.P_FullName_textBox, 4, 3);
-            this.first_tableLayoutPanel.Controls.Add(this.label95, 5, 7);
-            this.first_tableLayoutPanel.Controls.Add(this.flowLayoutPanel33, 4, 7);
-            this.first_tableLayoutPanel.Controls.Add(this.label106, 2, 7);
-            this.first_tableLayoutPanel.Controls.Add(this.MP_RequestedAmount_textBox, 1, 7);
-            this.first_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.first_tableLayoutPanel.Location = new System.Drawing.Point(75, 0);
-            this.first_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.first_tableLayoutPanel.Name = "first_tableLayoutPanel";
-            this.first_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.first_tableLayoutPanel.RowCount = 10;
-            this.first_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
-            this.first_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
-            this.first_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
-            this.first_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
-            this.first_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
-            this.first_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
-            this.first_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
-            this.first_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
-            this.first_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.01869F));
-            this.first_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.476635F));
-            this.first_tableLayoutPanel.Size = new System.Drawing.Size(1091, 370);
-            this.first_tableLayoutPanel.TabIndex = 1;
-            this.first_tableLayoutPanel.TabStop = true;
+            this.First_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.First_tableLayoutPanel.ColumnCount = 7;
+            this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.668455F));
+            this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.25748F));
+            this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.49628F));
+            this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.340024F));
+            this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.06299F));
+            this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.9557F));
+            this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.21906F));
+            this.First_tableLayoutPanel.Controls.Add(this.tableLayoutPanel6, 4, 6);
+            this.First_tableLayoutPanel.Controls.Add(this.P_MobileReadable_textBox, 4, 4);
+            this.First_tableLayoutPanel.Controls.Add(this.label3, 2, 4);
+            this.First_tableLayoutPanel.Controls.Add(this.label80, 5, 4);
+            this.First_tableLayoutPanel.Controls.Add(this.label62, 5, 3);
+            this.First_tableLayoutPanel.Controls.Add(this.label1, 2, 3);
+            this.First_tableLayoutPanel.Controls.Add(this.Type_lable, 2, 5);
+            this.First_tableLayoutPanel.Controls.Add(this.Type_comboBox, 1, 5);
+            this.First_tableLayoutPanel.Controls.Add(this.label74, 5, 5);
+            this.First_tableLayoutPanel.Controls.Add(this.ApplyDate_bcDateTimePicker, 4, 5);
+            this.First_tableLayoutPanel.Controls.Add(this.label79, 5, 6);
+            this.First_tableLayoutPanel.Controls.Add(this.label4, 2, 6);
+            this.First_tableLayoutPanel.Controls.Add(this.SubType_comboBox, 1, 6);
+            this.First_tableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 1, 8);
+            this.First_tableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 1, 4);
+            this.First_tableLayoutPanel.Controls.Add(this.SubHeader1_label, 1, 1);
+            this.First_tableLayoutPanel.Controls.Add(this.tableLayoutPanel11, 6, 3);
+            this.First_tableLayoutPanel.Controls.Add(this.P_FullName_textBox, 4, 3);
+            this.First_tableLayoutPanel.Controls.Add(this.FundType_label, 5, 7);
+            this.First_tableLayoutPanel.Controls.Add(this.FundType_flowLayoutPanel, 4, 7);
+            this.First_tableLayoutPanel.Controls.Add(this.MP_RequestedAmount_label, 2, 7);
+            this.First_tableLayoutPanel.Controls.Add(this.MP_RequestedAmount_textBox, 1, 7);
+            this.First_tableLayoutPanel.Controls.Add(this.tableLayoutPanel5, 1, 3);
+            this.First_tableLayoutPanel.Controls.Add(this.ImageLocation_textBox, 6, 9);
+            this.First_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.First_tableLayoutPanel.Location = new System.Drawing.Point(75, 0);
+            this.First_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.First_tableLayoutPanel.Name = "First_tableLayoutPanel";
+            this.First_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.First_tableLayoutPanel.RowCount = 10;
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.01869F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.476635F));
+            this.First_tableLayoutPanel.Size = new System.Drawing.Size(1091, 370);
+            this.First_tableLayoutPanel.TabIndex = 1;
+            this.First_tableLayoutPanel.TabStop = true;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel6.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.ContentUpdated_checkBox, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.MP_Name_textBox, 1, 0);
+            this.tableLayoutPanel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(533, 213);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(245, 37);
+            this.tableLayoutPanel6.TabIndex = 574;
+            // 
+            // ContentUpdated_checkBox
+            // 
+            this.ContentUpdated_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ContentUpdated_checkBox.AutoSize = true;
+            this.ContentUpdated_checkBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ContentUpdated_checkBox.Location = new System.Drawing.Point(9, 10);
+            this.ContentUpdated_checkBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ContentUpdated_checkBox.Name = "ContentUpdated_checkBox";
+            this.ContentUpdated_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ContentUpdated_checkBox.Size = new System.Drawing.Size(18, 17);
+            this.ContentUpdated_checkBox.TabIndex = 573;
+            this.ContentUpdated_checkBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.ContentUpdated_checkBox, "هل تم تبديل المشروع؟");
+            this.ContentUpdated_checkBox.UseVisualStyleBackColor = true;
+            this.ContentUpdated_checkBox.CheckedChanged += new System.EventHandler(this.UpdateContent_checkBox_CheckedChanged);
+            // 
+            // MP_Name_textBox
+            // 
+            this.MP_Name_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.MP_Name_textBox.BackColor = System.Drawing.Color.White;
+            this.MP_Name_textBox.Location = new System.Drawing.Point(32, 4);
+            this.MP_Name_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MP_Name_textBox.Name = "MP_Name_textBox";
+            this.MP_Name_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MP_Name_textBox.Size = new System.Drawing.Size(210, 29);
+            this.MP_Name_textBox.TabIndex = 4;
             // 
             // label1
             // 
@@ -724,6 +843,8 @@ namespace MyWorkApplication
             this.Type_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Type_comboBox.Size = new System.Drawing.Size(258, 30);
             this.Type_comboBox.TabIndex = 3;
+            this.Type_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.Type_comboBox.SelectedIndexChanged += new System.EventHandler(this.Type_comboBox_SelectedValueChanged);
             // 
             // label74
             // 
@@ -752,17 +873,6 @@ namespace MyWorkApplication
             this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
             this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(245, 29);
             this.ApplyDate_bcDateTimePicker.TabIndex = 6;
-            // 
-            // MP_Name_textBox
-            // 
-            this.MP_Name_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.MP_Name_textBox.BackColor = System.Drawing.Color.White;
-            this.MP_Name_textBox.Location = new System.Drawing.Point(533, 217);
-            this.MP_Name_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MP_Name_textBox.Name = "MP_Name_textBox";
-            this.MP_Name_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MP_Name_textBox.Size = new System.Drawing.Size(245, 29);
-            this.MP_Name_textBox.TabIndex = 4;
             // 
             // label79
             // 
@@ -806,11 +916,12 @@ namespace MyWorkApplication
             this.SubType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SubType_comboBox.Size = new System.Drawing.Size(258, 30);
             this.SubType_comboBox.TabIndex = 4;
+            this.SubType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.first_tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel1, 5);
+            this.First_tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel1, 5);
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
@@ -1009,6 +1120,8 @@ namespace MyWorkApplication
             this.SubCategory_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SubCategory_comboBox.Size = new System.Drawing.Size(123, 30);
             this.SubCategory_comboBox.TabIndex = 5;
+            this.SubCategory_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.SubCategory_comboBox.SelectedIndexChanged += new System.EventHandler(this.SubCategory_comboBox_SelectedIndexChanged);
             // 
             // Career_comboBox
             // 
@@ -1026,24 +1139,25 @@ namespace MyWorkApplication
             this.Career_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Career_comboBox.Size = new System.Drawing.Size(123, 30);
             this.Career_comboBox.TabIndex = 6;
+            this.Career_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             // 
-            // label31
+            // SubHeader1_label
             // 
-            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.SubHeader1_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label31.AutoSize = true;
-            this.first_tableLayoutPanel.SetColumnSpan(this.label31, 6);
-            this.label31.Font = new System.Drawing.Font("Rubik", 18F, System.Drawing.FontStyle.Bold);
-            this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.label31.Location = new System.Drawing.Point(64, 34);
-            this.label31.Name = "label31";
-            this.label31.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
-            this.label31.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.first_tableLayoutPanel.SetRowSpan(this.label31, 2);
-            this.label31.Size = new System.Drawing.Size(1024, 61);
-            this.label31.TabIndex = 538;
-            this.label31.Text = "استمارة المشروع";
-            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SubHeader1_label.AutoSize = true;
+            this.First_tableLayoutPanel.SetColumnSpan(this.SubHeader1_label, 6);
+            this.SubHeader1_label.Font = new System.Drawing.Font("Rubik", 18F, System.Drawing.FontStyle.Bold);
+            this.SubHeader1_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader1_label.Location = new System.Drawing.Point(64, 34);
+            this.SubHeader1_label.Name = "SubHeader1_label";
+            this.SubHeader1_label.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
+            this.SubHeader1_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.First_tableLayoutPanel.SetRowSpan(this.SubHeader1_label, 2);
+            this.SubHeader1_label.Size = new System.Drawing.Size(1024, 61);
+            this.SubHeader1_label.TabIndex = 538;
+            this.SubHeader1_label.Text = "استمارة المشروع";
+            this.SubHeader1_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel11
             // 
@@ -1061,7 +1175,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 2;
-            this.first_tableLayoutPanel.SetRowSpan(this.tableLayoutPanel11, 6);
+            this.First_tableLayoutPanel.SetRowSpan(this.tableLayoutPanel11, 6);
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.16832F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.83168F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(163, 242);
@@ -1130,13 +1244,16 @@ namespace MyWorkApplication
             this.Download_button.Size = new System.Drawing.Size(27, 27);
             this.Download_button.TabIndex = 2;
             this.Download_button.TabStop = false;
+            this.toolTip1.SetToolTip(this.Download_button, "Download");
             this.Download_button.UseVisualStyleBackColor = false;
+            this.Download_button.Click += new System.EventHandler(this.Download_button_Click);
             // 
             // PersonPicture_pictureBox
             // 
             this.PersonPicture_pictureBox.BackColor = System.Drawing.Color.Transparent;
             this.PersonPicture_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tableLayoutPanel11.SetColumnSpan(this.PersonPicture_pictureBox, 3);
+            this.PersonPicture_pictureBox.ContextMenuStrip = this.img_contextMenuStrip;
             this.PersonPicture_pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PersonPicture_pictureBox.Image = global::MyWorkApplication.Properties.Resources.User;
             this.PersonPicture_pictureBox.Location = new System.Drawing.Point(3, 3);
@@ -1145,6 +1262,21 @@ namespace MyWorkApplication
             this.PersonPicture_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PersonPicture_pictureBox.TabIndex = 539;
             this.PersonPicture_pictureBox.TabStop = false;
+            // 
+            // img_contextMenuStrip
+            // 
+            this.img_contextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.img_contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.download_toolStripMenuItem1});
+            this.img_contextMenuStrip.Name = "img_contextMenuStrip";
+            this.img_contextMenuStrip.Size = new System.Drawing.Size(148, 28);
+            // 
+            // download_toolStripMenuItem1
+            // 
+            this.download_toolStripMenuItem1.Name = "download_toolStripMenuItem1";
+            this.download_toolStripMenuItem1.Size = new System.Drawing.Size(147, 24);
+            this.download_toolStripMenuItem1.Text = "Download";
+            this.download_toolStripMenuItem1.Click += new System.EventHandler(this.download_toolStripMenuItem1_Click_1);
             // 
             // P_FullName_textBox
             // 
@@ -1157,31 +1289,31 @@ namespace MyWorkApplication
             this.P_FullName_textBox.Size = new System.Drawing.Size(245, 29);
             this.P_FullName_textBox.TabIndex = 564;
             // 
-            // label95
+            // FundType_label
             // 
-            this.label95.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label95.AutoSize = true;
-            this.label95.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label95.Location = new System.Drawing.Point(814, 256);
-            this.label95.Name = "label95";
-            this.label95.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label95.Size = new System.Drawing.Size(105, 29);
-            this.label95.TabIndex = 565;
-            this.label95.Text = "نوع التمويل:";
-            this.label95.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.FundType_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.FundType_label.AutoSize = true;
+            this.FundType_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.FundType_label.Location = new System.Drawing.Point(814, 256);
+            this.FundType_label.Name = "FundType_label";
+            this.FundType_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FundType_label.Size = new System.Drawing.Size(105, 29);
+            this.FundType_label.TabIndex = 565;
+            this.FundType_label.Text = "نوع التمويل:";
+            this.FundType_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // flowLayoutPanel33
+            // FundType_flowLayoutPanel
             // 
-            this.flowLayoutPanel33.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.FundType_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel33.Controls.Add(this.Loan_radioButton);
-            this.flowLayoutPanel33.Controls.Add(this.Grant_radioButton);
-            this.flowLayoutPanel33.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel33.Location = new System.Drawing.Point(533, 254);
-            this.flowLayoutPanel33.Name = "flowLayoutPanel33";
-            this.flowLayoutPanel33.Size = new System.Drawing.Size(245, 33);
-            this.flowLayoutPanel33.TabIndex = 568;
+            this.FundType_flowLayoutPanel.Controls.Add(this.Loan_radioButton);
+            this.FundType_flowLayoutPanel.Controls.Add(this.Grant_radioButton);
+            this.FundType_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.FundType_flowLayoutPanel.Location = new System.Drawing.Point(533, 254);
+            this.FundType_flowLayoutPanel.Name = "FundType_flowLayoutPanel";
+            this.FundType_flowLayoutPanel.Size = new System.Drawing.Size(245, 33);
+            this.FundType_flowLayoutPanel.TabIndex = 568;
             // 
             // Loan_radioButton
             // 
@@ -1211,18 +1343,18 @@ namespace MyWorkApplication
             this.Grant_radioButton.Text = "منحة";
             this.Grant_radioButton.UseVisualStyleBackColor = true;
             // 
-            // label106
+            // MP_RequestedAmount_label
             // 
-            this.label106.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label106.AutoSize = true;
-            this.label106.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label106.Location = new System.Drawing.Point(370, 251);
-            this.label106.Name = "label106";
-            this.label106.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label106.Size = new System.Drawing.Size(88, 39);
-            this.label106.TabIndex = 569;
-            this.label106.Text = "المبلغ المطلوب:";
-            this.label106.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MP_RequestedAmount_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.MP_RequestedAmount_label.AutoSize = true;
+            this.MP_RequestedAmount_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.MP_RequestedAmount_label.Location = new System.Drawing.Point(370, 251);
+            this.MP_RequestedAmount_label.Name = "MP_RequestedAmount_label";
+            this.MP_RequestedAmount_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MP_RequestedAmount_label.Size = new System.Drawing.Size(88, 39);
+            this.MP_RequestedAmount_label.TabIndex = 569;
+            this.MP_RequestedAmount_label.Text = "المبلغ المطلوب:";
+            this.MP_RequestedAmount_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MP_RequestedAmount_textBox
             // 
@@ -1234,6 +1366,61 @@ namespace MyWorkApplication
             this.MP_RequestedAmount_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_RequestedAmount_textBox.Size = new System.Drawing.Size(258, 29);
             this.MP_RequestedAmount_textBox.TabIndex = 570;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel5.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.MPID_textBox, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.Save_MP_ID_button, 0, 0);
+            this.tableLayoutPanel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(64, 96);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(258, 37);
+            this.tableLayoutPanel5.TabIndex = 571;
+            // 
+            // Save_MP_ID_button
+            // 
+            this.Save_MP_ID_button.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Save_MP_ID_button.BackColor = System.Drawing.Color.Transparent;
+            this.Save_MP_ID_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.Unchecked;
+            this.Save_MP_ID_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Save_MP_ID_button.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Save_MP_ID_button.FlatAppearance.BorderSize = 0;
+            this.Save_MP_ID_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.Save_MP_ID_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Save_MP_ID_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Save_MP_ID_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Save_MP_ID_button.ForeColor = System.Drawing.Color.White;
+            this.Save_MP_ID_button.Location = new System.Drawing.Point(11, 1);
+            this.Save_MP_ID_button.Margin = new System.Windows.Forms.Padding(1);
+            this.Save_MP_ID_button.MaximumSize = new System.Drawing.Size(35, 35);
+            this.Save_MP_ID_button.MinimumSize = new System.Drawing.Size(35, 35);
+            this.Save_MP_ID_button.Name = "Save_MP_ID_button";
+            this.Save_MP_ID_button.Size = new System.Drawing.Size(35, 35);
+            this.Save_MP_ID_button.TabIndex = 518;
+            this.Save_MP_ID_button.TabStop = false;
+            this.Save_MP_ID_button.UseVisualStyleBackColor = false;
+            // 
+            // ImageLocation_textBox
+            // 
+            this.ImageLocation_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ImageLocation_textBox.BackColor = System.Drawing.Color.White;
+            this.ImageLocation_textBox.Location = new System.Drawing.Point(925, 343);
+            this.ImageLocation_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ImageLocation_textBox.Name = "ImageLocation_textBox";
+            this.ImageLocation_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ImageLocation_textBox.Size = new System.Drawing.Size(163, 29);
+            this.ImageLocation_textBox.TabIndex = 572;
+            this.ImageLocation_textBox.Visible = false;
             // 
             // label76
             // 
@@ -1286,7 +1473,7 @@ namespace MyWorkApplication
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label18.Location = new System.Drawing.Point(947, 593);
+            this.label18.Location = new System.Drawing.Point(947, 545);
             this.label18.Name = "label18";
             this.label18.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label18.Size = new System.Drawing.Size(141, 29);
@@ -1309,371 +1496,135 @@ namespace MyWorkApplication
             this.label12.Text = "إمكانية إضافة أكثر من اسم كاهن ,أكثر من هيئة وسيطة على البرنامج";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Header2_label
+            // MainHeader1_label
             // 
-            this.Header2_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.MainHeader1_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Header2_label.AutoSize = true;
-            this.Header2_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.tableLayoutPanel6.SetColumnSpan(this.Header2_label, 8);
-            this.Header2_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.Header2_label.ForeColor = System.Drawing.Color.White;
-            this.Header2_label.Location = new System.Drawing.Point(3, 47);
-            this.Header2_label.Name = "Header2_label";
-            this.Header2_label.Padding = new System.Windows.Forms.Padding(3);
-            this.Header2_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Header2_label.Size = new System.Drawing.Size(1085, 43);
-            this.Header2_label.TabIndex = 498;
-            this.Header2_label.Text = "المعلومات الشخصية لمقدّم الطلب:";
-            this.Header2_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MainHeader1_label.AutoSize = true;
+            this.MainHeader1_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.t3_tableLayoutPanel.SetColumnSpan(this.MainHeader1_label, 8);
+            this.MainHeader1_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.MainHeader1_label.ForeColor = System.Drawing.Color.White;
+            this.MainHeader1_label.Location = new System.Drawing.Point(3, 30);
+            this.MainHeader1_label.Name = "MainHeader1_label";
+            this.MainHeader1_label.Padding = new System.Windows.Forms.Padding(3);
+            this.MainHeader1_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MainHeader1_label.Size = new System.Drawing.Size(1085, 40);
+            this.MainHeader1_label.TabIndex = 498;
+            this.MainHeader1_label.Text = "المعلومات الشخصية لمقدّم الطلب:";
+            this.MainHeader1_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel6
+            // t3_tableLayoutPanel
             // 
-            this.tableLayoutPanel6.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel6.ColumnCount = 8;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.46032F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.87302F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.53986F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.2553F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.86075F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.94349F));
-            this.tableLayoutPanel6.Controls.Add(this.FamilyMember_dataGridView, 0, 20);
-            this.tableLayoutPanel6.Controls.Add(this.label61, 4, 14);
-            this.tableLayoutPanel6.Controls.Add(this.label81, 7, 14);
-            this.tableLayoutPanel6.Controls.Add(this.label18, 7, 13);
-            this.tableLayoutPanel6.Controls.Add(this.Header2_label, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.label29, 7, 12);
-            this.tableLayoutPanel6.Controls.Add(this.label32, 7, 2);
-            this.tableLayoutPanel6.Controls.Add(this.P_FirstName_textBox, 6, 2);
-            this.tableLayoutPanel6.Controls.Add(this.label52, 4, 13);
-            this.tableLayoutPanel6.Controls.Add(this.label34, 4, 2);
-            this.tableLayoutPanel6.Controls.Add(this.P_FatherName_textBox, 6, 4);
-            this.tableLayoutPanel6.Controls.Add(this.label35, 1, 2);
-            this.tableLayoutPanel6.Controls.Add(this.P_LastName_textBox, 3, 2);
-            this.tableLayoutPanel6.Controls.Add(this.P_Sex_comboBox, 0, 2);
-            this.tableLayoutPanel6.Controls.Add(this.label13, 7, 4);
-            this.tableLayoutPanel6.Controls.Add(this.label41, 4, 4);
-            this.tableLayoutPanel6.Controls.Add(this.P_Address_textBox, 0, 13);
-            this.tableLayoutPanel6.Controls.Add(this.P_MotherName_textBox, 0, 4);
-            this.tableLayoutPanel6.Controls.Add(this.label22, 7, 3);
-            this.tableLayoutPanel6.Controls.Add(this.label75, 7, 5);
-            this.tableLayoutPanel6.Controls.Add(this.P_Registration_textBox, 6, 5);
-            this.tableLayoutPanel6.Controls.Add(this.P_FullName_En_textBox, 0, 3);
-            this.tableLayoutPanel6.Controls.Add(this.label42, 4, 5);
-            this.tableLayoutPanel6.Controls.Add(this.P_NationalNum_textBox, 0, 5);
-            this.tableLayoutPanel6.Controls.Add(this.label54, 7, 6);
-            this.tableLayoutPanel6.Controls.Add(this.P_DOB_textBox, 6, 6);
-            this.tableLayoutPanel6.Controls.Add(this.label63, 4, 6);
-            this.tableLayoutPanel6.Controls.Add(this.P_MaritalState_comboBox, 0, 6);
-            this.tableLayoutPanel6.Controls.Add(this.P_HomeTel_textBox, 6, 12);
-            this.tableLayoutPanel6.Controls.Add(this.P_HomeStateNote_textBox, 0, 14);
-            this.tableLayoutPanel6.Controls.Add(this.Military_label2, 4, 17);
-            this.tableLayoutPanel6.Controls.Add(this.Military_textBox, 3, 17);
-            this.tableLayoutPanel6.Controls.Add(this.Military_Date_checkBox, 1, 17);
-            this.tableLayoutPanel6.Controls.Add(this.Military_Date_dateTimePicker, 0, 17);
-            this.tableLayoutPanel6.Controls.Add(this.Military_tableLayoutPanel, 6, 17);
-            this.tableLayoutPanel6.Controls.Add(this.Military_label, 7, 17);
-            this.tableLayoutPanel6.Controls.Add(this.label9, 7, 19);
-            this.tableLayoutPanel6.Controls.Add(this.P_NumOfMembers_textBox, 6, 19);
-            this.tableLayoutPanel6.Controls.Add(this.label21, 4, 19);
-            this.tableLayoutPanel6.Controls.Add(this.P_NumAtHome_textBox, 3, 19);
-            this.tableLayoutPanel6.Controls.Add(this.label50, 1, 19);
-            this.tableLayoutPanel6.Controls.Add(this.FamilyNum_textBox1, 0, 19);
-            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel4, 0, 7);
-            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel5, 0, 15);
-            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel8, 0, 27);
-            this.tableLayoutPanel6.Controls.Add(this.Street_comboBox, 6, 13);
-            this.tableLayoutPanel6.Controls.Add(this.P_HomeType_comboBox, 6, 14);
-            this.tableLayoutPanel6.Controls.Add(this.label28, 4, 12);
-            this.tableLayoutPanel6.Controls.Add(this.P_Mobile2_textBox, 0, 12);
-            this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel3, 0, 11);
-            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel13, 3, 9);
-            this.tableLayoutPanel6.Controls.Add(this.P_IntermidiaryName_label, 1, 9);
-            this.tableLayoutPanel6.Controls.Add(this.P_IntermidiaryName_textBox, 0, 9);
-            this.tableLayoutPanel6.Controls.Add(this.P_Parish_comboBox, 6, 9);
-            this.tableLayoutPanel6.Controls.Add(this.label77, 7, 9);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(75, 1271);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 30;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.267046F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.474433F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.048295F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1091, 1380);
-            this.tableLayoutPanel6.TabIndex = 537;
+            this.t3_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.t3_tableLayoutPanel.ColumnCount = 8;
+            this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.47207F));
+            this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.8837F));
+            this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.55032F));
+            this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.26691F));
+            this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.87277F));
+            this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.95422F));
+            this.t3_tableLayoutPanel.Controls.Add(this.P_HomeStateNote_label, 4, 15);
+            this.t3_tableLayoutPanel.Controls.Add(this.label81, 7, 15);
+            this.t3_tableLayoutPanel.Controls.Add(this.label18, 7, 14);
+            this.t3_tableLayoutPanel.Controls.Add(this.Military_label2, 4, 18);
+            this.t3_tableLayoutPanel.Controls.Add(this.MainHeader1_label, 0, 1);
+            this.t3_tableLayoutPanel.Controls.Add(this.Military_textBox, 3, 18);
+            this.t3_tableLayoutPanel.Controls.Add(this.Military_Date_checkBox, 1, 18);
+            this.t3_tableLayoutPanel.Controls.Add(this.label32, 7, 3);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_FirstName_textBox, 6, 3);
+            this.t3_tableLayoutPanel.Controls.Add(this.label52, 4, 14);
+            this.t3_tableLayoutPanel.Controls.Add(this.label34, 4, 3);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_FatherName_textBox, 6, 5);
+            this.t3_tableLayoutPanel.Controls.Add(this.label35, 1, 3);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_LastName_textBox, 3, 3);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_Sex_comboBox, 0, 3);
+            this.t3_tableLayoutPanel.Controls.Add(this.label13, 7, 5);
+            this.t3_tableLayoutPanel.Controls.Add(this.label41, 4, 5);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_Address_textBox, 0, 14);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_MotherName_textBox, 0, 5);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_Registration_label, 7, 6);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_Registration_textBox, 6, 6);
+            this.t3_tableLayoutPanel.Controls.Add(this.label42, 4, 6);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_NationalNum_textBox, 0, 6);
+            this.t3_tableLayoutPanel.Controls.Add(this.label54, 7, 7);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_DOB_textBox, 6, 7);
+            this.t3_tableLayoutPanel.Controls.Add(this.label63, 4, 7);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_MaritalState_comboBox, 0, 7);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_HomeStateNote_textBox, 0, 15);
+            this.t3_tableLayoutPanel.Controls.Add(this.flowLayoutPanel5, 0, 16);
+            this.t3_tableLayoutPanel.Controls.Add(this.Street_comboBox, 6, 14);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_HomeType_comboBox, 6, 15);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_Mobile2_textBox, 0, 13);
+            this.t3_tableLayoutPanel.Controls.Add(this.Military_Date_dateTimePicker, 0, 18);
+            this.t3_tableLayoutPanel.Controls.Add(this.Military_flowLayoutPanel, 5, 18);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_IntermidiaryName_label, 4, 9);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_IntermidiaryName_textBox, 3, 9);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_Priest_tableLayoutPanel, 0, 9);
+            this.t3_tableLayoutPanel.Controls.Add(this.label77, 7, 9);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_Parish_comboBox, 6, 9);
+            this.t3_tableLayoutPanel.Controls.Add(this.flowLayoutPanel3, 0, 10);
+            this.t3_tableLayoutPanel.Controls.Add(this.flowLayoutPanel4, 0, 8);
+            this.t3_tableLayoutPanel.Controls.Add(this.PersonType_comboBox, 6, 4);
+            this.t3_tableLayoutPanel.Controls.Add(this.PersonType_label, 7, 4);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_FullName_En_textBox, 0, 4);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_FullName_En_label, 4, 4);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_Mobile2_label, 1, 13);
+            this.t3_tableLayoutPanel.Controls.Add(this.label29, 4, 13);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_HomeTel_textBox, 3, 13);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_Mobile_textBox, 6, 13);
+            this.t3_tableLayoutPanel.Controls.Add(this.label5, 7, 13);
+            this.t3_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.t3_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.t3_tableLayoutPanel.Location = new System.Drawing.Point(75, 1271);
+            this.t3_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.t3_tableLayoutPanel.Name = "t3_tableLayoutPanel";
+            this.t3_tableLayoutPanel.RowCount = 21;
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.Size = new System.Drawing.Size(1091, 823);
+            this.t3_tableLayoutPanel.TabIndex = 537;
             // 
-            // FamilyMember_dataGridView
+            // P_HomeStateNote_label
             // 
-            this.FamilyMember_dataGridView.AllowUserToResizeRows = false;
-            this.FamilyMember_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FamilyMember_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.FamilyMember_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.FamilyMember_dataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.FamilyMember_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.FamilyMember_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FamilyMember_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.FamilyMember_dataGridView.ColumnHeadersHeight = 70;
-            this.FamilyMember_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.FamilyMember_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FP_ID,
-            this.F_ID,
-            this.P_FirstName,
-            this.P_LastName,
-            this.P_FatherName,
-            this.P_Relation,
-            this.P_MaritalStatus,
-            this.P_NationalNumber,
-            this.P_DOB,
-            this.P_State,
-            this.P_IsStudent,
-            this.P_WorkType,
-            this.P_DeleteRow,
-            this.P_InDataBase,
-            this.P_RowID});
-            this.tableLayoutPanel6.SetColumnSpan(this.FamilyMember_dataGridView, 8);
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FamilyMember_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.FamilyMember_dataGridView.EnableHeadersVisualStyles = false;
-            this.FamilyMember_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.FamilyMember_dataGridView.Location = new System.Drawing.Point(3, 904);
-            this.FamilyMember_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.FamilyMember_dataGridView.MultiSelect = false;
-            this.FamilyMember_dataGridView.Name = "FamilyMember_dataGridView";
-            this.FamilyMember_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rubik", 11F);
-            this.FamilyMember_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.FamilyMember_dataGridView.RowHeadersVisible = false;
-            this.FamilyMember_dataGridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FamilyMember_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.tableLayoutPanel6.SetRowSpan(this.FamilyMember_dataGridView, 7);
-            this.FamilyMember_dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.FamilyMember_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FamilyMember_dataGridView.RowTemplate.DividerHeight = 1;
-            this.FamilyMember_dataGridView.RowTemplate.Height = 35;
-            this.FamilyMember_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.FamilyMember_dataGridView.Size = new System.Drawing.Size(1085, 307);
-            this.FamilyMember_dataGridView.TabIndex = 560;
-            // 
-            // FP_ID
-            // 
-            this.FP_ID.HeaderText = "FP_ID";
-            this.FP_ID.MinimumWidth = 6;
-            this.FP_ID.Name = "FP_ID";
-            this.FP_ID.Visible = false;
-            // 
-            // F_ID
-            // 
-            this.F_ID.HeaderText = "F_ID";
-            this.F_ID.MinimumWidth = 6;
-            this.F_ID.Name = "F_ID";
-            this.F_ID.Visible = false;
-            // 
-            // P_FirstName
-            // 
-            this.P_FirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_FirstName.FillWeight = 29.2F;
-            this.P_FirstName.HeaderText = "الاسم";
-            this.P_FirstName.MinimumWidth = 6;
-            this.P_FirstName.Name = "P_FirstName";
-            // 
-            // P_LastName
-            // 
-            this.P_LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_LastName.FillWeight = 29.2F;
-            this.P_LastName.HeaderText = "الكنية";
-            this.P_LastName.MinimumWidth = 6;
-            this.P_LastName.Name = "P_LastName";
-            // 
-            // P_FatherName
-            // 
-            this.P_FatherName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_FatherName.FillWeight = 29.15034F;
-            this.P_FatherName.HeaderText = "اسم الأب";
-            this.P_FatherName.MinimumWidth = 6;
-            this.P_FatherName.Name = "P_FatherName";
-            // 
-            // P_Relation
-            // 
-            this.P_Relation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_Relation.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.P_Relation.DisplayStyleForCurrentCellOnly = true;
-            this.P_Relation.FillWeight = 29.2F;
-            this.P_Relation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.P_Relation.HeaderText = "الصفة";
-            this.P_Relation.Items.AddRange(new object[] {
-            "زوج/ة",
-            "أب",
-            "أم",
-            "ابن/ة",
-            "أخ",
-            "أخت",
-            "جد/ة",
-            "حفيد/ة",
-            "عم/ة",
-            "خال/ة",
-            "أب الزوج/ة",
-            "أم الزوج/ة",
-            "أخ الزوج/ة",
-            "أخت الزوج/ة",
-            "زوج/ة الابن/ة",
-            "ابن/ة الأخ",
-            "زوج/ة الأخ",
-            "ابن/ة الأخت",
-            "زوج/ة الأخت",
-            "أولاد عموم و عمات",
-            "أولاد خوال و خالات",
-            "صديق/ة",
-            "زوج/ة الأم",
-            "زوج/ة الأب"});
-            this.P_Relation.MinimumWidth = 6;
-            this.P_Relation.Name = "P_Relation";
-            // 
-            // P_MaritalStatus
-            // 
-            this.P_MaritalStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_MaritalStatus.FillWeight = 29.15034F;
-            this.P_MaritalStatus.HeaderText = "الحالة الاجتماعية";
-            this.P_MaritalStatus.MinimumWidth = 6;
-            this.P_MaritalStatus.Name = "P_MaritalStatus";
-            // 
-            // P_NationalNumber
-            // 
-            this.P_NationalNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_NationalNumber.FillWeight = 29.15034F;
-            this.P_NationalNumber.HeaderText = "الرقم الوطني";
-            this.P_NationalNumber.MinimumWidth = 6;
-            this.P_NationalNumber.Name = "P_NationalNumber";
-            // 
-            // P_DOB
-            // 
-            this.P_DOB.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_DOB.FillWeight = 29.2F;
-            this.P_DOB.HeaderText = "المواليد";
-            this.P_DOB.MinimumWidth = 6;
-            this.P_DOB.Name = "P_DOB";
-            // 
-            // P_State
-            // 
-            this.P_State.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_State.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.P_State.DisplayStyleForCurrentCellOnly = true;
-            this.P_State.FillWeight = 29.15034F;
-            this.P_State.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.P_State.HeaderText = "حالة الإقامة";
-            this.P_State.MinimumWidth = 6;
-            this.P_State.Name = "P_State";
-            // 
-            // P_IsStudent
-            // 
-            this.P_IsStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_IsStudent.FillWeight = 22.67249F;
-            this.P_IsStudent.HeaderText = "طالب";
-            this.P_IsStudent.MinimumWidth = 6;
-            this.P_IsStudent.Name = "P_IsStudent";
-            // 
-            // P_WorkType
-            // 
-            this.P_WorkType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_WorkType.FillWeight = 29.15034F;
-            this.P_WorkType.HeaderText = "العمل";
-            this.P_WorkType.MinimumWidth = 6;
-            this.P_WorkType.Name = "P_WorkType";
-            this.P_WorkType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.P_WorkType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // P_DeleteRow
-            // 
-            this.P_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.P_DeleteRow.FillWeight = 6F;
-            this.P_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.P_DeleteRow.HeaderText = " ";
-            this.P_DeleteRow.MinimumWidth = 50;
-            this.P_DeleteRow.Name = "P_DeleteRow";
-            this.P_DeleteRow.Width = 50;
-            // 
-            // P_InDataBase
-            // 
-            this.P_InDataBase.HeaderText = "P_InDataBase";
-            this.P_InDataBase.MinimumWidth = 6;
-            this.P_InDataBase.Name = "P_InDataBase";
-            this.P_InDataBase.Visible = false;
-            // 
-            // P_RowID
-            // 
-            this.P_RowID.HeaderText = "P_RowID";
-            this.P_RowID.MinimumWidth = 6;
-            this.P_RowID.Name = "P_RowID";
-            this.P_RowID.Visible = false;
-            // 
-            // label61
-            // 
-            this.label61.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label61.AutoSize = true;
-            this.label61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label61.Location = new System.Drawing.Point(609, 638);
-            this.label61.Name = "label61";
-            this.label61.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label61.Size = new System.Drawing.Size(92, 29);
-            this.label61.TabIndex = 529;
-            this.label61.Text = "ملاحظات:";
-            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HomeStateNote_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.P_HomeStateNote_label.AutoSize = true;
+            this.P_HomeStateNote_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.P_HomeStateNote_label.Location = new System.Drawing.Point(610, 585);
+            this.P_HomeStateNote_label.Name = "P_HomeStateNote_label";
+            this.P_HomeStateNote_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HomeStateNote_label.Size = new System.Drawing.Size(92, 29);
+            this.P_HomeStateNote_label.TabIndex = 529;
+            this.P_HomeStateNote_label.Text = "ملاحظات:";
+            this.P_HomeStateNote_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label81
             // 
             this.label81.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label81.AutoSize = true;
             this.label81.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label81.Location = new System.Drawing.Point(972, 638);
+            this.label81.Location = new System.Drawing.Point(972, 585);
             this.label81.Name = "label81";
             this.label81.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label81.Size = new System.Drawing.Size(116, 29);
@@ -1681,25 +1632,50 @@ namespace MyWorkApplication
             this.label81.Text = "ملكية المنزل:";
             this.label81.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label29
+            // Military_label2
             // 
-            this.label29.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label29.AutoSize = true;
-            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label29.Location = new System.Drawing.Point(986, 548);
-            this.label29.Name = "label29";
-            this.label29.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label29.Size = new System.Drawing.Size(102, 29);
-            this.label29.TabIndex = 488;
-            this.label29.Text = "رقم الأرضي:";
-            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Military_label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Military_label2.AutoSize = true;
+            this.Military_label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Military_label2.Location = new System.Drawing.Point(591, 705);
+            this.Military_label2.Name = "Military_label2";
+            this.Military_label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Military_label2.Size = new System.Drawing.Size(111, 29);
+            this.Military_label2.TabIndex = 525;
+            this.Military_label2.Text = "مدّّة الخدمة:";
+            this.Military_label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Military_textBox
+            // 
+            this.Military_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Military_textBox.BackColor = System.Drawing.Color.White;
+            this.Military_textBox.Location = new System.Drawing.Point(383, 705);
+            this.Military_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.Military_textBox.Name = "Military_textBox";
+            this.Military_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Military_textBox.Size = new System.Drawing.Size(148, 29);
+            this.Military_textBox.TabIndex = 17;
+            // 
+            // Military_Date_checkBox
+            // 
+            this.Military_Date_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Military_Date_checkBox.AutoSize = true;
+            this.Military_Date_checkBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Military_Date_checkBox.Location = new System.Drawing.Point(189, 703);
+            this.Military_Date_checkBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Military_Date_checkBox.Name = "Military_Date_checkBox";
+            this.Military_Date_checkBox.Size = new System.Drawing.Size(139, 33);
+            this.Military_Date_checkBox.TabIndex = 533;
+            this.Military_Date_checkBox.Text = ":تاريخ التسريح";
+            this.Military_Date_checkBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Military_Date_checkBox.UseVisualStyleBackColor = true;
             // 
             // label32
             // 
             this.label32.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label32.AutoSize = true;
             this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label32.Location = new System.Drawing.Point(983, 98);
+            this.label32.Location = new System.Drawing.Point(983, 105);
             this.label32.Name = "label32";
             this.label32.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label32.Size = new System.Drawing.Size(105, 29);
@@ -1711,19 +1687,20 @@ namespace MyWorkApplication
             // 
             this.P_FirstName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_FirstName_textBox.BackColor = System.Drawing.Color.White;
-            this.P_FirstName_textBox.Location = new System.Drawing.Point(757, 98);
+            this.P_FirstName_textBox.Location = new System.Drawing.Point(758, 105);
             this.P_FirstName_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_FirstName_textBox.Name = "P_FirstName_textBox";
             this.P_FirstName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_FirstName_textBox.Size = new System.Drawing.Size(170, 29);
+            this.P_FirstName_textBox.Size = new System.Drawing.Size(171, 29);
             this.P_FirstName_textBox.TabIndex = 1;
+            this.P_FirstName_textBox.Leave += new System.EventHandler(this.P_FirstName_textBox_Leave);
             // 
             // label52
             // 
             this.label52.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label52.AutoSize = true;
             this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label52.Location = new System.Drawing.Point(553, 593);
+            this.label52.Location = new System.Drawing.Point(554, 545);
             this.label52.Name = "label52";
             this.label52.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label52.Size = new System.Drawing.Size(148, 29);
@@ -1736,7 +1713,7 @@ namespace MyWorkApplication
             this.label34.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label34.AutoSize = true;
             this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label34.Location = new System.Drawing.Point(598, 98);
+            this.label34.Location = new System.Drawing.Point(599, 105);
             this.label34.Name = "label34";
             this.label34.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label34.Size = new System.Drawing.Size(103, 29);
@@ -1748,11 +1725,11 @@ namespace MyWorkApplication
             // 
             this.P_FatherName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_FatherName_textBox.BackColor = System.Drawing.Color.White;
-            this.P_FatherName_textBox.Location = new System.Drawing.Point(757, 188);
+            this.P_FatherName_textBox.Location = new System.Drawing.Point(758, 185);
             this.P_FatherName_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_FatherName_textBox.Name = "P_FatherName_textBox";
             this.P_FatherName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_FatherName_textBox.Size = new System.Drawing.Size(170, 29);
+            this.P_FatherName_textBox.Size = new System.Drawing.Size(171, 29);
             this.P_FatherName_textBox.TabIndex = 3;
             // 
             // label35
@@ -1760,7 +1737,7 @@ namespace MyWorkApplication
             this.label35.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label35.AutoSize = true;
             this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label35.Location = new System.Drawing.Point(253, 98);
+            this.label35.Location = new System.Drawing.Point(254, 105);
             this.label35.Name = "label35";
             this.label35.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label35.Size = new System.Drawing.Size(73, 29);
@@ -1772,11 +1749,11 @@ namespace MyWorkApplication
             // 
             this.P_LastName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_LastName_textBox.BackColor = System.Drawing.Color.White;
-            this.P_LastName_textBox.Location = new System.Drawing.Point(384, 98);
+            this.P_LastName_textBox.Location = new System.Drawing.Point(383, 105);
             this.P_LastName_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_LastName_textBox.Name = "P_LastName_textBox";
             this.P_LastName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_LastName_textBox.Size = new System.Drawing.Size(147, 29);
+            this.P_LastName_textBox.Size = new System.Drawing.Size(148, 29);
             this.P_LastName_textBox.TabIndex = 2;
             // 
             // P_Sex_comboBox
@@ -1791,19 +1768,20 @@ namespace MyWorkApplication
             this.P_Sex_comboBox.Items.AddRange(new object[] {
             "ذكر",
             "أنثى"});
-            this.P_Sex_comboBox.Location = new System.Drawing.Point(3, 97);
+            this.P_Sex_comboBox.Location = new System.Drawing.Point(3, 105);
             this.P_Sex_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_Sex_comboBox.Name = "P_Sex_comboBox";
             this.P_Sex_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Sex_comboBox.Size = new System.Drawing.Size(166, 30);
+            this.P_Sex_comboBox.Size = new System.Drawing.Size(167, 30);
             this.P_Sex_comboBox.TabIndex = 5;
+            this.P_Sex_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             // 
             // label13
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label13.Location = new System.Drawing.Point(997, 188);
+            this.label13.Location = new System.Drawing.Point(997, 185);
             this.label13.Name = "label13";
             this.label13.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label13.Size = new System.Drawing.Size(91, 29);
@@ -1816,7 +1794,7 @@ namespace MyWorkApplication
             this.label41.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label41.AutoSize = true;
             this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label41.Location = new System.Drawing.Point(617, 188);
+            this.label41.Location = new System.Drawing.Point(618, 185);
             this.label41.Name = "label41";
             this.label41.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label41.Size = new System.Drawing.Size(84, 29);
@@ -1828,8 +1806,8 @@ namespace MyWorkApplication
             // 
             this.P_Address_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_Address_textBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel6.SetColumnSpan(this.P_Address_textBox, 4);
-            this.P_Address_textBox.Location = new System.Drawing.Point(3, 593);
+            this.t3_tableLayoutPanel.SetColumnSpan(this.P_Address_textBox, 4);
+            this.P_Address_textBox.Location = new System.Drawing.Point(3, 545);
             this.P_Address_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Address_textBox.Name = "P_Address_textBox";
             this.P_Address_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1840,49 +1818,36 @@ namespace MyWorkApplication
             // 
             this.P_MotherName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_MotherName_textBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel6.SetColumnSpan(this.P_MotherName_textBox, 4);
-            this.P_MotherName_textBox.Location = new System.Drawing.Point(3, 188);
+            this.t3_tableLayoutPanel.SetColumnSpan(this.P_MotherName_textBox, 4);
+            this.P_MotherName_textBox.Location = new System.Drawing.Point(3, 185);
             this.P_MotherName_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_MotherName_textBox.Name = "P_MotherName_textBox";
             this.P_MotherName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_MotherName_textBox.Size = new System.Drawing.Size(528, 29);
             this.P_MotherName_textBox.TabIndex = 4;
             // 
-            // label22
+            // P_Registration_label
             // 
-            this.label22.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label22.Location = new System.Drawing.Point(973, 135);
-            this.label22.Name = "label22";
-            this.label22.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label22.Size = new System.Drawing.Size(115, 45);
-            this.label22.TabIndex = 551;
-            this.label22.Text = "الاسم والكنية (EN):";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label75
-            // 
-            this.label75.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label75.AutoSize = true;
-            this.label75.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label75.Location = new System.Drawing.Point(974, 233);
-            this.label75.Name = "label75";
-            this.label75.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label75.Size = new System.Drawing.Size(114, 29);
-            this.label75.TabIndex = 554;
-            this.label75.Text = "القيد/الأمانة:";
-            this.label75.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_Registration_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.P_Registration_label.AutoSize = true;
+            this.P_Registration_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.P_Registration_label.Location = new System.Drawing.Point(974, 225);
+            this.P_Registration_label.Name = "P_Registration_label";
+            this.P_Registration_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_Registration_label.Size = new System.Drawing.Size(114, 29);
+            this.P_Registration_label.TabIndex = 554;
+            this.P_Registration_label.Text = "القيد/الأمانة:";
+            this.P_Registration_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // P_Registration_textBox
             // 
             this.P_Registration_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_Registration_textBox.BackColor = System.Drawing.Color.White;
-            this.P_Registration_textBox.Location = new System.Drawing.Point(757, 233);
+            this.P_Registration_textBox.Location = new System.Drawing.Point(758, 225);
             this.P_Registration_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Registration_textBox.Name = "P_Registration_textBox";
             this.P_Registration_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Registration_textBox.Size = new System.Drawing.Size(170, 29);
+            this.P_Registration_textBox.Size = new System.Drawing.Size(171, 29);
             this.P_Registration_textBox.TabIndex = 553;
             // 
             // label42
@@ -1890,7 +1855,7 @@ namespace MyWorkApplication
             this.label42.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label42.AutoSize = true;
             this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label42.Location = new System.Drawing.Point(585, 233);
+            this.label42.Location = new System.Drawing.Point(586, 225);
             this.label42.Name = "label42";
             this.label42.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label42.Size = new System.Drawing.Size(116, 29);
@@ -1902,8 +1867,8 @@ namespace MyWorkApplication
             // 
             this.P_NationalNum_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_NationalNum_textBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel6.SetColumnSpan(this.P_NationalNum_textBox, 4);
-            this.P_NationalNum_textBox.Location = new System.Drawing.Point(3, 233);
+            this.t3_tableLayoutPanel.SetColumnSpan(this.P_NationalNum_textBox, 4);
+            this.P_NationalNum_textBox.Location = new System.Drawing.Point(3, 225);
             this.P_NationalNum_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_NationalNum_textBox.Name = "P_NationalNum_textBox";
             this.P_NationalNum_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1915,7 +1880,7 @@ namespace MyWorkApplication
             this.label54.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label54.AutoSize = true;
             this.label54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label54.Location = new System.Drawing.Point(1010, 278);
+            this.label54.Location = new System.Drawing.Point(1010, 265);
             this.label54.Name = "label54";
             this.label54.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label54.Size = new System.Drawing.Size(78, 29);
@@ -1927,12 +1892,12 @@ namespace MyWorkApplication
             // 
             this.P_DOB_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_DOB_textBox.BackColor = System.Drawing.Color.White;
-            this.P_DOB_textBox.Location = new System.Drawing.Point(757, 278);
+            this.P_DOB_textBox.Location = new System.Drawing.Point(758, 265);
             this.P_DOB_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_DOB_textBox.MaxLength = 4;
             this.P_DOB_textBox.Name = "P_DOB_textBox";
             this.P_DOB_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_DOB_textBox.Size = new System.Drawing.Size(170, 29);
+            this.P_DOB_textBox.Size = new System.Drawing.Size(171, 29);
             this.P_DOB_textBox.TabIndex = 9;
             this.P_DOB_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1941,7 +1906,7 @@ namespace MyWorkApplication
             this.label63.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label63.AutoSize = true;
             this.label63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label63.Location = new System.Drawing.Point(552, 278);
+            this.label63.Location = new System.Drawing.Point(553, 265);
             this.label63.Name = "label63";
             this.label63.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label63.Size = new System.Drawing.Size(149, 29);
@@ -1955,274 +1920,43 @@ namespace MyWorkApplication
             this.P_MaritalState_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.P_MaritalState_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.P_MaritalState_comboBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel6.SetColumnSpan(this.P_MaritalState_comboBox, 4);
+            this.t3_tableLayoutPanel.SetColumnSpan(this.P_MaritalState_comboBox, 4);
             this.P_MaritalState_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.P_MaritalState_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_MaritalState_comboBox.FormattingEnabled = true;
-            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(3, 277);
+            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(3, 265);
             this.P_MaritalState_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_MaritalState_comboBox.Name = "P_MaritalState_comboBox";
             this.P_MaritalState_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_MaritalState_comboBox.Size = new System.Drawing.Size(528, 30);
             this.P_MaritalState_comboBox.TabIndex = 6;
             // 
-            // P_HomeTel_textBox
-            // 
-            this.P_HomeTel_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_HomeTel_textBox.BackColor = System.Drawing.Color.White;
-            this.P_HomeTel_textBox.Location = new System.Drawing.Point(757, 548);
-            this.P_HomeTel_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.P_HomeTel_textBox.Name = "P_HomeTel_textBox";
-            this.P_HomeTel_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HomeTel_textBox.Size = new System.Drawing.Size(170, 29);
-            this.P_HomeTel_textBox.TabIndex = 19;
-            this.P_HomeTel_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // P_HomeStateNote_textBox
             // 
             this.P_HomeStateNote_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_HomeStateNote_textBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel6.SetColumnSpan(this.P_HomeStateNote_textBox, 4);
-            this.P_HomeStateNote_textBox.Location = new System.Drawing.Point(3, 638);
+            this.t3_tableLayoutPanel.SetColumnSpan(this.P_HomeStateNote_textBox, 4);
+            this.P_HomeStateNote_textBox.Location = new System.Drawing.Point(3, 585);
             this.P_HomeStateNote_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_HomeStateNote_textBox.Name = "P_HomeStateNote_textBox";
             this.P_HomeStateNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_HomeStateNote_textBox.Size = new System.Drawing.Size(528, 29);
             this.P_HomeStateNote_textBox.TabIndex = 528;
             // 
-            // Military_label2
-            // 
-            this.Military_label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Military_label2.AutoSize = true;
-            this.Military_label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Military_label2.Location = new System.Drawing.Point(590, 773);
-            this.Military_label2.Name = "Military_label2";
-            this.Military_label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Military_label2.Size = new System.Drawing.Size(111, 29);
-            this.Military_label2.TabIndex = 525;
-            this.Military_label2.Text = "مدّّة الخدمة:";
-            this.Military_label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Military_textBox
-            // 
-            this.Military_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Military_textBox.BackColor = System.Drawing.Color.White;
-            this.Military_textBox.Location = new System.Drawing.Point(384, 773);
-            this.Military_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.Military_textBox.Name = "Military_textBox";
-            this.Military_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Military_textBox.Size = new System.Drawing.Size(147, 29);
-            this.Military_textBox.TabIndex = 17;
-            // 
-            // Military_Date_checkBox
-            // 
-            this.Military_Date_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Military_Date_checkBox.AutoSize = true;
-            this.Military_Date_checkBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Military_Date_checkBox.Location = new System.Drawing.Point(188, 771);
-            this.Military_Date_checkBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Military_Date_checkBox.Name = "Military_Date_checkBox";
-            this.Military_Date_checkBox.Size = new System.Drawing.Size(139, 33);
-            this.Military_Date_checkBox.TabIndex = 533;
-            this.Military_Date_checkBox.Text = ":تاريخ التسريح";
-            this.Military_Date_checkBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Military_Date_checkBox.UseVisualStyleBackColor = true;
-            // 
-            // Military_Date_dateTimePicker
-            // 
-            this.Military_Date_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Military_Date_dateTimePicker.CustomFormat = "dd/MM/yyyy";
-            this.Military_Date_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Military_Date_dateTimePicker.Location = new System.Drawing.Point(3, 773);
-            this.Military_Date_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Military_Date_dateTimePicker.Name = "Military_Date_dateTimePicker";
-            this.Military_Date_dateTimePicker.Size = new System.Drawing.Size(166, 29);
-            this.Military_Date_dateTimePicker.TabIndex = 16;
-            this.Military_Date_dateTimePicker.Visible = false;
-            // 
-            // Military_tableLayoutPanel
-            // 
-            this.Military_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
-            this.Military_tableLayoutPanel.ColumnCount = 3;
-            this.Military_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.Military_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.Military_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.Military_tableLayoutPanel.Controls.Add(this.MilitarySingle_radioButton, 2, 0);
-            this.Military_tableLayoutPanel.Controls.Add(this.MilitaryFinished_radioButton, 1, 0);
-            this.Military_tableLayoutPanel.Controls.Add(this.MilitaryNow_radioButton, 0, 0);
-            this.Military_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Military_tableLayoutPanel.Location = new System.Drawing.Point(757, 766);
-            this.Military_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.Military_tableLayoutPanel.Name = "Military_tableLayoutPanel";
-            this.Military_tableLayoutPanel.RowCount = 1;
-            this.Military_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.Military_tableLayoutPanel.Size = new System.Drawing.Size(170, 43);
-            this.Military_tableLayoutPanel.TabIndex = 269;
-            this.Military_tableLayoutPanel.TabStop = true;
-            // 
-            // MilitarySingle_radioButton
-            // 
-            this.MilitarySingle_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.MilitarySingle_radioButton.AutoSize = true;
-            this.MilitarySingle_radioButton.BackColor = System.Drawing.Color.Transparent;
-            this.MilitarySingle_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.MilitarySingle_radioButton.Location = new System.Drawing.Point(115, 5);
-            this.MilitarySingle_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MilitarySingle_radioButton.Name = "MilitarySingle_radioButton";
-            this.MilitarySingle_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MilitarySingle_radioButton.Size = new System.Drawing.Size(52, 33);
-            this.MilitarySingle_radioButton.TabIndex = 12;
-            this.MilitarySingle_radioButton.TabStop = true;
-            this.MilitarySingle_radioButton.Text = "وحيد";
-            this.MilitarySingle_radioButton.UseVisualStyleBackColor = false;
-            // 
-            // MilitaryFinished_radioButton
-            // 
-            this.MilitaryFinished_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.MilitaryFinished_radioButton.AutoSize = true;
-            this.MilitaryFinished_radioButton.BackColor = System.Drawing.Color.Transparent;
-            this.MilitaryFinished_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.MilitaryFinished_radioButton.Location = new System.Drawing.Point(59, 5);
-            this.MilitaryFinished_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MilitaryFinished_radioButton.Name = "MilitaryFinished_radioButton";
-            this.MilitaryFinished_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MilitaryFinished_radioButton.Size = new System.Drawing.Size(50, 33);
-            this.MilitaryFinished_radioButton.TabIndex = 15;
-            this.MilitaryFinished_radioButton.TabStop = true;
-            this.MilitaryFinished_radioButton.Text = "مسرّح";
-            this.MilitaryFinished_radioButton.UseVisualStyleBackColor = false;
-            // 
-            // MilitaryNow_radioButton
-            // 
-            this.MilitaryNow_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.MilitaryNow_radioButton.AutoSize = true;
-            this.MilitaryNow_radioButton.BackColor = System.Drawing.Color.Transparent;
-            this.MilitaryNow_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.MilitaryNow_radioButton.Location = new System.Drawing.Point(3, 5);
-            this.MilitaryNow_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MilitaryNow_radioButton.Name = "MilitaryNow_radioButton";
-            this.MilitaryNow_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MilitaryNow_radioButton.Size = new System.Drawing.Size(50, 33);
-            this.MilitaryNow_radioButton.TabIndex = 11;
-            this.MilitaryNow_radioButton.TabStop = true;
-            this.MilitaryNow_radioButton.Text = "عسكري";
-            this.MilitaryNow_radioButton.UseVisualStyleBackColor = false;
-            // 
-            // Military_label
-            // 
-            this.Military_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Military_label.AutoSize = true;
-            this.Military_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Military_label.Location = new System.Drawing.Point(980, 773);
-            this.Military_label.Name = "Military_label";
-            this.Military_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Military_label.Size = new System.Drawing.Size(108, 29);
-            this.Military_label.TabIndex = 492;
-            this.Military_label.Text = "خدمة العلم:";
-            this.Military_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label9.Location = new System.Drawing.Point(940, 863);
-            this.label9.Name = "label9";
-            this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label9.Size = new System.Drawing.Size(148, 29);
-            this.label9.TabIndex = 504;
-            this.label9.Text = "عدد أفراد العائلة:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // P_NumOfMembers_textBox
-            // 
-            this.P_NumOfMembers_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_NumOfMembers_textBox.BackColor = System.Drawing.Color.White;
-            this.P_NumOfMembers_textBox.Location = new System.Drawing.Point(757, 863);
-            this.P_NumOfMembers_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.P_NumOfMembers_textBox.Name = "P_NumOfMembers_textBox";
-            this.P_NumOfMembers_textBox.ReadOnly = true;
-            this.P_NumOfMembers_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_NumOfMembers_textBox.Size = new System.Drawing.Size(170, 29);
-            this.P_NumOfMembers_textBox.TabIndex = 550;
-            // 
-            // label21
-            // 
-            this.label21.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label21.Location = new System.Drawing.Point(541, 855);
-            this.label21.Name = "label21";
-            this.label21.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label21.Size = new System.Drawing.Size(160, 45);
-            this.label21.TabIndex = 549;
-            this.label21.Text = "عدد أفراد الساكنين في المنزل:";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // P_NumAtHome_textBox
-            // 
-            this.P_NumAtHome_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_NumAtHome_textBox.BackColor = System.Drawing.Color.White;
-            this.P_NumAtHome_textBox.Location = new System.Drawing.Point(384, 863);
-            this.P_NumAtHome_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.P_NumAtHome_textBox.Name = "P_NumAtHome_textBox";
-            this.P_NumAtHome_textBox.ReadOnly = true;
-            this.P_NumAtHome_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_NumAtHome_textBox.Size = new System.Drawing.Size(147, 29);
-            this.P_NumAtHome_textBox.TabIndex = 23;
-            // 
-            // label50
-            // 
-            this.label50.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label50.AutoSize = true;
-            this.label50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label50.Location = new System.Drawing.Point(187, 863);
-            this.label50.Name = "label50";
-            this.label50.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label50.Size = new System.Drawing.Size(139, 29);
-            this.label50.TabIndex = 493;
-            this.label50.Text = "رقم دفتر العائلة:";
-            this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // FamilyNum_textBox1
-            // 
-            this.FamilyNum_textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.FamilyNum_textBox1.BackColor = System.Drawing.Color.White;
-            this.FamilyNum_textBox1.Location = new System.Drawing.Point(3, 863);
-            this.FamilyNum_textBox1.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.FamilyNum_textBox1.Name = "FamilyNum_textBox1";
-            this.FamilyNum_textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.FamilyNum_textBox1.Size = new System.Drawing.Size(166, 29);
-            this.FamilyNum_textBox1.TabIndex = 24;
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel6.SetColumnSpan(this.flowLayoutPanel4, 8);
-            this.flowLayoutPanel4.Controls.Add(this.label73);
-            this.flowLayoutPanel4.Controls.Add(this.label76);
-            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 318);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(1085, 39);
-            this.flowLayoutPanel4.TabIndex = 541;
-            // 
             // flowLayoutPanel5
             // 
             this.flowLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel6.SetColumnSpan(this.flowLayoutPanel5, 8);
+            this.t3_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel5, 8);
             this.flowLayoutPanel5.Controls.Add(this.label37);
             this.flowLayoutPanel5.Controls.Add(this.label38);
             this.flowLayoutPanel5.Controls.Add(this.label43);
             this.flowLayoutPanel5.Controls.Add(this.label44);
             this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 678);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 623);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(1085, 39);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(1085, 34);
             this.flowLayoutPanel5.TabIndex = 563;
             // 
             // label37
@@ -2286,142 +2020,660 @@ namespace MyWorkApplication
     "خ الشراء في حال الملك.";
             this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // Street_comboBox
+            // 
+            this.Street_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Street_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.Street_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.Street_comboBox.BackColor = System.Drawing.Color.White;
+            this.Street_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.Street_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Street_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Street_comboBox.FormattingEnabled = true;
+            this.Street_comboBox.Location = new System.Drawing.Point(758, 545);
+            this.Street_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.Street_comboBox.Name = "Street_comboBox";
+            this.Street_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Street_comboBox.Size = new System.Drawing.Size(171, 30);
+            this.Street_comboBox.TabIndex = 21;
+            this.Street_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            // 
+            // P_HomeType_comboBox
+            // 
+            this.P_HomeType_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_HomeType_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.P_HomeType_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.P_HomeType_comboBox.BackColor = System.Drawing.Color.White;
+            this.P_HomeType_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.P_HomeType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.P_HomeType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.P_HomeType_comboBox.FormattingEnabled = true;
+            this.P_HomeType_comboBox.Location = new System.Drawing.Point(758, 585);
+            this.P_HomeType_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.P_HomeType_comboBox.Name = "P_HomeType_comboBox";
+            this.P_HomeType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HomeType_comboBox.Size = new System.Drawing.Size(171, 30);
+            this.P_HomeType_comboBox.TabIndex = 21;
+            this.P_HomeType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            // 
+            // P_Mobile2_textBox
+            // 
+            this.P_Mobile2_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_Mobile2_textBox.BackColor = System.Drawing.Color.White;
+            this.P_Mobile2_textBox.Location = new System.Drawing.Point(3, 505);
+            this.P_Mobile2_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.P_Mobile2_textBox.Name = "P_Mobile2_textBox";
+            this.P_Mobile2_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_Mobile2_textBox.Size = new System.Drawing.Size(167, 29);
+            this.P_Mobile2_textBox.TabIndex = 558;
+            this.P_Mobile2_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Military_Date_dateTimePicker
+            // 
+            this.Military_Date_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Military_Date_dateTimePicker.CustomFormat = "dd/MM/yyyy";
+            this.Military_Date_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Military_Date_dateTimePicker.Location = new System.Drawing.Point(3, 705);
+            this.Military_Date_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Military_Date_dateTimePicker.Name = "Military_Date_dateTimePicker";
+            this.Military_Date_dateTimePicker.Size = new System.Drawing.Size(167, 29);
+            this.Military_Date_dateTimePicker.TabIndex = 16;
+            this.Military_Date_dateTimePicker.Visible = false;
+            // 
+            // Military_flowLayoutPanel
+            // 
+            this.Military_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.t3_tableLayoutPanel.SetColumnSpan(this.Military_flowLayoutPanel, 3);
+            this.Military_flowLayoutPanel.Controls.Add(this.Military_label);
+            this.Military_flowLayoutPanel.Controls.Add(this.MilitarySingle_radioButton);
+            this.Military_flowLayoutPanel.Controls.Add(this.MilitaryFinished_radioButton);
+            this.Military_flowLayoutPanel.Controls.Add(this.MilitaryNow_radioButton);
+            this.Military_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.Military_flowLayoutPanel.Location = new System.Drawing.Point(708, 703);
+            this.Military_flowLayoutPanel.Name = "Military_flowLayoutPanel";
+            this.t3_tableLayoutPanel.SetRowSpan(this.Military_flowLayoutPanel, 2);
+            this.Military_flowLayoutPanel.Size = new System.Drawing.Size(380, 74);
+            this.Military_flowLayoutPanel.TabIndex = 564;
+            // 
+            // Military_label
+            // 
+            this.Military_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Military_label.AutoSize = true;
+            this.Military_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Military_label.Location = new System.Drawing.Point(269, 6);
+            this.Military_label.Name = "Military_label";
+            this.Military_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Military_label.Size = new System.Drawing.Size(108, 29);
+            this.Military_label.TabIndex = 492;
+            this.Military_label.Text = "خدمة العلم:";
+            this.Military_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MilitarySingle_radioButton
+            // 
+            this.MilitarySingle_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.MilitarySingle_radioButton.AutoSize = true;
+            this.MilitarySingle_radioButton.BackColor = System.Drawing.Color.Transparent;
+            this.MilitarySingle_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.MilitarySingle_radioButton.Location = new System.Drawing.Point(190, 4);
+            this.MilitarySingle_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MilitarySingle_radioButton.Name = "MilitarySingle_radioButton";
+            this.MilitarySingle_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MilitarySingle_radioButton.Size = new System.Drawing.Size(73, 33);
+            this.MilitarySingle_radioButton.TabIndex = 12;
+            this.MilitarySingle_radioButton.TabStop = true;
+            this.MilitarySingle_radioButton.Text = "وحيد";
+            this.MilitarySingle_radioButton.UseVisualStyleBackColor = false;
+            // 
+            // MilitaryFinished_radioButton
+            // 
+            this.MilitaryFinished_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.MilitaryFinished_radioButton.AutoSize = true;
+            this.MilitaryFinished_radioButton.BackColor = System.Drawing.Color.Transparent;
+            this.MilitaryFinished_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.MilitaryFinished_radioButton.Location = new System.Drawing.Point(103, 4);
+            this.MilitaryFinished_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MilitaryFinished_radioButton.Name = "MilitaryFinished_radioButton";
+            this.MilitaryFinished_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MilitaryFinished_radioButton.Size = new System.Drawing.Size(81, 33);
+            this.MilitaryFinished_radioButton.TabIndex = 15;
+            this.MilitaryFinished_radioButton.TabStop = true;
+            this.MilitaryFinished_radioButton.Text = "مسرّح";
+            this.MilitaryFinished_radioButton.UseVisualStyleBackColor = false;
+            // 
+            // MilitaryNow_radioButton
+            // 
+            this.MilitaryNow_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.MilitaryNow_radioButton.AutoSize = true;
+            this.MilitaryNow_radioButton.BackColor = System.Drawing.Color.Transparent;
+            this.MilitaryNow_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.MilitaryNow_radioButton.Location = new System.Drawing.Point(4, 4);
+            this.MilitaryNow_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MilitaryNow_radioButton.Name = "MilitaryNow_radioButton";
+            this.MilitaryNow_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MilitaryNow_radioButton.Size = new System.Drawing.Size(93, 33);
+            this.MilitaryNow_radioButton.TabIndex = 11;
+            this.MilitaryNow_radioButton.TabStop = true;
+            this.MilitaryNow_radioButton.Text = "عسكري";
+            this.MilitaryNow_radioButton.UseVisualStyleBackColor = false;
+            // 
+            // P_IntermidiaryName_label
+            // 
+            this.P_IntermidiaryName_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.P_IntermidiaryName_label.AutoSize = true;
+            this.P_IntermidiaryName_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.P_IntermidiaryName_label.Location = new System.Drawing.Point(570, 345);
+            this.P_IntermidiaryName_label.Name = "P_IntermidiaryName_label";
+            this.P_IntermidiaryName_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_IntermidiaryName_label.Size = new System.Drawing.Size(132, 29);
+            this.P_IntermidiaryName_label.TabIndex = 500;
+            this.P_IntermidiaryName_label.Text = "الهيئة الوسيطة:";
+            this.P_IntermidiaryName_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // P_IntermidiaryName_textBox
+            // 
+            this.P_IntermidiaryName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_IntermidiaryName_textBox.BackColor = System.Drawing.Color.White;
+            this.P_IntermidiaryName_textBox.Location = new System.Drawing.Point(383, 345);
+            this.P_IntermidiaryName_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.P_IntermidiaryName_textBox.Name = "P_IntermidiaryName_textBox";
+            this.P_IntermidiaryName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_IntermidiaryName_textBox.Size = new System.Drawing.Size(148, 29);
+            this.P_IntermidiaryName_textBox.TabIndex = 15;
+            // 
+            // P_Priest_tableLayoutPanel
+            // 
+            this.P_Priest_tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_Priest_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.P_Priest_tableLayoutPanel.ColumnCount = 3;
+            this.t3_tableLayoutPanel.SetColumnSpan(this.P_Priest_tableLayoutPanel, 2);
+            this.P_Priest_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.9934F));
+            this.P_Priest_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.9934F));
+            this.P_Priest_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.68317F));
+            this.P_Priest_tableLayoutPanel.Controls.Add(this.P_Priest2_comboBox, 0, 0);
+            this.P_Priest_tableLayoutPanel.Controls.Add(this.P_Priest_comboBox, 1, 0);
+            this.P_Priest_tableLayoutPanel.Controls.Add(this.P_Priest_label, 2, 0);
+            this.P_Priest_tableLayoutPanel.Location = new System.Drawing.Point(3, 341);
+            this.P_Priest_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.P_Priest_tableLayoutPanel.Name = "P_Priest_tableLayoutPanel";
+            this.P_Priest_tableLayoutPanel.RowCount = 1;
+            this.P_Priest_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.P_Priest_tableLayoutPanel.Size = new System.Drawing.Size(324, 38);
+            this.P_Priest_tableLayoutPanel.TabIndex = 270;
+            this.P_Priest_tableLayoutPanel.TabStop = true;
+            // 
+            // P_Priest2_comboBox
+            // 
+            this.P_Priest2_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_Priest2_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.P_Priest2_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.P_Priest2_comboBox.BackColor = System.Drawing.Color.White;
+            this.P_Priest2_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.P_Priest2_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.P_Priest2_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.P_Priest2_comboBox.FormattingEnabled = true;
+            this.P_Priest2_comboBox.Location = new System.Drawing.Point(3, 4);
+            this.P_Priest2_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.P_Priest2_comboBox.Name = "P_Priest2_comboBox";
+            this.P_Priest2_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_Priest2_comboBox.Size = new System.Drawing.Size(104, 30);
+            this.P_Priest2_comboBox.TabIndex = 265;
+            this.P_Priest2_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            // 
+            // P_Priest_comboBox
+            // 
+            this.P_Priest_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_Priest_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.P_Priest_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.P_Priest_comboBox.BackColor = System.Drawing.Color.White;
+            this.P_Priest_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.P_Priest_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.P_Priest_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.P_Priest_comboBox.FormattingEnabled = true;
+            this.P_Priest_comboBox.Location = new System.Drawing.Point(113, 4);
+            this.P_Priest_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.P_Priest_comboBox.Name = "P_Priest_comboBox";
+            this.P_Priest_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_Priest_comboBox.Size = new System.Drawing.Size(104, 30);
+            this.P_Priest_comboBox.TabIndex = 17;
+            this.P_Priest_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            // 
+            // P_Priest_label
+            // 
+            this.P_Priest_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.P_Priest_label.AutoSize = true;
+            this.P_Priest_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.P_Priest_label.Location = new System.Drawing.Point(250, 4);
+            this.P_Priest_label.Name = "P_Priest_label";
+            this.P_Priest_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_Priest_label.Size = new System.Drawing.Size(71, 29);
+            this.P_Priest_label.TabIndex = 556;
+            this.P_Priest_label.Text = "الكاهن:";
+            this.P_Priest_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label77
+            // 
+            this.label77.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label77.AutoSize = true;
+            this.label77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label77.Location = new System.Drawing.Point(1008, 345);
+            this.label77.Name = "label77";
+            this.label77.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label77.Size = new System.Drawing.Size(80, 29);
+            this.label77.TabIndex = 261;
+            this.label77.Text = "الطائفة :";
+            this.label77.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // P_Parish_comboBox
+            // 
+            this.P_Parish_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_Parish_comboBox.BackColor = System.Drawing.Color.White;
+            this.P_Parish_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.P_Parish_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.P_Parish_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.P_Parish_comboBox.FormattingEnabled = true;
+            this.P_Parish_comboBox.Location = new System.Drawing.Point(758, 345);
+            this.P_Parish_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.P_Parish_comboBox.Name = "P_Parish_comboBox";
+            this.P_Parish_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_Parish_comboBox.Size = new System.Drawing.Size(171, 30);
+            this.P_Parish_comboBox.TabIndex = 16;
+            this.P_Parish_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.t3_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel3, 8);
+            this.flowLayoutPanel3.Controls.Add(this.label15);
+            this.flowLayoutPanel3.Controls.Add(this.label12);
+            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 383);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1085, 34);
+            this.flowLayoutPanel3.TabIndex = 562;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.t3_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel4, 8);
+            this.flowLayoutPanel4.Controls.Add(this.label73);
+            this.flowLayoutPanel4.Controls.Add(this.label76);
+            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 303);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(1085, 34);
+            this.flowLayoutPanel4.TabIndex = 541;
+            // 
+            // PersonType_comboBox
+            // 
+            this.PersonType_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.PersonType_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.PersonType_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.PersonType_comboBox.BackColor = System.Drawing.Color.White;
+            this.PersonType_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.PersonType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PersonType_comboBox.FormattingEnabled = true;
+            this.PersonType_comboBox.Items.AddRange(new object[] {
+            "المستفيد",
+            "الشريك"});
+            this.PersonType_comboBox.Location = new System.Drawing.Point(758, 145);
+            this.PersonType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PersonType_comboBox.Name = "PersonType_comboBox";
+            this.PersonType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PersonType_comboBox.Size = new System.Drawing.Size(171, 30);
+            this.PersonType_comboBox.TabIndex = 565;
+            this.PersonType_comboBox.TabStop = false;
+            this.PersonType_comboBox.SelectedIndexChanged += new System.EventHandler(this.PersonType_comboBox_SelectedIndexChanged);
+            // 
+            // PersonType_label
+            // 
+            this.PersonType_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.PersonType_label.AutoSize = true;
+            this.PersonType_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.PersonType_label.Location = new System.Drawing.Point(1022, 145);
+            this.PersonType_label.Name = "PersonType_label";
+            this.PersonType_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PersonType_label.Size = new System.Drawing.Size(66, 29);
+            this.PersonType_label.TabIndex = 566;
+            this.PersonType_label.Text = "الصفة:";
+            this.PersonType_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // P_FullName_En_label
+            // 
+            this.P_FullName_En_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.P_FullName_En_label.AutoSize = true;
+            this.P_FullName_En_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.P_FullName_En_label.Location = new System.Drawing.Point(540, 145);
+            this.P_FullName_En_label.Name = "P_FullName_En_label";
+            this.P_FullName_En_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_FullName_En_label.Size = new System.Drawing.Size(162, 29);
+            this.P_FullName_En_label.TabIndex = 551;
+            this.P_FullName_En_label.Text = "الاسم والكنية (EN):";
+            this.P_FullName_En_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // P_Mobile2_label
+            // 
+            this.P_Mobile2_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.P_Mobile2_label.AutoSize = true;
+            this.P_Mobile2_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.P_Mobile2_label.Location = new System.Drawing.Point(190, 500);
+            this.P_Mobile2_label.Name = "P_Mobile2_label";
+            this.P_Mobile2_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_Mobile2_label.Size = new System.Drawing.Size(137, 40);
+            this.P_Mobile2_label.TabIndex = 557;
+            this.P_Mobile2_label.Text = "جوّّال أ حد أفراد العائلة:";
+            this.P_Mobile2_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label29
+            // 
+            this.label29.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label29.AutoSize = true;
+            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label29.Location = new System.Drawing.Point(600, 505);
+            this.label29.Name = "label29";
+            this.label29.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label29.Size = new System.Drawing.Size(102, 29);
+            this.label29.TabIndex = 488;
+            this.label29.Text = "رقم الأرضي:";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // P_HomeTel_textBox
+            // 
+            this.P_HomeTel_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_HomeTel_textBox.BackColor = System.Drawing.Color.White;
+            this.P_HomeTel_textBox.Location = new System.Drawing.Point(383, 505);
+            this.P_HomeTel_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.P_HomeTel_textBox.Name = "P_HomeTel_textBox";
+            this.P_HomeTel_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HomeTel_textBox.Size = new System.Drawing.Size(148, 29);
+            this.P_HomeTel_textBox.TabIndex = 19;
+            this.P_HomeTel_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // P_Mobile_textBox
+            // 
+            this.P_Mobile_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_Mobile_textBox.BackColor = System.Drawing.Color.White;
+            this.P_Mobile_textBox.Location = new System.Drawing.Point(758, 505);
+            this.P_Mobile_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.P_Mobile_textBox.Name = "P_Mobile_textBox";
+            this.P_Mobile_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.P_Mobile_textBox.Size = new System.Drawing.Size(171, 29);
+            this.P_Mobile_textBox.TabIndex = 527;
+            this.P_Mobile_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.P_Mobile_textBox.Leave += new System.EventHandler(this.P_Mobile_textBox_Leave);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label5.Location = new System.Drawing.Point(984, 505);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(104, 29);
+            this.label5.TabIndex = 489;
+            this.label5.Text = "رقم الجوّال:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // FamilyMember_dataGridView
+            // 
+            this.FamilyMember_dataGridView.AllowUserToResizeRows = false;
+            this.FamilyMember_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FamilyMember_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.FamilyMember_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.FamilyMember_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.FamilyMember_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.FamilyMember_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FamilyMember_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.FamilyMember_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.FamilyMember_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FP_ID,
+            this.F_ID,
+            this.P_FirstName,
+            this.P_LastName,
+            this.P_FatherName,
+            this.P_Relation,
+            this.P_NationalNumber,
+            this.P_DOB,
+            this.P_State,
+            this.P_EducationLevel,
+            this.P_EducationType,
+            this.P_WorkType,
+            this.P_Salary,
+            this.Work_Name,
+            this.P_DeleteRow,
+            this.P_InDataBase,
+            this.P_RowID});
+            this.t4_tableLayoutPanel.SetColumnSpan(this.FamilyMember_dataGridView, 2);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FamilyMember_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FamilyMember_dataGridView.EnableHeadersVisualStyles = false;
+            this.FamilyMember_dataGridView.GridColor = System.Drawing.Color.DarkGray;
+            this.FamilyMember_dataGridView.Location = new System.Drawing.Point(3, 4);
+            this.FamilyMember_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FamilyMember_dataGridView.MultiSelect = false;
+            this.FamilyMember_dataGridView.Name = "FamilyMember_dataGridView";
+            this.FamilyMember_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rubik", 11F);
+            this.FamilyMember_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.FamilyMember_dataGridView.RowHeadersVisible = false;
+            this.FamilyMember_dataGridView.RowHeadersWidth = 51;
+            this.FamilyMember_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.t4_tableLayoutPanel.SetRowSpan(this.FamilyMember_dataGridView, 7);
+            this.FamilyMember_dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.FamilyMember_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FamilyMember_dataGridView.RowTemplate.DividerHeight = 1;
+            this.FamilyMember_dataGridView.RowTemplate.Height = 35;
+            this.FamilyMember_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.FamilyMember_dataGridView.Size = new System.Drawing.Size(1085, 237);
+            this.FamilyMember_dataGridView.TabIndex = 560;
+            // 
+            // FP_ID
+            // 
+            this.FP_ID.HeaderText = "FP_ID";
+            this.FP_ID.MinimumWidth = 6;
+            this.FP_ID.Name = "FP_ID";
+            this.FP_ID.Visible = false;
+            // 
+            // F_ID
+            // 
+            this.F_ID.HeaderText = "F_ID";
+            this.F_ID.MinimumWidth = 6;
+            this.F_ID.Name = "F_ID";
+            this.F_ID.Visible = false;
+            // 
+            // P_FirstName
+            // 
+            this.P_FirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_FirstName.FillWeight = 11.59705F;
+            this.P_FirstName.HeaderText = "الاسم";
+            this.P_FirstName.MinimumWidth = 6;
+            this.P_FirstName.Name = "P_FirstName";
+            // 
+            // P_LastName
+            // 
+            this.P_LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_LastName.FillWeight = 11.59705F;
+            this.P_LastName.HeaderText = "الكنية";
+            this.P_LastName.MinimumWidth = 6;
+            this.P_LastName.Name = "P_LastName";
+            // 
+            // P_FatherName
+            // 
+            this.P_FatherName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_FatherName.FillWeight = 11.57732F;
+            this.P_FatherName.HeaderText = "اسم الأب";
+            this.P_FatherName.MinimumWidth = 6;
+            this.P_FatherName.Name = "P_FatherName";
+            // 
+            // P_Relation
+            // 
+            this.P_Relation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_Relation.DisplayStyleForCurrentCellOnly = true;
+            this.P_Relation.FillWeight = 11.59705F;
+            this.P_Relation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.P_Relation.HeaderText = "الصفة";
+            this.P_Relation.Items.AddRange(new object[] {
+            "زوج/ة",
+            "أب",
+            "أم",
+            "ابن/ة",
+            "أخ",
+            "أخت",
+            "جد/ة",
+            "حفيد/ة",
+            "عم/ة",
+            "خال/ة",
+            "أب الزوج/ة",
+            "أم الزوج/ة",
+            "أخ الزوج/ة",
+            "أخت الزوج/ة",
+            "زوج/ة الابن/ة",
+            "ابن/ة الأخ",
+            "زوج/ة الأخ",
+            "ابن/ة الأخت",
+            "زوج/ة الأخت",
+            "أولاد عموم و عمات",
+            "أولاد خوال و خالات",
+            "صديق/ة",
+            "زوج/ة الأم",
+            "زوج/ة الأب"});
+            this.P_Relation.MinimumWidth = 6;
+            this.P_Relation.Name = "P_Relation";
+            // 
+            // P_NationalNumber
+            // 
+            this.P_NationalNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_NationalNumber.FillWeight = 11.57732F;
+            this.P_NationalNumber.HeaderText = "الرقم الوطني";
+            this.P_NationalNumber.MinimumWidth = 6;
+            this.P_NationalNumber.Name = "P_NationalNumber";
+            // 
+            // P_DOB
+            // 
+            this.P_DOB.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_DOB.FillWeight = 11.59705F;
+            this.P_DOB.HeaderText = "المواليد";
+            this.P_DOB.MinimumWidth = 6;
+            this.P_DOB.Name = "P_DOB";
+            // 
+            // P_State
+            // 
+            this.P_State.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_State.DisplayStyleForCurrentCellOnly = true;
+            this.P_State.FillWeight = 11.57732F;
+            this.P_State.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.P_State.HeaderText = "حالة الإقامة";
+            this.P_State.MinimumWidth = 6;
+            this.P_State.Name = "P_State";
+            // 
+            // P_EducationLevel
+            // 
+            this.P_EducationLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_EducationLevel.FillWeight = 11F;
+            this.P_EducationLevel.HeaderText = "التحصيل العلمي";
+            this.P_EducationLevel.MinimumWidth = 6;
+            this.P_EducationLevel.Name = "P_EducationLevel";
+            // 
+            // P_EducationType
+            // 
+            this.P_EducationType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_EducationType.FillWeight = 11F;
+            this.P_EducationType.HeaderText = "الدرجة العلمية";
+            this.P_EducationType.MinimumWidth = 6;
+            this.P_EducationType.Name = "P_EducationType";
+            // 
+            // P_WorkType
+            // 
+            this.P_WorkType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_WorkType.DisplayStyleForCurrentCellOnly = true;
+            this.P_WorkType.FillWeight = 11F;
+            this.P_WorkType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.P_WorkType.HeaderText = "طبيعة العمل";
+            this.P_WorkType.MinimumWidth = 6;
+            this.P_WorkType.Name = "P_WorkType";
+            this.P_WorkType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.P_WorkType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // P_Salary
+            // 
+            this.P_Salary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_Salary.FillWeight = 11F;
+            this.P_Salary.HeaderText = "الدخل";
+            this.P_Salary.MinimumWidth = 6;
+            this.P_Salary.Name = "P_Salary";
+            // 
+            // Work_Name
+            // 
+            this.Work_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Work_Name.FillWeight = 11F;
+            this.Work_Name.HeaderText = "العمل";
+            this.Work_Name.MinimumWidth = 6;
+            this.Work_Name.Name = "Work_Name";
+            this.Work_Name.ReadOnly = true;
+            // 
+            // P_DeleteRow
+            // 
+            this.P_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.P_DeleteRow.FillWeight = 6F;
+            this.P_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.P_DeleteRow.HeaderText = " ";
+            this.P_DeleteRow.MinimumWidth = 50;
+            this.P_DeleteRow.Name = "P_DeleteRow";
+            this.P_DeleteRow.Width = 50;
+            // 
+            // P_InDataBase
+            // 
+            this.P_InDataBase.HeaderText = "P_InDataBase";
+            this.P_InDataBase.MinimumWidth = 6;
+            this.P_InDataBase.Name = "P_InDataBase";
+            this.P_InDataBase.Visible = false;
+            // 
+            // P_RowID
+            // 
+            this.P_RowID.HeaderText = "P_RowID";
+            this.P_RowID.MinimumWidth = 6;
+            this.P_RowID.Name = "P_RowID";
+            this.P_RowID.Visible = false;
+            // 
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 1;
-            this.tableLayoutPanel6.SetColumnSpan(this.tableLayoutPanel8, 8);
+            this.t4_tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel8, 2);
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel9, 0, 3);
-            this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel8, 0, 2);
-            this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel6, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel7, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel8, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel6, 0, 3);
+            this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel9, 0, 2);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 1218);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 248);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 4;
-            this.tableLayoutPanel6.SetRowSpan(this.tableLayoutPanel8, 2);
+            this.t4_tableLayoutPanel.SetRowSpan(this.tableLayoutPanel8, 3);
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1085, 100);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1085, 99);
             this.tableLayoutPanel8.TabIndex = 564;
-            // 
-            // flowLayoutPanel9
-            // 
-            this.flowLayoutPanel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel9.Controls.Add(this.label48);
-            this.flowLayoutPanel9.Controls.Add(this.label47);
-            this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 78);
-            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(1079, 19);
-            this.flowLayoutPanel9.TabIndex = 565;
-            // 
-            // label48
-            // 
-            this.label48.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label48.Location = new System.Drawing.Point(979, 0);
-            this.label48.Margin = new System.Windows.Forms.Padding(0);
-            this.label48.Name = "label48";
-            this.label48.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label48.Size = new System.Drawing.Size(100, 23);
-            this.label48.TabIndex = 271;
-            this.label48.Text = "*طبيعة العمل:";
-            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label47
-            // 
-            this.label47.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Rubik", 9F);
-            this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label47.Location = new System.Drawing.Point(348, 0);
-            this.label47.Margin = new System.Windows.Forms.Padding(0);
-            this.label47.Name = "label47";
-            this.label47.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label47.Size = new System.Drawing.Size(631, 23);
-            this.label47.TabIndex = 270;
-            this.label47.Text = "حسب ملف الحاجة (صاحب العمل - شريك - صانع - موظّّف قطّّاع عام - موظّّفف قطّّاع خاص" +
-    " - لا يعمل)";
-            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel8
-            // 
-            this.flowLayoutPanel8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel8.Controls.Add(this.label46);
-            this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 53);
-            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(1079, 19);
-            this.flowLayoutPanel8.TabIndex = 564;
-            // 
-            // label46
-            // 
-            this.label46.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.label46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label46.Location = new System.Drawing.Point(344, 0);
-            this.label46.Margin = new System.Windows.Forms.Padding(0);
-            this.label46.Name = "label46";
-            this.label46.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label46.Size = new System.Drawing.Size(735, 23);
-            this.label46.TabIndex = 269;
-            this.label46.Text = "*يتم تسجيل جميع الأفراد الساكنة في المنزل مهما كانت صفتهم كما يتم تسجيل أسماء أفر" +
-    "اد العائلة مهما كانت إقامتهم.";
-            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel6.Controls.Add(this.label40);
-            this.flowLayoutPanel6.Controls.Add(this.label45);
-            this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 28);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(1079, 19);
-            this.flowLayoutPanel6.TabIndex = 563;
-            // 
-            // label40
-            // 
-            this.label40.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label40.Location = new System.Drawing.Point(951, 0);
-            this.label40.Margin = new System.Windows.Forms.Padding(0);
-            this.label40.Name = "label40";
-            this.label40.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label40.Size = new System.Drawing.Size(128, 23);
-            this.label40.TabIndex = 267;
-            this.label40.Text = "*الحالة الاجتماعية:";
-            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label45
-            // 
-            this.label45.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Rubik", 9F);
-            this.label45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label45.Location = new System.Drawing.Point(93, 0);
-            this.label45.Margin = new System.Windows.Forms.Padding(0);
-            this.label45.Name = "label45";
-            this.label45.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label45.Size = new System.Drawing.Size(858, 23);
-            this.label45.TabIndex = 268;
-            this.label45.Text = "على الاستمارة و البرنامج بحسب ملف الحاجة (عاذب -متزوج - مخطوب - مطلق أو منفصل - م" +
-    "طلق منفصل مع عائلته - أرمل - أرمل مع عائلته)";
-            this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel7
             // 
@@ -2433,7 +2685,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(1079, 19);
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(1079, 18);
             this.flowLayoutPanel7.TabIndex = 541;
             // 
             // label30
@@ -2467,213 +2719,163 @@ namespace MyWorkApplication
     "عسكري -غير مقيم) ";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Street_comboBox
+            // flowLayoutPanel8
             // 
-            this.Street_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Street_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.Street_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.Street_comboBox.BackColor = System.Drawing.Color.White;
-            this.Street_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.Street_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Street_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Street_comboBox.FormattingEnabled = true;
-            this.Street_comboBox.Location = new System.Drawing.Point(757, 592);
-            this.Street_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.Street_comboBox.Name = "Street_comboBox";
-            this.Street_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Street_comboBox.Size = new System.Drawing.Size(170, 30);
-            this.Street_comboBox.TabIndex = 21;
-            // 
-            // P_HomeType_comboBox
-            // 
-            this.P_HomeType_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_HomeType_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.P_HomeType_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.P_HomeType_comboBox.BackColor = System.Drawing.Color.White;
-            this.P_HomeType_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.P_HomeType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.P_HomeType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_HomeType_comboBox.FormattingEnabled = true;
-            this.P_HomeType_comboBox.Location = new System.Drawing.Point(757, 637);
-            this.P_HomeType_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.P_HomeType_comboBox.Name = "P_HomeType_comboBox";
-            this.P_HomeType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HomeType_comboBox.Size = new System.Drawing.Size(170, 30);
-            this.P_HomeType_comboBox.TabIndex = 21;
-            // 
-            // label28
-            // 
-            this.label28.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label28.AutoSize = true;
-            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label28.Location = new System.Drawing.Point(564, 540);
-            this.label28.Name = "label28";
-            this.label28.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label28.Size = new System.Drawing.Size(137, 45);
-            this.label28.TabIndex = 557;
-            this.label28.Text = "جوّّال أ حد أفراد العائلة:";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // P_Mobile2_textBox
-            // 
-            this.P_Mobile2_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_Mobile2_textBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel6.SetColumnSpan(this.P_Mobile2_textBox, 4);
-            this.P_Mobile2_textBox.Location = new System.Drawing.Point(3, 548);
-            this.P_Mobile2_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.P_Mobile2_textBox.Name = "P_Mobile2_textBox";
-            this.P_Mobile2_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Mobile2_textBox.Size = new System.Drawing.Size(528, 29);
-            this.P_Mobile2_textBox.TabIndex = 558;
-            this.P_Mobile2_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.flowLayoutPanel8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel6.SetColumnSpan(this.flowLayoutPanel3, 8);
-            this.flowLayoutPanel3.Controls.Add(this.label15);
-            this.flowLayoutPanel3.Controls.Add(this.label12);
-            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 498);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1085, 39);
-            this.flowLayoutPanel3.TabIndex = 562;
+            this.flowLayoutPanel8.Controls.Add(this.label46);
+            this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 27);
+            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(1079, 18);
+            this.flowLayoutPanel8.TabIndex = 564;
             // 
-            // tableLayoutPanel13
+            // label46
             // 
-            this.tableLayoutPanel13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.label46.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label46.Location = new System.Drawing.Point(344, 0);
+            this.label46.Margin = new System.Windows.Forms.Padding(0);
+            this.label46.Name = "label46";
+            this.label46.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label46.Size = new System.Drawing.Size(735, 23);
+            this.label46.TabIndex = 269;
+            this.label46.Text = "*يتم تسجيل جميع الأفراد الساكنة في المنزل مهما كانت صفتهم كما يتم تسجيل أسماء أفر" +
+    "اد العائلة مهما كانت إقامتهم.";
+            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel13.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel13.ColumnCount = 3;
-            this.tableLayoutPanel6.SetColumnSpan(this.tableLayoutPanel13, 2);
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.9934F));
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.9934F));
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.68317F));
-            this.tableLayoutPanel13.Controls.Add(this.P_Priest2_comboBox, 0, 0);
-            this.tableLayoutPanel13.Controls.Add(this.P_Priest_comboBox, 1, 0);
-            this.tableLayoutPanel13.Controls.Add(this.P_Priest_label, 2, 0);
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(384, 406);
-            this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
-            this.tableLayoutPanel13.RowCount = 1;
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(317, 43);
-            this.tableLayoutPanel13.TabIndex = 270;
-            this.tableLayoutPanel13.TabStop = true;
+            this.flowLayoutPanel6.Controls.Add(this.label40);
+            this.flowLayoutPanel6.Controls.Add(this.label45);
+            this.flowLayoutPanel6.Controls.Add(this.label49);
+            this.flowLayoutPanel6.Controls.Add(this.label59);
+            this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 75);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(1079, 21);
+            this.flowLayoutPanel6.TabIndex = 563;
             // 
-            // P_Priest2_comboBox
+            // label40
             // 
-            this.P_Priest2_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_Priest2_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.P_Priest2_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.P_Priest2_comboBox.BackColor = System.Drawing.Color.White;
-            this.P_Priest2_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.P_Priest2_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.P_Priest2_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_Priest2_comboBox.FormattingEnabled = true;
-            this.P_Priest2_comboBox.Location = new System.Drawing.Point(3, 6);
-            this.P_Priest2_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.P_Priest2_comboBox.Name = "P_Priest2_comboBox";
-            this.P_Priest2_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Priest2_comboBox.Size = new System.Drawing.Size(102, 30);
-            this.P_Priest2_comboBox.TabIndex = 265;
+            this.label40.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label40.Location = new System.Drawing.Point(956, 0);
+            this.label40.Margin = new System.Windows.Forms.Padding(0);
+            this.label40.Name = "label40";
+            this.label40.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label40.Size = new System.Drawing.Size(123, 23);
+            this.label40.TabIndex = 267;
+            this.label40.Text = "*التحصيل العلمي:";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // P_Priest_comboBox
+            // label45
             // 
-            this.P_Priest_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_Priest_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.P_Priest_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.P_Priest_comboBox.BackColor = System.Drawing.Color.White;
-            this.P_Priest_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.P_Priest_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.P_Priest_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_Priest_comboBox.FormattingEnabled = true;
-            this.P_Priest_comboBox.Location = new System.Drawing.Point(111, 6);
-            this.P_Priest_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.P_Priest_comboBox.Name = "P_Priest_comboBox";
-            this.P_Priest_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Priest_comboBox.Size = new System.Drawing.Size(102, 30);
-            this.P_Priest_comboBox.TabIndex = 17;
+            this.label45.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label45.Location = new System.Drawing.Point(783, 0);
+            this.label45.Margin = new System.Windows.Forms.Padding(0);
+            this.label45.Name = "label45";
+            this.label45.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label45.Size = new System.Drawing.Size(173, 23);
+            this.label45.TabIndex = 268;
+            this.label45.Text = "طالب - متخرج - غير متعلم";
+            this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // P_Priest_label
+            // label49
             // 
-            this.P_Priest_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.P_Priest_label.AutoSize = true;
-            this.P_Priest_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_Priest_label.Location = new System.Drawing.Point(243, 7);
-            this.P_Priest_label.Name = "P_Priest_label";
-            this.P_Priest_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Priest_label.Size = new System.Drawing.Size(71, 29);
-            this.P_Priest_label.TabIndex = 556;
-            this.P_Priest_label.Text = "الكاهن:";
-            this.P_Priest_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label49.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label49.Location = new System.Drawing.Point(670, 0);
+            this.label49.Margin = new System.Windows.Forms.Padding(0);
+            this.label49.Name = "label49";
+            this.label49.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label49.Size = new System.Drawing.Size(113, 23);
+            this.label49.TabIndex = 269;
+            this.label49.Text = "*الدرجة العلمية:";
+            this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // P_IntermidiaryName_label
+            // label59
             // 
-            this.P_IntermidiaryName_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.P_IntermidiaryName_label.AutoSize = true;
-            this.P_IntermidiaryName_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_IntermidiaryName_label.Location = new System.Drawing.Point(194, 413);
-            this.P_IntermidiaryName_label.Name = "P_IntermidiaryName_label";
-            this.P_IntermidiaryName_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_IntermidiaryName_label.Size = new System.Drawing.Size(132, 29);
-            this.P_IntermidiaryName_label.TabIndex = 500;
-            this.P_IntermidiaryName_label.Text = "الهيئة الوسيطة:";
-            this.P_IntermidiaryName_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label59.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label59.Location = new System.Drawing.Point(274, 0);
+            this.label59.Margin = new System.Windows.Forms.Padding(0);
+            this.label59.Name = "label59";
+            this.label59.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label59.Size = new System.Drawing.Size(396, 23);
+            this.label59.TabIndex = 270;
+            this.label59.Text = "تعليم أساسي- معهد -إجازة جامعية – دبلوم – ماجستير -دكتوراه";
+            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // P_IntermidiaryName_textBox
+            // flowLayoutPanel9
             // 
-            this.P_IntermidiaryName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_IntermidiaryName_textBox.BackColor = System.Drawing.Color.White;
-            this.P_IntermidiaryName_textBox.Location = new System.Drawing.Point(3, 413);
-            this.P_IntermidiaryName_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.P_IntermidiaryName_textBox.Name = "P_IntermidiaryName_textBox";
-            this.P_IntermidiaryName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_IntermidiaryName_textBox.Size = new System.Drawing.Size(166, 29);
-            this.P_IntermidiaryName_textBox.TabIndex = 15;
+            this.flowLayoutPanel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel9.Controls.Add(this.label48);
+            this.flowLayoutPanel9.Controls.Add(this.label47);
+            this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 51);
+            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(1079, 18);
+            this.flowLayoutPanel9.TabIndex = 565;
             // 
-            // P_Parish_comboBox
+            // label48
             // 
-            this.P_Parish_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_Parish_comboBox.BackColor = System.Drawing.Color.White;
-            this.P_Parish_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.P_Parish_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.P_Parish_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_Parish_comboBox.FormattingEnabled = true;
-            this.P_Parish_comboBox.Location = new System.Drawing.Point(757, 412);
-            this.P_Parish_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.P_Parish_comboBox.Name = "P_Parish_comboBox";
-            this.P_Parish_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Parish_comboBox.Size = new System.Drawing.Size(170, 30);
-            this.P_Parish_comboBox.TabIndex = 16;
+            this.label48.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label48.Location = new System.Drawing.Point(979, 0);
+            this.label48.Margin = new System.Windows.Forms.Padding(0);
+            this.label48.Name = "label48";
+            this.label48.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label48.Size = new System.Drawing.Size(100, 23);
+            this.label48.TabIndex = 271;
+            this.label48.Text = "*طبيعة العمل:";
+            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label77
+            // label47
             // 
-            this.label77.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label77.AutoSize = true;
-            this.label77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label77.Location = new System.Drawing.Point(1008, 413);
-            this.label77.Name = "label77";
-            this.label77.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label77.Size = new System.Drawing.Size(80, 29);
-            this.label77.TabIndex = 261;
-            this.label77.Text = "الطائفة :";
-            this.label77.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label47.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label47.Location = new System.Drawing.Point(348, 0);
+            this.label47.Margin = new System.Windows.Forms.Padding(0);
+            this.label47.Name = "label47";
+            this.label47.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label47.Size = new System.Drawing.Size(631, 23);
+            this.label47.TabIndex = 270;
+            this.label47.Text = "حسب ملف الحاجة (صاحب العمل - شريك - صانع - موظّّف قطّّاع عام - موظّّفف قطّّاع خاص" +
+    " - لا يعمل)";
+            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // s3_textBox
+            // P_WorkYears_textBox
             // 
-            this.s3_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.s3_textBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel7.SetColumnSpan(this.s3_textBox, 2);
-            this.s3_textBox.Location = new System.Drawing.Point(3, 678);
-            this.s3_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.s3_textBox.Name = "s3_textBox";
-            this.s3_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.s3_textBox.Size = new System.Drawing.Size(866, 29);
-            this.s3_textBox.TabIndex = 60;
+            this.P_WorkYears_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_WorkYears_textBox.BackColor = System.Drawing.Color.White;
+            this.P_WorkYears_textBox.Location = new System.Drawing.Point(3, 4);
+            this.P_WorkYears_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.P_WorkYears_textBox.Name = "P_WorkYears_textBox";
+            this.P_WorkYears_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_WorkYears_textBox.Size = new System.Drawing.Size(706, 29);
+            this.P_WorkYears_textBox.TabIndex = 60;
             // 
             // label26
             // 
@@ -2699,10 +2901,10 @@ namespace MyWorkApplication
             this.AidSource_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.AidSource_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AidSource_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AidSource_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AidSource_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.AidSource_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AidSource_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.AidP_ID,
@@ -2717,30 +2919,30 @@ namespace MyWorkApplication
             this.Aid_DeleteRow,
             this.Aid_InDataBase,
             this.Aid_RowID});
-            this.tableLayoutPanel5.SetColumnSpan(this.AidSource_dataGridView, 3);
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AidSource_dataGridView.DefaultCellStyle = dataGridViewCellStyle18;
+            this.t10_tableLayoutPanel.SetColumnSpan(this.AidSource_dataGridView, 3);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AidSource_dataGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.AidSource_dataGridView.EnableHeadersVisualStyles = false;
             this.AidSource_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.AidSource_dataGridView.Location = new System.Drawing.Point(3, 96);
+            this.AidSource_dataGridView.Location = new System.Drawing.Point(3, 118);
             this.AidSource_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AidSource_dataGridView.MultiSelect = false;
             this.AidSource_dataGridView.Name = "AidSource_dataGridView";
             this.AidSource_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Rubik", 11F);
-            this.AidSource_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Rubik", 11F);
+            this.AidSource_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.AidSource_dataGridView.RowHeadersVisible = false;
             this.AidSource_dataGridView.RowHeadersWidth = 51;
-            this.tableLayoutPanel5.SetRowSpan(this.AidSource_dataGridView, 4);
+            this.t10_tableLayoutPanel.SetRowSpan(this.AidSource_dataGridView, 4);
             this.AidSource_dataGridView.RowTemplate.Height = 35;
             this.AidSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.AidSource_dataGridView.Size = new System.Drawing.Size(1085, 176);
+            this.AidSource_dataGridView.Size = new System.Drawing.Size(1085, 180);
             this.AidSource_dataGridView.TabIndex = 499;
             // 
             // AidP_ID
@@ -2854,14 +3056,21 @@ namespace MyWorkApplication
             this.Main_panel.AutoScroll = true;
             this.Main_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Main_panel.BackColor = System.Drawing.Color.Transparent;
-            this.Main_panel.Controls.Add(this.Users_tableLayoutPanel);
-            this.Main_panel.Controls.Add(this.tableLayoutPanel10);
-            this.Main_panel.Controls.Add(this.tableLayoutPanel5);
-            this.Main_panel.Controls.Add(this.tableLayoutPanel9);
-            this.Main_panel.Controls.Add(this.tableLayoutPanel7);
-            this.Main_panel.Controls.Add(this.tableLayoutPanel6);
-            this.Main_panel.Controls.Add(this.tableLayoutPanel12);
-            this.Main_panel.Controls.Add(this.first_tableLayoutPanel);
+            this.Main_panel.ContextMenuStrip = this.contextMenuStrip1;
+            this.Main_panel.Controls.Add(this.Final_tableLayoutPanel);
+            this.Main_panel.Controls.Add(this.t11_tableLayoutPanel);
+            this.Main_panel.Controls.Add(this.t10_tableLayoutPanel);
+            this.Main_panel.Controls.Add(this.t9_tableLayoutPanel);
+            this.Main_panel.Controls.Add(this.t4_tableLayoutPanel);
+            this.Main_panel.Controls.Add(this.t21_tableLayoutPanel);
+            this.Main_panel.Controls.Add(this.t20_tableLayoutPanel);
+            this.Main_panel.Controls.Add(this.t8_tableLayoutPanel);
+            this.Main_panel.Controls.Add(this.t7_tableLayoutPanel);
+            this.Main_panel.Controls.Add(this.t6_tableLayoutPanel);
+            this.Main_panel.Controls.Add(this.t5_tableLayoutPanel);
+            this.Main_panel.Controls.Add(this.t3_tableLayoutPanel);
+            this.Main_panel.Controls.Add(this.t2_tableLayoutPanel);
+            this.Main_panel.Controls.Add(this.First_tableLayoutPanel);
             this.Main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Main_panel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Main_panel.Location = new System.Drawing.Point(0, 0);
@@ -2871,32 +3080,81 @@ namespace MyWorkApplication
             this.Main_panel.Size = new System.Drawing.Size(1262, 673);
             this.Main_panel.TabIndex = 411;
             // 
-            // Users_tableLayoutPanel
+            // contextMenuStrip1
             // 
-            this.Users_tableLayoutPanel.ColumnCount = 5;
-            this.Users_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.96949F));
-            this.Users_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.61581F));
-            this.Users_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.Users_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.45299F));
-            this.Users_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.09402F));
-            this.Users_tableLayoutPanel.Controls.Add(this.tableLayoutPanel4, 0, 3);
-            this.Users_tableLayoutPanel.Controls.Add(this.flowLayoutPanel13, 0, 1);
-            this.Users_tableLayoutPanel.Controls.Add(this.PaperApplicationUser_comboBox, 3, 1);
-            this.Users_tableLayoutPanel.Controls.Add(this.label27, 4, 1);
-            this.Users_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Users_tableLayoutPanel.Location = new System.Drawing.Point(75, 6401);
-            this.Users_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Users_tableLayoutPanel.Name = "Users_tableLayoutPanel";
-            this.Users_tableLayoutPanel.RowCount = 6;
-            this.Users_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.74757F));
-            this.Users_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.3301F));
-            this.Users_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.67961F));
-            this.Users_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.74757F));
-            this.Users_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.74757F));
-            this.Users_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.74757F));
-            this.Users_tableLayoutPanel.Size = new System.Drawing.Size(1091, 207);
-            this.Users_tableLayoutPanel.TabIndex = 542;
-            this.Users_tableLayoutPanel.TabStop = true;
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Visits_toolStripMenuItem,
+            this.payments_toolStripMenuItem,
+            this.attachments_toolStripMenuItem,
+            this.showChecklistToolStripMenuItem,
+            this.addNotesToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 124);
+            // 
+            // Visits_toolStripMenuItem
+            // 
+            this.Visits_toolStripMenuItem.Name = "Visits_toolStripMenuItem";
+            this.Visits_toolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.Visits_toolStripMenuItem.Text = "Show Visits";
+            // 
+            // payments_toolStripMenuItem
+            // 
+            this.payments_toolStripMenuItem.Name = "payments_toolStripMenuItem";
+            this.payments_toolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.payments_toolStripMenuItem.Text = "Show Payments";
+            // 
+            // attachments_toolStripMenuItem
+            // 
+            this.attachments_toolStripMenuItem.Name = "attachments_toolStripMenuItem";
+            this.attachments_toolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.attachments_toolStripMenuItem.Text = "Show Attachments";
+            // 
+            // showChecklistToolStripMenuItem
+            // 
+            this.showChecklistToolStripMenuItem.Name = "showChecklistToolStripMenuItem";
+            this.showChecklistToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.showChecklistToolStripMenuItem.Text = "Show Checklist";
+            // 
+            // addNotesToolStripMenuItem
+            // 
+            this.addNotesToolStripMenuItem.Name = "addNotesToolStripMenuItem";
+            this.addNotesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.addNotesToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.addNotesToolStripMenuItem.Text = "Add Notes";
+            // 
+            // Final_tableLayoutPanel
+            // 
+            this.Final_tableLayoutPanel.ColumnCount = 5;
+            this.Final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.9365F));
+            this.Final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.56082F));
+            this.Final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.Final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.43125F));
+            this.Final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.07143F));
+            this.Final_tableLayoutPanel.Controls.Add(this.tableLayoutPanel4, 0, 7);
+            this.Final_tableLayoutPanel.Controls.Add(this.flowLayoutPanel13, 0, 5);
+            this.Final_tableLayoutPanel.Controls.Add(this.PaperApplicationUser_comboBox, 3, 5);
+            this.Final_tableLayoutPanel.Controls.Add(this.label27, 4, 5);
+            this.Final_tableLayoutPanel.Controls.Add(this.MP_SimpleProfit2_textBox, 0, 2);
+            this.Final_tableLayoutPanel.Controls.Add(this.label100, 0, 1);
+            this.Final_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Final_tableLayoutPanel.Location = new System.Drawing.Point(75, 7176);
+            this.Final_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Final_tableLayoutPanel.Name = "Final_tableLayoutPanel";
+            this.Final_tableLayoutPanel.RowCount = 10;
+            this.Final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.Final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.Final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.Final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.Final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.Final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.Final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.Final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.Final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.Final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.Final_tableLayoutPanel.Size = new System.Drawing.Size(1091, 406);
+            this.Final_tableLayoutPanel.TabIndex = 542;
+            this.Final_tableLayoutPanel.TabStop = true;
             // 
             // tableLayoutPanel4
             // 
@@ -2904,7 +3162,7 @@ namespace MyWorkApplication
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel4.ColumnCount = 6;
-            this.Users_tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel4, 5);
+            this.Final_tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel4, 5);
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
@@ -2915,14 +3173,14 @@ namespace MyWorkApplication
             this.tableLayoutPanel4.Controls.Add(this.AddPartner_button, 4, 0);
             this.tableLayoutPanel4.Controls.Add(this.AddExtention_button, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.Delete_MP_button, 2, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 106);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 284);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tableLayoutPanel4.RowCount = 1;
-            this.Users_tableLayoutPanel.SetRowSpan(this.tableLayoutPanel4, 2);
+            this.Final_tableLayoutPanel.SetRowSpan(this.tableLayoutPanel4, 2);
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1085, 60);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1085, 72);
             this.tableLayoutPanel4.TabIndex = 566;
             this.tableLayoutPanel4.TabStop = true;
             // 
@@ -2946,6 +3204,7 @@ namespace MyWorkApplication
             this.Save_button.Size = new System.Drawing.Size(125, 40);
             this.Save_button.TabIndex = 100;
             this.Save_button.UseVisualStyleBackColor = false;
+            this.Save_button.Click += new System.EventHandler(this.Save_button_Click);
             // 
             // AddPartner_button
             // 
@@ -3015,14 +3274,14 @@ namespace MyWorkApplication
             this.flowLayoutPanel13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Users_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel13, 2);
+            this.Final_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel13, 2);
             this.flowLayoutPanel13.Controls.Add(this.EditedBy_User_label);
             this.flowLayoutPanel13.Controls.Add(this.Visitors_label);
             this.flowLayoutPanel13.Controls.Add(this.CreatedBy_User_label);
             this.flowLayoutPanel13.Controls.Add(this.label33);
-            this.flowLayoutPanel13.Location = new System.Drawing.Point(3, 37);
+            this.flowLayoutPanel13.Location = new System.Drawing.Point(3, 203);
             this.flowLayoutPanel13.Name = "flowLayoutPanel13";
-            this.flowLayoutPanel13.Size = new System.Drawing.Size(685, 40);
+            this.flowLayoutPanel13.Size = new System.Drawing.Size(685, 34);
             this.flowLayoutPanel13.TabIndex = 567;
             // 
             // EditedBy_User_label
@@ -3088,95 +3347,25 @@ namespace MyWorkApplication
             this.PaperApplicationUser_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.PaperApplicationUser_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaperApplicationUser_comboBox.FormattingEnabled = true;
-            this.PaperApplicationUser_comboBox.Location = new System.Drawing.Point(744, 42);
+            this.PaperApplicationUser_comboBox.Location = new System.Drawing.Point(744, 205);
             this.PaperApplicationUser_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PaperApplicationUser_comboBox.Name = "PaperApplicationUser_comboBox";
             this.PaperApplicationUser_comboBox.Size = new System.Drawing.Size(165, 30);
             this.PaperApplicationUser_comboBox.TabIndex = 91;
+            this.PaperApplicationUser_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             // 
             // label27
             // 
             this.label27.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label27.AutoSize = true;
             this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label27.Location = new System.Drawing.Point(966, 38);
+            this.label27.Location = new System.Drawing.Point(966, 204);
             this.label27.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label27.Name = "label27";
             this.label27.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label27.Size = new System.Drawing.Size(122, 38);
+            this.label27.Size = new System.Drawing.Size(122, 32);
             this.label27.TabIndex = 564;
             this.label27.Text = "مسجّل الطلب (ورقياً):";
-            // 
-            // tableLayoutPanel10
-            // 
-            this.tableLayoutPanel10.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel10.ColumnCount = 3;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel10.Controls.Add(this.MP_SimpleProfit2_textBox, 0, 29);
-            this.tableLayoutPanel10.Controls.Add(this.flowLayoutPanel19, 1, 21);
-            this.tableLayoutPanel10.Controls.Add(this.flowLayoutPanel20, 0, 19);
-            this.tableLayoutPanel10.Controls.Add(this.PowerSource_dataGridView, 0, 16);
-            this.tableLayoutPanel10.Controls.Add(this.flowLayoutPanel18, 0, 9);
-            this.tableLayoutPanel10.Controls.Add(this.label97, 1, 25);
-            this.tableLayoutPanel10.Controls.Add(this.Agreement1_flowLayoutPanel, 0, 25);
-            this.tableLayoutPanel10.Controls.Add(this.Agreement2_flowLayoutPanel, 0, 26);
-            this.tableLayoutPanel10.Controls.Add(this.Agreement3_flowLayoutPanel, 0, 27);
-            this.tableLayoutPanel10.Controls.Add(this.label100, 1, 28);
-            this.tableLayoutPanel10.Controls.Add(this.label99, 1, 27);
-            this.tableLayoutPanel10.Controls.Add(this.label98, 1, 26);
-            this.tableLayoutPanel10.Controls.Add(this.label88, 1, 1);
-            this.tableLayoutPanel10.Controls.Add(this.label87, 1, 5);
-            this.tableLayoutPanel10.Controls.Add(this.dataGridView5, 0, 6);
-            this.tableLayoutPanel10.Controls.Add(this.s6_tableLayoutPanel, 0, 11);
-            this.tableLayoutPanel10.Controls.Add(this.flowLayoutPanel27, 0, 13);
-            this.tableLayoutPanel10.Controls.Add(this.label91, 1, 15);
-            this.tableLayoutPanel10.Controls.Add(this.label96, 1, 23);
-            this.tableLayoutPanel10.Controls.Add(this.label92, 0, 20);
-            this.tableLayoutPanel10.Controls.Add(this.AmperNumber_textBox, 2, 21);
-            this.tableLayoutPanel10.Controls.Add(this.P_HasIncomeSource_flowLayoutPanel, 0, 1);
-            this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel3, 0, 2);
-            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(75, 5160);
-            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 32;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.125F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(1091, 1241);
-            this.tableLayoutPanel10.TabIndex = 545;
             // 
             // MP_SimpleProfit2_textBox
             // 
@@ -3184,431 +3373,23 @@ namespace MyWorkApplication
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MP_SimpleProfit2_textBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel10.SetColumnSpan(this.MP_SimpleProfit2_textBox, 3);
-            this.MP_SimpleProfit2_textBox.Location = new System.Drawing.Point(3, 1106);
+            this.Final_tableLayoutPanel.SetColumnSpan(this.MP_SimpleProfit2_textBox, 5);
+            this.MP_SimpleProfit2_textBox.Location = new System.Drawing.Point(3, 84);
             this.MP_SimpleProfit2_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MP_SimpleProfit2_textBox.Multiline = true;
             this.MP_SimpleProfit2_textBox.Name = "MP_SimpleProfit2_textBox";
             this.MP_SimpleProfit2_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tableLayoutPanel10.SetRowSpan(this.MP_SimpleProfit2_textBox, 2);
-            this.MP_SimpleProfit2_textBox.Size = new System.Drawing.Size(1085, 68);
+            this.Final_tableLayoutPanel.SetRowSpan(this.MP_SimpleProfit2_textBox, 2);
+            this.MP_SimpleProfit2_textBox.Size = new System.Drawing.Size(1085, 72);
             this.MP_SimpleProfit2_textBox.TabIndex = 587;
-            // 
-            // flowLayoutPanel19
-            // 
-            this.flowLayoutPanel19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel19.Controls.Add(this.radioButton19);
-            this.flowLayoutPanel19.Controls.Add(this.radioButton20);
-            this.flowLayoutPanel19.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel19.Location = new System.Drawing.Point(221, 801);
-            this.flowLayoutPanel19.Name = "flowLayoutPanel19";
-            this.flowLayoutPanel19.Size = new System.Drawing.Size(648, 32);
-            this.flowLayoutPanel19.TabIndex = 596;
-            // 
-            // radioButton19
-            // 
-            this.radioButton19.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.radioButton19.AutoSize = true;
-            this.radioButton19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.radioButton19.Location = new System.Drawing.Point(573, 5);
-            this.radioButton19.Margin = new System.Windows.Forms.Padding(5);
-            this.radioButton19.Name = "radioButton19";
-            this.radioButton19.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radioButton19.Size = new System.Drawing.Size(70, 33);
-            this.radioButton19.TabIndex = 4;
-            this.radioButton19.TabStop = true;
-            this.radioButton19.Text = "أمبير";
-            this.radioButton19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton19.UseVisualStyleBackColor = true;
-            // 
-            // radioButton20
-            // 
-            this.radioButton20.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.radioButton20.AutoSize = true;
-            this.radioButton20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.radioButton20.Location = new System.Drawing.Point(506, 5);
-            this.radioButton20.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.radioButton20.Name = "radioButton20";
-            this.radioButton20.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radioButton20.Size = new System.Drawing.Size(62, 33);
-            this.radioButton20.TabIndex = 3;
-            this.radioButton20.TabStop = true;
-            this.radioButton20.Text = "واط";
-            this.radioButton20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton20.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel20
-            // 
-            this.flowLayoutPanel20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel10.SetColumnSpan(this.flowLayoutPanel20, 3);
-            this.flowLayoutPanel20.Controls.Add(this.label93);
-            this.flowLayoutPanel20.Controls.Add(this.label94);
-            this.flowLayoutPanel20.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel20.Location = new System.Drawing.Point(3, 725);
-            this.flowLayoutPanel20.Name = "flowLayoutPanel20";
-            this.flowLayoutPanel20.Size = new System.Drawing.Size(1085, 32);
-            this.flowLayoutPanel20.TabIndex = 577;
-            // 
-            // label93
-            // 
-            this.label93.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label93.AutoSize = true;
-            this.label93.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.label93.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label93.Location = new System.Drawing.Point(977, 0);
-            this.label93.Margin = new System.Windows.Forms.Padding(0);
-            this.label93.Name = "label93";
-            this.label93.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label93.Size = new System.Drawing.Size(108, 23);
-            this.label93.TabIndex = 263;
-            this.label93.Text = "*مصادر الطاقة:";
-            this.label93.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label94
-            // 
-            this.label94.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label94.AutoSize = true;
-            this.label94.Font = new System.Drawing.Font("Rubik", 9F);
-            this.label94.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label94.Location = new System.Drawing.Point(588, 0);
-            this.label94.Margin = new System.Windows.Forms.Padding(0);
-            this.label94.Name = "label94";
-            this.label94.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label94.Size = new System.Drawing.Size(389, 23);
-            this.label94.TabIndex = 264;
-            this.label94.Text = "كهرباء - أمبير - طاقة شمسيّّة - بطاريّّة وأنفرتر - ليدات - لايوجد.";
-            this.label94.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PowerSource_dataGridView
-            // 
-            this.PowerSource_dataGridView.AllowUserToResizeRows = false;
-            this.PowerSource_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PowerSource_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.PowerSource_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.PowerSource_dataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.PowerSource_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PowerSource_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PowerSource_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
-            this.PowerSource_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PowerSource_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Power_MP_ID,
-            this.Power_ID,
-            this.Power_Name,
-            this.Power_Note,
-            this.Power_Cost,
-            this.Power_Responsability,
-            this.Power_DeleteRow,
-            this.Power_InDataBase,
-            this.Power_RowID});
-            this.tableLayoutPanel10.SetColumnSpan(this.PowerSource_dataGridView, 3);
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PowerSource_dataGridView.DefaultCellStyle = dataGridViewCellStyle21;
-            this.PowerSource_dataGridView.EnableHeadersVisualStyles = false;
-            this.PowerSource_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.PowerSource_dataGridView.Location = new System.Drawing.Point(3, 612);
-            this.PowerSource_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.PowerSource_dataGridView.MultiSelect = false;
-            this.PowerSource_dataGridView.Name = "PowerSource_dataGridView";
-            this.PowerSource_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Rubik", 11F);
-            this.PowerSource_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle22;
-            this.PowerSource_dataGridView.RowHeadersVisible = false;
-            this.PowerSource_dataGridView.RowHeadersWidth = 51;
-            this.tableLayoutPanel10.SetRowSpan(this.PowerSource_dataGridView, 3);
-            this.PowerSource_dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.PowerSource_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PowerSource_dataGridView.RowTemplate.Height = 35;
-            this.PowerSource_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.PowerSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.PowerSource_dataGridView.Size = new System.Drawing.Size(1085, 106);
-            this.PowerSource_dataGridView.TabIndex = 575;
-            // 
-            // Power_MP_ID
-            // 
-            this.Power_MP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Power_MP_ID.HeaderText = "Power_MP_ID";
-            this.Power_MP_ID.MinimumWidth = 6;
-            this.Power_MP_ID.Name = "Power_MP_ID";
-            this.Power_MP_ID.Visible = false;
-            // 
-            // Power_ID
-            // 
-            this.Power_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Power_ID.HeaderText = "Power_ID";
-            this.Power_ID.MinimumWidth = 6;
-            this.Power_ID.Name = "Power_ID";
-            this.Power_ID.Visible = false;
-            // 
-            // Power_Name
-            // 
-            this.Power_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Power_Name.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.Power_Name.DisplayStyleForCurrentCellOnly = true;
-            this.Power_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Power_Name.HeaderText = "المصدر";
-            this.Power_Name.MinimumWidth = 6;
-            this.Power_Name.Name = "Power_Name";
-            this.Power_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Power_Note
-            // 
-            this.Power_Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Power_Note.HeaderText = "شرح المنظومة";
-            this.Power_Note.MinimumWidth = 6;
-            this.Power_Note.Name = "Power_Note";
-            // 
-            // Power_Cost
-            // 
-            this.Power_Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Power_Cost.HeaderText = "القيمة المدفوعة (شهرياً)";
-            this.Power_Cost.MinimumWidth = 6;
-            this.Power_Cost.Name = "Power_Cost";
-            // 
-            // Power_Responsability
-            // 
-            this.Power_Responsability.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Power_Responsability.HeaderText = "الجهة المنفّذة";
-            this.Power_Responsability.MinimumWidth = 6;
-            this.Power_Responsability.Name = "Power_Responsability";
-            // 
-            // Power_DeleteRow
-            // 
-            this.Power_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Power_DeleteRow.FillWeight = 40F;
-            this.Power_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Power_DeleteRow.HeaderText = " ";
-            this.Power_DeleteRow.MinimumWidth = 50;
-            this.Power_DeleteRow.Name = "Power_DeleteRow";
-            this.Power_DeleteRow.Width = 50;
-            // 
-            // Power_InDataBase
-            // 
-            this.Power_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Power_InDataBase.HeaderText = "Power_InDataBase";
-            this.Power_InDataBase.MinimumWidth = 6;
-            this.Power_InDataBase.Name = "Power_InDataBase";
-            this.Power_InDataBase.Visible = false;
-            // 
-            // Power_RowID
-            // 
-            this.Power_RowID.HeaderText = "Power_RowID";
-            this.Power_RowID.MinimumWidth = 6;
-            this.Power_RowID.Name = "Power_RowID";
-            this.Power_RowID.Visible = false;
-            // 
-            // flowLayoutPanel18
-            // 
-            this.flowLayoutPanel18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel10.SetColumnSpan(this.flowLayoutPanel18, 3);
-            this.flowLayoutPanel18.Controls.Add(this.label89);
-            this.flowLayoutPanel18.Controls.Add(this.label90);
-            this.flowLayoutPanel18.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel18.Location = new System.Drawing.Point(3, 345);
-            this.flowLayoutPanel18.Name = "flowLayoutPanel18";
-            this.flowLayoutPanel18.Size = new System.Drawing.Size(1085, 32);
-            this.flowLayoutPanel18.TabIndex = 572;
-            // 
-            // label89
-            // 
-            this.label89.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label89.AutoSize = true;
-            this.label89.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.label89.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label89.Location = new System.Drawing.Point(977, 0);
-            this.label89.Margin = new System.Windows.Forms.Padding(0);
-            this.label89.Name = "label89";
-            this.label89.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label89.Size = new System.Drawing.Size(108, 23);
-            this.label89.TabIndex = 263;
-            this.label89.Text = "*مصادر الطاقة:";
-            this.label89.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label90
-            // 
-            this.label90.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label90.AutoSize = true;
-            this.label90.Font = new System.Drawing.Font("Rubik", 9F);
-            this.label90.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label90.Location = new System.Drawing.Point(588, 0);
-            this.label90.Margin = new System.Windows.Forms.Padding(0);
-            this.label90.Name = "label90";
-            this.label90.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label90.Size = new System.Drawing.Size(389, 23);
-            this.label90.TabIndex = 264;
-            this.label90.Text = "كهرباء - أمبير - طاقة شمسيّّة - بطاريّّة وأنفرتر - ليدات - لايوجد.";
-            this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label97
-            // 
-            this.label97.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label97.AutoSize = true;
-            this.tableLayoutPanel10.SetColumnSpan(this.label97, 2);
-            this.label97.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label97.Location = new System.Drawing.Point(519, 954);
-            this.label97.Margin = new System.Windows.Forms.Padding(3);
-            this.label97.Name = "label97";
-            this.label97.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label97.Size = new System.Drawing.Size(569, 29);
-            this.label97.TabIndex = 581;
-            this.label97.Text = "هل توافق على القيام بزيارات المتابعة الدورية للمشروع في حال الموافقة؟";
-            this.label97.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Agreement1_flowLayoutPanel
-            // 
-            this.Agreement1_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Agreement1_flowLayoutPanel.Controls.Add(this.Agreement1_No_radioButton);
-            this.Agreement1_flowLayoutPanel.Controls.Add(this.Agreement1_Yes_radioButton);
-            this.Agreement1_flowLayoutPanel.Location = new System.Drawing.Point(3, 953);
-            this.Agreement1_flowLayoutPanel.Name = "Agreement1_flowLayoutPanel";
-            this.Agreement1_flowLayoutPanel.Size = new System.Drawing.Size(212, 32);
-            this.Agreement1_flowLayoutPanel.TabIndex = 583;
-            // 
-            // Agreement1_No_radioButton
-            // 
-            this.Agreement1_No_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Agreement1_No_radioButton.AutoSize = true;
-            this.Agreement1_No_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Agreement1_No_radioButton.Location = new System.Drawing.Point(5, 5);
-            this.Agreement1_No_radioButton.Margin = new System.Windows.Forms.Padding(5);
-            this.Agreement1_No_radioButton.Name = "Agreement1_No_radioButton";
-            this.Agreement1_No_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement1_No_radioButton.Size = new System.Drawing.Size(46, 33);
-            this.Agreement1_No_radioButton.TabIndex = 4;
-            this.Agreement1_No_radioButton.TabStop = true;
-            this.Agreement1_No_radioButton.Text = "لا";
-            this.Agreement1_No_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Agreement1_No_radioButton.UseVisualStyleBackColor = true;
-            // 
-            // Agreement1_Yes_radioButton
-            // 
-            this.Agreement1_Yes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Agreement1_Yes_radioButton.AutoSize = true;
-            this.Agreement1_Yes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Agreement1_Yes_radioButton.Location = new System.Drawing.Point(71, 5);
-            this.Agreement1_Yes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.Agreement1_Yes_radioButton.Name = "Agreement1_Yes_radioButton";
-            this.Agreement1_Yes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement1_Yes_radioButton.Size = new System.Drawing.Size(62, 33);
-            this.Agreement1_Yes_radioButton.TabIndex = 3;
-            this.Agreement1_Yes_radioButton.TabStop = true;
-            this.Agreement1_Yes_radioButton.Text = "نعم";
-            this.Agreement1_Yes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Agreement1_Yes_radioButton.UseVisualStyleBackColor = true;
-            // 
-            // Agreement2_flowLayoutPanel
-            // 
-            this.Agreement2_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Agreement2_flowLayoutPanel.Controls.Add(this.Agreement2_No_radioButton);
-            this.Agreement2_flowLayoutPanel.Controls.Add(this.Agreement2_Yes_radioButton);
-            this.Agreement2_flowLayoutPanel.Location = new System.Drawing.Point(3, 991);
-            this.Agreement2_flowLayoutPanel.Name = "Agreement2_flowLayoutPanel";
-            this.Agreement2_flowLayoutPanel.Size = new System.Drawing.Size(212, 32);
-            this.Agreement2_flowLayoutPanel.TabIndex = 580;
-            // 
-            // Agreement2_No_radioButton
-            // 
-            this.Agreement2_No_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Agreement2_No_radioButton.AutoSize = true;
-            this.Agreement2_No_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Agreement2_No_radioButton.Location = new System.Drawing.Point(5, 5);
-            this.Agreement2_No_radioButton.Margin = new System.Windows.Forms.Padding(5);
-            this.Agreement2_No_radioButton.Name = "Agreement2_No_radioButton";
-            this.Agreement2_No_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement2_No_radioButton.Size = new System.Drawing.Size(46, 33);
-            this.Agreement2_No_radioButton.TabIndex = 4;
-            this.Agreement2_No_radioButton.TabStop = true;
-            this.Agreement2_No_radioButton.Text = "لا";
-            this.Agreement2_No_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Agreement2_No_radioButton.UseVisualStyleBackColor = true;
-            // 
-            // Agreement2_Yes_radioButton
-            // 
-            this.Agreement2_Yes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Agreement2_Yes_radioButton.AutoSize = true;
-            this.Agreement2_Yes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Agreement2_Yes_radioButton.Location = new System.Drawing.Point(71, 5);
-            this.Agreement2_Yes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.Agreement2_Yes_radioButton.Name = "Agreement2_Yes_radioButton";
-            this.Agreement2_Yes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement2_Yes_radioButton.Size = new System.Drawing.Size(62, 33);
-            this.Agreement2_Yes_radioButton.TabIndex = 3;
-            this.Agreement2_Yes_radioButton.TabStop = true;
-            this.Agreement2_Yes_radioButton.Text = "نعم";
-            this.Agreement2_Yes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Agreement2_Yes_radioButton.UseVisualStyleBackColor = true;
-            // 
-            // Agreement3_flowLayoutPanel
-            // 
-            this.Agreement3_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Agreement3_flowLayoutPanel.Controls.Add(this.Agreement3_No_radioButton);
-            this.Agreement3_flowLayoutPanel.Controls.Add(this.Agreement3_Yes_radioButton);
-            this.Agreement3_flowLayoutPanel.Location = new System.Drawing.Point(3, 1029);
-            this.Agreement3_flowLayoutPanel.Name = "Agreement3_flowLayoutPanel";
-            this.Agreement3_flowLayoutPanel.Size = new System.Drawing.Size(212, 32);
-            this.Agreement3_flowLayoutPanel.TabIndex = 584;
-            // 
-            // Agreement3_No_radioButton
-            // 
-            this.Agreement3_No_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Agreement3_No_radioButton.AutoSize = true;
-            this.Agreement3_No_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Agreement3_No_radioButton.Location = new System.Drawing.Point(5, 5);
-            this.Agreement3_No_radioButton.Margin = new System.Windows.Forms.Padding(5);
-            this.Agreement3_No_radioButton.Name = "Agreement3_No_radioButton";
-            this.Agreement3_No_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement3_No_radioButton.Size = new System.Drawing.Size(46, 33);
-            this.Agreement3_No_radioButton.TabIndex = 4;
-            this.Agreement3_No_radioButton.TabStop = true;
-            this.Agreement3_No_radioButton.Text = "لا";
-            this.Agreement3_No_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Agreement3_No_radioButton.UseVisualStyleBackColor = true;
-            // 
-            // Agreement3_Yes_radioButton
-            // 
-            this.Agreement3_Yes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Agreement3_Yes_radioButton.AutoSize = true;
-            this.Agreement3_Yes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Agreement3_Yes_radioButton.Location = new System.Drawing.Point(71, 5);
-            this.Agreement3_Yes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.Agreement3_Yes_radioButton.Name = "Agreement3_Yes_radioButton";
-            this.Agreement3_Yes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement3_Yes_radioButton.Size = new System.Drawing.Size(62, 33);
-            this.Agreement3_Yes_radioButton.TabIndex = 3;
-            this.Agreement3_Yes_radioButton.TabStop = true;
-            this.Agreement3_Yes_radioButton.Text = "نعم";
-            this.Agreement3_Yes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Agreement3_Yes_radioButton.UseVisualStyleBackColor = true;
             // 
             // label100
             // 
             this.label100.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label100.AutoSize = true;
-            this.tableLayoutPanel10.SetColumnSpan(this.label100, 2);
+            this.Final_tableLayoutPanel.SetColumnSpan(this.label100, 5);
             this.label100.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label100.Location = new System.Drawing.Point(940, 1068);
+            this.label100.Location = new System.Drawing.Point(940, 45);
             this.label100.Margin = new System.Windows.Forms.Padding(3);
             this.label100.Name = "label100";
             this.label100.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3617,82 +3398,300 @@ namespace MyWorkApplication
             this.label100.Text = "معلومات إضافيّّة:";
             this.label100.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label99
+            // t11_tableLayoutPanel
             // 
-            this.label99.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label99.AutoSize = true;
-            this.tableLayoutPanel10.SetColumnSpan(this.label99, 2);
-            this.label99.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label99.Location = new System.Drawing.Point(502, 1030);
-            this.label99.Margin = new System.Windows.Forms.Padding(3);
-            this.label99.Name = "label99";
-            this.label99.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label99.Size = new System.Drawing.Size(586, 29);
-            this.label99.TabIndex = 582;
-            this.label99.Text = "هل لديك مانع من إجراء فحص تقني لمعرفة مدى خبرتك في مجال مهنتك؟";
-            this.label99.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.t11_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.t11_tableLayoutPanel.ColumnCount = 3;
+            this.t11_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.37222F));
+            this.t11_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.6131F));
+            this.t11_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.01468F));
+            this.t11_tableLayoutPanel.Controls.Add(this.SubHeader10_label, 1, 1);
+            this.t11_tableLayoutPanel.Controls.Add(this.P_HasIncomeSource_flowLayoutPanel, 0, 1);
+            this.t11_tableLayoutPanel.Controls.Add(this.tableLayoutPanel3, 0, 3);
+            this.t11_tableLayoutPanel.Controls.Add(this.SubHeader11_label, 1, 7);
+            this.t11_tableLayoutPanel.Controls.Add(this.HomePowerSource_dataGridView, 0, 9);
+            this.t11_tableLayoutPanel.Controls.Add(this.flowLayoutPanel18, 0, 14);
+            this.t11_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.t11_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.t11_tableLayoutPanel.Location = new System.Drawing.Point(75, 6581);
+            this.t11_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.t11_tableLayoutPanel.Name = "t11_tableLayoutPanel";
+            this.t11_tableLayoutPanel.RowCount = 16;
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.t11_tableLayoutPanel.Size = new System.Drawing.Size(1091, 595);
+            this.t11_tableLayoutPanel.TabIndex = 545;
             // 
-            // label98
+            // SubHeader10_label
             // 
-            this.label98.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label98.AutoSize = true;
-            this.tableLayoutPanel10.SetColumnSpan(this.label98, 2);
-            this.label98.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label98.Location = new System.Drawing.Point(288, 991);
-            this.label98.Margin = new System.Windows.Forms.Padding(3);
-            this.label98.Name = "label98";
-            this.label98.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label98.Size = new System.Drawing.Size(800, 32);
-            this.label98.TabIndex = 582;
-            this.label98.Text = "هل لديك مانع في السؤال عنك أثناء فترة دراسة المشروع (خبرتك - حاجتك - سمعتك - أملا" +
-    "كك - إدارتك المشروع)";
-            this.label98.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SubHeader10_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubHeader10_label.AutoSize = true;
+            this.SubHeader10_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.SubHeader10_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader10_label.Location = new System.Drawing.Point(236, 43);
+            this.SubHeader10_label.Name = "SubHeader10_label";
+            this.SubHeader10_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SubHeader10_label.Size = new System.Drawing.Size(633, 37);
+            this.SubHeader10_label.TabIndex = 498;
+            this.SubHeader10_label.Text = "مصادر المساعدة";
+            this.SubHeader10_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label88
+            // P_HasIncomeSource_flowLayoutPanel
             // 
-            this.label88.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label88.AutoSize = true;
-            this.label88.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.label88.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.label88.Location = new System.Drawing.Point(221, 38);
-            this.label88.Name = "label88";
-            this.label88.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label88.Size = new System.Drawing.Size(648, 37);
-            this.label88.TabIndex = 498;
-            this.label88.Text = "مصادر المساعدة";
-            this.label88.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label87
-            // 
-            this.label87.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label87.AutoSize = true;
-            this.label87.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.label87.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.label87.Location = new System.Drawing.Point(221, 190);
-            this.label87.Name = "label87";
-            this.label87.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label87.Size = new System.Drawing.Size(648, 37);
-            this.label87.TabIndex = 499;
-            this.label87.Text = "مصادر الطاقة في المنزل";
-            this.label87.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dataGridView5
-            // 
-            this.dataGridView5.AllowUserToResizeRows = false;
-            this.dataGridView5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.P_HasIncomeSource_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView5.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.dataGridView5.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView5.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.P_HasIncomeSource_flowLayoutPanel.Controls.Add(this.P_HasIncomeSourceNo_radioButton);
+            this.P_HasIncomeSource_flowLayoutPanel.Controls.Add(this.P_HasIncomeSourceYes_radioButton);
+            this.P_HasIncomeSource_flowLayoutPanel.Location = new System.Drawing.Point(3, 44);
+            this.P_HasIncomeSource_flowLayoutPanel.Name = "P_HasIncomeSource_flowLayoutPanel";
+            this.P_HasIncomeSource_flowLayoutPanel.Size = new System.Drawing.Size(227, 35);
+            this.P_HasIncomeSource_flowLayoutPanel.TabIndex = 584;
+            // 
+            // P_HasIncomeSourceNo_radioButton
+            // 
+            this.P_HasIncomeSourceNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasIncomeSourceNo_radioButton.AutoSize = true;
+            this.P_HasIncomeSourceNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasIncomeSourceNo_radioButton.Location = new System.Drawing.Point(5, 5);
+            this.P_HasIncomeSourceNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
+            this.P_HasIncomeSourceNo_radioButton.Name = "P_HasIncomeSourceNo_radioButton";
+            this.P_HasIncomeSourceNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasIncomeSourceNo_radioButton.Size = new System.Drawing.Size(90, 33);
+            this.P_HasIncomeSourceNo_radioButton.TabIndex = 4;
+            this.P_HasIncomeSourceNo_radioButton.TabStop = true;
+            this.P_HasIncomeSourceNo_radioButton.Text = "لا يوجد";
+            this.P_HasIncomeSourceNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasIncomeSourceNo_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // P_HasIncomeSourceYes_radioButton
+            // 
+            this.P_HasIncomeSourceYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasIncomeSourceYes_radioButton.AutoSize = true;
+            this.P_HasIncomeSourceYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasIncomeSourceYes_radioButton.Location = new System.Drawing.Point(115, 5);
+            this.P_HasIncomeSourceYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.P_HasIncomeSourceYes_radioButton.Name = "P_HasIncomeSourceYes_radioButton";
+            this.P_HasIncomeSourceYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasIncomeSourceYes_radioButton.Size = new System.Drawing.Size(73, 33);
+            this.P_HasIncomeSourceYes_radioButton.TabIndex = 3;
+            this.P_HasIncomeSourceYes_radioButton.TabStop = true;
+            this.P_HasIncomeSourceYes_radioButton.Text = "يوجد";
+            this.P_HasIncomeSourceYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasIncomeSourceYes_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.t11_tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel3, 3);
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.37269F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.94465F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.49815F));
+            this.tableLayoutPanel3.Controls.Add(this.AidPeriodR_comboBox, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.AidPeriodA_comboBox, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label113, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label112, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.P_OtherIncomeSources_Note_textBox, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.label70, 2, 2);
+            this.tableLayoutPanel3.Controls.Add(this.AidA_comboBox, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.AidR_comboBox, 1, 1);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 103);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.t11_tableLayoutPanel.SetRowSpan(this.tableLayoutPanel3, 3);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1085, 121);
+            this.tableLayoutPanel3.TabIndex = 574;
+            this.tableLayoutPanel3.TabStop = true;
+            // 
+            // AidPeriodR_comboBox
+            // 
+            this.AidPeriodR_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.AidPeriodR_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.AidPeriodR_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AidPeriodR_comboBox.BackColor = System.Drawing.Color.White;
+            this.AidPeriodR_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.AidPeriodR_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AidPeriodR_comboBox.FormattingEnabled = true;
+            this.AidPeriodR_comboBox.Items.AddRange(new object[] {
+            "المستفيد",
+            "الشريك"});
+            this.AidPeriodR_comboBox.Location = new System.Drawing.Point(4, 49);
+            this.AidPeriodR_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AidPeriodR_comboBox.Name = "AidPeriodR_comboBox";
+            this.AidPeriodR_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.AidPeriodR_comboBox.Size = new System.Drawing.Size(474, 30);
+            this.AidPeriodR_comboBox.TabIndex = 596;
+            this.AidPeriodR_comboBox.TabStop = false;
+            // 
+            // AidPeriodA_comboBox
+            // 
+            this.AidPeriodA_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.AidPeriodA_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.AidPeriodA_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AidPeriodA_comboBox.BackColor = System.Drawing.Color.White;
+            this.AidPeriodA_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.AidPeriodA_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AidPeriodA_comboBox.FormattingEnabled = true;
+            this.AidPeriodA_comboBox.Items.AddRange(new object[] {
+            "المستفيد",
+            "الشريك"});
+            this.AidPeriodA_comboBox.Location = new System.Drawing.Point(4, 9);
+            this.AidPeriodA_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AidPeriodA_comboBox.Name = "AidPeriodA_comboBox";
+            this.AidPeriodA_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.AidPeriodA_comboBox.Size = new System.Drawing.Size(474, 30);
+            this.AidPeriodA_comboBox.TabIndex = 595;
+            this.AidPeriodA_comboBox.TabStop = false;
+            // 
+            // label113
+            // 
+            this.label113.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label113.AutoSize = true;
+            this.label113.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.label113.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label113.Location = new System.Drawing.Point(918, 6);
+            this.label113.Name = "label113";
+            this.label113.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label113.Size = new System.Drawing.Size(163, 29);
+            this.label113.TabIndex = 502;
+            this.label113.Text = "جمعيّة";
+            this.label113.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label112
+            // 
+            this.label112.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label112.AutoSize = true;
+            this.label112.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.label112.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label112.Location = new System.Drawing.Point(918, 46);
+            this.label112.Name = "label112";
+            this.label112.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label112.Size = new System.Drawing.Size(163, 29);
+            this.label112.TabIndex = 503;
+            this.label112.Text = "أقــارب";
+            this.label112.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // P_OtherIncomeSources_Note_textBox
+            // 
+            this.P_OtherIncomeSources_Note_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_OtherIncomeSources_Note_textBox.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel3.SetColumnSpan(this.P_OtherIncomeSources_Note_textBox, 2);
+            this.P_OtherIncomeSources_Note_textBox.Location = new System.Drawing.Point(4, 86);
+            this.P_OtherIncomeSources_Note_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.P_OtherIncomeSources_Note_textBox.Name = "P_OtherIncomeSources_Note_textBox";
+            this.P_OtherIncomeSources_Note_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_OtherIncomeSources_Note_textBox.Size = new System.Drawing.Size(907, 29);
+            this.P_OtherIncomeSources_Note_textBox.TabIndex = 590;
+            // 
+            // label70
+            // 
+            this.label70.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label70.AutoSize = true;
+            this.label70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label70.Location = new System.Drawing.Point(989, 86);
+            this.label70.Margin = new System.Windows.Forms.Padding(3);
+            this.label70.Name = "label70";
+            this.label70.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label70.Size = new System.Drawing.Size(92, 29);
+            this.label70.TabIndex = 592;
+            this.label70.Text = "ملاحظات:";
+            this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AidA_comboBox
+            // 
+            this.AidA_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.AidA_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.AidA_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AidA_comboBox.BackColor = System.Drawing.Color.White;
+            this.AidA_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.AidA_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AidA_comboBox.FormattingEnabled = true;
+            this.AidA_comboBox.Items.AddRange(new object[] {
+            "المستفيد",
+            "الشريك"});
+            this.AidA_comboBox.Location = new System.Drawing.Point(485, 9);
+            this.AidA_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AidA_comboBox.Name = "AidA_comboBox";
+            this.AidA_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.AidA_comboBox.Size = new System.Drawing.Size(426, 30);
+            this.AidA_comboBox.TabIndex = 593;
+            this.AidA_comboBox.TabStop = false;
+            // 
+            // AidR_comboBox
+            // 
+            this.AidR_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.AidR_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.AidR_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AidR_comboBox.BackColor = System.Drawing.Color.White;
+            this.AidR_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.AidR_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AidR_comboBox.FormattingEnabled = true;
+            this.AidR_comboBox.Items.AddRange(new object[] {
+            "المستفيد",
+            "الشريك"});
+            this.AidR_comboBox.Location = new System.Drawing.Point(485, 49);
+            this.AidR_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AidR_comboBox.Name = "AidR_comboBox";
+            this.AidR_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.AidR_comboBox.Size = new System.Drawing.Size(426, 30);
+            this.AidR_comboBox.TabIndex = 594;
+            this.AidR_comboBox.TabStop = false;
+            // 
+            // SubHeader11_label
+            // 
+            this.SubHeader11_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubHeader11_label.AutoSize = true;
+            this.SubHeader11_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.SubHeader11_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader11_label.Location = new System.Drawing.Point(236, 247);
+            this.SubHeader11_label.Name = "SubHeader11_label";
+            this.SubHeader11_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SubHeader11_label.Size = new System.Drawing.Size(633, 37);
+            this.SubHeader11_label.TabIndex = 499;
+            this.SubHeader11_label.Text = "مصادر الطاقة في المنزل";
+            this.SubHeader11_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // HomePowerSource_dataGridView
+            // 
+            this.HomePowerSource_dataGridView.AllowUserToResizeRows = false;
+            this.HomePowerSource_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.HomePowerSource_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.HomePowerSource_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.HomePowerSource_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.HomePowerSource_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.HomePowerSource_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.HomePowerSource_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.HomePowerSource_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HomePowerSource_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.HPowerP_ID,
             this.HPower_ID,
             this.HPower_Name,
@@ -3702,31 +3701,31 @@ namespace MyWorkApplication
             this.HPower_DeleteRow,
             this.HPower_InDataBase,
             this.HPower_RowID});
-            this.tableLayoutPanel10.SetColumnSpan(this.dataGridView5, 3);
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView5.DefaultCellStyle = dataGridViewCellStyle24;
-            this.dataGridView5.EnableHeadersVisualStyles = false;
-            this.dataGridView5.GridColor = System.Drawing.Color.DarkGray;
-            this.dataGridView5.Location = new System.Drawing.Point(3, 232);
-            this.dataGridView5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dataGridView5.MultiSelect = false;
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Rubik", 11F);
-            this.dataGridView5.RowHeadersDefaultCellStyle = dataGridViewCellStyle25;
-            this.dataGridView5.RowHeadersVisible = false;
-            this.dataGridView5.RowHeadersWidth = 51;
-            this.tableLayoutPanel10.SetRowSpan(this.dataGridView5, 3);
-            this.dataGridView5.RowTemplate.Height = 35;
-            this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView5.Size = new System.Drawing.Size(1085, 106);
-            this.dataGridView5.TabIndex = 593;
+            this.t11_tableLayoutPanel.SetColumnSpan(this.HomePowerSource_dataGridView, 3);
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.HomePowerSource_dataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            this.HomePowerSource_dataGridView.EnableHeadersVisualStyles = false;
+            this.HomePowerSource_dataGridView.GridColor = System.Drawing.Color.DarkGray;
+            this.HomePowerSource_dataGridView.Location = new System.Drawing.Point(3, 310);
+            this.HomePowerSource_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.HomePowerSource_dataGridView.MultiSelect = false;
+            this.HomePowerSource_dataGridView.Name = "HomePowerSource_dataGridView";
+            this.HomePowerSource_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Rubik", 11F);
+            this.HomePowerSource_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.HomePowerSource_dataGridView.RowHeadersVisible = false;
+            this.HomePowerSource_dataGridView.RowHeadersWidth = 51;
+            this.t11_tableLayoutPanel.SetRowSpan(this.HomePowerSource_dataGridView, 5);
+            this.HomePowerSource_dataGridView.RowTemplate.Height = 35;
+            this.HomePowerSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.HomePowerSource_dataGridView.Size = new System.Drawing.Size(1085, 197);
+            this.HomePowerSource_dataGridView.TabIndex = 593;
             // 
             // HPowerP_ID
             // 
@@ -3800,380 +3799,94 @@ namespace MyWorkApplication
             this.HPower_RowID.Name = "HPower_RowID";
             this.HPower_RowID.Visible = false;
             // 
-            // s6_tableLayoutPanel
+            // flowLayoutPanel18
             // 
-            this.s6_tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.flowLayoutPanel18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.s6_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
-            this.s6_tableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.s6_tableLayoutPanel.ColumnCount = 3;
-            this.tableLayoutPanel10.SetColumnSpan(this.s6_tableLayoutPanel, 3);
-            this.s6_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.s6_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.s6_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.s6_tableLayoutPanel.Controls.Add(this.s5_textBox, 1, 1);
-            this.s6_tableLayoutPanel.Controls.Add(this.textBox8, 2, 1);
-            this.s6_tableLayoutPanel.Controls.Add(this.MP_Ownership_comboBox, 0, 1);
-            this.s6_tableLayoutPanel.Controls.Add(this.label109, 2, 0);
-            this.s6_tableLayoutPanel.Controls.Add(this.label108, 1, 0);
-            this.s6_tableLayoutPanel.Controls.Add(this.s6_label, 0, 0);
-            this.s6_tableLayoutPanel.Location = new System.Drawing.Point(3, 419);
-            this.s6_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.s6_tableLayoutPanel.Name = "s6_tableLayoutPanel";
-            this.s6_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.s6_tableLayoutPanel.RowCount = 2;
-            this.tableLayoutPanel10.SetRowSpan(this.s6_tableLayoutPanel, 2);
-            this.s6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.s6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.s6_tableLayoutPanel.Size = new System.Drawing.Size(1085, 74);
-            this.s6_tableLayoutPanel.TabIndex = 573;
-            this.s6_tableLayoutPanel.TabStop = true;
+            this.t11_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel18, 3);
+            this.flowLayoutPanel18.Controls.Add(this.label89);
+            this.flowLayoutPanel18.Controls.Add(this.label90);
+            this.flowLayoutPanel18.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel18.Location = new System.Drawing.Point(3, 514);
+            this.flowLayoutPanel18.Name = "flowLayoutPanel18";
+            this.flowLayoutPanel18.Size = new System.Drawing.Size(1085, 35);
+            this.flowLayoutPanel18.TabIndex = 572;
             // 
-            // s5_textBox
+            // label89
             // 
-            this.s5_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.s5_textBox.BackColor = System.Drawing.Color.White;
-            this.s5_textBox.Location = new System.Drawing.Point(366, 41);
-            this.s5_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.s5_textBox.Name = "s5_textBox";
-            this.s5_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.s5_textBox.Size = new System.Drawing.Size(354, 29);
-            this.s5_textBox.TabIndex = 593;
+            this.label89.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label89.AutoSize = true;
+            this.label89.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label89.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label89.Location = new System.Drawing.Point(977, 0);
+            this.label89.Margin = new System.Windows.Forms.Padding(0);
+            this.label89.Name = "label89";
+            this.label89.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label89.Size = new System.Drawing.Size(108, 23);
+            this.label89.TabIndex = 263;
+            this.label89.Text = "*مصادر الطاقة:";
+            this.label89.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox8
+            // label90
             // 
-            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox8.BackColor = System.Drawing.Color.White;
-            this.textBox8.Location = new System.Drawing.Point(4, 40);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox8.Size = new System.Drawing.Size(355, 29);
-            this.textBox8.TabIndex = 592;
+            this.label90.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label90.AutoSize = true;
+            this.label90.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label90.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label90.Location = new System.Drawing.Point(588, 0);
+            this.label90.Margin = new System.Windows.Forms.Padding(0);
+            this.label90.Name = "label90";
+            this.label90.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label90.Size = new System.Drawing.Size(389, 23);
+            this.label90.TabIndex = 264;
+            this.label90.Text = "كهرباء - أمبير - طاقة شمسيّّة - بطاريّّة وأنفرتر - ليدات - لايوجد.";
+            this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // MP_Ownership_comboBox
+            // t10_tableLayoutPanel
             // 
-            this.MP_Ownership_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.MP_Ownership_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.MP_Ownership_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.MP_Ownership_comboBox.BackColor = System.Drawing.Color.White;
-            this.MP_Ownership_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.MP_Ownership_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MP_Ownership_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.MP_Ownership_comboBox.FormattingEnabled = true;
-            this.MP_Ownership_comboBox.Location = new System.Drawing.Point(727, 40);
-            this.MP_Ownership_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.MP_Ownership_comboBox.Name = "MP_Ownership_comboBox";
-            this.MP_Ownership_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MP_Ownership_comboBox.Size = new System.Drawing.Size(354, 30);
-            this.MP_Ownership_comboBox.TabIndex = 505;
+            this.t10_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.t10_tableLayoutPanel.ColumnCount = 3;
+            this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.t10_tableLayoutPanel.Controls.Add(this.SubHeader9_label, 1, 1);
+            this.t10_tableLayoutPanel.Controls.Add(this.AidSource_dataGridView, 0, 3);
+            this.t10_tableLayoutPanel.Controls.Add(this.P_HasAidSource_flowLayoutPanel, 0, 1);
+            this.t10_tableLayoutPanel.Controls.Add(this.P_Debts_tableLayoutPanel, 0, 8);
+            this.t10_tableLayoutPanel.Controls.Add(this.label55, 2, 7);
+            this.t10_tableLayoutPanel.Controls.Add(this.MP_OtherDonors_textBox, 0, 7);
+            this.t10_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.t10_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.t10_tableLayoutPanel.Location = new System.Drawing.Point(75, 6185);
+            this.t10_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.t10_tableLayoutPanel.Name = "t10_tableLayoutPanel";
+            this.t10_tableLayoutPanel.RowCount = 9;
+            this.t10_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t10_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t10_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t10_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t10_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t10_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t10_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t10_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t10_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t10_tableLayoutPanel.Size = new System.Drawing.Size(1091, 396);
+            this.t10_tableLayoutPanel.TabIndex = 544;
             // 
-            // label109
+            // SubHeader9_label
             // 
-            this.label109.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label109.AutoSize = true;
-            this.label109.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
-            this.label109.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label109.Location = new System.Drawing.Point(4, 4);
-            this.label109.Name = "label109";
-            this.label109.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label109.Size = new System.Drawing.Size(355, 29);
-            this.label109.TabIndex = 504;
-            this.label109.Text = "ملاحظات";
-            this.label109.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label108
-            // 
-            this.label108.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label108.AutoSize = true;
-            this.label108.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
-            this.label108.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label108.Location = new System.Drawing.Point(366, 4);
-            this.label108.Name = "label108";
-            this.label108.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label108.Size = new System.Drawing.Size(354, 29);
-            this.label108.TabIndex = 503;
-            this.label108.Text = "العنوان / إن وجد";
-            this.label108.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // s6_label
-            // 
-            this.s6_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.s6_label.AutoSize = true;
-            this.s6_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
-            this.s6_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.s6_label.Location = new System.Drawing.Point(727, 4);
-            this.s6_label.Name = "s6_label";
-            this.s6_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.s6_label.Size = new System.Drawing.Size(354, 29);
-            this.s6_label.TabIndex = 502;
-            this.s6_label.Text = "ملكية عقار المشروع";
-            this.s6_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel27
-            // 
-            this.flowLayoutPanel27.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel10.SetColumnSpan(this.flowLayoutPanel27, 3);
-            this.flowLayoutPanel27.Controls.Add(this.label110);
-            this.flowLayoutPanel27.Controls.Add(this.label111);
-            this.flowLayoutPanel27.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel27.Location = new System.Drawing.Point(3, 497);
-            this.flowLayoutPanel27.Name = "flowLayoutPanel27";
-            this.flowLayoutPanel27.Size = new System.Drawing.Size(1085, 32);
-            this.flowLayoutPanel27.TabIndex = 594;
-            // 
-            // label110
-            // 
-            this.label110.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label110.AutoSize = true;
-            this.label110.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.label110.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label110.Location = new System.Drawing.Point(993, 0);
-            this.label110.Margin = new System.Windows.Forms.Padding(0);
-            this.label110.Name = "label110";
-            this.label110.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label110.Size = new System.Drawing.Size(92, 23);
-            this.label110.TabIndex = 263;
-            this.label110.Text = "*ملكيّّة العقار";
-            this.label110.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label111
-            // 
-            this.label111.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label111.AutoSize = true;
-            this.label111.Font = new System.Drawing.Font("Rubik", 9F);
-            this.label111.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label111.Location = new System.Drawing.Point(785, 0);
-            this.label111.Margin = new System.Windows.Forms.Padding(0);
-            this.label111.Name = "label111";
-            this.label111.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label111.Size = new System.Drawing.Size(208, 23);
-            this.label111.TabIndex = 264;
-            this.label111.Text = "ملك - إيجار - إعارة - فروغ - ورثة.";
-            this.label111.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label91
-            // 
-            this.label91.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label91.AutoSize = true;
-            this.label91.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.label91.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.label91.Location = new System.Drawing.Point(221, 570);
-            this.label91.Name = "label91";
-            this.label91.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label91.Size = new System.Drawing.Size(648, 37);
-            this.label91.TabIndex = 574;
-            this.label91.Text = "مصادر الطاقة في المشروع (في حال قائم)";
-            this.label91.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label96
-            // 
-            this.label96.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label96.AutoSize = true;
-            this.label96.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.label96.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.label96.Location = new System.Drawing.Point(221, 874);
-            this.label96.Name = "label96";
-            this.label96.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label96.Size = new System.Drawing.Size(648, 37);
-            this.label96.TabIndex = 580;
-            this.label96.Text = "موافقات";
-            this.label96.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label92
-            // 
-            this.label92.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label92.AutoSize = true;
-            this.tableLayoutPanel10.SetColumnSpan(this.label92, 3);
-            this.label92.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label92.Location = new System.Drawing.Point(170, 764);
-            this.label92.Margin = new System.Windows.Forms.Padding(3);
-            this.label92.Name = "label92";
-            this.label92.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label92.Size = new System.Drawing.Size(918, 29);
-            this.label92.TabIndex = 539;
-            this.label92.Text = "ماهي الاستطاعة التي أنت بحاجة اليها لتشغيل المعدات؟ (يتم التسجيل للمشروع الجديد و" +
-    "القائم بواحدة الأمبير أو الواط)";
-            this.label92.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // AmperNumber_textBox
-            // 
-            this.AmperNumber_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.AmperNumber_textBox.BackColor = System.Drawing.Color.White;
-            this.AmperNumber_textBox.Location = new System.Drawing.Point(875, 802);
-            this.AmperNumber_textBox.Name = "AmperNumber_textBox";
-            this.AmperNumber_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AmperNumber_textBox.Size = new System.Drawing.Size(213, 29);
-            this.AmperNumber_textBox.TabIndex = 538;
-            this.AmperNumber_textBox.Text = "0";
-            this.AmperNumber_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // P_HasIncomeSource_flowLayoutPanel
-            // 
-            this.P_HasIncomeSource_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_HasIncomeSource_flowLayoutPanel.Controls.Add(this.P_HasIncomeSourceNo_radioButton);
-            this.P_HasIncomeSource_flowLayoutPanel.Controls.Add(this.P_HasIncomeSourceYes_radioButton);
-            this.P_HasIncomeSource_flowLayoutPanel.Location = new System.Drawing.Point(3, 41);
-            this.P_HasIncomeSource_flowLayoutPanel.Name = "P_HasIncomeSource_flowLayoutPanel";
-            this.P_HasIncomeSource_flowLayoutPanel.Size = new System.Drawing.Size(212, 32);
-            this.P_HasIncomeSource_flowLayoutPanel.TabIndex = 584;
-            // 
-            // P_HasIncomeSourceNo_radioButton
-            // 
-            this.P_HasIncomeSourceNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasIncomeSourceNo_radioButton.AutoSize = true;
-            this.P_HasIncomeSourceNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasIncomeSourceNo_radioButton.Location = new System.Drawing.Point(5, 5);
-            this.P_HasIncomeSourceNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
-            this.P_HasIncomeSourceNo_radioButton.Name = "P_HasIncomeSourceNo_radioButton";
-            this.P_HasIncomeSourceNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasIncomeSourceNo_radioButton.Size = new System.Drawing.Size(90, 33);
-            this.P_HasIncomeSourceNo_radioButton.TabIndex = 4;
-            this.P_HasIncomeSourceNo_radioButton.TabStop = true;
-            this.P_HasIncomeSourceNo_radioButton.Text = "لا يوجد";
-            this.P_HasIncomeSourceNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasIncomeSourceNo_radioButton.UseVisualStyleBackColor = true;
-            // 
-            // P_HasIncomeSourceYes_radioButton
-            // 
-            this.P_HasIncomeSourceYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasIncomeSourceYes_radioButton.AutoSize = true;
-            this.P_HasIncomeSourceYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasIncomeSourceYes_radioButton.Location = new System.Drawing.Point(115, 5);
-            this.P_HasIncomeSourceYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.P_HasIncomeSourceYes_radioButton.Name = "P_HasIncomeSourceYes_radioButton";
-            this.P_HasIncomeSourceYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasIncomeSourceYes_radioButton.Size = new System.Drawing.Size(73, 33);
-            this.P_HasIncomeSourceYes_radioButton.TabIndex = 3;
-            this.P_HasIncomeSourceYes_radioButton.TabStop = true;
-            this.P_HasIncomeSourceYes_radioButton.Text = "يوجد";
-            this.P_HasIncomeSourceYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasIncomeSourceYes_radioButton.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel10.SetColumnSpan(this.tableLayoutPanel3, 3);
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.99065F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.00935F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tableLayoutPanel3.Controls.Add(this.label113, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label112, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.P_SourceRation_textBox, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.P_SourceRelatives_textBox, 1, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 77);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel10.SetRowSpan(this.tableLayoutPanel3, 2);
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1085, 74);
-            this.tableLayoutPanel3.TabIndex = 574;
-            this.tableLayoutPanel3.TabStop = true;
-            // 
-            // label113
-            // 
-            this.label113.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label113.AutoSize = true;
-            this.label113.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
-            this.label113.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label113.Location = new System.Drawing.Point(947, 4);
-            this.label113.Name = "label113";
-            this.label113.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label113.Size = new System.Drawing.Size(134, 29);
-            this.label113.TabIndex = 502;
-            this.label113.Text = "جمعيّة";
-            this.label113.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label112
-            // 
-            this.label112.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label112.AutoSize = true;
-            this.label112.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
-            this.label112.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label112.Location = new System.Drawing.Point(947, 40);
-            this.label112.Name = "label112";
-            this.label112.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label112.Size = new System.Drawing.Size(134, 29);
-            this.label112.TabIndex = 503;
-            this.label112.Text = "أقــارب";
-            this.label112.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // P_SourceRation_textBox
-            // 
-            this.P_SourceRation_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_SourceRation_textBox.BackColor = System.Drawing.Color.White;
-            this.P_SourceRation_textBox.Location = new System.Drawing.Point(4, 4);
-            this.P_SourceRation_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.P_SourceRation_textBox.Name = "P_SourceRation_textBox";
-            this.P_SourceRation_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_SourceRation_textBox.Size = new System.Drawing.Size(936, 29);
-            this.P_SourceRation_textBox.TabIndex = 590;
-            // 
-            // P_SourceRelatives_textBox
-            // 
-            this.P_SourceRelatives_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_SourceRelatives_textBox.BackColor = System.Drawing.Color.White;
-            this.P_SourceRelatives_textBox.Location = new System.Drawing.Point(4, 40);
-            this.P_SourceRelatives_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.P_SourceRelatives_textBox.Name = "P_SourceRelatives_textBox";
-            this.P_SourceRelatives_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_SourceRelatives_textBox.Size = new System.Drawing.Size(936, 29);
-            this.P_SourceRelatives_textBox.TabIndex = 591;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.Controls.Add(this.label5, 1, 1);
-            this.tableLayoutPanel5.Controls.Add(this.AidSource_dataGridView, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.P_HasAidSource_flowLayoutPanel, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel17, 0, 6);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(75, 4837);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 7;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1091, 323);
-            this.tableLayoutPanel5.TabIndex = 544;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.label5.Location = new System.Drawing.Point(221, 50);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(648, 37);
-            this.label5.TabIndex = 498;
-            this.label5.Text = "الاستفادة من جهة أخرى (من مشروع صغير)";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SubHeader9_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubHeader9_label.AutoSize = true;
+            this.SubHeader9_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.SubHeader9_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader9_label.Location = new System.Drawing.Point(221, 52);
+            this.SubHeader9_label.Name = "SubHeader9_label";
+            this.SubHeader9_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SubHeader9_label.Size = new System.Drawing.Size(648, 37);
+            this.SubHeader9_label.TabIndex = 498;
+            this.SubHeader9_label.Text = "الاستفادة من جهة أخرى (من مشروع صغير)";
+            this.SubHeader9_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // P_HasAidSource_flowLayoutPanel
             // 
@@ -4182,9 +3895,9 @@ namespace MyWorkApplication
             | System.Windows.Forms.AnchorStyles.Right)));
             this.P_HasAidSource_flowLayoutPanel.Controls.Add(this.P_HasAidSourceNo_radioButton);
             this.P_HasAidSource_flowLayoutPanel.Controls.Add(this.P_HasAidSourceYes_radioButton);
-            this.P_HasAidSource_flowLayoutPanel.Location = new System.Drawing.Point(3, 49);
+            this.P_HasAidSource_flowLayoutPanel.Location = new System.Drawing.Point(3, 50);
             this.P_HasAidSource_flowLayoutPanel.Name = "P_HasAidSource_flowLayoutPanel";
-            this.P_HasAidSource_flowLayoutPanel.Size = new System.Drawing.Size(212, 40);
+            this.P_HasAidSource_flowLayoutPanel.Size = new System.Drawing.Size(212, 41);
             this.P_HasAidSource_flowLayoutPanel.TabIndex = 585;
             // 
             // P_HasAidSourceNo_radioButton
@@ -4219,34 +3932,34 @@ namespace MyWorkApplication
             this.P_HasAidSourceYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P_HasAidSourceYes_radioButton.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel17
+            // P_Debts_tableLayoutPanel
             // 
-            this.tableLayoutPanel17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.P_Debts_tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel17.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel17.ColumnCount = 7;
-            this.tableLayoutPanel5.SetColumnSpan(this.tableLayoutPanel17, 3);
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.42203F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.282913F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.921569F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.90009F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.843137F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.960784F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.50513F));
-            this.tableLayoutPanel17.Controls.Add(this.P_DebtsAmount_textBox, 3, 0);
-            this.tableLayoutPanel17.Controls.Add(this.label105, 1, 0);
-            this.tableLayoutPanel17.Controls.Add(this.P_DebtsNote_textBox, 0, 0);
-            this.tableLayoutPanel17.Controls.Add(this.P_HasDebts_flowLayoutPanel, 6, 0);
-            this.tableLayoutPanel17.Controls.Add(this.label26, 4, 0);
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 277);
-            this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
-            this.tableLayoutPanel17.RowCount = 1;
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(1085, 45);
-            this.tableLayoutPanel17.TabIndex = 577;
-            this.tableLayoutPanel17.TabStop = true;
+            this.P_Debts_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.P_Debts_tableLayoutPanel.ColumnCount = 7;
+            this.t10_tableLayoutPanel.SetColumnSpan(this.P_Debts_tableLayoutPanel, 3);
+            this.P_Debts_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.42203F));
+            this.P_Debts_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.282913F));
+            this.P_Debts_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.921569F));
+            this.P_Debts_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.90009F));
+            this.P_Debts_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.843137F));
+            this.P_Debts_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.960784F));
+            this.P_Debts_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.50513F));
+            this.P_Debts_tableLayoutPanel.Controls.Add(this.P_DebtsAmount_textBox, 3, 0);
+            this.P_Debts_tableLayoutPanel.Controls.Add(this.label105, 1, 0);
+            this.P_Debts_tableLayoutPanel.Controls.Add(this.P_DebtsNote_textBox, 0, 0);
+            this.P_Debts_tableLayoutPanel.Controls.Add(this.P_HasDebts_flowLayoutPanel, 6, 0);
+            this.P_Debts_tableLayoutPanel.Controls.Add(this.label26, 4, 0);
+            this.P_Debts_tableLayoutPanel.Location = new System.Drawing.Point(3, 350);
+            this.P_Debts_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.P_Debts_tableLayoutPanel.Name = "P_Debts_tableLayoutPanel";
+            this.P_Debts_tableLayoutPanel.RowCount = 1;
+            this.P_Debts_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.P_Debts_tableLayoutPanel.Size = new System.Drawing.Size(1085, 45);
+            this.P_Debts_tableLayoutPanel.TabIndex = 577;
+            this.P_Debts_tableLayoutPanel.TabStop = true;
             // 
             // P_DebtsAmount_textBox
             // 
@@ -4329,57 +4042,84 @@ namespace MyWorkApplication
             this.P_HasDebtsNo_radioButton.Text = "لا";
             this.P_HasDebtsNo_radioButton.UseVisualStyleBackColor = false;
             // 
-            // tableLayoutPanel9
+            // label55
             // 
-            this.tableLayoutPanel9.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel9.ColumnCount = 3;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel9.Controls.Add(this.P_HasLosses_flowLayoutPanel, 0, 1);
-            this.tableLayoutPanel9.Controls.Add(this.Loss_dataGridView, 0, 2);
-            this.tableLayoutPanel9.Controls.Add(this.P_HasAssets_flowLayoutPanel, 0, 14);
-            this.tableLayoutPanel9.Controls.Add(this.label65, 1, 7);
-            this.tableLayoutPanel9.Controls.Add(this.label19, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.label20, 1, 1);
-            this.tableLayoutPanel9.Controls.Add(this.flowLayoutPanel14, 0, 5);
-            this.tableLayoutPanel9.Controls.Add(this.Illness_dataGridView, 0, 8);
-            this.tableLayoutPanel9.Controls.Add(this.flowLayoutPanel15, 0, 12);
-            this.tableLayoutPanel9.Controls.Add(this.Assets_dataGridView, 1, 14);
-            this.tableLayoutPanel9.Controls.Add(this.flowLayoutPanel16, 0, 19);
-            this.tableLayoutPanel9.Controls.Add(this.P_HasIllness_flowLayoutPanel, 0, 7);
-            this.tableLayoutPanel9.Controls.Add(this.label70, 1, 14);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(75, 4007);
-            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 20;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(1091, 830);
-            this.tableLayoutPanel9.TabIndex = 541;
+            this.label55.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label55.AutoSize = true;
+            this.label55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label55.Location = new System.Drawing.Point(996, 311);
+            this.label55.Margin = new System.Windows.Forms.Padding(3);
+            this.label55.Name = "label55";
+            this.label55.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label55.Size = new System.Drawing.Size(92, 29);
+            this.label55.TabIndex = 586;
+            this.label55.Text = "ملاحظات:";
+            this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MP_OtherDonors_textBox
+            // 
+            this.MP_OtherDonors_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.MP_OtherDonors_textBox.BackColor = System.Drawing.Color.White;
+            this.t10_tableLayoutPanel.SetColumnSpan(this.MP_OtherDonors_textBox, 2);
+            this.MP_OtherDonors_textBox.Location = new System.Drawing.Point(0, 311);
+            this.MP_OtherDonors_textBox.Margin = new System.Windows.Forms.Padding(0);
+            this.MP_OtherDonors_textBox.Name = "MP_OtherDonors_textBox";
+            this.MP_OtherDonors_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MP_OtherDonors_textBox.Size = new System.Drawing.Size(872, 29);
+            this.MP_OtherDonors_textBox.TabIndex = 587;
+            // 
+            // t9_tableLayoutPanel
+            // 
+            this.t9_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.t9_tableLayoutPanel.ColumnCount = 3;
+            this.t9_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.t9_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.t9_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.t9_tableLayoutPanel.Controls.Add(this.P_HasLosses_flowLayoutPanel, 0, 1);
+            this.t9_tableLayoutPanel.Controls.Add(this.Loss_dataGridView, 0, 3);
+            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel21, 0, 15);
+            this.t9_tableLayoutPanel.Controls.Add(this.SubHeader7_label, 1, 8);
+            this.t9_tableLayoutPanel.Controls.Add(this.SubHeader6_label, 1, 1);
+            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel14, 0, 6);
+            this.t9_tableLayoutPanel.Controls.Add(this.Illness_dataGridView, 0, 10);
+            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel15, 0, 14);
+            this.t9_tableLayoutPanel.Controls.Add(this.Assets_dataGridView, 1, 18);
+            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel16, 0, 23);
+            this.t9_tableLayoutPanel.Controls.Add(this.P_HasIllness_flowLayoutPanel, 0, 8);
+            this.t9_tableLayoutPanel.Controls.Add(this.SubHeader8_label, 1, 17);
+            this.t9_tableLayoutPanel.Controls.Add(this.P_HasAssets_flowLayoutPanel, 0, 17);
+            this.t9_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.t9_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.t9_tableLayoutPanel.Location = new System.Drawing.Point(75, 5223);
+            this.t9_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.t9_tableLayoutPanel.Name = "t9_tableLayoutPanel";
+            this.t9_tableLayoutPanel.RowCount = 24;
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.Size = new System.Drawing.Size(1091, 962);
+            this.t9_tableLayoutPanel.TabIndex = 541;
             // 
             // P_HasLosses_flowLayoutPanel
             // 
@@ -4388,9 +4128,9 @@ namespace MyWorkApplication
             | System.Windows.Forms.AnchorStyles.Right)));
             this.P_HasLosses_flowLayoutPanel.Controls.Add(this.P_HasLossesNo_radioButton);
             this.P_HasLosses_flowLayoutPanel.Controls.Add(this.P_HasLossesYes_radioButton);
-            this.P_HasLosses_flowLayoutPanel.Location = new System.Drawing.Point(3, 44);
+            this.P_HasLosses_flowLayoutPanel.Location = new System.Drawing.Point(3, 23);
             this.P_HasLosses_flowLayoutPanel.Name = "P_HasLosses_flowLayoutPanel";
-            this.P_HasLosses_flowLayoutPanel.Size = new System.Drawing.Size(212, 35);
+            this.P_HasLosses_flowLayoutPanel.Size = new System.Drawing.Size(212, 41);
             this.P_HasLosses_flowLayoutPanel.TabIndex = 586;
             // 
             // P_HasLossesNo_radioButton
@@ -4436,14 +4176,14 @@ namespace MyWorkApplication
             this.Loss_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Loss_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Loss_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Loss_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Loss_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.Loss_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Loss_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.LPerson_ID,
@@ -4454,32 +4194,32 @@ namespace MyWorkApplication
             this.L_DeleteRow,
             this.L_InDataBase,
             this.L_RowID});
-            this.tableLayoutPanel9.SetColumnSpan(this.Loss_dataGridView, 3);
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Loss_dataGridView.DefaultCellStyle = dataGridViewCellStyle27;
+            this.t9_tableLayoutPanel.SetColumnSpan(this.Loss_dataGridView, 3);
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Loss_dataGridView.DefaultCellStyle = dataGridViewCellStyle11;
             this.Loss_dataGridView.EnableHeadersVisualStyles = false;
             this.Loss_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.Loss_dataGridView.Location = new System.Drawing.Point(3, 86);
+            this.Loss_dataGridView.Location = new System.Drawing.Point(3, 91);
             this.Loss_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Loss_dataGridView.MultiSelect = false;
             this.Loss_dataGridView.Name = "Loss_dataGridView";
             this.Loss_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Loss_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Loss_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.Loss_dataGridView.RowHeadersVisible = false;
             this.Loss_dataGridView.RowHeadersWidth = 51;
             this.Loss_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.tableLayoutPanel9.SetRowSpan(this.Loss_dataGridView, 3);
+            this.t9_tableLayoutPanel.SetRowSpan(this.Loss_dataGridView, 3);
             this.Loss_dataGridView.RowTemplate.Height = 35;
             this.Loss_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Loss_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Loss_dataGridView.Size = new System.Drawing.Size(1085, 115);
+            this.Loss_dataGridView.Size = new System.Drawing.Size(1085, 133);
             this.Loss_dataGridView.TabIndex = 573;
             // 
             // LPerson_ID
@@ -4560,108 +4300,122 @@ namespace MyWorkApplication
             this.L_RowID.Name = "L_RowID";
             this.L_RowID.Visible = false;
             // 
-            // P_HasAssets_flowLayoutPanel
+            // flowLayoutPanel21
             // 
-            this.P_HasAssets_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.flowLayoutPanel21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_HasAssets_flowLayoutPanel.Controls.Add(this.P_HasAssetsNo_radioButton);
-            this.P_HasAssets_flowLayoutPanel.Controls.Add(this.P_HasAssetsYes_radioButton);
-            this.P_HasAssets_flowLayoutPanel.Location = new System.Drawing.Point(3, 577);
-            this.P_HasAssets_flowLayoutPanel.Name = "P_HasAssets_flowLayoutPanel";
-            this.P_HasAssets_flowLayoutPanel.Size = new System.Drawing.Size(212, 35);
-            this.P_HasAssets_flowLayoutPanel.TabIndex = 586;
+            this.t9_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel21, 3);
+            this.flowLayoutPanel21.Controls.Add(this.label60);
+            this.flowLayoutPanel21.Controls.Add(this.label61);
+            this.flowLayoutPanel21.Controls.Add(this.label64);
+            this.flowLayoutPanel21.Controls.Add(this.label65);
+            this.flowLayoutPanel21.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel21.Location = new System.Drawing.Point(3, 610);
+            this.flowLayoutPanel21.Name = "flowLayoutPanel21";
+            this.flowLayoutPanel21.Size = new System.Drawing.Size(1085, 24);
+            this.flowLayoutPanel21.TabIndex = 542;
             // 
-            // P_HasAssetsNo_radioButton
+            // label60
             // 
-            this.P_HasAssetsNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasAssetsNo_radioButton.AutoSize = true;
-            this.P_HasAssetsNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasAssetsNo_radioButton.Location = new System.Drawing.Point(5, 5);
-            this.P_HasAssetsNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
-            this.P_HasAssetsNo_radioButton.Name = "P_HasAssetsNo_radioButton";
-            this.P_HasAssetsNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasAssetsNo_radioButton.Size = new System.Drawing.Size(90, 33);
-            this.P_HasAssetsNo_radioButton.TabIndex = 4;
-            this.P_HasAssetsNo_radioButton.TabStop = true;
-            this.P_HasAssetsNo_radioButton.Text = "لا يوجد";
-            this.P_HasAssetsNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasAssetsNo_radioButton.UseVisualStyleBackColor = true;
+            this.label60.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label60.Location = new System.Drawing.Point(973, 0);
+            this.label60.Margin = new System.Windows.Forms.Padding(0);
+            this.label60.Name = "label60";
+            this.label60.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label60.Size = new System.Drawing.Size(112, 23);
+            this.label60.TabIndex = 263;
+            this.label60.Text = "*مدة المساعدة:";
+            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // P_HasAssetsYes_radioButton
+            // label61
             // 
-            this.P_HasAssetsYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasAssetsYes_radioButton.AutoSize = true;
-            this.P_HasAssetsYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasAssetsYes_radioButton.Location = new System.Drawing.Point(115, 5);
-            this.P_HasAssetsYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.P_HasAssetsYes_radioButton.Name = "P_HasAssetsYes_radioButton";
-            this.P_HasAssetsYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasAssetsYes_radioButton.Size = new System.Drawing.Size(73, 33);
-            this.P_HasAssetsYes_radioButton.TabIndex = 3;
-            this.P_HasAssetsYes_radioButton.TabStop = true;
-            this.P_HasAssetsYes_radioButton.Text = "يوجد";
-            this.P_HasAssetsYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasAssetsYes_radioButton.UseVisualStyleBackColor = true;
+            this.label61.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label61.Location = new System.Drawing.Point(733, 0);
+            this.label61.Margin = new System.Windows.Forms.Padding(0);
+            this.label61.Name = "label61";
+            this.label61.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label61.Size = new System.Drawing.Size(240, 23);
+            this.label61.TabIndex = 264;
+            this.label61.Text = "شهريا – مرة كل 6 أشهر -مرة في السنة";
+            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label64
+            // 
+            this.label64.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label64.AutoSize = true;
+            this.label64.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label64.Location = new System.Drawing.Point(620, 0);
+            this.label64.Margin = new System.Windows.Forms.Padding(0);
+            this.label64.Name = "label64";
+            this.label64.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label64.Size = new System.Drawing.Size(113, 23);
+            this.label64.TabIndex = 265;
+            this.label64.Text = "*احتياجات طبية:";
+            this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label65
             // 
-            this.label65.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label65.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label65.AutoSize = true;
-            this.label65.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.label65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.label65.Location = new System.Drawing.Point(221, 289);
+            this.label65.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label65.Location = new System.Drawing.Point(254, 0);
+            this.label65.Margin = new System.Windows.Forms.Padding(0);
             this.label65.Name = "label65";
             this.label65.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label65.Size = new System.Drawing.Size(648, 37);
-            this.label65.TabIndex = 568;
-            this.label65.Text = "الحالات المرضيّّة للمستفيد أو أحّّد أفراد عائلته";
+            this.label65.Size = new System.Drawing.Size(366, 23);
+            this.label65.TabIndex = 266;
+            this.label65.Text = "كرسي متحرك -سماعات اذن -جهاز رزاز -فرشة طبية – سرير ";
             this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label19
+            // SubHeader7_label
             // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.tableLayoutPanel9.SetColumnSpan(this.label19, 3);
-            this.label19.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(3, 0);
-            this.label19.Name = "label19";
-            this.label19.Padding = new System.Windows.Forms.Padding(3);
-            this.label19.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label19.Size = new System.Drawing.Size(1085, 41);
-            this.label19.TabIndex = 546;
-            this.label19.Text = "حاجة المستفيد";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SubHeader7_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubHeader7_label.AutoSize = true;
+            this.SubHeader7_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.SubHeader7_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader7_label.Location = new System.Drawing.Point(221, 327);
+            this.SubHeader7_label.Name = "SubHeader7_label";
+            this.SubHeader7_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SubHeader7_label.Size = new System.Drawing.Size(648, 37);
+            this.SubHeader7_label.TabIndex = 568;
+            this.SubHeader7_label.Text = "الحالات المرضيّّة للمستفيد أو أحّّد أفراد عائلته";
+            this.SubHeader7_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label20
+            // SubHeader6_label
             // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.label20.Location = new System.Drawing.Point(221, 43);
-            this.label20.Name = "label20";
-            this.label20.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label20.Size = new System.Drawing.Size(648, 37);
-            this.label20.TabIndex = 547;
-            this.label20.Text = "الخسارات التي تعرّّض لها المستفيد أو أحد أفراد عائلته";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SubHeader6_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubHeader6_label.AutoSize = true;
+            this.SubHeader6_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.SubHeader6_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader6_label.Location = new System.Drawing.Point(221, 25);
+            this.SubHeader6_label.Name = "SubHeader6_label";
+            this.SubHeader6_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SubHeader6_label.Size = new System.Drawing.Size(648, 37);
+            this.SubHeader6_label.TabIndex = 547;
+            this.SubHeader6_label.Text = "الخسارات التي تعرّّض لها المستفيد أو أحد أفراد عائلته";
+            this.SubHeader6_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel14
             // 
             this.flowLayoutPanel14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel9.SetColumnSpan(this.flowLayoutPanel14, 3);
+            this.t9_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel14, 3);
             this.flowLayoutPanel14.Controls.Add(this.label23);
             this.flowLayoutPanel14.Controls.Add(this.label24);
             this.flowLayoutPanel14.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel14.Location = new System.Drawing.Point(3, 208);
+            this.flowLayoutPanel14.Location = new System.Drawing.Point(3, 231);
             this.flowLayoutPanel14.Name = "flowLayoutPanel14";
-            this.flowLayoutPanel14.Size = new System.Drawing.Size(1085, 35);
+            this.flowLayoutPanel14.Size = new System.Drawing.Size(1085, 41);
             this.flowLayoutPanel14.TabIndex = 567;
             // 
             // label23
@@ -4705,14 +4459,14 @@ namespace MyWorkApplication
             this.Illness_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Illness_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Illness_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Illness_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Illness_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.Illness_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Illness_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Ill_Person_ID,
@@ -4720,38 +4474,40 @@ namespace MyWorkApplication
             this.Ill_PName,
             this.Ill_Relation,
             this.Ill_Name,
+            this.Ill_Note,
             this.Ill_Aid,
             this.Ill_Donor,
-            this.Ill_Notes,
+            this.Ill_AidPeriod,
+            this.Ill_MedicalNeeds,
             this.Ill_DeleteRow,
             this.Ill_InDataBase,
             this.Ill_RowID});
-            this.tableLayoutPanel9.SetColumnSpan(this.Illness_dataGridView, 3);
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Illness_dataGridView.DefaultCellStyle = dataGridViewCellStyle30;
+            this.t9_tableLayoutPanel.SetColumnSpan(this.Illness_dataGridView, 3);
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Illness_dataGridView.DefaultCellStyle = dataGridViewCellStyle14;
             this.Illness_dataGridView.EnableHeadersVisualStyles = false;
             this.Illness_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.Illness_dataGridView.Location = new System.Drawing.Point(3, 332);
+            this.Illness_dataGridView.Location = new System.Drawing.Point(3, 393);
             this.Illness_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Illness_dataGridView.MultiSelect = false;
             this.Illness_dataGridView.Name = "Illness_dataGridView";
             this.Illness_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Illness_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Illness_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.Illness_dataGridView.RowHeadersVisible = false;
             this.Illness_dataGridView.RowHeadersWidth = 51;
             this.Illness_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.tableLayoutPanel9.SetRowSpan(this.Illness_dataGridView, 4);
+            this.t9_tableLayoutPanel.SetRowSpan(this.Illness_dataGridView, 4);
             this.Illness_dataGridView.RowTemplate.Height = 35;
             this.Illness_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Illness_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Illness_dataGridView.Size = new System.Drawing.Size(1085, 156);
+            this.Illness_dataGridView.Size = new System.Drawing.Size(1085, 180);
             this.Illness_dataGridView.TabIndex = 575;
             // 
             // Ill_Person_ID
@@ -4773,9 +4529,7 @@ namespace MyWorkApplication
             // Ill_PName
             // 
             this.Ill_PName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ill_PName.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.Ill_PName.DisplayStyleForCurrentCellOnly = true;
-            this.Ill_PName.FillWeight = 41.40383F;
+            this.Ill_PName.FillWeight = 22F;
             this.Ill_PName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Ill_PName.HeaderText = "الاسم";
             this.Ill_PName.Items.AddRange(new object[] {
@@ -4790,6 +4544,8 @@ namespace MyWorkApplication
             // 
             // Ill_Relation
             // 
+            this.Ill_Relation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_Relation.FillWeight = 22F;
             this.Ill_Relation.HeaderText = "الصفة";
             this.Ill_Relation.MinimumWidth = 6;
             this.Ill_Relation.Name = "Ill_Relation";
@@ -4798,31 +4554,56 @@ namespace MyWorkApplication
             // Ill_Name
             // 
             this.Ill_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ill_Name.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.Ill_Name.DisplayStyleForCurrentCellOnly = true;
-            this.Ill_Name.FillWeight = 41.40383F;
+            this.Ill_Name.FillWeight = 22F;
             this.Ill_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Ill_Name.HeaderText = "الحالة الصحيّة";
             this.Ill_Name.MinimumWidth = 6;
             this.Ill_Name.Name = "Ill_Name";
             // 
+            // Ill_Note
+            // 
+            this.Ill_Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_Note.FillWeight = 22F;
+            this.Ill_Note.HeaderText = "ملاحظات";
+            this.Ill_Note.MinimumWidth = 6;
+            this.Ill_Note.Name = "Ill_Note";
+            this.Ill_Note.ReadOnly = true;
+            // 
             // Ill_Aid
             // 
+            this.Ill_Aid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_Aid.FillWeight = 22F;
             this.Ill_Aid.HeaderText = "مساعدات طبيّة";
             this.Ill_Aid.MinimumWidth = 6;
             this.Ill_Aid.Name = "Ill_Aid";
             // 
             // Ill_Donor
             // 
+            this.Ill_Donor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_Donor.FillWeight = 22F;
             this.Ill_Donor.HeaderText = "الجهة المساعدة";
             this.Ill_Donor.MinimumWidth = 6;
             this.Ill_Donor.Name = "Ill_Donor";
             // 
-            // Ill_Notes
+            // Ill_AidPeriod
             // 
-            this.Ill_Notes.HeaderText = "ملاحظات";
-            this.Ill_Notes.MinimumWidth = 6;
-            this.Ill_Notes.Name = "Ill_Notes";
+            this.Ill_AidPeriod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_AidPeriod.FillWeight = 22F;
+            this.Ill_AidPeriod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ill_AidPeriod.HeaderText = "مدة المساعدة";
+            this.Ill_AidPeriod.MinimumWidth = 6;
+            this.Ill_AidPeriod.Name = "Ill_AidPeriod";
+            this.Ill_AidPeriod.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Ill_AidPeriod.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Ill_MedicalNeeds
+            // 
+            this.Ill_MedicalNeeds.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_MedicalNeeds.FillWeight = 22F;
+            this.Ill_MedicalNeeds.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ill_MedicalNeeds.HeaderText = "احتياجات طبية";
+            this.Ill_MedicalNeeds.MinimumWidth = 6;
+            this.Ill_MedicalNeeds.Name = "Ill_MedicalNeeds";
             // 
             // Ill_DeleteRow
             // 
@@ -4857,13 +4638,13 @@ namespace MyWorkApplication
             this.flowLayoutPanel15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel9.SetColumnSpan(this.flowLayoutPanel15, 3);
+            this.t9_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel15, 3);
             this.flowLayoutPanel15.Controls.Add(this.label68);
             this.flowLayoutPanel15.Controls.Add(this.label69);
             this.flowLayoutPanel15.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel15.Location = new System.Drawing.Point(3, 495);
+            this.flowLayoutPanel15.Location = new System.Drawing.Point(3, 580);
             this.flowLayoutPanel15.Name = "flowLayoutPanel15";
-            this.flowLayoutPanel15.Size = new System.Drawing.Size(1085, 35);
+            this.flowLayoutPanel15.Size = new System.Drawing.Size(1085, 24);
             this.flowLayoutPanel15.TabIndex = 569;
             // 
             // label68
@@ -4908,52 +4689,53 @@ namespace MyWorkApplication
             this.Assets_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Assets_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Assets_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Assets_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Assets_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.Assets_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Assets_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.APerson_ID,
             this.Asset_ID,
+            this.Asset_PName,
+            this.Asset_Relation,
             this.Asset_Name,
             this.Asset_Year,
             this.Asset_Desc,
-            this.Asset_Relation,
             this.Asset_Note,
-            this.dataGridViewButtonColumn4,
+            this.Asset_DeleteRow,
             this.Asset_InDataBase,
             this.Asset_RowID});
-            this.tableLayoutPanel9.SetColumnSpan(this.Assets_dataGridView, 3);
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Assets_dataGridView.DefaultCellStyle = dataGridViewCellStyle33;
+            this.t9_tableLayoutPanel.SetColumnSpan(this.Assets_dataGridView, 3);
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Assets_dataGridView.DefaultCellStyle = dataGridViewCellStyle17;
             this.Assets_dataGridView.EnableHeadersVisualStyles = false;
             this.Assets_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.Assets_dataGridView.Location = new System.Drawing.Point(3, 619);
+            this.Assets_dataGridView.Location = new System.Drawing.Point(3, 728);
             this.Assets_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Assets_dataGridView.MultiSelect = false;
             this.Assets_dataGridView.Name = "Assets_dataGridView";
             this.Assets_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Assets_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Assets_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.Assets_dataGridView.RowHeadersVisible = false;
             this.Assets_dataGridView.RowHeadersWidth = 51;
             this.Assets_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.tableLayoutPanel9.SetRowSpan(this.Assets_dataGridView, 4);
+            this.t9_tableLayoutPanel.SetRowSpan(this.Assets_dataGridView, 4);
             this.Assets_dataGridView.RowTemplate.Height = 35;
             this.Assets_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Assets_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Assets_dataGridView.Size = new System.Drawing.Size(1085, 156);
+            this.Assets_dataGridView.Size = new System.Drawing.Size(1085, 180);
             this.Assets_dataGridView.TabIndex = 576;
             // 
             // APerson_ID
@@ -4971,6 +4753,23 @@ namespace MyWorkApplication
             this.Asset_ID.MinimumWidth = 6;
             this.Asset_ID.Name = "Asset_ID";
             this.Asset_ID.Visible = false;
+            // 
+            // Asset_PName
+            // 
+            this.Asset_PName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Asset_PName.HeaderText = "الاسم";
+            this.Asset_PName.MinimumWidth = 6;
+            this.Asset_PName.Name = "Asset_PName";
+            // 
+            // Asset_Relation
+            // 
+            this.Asset_Relation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Asset_Relation.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.Asset_Relation.DisplayStyleForCurrentCellOnly = true;
+            this.Asset_Relation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Asset_Relation.HeaderText = "الصفة";
+            this.Asset_Relation.MinimumWidth = 6;
+            this.Asset_Relation.Name = "Asset_Relation";
             // 
             // Asset_Name
             // 
@@ -4992,42 +4791,37 @@ namespace MyWorkApplication
             // 
             // Asset_Year
             // 
+            this.Asset_Year.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Asset_Year.HeaderText = "سنة الشراء";
             this.Asset_Year.MinimumWidth = 6;
             this.Asset_Year.Name = "Asset_Year";
             // 
             // Asset_Desc
             // 
+            this.Asset_Desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Asset_Desc.HeaderText = "وصف الملك";
             this.Asset_Desc.MinimumWidth = 6;
             this.Asset_Desc.Name = "Asset_Desc";
             // 
-            // Asset_Relation
-            // 
-            this.Asset_Relation.HeaderText = "صفة المالك";
-            this.Asset_Relation.MinimumWidth = 6;
-            this.Asset_Relation.Name = "Asset_Relation";
-            this.Asset_Relation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Asset_Relation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // Asset_Note
             // 
+            this.Asset_Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Asset_Note.HeaderText = "مدى الاستفادة منه";
             this.Asset_Note.MinimumWidth = 6;
             this.Asset_Note.Name = "Asset_Note";
             // 
-            // dataGridViewButtonColumn4
+            // Asset_DeleteRow
             // 
-            this.dataGridViewButtonColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewButtonColumn4.FillWeight = 10F;
-            this.dataGridViewButtonColumn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dataGridViewButtonColumn4.HeaderText = " ";
-            this.dataGridViewButtonColumn4.MinimumWidth = 50;
-            this.dataGridViewButtonColumn4.Name = "dataGridViewButtonColumn4";
-            this.dataGridViewButtonColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewButtonColumn4.Text = "Delete";
-            this.dataGridViewButtonColumn4.UseColumnTextForButtonValue = true;
-            this.dataGridViewButtonColumn4.Width = 50;
+            this.Asset_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Asset_DeleteRow.FillWeight = 10F;
+            this.Asset_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Asset_DeleteRow.HeaderText = " ";
+            this.Asset_DeleteRow.MinimumWidth = 50;
+            this.Asset_DeleteRow.Name = "Asset_DeleteRow";
+            this.Asset_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Asset_DeleteRow.Text = "Delete";
+            this.Asset_DeleteRow.UseColumnTextForButtonValue = true;
+            this.Asset_DeleteRow.Width = 50;
             // 
             // Asset_InDataBase
             // 
@@ -5049,7 +4843,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel9.SetColumnSpan(this.flowLayoutPanel16, 3);
+            this.t9_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel16, 3);
             this.flowLayoutPanel16.Controls.Add(this.label83);
             this.flowLayoutPanel16.Controls.Add(this.label84);
             this.flowLayoutPanel16.Controls.Add(this.label85);
@@ -5057,9 +4851,9 @@ namespace MyWorkApplication
             this.flowLayoutPanel16.Controls.Add(this.label101);
             this.flowLayoutPanel16.Controls.Add(this.label103);
             this.flowLayoutPanel16.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel16.Location = new System.Drawing.Point(3, 782);
+            this.flowLayoutPanel16.Location = new System.Drawing.Point(3, 915);
             this.flowLayoutPanel16.Name = "flowLayoutPanel16";
-            this.flowLayoutPanel16.Size = new System.Drawing.Size(1085, 45);
+            this.flowLayoutPanel16.Size = new System.Drawing.Size(1085, 44);
             this.flowLayoutPanel16.TabIndex = 571;
             // 
             // label83
@@ -5160,9 +4954,9 @@ namespace MyWorkApplication
             | System.Windows.Forms.AnchorStyles.Right)));
             this.P_HasIllness_flowLayoutPanel.Controls.Add(this.P_HasIllnessNo_radioButton);
             this.P_HasIllness_flowLayoutPanel.Controls.Add(this.P_HasIllnessYes_radioButton);
-            this.P_HasIllness_flowLayoutPanel.Location = new System.Drawing.Point(3, 290);
+            this.P_HasIllness_flowLayoutPanel.Location = new System.Drawing.Point(3, 325);
             this.P_HasIllness_flowLayoutPanel.Name = "P_HasIllness_flowLayoutPanel";
-            this.P_HasIllness_flowLayoutPanel.Size = new System.Drawing.Size(212, 35);
+            this.P_HasIllness_flowLayoutPanel.Size = new System.Drawing.Size(212, 41);
             this.P_HasIllness_flowLayoutPanel.TabIndex = 586;
             // 
             // P_HasIllnessNo_radioButton
@@ -5197,84 +4991,1279 @@ namespace MyWorkApplication
             this.P_HasIllnessYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P_HasIllnessYes_radioButton.UseVisualStyleBackColor = true;
             // 
-            // label70
+            // SubHeader8_label
             // 
-            this.label70.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label70.AutoSize = true;
-            this.label70.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.label70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.label70.Location = new System.Drawing.Point(221, 576);
-            this.label70.Name = "label70";
-            this.label70.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label70.Size = new System.Drawing.Size(648, 37);
-            this.label70.TabIndex = 570;
-            this.label70.Text = "أملاك المستفيد";
-            this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SubHeader8_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubHeader8_label.AutoSize = true;
+            this.SubHeader8_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.SubHeader8_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader8_label.Location = new System.Drawing.Point(221, 662);
+            this.SubHeader8_label.Name = "SubHeader8_label";
+            this.SubHeader8_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SubHeader8_label.Size = new System.Drawing.Size(648, 37);
+            this.SubHeader8_label.TabIndex = 570;
+            this.SubHeader8_label.Text = "أملاك المستفيد وعائلته";
+            this.SubHeader8_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel7
+            // P_HasAssets_flowLayoutPanel
             // 
-            this.tableLayoutPanel7.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel7.ColumnCount = 3;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel7.Controls.Add(this.Course_dataGridView, 0, 26);
-            this.tableLayoutPanel7.Controls.Add(this.Header3_label, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.label25, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.Work_dataGridView, 0, 2);
-            this.tableLayoutPanel7.Controls.Add(this.label49, 0, 8);
-            this.tableLayoutPanel7.Controls.Add(this.Exp_dataGridView, 0, 9);
-            this.tableLayoutPanel7.Controls.Add(this.flowLayoutPanel10, 0, 15);
-            this.tableLayoutPanel7.Controls.Add(this.flowLayoutPanel12, 0, 30);
-            this.tableLayoutPanel7.Controls.Add(this.label64, 1, 25);
-            this.tableLayoutPanel7.Controls.Add(this.label2, 2, 16);
-            this.tableLayoutPanel7.Controls.Add(this.s3_textBox, 0, 16);
-            this.tableLayoutPanel7.Controls.Add(this.P_HasCourses_flowLayoutPanel, 0, 25);
-            this.tableLayoutPanel7.Controls.Add(this.P_HasEducation_flowLayoutPanel, 0, 18);
-            this.tableLayoutPanel7.Controls.Add(this.label56, 1, 18);
-            this.tableLayoutPanel7.Controls.Add(this.Education_dataGridView, 0, 19);
-            this.tableLayoutPanel7.Controls.Add(this.flowLayoutPanel11, 0, 22);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(75, 2651);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 32;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.124999F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1091, 1356);
-            this.tableLayoutPanel7.TabIndex = 540;
+            this.P_HasAssets_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_HasAssets_flowLayoutPanel.Controls.Add(this.P_HasAssetsNo_radioButton);
+            this.P_HasAssets_flowLayoutPanel.Controls.Add(this.P_HasAssetsYes_radioButton);
+            this.P_HasAssets_flowLayoutPanel.Location = new System.Drawing.Point(3, 660);
+            this.P_HasAssets_flowLayoutPanel.Name = "P_HasAssets_flowLayoutPanel";
+            this.P_HasAssets_flowLayoutPanel.Size = new System.Drawing.Size(212, 41);
+            this.P_HasAssets_flowLayoutPanel.TabIndex = 586;
+            // 
+            // P_HasAssetsNo_radioButton
+            // 
+            this.P_HasAssetsNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasAssetsNo_radioButton.AutoSize = true;
+            this.P_HasAssetsNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasAssetsNo_radioButton.Location = new System.Drawing.Point(5, 5);
+            this.P_HasAssetsNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
+            this.P_HasAssetsNo_radioButton.Name = "P_HasAssetsNo_radioButton";
+            this.P_HasAssetsNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasAssetsNo_radioButton.Size = new System.Drawing.Size(90, 33);
+            this.P_HasAssetsNo_radioButton.TabIndex = 4;
+            this.P_HasAssetsNo_radioButton.TabStop = true;
+            this.P_HasAssetsNo_radioButton.Text = "لا يوجد";
+            this.P_HasAssetsNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasAssetsNo_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // P_HasAssetsYes_radioButton
+            // 
+            this.P_HasAssetsYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasAssetsYes_radioButton.AutoSize = true;
+            this.P_HasAssetsYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasAssetsYes_radioButton.Location = new System.Drawing.Point(115, 5);
+            this.P_HasAssetsYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.P_HasAssetsYes_radioButton.Name = "P_HasAssetsYes_radioButton";
+            this.P_HasAssetsYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasAssetsYes_radioButton.Size = new System.Drawing.Size(73, 33);
+            this.P_HasAssetsYes_radioButton.TabIndex = 3;
+            this.P_HasAssetsYes_radioButton.TabStop = true;
+            this.P_HasAssetsYes_radioButton.Text = "يوجد";
+            this.P_HasAssetsYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasAssetsYes_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // t4_tableLayoutPanel
+            // 
+            this.t4_tableLayoutPanel.BackColor = System.Drawing.Color.RosyBrown;
+            this.t4_tableLayoutPanel.ColumnCount = 2;
+            this.t4_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.t4_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.99999F));
+            this.t4_tableLayoutPanel.Controls.Add(this.FamilyMember_dataGridView, 0, 0);
+            this.t4_tableLayoutPanel.Controls.Add(this.tableLayoutPanel8, 0, 7);
+            this.t4_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.t4_tableLayoutPanel.Location = new System.Drawing.Point(75, 4857);
+            this.t4_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.t4_tableLayoutPanel.Name = "t4_tableLayoutPanel";
+            this.t4_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.t4_tableLayoutPanel.RowCount = 11;
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.t4_tableLayoutPanel.Size = new System.Drawing.Size(1091, 366);
+            this.t4_tableLayoutPanel.TabIndex = 546;
+            this.t4_tableLayoutPanel.TabStop = true;
+            // 
+            // t21_tableLayoutPanel
+            // 
+            this.t21_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.t21_tableLayoutPanel.ColumnCount = 3;
+            this.t21_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.t21_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.t21_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.t21_tableLayoutPanel.Controls.Add(this.tableLayoutPanel9, 0, 3);
+            this.t21_tableLayoutPanel.Controls.Add(this.flowLayoutPanel17, 0, 4);
+            this.t21_tableLayoutPanel.Controls.Add(this.MainHeader3_label, 0, 1);
+            this.t21_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.t21_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.t21_tableLayoutPanel.Location = new System.Drawing.Point(75, 4670);
+            this.t21_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.t21_tableLayoutPanel.Name = "t21_tableLayoutPanel";
+            this.t21_tableLayoutPanel.RowCount = 5;
+            this.t21_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.t21_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.t21_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t21_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.t21_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.t21_tableLayoutPanel.Size = new System.Drawing.Size(1091, 187);
+            this.t21_tableLayoutPanel.TabIndex = 550;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel9.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel9.ColumnCount = 8;
+            this.t21_tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel9, 3);
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.97584F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.97584F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.74879F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.12077F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.2029F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.97584F));
+            this.tableLayoutPanel9.Controls.Add(this.label9, 7, 0);
+            this.tableLayoutPanel9.Controls.Add(this.P_NumOfMembers_textBox, 6, 0);
+            this.tableLayoutPanel9.Controls.Add(this.label21, 4, 0);
+            this.tableLayoutPanel9.Controls.Add(this.label50, 1, 0);
+            this.tableLayoutPanel9.Controls.Add(this.FamilyNum_textBox1, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.P_NumAtHome_textBox, 3, 0);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 96);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 1;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(1085, 43);
+            this.tableLayoutPanel9.TabIndex = 578;
+            this.tableLayoutPanel9.TabStop = true;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label9.Location = new System.Drawing.Point(934, 7);
+            this.label9.Name = "label9";
+            this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label9.Size = new System.Drawing.Size(148, 29);
+            this.label9.TabIndex = 554;
+            this.label9.Text = "عدد أفراد العائلة:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // P_NumOfMembers_textBox
+            // 
+            this.P_NumOfMembers_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_NumOfMembers_textBox.BackColor = System.Drawing.Color.White;
+            this.P_NumOfMembers_textBox.Location = new System.Drawing.Point(787, 7);
+            this.P_NumOfMembers_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.P_NumOfMembers_textBox.Name = "P_NumOfMembers_textBox";
+            this.P_NumOfMembers_textBox.ReadOnly = true;
+            this.P_NumOfMembers_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_NumOfMembers_textBox.Size = new System.Drawing.Size(139, 29);
+            this.P_NumOfMembers_textBox.TabIndex = 556;
+            // 
+            // label21
+            // 
+            this.label21.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label21.Location = new System.Drawing.Point(503, 7);
+            this.label21.Name = "label21";
+            this.label21.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label21.Size = new System.Drawing.Size(248, 29);
+            this.label21.TabIndex = 555;
+            this.label21.Text = "عدد أفراد المقيمين في المنزل:";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label50
+            // 
+            this.label50.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label50.AutoSize = true;
+            this.label50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label50.Location = new System.Drawing.Point(164, 7);
+            this.label50.Name = "label50";
+            this.label50.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label50.Size = new System.Drawing.Size(139, 29);
+            this.label50.TabIndex = 553;
+            this.label50.Text = "رقم دفتر العائلة:";
+            this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // FamilyNum_textBox1
+            // 
+            this.FamilyNum_textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.FamilyNum_textBox1.BackColor = System.Drawing.Color.White;
+            this.FamilyNum_textBox1.Location = new System.Drawing.Point(3, 7);
+            this.FamilyNum_textBox1.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.FamilyNum_textBox1.Name = "FamilyNum_textBox1";
+            this.FamilyNum_textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FamilyNum_textBox1.Size = new System.Drawing.Size(147, 29);
+            this.FamilyNum_textBox1.TabIndex = 552;
+            // 
+            // P_NumAtHome_textBox
+            // 
+            this.P_NumAtHome_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_NumAtHome_textBox.BackColor = System.Drawing.Color.White;
+            this.P_NumAtHome_textBox.Location = new System.Drawing.Point(339, 7);
+            this.P_NumAtHome_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.P_NumAtHome_textBox.Name = "P_NumAtHome_textBox";
+            this.P_NumAtHome_textBox.ReadOnly = true;
+            this.P_NumAtHome_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_NumAtHome_textBox.Size = new System.Drawing.Size(155, 29);
+            this.P_NumAtHome_textBox.TabIndex = 551;
+            // 
+            // flowLayoutPanel17
+            // 
+            this.flowLayoutPanel17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.t21_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel17, 3);
+            this.flowLayoutPanel17.Controls.Add(this.label56);
+            this.flowLayoutPanel17.Controls.Add(this.P_LiveWithFamily_radioButton);
+            this.flowLayoutPanel17.Controls.Add(this.P_NotLiveWithFamily_radioButton);
+            this.flowLayoutPanel17.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel17.Location = new System.Drawing.Point(3, 143);
+            this.flowLayoutPanel17.Name = "flowLayoutPanel17";
+            this.flowLayoutPanel17.Size = new System.Drawing.Size(1085, 41);
+            this.flowLayoutPanel17.TabIndex = 580;
+            // 
+            // label56
+            // 
+            this.label56.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label56.AutoSize = true;
+            this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label56.Location = new System.Drawing.Point(850, 5);
+            this.label56.Name = "label56";
+            this.label56.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label56.Size = new System.Drawing.Size(232, 29);
+            this.label56.TabIndex = 579;
+            this.label56.Text = "هل تسكن معك عائلة أخرى؟";
+            this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // P_LiveWithFamily_radioButton
+            // 
+            this.P_LiveWithFamily_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.P_LiveWithFamily_radioButton.AutoSize = true;
+            this.P_LiveWithFamily_radioButton.BackColor = System.Drawing.Color.Transparent;
+            this.P_LiveWithFamily_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.P_LiveWithFamily_radioButton.Location = new System.Drawing.Point(770, 3);
+            this.P_LiveWithFamily_radioButton.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
+            this.P_LiveWithFamily_radioButton.Name = "P_LiveWithFamily_radioButton";
+            this.P_LiveWithFamily_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_LiveWithFamily_radioButton.Size = new System.Drawing.Size(62, 33);
+            this.P_LiveWithFamily_radioButton.TabIndex = 580;
+            this.P_LiveWithFamily_radioButton.TabStop = true;
+            this.P_LiveWithFamily_radioButton.Text = "نعم";
+            this.P_LiveWithFamily_radioButton.UseVisualStyleBackColor = false;
+            // 
+            // P_NotLiveWithFamily_radioButton
+            // 
+            this.P_NotLiveWithFamily_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.P_NotLiveWithFamily_radioButton.AutoSize = true;
+            this.P_NotLiveWithFamily_radioButton.BackColor = System.Drawing.Color.Transparent;
+            this.P_NotLiveWithFamily_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.P_NotLiveWithFamily_radioButton.Location = new System.Drawing.Point(706, 3);
+            this.P_NotLiveWithFamily_radioButton.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
+            this.P_NotLiveWithFamily_radioButton.Name = "P_NotLiveWithFamily_radioButton";
+            this.P_NotLiveWithFamily_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_NotLiveWithFamily_radioButton.Size = new System.Drawing.Size(46, 33);
+            this.P_NotLiveWithFamily_radioButton.TabIndex = 581;
+            this.P_NotLiveWithFamily_radioButton.TabStop = true;
+            this.P_NotLiveWithFamily_radioButton.Text = "لا";
+            this.P_NotLiveWithFamily_radioButton.UseVisualStyleBackColor = false;
+            // 
+            // MainHeader3_label
+            // 
+            this.MainHeader3_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MainHeader3_label.AutoSize = true;
+            this.MainHeader3_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.t21_tableLayoutPanel.SetColumnSpan(this.MainHeader3_label, 3);
+            this.MainHeader3_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.MainHeader3_label.ForeColor = System.Drawing.Color.White;
+            this.MainHeader3_label.Location = new System.Drawing.Point(3, 32);
+            this.MainHeader3_label.Name = "MainHeader3_label";
+            this.MainHeader3_label.Padding = new System.Windows.Forms.Padding(3);
+            this.MainHeader3_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MainHeader3_label.Size = new System.Drawing.Size(1085, 43);
+            this.MainHeader3_label.TabIndex = 546;
+            this.MainHeader3_label.Text = "معلومات عائلة المستفيد";
+            this.MainHeader3_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // t20_tableLayoutPanel
+            // 
+            this.t20_tableLayoutPanel.BackColor = System.Drawing.Color.Moccasin;
+            this.t20_tableLayoutPanel.ColumnCount = 3;
+            this.t20_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.t20_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.t20_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.t20_tableLayoutPanel.Controls.Add(this.Materials_dataGridView, 0, 22);
+            this.t20_tableLayoutPanel.Controls.Add(this.flowLayoutPanel27, 0, 5);
+            this.t20_tableLayoutPanel.Controls.Add(this.OverallSyrian_label, 0, 27);
+            this.t20_tableLayoutPanel.Controls.Add(this.s6_tableLayoutPanel, 0, 3);
+            this.t20_tableLayoutPanel.Controls.Add(this.label25, 1, 19);
+            this.t20_tableLayoutPanel.Controls.Add(this.MainHeader4_label, 0, 1);
+            this.t20_tableLayoutPanel.Controls.Add(this.SubHeader12_label, 1, 7);
+            this.t20_tableLayoutPanel.Controls.Add(this.PowerSource_dataGridView, 0, 8);
+            this.t20_tableLayoutPanel.Controls.Add(this.flowLayoutPanel20, 0, 11);
+            this.t20_tableLayoutPanel.Controls.Add(this.label92, 0, 12);
+            this.t20_tableLayoutPanel.Controls.Add(this.AmperNumber_textBox, 2, 13);
+            this.t20_tableLayoutPanel.Controls.Add(this.flowLayoutPanel19, 1, 13);
+            this.t20_tableLayoutPanel.Controls.Add(this.SubHeader14_label, 1, 15);
+            this.t20_tableLayoutPanel.Controls.Add(this.label22, 1, 16);
+            this.t20_tableLayoutPanel.Controls.Add(this.label20, 1, 17);
+            this.t20_tableLayoutPanel.Controls.Add(this.label19, 1, 18);
+            this.t20_tableLayoutPanel.Controls.Add(this.Agreement1_flowLayoutPanel, 0, 16);
+            this.t20_tableLayoutPanel.Controls.Add(this.Agreement2_flowLayoutPanel, 0, 17);
+            this.t20_tableLayoutPanel.Controls.Add(this.Agreement3_flowLayoutPanel, 0, 18);
+            this.t20_tableLayoutPanel.Controls.Add(this.Agreement4_flowLayoutPanel, 0, 19);
+            this.t20_tableLayoutPanel.Controls.Add(this.SubHeader13_label, 1, 21);
+            this.t20_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.t20_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.t20_tableLayoutPanel.Location = new System.Drawing.Point(75, 3482);
+            this.t20_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.t20_tableLayoutPanel.Name = "t20_tableLayoutPanel";
+            this.t20_tableLayoutPanel.RowCount = 28;
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t20_tableLayoutPanel.Size = new System.Drawing.Size(1091, 1188);
+            this.t20_tableLayoutPanel.TabIndex = 551;
+            // 
+            // Materials_dataGridView
+            // 
+            this.Materials_dataGridView.AllowUserToOrderColumns = true;
+            this.Materials_dataGridView.AllowUserToResizeRows = false;
+            this.Materials_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Materials_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Materials_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Materials_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.Materials_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Materials_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Materials_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.Materials_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Materials_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.M_ID,
+            this.M_Name,
+            this.M_Comments,
+            this.M_Price,
+            this.M_Amount,
+            this.MMP_ID,
+            this.M_DeleteRow,
+            this.M_InDataBase});
+            this.t20_tableLayoutPanel.SetColumnSpan(this.Materials_dataGridView, 3);
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Materials_dataGridView.DefaultCellStyle = dataGridViewCellStyle20;
+            this.Materials_dataGridView.EnableHeadersVisualStyles = false;
+            this.Materials_dataGridView.GridColor = System.Drawing.Color.DarkGray;
+            this.Materials_dataGridView.Location = new System.Drawing.Point(3, 924);
+            this.Materials_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Materials_dataGridView.MultiSelect = false;
+            this.Materials_dataGridView.Name = "Materials_dataGridView";
+            this.Materials_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Materials_dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Materials_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.Materials_dataGridView.RowHeadersVisible = false;
+            this.Materials_dataGridView.RowHeadersWidth = 51;
+            this.t20_tableLayoutPanel.SetRowSpan(this.Materials_dataGridView, 5);
+            this.Materials_dataGridView.RowTemplate.DividerHeight = 1;
+            this.Materials_dataGridView.RowTemplate.Height = 45;
+            this.Materials_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Materials_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.Materials_dataGridView.Size = new System.Drawing.Size(1085, 212);
+            this.Materials_dataGridView.TabIndex = 613;
+            // 
+            // M_ID
+            // 
+            this.M_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.M_ID.HeaderText = "M_ID";
+            this.M_ID.MinimumWidth = 6;
+            this.M_ID.Name = "M_ID";
+            this.M_ID.Visible = false;
+            // 
+            // M_Name
+            // 
+            this.M_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.M_Name.HeaderText = "اسم المادة";
+            this.M_Name.MinimumWidth = 6;
+            this.M_Name.Name = "M_Name";
+            // 
+            // M_Comments
+            // 
+            this.M_Comments.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.M_Comments.HeaderText = "النوع";
+            this.M_Comments.MinimumWidth = 6;
+            this.M_Comments.Name = "M_Comments";
+            // 
+            // M_Price
+            // 
+            this.M_Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.M_Price.DataPropertyName = "0";
+            this.M_Price.HeaderText = "ثمن القطعة";
+            this.M_Price.MinimumWidth = 6;
+            this.M_Price.Name = "M_Price";
+            // 
+            // M_Amount
+            // 
+            this.M_Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.M_Amount.DataPropertyName = "1";
+            this.M_Amount.HeaderText = "الكمية";
+            this.M_Amount.MinimumWidth = 6;
+            this.M_Amount.Name = "M_Amount";
+            // 
+            // MMP_ID
+            // 
+            this.MMP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MMP_ID.HeaderText = "MMP_ID";
+            this.MMP_ID.MinimumWidth = 6;
+            this.MMP_ID.Name = "MMP_ID";
+            this.MMP_ID.Visible = false;
+            // 
+            // M_DeleteRow
+            // 
+            this.M_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.M_DeleteRow.FillWeight = 40F;
+            this.M_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.M_DeleteRow.HeaderText = " ";
+            this.M_DeleteRow.MinimumWidth = 50;
+            this.M_DeleteRow.Name = "M_DeleteRow";
+            this.M_DeleteRow.Width = 50;
+            // 
+            // M_InDataBase
+            // 
+            this.M_InDataBase.HeaderText = "M_InDataBase";
+            this.M_InDataBase.MinimumWidth = 6;
+            this.M_InDataBase.Name = "M_InDataBase";
+            this.M_InDataBase.Visible = false;
+            // 
+            // flowLayoutPanel27
+            // 
+            this.flowLayoutPanel27.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.t20_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel27, 3);
+            this.flowLayoutPanel27.Controls.Add(this.label110);
+            this.flowLayoutPanel27.Controls.Add(this.label111);
+            this.flowLayoutPanel27.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel27.Location = new System.Drawing.Point(3, 175);
+            this.flowLayoutPanel27.Name = "flowLayoutPanel27";
+            this.flowLayoutPanel27.Size = new System.Drawing.Size(1085, 38);
+            this.flowLayoutPanel27.TabIndex = 596;
+            // 
+            // label110
+            // 
+            this.label110.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label110.AutoSize = true;
+            this.label110.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label110.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label110.Location = new System.Drawing.Point(993, 0);
+            this.label110.Margin = new System.Windows.Forms.Padding(0);
+            this.label110.Name = "label110";
+            this.label110.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label110.Size = new System.Drawing.Size(92, 23);
+            this.label110.TabIndex = 263;
+            this.label110.Text = "*ملكيّّة العقار";
+            this.label110.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label111
+            // 
+            this.label111.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label111.AutoSize = true;
+            this.label111.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label111.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label111.Location = new System.Drawing.Point(785, 0);
+            this.label111.Margin = new System.Windows.Forms.Padding(0);
+            this.label111.Name = "label111";
+            this.label111.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label111.Size = new System.Drawing.Size(208, 23);
+            this.label111.TabIndex = 264;
+            this.label111.Text = "ملك - إيجار - إعارة - فروغ - ورثة.";
+            this.label111.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // OverallSyrian_label
+            // 
+            this.OverallSyrian_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.OverallSyrian_label.BackColor = System.Drawing.Color.White;
+            this.OverallSyrian_label.Location = new System.Drawing.Point(3, 1144);
+            this.OverallSyrian_label.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.OverallSyrian_label.MaximumSize = new System.Drawing.Size(310, 36);
+            this.OverallSyrian_label.Name = "OverallSyrian_label";
+            this.OverallSyrian_label.Size = new System.Drawing.Size(212, 36);
+            this.OverallSyrian_label.TabIndex = 552;
+            this.OverallSyrian_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // s6_tableLayoutPanel
+            // 
+            this.s6_tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.s6_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.s6_tableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.s6_tableLayoutPanel.ColumnCount = 3;
+            this.t20_tableLayoutPanel.SetColumnSpan(this.s6_tableLayoutPanel, 3);
+            this.s6_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.s6_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.s6_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.s6_tableLayoutPanel.Controls.Add(this.s5_textBox, 1, 1);
+            this.s6_tableLayoutPanel.Controls.Add(this.textBox8, 2, 1);
+            this.s6_tableLayoutPanel.Controls.Add(this.MP_PlaceType_comboBox, 0, 1);
+            this.s6_tableLayoutPanel.Controls.Add(this.label109, 2, 0);
+            this.s6_tableLayoutPanel.Controls.Add(this.label108, 1, 0);
+            this.s6_tableLayoutPanel.Controls.Add(this.s6_label, 0, 0);
+            this.s6_tableLayoutPanel.Location = new System.Drawing.Point(3, 85);
+            this.s6_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.s6_tableLayoutPanel.Name = "s6_tableLayoutPanel";
+            this.s6_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.s6_tableLayoutPanel.RowCount = 2;
+            this.t20_tableLayoutPanel.SetRowSpan(this.s6_tableLayoutPanel, 2);
+            this.s6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.s6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.s6_tableLayoutPanel.Size = new System.Drawing.Size(1085, 86);
+            this.s6_tableLayoutPanel.TabIndex = 595;
+            this.s6_tableLayoutPanel.TabStop = true;
+            // 
+            // s5_textBox
+            // 
+            this.s5_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.s5_textBox.BackColor = System.Drawing.Color.White;
+            this.s5_textBox.Location = new System.Drawing.Point(366, 49);
+            this.s5_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.s5_textBox.Name = "s5_textBox";
+            this.s5_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.s5_textBox.Size = new System.Drawing.Size(354, 29);
+            this.s5_textBox.TabIndex = 593;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox8.BackColor = System.Drawing.Color.White;
+            this.textBox8.Location = new System.Drawing.Point(4, 49);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textBox8.Size = new System.Drawing.Size(355, 29);
+            this.textBox8.TabIndex = 592;
+            // 
+            // MP_PlaceType_comboBox
+            // 
+            this.MP_PlaceType_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.MP_PlaceType_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.MP_PlaceType_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.MP_PlaceType_comboBox.BackColor = System.Drawing.Color.White;
+            this.MP_PlaceType_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.MP_PlaceType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MP_PlaceType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.MP_PlaceType_comboBox.FormattingEnabled = true;
+            this.MP_PlaceType_comboBox.Location = new System.Drawing.Point(727, 49);
+            this.MP_PlaceType_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.MP_PlaceType_comboBox.Name = "MP_PlaceType_comboBox";
+            this.MP_PlaceType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MP_PlaceType_comboBox.Size = new System.Drawing.Size(354, 30);
+            this.MP_PlaceType_comboBox.TabIndex = 505;
+            // 
+            // label109
+            // 
+            this.label109.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label109.AutoSize = true;
+            this.label109.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.label109.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label109.Location = new System.Drawing.Point(4, 7);
+            this.label109.Name = "label109";
+            this.label109.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label109.Size = new System.Drawing.Size(355, 29);
+            this.label109.TabIndex = 504;
+            this.label109.Text = "ملاحظات";
+            this.label109.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label108
+            // 
+            this.label108.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label108.AutoSize = true;
+            this.label108.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.label108.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label108.Location = new System.Drawing.Point(366, 7);
+            this.label108.Name = "label108";
+            this.label108.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label108.Size = new System.Drawing.Size(354, 29);
+            this.label108.TabIndex = 503;
+            this.label108.Text = "العنوان / إن وجد";
+            this.label108.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // s6_label
+            // 
+            this.s6_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.s6_label.AutoSize = true;
+            this.s6_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.s6_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.s6_label.Location = new System.Drawing.Point(727, 7);
+            this.s6_label.Name = "s6_label";
+            this.s6_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.s6_label.Size = new System.Drawing.Size(354, 29);
+            this.s6_label.TabIndex = 502;
+            this.s6_label.Text = "ملكية عقار المشروع";
+            this.s6_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label25.AutoSize = true;
+            this.t20_tableLayoutPanel.SetColumnSpan(this.label25, 2);
+            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label25.Location = new System.Drawing.Point(462, 795);
+            this.label25.Margin = new System.Windows.Forms.Padding(3);
+            this.label25.Name = "label25";
+            this.label25.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label25.Size = new System.Drawing.Size(626, 29);
+            this.label25.TabIndex = 607;
+            this.label25.Text = "هل لديك مانع من إجراء تدريب على المهارات الإدارية بعد الموافقة على المشروع؟";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MainHeader4_label
+            // 
+            this.MainHeader4_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MainHeader4_label.AutoSize = true;
+            this.MainHeader4_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.t20_tableLayoutPanel.SetColumnSpan(this.MainHeader4_label, 3);
+            this.MainHeader4_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.MainHeader4_label.ForeColor = System.Drawing.Color.White;
+            this.MainHeader4_label.Location = new System.Drawing.Point(3, 21);
+            this.MainHeader4_label.Name = "MainHeader4_label";
+            this.MainHeader4_label.Padding = new System.Windows.Forms.Padding(3);
+            this.MainHeader4_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MainHeader4_label.Size = new System.Drawing.Size(1085, 43);
+            this.MainHeader4_label.TabIndex = 547;
+            this.MainHeader4_label.Text = "معلومات خاصة بالمشروع";
+            this.MainHeader4_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // SubHeader12_label
+            // 
+            this.SubHeader12_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubHeader12_label.AutoSize = true;
+            this.SubHeader12_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.SubHeader12_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader12_label.Location = new System.Drawing.Point(221, 263);
+            this.SubHeader12_label.Name = "SubHeader12_label";
+            this.SubHeader12_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SubHeader12_label.Size = new System.Drawing.Size(648, 37);
+            this.SubHeader12_label.TabIndex = 597;
+            this.SubHeader12_label.Text = "مصادر الطاقة في المشروع (في حال قائم)";
+            this.SubHeader12_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PowerSource_dataGridView
+            // 
+            this.PowerSource_dataGridView.AllowUserToResizeRows = false;
+            this.PowerSource_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PowerSource_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.PowerSource_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.PowerSource_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.PowerSource_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PowerSource_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PowerSource_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            this.PowerSource_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PowerSource_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Power_MP_ID,
+            this.Power_ID,
+            this.Power_Name,
+            this.Power_Note,
+            this.Power_Cost,
+            this.Power_Responsability,
+            this.Power_DeleteRow,
+            this.Power_InDataBase,
+            this.Power_RowID});
+            this.t20_tableLayoutPanel.SetColumnSpan(this.PowerSource_dataGridView, 3);
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PowerSource_dataGridView.DefaultCellStyle = dataGridViewCellStyle23;
+            this.PowerSource_dataGridView.EnableHeadersVisualStyles = false;
+            this.PowerSource_dataGridView.GridColor = System.Drawing.Color.DarkGray;
+            this.PowerSource_dataGridView.Location = new System.Drawing.Point(3, 308);
+            this.PowerSource_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PowerSource_dataGridView.MultiSelect = false;
+            this.PowerSource_dataGridView.Name = "PowerSource_dataGridView";
+            this.PowerSource_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Rubik", 11F);
+            this.PowerSource_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            this.PowerSource_dataGridView.RowHeadersVisible = false;
+            this.PowerSource_dataGridView.RowHeadersWidth = 51;
+            this.t20_tableLayoutPanel.SetRowSpan(this.PowerSource_dataGridView, 3);
+            this.PowerSource_dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.PowerSource_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PowerSource_dataGridView.RowTemplate.Height = 35;
+            this.PowerSource_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PowerSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.PowerSource_dataGridView.Size = new System.Drawing.Size(1085, 124);
+            this.PowerSource_dataGridView.TabIndex = 598;
+            // 
+            // Power_MP_ID
+            // 
+            this.Power_MP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Power_MP_ID.HeaderText = "Power_MP_ID";
+            this.Power_MP_ID.MinimumWidth = 6;
+            this.Power_MP_ID.Name = "Power_MP_ID";
+            this.Power_MP_ID.Visible = false;
+            // 
+            // Power_ID
+            // 
+            this.Power_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Power_ID.HeaderText = "Power_ID";
+            this.Power_ID.MinimumWidth = 6;
+            this.Power_ID.Name = "Power_ID";
+            this.Power_ID.Visible = false;
+            // 
+            // Power_Name
+            // 
+            this.Power_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Power_Name.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.Power_Name.DisplayStyleForCurrentCellOnly = true;
+            this.Power_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Power_Name.HeaderText = "المصدر";
+            this.Power_Name.MinimumWidth = 6;
+            this.Power_Name.Name = "Power_Name";
+            this.Power_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Power_Note
+            // 
+            this.Power_Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Power_Note.HeaderText = "شرح المنظومة";
+            this.Power_Note.MinimumWidth = 6;
+            this.Power_Note.Name = "Power_Note";
+            // 
+            // Power_Cost
+            // 
+            this.Power_Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Power_Cost.HeaderText = "القيمة المدفوعة (شهرياً)";
+            this.Power_Cost.MinimumWidth = 6;
+            this.Power_Cost.Name = "Power_Cost";
+            // 
+            // Power_Responsability
+            // 
+            this.Power_Responsability.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Power_Responsability.HeaderText = "الجهة المنفّذة";
+            this.Power_Responsability.MinimumWidth = 6;
+            this.Power_Responsability.Name = "Power_Responsability";
+            // 
+            // Power_DeleteRow
+            // 
+            this.Power_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Power_DeleteRow.FillWeight = 40F;
+            this.Power_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Power_DeleteRow.HeaderText = " ";
+            this.Power_DeleteRow.MinimumWidth = 50;
+            this.Power_DeleteRow.Name = "Power_DeleteRow";
+            this.Power_DeleteRow.Width = 50;
+            // 
+            // Power_InDataBase
+            // 
+            this.Power_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Power_InDataBase.HeaderText = "Power_InDataBase";
+            this.Power_InDataBase.MinimumWidth = 6;
+            this.Power_InDataBase.Name = "Power_InDataBase";
+            this.Power_InDataBase.Visible = false;
+            // 
+            // Power_RowID
+            // 
+            this.Power_RowID.HeaderText = "Power_RowID";
+            this.Power_RowID.MinimumWidth = 6;
+            this.Power_RowID.Name = "Power_RowID";
+            this.Power_RowID.Visible = false;
+            // 
+            // flowLayoutPanel20
+            // 
+            this.flowLayoutPanel20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.t20_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel20, 3);
+            this.flowLayoutPanel20.Controls.Add(this.label93);
+            this.flowLayoutPanel20.Controls.Add(this.label94);
+            this.flowLayoutPanel20.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel20.Location = new System.Drawing.Point(3, 439);
+            this.flowLayoutPanel20.Name = "flowLayoutPanel20";
+            this.flowLayoutPanel20.Size = new System.Drawing.Size(1085, 38);
+            this.flowLayoutPanel20.TabIndex = 599;
+            // 
+            // label93
+            // 
+            this.label93.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label93.AutoSize = true;
+            this.label93.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label93.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label93.Location = new System.Drawing.Point(977, 0);
+            this.label93.Margin = new System.Windows.Forms.Padding(0);
+            this.label93.Name = "label93";
+            this.label93.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label93.Size = new System.Drawing.Size(108, 23);
+            this.label93.TabIndex = 263;
+            this.label93.Text = "*مصادر الطاقة:";
+            this.label93.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label94
+            // 
+            this.label94.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label94.AutoSize = true;
+            this.label94.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label94.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label94.Location = new System.Drawing.Point(588, 0);
+            this.label94.Margin = new System.Windows.Forms.Padding(0);
+            this.label94.Name = "label94";
+            this.label94.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label94.Size = new System.Drawing.Size(389, 23);
+            this.label94.TabIndex = 264;
+            this.label94.Text = "كهرباء - أمبير - طاقة شمسيّّة - بطاريّّة وأنفرتر - ليدات - لايوجد.";
+            this.label94.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label92
+            // 
+            this.label92.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label92.AutoSize = true;
+            this.t20_tableLayoutPanel.SetColumnSpan(this.label92, 3);
+            this.label92.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label92.Location = new System.Drawing.Point(170, 487);
+            this.label92.Margin = new System.Windows.Forms.Padding(3);
+            this.label92.Name = "label92";
+            this.label92.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label92.Size = new System.Drawing.Size(918, 29);
+            this.label92.TabIndex = 601;
+            this.label92.Text = "ماهي الاستطاعة التي أنت بحاجة اليها لتشغيل المعدات؟ (يتم التسجيل للمشروع الجديد و" +
+    "القائم بواحدة الأمبير أو الواط)";
+            this.label92.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AmperNumber_textBox
+            // 
+            this.AmperNumber_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.AmperNumber_textBox.BackColor = System.Drawing.Color.White;
+            this.AmperNumber_textBox.Location = new System.Drawing.Point(875, 531);
+            this.AmperNumber_textBox.Name = "AmperNumber_textBox";
+            this.AmperNumber_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.AmperNumber_textBox.Size = new System.Drawing.Size(213, 29);
+            this.AmperNumber_textBox.TabIndex = 600;
+            this.AmperNumber_textBox.Text = "0";
+            this.AmperNumber_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // flowLayoutPanel19
+            // 
+            this.flowLayoutPanel19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel19.Controls.Add(this.radioButton19);
+            this.flowLayoutPanel19.Controls.Add(this.radioButton20);
+            this.flowLayoutPanel19.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel19.Location = new System.Drawing.Point(221, 527);
+            this.flowLayoutPanel19.Name = "flowLayoutPanel19";
+            this.flowLayoutPanel19.Size = new System.Drawing.Size(648, 38);
+            this.flowLayoutPanel19.TabIndex = 602;
+            // 
+            // radioButton19
+            // 
+            this.radioButton19.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.radioButton19.AutoSize = true;
+            this.radioButton19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.radioButton19.Location = new System.Drawing.Point(573, 5);
+            this.radioButton19.Margin = new System.Windows.Forms.Padding(5);
+            this.radioButton19.Name = "radioButton19";
+            this.radioButton19.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radioButton19.Size = new System.Drawing.Size(70, 33);
+            this.radioButton19.TabIndex = 4;
+            this.radioButton19.TabStop = true;
+            this.radioButton19.Text = "أمبير";
+            this.radioButton19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButton19.UseVisualStyleBackColor = true;
+            // 
+            // radioButton20
+            // 
+            this.radioButton20.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.radioButton20.AutoSize = true;
+            this.radioButton20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.radioButton20.Location = new System.Drawing.Point(506, 5);
+            this.radioButton20.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.radioButton20.Name = "radioButton20";
+            this.radioButton20.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.radioButton20.Size = new System.Drawing.Size(62, 33);
+            this.radioButton20.TabIndex = 3;
+            this.radioButton20.TabStop = true;
+            this.radioButton20.Text = "واط";
+            this.radioButton20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButton20.UseVisualStyleBackColor = true;
+            // 
+            // SubHeader14_label
+            // 
+            this.SubHeader14_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubHeader14_label.AutoSize = true;
+            this.SubHeader14_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.SubHeader14_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader14_label.Location = new System.Drawing.Point(221, 615);
+            this.SubHeader14_label.Name = "SubHeader14_label";
+            this.SubHeader14_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SubHeader14_label.Size = new System.Drawing.Size(648, 37);
+            this.SubHeader14_label.TabIndex = 603;
+            this.SubHeader14_label.Text = "موافقات";
+            this.SubHeader14_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label22
+            // 
+            this.label22.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label22.AutoSize = true;
+            this.t20_tableLayoutPanel.SetColumnSpan(this.label22, 2);
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label22.Location = new System.Drawing.Point(519, 663);
+            this.label22.Margin = new System.Windows.Forms.Padding(3);
+            this.label22.Name = "label22";
+            this.label22.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label22.Size = new System.Drawing.Size(569, 29);
+            this.label22.TabIndex = 604;
+            this.label22.Text = "هل توافق على القيام بزيارات المتابعة الدورية للمشروع في حال الموافقة؟";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label20
+            // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label20.AutoSize = true;
+            this.t20_tableLayoutPanel.SetColumnSpan(this.label20, 2);
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label20.Location = new System.Drawing.Point(278, 703);
+            this.label20.Margin = new System.Windows.Forms.Padding(3);
+            this.label20.Name = "label20";
+            this.label20.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label20.Size = new System.Drawing.Size(810, 38);
+            this.label20.TabIndex = 605;
+            this.label20.Text = "هل لديك مانع في السؤال عنك أثناء فترة دراسة المشروع؟ (خبرتك - حاجتك - سمعتك - أمل" +
+    "اكك - إدارتك المشروع)";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label19
+            // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label19.AutoSize = true;
+            this.t20_tableLayoutPanel.SetColumnSpan(this.label19, 2);
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label19.Location = new System.Drawing.Point(502, 751);
+            this.label19.Margin = new System.Windows.Forms.Padding(3);
+            this.label19.Name = "label19";
+            this.label19.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label19.Size = new System.Drawing.Size(586, 29);
+            this.label19.TabIndex = 606;
+            this.label19.Text = "هل لديك مانع من إجراء فحص تقني لمعرفة مدى خبرتك في مجال مهنتك؟";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Agreement1_flowLayoutPanel
+            // 
+            this.Agreement1_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Agreement1_flowLayoutPanel.Controls.Add(this.Agreement1_No_radioButton);
+            this.Agreement1_flowLayoutPanel.Controls.Add(this.Agreement1_Yes_radioButton);
+            this.Agreement1_flowLayoutPanel.Location = new System.Drawing.Point(3, 659);
+            this.Agreement1_flowLayoutPanel.Name = "Agreement1_flowLayoutPanel";
+            this.Agreement1_flowLayoutPanel.Size = new System.Drawing.Size(212, 38);
+            this.Agreement1_flowLayoutPanel.TabIndex = 609;
+            // 
+            // Agreement1_No_radioButton
+            // 
+            this.Agreement1_No_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Agreement1_No_radioButton.AutoSize = true;
+            this.Agreement1_No_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Agreement1_No_radioButton.Location = new System.Drawing.Point(5, 5);
+            this.Agreement1_No_radioButton.Margin = new System.Windows.Forms.Padding(5);
+            this.Agreement1_No_radioButton.Name = "Agreement1_No_radioButton";
+            this.Agreement1_No_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Agreement1_No_radioButton.Size = new System.Drawing.Size(46, 33);
+            this.Agreement1_No_radioButton.TabIndex = 4;
+            this.Agreement1_No_radioButton.TabStop = true;
+            this.Agreement1_No_radioButton.Text = "لا";
+            this.Agreement1_No_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Agreement1_No_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // Agreement1_Yes_radioButton
+            // 
+            this.Agreement1_Yes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Agreement1_Yes_radioButton.AutoSize = true;
+            this.Agreement1_Yes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Agreement1_Yes_radioButton.Location = new System.Drawing.Point(71, 5);
+            this.Agreement1_Yes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.Agreement1_Yes_radioButton.Name = "Agreement1_Yes_radioButton";
+            this.Agreement1_Yes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Agreement1_Yes_radioButton.Size = new System.Drawing.Size(62, 33);
+            this.Agreement1_Yes_radioButton.TabIndex = 3;
+            this.Agreement1_Yes_radioButton.TabStop = true;
+            this.Agreement1_Yes_radioButton.Text = "نعم";
+            this.Agreement1_Yes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Agreement1_Yes_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // Agreement2_flowLayoutPanel
+            // 
+            this.Agreement2_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Agreement2_flowLayoutPanel.Controls.Add(this.Agreement2_No_radioButton);
+            this.Agreement2_flowLayoutPanel.Controls.Add(this.Agreement2_Yes_radioButton);
+            this.Agreement2_flowLayoutPanel.Location = new System.Drawing.Point(3, 703);
+            this.Agreement2_flowLayoutPanel.Name = "Agreement2_flowLayoutPanel";
+            this.Agreement2_flowLayoutPanel.Size = new System.Drawing.Size(212, 38);
+            this.Agreement2_flowLayoutPanel.TabIndex = 608;
+            // 
+            // Agreement2_No_radioButton
+            // 
+            this.Agreement2_No_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Agreement2_No_radioButton.AutoSize = true;
+            this.Agreement2_No_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Agreement2_No_radioButton.Location = new System.Drawing.Point(5, 5);
+            this.Agreement2_No_radioButton.Margin = new System.Windows.Forms.Padding(5);
+            this.Agreement2_No_radioButton.Name = "Agreement2_No_radioButton";
+            this.Agreement2_No_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Agreement2_No_radioButton.Size = new System.Drawing.Size(46, 33);
+            this.Agreement2_No_radioButton.TabIndex = 4;
+            this.Agreement2_No_radioButton.TabStop = true;
+            this.Agreement2_No_radioButton.Text = "لا";
+            this.Agreement2_No_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Agreement2_No_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // Agreement2_Yes_radioButton
+            // 
+            this.Agreement2_Yes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Agreement2_Yes_radioButton.AutoSize = true;
+            this.Agreement2_Yes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Agreement2_Yes_radioButton.Location = new System.Drawing.Point(71, 5);
+            this.Agreement2_Yes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.Agreement2_Yes_radioButton.Name = "Agreement2_Yes_radioButton";
+            this.Agreement2_Yes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Agreement2_Yes_radioButton.Size = new System.Drawing.Size(62, 33);
+            this.Agreement2_Yes_radioButton.TabIndex = 3;
+            this.Agreement2_Yes_radioButton.TabStop = true;
+            this.Agreement2_Yes_radioButton.Text = "نعم";
+            this.Agreement2_Yes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Agreement2_Yes_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // Agreement3_flowLayoutPanel
+            // 
+            this.Agreement3_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Agreement3_flowLayoutPanel.Controls.Add(this.Agreement3_No_radioButton);
+            this.Agreement3_flowLayoutPanel.Controls.Add(this.Agreement3_Yes_radioButton);
+            this.Agreement3_flowLayoutPanel.Location = new System.Drawing.Point(3, 747);
+            this.Agreement3_flowLayoutPanel.Name = "Agreement3_flowLayoutPanel";
+            this.Agreement3_flowLayoutPanel.Size = new System.Drawing.Size(212, 38);
+            this.Agreement3_flowLayoutPanel.TabIndex = 610;
+            // 
+            // Agreement3_No_radioButton
+            // 
+            this.Agreement3_No_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Agreement3_No_radioButton.AutoSize = true;
+            this.Agreement3_No_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Agreement3_No_radioButton.Location = new System.Drawing.Point(5, 5);
+            this.Agreement3_No_radioButton.Margin = new System.Windows.Forms.Padding(5);
+            this.Agreement3_No_radioButton.Name = "Agreement3_No_radioButton";
+            this.Agreement3_No_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Agreement3_No_radioButton.Size = new System.Drawing.Size(46, 33);
+            this.Agreement3_No_radioButton.TabIndex = 4;
+            this.Agreement3_No_radioButton.TabStop = true;
+            this.Agreement3_No_radioButton.Text = "لا";
+            this.Agreement3_No_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Agreement3_No_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // Agreement3_Yes_radioButton
+            // 
+            this.Agreement3_Yes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Agreement3_Yes_radioButton.AutoSize = true;
+            this.Agreement3_Yes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Agreement3_Yes_radioButton.Location = new System.Drawing.Point(71, 5);
+            this.Agreement3_Yes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.Agreement3_Yes_radioButton.Name = "Agreement3_Yes_radioButton";
+            this.Agreement3_Yes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Agreement3_Yes_radioButton.Size = new System.Drawing.Size(62, 33);
+            this.Agreement3_Yes_radioButton.TabIndex = 3;
+            this.Agreement3_Yes_radioButton.TabStop = true;
+            this.Agreement3_Yes_radioButton.Text = "نعم";
+            this.Agreement3_Yes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Agreement3_Yes_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // Agreement4_flowLayoutPanel
+            // 
+            this.Agreement4_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Agreement4_flowLayoutPanel.Controls.Add(this.Agreement4_No_radioButton);
+            this.Agreement4_flowLayoutPanel.Controls.Add(this.Agreement4_Yes_radioButton);
+            this.Agreement4_flowLayoutPanel.Location = new System.Drawing.Point(3, 791);
+            this.Agreement4_flowLayoutPanel.Name = "Agreement4_flowLayoutPanel";
+            this.Agreement4_flowLayoutPanel.Size = new System.Drawing.Size(212, 38);
+            this.Agreement4_flowLayoutPanel.TabIndex = 611;
+            // 
+            // Agreement4_No_radioButton
+            // 
+            this.Agreement4_No_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Agreement4_No_radioButton.AutoSize = true;
+            this.Agreement4_No_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Agreement4_No_radioButton.Location = new System.Drawing.Point(5, 5);
+            this.Agreement4_No_radioButton.Margin = new System.Windows.Forms.Padding(5);
+            this.Agreement4_No_radioButton.Name = "Agreement4_No_radioButton";
+            this.Agreement4_No_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Agreement4_No_radioButton.Size = new System.Drawing.Size(46, 33);
+            this.Agreement4_No_radioButton.TabIndex = 4;
+            this.Agreement4_No_radioButton.TabStop = true;
+            this.Agreement4_No_radioButton.Text = "لا";
+            this.Agreement4_No_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Agreement4_No_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // Agreement4_Yes_radioButton
+            // 
+            this.Agreement4_Yes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Agreement4_Yes_radioButton.AutoSize = true;
+            this.Agreement4_Yes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Agreement4_Yes_radioButton.Location = new System.Drawing.Point(71, 5);
+            this.Agreement4_Yes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.Agreement4_Yes_radioButton.Name = "Agreement4_Yes_radioButton";
+            this.Agreement4_Yes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Agreement4_Yes_radioButton.Size = new System.Drawing.Size(62, 33);
+            this.Agreement4_Yes_radioButton.TabIndex = 3;
+            this.Agreement4_Yes_radioButton.TabStop = true;
+            this.Agreement4_Yes_radioButton.Text = "نعم";
+            this.Agreement4_Yes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Agreement4_Yes_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // SubHeader13_label
+            // 
+            this.SubHeader13_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubHeader13_label.AutoSize = true;
+            this.SubHeader13_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.SubHeader13_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader13_label.Location = new System.Drawing.Point(221, 879);
+            this.SubHeader13_label.Name = "SubHeader13_label";
+            this.SubHeader13_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SubHeader13_label.Size = new System.Drawing.Size(648, 37);
+            this.SubHeader13_label.TabIndex = 612;
+            this.SubHeader13_label.Text = "مقترح الميزانية";
+            this.SubHeader13_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // t8_tableLayoutPanel
+            // 
+            this.t8_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.t8_tableLayoutPanel.ColumnCount = 3;
+            this.t8_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.55568F));
+            this.t8_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.42965F));
+            this.t8_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.01468F));
+            this.t8_tableLayoutPanel.Controls.Add(this.P_HasEducation_flowLayoutPanel, 0, 0);
+            this.t8_tableLayoutPanel.Controls.Add(this.Course_dataGridView, 0, 10);
+            this.t8_tableLayoutPanel.Controls.Add(this.flowLayoutPanel12, 0, 14);
+            this.t8_tableLayoutPanel.Controls.Add(this.SubHeader4_label, 1, 0);
+            this.t8_tableLayoutPanel.Controls.Add(this.Education_dataGridView, 0, 2);
+            this.t8_tableLayoutPanel.Controls.Add(this.flowLayoutPanel11, 0, 6);
+            this.t8_tableLayoutPanel.Controls.Add(this.SubHeader5_label, 1, 8);
+            this.t8_tableLayoutPanel.Controls.Add(this.P_HasCourses_flowLayoutPanel, 0, 8);
+            this.t8_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.t8_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.t8_tableLayoutPanel.Location = new System.Drawing.Point(75, 2876);
+            this.t8_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.t8_tableLayoutPanel.Name = "t8_tableLayoutPanel";
+            this.t8_tableLayoutPanel.RowCount = 16;
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.140206F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
+            this.t8_tableLayoutPanel.Size = new System.Drawing.Size(1091, 606);
+            this.t8_tableLayoutPanel.TabIndex = 540;
+            // 
+            // P_HasEducation_flowLayoutPanel
+            // 
+            this.P_HasEducation_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_HasEducation_flowLayoutPanel.Controls.Add(this.P_HasEducationNo_radioButton);
+            this.P_HasEducation_flowLayoutPanel.Controls.Add(this.P_HasEducationYes_radioButton);
+            this.P_HasEducation_flowLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.P_HasEducation_flowLayoutPanel.Name = "P_HasEducation_flowLayoutPanel";
+            this.P_HasEducation_flowLayoutPanel.Size = new System.Drawing.Size(229, 34);
+            this.P_HasEducation_flowLayoutPanel.TabIndex = 586;
+            // 
+            // P_HasEducationNo_radioButton
+            // 
+            this.P_HasEducationNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasEducationNo_radioButton.AutoSize = true;
+            this.P_HasEducationNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasEducationNo_radioButton.Location = new System.Drawing.Point(5, 5);
+            this.P_HasEducationNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
+            this.P_HasEducationNo_radioButton.Name = "P_HasEducationNo_radioButton";
+            this.P_HasEducationNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasEducationNo_radioButton.Size = new System.Drawing.Size(109, 33);
+            this.P_HasEducationNo_radioButton.TabIndex = 4;
+            this.P_HasEducationNo_radioButton.TabStop = true;
+            this.P_HasEducationNo_radioButton.Text = "غير متعلّم";
+            this.P_HasEducationNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasEducationNo_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // P_HasEducationYes_radioButton
+            // 
+            this.P_HasEducationYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasEducationYes_radioButton.AutoSize = true;
+            this.P_HasEducationYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasEducationYes_radioButton.Location = new System.Drawing.Point(134, 5);
+            this.P_HasEducationYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.P_HasEducationYes_radioButton.Name = "P_HasEducationYes_radioButton";
+            this.P_HasEducationYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasEducationYes_radioButton.Size = new System.Drawing.Size(80, 33);
+            this.P_HasEducationYes_radioButton.TabIndex = 3;
+            this.P_HasEducationYes_radioButton.TabStop = true;
+            this.P_HasEducationYes_radioButton.Text = "متعلّم";
+            this.P_HasEducationYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasEducationYes_radioButton.UseVisualStyleBackColor = true;
             // 
             // Course_dataGridView
             // 
@@ -5287,14 +6276,14 @@ namespace MyWorkApplication
             this.Course_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Course_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Course_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Course_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Course_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.Course_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Course_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CPerosn_ID,
@@ -5308,32 +6297,32 @@ namespace MyWorkApplication
             this.C_DeleteRow,
             this.C_InDataBase,
             this.C_RowID});
-            this.tableLayoutPanel7.SetColumnSpan(this.Course_dataGridView, 3);
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Course_dataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            this.t8_tableLayoutPanel.SetColumnSpan(this.Course_dataGridView, 3);
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Course_dataGridView.DefaultCellStyle = dataGridViewCellStyle26;
             this.Course_dataGridView.EnableHeadersVisualStyles = false;
             this.Course_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.Course_dataGridView.Location = new System.Drawing.Point(3, 1096);
+            this.Course_dataGridView.Location = new System.Drawing.Point(3, 364);
             this.Course_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Course_dataGridView.MultiSelect = false;
             this.Course_dataGridView.Name = "Course_dataGridView";
             this.Course_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Course_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Course_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.Course_dataGridView.RowHeadersVisible = false;
             this.Course_dataGridView.RowHeadersWidth = 51;
             this.Course_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.tableLayoutPanel7.SetRowSpan(this.Course_dataGridView, 4);
+            this.t8_tableLayoutPanel.SetRowSpan(this.Course_dataGridView, 4);
             this.Course_dataGridView.RowTemplate.Height = 35;
             this.Course_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Course_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Course_dataGridView.Size = new System.Drawing.Size(1085, 160);
+            this.Course_dataGridView.Size = new System.Drawing.Size(1085, 152);
             this.Course_dataGridView.TabIndex = 553;
             // 
             // CPerosn_ID
@@ -5380,13 +6369,12 @@ namespace MyWorkApplication
             // C_Name
             // 
             this.C_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.C_Name.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.C_Name.DisplayStyleForCurrentCellOnly = true;
             this.C_Name.FillWeight = 41.40383F;
-            this.C_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.C_Name.HeaderText = "اسم الدورة";
             this.C_Name.MinimumWidth = 6;
             this.C_Name.Name = "C_Name";
+            this.C_Name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.C_Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // C_Place
             // 
@@ -5440,207 +6428,454 @@ namespace MyWorkApplication
             this.C_RowID.Name = "C_RowID";
             this.C_RowID.Visible = false;
             // 
-            // Header3_label
+            // flowLayoutPanel12
             // 
-            this.Header3_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Header3_label.AutoSize = true;
-            this.Header3_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.tableLayoutPanel7.SetColumnSpan(this.Header3_label, 3);
-            this.Header3_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.Header3_label.ForeColor = System.Drawing.Color.White;
-            this.Header3_label.Location = new System.Drawing.Point(3, 0);
-            this.Header3_label.Name = "Header3_label";
-            this.Header3_label.Padding = new System.Windows.Forms.Padding(3);
-            this.Header3_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Header3_label.Size = new System.Drawing.Size(1085, 42);
-            this.Header3_label.TabIndex = 506;
-            this.Header3_label.Text = "الخبرات العمليّّة والتحصيل العلمي";
-            this.Header3_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label25
-            // 
-            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label25.AutoSize = true;
-            this.tableLayoutPanel7.SetColumnSpan(this.label25, 3);
-            this.label25.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.label25.Location = new System.Drawing.Point(3, 44);
-            this.label25.Name = "label25";
-            this.label25.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label25.Size = new System.Drawing.Size(1085, 37);
-            this.label25.TabIndex = 498;
-            this.label25.Text = "الخبرات العملية الحاليّة:";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Work_dataGridView
-            // 
-            this.Work_dataGridView.AllowUserToResizeRows = false;
-            this.Work_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.flowLayoutPanel12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Work_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Work_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.Work_dataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.Work_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Work_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Work_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.Work_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Work_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.WP_ID,
-            this.W_ID,
-            this.W_Name,
-            this.W_WorkType,
-            this.W_BeginDate,
-            this.W_PlaceState,
-            this.W_Place,
-            this.W_Contact,
-            this.W_Salary,
-            this.W_DeleteRow,
-            this.W_InDataBase,
-            this.W_RowID});
-            this.tableLayoutPanel7.SetColumnSpan(this.Work_dataGridView, 3);
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Work_dataGridView.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Work_dataGridView.EnableHeadersVisualStyles = false;
-            this.Work_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.Work_dataGridView.Location = new System.Drawing.Point(3, 88);
-            this.Work_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Work_dataGridView.MultiSelect = false;
-            this.Work_dataGridView.Name = "Work_dataGridView";
-            this.Work_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Work_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.Work_dataGridView.RowHeadersVisible = false;
-            this.Work_dataGridView.RowHeadersWidth = 51;
-            this.tableLayoutPanel7.SetRowSpan(this.Work_dataGridView, 5);
-            this.Work_dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Work_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Work_dataGridView.RowTemplate.Height = 35;
-            this.Work_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Work_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Work_dataGridView.Size = new System.Drawing.Size(1085, 202);
-            this.Work_dataGridView.TabIndex = 31;
+            this.t8_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel12, 3);
+            this.flowLayoutPanel12.Controls.Add(this.label67);
+            this.flowLayoutPanel12.Controls.Add(this.label66);
+            this.flowLayoutPanel12.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel12.Location = new System.Drawing.Point(3, 523);
+            this.flowLayoutPanel12.Name = "flowLayoutPanel12";
+            this.flowLayoutPanel12.Size = new System.Drawing.Size(1085, 34);
+            this.flowLayoutPanel12.TabIndex = 566;
             // 
-            // WP_ID
+            // label67
             // 
-            this.WP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.WP_ID.HeaderText = "WP_ID";
-            this.WP_ID.MinimumWidth = 6;
-            this.WP_ID.Name = "WP_ID";
-            this.WP_ID.Visible = false;
+            this.label67.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label67.Location = new System.Drawing.Point(989, 0);
+            this.label67.Margin = new System.Windows.Forms.Padding(0);
+            this.label67.Name = "label67";
+            this.label67.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label67.Size = new System.Drawing.Size(96, 23);
+            this.label67.TabIndex = 263;
+            this.label67.Text = "*نوع الدورات:";
+            this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // W_ID
+            // label66
             // 
-            this.W_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_ID.HeaderText = "W_ID";
-            this.W_ID.MinimumWidth = 6;
-            this.W_ID.Name = "W_ID";
-            this.W_ID.Visible = false;
+            this.label66.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label66.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label66.Location = new System.Drawing.Point(528, 0);
+            this.label66.Margin = new System.Windows.Forms.Padding(0);
+            this.label66.Name = "label66";
+            this.label66.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label66.Size = new System.Drawing.Size(461, 23);
+            this.label66.TabIndex = 264;
+            this.label66.Text = "بحسب الفئات التي لدينا في البرنامج (Media - Medical - Music - Craft..)";
+            this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // W_Name
+            // SubHeader4_label
             // 
-            this.W_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_Name.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.W_Name.DisplayStyleForCurrentCellOnly = true;
-            this.W_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.W_Name.HeaderText = "المهنة";
-            this.W_Name.MinimumWidth = 6;
-            this.W_Name.Name = "W_Name";
-            this.W_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.SubHeader4_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubHeader4_label.AutoSize = true;
+            this.SubHeader4_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.SubHeader4_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader4_label.Location = new System.Drawing.Point(238, 1);
+            this.SubHeader4_label.Name = "SubHeader4_label";
+            this.SubHeader4_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SubHeader4_label.Size = new System.Drawing.Size(631, 37);
+            this.SubHeader4_label.TabIndex = 553;
+            this.SubHeader4_label.Text = "التحصيل العلمي";
+            this.SubHeader4_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // W_WorkType
+            // Education_dataGridView
             // 
-            this.W_WorkType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_WorkType.HeaderText = "طبيعة العمل";
-            this.W_WorkType.MinimumWidth = 6;
-            this.W_WorkType.Name = "W_WorkType";
-            this.W_WorkType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.W_WorkType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Education_dataGridView.AllowUserToResizeRows = false;
+            this.Education_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Education_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Education_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.Education_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.Education_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Education_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Education_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            this.Education_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Education_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PE_ID,
+            this.E_ID,
+            this.P_ID,
+            this.E_Level,
+            this.E_Type,
+            this.E_Name,
+            this.Edu_DeleteRow,
+            this.Edu_InDataBase,
+            this.Edu_RowID});
+            this.t8_tableLayoutPanel.SetColumnSpan(this.Education_dataGridView, 3);
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Education_dataGridView.DefaultCellStyle = dataGridViewCellStyle29;
+            this.Education_dataGridView.EnableHeadersVisualStyles = false;
+            this.Education_dataGridView.GridColor = System.Drawing.Color.DarkGray;
+            this.Education_dataGridView.Location = new System.Drawing.Point(3, 64);
+            this.Education_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Education_dataGridView.MultiSelect = false;
+            this.Education_dataGridView.Name = "Education_dataGridView";
+            this.Education_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Education_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            this.Education_dataGridView.RowHeadersVisible = false;
+            this.Education_dataGridView.RowHeadersWidth = 51;
+            this.Education_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.t8_tableLayoutPanel.SetRowSpan(this.Education_dataGridView, 4);
+            this.Education_dataGridView.RowTemplate.Height = 35;
+            this.Education_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Education_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.Education_dataGridView.Size = new System.Drawing.Size(1085, 152);
+            this.Education_dataGridView.TabIndex = 552;
             // 
-            // W_BeginDate
+            // PE_ID
             // 
-            this.W_BeginDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_BeginDate.HeaderText = "تاريخ البداية";
-            this.W_BeginDate.MinimumWidth = 6;
-            this.W_BeginDate.Name = "W_BeginDate";
+            this.PE_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PE_ID.HeaderText = "PE_ID";
+            this.PE_ID.MinimumWidth = 6;
+            this.PE_ID.Name = "PE_ID";
+            this.PE_ID.Visible = false;
             // 
-            // W_PlaceState
+            // E_ID
             // 
-            this.W_PlaceState.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_PlaceState.HeaderText = "ملكية العقار";
-            this.W_PlaceState.MinimumWidth = 6;
-            this.W_PlaceState.Name = "W_PlaceState";
+            this.E_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_ID.HeaderText = "E_ID";
+            this.E_ID.MinimumWidth = 6;
+            this.E_ID.Name = "E_ID";
+            this.E_ID.Visible = false;
             // 
-            // W_Place
+            // P_ID
             // 
-            this.W_Place.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_Place.HeaderText = "العنوان";
-            this.W_Place.MinimumWidth = 6;
-            this.W_Place.Name = "W_Place";
+            this.P_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_ID.HeaderText = "P_ID";
+            this.P_ID.MinimumWidth = 6;
+            this.P_ID.Name = "P_ID";
+            this.P_ID.Visible = false;
             // 
-            // W_Contact
+            // E_Level
             // 
-            this.W_Contact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_Contact.HeaderText = "اسم ورقم صاحب العمل";
-            this.W_Contact.MinimumWidth = 6;
-            this.W_Contact.Name = "W_Contact";
+            this.E_Level.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_Level.DisplayStyleForCurrentCellOnly = true;
+            this.E_Level.FillWeight = 33F;
+            this.E_Level.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E_Level.HeaderText = "التحصيل العلمي";
+            this.E_Level.MinimumWidth = 6;
+            this.E_Level.Name = "E_Level";
             // 
-            // W_Salary
+            // E_Type
             // 
-            this.W_Salary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_Salary.HeaderText = "الربح";
-            this.W_Salary.MinimumWidth = 6;
-            this.W_Salary.Name = "W_Salary";
+            this.E_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_Type.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.E_Type.DisplayStyleForCurrentCellOnly = true;
+            this.E_Type.FillWeight = 33F;
+            this.E_Type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E_Type.HeaderText = "الدرجة العلمية";
+            this.E_Type.Items.AddRange(new object[] {
+            "إجازة جامعية",
+            "تعليم أساسي",
+            "دبلوم",
+            "دكتوراه",
+            "ماجستير",
+            "معهد"});
+            this.E_Type.MinimumWidth = 6;
+            this.E_Type.Name = "E_Type";
             // 
-            // W_DeleteRow
+            // E_Name
             // 
-            this.W_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.W_DeleteRow.FillWeight = 40F;
-            this.W_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.W_DeleteRow.HeaderText = " ";
-            this.W_DeleteRow.MinimumWidth = 50;
-            this.W_DeleteRow.Name = "W_DeleteRow";
-            this.W_DeleteRow.Width = 50;
+            this.E_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_Name.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.E_Name.DisplayStyleForCurrentCellOnly = true;
+            this.E_Name.FillWeight = 33F;
+            this.E_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E_Name.HeaderText = "الاختصاص";
+            this.E_Name.MinimumWidth = 6;
+            this.E_Name.Name = "E_Name";
             // 
-            // W_InDataBase
+            // Edu_DeleteRow
             // 
-            this.W_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_InDataBase.HeaderText = "W_InDataBase";
-            this.W_InDataBase.MinimumWidth = 6;
-            this.W_InDataBase.Name = "W_InDataBase";
-            this.W_InDataBase.Visible = false;
+            this.Edu_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Edu_DeleteRow.FillWeight = 10F;
+            this.Edu_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Edu_DeleteRow.HeaderText = " ";
+            this.Edu_DeleteRow.MinimumWidth = 50;
+            this.Edu_DeleteRow.Name = "Edu_DeleteRow";
+            this.Edu_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Edu_DeleteRow.Text = "Delete";
+            this.Edu_DeleteRow.UseColumnTextForButtonValue = true;
+            this.Edu_DeleteRow.Width = 50;
             // 
-            // W_RowID
+            // Edu_InDataBase
             // 
-            this.W_RowID.HeaderText = "W_RowID";
-            this.W_RowID.MinimumWidth = 6;
-            this.W_RowID.Name = "W_RowID";
-            this.W_RowID.Visible = false;
+            this.Edu_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Edu_InDataBase.HeaderText = "Edu_InDataBase";
+            this.Edu_InDataBase.MinimumWidth = 6;
+            this.Edu_InDataBase.Name = "Edu_InDataBase";
+            this.Edu_InDataBase.Visible = false;
             // 
-            // label49
+            // Edu_RowID
             // 
-            this.label49.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label49.AutoSize = true;
-            this.tableLayoutPanel7.SetColumnSpan(this.label49, 3);
-            this.label49.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.label49.Location = new System.Drawing.Point(3, 338);
-            this.label49.Name = "label49";
-            this.label49.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label49.Size = new System.Drawing.Size(1085, 37);
-            this.label49.TabIndex = 507;
-            this.label49.Text = "الخبرات العملية السابقة:";
-            this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Edu_RowID.HeaderText = "Edu_RowID";
+            this.Edu_RowID.MinimumWidth = 6;
+            this.Edu_RowID.Name = "Edu_RowID";
+            this.Edu_RowID.Visible = false;
+            // 
+            // flowLayoutPanel11
+            // 
+            this.flowLayoutPanel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.t8_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel11, 3);
+            this.flowLayoutPanel11.Controls.Add(this.label58);
+            this.flowLayoutPanel11.Controls.Add(this.label57);
+            this.flowLayoutPanel11.Controls.Add(this.label28);
+            this.flowLayoutPanel11.Controls.Add(this.label31);
+            this.flowLayoutPanel11.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 223);
+            this.flowLayoutPanel11.Name = "flowLayoutPanel11";
+            this.flowLayoutPanel11.Size = new System.Drawing.Size(1085, 34);
+            this.flowLayoutPanel11.TabIndex = 565;
+            // 
+            // label58
+            // 
+            this.label58.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label58.Location = new System.Drawing.Point(962, 0);
+            this.label58.Margin = new System.Windows.Forms.Padding(0);
+            this.label58.Name = "label58";
+            this.label58.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label58.Size = new System.Drawing.Size(123, 23);
+            this.label58.TabIndex = 263;
+            this.label58.Text = "*التحصيل العلمي:";
+            this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label57
+            // 
+            this.label57.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label57.Location = new System.Drawing.Point(805, 0);
+            this.label57.Margin = new System.Windows.Forms.Padding(0);
+            this.label57.Name = "label57";
+            this.label57.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label57.Size = new System.Drawing.Size(157, 23);
+            this.label57.TabIndex = 264;
+            this.label57.Text = "طالب - متخرّج - متوقف";
+            this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label28
+            // 
+            this.label28.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label28.Location = new System.Drawing.Point(692, 0);
+            this.label28.Margin = new System.Windows.Forms.Padding(0);
+            this.label28.Name = "label28";
+            this.label28.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label28.Size = new System.Drawing.Size(113, 23);
+            this.label28.TabIndex = 265;
+            this.label28.Text = "*الدرجة العلمية:";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label31
+            // 
+            this.label31.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label31.Location = new System.Drawing.Point(457, 0);
+            this.label31.Margin = new System.Windows.Forms.Padding(0);
+            this.label31.Name = "label31";
+            this.label31.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label31.Size = new System.Drawing.Size(235, 23);
+            this.label31.TabIndex = 266;
+            this.label31.Text = "تعليم أساسي - جامعة - دراسات عليا.";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // SubHeader5_label
+            // 
+            this.SubHeader5_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubHeader5_label.AutoSize = true;
+            this.SubHeader5_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.SubHeader5_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader5_label.Location = new System.Drawing.Point(238, 301);
+            this.SubHeader5_label.Name = "SubHeader5_label";
+            this.SubHeader5_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SubHeader5_label.Size = new System.Drawing.Size(631, 37);
+            this.SubHeader5_label.TabIndex = 555;
+            this.SubHeader5_label.Text = "الدورات المتّّبعة";
+            this.SubHeader5_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // P_HasCourses_flowLayoutPanel
+            // 
+            this.P_HasCourses_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_HasCourses_flowLayoutPanel.Controls.Add(this.P_HasCoursesNo_radioButton);
+            this.P_HasCourses_flowLayoutPanel.Controls.Add(this.P_HasCoursesYes_radioButton);
+            this.P_HasCourses_flowLayoutPanel.Location = new System.Drawing.Point(3, 303);
+            this.P_HasCourses_flowLayoutPanel.Name = "P_HasCourses_flowLayoutPanel";
+            this.P_HasCourses_flowLayoutPanel.Size = new System.Drawing.Size(229, 34);
+            this.P_HasCourses_flowLayoutPanel.TabIndex = 585;
+            // 
+            // P_HasCoursesNo_radioButton
+            // 
+            this.P_HasCoursesNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasCoursesNo_radioButton.AutoSize = true;
+            this.P_HasCoursesNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasCoursesNo_radioButton.Location = new System.Drawing.Point(5, 5);
+            this.P_HasCoursesNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
+            this.P_HasCoursesNo_radioButton.Name = "P_HasCoursesNo_radioButton";
+            this.P_HasCoursesNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasCoursesNo_radioButton.Size = new System.Drawing.Size(90, 33);
+            this.P_HasCoursesNo_radioButton.TabIndex = 4;
+            this.P_HasCoursesNo_radioButton.TabStop = true;
+            this.P_HasCoursesNo_radioButton.Text = "لا يوجد";
+            this.P_HasCoursesNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasCoursesNo_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // P_HasCoursesYes_radioButton
+            // 
+            this.P_HasCoursesYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasCoursesYes_radioButton.AutoSize = true;
+            this.P_HasCoursesYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasCoursesYes_radioButton.Location = new System.Drawing.Point(115, 5);
+            this.P_HasCoursesYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.P_HasCoursesYes_radioButton.Name = "P_HasCoursesYes_radioButton";
+            this.P_HasCoursesYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasCoursesYes_radioButton.Size = new System.Drawing.Size(73, 33);
+            this.P_HasCoursesYes_radioButton.TabIndex = 3;
+            this.P_HasCoursesYes_radioButton.TabStop = true;
+            this.P_HasCoursesYes_radioButton.Text = "يوجد";
+            this.P_HasCoursesYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasCoursesYes_radioButton.UseVisualStyleBackColor = true;
+            // 
+            // t7_tableLayoutPanel
+            // 
+            this.t7_tableLayoutPanel.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.t7_tableLayoutPanel.ColumnCount = 3;
+            this.t7_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.26123F));
+            this.t7_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.66544F));
+            this.t7_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.t7_tableLayoutPanel.Controls.Add(this.P_WorkYears_textBox, 0, 0);
+            this.t7_tableLayoutPanel.Controls.Add(this.label2, 1, 0);
+            this.t7_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.t7_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.t7_tableLayoutPanel.Location = new System.Drawing.Point(75, 2802);
+            this.t7_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.t7_tableLayoutPanel.Name = "t7_tableLayoutPanel";
+            this.t7_tableLayoutPanel.RowCount = 2;
+            this.t7_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t7_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t7_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t7_tableLayoutPanel.Size = new System.Drawing.Size(1091, 74);
+            this.t7_tableLayoutPanel.TabIndex = 549;
+            // 
+            // t6_tableLayoutPanel
+            // 
+            this.t6_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.t6_tableLayoutPanel.ColumnCount = 3;
+            this.t6_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.t6_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.t6_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.t6_tableLayoutPanel.Controls.Add(this.SubHeader3_label, 1, 0);
+            this.t6_tableLayoutPanel.Controls.Add(this.flowLayoutPanel10, 0, 8);
+            this.t6_tableLayoutPanel.Controls.Add(this.Exp_dataGridView, 0, 2);
+            this.t6_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.t6_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.t6_tableLayoutPanel.Location = new System.Drawing.Point(75, 2479);
+            this.t6_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.t6_tableLayoutPanel.Name = "t6_tableLayoutPanel";
+            this.t6_tableLayoutPanel.RowCount = 9;
+            this.t6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.t6_tableLayoutPanel.Size = new System.Drawing.Size(1091, 323);
+            this.t6_tableLayoutPanel.TabIndex = 548;
+            // 
+            // SubHeader3_label
+            // 
+            this.SubHeader3_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubHeader3_label.AutoSize = true;
+            this.SubHeader3_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.SubHeader3_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader3_label.Location = new System.Drawing.Point(221, 0);
+            this.SubHeader3_label.Name = "SubHeader3_label";
+            this.SubHeader3_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SubHeader3_label.Size = new System.Drawing.Size(648, 37);
+            this.SubHeader3_label.TabIndex = 507;
+            this.SubHeader3_label.Text = "الخبرات العملية السابقة:";
+            this.SubHeader3_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel10
+            // 
+            this.flowLayoutPanel10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.t6_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel10, 3);
+            this.flowLayoutPanel10.Controls.Add(this.label53);
+            this.flowLayoutPanel10.Controls.Add(this.label51);
+            this.flowLayoutPanel10.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 282);
+            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(1085, 38);
+            this.flowLayoutPanel10.TabIndex = 564;
+            // 
+            // label53
+            // 
+            this.label53.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label53.Location = new System.Drawing.Point(985, 0);
+            this.label53.Margin = new System.Windows.Forms.Padding(0);
+            this.label53.Name = "label53";
+            this.label53.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label53.Size = new System.Drawing.Size(100, 23);
+            this.label53.TabIndex = 263;
+            this.label53.Text = "*طبيعة العمل:";
+            this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label51
+            // 
+            this.label51.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label51.Location = new System.Drawing.Point(357, 0);
+            this.label51.Margin = new System.Windows.Forms.Padding(0);
+            this.label51.Name = "label51";
+            this.label51.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label51.Size = new System.Drawing.Size(628, 23);
+            this.label51.TabIndex = 264;
+            this.label51.Text = "بحسب ملف الحاجة (صا حب العمل - شريك - صانع - موظّّف قطّّاع عام - موظّّف قطّّاع خا" +
+    "ص - لايعمل)";
+            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Exp_dataGridView
             // 
@@ -5653,10 +6888,10 @@ namespace MyWorkApplication
             this.Exp_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Exp_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Exp_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Exp_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Exp_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.Exp_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Exp_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ExpP_ID,
@@ -5672,30 +6907,30 @@ namespace MyWorkApplication
             this.Exp_DeleteRow,
             this.Exp_InDataBase,
             this.Exp_RowID});
-            this.tableLayoutPanel7.SetColumnSpan(this.Exp_dataGridView, 3);
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Exp_dataGridView.DefaultCellStyle = dataGridViewCellStyle12;
+            this.t6_tableLayoutPanel.SetColumnSpan(this.Exp_dataGridView, 3);
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Exp_dataGridView.DefaultCellStyle = dataGridViewCellStyle32;
             this.Exp_dataGridView.EnableHeadersVisualStyles = false;
             this.Exp_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.Exp_dataGridView.Location = new System.Drawing.Point(3, 382);
+            this.Exp_dataGridView.Location = new System.Drawing.Point(3, 61);
             this.Exp_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Exp_dataGridView.MultiSelect = false;
             this.Exp_dataGridView.Name = "Exp_dataGridView";
             this.Exp_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Exp_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Exp_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.Exp_dataGridView.RowHeadersVisible = false;
             this.Exp_dataGridView.RowHeadersWidth = 51;
-            this.tableLayoutPanel7.SetRowSpan(this.Exp_dataGridView, 6);
+            this.t6_tableLayoutPanel.SetRowSpan(this.Exp_dataGridView, 6);
             this.Exp_dataGridView.RowTemplate.Height = 35;
             this.Exp_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Exp_dataGridView.Size = new System.Drawing.Size(1085, 244);
+            this.Exp_dataGridView.Size = new System.Drawing.Size(1085, 214);
             this.Exp_dataGridView.TabIndex = 508;
             // 
             // ExpP_ID
@@ -5728,6 +6963,9 @@ namespace MyWorkApplication
             // Exp_WorkType
             // 
             this.Exp_WorkType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Exp_WorkType.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.Exp_WorkType.DisplayStyleForCurrentCellOnly = true;
+            this.Exp_WorkType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Exp_WorkType.HeaderText = "طبيعة العمل";
             this.Exp_WorkType.MinimumWidth = 6;
             this.Exp_WorkType.Name = "Exp_WorkType";
@@ -5800,487 +7038,282 @@ namespace MyWorkApplication
             this.Exp_RowID.Name = "Exp_RowID";
             this.Exp_RowID.Visible = false;
             // 
-            // flowLayoutPanel10
+            // t5_tableLayoutPanel
             // 
-            this.flowLayoutPanel10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.t5_tableLayoutPanel.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.t5_tableLayoutPanel.ColumnCount = 3;
+            this.t5_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.t5_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.t5_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.t5_tableLayoutPanel.Controls.Add(this.MainHeader2_label, 0, 1);
+            this.t5_tableLayoutPanel.Controls.Add(this.Work_dataGridView, 0, 5);
+            this.t5_tableLayoutPanel.Controls.Add(this.SubHeader2_label, 0, 3);
+            this.t5_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.t5_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.t5_tableLayoutPanel.Location = new System.Drawing.Point(75, 2094);
+            this.t5_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.t5_tableLayoutPanel.Name = "t5_tableLayoutPanel";
+            this.t5_tableLayoutPanel.RowCount = 11;
+            this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.96081F));
+            this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.71988F));
+            this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.71988F));
+            this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.71988F));
+            this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.71988F));
+            this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.71988F));
+            this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.71988F));
+            this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.71988F));
+            this.t5_tableLayoutPanel.Size = new System.Drawing.Size(1091, 385);
+            this.t5_tableLayoutPanel.TabIndex = 547;
+            // 
+            // MainHeader2_label
+            // 
+            this.MainHeader2_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MainHeader2_label.AutoSize = true;
+            this.MainHeader2_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.t5_tableLayoutPanel.SetColumnSpan(this.MainHeader2_label, 3);
+            this.MainHeader2_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.MainHeader2_label.ForeColor = System.Drawing.Color.White;
+            this.MainHeader2_label.Location = new System.Drawing.Point(3, 41);
+            this.MainHeader2_label.Name = "MainHeader2_label";
+            this.MainHeader2_label.Padding = new System.Windows.Forms.Padding(3);
+            this.MainHeader2_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MainHeader2_label.Size = new System.Drawing.Size(1085, 43);
+            this.MainHeader2_label.TabIndex = 506;
+            this.MainHeader2_label.Text = "الخبرات العمليّّة والتحصيل العلمي";
+            this.MainHeader2_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Work_dataGridView
+            // 
+            this.Work_dataGridView.AllowUserToResizeRows = false;
+            this.Work_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel7.SetColumnSpan(this.flowLayoutPanel10, 3);
-            this.flowLayoutPanel10.Controls.Add(this.label53);
-            this.flowLayoutPanel10.Controls.Add(this.label51);
-            this.flowLayoutPanel10.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 633);
-            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(1085, 36);
-            this.flowLayoutPanel10.TabIndex = 564;
+            this.Work_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Work_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.Work_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.Work_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Work_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Work_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            this.Work_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Work_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.WP_ID,
+            this.W_ID,
+            this.W_Name,
+            this.W_WorkType,
+            this.W_BeginDate,
+            this.W_PlaceState,
+            this.W_Place,
+            this.W_Contact,
+            this.W_Salary,
+            this.W_DeleteRow,
+            this.W_InDataBase,
+            this.W_RowID});
+            this.t5_tableLayoutPanel.SetColumnSpan(this.Work_dataGridView, 3);
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Work_dataGridView.DefaultCellStyle = dataGridViewCellStyle35;
+            this.Work_dataGridView.EnableHeadersVisualStyles = false;
+            this.Work_dataGridView.GridColor = System.Drawing.Color.DarkGray;
+            this.Work_dataGridView.Location = new System.Drawing.Point(3, 173);
+            this.Work_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Work_dataGridView.MultiSelect = false;
+            this.Work_dataGridView.Name = "Work_dataGridView";
+            this.Work_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Work_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            this.Work_dataGridView.RowHeadersVisible = false;
+            this.Work_dataGridView.RowHeadersWidth = 51;
+            this.t5_tableLayoutPanel.SetRowSpan(this.Work_dataGridView, 5);
+            this.Work_dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Work_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Work_dataGridView.RowTemplate.Height = 35;
+            this.Work_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Work_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.Work_dataGridView.Size = new System.Drawing.Size(1085, 167);
+            this.Work_dataGridView.TabIndex = 31;
             // 
-            // label53
+            // WP_ID
             // 
-            this.label53.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.label53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label53.Location = new System.Drawing.Point(985, 0);
-            this.label53.Margin = new System.Windows.Forms.Padding(0);
-            this.label53.Name = "label53";
-            this.label53.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label53.Size = new System.Drawing.Size(100, 23);
-            this.label53.TabIndex = 263;
-            this.label53.Text = "*طبيعة العمل:";
-            this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.WP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.WP_ID.HeaderText = "WP_ID";
+            this.WP_ID.MinimumWidth = 6;
+            this.WP_ID.Name = "WP_ID";
+            this.WP_ID.Visible = false;
             // 
-            // label51
+            // W_ID
             // 
-            this.label51.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Rubik", 9F);
-            this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label51.Location = new System.Drawing.Point(357, 0);
-            this.label51.Margin = new System.Windows.Forms.Padding(0);
-            this.label51.Name = "label51";
-            this.label51.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label51.Size = new System.Drawing.Size(628, 23);
-            this.label51.TabIndex = 264;
-            this.label51.Text = "بحسب ملف الحاجة (صا حب العمل - شريك - صانع - موظّّف قطّّاع عام - موظّّف قطّّاع خا" +
-    "ص - لايعمل)";
-            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.W_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_ID.HeaderText = "W_ID";
+            this.W_ID.MinimumWidth = 6;
+            this.W_ID.Name = "W_ID";
+            this.W_ID.Visible = false;
             // 
-            // flowLayoutPanel12
+            // W_Name
             // 
-            this.flowLayoutPanel12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel7.SetColumnSpan(this.flowLayoutPanel12, 3);
-            this.flowLayoutPanel12.Controls.Add(this.label67);
-            this.flowLayoutPanel12.Controls.Add(this.label66);
-            this.flowLayoutPanel12.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel12.Location = new System.Drawing.Point(3, 1263);
-            this.flowLayoutPanel12.Name = "flowLayoutPanel12";
-            this.flowLayoutPanel12.Size = new System.Drawing.Size(1085, 36);
-            this.flowLayoutPanel12.TabIndex = 566;
+            this.W_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_Name.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.W_Name.DisplayStyleForCurrentCellOnly = true;
+            this.W_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.W_Name.HeaderText = "المهنة";
+            this.W_Name.MinimumWidth = 6;
+            this.W_Name.Name = "W_Name";
+            this.W_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // label67
+            // W_WorkType
             // 
-            this.label67.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label67.Location = new System.Drawing.Point(989, 0);
-            this.label67.Margin = new System.Windows.Forms.Padding(0);
-            this.label67.Name = "label67";
-            this.label67.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label67.Size = new System.Drawing.Size(96, 23);
-            this.label67.TabIndex = 263;
-            this.label67.Text = "*نوع الدورات:";
-            this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.W_WorkType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_WorkType.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.W_WorkType.DisplayStyleForCurrentCellOnly = true;
+            this.W_WorkType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.W_WorkType.HeaderText = "طبيعة العمل";
+            this.W_WorkType.MinimumWidth = 6;
+            this.W_WorkType.Name = "W_WorkType";
+            this.W_WorkType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.W_WorkType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // label66
+            // W_BeginDate
             // 
-            this.label66.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label66.AutoSize = true;
-            this.label66.Font = new System.Drawing.Font("Rubik", 9F);
-            this.label66.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label66.Location = new System.Drawing.Point(528, 0);
-            this.label66.Margin = new System.Windows.Forms.Padding(0);
-            this.label66.Name = "label66";
-            this.label66.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label66.Size = new System.Drawing.Size(461, 23);
-            this.label66.TabIndex = 264;
-            this.label66.Text = "بحسب الفئات التي لدينا في البرنامج (Media - Medical - Music - Craft..)";
-            this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.W_BeginDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_BeginDate.HeaderText = "تاريخ البداية";
+            this.W_BeginDate.MinimumWidth = 6;
+            this.W_BeginDate.Name = "W_BeginDate";
             // 
-            // label64
+            // W_PlaceState
             // 
-            this.label64.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label64.AutoSize = true;
-            this.label64.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.label64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.label64.Location = new System.Drawing.Point(221, 1052);
-            this.label64.Name = "label64";
-            this.label64.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label64.Size = new System.Drawing.Size(648, 37);
-            this.label64.TabIndex = 555;
-            this.label64.Text = "الدورات المتّّبعة";
-            this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.W_PlaceState.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_PlaceState.HeaderText = "ملكية العقار";
+            this.W_PlaceState.MinimumWidth = 6;
+            this.W_PlaceState.Name = "W_PlaceState";
             // 
-            // P_HasCourses_flowLayoutPanel
+            // W_Place
             // 
-            this.P_HasCourses_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_HasCourses_flowLayoutPanel.Controls.Add(this.P_HasCoursesNo_radioButton);
-            this.P_HasCourses_flowLayoutPanel.Controls.Add(this.P_HasCoursesYes_radioButton);
-            this.P_HasCourses_flowLayoutPanel.Location = new System.Drawing.Point(3, 1053);
-            this.P_HasCourses_flowLayoutPanel.Name = "P_HasCourses_flowLayoutPanel";
-            this.P_HasCourses_flowLayoutPanel.Size = new System.Drawing.Size(212, 36);
-            this.P_HasCourses_flowLayoutPanel.TabIndex = 585;
+            this.W_Place.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_Place.HeaderText = "العنوان";
+            this.W_Place.MinimumWidth = 6;
+            this.W_Place.Name = "W_Place";
             // 
-            // P_HasCoursesNo_radioButton
+            // W_Contact
             // 
-            this.P_HasCoursesNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasCoursesNo_radioButton.AutoSize = true;
-            this.P_HasCoursesNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasCoursesNo_radioButton.Location = new System.Drawing.Point(5, 5);
-            this.P_HasCoursesNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
-            this.P_HasCoursesNo_radioButton.Name = "P_HasCoursesNo_radioButton";
-            this.P_HasCoursesNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasCoursesNo_radioButton.Size = new System.Drawing.Size(90, 33);
-            this.P_HasCoursesNo_radioButton.TabIndex = 4;
-            this.P_HasCoursesNo_radioButton.TabStop = true;
-            this.P_HasCoursesNo_radioButton.Text = "لا يوجد";
-            this.P_HasCoursesNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasCoursesNo_radioButton.UseVisualStyleBackColor = true;
+            this.W_Contact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_Contact.HeaderText = "اسم ورقم صاحب العمل";
+            this.W_Contact.MinimumWidth = 6;
+            this.W_Contact.Name = "W_Contact";
             // 
-            // P_HasCoursesYes_radioButton
+            // W_Salary
             // 
-            this.P_HasCoursesYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasCoursesYes_radioButton.AutoSize = true;
-            this.P_HasCoursesYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasCoursesYes_radioButton.Location = new System.Drawing.Point(115, 5);
-            this.P_HasCoursesYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.P_HasCoursesYes_radioButton.Name = "P_HasCoursesYes_radioButton";
-            this.P_HasCoursesYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasCoursesYes_radioButton.Size = new System.Drawing.Size(73, 33);
-            this.P_HasCoursesYes_radioButton.TabIndex = 3;
-            this.P_HasCoursesYes_radioButton.TabStop = true;
-            this.P_HasCoursesYes_radioButton.Text = "يوجد";
-            this.P_HasCoursesYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasCoursesYes_radioButton.UseVisualStyleBackColor = true;
+            this.W_Salary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_Salary.HeaderText = "الربح";
+            this.W_Salary.MinimumWidth = 6;
+            this.W_Salary.Name = "W_Salary";
             // 
-            // P_HasEducation_flowLayoutPanel
+            // W_DeleteRow
             // 
-            this.P_HasEducation_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_HasEducation_flowLayoutPanel.Controls.Add(this.P_HasEducationYes_radioButton);
-            this.P_HasEducation_flowLayoutPanel.Controls.Add(this.P_HasEducationNo_radioButton);
-            this.P_HasEducation_flowLayoutPanel.Controls.Add(this.radioButton9);
-            this.P_HasEducation_flowLayoutPanel.Location = new System.Drawing.Point(3, 759);
-            this.P_HasEducation_flowLayoutPanel.Name = "P_HasEducation_flowLayoutPanel";
-            this.P_HasEducation_flowLayoutPanel.Size = new System.Drawing.Size(212, 36);
-            this.P_HasEducation_flowLayoutPanel.TabIndex = 586;
+            this.W_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.W_DeleteRow.FillWeight = 40F;
+            this.W_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.W_DeleteRow.HeaderText = " ";
+            this.W_DeleteRow.MinimumWidth = 50;
+            this.W_DeleteRow.Name = "W_DeleteRow";
+            this.W_DeleteRow.Width = 50;
             // 
-            // P_HasEducationYes_radioButton
+            // W_InDataBase
             // 
-            this.P_HasEducationYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasEducationYes_radioButton.AutoSize = true;
-            this.P_HasEducationYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasEducationYes_radioButton.Location = new System.Drawing.Point(15, 0);
-            this.P_HasEducationYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.P_HasEducationYes_radioButton.Name = "P_HasEducationYes_radioButton";
-            this.P_HasEducationYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasEducationYes_radioButton.Size = new System.Drawing.Size(80, 33);
-            this.P_HasEducationYes_radioButton.TabIndex = 3;
-            this.P_HasEducationYes_radioButton.TabStop = true;
-            this.P_HasEducationYes_radioButton.Text = "متعلم";
-            this.P_HasEducationYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasEducationYes_radioButton.UseVisualStyleBackColor = true;
+            this.W_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_InDataBase.HeaderText = "W_InDataBase";
+            this.W_InDataBase.MinimumWidth = 6;
+            this.W_InDataBase.Name = "W_InDataBase";
+            this.W_InDataBase.Visible = false;
             // 
-            // P_HasEducationNo_radioButton
+            // W_RowID
             // 
-            this.P_HasEducationNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasEducationNo_radioButton.AutoSize = true;
-            this.P_HasEducationNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasEducationNo_radioButton.Location = new System.Drawing.Point(5, 38);
-            this.P_HasEducationNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
-            this.P_HasEducationNo_radioButton.Name = "P_HasEducationNo_radioButton";
-            this.P_HasEducationNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasEducationNo_radioButton.Size = new System.Drawing.Size(109, 33);
-            this.P_HasEducationNo_radioButton.TabIndex = 4;
-            this.P_HasEducationNo_radioButton.TabStop = true;
-            this.P_HasEducationNo_radioButton.Text = "غير متعلّم";
-            this.P_HasEducationNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasEducationNo_radioButton.UseVisualStyleBackColor = true;
+            this.W_RowID.HeaderText = "W_RowID";
+            this.W_RowID.MinimumWidth = 6;
+            this.W_RowID.Name = "W_RowID";
+            this.W_RowID.Visible = false;
             // 
-            // radioButton9
+            // SubHeader2_label
             // 
-            this.radioButton9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(134, 38);
-            this.radioButton9.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radioButton9.Size = new System.Drawing.Size(77, 33);
-            this.radioButton9.TabIndex = 3;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "طالب";
-            this.radioButton9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.SubHeader2_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubHeader2_label.AutoSize = true;
+            this.t5_tableLayoutPanel.SetColumnSpan(this.SubHeader2_label, 3);
+            this.SubHeader2_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.SubHeader2_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader2_label.Location = new System.Drawing.Point(3, 114);
+            this.SubHeader2_label.Name = "SubHeader2_label";
+            this.SubHeader2_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SubHeader2_label.Size = new System.Drawing.Size(1085, 35);
+            this.SubHeader2_label.TabIndex = 498;
+            this.SubHeader2_label.Text = "الخبرات العملية الحاليّة:";
+            this.SubHeader2_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label56
+            // t2_tableLayoutPanel
             // 
-            this.label56.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.label56.Location = new System.Drawing.Point(221, 758);
-            this.label56.Name = "label56";
-            this.label56.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label56.Size = new System.Drawing.Size(648, 37);
-            this.label56.TabIndex = 553;
-            this.label56.Text = "التحصيل العلمي";
-            this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Education_dataGridView
-            // 
-            this.Education_dataGridView.AllowUserToResizeRows = false;
-            this.Education_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Education_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Education_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.Education_dataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.Education_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Education_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Education_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.Education_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Education_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PE_ID,
-            this.E_ID,
-            this.P_ID,
-            this.E_Type,
-            this.E_Name,
-            this.E_Note,
-            this.Edu_DeleteRow,
-            this.Edu_InDataBase,
-            this.Edu_RowID});
-            this.tableLayoutPanel7.SetColumnSpan(this.Education_dataGridView, 3);
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Education_dataGridView.DefaultCellStyle = dataGridViewCellStyle15;
-            this.Education_dataGridView.EnableHeadersVisualStyles = false;
-            this.Education_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.Education_dataGridView.Location = new System.Drawing.Point(3, 802);
-            this.Education_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Education_dataGridView.MultiSelect = false;
-            this.Education_dataGridView.Name = "Education_dataGridView";
-            this.Education_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Education_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
-            this.Education_dataGridView.RowHeadersVisible = false;
-            this.Education_dataGridView.RowHeadersWidth = 51;
-            this.Education_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.tableLayoutPanel7.SetRowSpan(this.Education_dataGridView, 3);
-            this.Education_dataGridView.RowTemplate.Height = 35;
-            this.Education_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Education_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Education_dataGridView.Size = new System.Drawing.Size(1085, 118);
-            this.Education_dataGridView.TabIndex = 552;
-            // 
-            // PE_ID
-            // 
-            this.PE_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PE_ID.HeaderText = "PE_ID";
-            this.PE_ID.MinimumWidth = 6;
-            this.PE_ID.Name = "PE_ID";
-            this.PE_ID.Visible = false;
-            // 
-            // E_ID
-            // 
-            this.E_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_ID.HeaderText = "E_ID";
-            this.E_ID.MinimumWidth = 6;
-            this.E_ID.Name = "E_ID";
-            this.E_ID.Visible = false;
-            // 
-            // P_ID
-            // 
-            this.P_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_ID.HeaderText = "P_ID";
-            this.P_ID.MinimumWidth = 6;
-            this.P_ID.Name = "P_ID";
-            this.P_ID.Visible = false;
-            // 
-            // E_Type
-            // 
-            this.E_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_Type.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.E_Type.DisplayStyleForCurrentCellOnly = true;
-            this.E_Type.FillWeight = 33F;
-            this.E_Type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.E_Type.HeaderText = "التحصيل العلمي";
-            this.E_Type.Items.AddRange(new object[] {
-            "إجازة جامعية",
-            "تعليم أساسي",
-            "دبلوم",
-            "دكتوراه",
-            "ماجستير",
-            "معهد"});
-            this.E_Type.MinimumWidth = 6;
-            this.E_Type.Name = "E_Type";
-            // 
-            // E_Name
-            // 
-            this.E_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_Name.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.E_Name.DisplayStyleForCurrentCellOnly = true;
-            this.E_Name.FillWeight = 33F;
-            this.E_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.E_Name.HeaderText = "الاختصاص";
-            this.E_Name.MinimumWidth = 6;
-            this.E_Name.Name = "E_Name";
-            // 
-            // E_Note
-            // 
-            this.E_Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_Note.FillWeight = 33F;
-            this.E_Note.HeaderText = "ملاحظات";
-            this.E_Note.MinimumWidth = 6;
-            this.E_Note.Name = "E_Note";
-            // 
-            // Edu_DeleteRow
-            // 
-            this.Edu_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Edu_DeleteRow.FillWeight = 10F;
-            this.Edu_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Edu_DeleteRow.HeaderText = " ";
-            this.Edu_DeleteRow.MinimumWidth = 50;
-            this.Edu_DeleteRow.Name = "Edu_DeleteRow";
-            this.Edu_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Edu_DeleteRow.Text = "Delete";
-            this.Edu_DeleteRow.UseColumnTextForButtonValue = true;
-            this.Edu_DeleteRow.Width = 50;
-            // 
-            // Edu_InDataBase
-            // 
-            this.Edu_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Edu_InDataBase.HeaderText = "Edu_InDataBase";
-            this.Edu_InDataBase.MinimumWidth = 6;
-            this.Edu_InDataBase.Name = "Edu_InDataBase";
-            this.Edu_InDataBase.Visible = false;
-            // 
-            // Edu_RowID
-            // 
-            this.Edu_RowID.HeaderText = "Edu_RowID";
-            this.Edu_RowID.MinimumWidth = 6;
-            this.Edu_RowID.Name = "Edu_RowID";
-            this.Edu_RowID.Visible = false;
-            // 
-            // flowLayoutPanel11
-            // 
-            this.flowLayoutPanel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel7.SetColumnSpan(this.flowLayoutPanel11, 3);
-            this.flowLayoutPanel11.Controls.Add(this.label58);
-            this.flowLayoutPanel11.Controls.Add(this.label57);
-            this.flowLayoutPanel11.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 927);
-            this.flowLayoutPanel11.Name = "flowLayoutPanel11";
-            this.flowLayoutPanel11.Size = new System.Drawing.Size(1085, 36);
-            this.flowLayoutPanel11.TabIndex = 565;
-            // 
-            // label58
-            // 
-            this.label58.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label58.Location = new System.Drawing.Point(962, 0);
-            this.label58.Margin = new System.Windows.Forms.Padding(0);
-            this.label58.Name = "label58";
-            this.label58.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label58.Size = new System.Drawing.Size(123, 23);
-            this.label58.TabIndex = 263;
-            this.label58.Text = "*التحصيل العلمي:";
-            this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label57
-            // 
-            this.label57.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Rubik", 9F);
-            this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label57.Location = new System.Drawing.Point(727, 0);
-            this.label57.Margin = new System.Windows.Forms.Padding(0);
-            this.label57.Name = "label57";
-            this.label57.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label57.Size = new System.Drawing.Size(235, 23);
-            this.label57.TabIndex = 264;
-            this.label57.Text = "تعليم أساسي - جامعة - دراسات عليا.";
-            this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel12
-            // 
-            this.tableLayoutPanel12.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel12.ColumnCount = 4;
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.90776F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.02341F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.03442F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.03442F));
-            this.tableLayoutPanel12.Controls.Add(this.P_Loss_textBox, 0, 2);
-            this.tableLayoutPanel12.Controls.Add(this.MP_Description_textBox, 0, 8);
-            this.tableLayoutPanel12.Controls.Add(this.P_Goals_panel, 0, 10);
-            this.tableLayoutPanel12.Controls.Add(this.label10, 2, 15);
-            this.tableLayoutPanel12.Controls.Add(this.MP_Marketing_textBox, 0, 16);
-            this.tableLayoutPanel12.Controls.Add(this.MP_OtherNotes_textBox, 0, 21);
-            this.tableLayoutPanel12.Controls.Add(this.flowLayoutPanel25, 0, 1);
-            this.tableLayoutPanel12.Controls.Add(this.flowLayoutPanel26, 0, 7);
-            this.tableLayoutPanel12.Controls.Add(this.checkBox6, 3, 10);
-            this.tableLayoutPanel12.Controls.Add(this.checkBox5, 2, 10);
-            this.tableLayoutPanel12.Controls.Add(this.checkBox8, 1, 10);
-            this.tableLayoutPanel12.Controls.Add(this.checkBox7, 3, 11);
-            this.tableLayoutPanel12.Controls.Add(this.checkBox9, 2, 11);
-            this.tableLayoutPanel12.Controls.Add(this.checkBox10, 1, 11);
-            this.tableLayoutPanel12.Controls.Add(this.dangers1_checkBox, 3, 12);
-            this.tableLayoutPanel12.Controls.Add(this.dangers2_checkBox, 2, 12);
-            this.tableLayoutPanel12.Controls.Add(this.dangers3_checkBox, 1, 12);
-            this.tableLayoutPanel12.Controls.Add(this.checkBox1, 3, 13);
-            this.tableLayoutPanel12.Controls.Add(this.checkBox2, 2, 13);
-            this.tableLayoutPanel12.Controls.Add(this.checkBox3, 1, 13);
-            this.tableLayoutPanel12.Controls.Add(this.checkBox4, 0, 13);
-            this.tableLayoutPanel12.Controls.Add(this.label14, 2, 20);
-            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(75, 370);
-            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
-            this.tableLayoutPanel12.RowCount = 24;
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.549389F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.106548F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(1091, 901);
-            this.tableLayoutPanel12.TabIndex = 543;
+            this.t2_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.t2_tableLayoutPanel.ColumnCount = 4;
+            this.t2_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.90776F));
+            this.t2_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.02341F));
+            this.t2_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.03442F));
+            this.t2_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.03442F));
+            this.t2_tableLayoutPanel.Controls.Add(this.P_Loss_textBox, 0, 2);
+            this.t2_tableLayoutPanel.Controls.Add(this.label10, 2, 15);
+            this.t2_tableLayoutPanel.Controls.Add(this.P_GoalHow_textBox, 0, 16);
+            this.t2_tableLayoutPanel.Controls.Add(this.P_OtherNotes_textBox, 0, 21);
+            this.t2_tableLayoutPanel.Controls.Add(this.flowLayoutPanel25, 0, 1);
+            this.t2_tableLayoutPanel.Controls.Add(this.flowLayoutPanel26, 0, 7);
+            this.t2_tableLayoutPanel.Controls.Add(this.label14, 2, 20);
+            this.t2_tableLayoutPanel.Controls.Add(this.P_Goal_textBox, 0, 8);
+            this.t2_tableLayoutPanel.Controls.Add(this.P_Goals_panel2, 1, 10);
+            this.t2_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.t2_tableLayoutPanel.Location = new System.Drawing.Point(75, 370);
+            this.t2_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.t2_tableLayoutPanel.Name = "t2_tableLayoutPanel";
+            this.t2_tableLayoutPanel.RowCount = 24;
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.549389F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.106548F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t2_tableLayoutPanel.Size = new System.Drawing.Size(1091, 901);
+            this.t2_tableLayoutPanel.TabIndex = 543;
             // 
             // P_Loss_textBox
             // 
@@ -6289,51 +7322,20 @@ namespace MyWorkApplication
             | System.Windows.Forms.AnchorStyles.Right)));
             this.P_Loss_textBox.BackColor = System.Drawing.Color.White;
             this.P_Loss_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableLayoutPanel12.SetColumnSpan(this.P_Loss_textBox, 4);
+            this.t2_tableLayoutPanel.SetColumnSpan(this.P_Loss_textBox, 4);
             this.P_Loss_textBox.Location = new System.Drawing.Point(3, 77);
             this.P_Loss_textBox.Multiline = true;
             this.P_Loss_textBox.Name = "P_Loss_textBox";
             this.P_Loss_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tableLayoutPanel12.SetRowSpan(this.P_Loss_textBox, 4);
+            this.t2_tableLayoutPanel.SetRowSpan(this.P_Loss_textBox, 4);
             this.P_Loss_textBox.Size = new System.Drawing.Size(1085, 142);
             this.P_Loss_textBox.TabIndex = 552;
-            // 
-            // MP_Description_textBox
-            // 
-            this.MP_Description_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.MP_Description_textBox.BackColor = System.Drawing.Color.White;
-            this.MP_Description_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableLayoutPanel12.SetColumnSpan(this.MP_Description_textBox, 4);
-            this.MP_Description_textBox.Location = new System.Drawing.Point(3, 299);
-            this.MP_Description_textBox.Multiline = true;
-            this.MP_Description_textBox.Name = "MP_Description_textBox";
-            this.MP_Description_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tableLayoutPanel12.SetRowSpan(this.MP_Description_textBox, 2);
-            this.MP_Description_textBox.Size = new System.Drawing.Size(1085, 68);
-            this.MP_Description_textBox.TabIndex = 554;
-            // 
-            // P_Goals_panel
-            // 
-            this.P_Goals_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_Goals_panel.AutoScroll = true;
-            this.P_Goals_panel.AutoSize = true;
-            this.P_Goals_panel.BackColor = System.Drawing.Color.MistyRose;
-            this.P_Goals_panel.Location = new System.Drawing.Point(3, 371);
-            this.P_Goals_panel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.P_Goals_panel.Name = "P_Goals_panel";
-            this.tableLayoutPanel12.SetRowSpan(this.P_Goals_panel, 3);
-            this.P_Goals_panel.Size = new System.Drawing.Size(200, 109);
-            this.P_Goals_panel.TabIndex = 554;
             // 
             // label10
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label10.AutoSize = true;
-            this.tableLayoutPanel12.SetColumnSpan(this.label10, 2);
+            this.t2_tableLayoutPanel.SetColumnSpan(this.label10, 2);
             this.label10.Font = new System.Drawing.Font("Rubik SemiBold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.label10.Location = new System.Drawing.Point(733, 560);
@@ -6344,44 +7346,44 @@ namespace MyWorkApplication
             this.label10.Text = "كيف ترى أن هذا المشروع سوف يحقّّق رغبتك؟";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // MP_Marketing_textBox
+            // P_GoalHow_textBox
             // 
-            this.MP_Marketing_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.P_GoalHow_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MP_Marketing_textBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel12.SetColumnSpan(this.MP_Marketing_textBox, 4);
-            this.MP_Marketing_textBox.Location = new System.Drawing.Point(3, 596);
-            this.MP_Marketing_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MP_Marketing_textBox.Multiline = true;
-            this.MP_Marketing_textBox.Name = "MP_Marketing_textBox";
-            this.MP_Marketing_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tableLayoutPanel12.SetRowSpan(this.MP_Marketing_textBox, 3);
-            this.MP_Marketing_textBox.Size = new System.Drawing.Size(1085, 103);
-            this.MP_Marketing_textBox.TabIndex = 560;
+            this.P_GoalHow_textBox.BackColor = System.Drawing.Color.White;
+            this.t2_tableLayoutPanel.SetColumnSpan(this.P_GoalHow_textBox, 4);
+            this.P_GoalHow_textBox.Location = new System.Drawing.Point(3, 596);
+            this.P_GoalHow_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.P_GoalHow_textBox.Multiline = true;
+            this.P_GoalHow_textBox.Name = "P_GoalHow_textBox";
+            this.P_GoalHow_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.t2_tableLayoutPanel.SetRowSpan(this.P_GoalHow_textBox, 3);
+            this.P_GoalHow_textBox.Size = new System.Drawing.Size(1085, 103);
+            this.P_GoalHow_textBox.TabIndex = 560;
             // 
-            // MP_OtherNotes_textBox
+            // P_OtherNotes_textBox
             // 
-            this.MP_OtherNotes_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.P_OtherNotes_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MP_OtherNotes_textBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel12.SetColumnSpan(this.MP_OtherNotes_textBox, 4);
-            this.MP_OtherNotes_textBox.Location = new System.Drawing.Point(3, 781);
-            this.MP_OtherNotes_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MP_OtherNotes_textBox.Multiline = true;
-            this.MP_OtherNotes_textBox.Name = "MP_OtherNotes_textBox";
-            this.MP_OtherNotes_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tableLayoutPanel12.SetRowSpan(this.MP_OtherNotes_textBox, 3);
-            this.MP_OtherNotes_textBox.Size = new System.Drawing.Size(1085, 116);
-            this.MP_OtherNotes_textBox.TabIndex = 562;
+            this.P_OtherNotes_textBox.BackColor = System.Drawing.Color.White;
+            this.t2_tableLayoutPanel.SetColumnSpan(this.P_OtherNotes_textBox, 4);
+            this.P_OtherNotes_textBox.Location = new System.Drawing.Point(3, 781);
+            this.P_OtherNotes_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.P_OtherNotes_textBox.Multiline = true;
+            this.P_OtherNotes_textBox.Name = "P_OtherNotes_textBox";
+            this.P_OtherNotes_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.t2_tableLayoutPanel.SetRowSpan(this.P_OtherNotes_textBox, 3);
+            this.P_OtherNotes_textBox.Size = new System.Drawing.Size(1085, 116);
+            this.P_OtherNotes_textBox.TabIndex = 562;
             // 
             // flowLayoutPanel25
             // 
             this.flowLayoutPanel25.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel12.SetColumnSpan(this.flowLayoutPanel25, 4);
+            this.t2_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel25, 4);
             this.flowLayoutPanel25.Controls.Add(this.label39);
             this.flowLayoutPanel25.Controls.Add(this.label104);
             this.flowLayoutPanel25.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
@@ -6426,7 +7428,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel26.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel12.SetColumnSpan(this.flowLayoutPanel26, 4);
+            this.t2_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel26, 4);
             this.flowLayoutPanel26.Controls.Add(this.label8);
             this.flowLayoutPanel26.Controls.Add(this.label102);
             this.flowLayoutPanel26.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
@@ -6465,193 +7467,11 @@ namespace MyWorkApplication
             this.label102.Text = "(وهي رغبات المستفيد التي يريد تحقيقها من المشروع)";
             this.label102.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // checkBox6
-            // 
-            this.checkBox6.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.checkBox6.Location = new System.Drawing.Point(834, 374);
-            this.checkBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox6.Size = new System.Drawing.Size(254, 29);
-            this.checkBox6.TabIndex = 567;
-            this.checkBox6.Text = "تقديم خدمة أو منتج ذو قيمة";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.checkBox5.Location = new System.Drawing.Point(621, 374);
-            this.checkBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox5.Size = new System.Drawing.Size(193, 29);
-            this.checkBox5.TabIndex = 566;
-            this.checkBox5.Text = "تأمين احتياجات طبيّّة";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.checkBox8.Location = new System.Drawing.Point(407, 374);
-            this.checkBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox8.Size = new System.Drawing.Size(134, 29);
-            this.checkBox8.TabIndex = 569;
-            this.checkBox8.Text = "تأسيس عائلة";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.checkBox7.Location = new System.Drawing.Point(903, 411);
-            this.checkBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox7.Size = new System.Drawing.Size(185, 29);
-            this.checkBox7.TabIndex = 568;
-            this.checkBox7.Text = "تحسين وضع السكن";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox9
-            // 
-            this.checkBox9.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.checkBox9.Location = new System.Drawing.Point(654, 411);
-            this.checkBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox9.Size = new System.Drawing.Size(160, 29);
-            this.checkBox9.TabIndex = 570;
-            this.checkBox9.Text = "ملء وقت الفراغ";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // checkBox10
-            // 
-            this.checkBox10.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.checkBox10.Location = new System.Drawing.Point(264, 411);
-            this.checkBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox10.Size = new System.Drawing.Size(277, 29);
-            this.checkBox10.TabIndex = 571;
-            this.checkBox10.Text = "تأمين وضع دراسي أفضل للأولاد";
-            this.checkBox10.UseVisualStyleBackColor = true;
-            // 
-            // dangers1_checkBox
-            // 
-            this.dangers1_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.dangers1_checkBox.AutoSize = true;
-            this.dangers1_checkBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.dangers1_checkBox.Location = new System.Drawing.Point(870, 448);
-            this.dangers1_checkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dangers1_checkBox.Name = "dangers1_checkBox";
-            this.dangers1_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dangers1_checkBox.Size = new System.Drawing.Size(218, 29);
-            this.dangers1_checkBox.TabIndex = 1;
-            this.dangers1_checkBox.Text = "تحقيق الاستقلال المالي";
-            this.dangers1_checkBox.UseVisualStyleBackColor = true;
-            // 
-            // dangers2_checkBox
-            // 
-            this.dangers2_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.dangers2_checkBox.AutoSize = true;
-            this.dangers2_checkBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.dangers2_checkBox.Location = new System.Drawing.Point(617, 448);
-            this.dangers2_checkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dangers2_checkBox.Name = "dangers2_checkBox";
-            this.dangers2_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dangers2_checkBox.Size = new System.Drawing.Size(197, 29);
-            this.dangers2_checkBox.TabIndex = 2;
-            this.dangers2_checkBox.Text = "الاستقلاليّّة في العمل";
-            this.dangers2_checkBox.UseVisualStyleBackColor = true;
-            // 
-            // dangers3_checkBox
-            // 
-            this.dangers3_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.dangers3_checkBox.AutoSize = true;
-            this.dangers3_checkBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.dangers3_checkBox.Location = new System.Drawing.Point(242, 448);
-            this.dangers3_checkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dangers3_checkBox.Name = "dangers3_checkBox";
-            this.dangers3_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dangers3_checkBox.Size = new System.Drawing.Size(299, 29);
-            this.dangers3_checkBox.TabIndex = 3;
-            this.dangers3_checkBox.Text = "تأمين ا حتياجات (مرضيّّة - دراسيّّة)";
-            this.dangers3_checkBox.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.checkBox1.Location = new System.Drawing.Point(894, 485);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox1.Size = new System.Drawing.Size(194, 29);
-            this.checkBox1.TabIndex = 555;
-            this.checkBox1.Text = "تحقيق حلم أو شغف";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.checkBox2.Location = new System.Drawing.Point(596, 485);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox2.Size = new System.Drawing.Size(218, 29);
-            this.checkBox2.TabIndex = 556;
-            this.checkBox2.Text = "بناء اسم أو علامة تجاريّّة";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.checkBox3.Location = new System.Drawing.Point(275, 485);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox3.Size = new System.Drawing.Size(266, 29);
-            this.checkBox3.TabIndex = 557;
-            this.checkBox3.Text = "المساهمة في خلق فرص عمل";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.checkBox4.Location = new System.Drawing.Point(105, 485);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox4.Size = new System.Drawing.Size(98, 29);
-            this.checkBox4.TabIndex = 558;
-            this.checkBox4.Text = "غير ذلك";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
             // label14
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label14.AutoSize = true;
-            this.tableLayoutPanel12.SetColumnSpan(this.label14, 2);
+            this.t2_tableLayoutPanel.SetColumnSpan(this.label14, 2);
             this.label14.Font = new System.Drawing.Font("Rubik SemiBold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.label14.Location = new System.Drawing.Point(901, 745);
@@ -6661,6 +7481,37 @@ namespace MyWorkApplication
             this.label14.TabIndex = 561;
             this.label14.Text = "ملاحظات مقدّّم الطلب:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // P_Goal_textBox
+            // 
+            this.P_Goal_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_Goal_textBox.BackColor = System.Drawing.Color.White;
+            this.P_Goal_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.t2_tableLayoutPanel.SetColumnSpan(this.P_Goal_textBox, 4);
+            this.P_Goal_textBox.Location = new System.Drawing.Point(3, 299);
+            this.P_Goal_textBox.Multiline = true;
+            this.P_Goal_textBox.Name = "P_Goal_textBox";
+            this.P_Goal_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.t2_tableLayoutPanel.SetRowSpan(this.P_Goal_textBox, 2);
+            this.P_Goal_textBox.Size = new System.Drawing.Size(1085, 68);
+            this.P_Goal_textBox.TabIndex = 554;
+            // 
+            // P_Goals_panel2
+            // 
+            this.P_Goals_panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_Goals_panel2.AutoScroll = true;
+            this.P_Goals_panel2.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.t2_tableLayoutPanel.SetColumnSpan(this.P_Goals_panel2, 3);
+            this.P_Goals_panel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.P_Goals_panel2.Location = new System.Drawing.Point(209, 373);
+            this.P_Goals_panel2.Name = "P_Goals_panel2";
+            this.t2_tableLayoutPanel.SetRowSpan(this.P_Goals_panel2, 4);
+            this.P_Goals_panel2.Size = new System.Drawing.Size(879, 142);
+            this.P_Goals_panel2.TabIndex = 566;
             // 
             // Application_New_Form
             // 
@@ -6676,8 +7527,10 @@ namespace MyWorkApplication
             this.Name = "Application_New_Form";
             this.Text = "Application_New_Form";
             this.Load += new System.EventHandler(this.Application_New_Form_Load);
-            this.first_tableLayoutPanel.ResumeLayout(false);
-            this.first_tableLayoutPanel.PerformLayout();
+            this.First_tableLayoutPanel.ResumeLayout(false);
+            this.First_tableLayoutPanel.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
@@ -6686,76 +7539,65 @@ namespace MyWorkApplication
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PersonPicture_pictureBox)).EndInit();
-            this.flowLayoutPanel33.ResumeLayout(false);
-            this.flowLayoutPanel33.PerformLayout();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FamilyMember_dataGridView)).EndInit();
-            this.Military_tableLayoutPanel.ResumeLayout(false);
-            this.Military_tableLayoutPanel.PerformLayout();
-            this.flowLayoutPanel4.ResumeLayout(false);
-            this.flowLayoutPanel4.PerformLayout();
+            this.img_contextMenuStrip.ResumeLayout(false);
+            this.FundType_flowLayoutPanel.ResumeLayout(false);
+            this.FundType_flowLayoutPanel.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.t3_tableLayoutPanel.ResumeLayout(false);
+            this.t3_tableLayoutPanel.PerformLayout();
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
+            this.Military_flowLayoutPanel.ResumeLayout(false);
+            this.Military_flowLayoutPanel.PerformLayout();
+            this.P_Priest_tableLayoutPanel.ResumeLayout(false);
+            this.P_Priest_tableLayoutPanel.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FamilyMember_dataGridView)).EndInit();
             this.tableLayoutPanel8.ResumeLayout(false);
-            this.flowLayoutPanel9.ResumeLayout(false);
-            this.flowLayoutPanel9.PerformLayout();
+            this.flowLayoutPanel7.ResumeLayout(false);
+            this.flowLayoutPanel7.PerformLayout();
             this.flowLayoutPanel8.ResumeLayout(false);
             this.flowLayoutPanel8.PerformLayout();
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel6.PerformLayout();
-            this.flowLayoutPanel7.ResumeLayout(false);
-            this.flowLayoutPanel7.PerformLayout();
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel13.ResumeLayout(false);
-            this.tableLayoutPanel13.PerformLayout();
+            this.flowLayoutPanel9.ResumeLayout(false);
+            this.flowLayoutPanel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AidSource_dataGridView)).EndInit();
             this.Main_panel.ResumeLayout(false);
-            this.Users_tableLayoutPanel.ResumeLayout(false);
-            this.Users_tableLayoutPanel.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.Final_tableLayoutPanel.ResumeLayout(false);
+            this.Final_tableLayoutPanel.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel13.ResumeLayout(false);
             this.flowLayoutPanel13.PerformLayout();
-            this.tableLayoutPanel10.ResumeLayout(false);
-            this.tableLayoutPanel10.PerformLayout();
-            this.flowLayoutPanel19.ResumeLayout(false);
-            this.flowLayoutPanel19.PerformLayout();
-            this.flowLayoutPanel20.ResumeLayout(false);
-            this.flowLayoutPanel20.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PowerSource_dataGridView)).EndInit();
-            this.flowLayoutPanel18.ResumeLayout(false);
-            this.flowLayoutPanel18.PerformLayout();
-            this.Agreement1_flowLayoutPanel.ResumeLayout(false);
-            this.Agreement1_flowLayoutPanel.PerformLayout();
-            this.Agreement2_flowLayoutPanel.ResumeLayout(false);
-            this.Agreement2_flowLayoutPanel.PerformLayout();
-            this.Agreement3_flowLayoutPanel.ResumeLayout(false);
-            this.Agreement3_flowLayoutPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-            this.s6_tableLayoutPanel.ResumeLayout(false);
-            this.s6_tableLayoutPanel.PerformLayout();
-            this.flowLayoutPanel27.ResumeLayout(false);
-            this.flowLayoutPanel27.PerformLayout();
+            this.t11_tableLayoutPanel.ResumeLayout(false);
+            this.t11_tableLayoutPanel.PerformLayout();
             this.P_HasIncomeSource_flowLayoutPanel.ResumeLayout(false);
             this.P_HasIncomeSource_flowLayoutPanel.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HomePowerSource_dataGridView)).EndInit();
+            this.flowLayoutPanel18.ResumeLayout(false);
+            this.flowLayoutPanel18.PerformLayout();
+            this.t10_tableLayoutPanel.ResumeLayout(false);
+            this.t10_tableLayoutPanel.PerformLayout();
             this.P_HasAidSource_flowLayoutPanel.ResumeLayout(false);
             this.P_HasAidSource_flowLayoutPanel.PerformLayout();
-            this.tableLayoutPanel17.ResumeLayout(false);
-            this.tableLayoutPanel17.PerformLayout();
+            this.P_Debts_tableLayoutPanel.ResumeLayout(false);
+            this.P_Debts_tableLayoutPanel.PerformLayout();
             this.P_HasDebts_flowLayoutPanel.ResumeLayout(false);
             this.P_HasDebts_flowLayoutPanel.PerformLayout();
-            this.tableLayoutPanel9.ResumeLayout(false);
-            this.tableLayoutPanel9.PerformLayout();
+            this.t9_tableLayoutPanel.ResumeLayout(false);
+            this.t9_tableLayoutPanel.PerformLayout();
             this.P_HasLosses_flowLayoutPanel.ResumeLayout(false);
             this.P_HasLosses_flowLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Loss_dataGridView)).EndInit();
-            this.P_HasAssets_flowLayoutPanel.ResumeLayout(false);
-            this.P_HasAssets_flowLayoutPanel.PerformLayout();
+            this.flowLayoutPanel21.ResumeLayout(false);
+            this.flowLayoutPanel21.PerformLayout();
             this.flowLayoutPanel14.ResumeLayout(false);
             this.flowLayoutPanel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Illness_dataGridView)).EndInit();
@@ -6766,24 +7608,59 @@ namespace MyWorkApplication
             this.flowLayoutPanel16.PerformLayout();
             this.P_HasIllness_flowLayoutPanel.ResumeLayout(false);
             this.P_HasIllness_flowLayoutPanel.PerformLayout();
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Course_dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Work_dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Exp_dataGridView)).EndInit();
-            this.flowLayoutPanel10.ResumeLayout(false);
-            this.flowLayoutPanel10.PerformLayout();
-            this.flowLayoutPanel12.ResumeLayout(false);
-            this.flowLayoutPanel12.PerformLayout();
-            this.P_HasCourses_flowLayoutPanel.ResumeLayout(false);
-            this.P_HasCourses_flowLayoutPanel.PerformLayout();
+            this.P_HasAssets_flowLayoutPanel.ResumeLayout(false);
+            this.P_HasAssets_flowLayoutPanel.PerformLayout();
+            this.t4_tableLayoutPanel.ResumeLayout(false);
+            this.t21_tableLayoutPanel.ResumeLayout(false);
+            this.t21_tableLayoutPanel.PerformLayout();
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel9.PerformLayout();
+            this.flowLayoutPanel17.ResumeLayout(false);
+            this.flowLayoutPanel17.PerformLayout();
+            this.t20_tableLayoutPanel.ResumeLayout(false);
+            this.t20_tableLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Materials_dataGridView)).EndInit();
+            this.flowLayoutPanel27.ResumeLayout(false);
+            this.flowLayoutPanel27.PerformLayout();
+            this.s6_tableLayoutPanel.ResumeLayout(false);
+            this.s6_tableLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PowerSource_dataGridView)).EndInit();
+            this.flowLayoutPanel20.ResumeLayout(false);
+            this.flowLayoutPanel20.PerformLayout();
+            this.flowLayoutPanel19.ResumeLayout(false);
+            this.flowLayoutPanel19.PerformLayout();
+            this.Agreement1_flowLayoutPanel.ResumeLayout(false);
+            this.Agreement1_flowLayoutPanel.PerformLayout();
+            this.Agreement2_flowLayoutPanel.ResumeLayout(false);
+            this.Agreement2_flowLayoutPanel.PerformLayout();
+            this.Agreement3_flowLayoutPanel.ResumeLayout(false);
+            this.Agreement3_flowLayoutPanel.PerformLayout();
+            this.Agreement4_flowLayoutPanel.ResumeLayout(false);
+            this.Agreement4_flowLayoutPanel.PerformLayout();
+            this.t8_tableLayoutPanel.ResumeLayout(false);
+            this.t8_tableLayoutPanel.PerformLayout();
             this.P_HasEducation_flowLayoutPanel.ResumeLayout(false);
             this.P_HasEducation_flowLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Course_dataGridView)).EndInit();
+            this.flowLayoutPanel12.ResumeLayout(false);
+            this.flowLayoutPanel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Education_dataGridView)).EndInit();
             this.flowLayoutPanel11.ResumeLayout(false);
             this.flowLayoutPanel11.PerformLayout();
-            this.tableLayoutPanel12.ResumeLayout(false);
-            this.tableLayoutPanel12.PerformLayout();
+            this.P_HasCourses_flowLayoutPanel.ResumeLayout(false);
+            this.P_HasCourses_flowLayoutPanel.PerformLayout();
+            this.t7_tableLayoutPanel.ResumeLayout(false);
+            this.t7_tableLayoutPanel.PerformLayout();
+            this.t6_tableLayoutPanel.ResumeLayout(false);
+            this.t6_tableLayoutPanel.PerformLayout();
+            this.flowLayoutPanel10.ResumeLayout(false);
+            this.flowLayoutPanel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Exp_dataGridView)).EndInit();
+            this.t5_tableLayoutPanel.ResumeLayout(false);
+            this.t5_tableLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Work_dataGridView)).EndInit();
+            this.t2_tableLayoutPanel.ResumeLayout(false);
+            this.t2_tableLayoutPanel.PerformLayout();
             this.flowLayoutPanel25.ResumeLayout(false);
             this.flowLayoutPanel25.PerformLayout();
             this.flowLayoutPanel26.ResumeLayout(false);
@@ -6795,13 +7672,13 @@ namespace MyWorkApplication
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox P_Mobile_textBox;
+        private System.Windows.Forms.TextBox P_MobileReadable_textBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label80;
-        private System.Windows.Forms.TextBox MP_ID_textBox;
+        private System.Windows.Forms.TextBox MPID_textBox;
         private System.Windows.Forms.TextBox P_FullName_En_textBox;
         private System.Windows.Forms.Label label62;
-        private System.Windows.Forms.TableLayoutPanel first_tableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel First_tableLayoutPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Type_lable;
         private System.Windows.Forms.ComboBox Type_comboBox;
@@ -6818,16 +7695,14 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label SubHeader1_label;
         private System.Windows.Forms.Label label76;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.TableLayoutPanel t3_tableLayoutPanel;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label Header2_label;
+        private System.Windows.Forms.Label MainHeader1_label;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label P_IntermidiaryName_label;
         private System.Windows.Forms.TextBox P_FirstName_textBox;
         private System.Windows.Forms.Label label52;
@@ -6836,7 +7711,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.ComboBox Street_comboBox;
         private System.Windows.Forms.TextBox P_DOB_textBox;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox FamilyNum_textBox1;
         private System.Windows.Forms.TextBox P_FatherName_textBox;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox P_LastName_textBox;
@@ -6846,9 +7720,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox P_NumAtHome_textBox;
-        private System.Windows.Forms.TextBox P_NumOfMembers_textBox;
         private System.Windows.Forms.TextBox P_Address_textBox;
         private System.Windows.Forms.TextBox P_IntermidiaryName_textBox;
         private System.Windows.Forms.TextBox P_MotherName_textBox;
@@ -6856,14 +7727,14 @@ namespace MyWorkApplication
         private System.Windows.Forms.TextBox P_NationalNum_textBox;
         private System.Windows.Forms.TextBox P_HomeTel_textBox;
         private System.Windows.Forms.Label label73;
-        private System.Windows.Forms.TextBox s3_textBox;
+        private System.Windows.Forms.TextBox P_WorkYears_textBox;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.DataGridView AidSource_dataGridView;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TableLayoutPanel t9_tableLayoutPanel;
+        private System.Windows.Forms.Label SubHeader9_label;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.Panel Main_panel;
-        private System.Windows.Forms.TableLayoutPanel Users_tableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel Final_tableLayoutPanel;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.ComboBox PaperApplicationUser_comboBox;
         private System.Windows.Forms.Label label33;
@@ -6875,46 +7746,38 @@ namespace MyWorkApplication
         private System.Windows.Forms.Button Delete_MP_button;
         private System.Windows.Forms.Label Visitors_label;
         private System.Windows.Forms.Label EditedBy_User_label;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TableLayoutPanel t8_tableLayoutPanel;
+        private System.Windows.Forms.Label SubHeader2_label;
         private System.Windows.Forms.DataGridView Work_dataGridView;
         private System.Windows.Forms.PictureBox PersonPicture_pictureBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Button AddImage_button;
         private System.Windows.Forms.Button DeleteImage_button;
         private System.Windows.Forms.Button Download_button;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.TableLayoutPanel t2_tableLayoutPanel;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox P_Loss_textBox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox MP_Description_textBox;
-        private System.Windows.Forms.CheckBox dangers1_checkBox;
-        private System.Windows.Forms.CheckBox dangers2_checkBox;
-        private System.Windows.Forms.CheckBox dangers3_checkBox;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.TextBox P_Goal_textBox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox MP_Marketing_textBox;
+        private System.Windows.Forms.TextBox P_GoalHow_textBox;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox MP_OtherNotes_textBox;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox P_OtherNotes_textBox;
+        private System.Windows.Forms.Label P_FullName_En_label;
         private System.Windows.Forms.TextBox P_Registration_textBox;
-        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.Label P_Registration_label;
         private System.Windows.Forms.ComboBox P_Priest_comboBox;
         private System.Windows.Forms.Label P_Priest_label;
-        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label P_Mobile2_label;
         private System.Windows.Forms.TextBox P_Mobile2_textBox;
         private System.Windows.Forms.Label label81;
         private System.Windows.Forms.ComboBox P_HomeType_comboBox;
-        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label P_HomeStateNote_label;
         private System.Windows.Forms.TextBox P_HomeStateNote_textBox;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.TableLayoutPanel Military_tableLayoutPanel;
         private System.Windows.Forms.RadioButton MilitaryNow_radioButton;
         private System.Windows.Forms.RadioButton MilitaryFinished_radioButton;
         private System.Windows.Forms.Label Military_label;
@@ -6931,17 +7794,17 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Label Header3_label;
-        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label MainHeader2_label;
+        private System.Windows.Forms.Label SubHeader3_label;
         private System.Windows.Forms.DataGridView Exp_dataGridView;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.DataGridView Education_dataGridView;
-        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label SubHeader4_label;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label SubHeader5_label;
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -6963,64 +7826,30 @@ namespace MyWorkApplication
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel11;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel12;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel13;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label SubHeader6_label;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel14;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label SubHeader7_label;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel15;
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label SubHeader8_label;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel16;
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.Label label84;
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.FlowLayoutPanel P_HasDebts_flowLayoutPanel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.Label label88;
-        private System.Windows.Forms.Label label87;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel18;
-        private System.Windows.Forms.Label label89;
-        private System.Windows.Forms.Label label90;
-        private System.Windows.Forms.Label label91;
-        private System.Windows.Forms.DataGridView PowerSource_dataGridView;
-        private System.Windows.Forms.Label label92;
-        private System.Windows.Forms.TextBox AmperNumber_textBox;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel20;
-        private System.Windows.Forms.Label label93;
-        private System.Windows.Forms.Label label94;
-        private System.Windows.Forms.Label label96;
-        private System.Windows.Forms.Label label97;
-        private System.Windows.Forms.Label label99;
-        private System.Windows.Forms.Label label98;
-        private System.Windows.Forms.FlowLayoutPanel Agreement1_flowLayoutPanel;
-        private System.Windows.Forms.RadioButton Agreement1_No_radioButton;
-        private System.Windows.Forms.RadioButton Agreement1_Yes_radioButton;
-        private System.Windows.Forms.FlowLayoutPanel Agreement2_flowLayoutPanel;
-        private System.Windows.Forms.RadioButton Agreement2_No_radioButton;
-        private System.Windows.Forms.RadioButton Agreement2_Yes_radioButton;
-        private System.Windows.Forms.FlowLayoutPanel Agreement3_flowLayoutPanel;
-        private System.Windows.Forms.RadioButton Agreement3_No_radioButton;
-        private System.Windows.Forms.RadioButton Agreement3_Yes_radioButton;
+        private System.Windows.Forms.TableLayoutPanel t10_tableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel t11_tableLayoutPanel;
         private System.Windows.Forms.Label label100;
         private System.Windows.Forms.TextBox MP_SimpleProfit2_textBox;
-        private System.Windows.Forms.TableLayoutPanel s6_tableLayoutPanel;
-        private System.Windows.Forms.Label s6_label;
         private System.Windows.Forms.DataGridView Course_dataGridView;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel25;
         private System.Windows.Forms.Label label104;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel26;
         private System.Windows.Forms.Label label102;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.DataGridView Loss_dataGridView;
         private System.Windows.Forms.DataGridView Illness_dataGridView;
         private System.Windows.Forms.DataGridView Assets_dataGridView;
@@ -7031,23 +7860,7 @@ namespace MyWorkApplication
         private System.Windows.Forms.TextBox P_DebtsAmount_textBox;
         private System.Windows.Forms.Label label105;
         private System.Windows.Forms.TextBox P_DebtsNote_textBox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
-        private System.Windows.Forms.TextBox P_SourceRation_textBox;
-        private System.Windows.Forms.TextBox P_SourceRelatives_textBox;
-        private System.Windows.Forms.DataGridView dataGridView5;
-        private System.Windows.Forms.Label label109;
-        private System.Windows.Forms.Label label108;
-        private System.Windows.Forms.ComboBox MP_Ownership_comboBox;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel27;
-        private System.Windows.Forms.Label label110;
-        private System.Windows.Forms.Label label111;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel19;
-        private System.Windows.Forms.RadioButton radioButton19;
-        private System.Windows.Forms.RadioButton radioButton20;
-        private System.Windows.Forms.FlowLayoutPanel P_HasIncomeSource_flowLayoutPanel;
-        private System.Windows.Forms.RadioButton P_HasIncomeSourceNo_radioButton;
-        private System.Windows.Forms.RadioButton P_HasIncomeSourceYes_radioButton;
+        private System.Windows.Forms.TableLayoutPanel P_Debts_tableLayoutPanel;
         private System.Windows.Forms.FlowLayoutPanel P_HasCourses_flowLayoutPanel;
         private System.Windows.Forms.RadioButton P_HasCoursesNo_radioButton;
         private System.Windows.Forms.RadioButton P_HasCoursesYes_radioButton;
@@ -7063,9 +7876,37 @@ namespace MyWorkApplication
         private System.Windows.Forms.FlowLayoutPanel P_HasAssets_flowLayoutPanel;
         private System.Windows.Forms.RadioButton P_HasAssetsNo_radioButton;
         private System.Windows.Forms.RadioButton P_HasAssetsYes_radioButton;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label113;
-        private System.Windows.Forms.Label label112;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LPerson_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn L_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn L_Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn L_Year;
+        private System.Windows.Forms.DataGridViewTextBoxColumn L_Notes;
+        private System.Windows.Forms.DataGridViewButtonColumn L_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn L_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn L_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AidP_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Aid_PName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_Relation;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Aid_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_DateYear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_ProjectType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_Notes;
+        private System.Windows.Forms.DataGridViewButtonColumn Aid_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_RowID;
+        private System.Windows.Forms.TextBox P_FullName_textBox;
+        private System.Windows.Forms.Label FundType_label;
+        private System.Windows.Forms.FlowLayoutPanel FundType_flowLayoutPanel;
+        private System.Windows.Forms.RadioButton Loan_radioButton;
+        private System.Windows.Forms.RadioButton Grant_radioButton;
+        private System.Windows.Forms.Label MP_RequestedAmount_label;
+        private System.Windows.Forms.TextBox MP_RequestedAmount_textBox;
+        private System.Windows.Forms.ComboBox P_Priest2_comboBox;
+        private System.Windows.Forms.TableLayoutPanel P_Priest_tableLayoutPanel;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.TextBox MP_OtherDonors_textBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn WP_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn W_ID;
         private System.Windows.Forms.DataGridViewComboBoxColumn W_Name;
@@ -7091,58 +7932,78 @@ namespace MyWorkApplication
         private System.Windows.Forms.DataGridViewButtonColumn Exp_DeleteRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn Exp_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn Exp_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn APerson_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Asset_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_Year;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_Desc;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Asset_Relation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_Note;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LPerson_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn L_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn L_Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn L_Year;
-        private System.Windows.Forms.DataGridViewTextBoxColumn L_Notes;
-        private System.Windows.Forms.DataGridViewButtonColumn L_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn L_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn L_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Person_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_PName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Relation;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_Name;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Ill_Aid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Donor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Notes;
-        private System.Windows.Forms.DataGridViewButtonColumn Ill_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_RowID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPerosn_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Course_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_SubCategory_ID;
         private System.Windows.Forms.DataGridViewComboBoxColumn C_SubCategory;
-        private System.Windows.Forms.DataGridViewComboBoxColumn C_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_Place;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_Donor;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_Date;
         private System.Windows.Forms.DataGridViewButtonColumn C_DeleteRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AidP_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Aid_PName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_Relation;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Aid_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_DateYear;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_ProjectType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_Notes;
-        private System.Windows.Forms.DataGridViewButtonColumn Aid_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn APerson_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_PName;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Asset_Relation;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Asset_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_Year;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_Desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_Note;
+        private System.Windows.Forms.DataGridViewButtonColumn Asset_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_RowID;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem Visits_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem payments_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem attachments_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showChecklistToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNotesToolStripMenuItem;
+        private System.Windows.Forms.FlowLayoutPanel P_Goals_panel2;
+        private System.Windows.Forms.TableLayoutPanel t4_tableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel t5_tableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel t6_tableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel t7_tableLayoutPanel;
+        private System.Windows.Forms.FlowLayoutPanel Military_flowLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Button Save_MP_ID_button;
+        private System.Windows.Forms.ComboBox PersonType_comboBox;
+        private System.Windows.Forms.Label PersonType_label;
+        private System.Windows.Forms.TextBox ImageLocation_textBox;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ContextMenuStrip img_contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem download_toolStripMenuItem1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.CheckBox ContentUpdated_checkBox;
+        private System.Windows.Forms.TextBox P_Mobile_textBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TableLayoutPanel t21_tableLayoutPanel;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox P_NumOfMembers_textBox;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox P_NumAtHome_textBox;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.TextBox FamilyNum_textBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel17;
+        private System.Windows.Forms.RadioButton P_LiveWithFamily_radioButton;
+        private System.Windows.Forms.RadioButton P_NotLiveWithFamily_radioButton;
+        private System.Windows.Forms.Label MainHeader3_label;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel18;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.Label SubHeader10_label;
+        private System.Windows.Forms.FlowLayoutPanel P_HasIncomeSource_flowLayoutPanel;
+        private System.Windows.Forms.RadioButton P_HasIncomeSourceNo_radioButton;
+        private System.Windows.Forms.RadioButton P_HasIncomeSourceYes_radioButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label label113;
+        private System.Windows.Forms.Label label112;
+        private System.Windows.Forms.TextBox P_OtherIncomeSources_Note_textBox;
+        private System.Windows.Forms.Label SubHeader11_label;
+        private System.Windows.Forms.DataGridView HomePowerSource_dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn HPowerP_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn HPower_ID;
         private System.Windows.Forms.DataGridViewComboBoxColumn HPower_Name;
@@ -7152,6 +8013,20 @@ namespace MyWorkApplication
         private System.Windows.Forms.DataGridViewButtonColumn HPower_DeleteRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn HPower_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn HPower_RowID;
+        private System.Windows.Forms.TableLayoutPanel t20_tableLayoutPanel;
+        private System.Windows.Forms.Label MainHeader4_label;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel27;
+        private System.Windows.Forms.Label label110;
+        private System.Windows.Forms.Label label111;
+        private System.Windows.Forms.TableLayoutPanel s6_tableLayoutPanel;
+        private System.Windows.Forms.TextBox s5_textBox;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.ComboBox MP_PlaceType_comboBox;
+        private System.Windows.Forms.Label label109;
+        private System.Windows.Forms.Label label108;
+        private System.Windows.Forms.Label s6_label;
+        private System.Windows.Forms.Label SubHeader12_label;
+        private System.Windows.Forms.DataGridView PowerSource_dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Power_MP_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Power_ID;
         private System.Windows.Forms.DataGridViewComboBoxColumn Power_Name;
@@ -7161,44 +8036,97 @@ namespace MyWorkApplication
         private System.Windows.Forms.DataGridViewButtonColumn Power_DeleteRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn Power_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn Power_RowID;
-        private System.Windows.Forms.TextBox P_FullName_textBox;
-        private System.Windows.Forms.Label label95;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel33;
-        private System.Windows.Forms.RadioButton Loan_radioButton;
-        private System.Windows.Forms.RadioButton Grant_radioButton;
-        private System.Windows.Forms.Label label106;
-        private System.Windows.Forms.TextBox MP_RequestedAmount_textBox;
-        private System.Windows.Forms.Panel P_Goals_panel;
-        private System.Windows.Forms.ComboBox P_Priest2_comboBox;
-        private System.Windows.Forms.FlowLayoutPanel P_HasEducation_flowLayoutPanel;
-        private System.Windows.Forms.RadioButton P_HasEducationNo_radioButton;
-        private System.Windows.Forms.RadioButton P_HasEducationYes_radioButton;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private System.Windows.Forms.TextBox s5_textBox;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel20;
+        private System.Windows.Forms.Label label93;
+        private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.TextBox AmperNumber_textBox;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel19;
+        private System.Windows.Forms.RadioButton radioButton19;
+        private System.Windows.Forms.RadioButton radioButton20;
+        private System.Windows.Forms.Label SubHeader14_label;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.FlowLayoutPanel Agreement2_flowLayoutPanel;
+        private System.Windows.Forms.RadioButton Agreement2_No_radioButton;
+        private System.Windows.Forms.RadioButton Agreement2_Yes_radioButton;
+        private System.Windows.Forms.FlowLayoutPanel Agreement3_flowLayoutPanel;
+        private System.Windows.Forms.RadioButton Agreement3_No_radioButton;
+        private System.Windows.Forms.RadioButton Agreement3_Yes_radioButton;
+        private System.Windows.Forms.FlowLayoutPanel Agreement1_flowLayoutPanel;
+        private System.Windows.Forms.RadioButton Agreement1_No_radioButton;
+        private System.Windows.Forms.RadioButton Agreement1_Yes_radioButton;
+        private System.Windows.Forms.FlowLayoutPanel Agreement4_flowLayoutPanel;
+        private System.Windows.Forms.RadioButton Agreement4_No_radioButton;
+        private System.Windows.Forms.RadioButton Agreement4_Yes_radioButton;
+        private System.Windows.Forms.DataGridView Materials_dataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M_Comments;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M_Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M_Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MMP_ID;
+        private System.Windows.Forms.DataGridViewButtonColumn M_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M_InDataBase;
+        private System.Windows.Forms.Label SubHeader13_label;
+        private System.Windows.Forms.Label OverallSyrian_label;
         private System.Windows.Forms.DataGridViewTextBoxColumn PE_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn E_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn E_Level;
         private System.Windows.Forms.DataGridViewComboBoxColumn E_Type;
         private System.Windows.Forms.DataGridViewComboBoxColumn E_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn E_Note;
         private System.Windows.Forms.DataGridViewButtonColumn Edu_DeleteRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn Edu_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn Edu_RowID;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label59;
         private System.Windows.Forms.DataGridViewTextBoxColumn FP_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn F_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_FatherName;
         private System.Windows.Forms.DataGridViewComboBoxColumn P_Relation;
-        private System.Windows.Forms.DataGridViewComboBoxColumn P_MaritalStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_NationalNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_DOB;
         private System.Windows.Forms.DataGridViewComboBoxColumn P_State;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn P_IsStudent;
+        private System.Windows.Forms.DataGridViewComboBoxColumn P_EducationLevel;
+        private System.Windows.Forms.DataGridViewComboBoxColumn P_EducationType;
         private System.Windows.Forms.DataGridViewComboBoxColumn P_WorkType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_Salary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Work_Name;
         private System.Windows.Forms.DataGridViewButtonColumn P_DeleteRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_RowID;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel21;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Person_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_PName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Relation;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Note;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Ill_Aid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Donor;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_AidPeriod;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_MedicalNeeds;
+        private System.Windows.Forms.DataGridViewButtonColumn Ill_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_RowID;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.ComboBox AidA_comboBox;
+        private System.Windows.Forms.ComboBox AidR_comboBox;
+        private System.Windows.Forms.ComboBox AidPeriodA_comboBox;
+        private System.Windows.Forms.ComboBox AidPeriodR_comboBox;
+        private System.Windows.Forms.FlowLayoutPanel P_HasEducation_flowLayoutPanel;
+        private System.Windows.Forms.RadioButton P_HasEducationNo_radioButton;
+        private System.Windows.Forms.RadioButton P_HasEducationYes_radioButton;
     }
 }

@@ -132,8 +132,8 @@ namespace MyWorkApplication
                 datalocation = "online";
             else if (Localhost)
                 datalocation = "localhost";
-            else  //datalocation = "localhost";
-                datalocation = "PC-ADMIN";
+            else  datalocation = "localhost";
+                //datalocation = "PC-ADMIN";
 
             OnlineRoot = "ftp://hcsyria.org/micro_images2/";
             OfflineRoot = "ftp://PC-ADMIN/micro_images/";

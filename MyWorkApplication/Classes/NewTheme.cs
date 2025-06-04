@@ -13,6 +13,7 @@ namespace MyWorkApplication.Classes
     {
         public static Color light_white       = Color.FromArgb(255, 255, 255);
         public static Color light_transparent = Color.Transparent;
+        public static Color light_red         = Color.FromArgb(165, 54, 48);
 
         public static Color light_grey1  = Color.FromArgb(240, 240, 240);
         public static Color light_grey11 = Color.FromArgb(214, 214, 214);
@@ -793,6 +794,355 @@ namespace MyWorkApplication.Classes
                                                     zx.ForeColor = light_grey4;
                                                 }
                                         }
+                                }
+                        }
+                }
+        }
+
+        public void ApplicationNew_ToNight(Form form)
+        {
+            foreach (Control f in form.Controls)
+                if (f.GetType() == typeof(Panel)) /// main panel
+                {
+                    f.BackColor = light_grey3;
+                    f.ForeColor = light_white;
+                    foreach (Control c in f.Controls)
+                        if (c.GetType() == typeof(TableLayoutPanel)) /// as sections
+                        {
+                            c.BackColor = light_grey3;
+                            c.ForeColor = light_white;
+
+                            foreach (Control aa in c.Controls)
+                                if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
+                                    aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
+                                {
+                                    aa.ForeColor = light_white;
+                                    if (aa.Name.Contains("MainHeader"))
+                                    {
+                                        aa.BackColor = light_grey2;
+                                        aa.ForeColor = dark_grey2;
+                                    }
+                                    else if(aa.Name.Contains("SubHeader"))
+                                    {
+                                        aa.ForeColor = light_white;
+                                    }
+                                    else if (aa.Name == "OverallSyrian_label")
+                                    {
+                                        aa.BackColor = dark_grey2;
+                                    }
+                                }
+                                else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
+                                {
+                                    aa.BackColor = dark_grey2;
+                                    aa.ForeColor = light_white;
+                                }
+                                else if (aa.GetType() == typeof(BCDateTimePicker))
+                                {
+                                    var dd = aa as BCDateTimePicker;
+                                    dd.BackColor = dark_grey2;
+                                    dd.ForeColor = light_white;
+                                }
+                                else if (aa.GetType() == typeof(DataGridView))
+                                {
+                                    var MP_dataGridView = aa as DataGridView;
+                                    MP_dataGridView.BackgroundColor =
+                                        MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
+                                            MP_dataGridView.DefaultCellStyle.BackColor =
+                                                MP_dataGridView.RowsDefaultCellStyle.BackColor =
+                                                    dark_grey2;
+                                    MP_dataGridView.ForeColor =
+                                        MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
+                                            MP_dataGridView.DefaultCellStyle.ForeColor =
+                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor = light_white;
+
+                                    MP_dataGridView.GridColor = light_grey2;
+
+                                    MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
+                                        MP_dataGridView.DefaultCellStyle.SelectionBackColor
+                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
+                                                light_grey3;
+                                    MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
+                                        MP_dataGridView.DefaultCellStyle.SelectionForeColor
+                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = light_white;
+
+
+                                    for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
+                                    {
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor =
+                                            dark_grey2;
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_white;
+                                        for (var j = 0; j < MP_dataGridView.Rows.Count; j++)
+                                        {
+                                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor =
+                                                dark_grey2;
+                                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = light_white;
+                                        }
+                                    }
+                                }
+                                else if (aa.GetType() == typeof(TableLayoutPanel))
+                                {
+                                    aa.BackColor = light_grey3;
+                                    aa.ForeColor = light_white;
+                                    foreach (Control bb in aa.Controls)
+                                        if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
+                                            bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
+                                        {
+                                            bb.ForeColor = light_white;
+                                            bb.BackColor = light_transparent;
+                                            //if (bb.Name == "Save_Beneficiary_Update_button" ||
+                                            //    bb.Name == "Save_MP_Update_button")
+                                            //    bb.BackgroundImage = Resources.Save2_L;
+                                            if (bb.Name == "Delete_MP_button" ||
+                                                     bb.Name == "Delete_Beneficiary_button")
+                                                bb.BackgroundImage = Resources.Delete2_L;
+                                            //else if (bb.Name == "AddPriest_button" ||
+                                            //         bb.Name == "NewEducation_button" ||
+                                            //         bb.Name == "NewLanguage_button" || bb.Name == "NewSkill_button" ||
+                                            //         bb.Name == "NewWork_button")
+                                            //    bb.BackgroundImage = Resources.Plus_Sq_L_24;
+                                            else if (bb.Name == "AddImage_button")
+                                                bb.BackgroundImage = Resources.Plus_Sq_L;
+                                            else if (bb.Name == "DeleteImage_button")
+                                                bb.BackgroundImage = Resources.Trash_L;
+                                        }
+                                        else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
+                                        {
+                                            bb.BackColor = dark_grey2;
+                                            bb.ForeColor = light_white;
+                                        }
+                                        else if (bb.GetType() == typeof(BCDateTimePicker))
+                                        {
+                                            var dd = bb as BCDateTimePicker;
+                                            dd.BackColor = dark_grey2;
+                                            dd.ForeColor = light_white;
+                                        }
+                                        else if (bb.GetType() == typeof(TableLayoutPanel))
+                                        {
+                                            bb.BackColor = light_grey3;
+                                            bb.ForeColor = light_white;
+                                            foreach (Control zx in bb.Controls)
+                                                if (zx.GetType() == typeof(Label) || zx.GetType() == typeof(Button) ||
+                                                    zx.GetType() == typeof(CheckBox) ||
+                                                    zx.GetType() == typeof(RadioButton))
+                                                {
+                                                    zx.ForeColor = light_white;
+                                                }
+                                                else if (zx.GetType() == typeof(TextBox) ||
+                                                         zx.GetType() == typeof(ComboBox))
+                                                {
+                                                    zx.BackColor = dark_grey2;
+                                                    zx.ForeColor = light_white;
+                                                }
+                                        }
+                                        else if (bb.GetType() == typeof(FlowLayoutPanel))
+                                        {
+                                            bb.BackColor = light_grey3;
+                                            bb.ForeColor = light_white;
+
+                                            foreach (Control mm in bb.Controls)
+                                                if (mm.GetType() == typeof(Label) || mm.GetType() == typeof(Button) ||
+                                                    mm.GetType() == typeof(CheckBox) ||
+                                                    mm.GetType() == typeof(RadioButton))
+                                                {
+                                                    mm.ForeColor = light_white;
+                                                }
+                                                else if (mm.GetType() == typeof(TextBox) ||
+                                                            mm.GetType() == typeof(ComboBox))
+                                                {
+                                                    mm.BackColor = dark_grey2;
+                                                    mm.ForeColor = light_white;
+                                                }
+                                        }
+                                }
+                                else if (aa.GetType() == typeof(FlowLayoutPanel))
+                                {
+                                    aa.BackColor = light_grey3;
+                                    aa.ForeColor = light_white;
+
+                                    foreach (Control mm in aa.Controls)
+                                        if (mm.GetType() == typeof(Label) || mm.GetType() == typeof(Button) ||
+                                            mm.GetType() == typeof(CheckBox) ||
+                                            mm.GetType() == typeof(RadioButton))
+                                        {
+                                            mm.ForeColor = light_white;
+                                        }
+                                        else if (mm.GetType() == typeof(TextBox) ||
+                                                    mm.GetType() == typeof(ComboBox))
+                                        {
+                                            mm.BackColor = dark_grey2;
+                                            mm.ForeColor = light_white;
+                                        } 
+                                }
+                        }
+                }
+        }
+        public void ApplicationNew_ToLight(Form form)
+        {
+            foreach (Control f in form.Controls)
+                if (f.GetType() == typeof(Panel)) /// main panel
+                {
+                    f.BackColor = light_grey1;
+                    f.ForeColor = light_grey4;
+                    foreach (Control c in f.Controls)
+                        if (c.GetType() == typeof(TableLayoutPanel))  /// as sections
+                        {
+                            c.BackColor = light_grey1;
+                            c.ForeColor = light_grey4;
+
+                            foreach (Control aa in c.Controls)
+                                if (aa.GetType() == typeof(Label) || aa.GetType() == typeof(Button) ||
+                                    aa.GetType() == typeof(CheckBox) || aa.GetType() == typeof(RadioButton))
+                                {
+                                    aa.ForeColor = light_grey4;
+                                    if (aa.Name.Contains("MainHeader"))
+                                    {
+                                        aa.BackColor = light_red;
+                                        aa.ForeColor = light_white;
+                                    }
+                                    else if (aa.Name.Contains("SubHeader"))
+                                    {
+                                        aa.ForeColor = light_red;
+                                    }
+                                    else if (aa.Name == "OverallSyrian_label")
+                                    {
+                                        aa.BackColor = light_white;
+                                    }
+                                }
+                                else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
+                                {
+                                    aa.BackColor = light_white;
+                                    aa.ForeColor = light_grey4;
+                                }
+                                else if (aa.GetType() == typeof(BCDateTimePicker))
+                                {
+                                    var dd = aa as BCDateTimePicker;
+                                    dd.BackColor = light_white;
+                                    dd.ForeColor = light_grey4;
+                                }
+                                else if (aa.GetType() == typeof(DataGridView))
+                                {
+                                    var MP_dataGridView = aa as DataGridView;
+                                    MP_dataGridView.BackgroundColor =
+                                        MP_dataGridView.ColumnHeadersDefaultCellStyle.BackColor =
+                                            MP_dataGridView.DefaultCellStyle.BackColor =
+                                                MP_dataGridView.RowsDefaultCellStyle.BackColor = light_white;
+
+                                    MP_dataGridView.ForeColor =
+                                        MP_dataGridView.ColumnHeadersDefaultCellStyle.ForeColor =
+                                            MP_dataGridView.DefaultCellStyle.ForeColor =
+                                                MP_dataGridView.RowsDefaultCellStyle.ForeColor = light_grey4;
+
+                                    MP_dataGridView.GridColor = light_grey3;
+
+                                    MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor =
+                                        MP_dataGridView.DefaultCellStyle.SelectionBackColor
+                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionBackColor =
+                                                light_grey2;
+                                    MP_dataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor =
+                                        MP_dataGridView.DefaultCellStyle.SelectionForeColor
+                                            = MP_dataGridView.RowsDefaultCellStyle.SelectionForeColor = light_grey4;
+
+                                    for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
+                                    {
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
+                                        for (var j = 0; j < MP_dataGridView.Rows.Count; j++)
+                                        {
+                                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor = light_white;
+                                            MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = light_grey4;
+                                        }
+                                    }
+                                }
+                                else if (aa.GetType() == typeof(TableLayoutPanel))
+                                {
+                                    aa.BackColor = light_grey1;
+                                    aa.ForeColor = light_grey4;
+                                    foreach (Control bb in aa.Controls)
+                                        if (bb.GetType() == typeof(Label) || bb.GetType() == typeof(Button) ||
+                                            bb.GetType() == typeof(CheckBox) || bb.GetType() == typeof(RadioButton))
+                                        {
+                                            bb.ForeColor = light_grey4;
+                                            bb.BackColor = light_transparent;
+
+                                            //if (bb.Name == "Save_Beneficiary_Update_button" ||
+                                            //    bb.Name == "Save_MP_Update_button")
+                                            //    bb.BackgroundImage = Resources.Save2_D;
+                                            if (bb.Name == "Delete_MP_button" ||
+                                                     bb.Name == "Delete_Beneficiary_button")
+                                                bb.BackgroundImage = Resources.Delete2_D;
+                                            //else if (bb.Name == "AddPriest_button" ||
+                                            //         bb.Name == "NewEducation_button" ||
+                                            //         bb.Name == "NewLanguage_button" || bb.Name == "NewSkill_button" ||
+                                            //         bb.Name == "NewWork_button")
+                                            //    bb.BackgroundImage = Resources.Plus_Sq_D_24;
+                                            else if (bb.Name == "AddImage_button")
+                                                bb.BackgroundImage = Resources.Plus_Sq_D;
+                                            else if (bb.Name == "DeleteImage_button")
+                                                bb.BackgroundImage = Resources.Trash_D;
+                                        }
+                                        else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
+                                        {
+                                            bb.BackColor = light_white;
+                                            bb.ForeColor = light_grey4;
+                                        }
+                                        else if (bb.GetType() == typeof(BCDateTimePicker))
+                                        {
+                                            var dd = bb as BCDateTimePicker;
+                                            dd.BackColor = light_white;
+                                            dd.ForeColor = light_grey4;
+                                        }
+                                        else if (bb.GetType() == typeof(TableLayoutPanel))
+                                        {
+                                            bb.BackColor = light_grey1;
+                                            bb.ForeColor = light_grey4;
+                                            foreach (Control zx in bb.Controls)
+                                                if (zx.GetType() == typeof(Label) || zx.GetType() == typeof(Button) ||
+                                                    zx.GetType() == typeof(CheckBox) ||
+                                                    zx.GetType() == typeof(RadioButton))
+                                                {
+                                                    zx.ForeColor = light_grey4;
+                                                }
+                                                else if (zx.GetType() == typeof(TextBox) ||
+                                                         zx.GetType() == typeof(ComboBox))
+                                                {
+                                                    zx.BackColor = light_white;
+                                                    zx.ForeColor = light_grey4;
+                                                }
+                                        }
+                                        else if (bb.GetType() == typeof(FlowLayoutPanel))
+                                        {
+                                            bb.BackColor = light_grey1;
+                                            bb.ForeColor = light_grey4;
+                                            foreach (Control zx in bb.Controls)
+                                                if (zx.GetType() == typeof(Label) || zx.GetType() == typeof(Button) ||
+                                                    zx.GetType() == typeof(CheckBox) ||
+                                                    zx.GetType() == typeof(RadioButton))
+                                                {
+                                                    zx.ForeColor = light_grey4;
+                                                }
+                                                else if (zx.GetType() == typeof(TextBox) || zx.GetType() == typeof(ComboBox))
+                                                {
+                                                    zx.BackColor = light_white;
+                                                    zx.ForeColor = light_grey4;
+                                                }
+                                        }
+                                }
+                                else if (aa.GetType() == typeof(FlowLayoutPanel))
+                                {
+                                    aa.BackColor = light_grey1;
+                                    aa.ForeColor = light_grey4;
+                                    foreach (Control zx in aa.Controls)
+                                        if (zx.GetType() == typeof(Label) || zx.GetType() == typeof(Button) ||
+                                            zx.GetType() == typeof(CheckBox) ||
+                                            zx.GetType() == typeof(RadioButton))
+                                        {
+                                            zx.ForeColor = light_grey4;
+                                        }
+                                        else if (zx.GetType() == typeof(TextBox) || zx.GetType() == typeof(ComboBox))
+                                        {
+                                            zx.BackColor = light_white;
+                                            zx.ForeColor = light_grey4;
+                                        } 
                                 }
                         }
                 }

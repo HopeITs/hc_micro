@@ -356,12 +356,6 @@
     <Compile Include="Application_New_Form.Designer.cs">
       <DependentUpon>Application_New_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Application_zero_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Application_zero_Form.Designer.cs">
-      <DependentUpon>Application_zero_Form.cs</DependentUpon>
-    </Compile>
     <Compile Include="Attachments_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -716,9 +710,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Application_New_Form.resx">
       <DependentUpon>Application_New_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Application_zero_Form.resx">
-      <DependentUpon>Application_zero_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Attachments_Form.resx">
       <DependentUpon>Attachments_Form.cs</DependentUpon>

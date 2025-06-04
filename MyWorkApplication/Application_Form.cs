@@ -222,7 +222,6 @@ namespace MyWorkApplication
             else
                 newTheme.Application_ToLight(this);
         }
-
         private bool CheckUserPermission()
         {
             switch (Program.role)
@@ -357,13 +356,12 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void ClearPlace_button_Click(object sender, EventArgs e)
         {
             Street_comboBox.SelectedIndex = -1;
         }
 
-        #region datagridview with comboxBoxe methods
+        #region datagridview with comboxBoxes methods
         private void MyDataGridViewInitializationMethod()
         {
             FamilyMember_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(FamilyMember_dataGridView_EditingControlShowing); 
@@ -842,20 +840,7 @@ namespace MyWorkApplication
                 Program.MyConn.Close();
             }
         }
-        
-        //private void Update_PersonPicture(int PID, string profile_path)
-        //{
-        //    string query = "Update `person` set " 
-        //                 + " P_ProfilePath = N'" + profile_path + "'"
-        //                 + " where P_ID =" + PID; 
-        //    Program.buildConnection();
-        //    {
-        //        MySqlCommand sc = new MySqlCommand(query, Program.MyConn); 
-        //        sc.ExecuteNonQuery();
-        //        Program.MyConn.Close();
-        //    }
-        //}
-
+         
         private void Update_MP(int MP_ID)
         {
             RequestedAmount = MP_RequestedAmount_textBox.Text.Replace(",", "");
@@ -1007,27 +992,7 @@ namespace MyWorkApplication
             MPID_textBox.Text = (++n).ToString();
             Program.MyConn.Close();
         }
-
-        private int Get_FamilyID(string Family_Num)
-        {
-            MySS.query = "select F_ID from `family` where F_Number like '" + Family_Num + "'";
-            Program.buildConnection();
-            MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
-            var id = int.Parse(MySS.sc.ExecuteScalar().ToString());
-            Program.MyConn.Close();
-            return id;
-        }
-
-        private int Get_CurrentPersonID()
-        { 
-            string query = "select MAX(P_ID) from `person` ";
-            Program.buildConnection();
-            MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-            var id = int.Parse(sc.ExecuteScalar().ToString());
-            Program.MyConn.Close();
-            return id;
-        }
-        
+         
         private void Delete_Person(int PID)
         { 
             string q2 = "delete From `person` where P_ID =" + PID;
@@ -1365,7 +1330,6 @@ namespace MyWorkApplication
                 }
             }
         }
-
         private void Insert_Update_PersonDetails(int Person_ID)
         {
             // home power_sources //
@@ -1829,7 +1793,6 @@ namespace MyWorkApplication
             ///////////////////////////////////////////////////////////////////////////////////
 
         }
-
         private void Insert_Update_ProjectDetails(int MicroProject_ID)
         {
             // project power_source //
@@ -5218,6 +5181,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
             }
         }
 
+        /// done
         private void SubCategory_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -5241,7 +5205,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// done
         private void Type_comboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             //add the type_comboBox_selectedValue_changed to fill the data before binding subType  
@@ -5517,15 +5481,16 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
             if (Settings.Default.theme == "Light")
                 Download_button.BackgroundImage = Resources.Download_D;
             else Download_button.BackgroundImage = Resources.Download_L;
-        } 
+        }
         #endregion
 
+        /// done
         //prevent auto scrolling in comboboxs//
         void comboBox_MouseWheel(object sender, MouseEventArgs e)
         {
             ((HandledMouseEventArgs)e).Handled = true;
         }
-
+        /// done
         private void MPID_textBox_Leave(object sender, EventArgs e)
         {
             //عند قيام المستخدم بتغيير رقم المشروع//
@@ -5572,7 +5537,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// done
         private void P_Mobile_textBox_Leave(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(P_Mobile_textBox.Text))
@@ -5582,7 +5547,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                         , "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        /// done
         private void PersonType_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (user_mode)
@@ -5597,6 +5562,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
             }
         }
 
+        //Done
         #region downloan image
         bool success = false;
         private void SaveDialog()

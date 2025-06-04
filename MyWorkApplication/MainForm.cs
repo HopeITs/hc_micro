@@ -1426,24 +1426,25 @@ namespace MyWorkApplication
             form.Show();
         }
 
-        private void qRToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form form = new QR_Form();
-            form.Show();
-        }
-
-        private void newZeroApplicationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form form = new Application_zero_Form();
-            form.Show();
-        }
-
         private void newNewApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                Form Form = new Application_New_Form();
+                Form Form = new Application_New_Form(this,false);
                 showNewTab(Form, "Application", 0);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void zeroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form Form = new Application_New_Form(this,true);
+                showNewTab(Form, "Zero App", 0);
             }
             catch (Exception ex)
             {
