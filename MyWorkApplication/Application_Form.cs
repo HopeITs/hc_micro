@@ -4730,7 +4730,7 @@ namespace MyWorkApplication
             }
         }
         #endregion
-
+        //done 
         #region image
 
         private void AddImage_button_Click(object sender, EventArgs e)
@@ -4869,7 +4869,7 @@ namespace MyWorkApplication
         }
 
         #endregion
-
+        //done
         #region combo texbox selection change
         private void comboBox_Leave(object sender, EventArgs e)
         {
@@ -4886,7 +4886,6 @@ namespace MyWorkApplication
                 }
             }
         }
-
         private void FamilyNum_textBox1_TextChanged(object sender, EventArgs e)
         {
             if (FamilyNum_textBox1.Text != "")
@@ -4894,7 +4893,6 @@ namespace MyWorkApplication
             else
                 CanAddFamilyMembers = false;
         }
-
         private void FamilyNum_textBox1_Leave(object sender, EventArgs e)
         {
             try
@@ -4956,7 +4954,6 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void P_Sex_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (P_Sex_comboBox.Text == "أنثى")
@@ -4974,7 +4971,6 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 FPersonSex_comboBox1.SelectedItem = "أنثى";
             }
         }
-
         private void MilitaryFinished_radioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (MilitaryFinished_radioButton.Checked)
@@ -5219,6 +5215,26 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 MessageBox.Show(ex.Message);
             }
         }
+        private void Military_Date_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Military_Date_checkBox.Checked)
+                Military_Date_dateTimePicker.Enabled = true;
+            else Military_Date_dateTimePicker.Enabled = false;
+        }
+
+        private void AmperNumber_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
         #endregion
 
         #region new buttons
@@ -5288,6 +5304,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
 
         #endregion
 
+        //done
         #region mouse hover
 
         private void AddImage_button_MouseEnter(object sender, EventArgs e)
@@ -5639,6 +5656,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
         }
         #endregion
 
+        //done
         private void P_FirstName_textBox_Leave(object sender, EventArgs e)
         {
             Calculate_NumAtHome();
@@ -5766,28 +5784,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
             var _Form = new Loans_Form(MicroProject_ID, mainForm);
             mainForm.showNewTab(_Form, "Loans", 0);
         }
-
-        private void Military_Date_checkBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Military_Date_checkBox.Checked)
-                Military_Date_dateTimePicker.Enabled = true;
-            else Military_Date_dateTimePicker.Enabled = false;
-        }
-
-        private void AmperNumber_textBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-
-            // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
-        }
-
+          
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
             var _Form = new Attachments_Form(MicroProject_ID, mainForm);

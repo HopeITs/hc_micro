@@ -134,6 +134,7 @@
             this.AboutUs_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FeedBack_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Manual_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newPriest_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_Large_pictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).BeginInit();
@@ -864,7 +865,8 @@
             this.newEdu_toolStripMenuItem,
             this.newWork_toolStripMenuItem,
             this.newDonor_toolStripMenuItem,
-            this.newAid_toolStripMenuItem});
+            this.newAid_toolStripMenuItem,
+            this.newPriest_ToolStripMenuItem});
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(322, 30);
             this.toolStripMenuItem4.Text = "ADMIN Tools";
@@ -1149,6 +1151,13 @@
             this.Manual_toolStripMenuItem.Text = "Read The Manual";
             this.Manual_toolStripMenuItem.Click += new System.EventHandler(this.readTheManualToolStripMenuItem_Click);
             // 
+            // newPriest_ToolStripMenuItem
+            // 
+            this.newPriest_ToolStripMenuItem.Name = "newPriest_ToolStripMenuItem";
+            this.newPriest_ToolStripMenuItem.Size = new System.Drawing.Size(418, 30);
+            this.newPriest_ToolStripMenuItem.Text = "(كاهن) Priest";
+            this.newPriest_ToolStripMenuItem.Click += new System.EventHandler(this.newPriest_ToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1296,5 +1305,6 @@
         private System.Windows.Forms.ToolStripMenuItem Manual_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newNewApplicationToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem zeroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newPriest_ToolStripMenuItem;
     }
 }

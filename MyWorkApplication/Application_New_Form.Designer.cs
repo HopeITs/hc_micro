@@ -83,7 +83,6 @@ namespace MyWorkApplication
             this.Type_lable = new System.Windows.Forms.Label();
             this.Type_comboBox = new System.Windows.Forms.ComboBox();
             this.label74 = new System.Windows.Forms.Label();
-            this.ApplyDate_bcDateTimePicker = new MyWorkApplication.Classes.BCDateTimePicker();
             this.label79 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.SubType_comboBox = new System.Windows.Forms.ComboBox();
@@ -391,8 +390,8 @@ namespace MyWorkApplication
             this.label111 = new System.Windows.Forms.Label();
             this.OverallSyrian_label = new System.Windows.Forms.Label();
             this.s6_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.s5_textBox = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.MP_PlaceAddress_textBox = new System.Windows.Forms.TextBox();
+            this.MP_PlaceNote_textBox = new System.Windows.Forms.TextBox();
             this.MP_PlaceType_comboBox = new System.Windows.Forms.ComboBox();
             this.label109 = new System.Windows.Forms.Label();
             this.label108 = new System.Windows.Forms.Label();
@@ -456,15 +455,6 @@ namespace MyWorkApplication
             this.label66 = new System.Windows.Forms.Label();
             this.SubHeader4_label = new System.Windows.Forms.Label();
             this.Education_dataGridView = new System.Windows.Forms.DataGridView();
-            this.PE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.E_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.E_Level = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.E_Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.E_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Edu_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Edu_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edu_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
             this.label58 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
@@ -525,6 +515,20 @@ namespace MyWorkApplication
             this.P_Goal_textBox = new System.Windows.Forms.TextBox();
             this.P_Goals_panel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.PE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.E_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.E_Level = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.E_Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.E_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Edu_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Edu_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edu_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Update_button = new System.Windows.Forms.Button();
+            this.ApplyDate_bcDateTimePicker = new MyWorkApplication.Classes.BCDateTimePicker();
+            this.delete_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.delete_person_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.delete_project_person_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.First_tableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -605,6 +609,7 @@ namespace MyWorkApplication
             this.t2_tableLayoutPanel.SuspendLayout();
             this.flowLayoutPanel25.SuspendLayout();
             this.flowLayoutPanel26.SuspendLayout();
+            this.delete_contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -672,6 +677,7 @@ namespace MyWorkApplication
             this.MPID_textBox.Size = new System.Drawing.Size(205, 29);
             this.MPID_textBox.TabIndex = 0;
             this.MPID_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.MPID_textBox.TextChanged += new System.EventHandler(this.MPID_textBox_TextChanged);
             this.MPID_textBox.Leave += new System.EventHandler(this.MPID_textBox_Leave);
             // 
             // P_FullName_En_textBox
@@ -845,6 +851,7 @@ namespace MyWorkApplication
             this.Type_comboBox.TabIndex = 3;
             this.Type_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.Type_comboBox.SelectedIndexChanged += new System.EventHandler(this.Type_comboBox_SelectedValueChanged);
+            this.Type_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // label74
             // 
@@ -858,21 +865,6 @@ namespace MyWorkApplication
             this.label74.TabIndex = 258;
             this.label74.Text = "تاريخ الطلب:";
             this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ApplyDate_bcDateTimePicker
-            // 
-            this.ApplyDate_bcDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ApplyDate_bcDateTimePicker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ApplyDate_bcDateTimePicker.CustomFormat = "yyyy/MM/dd";
-            this.ApplyDate_bcDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.ApplyDate_bcDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(533, 178);
-            this.ApplyDate_bcDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ApplyDate_bcDateTimePicker.Name = "ApplyDate_bcDateTimePicker";
-            this.ApplyDate_bcDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
-            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(245, 29);
-            this.ApplyDate_bcDateTimePicker.TabIndex = 6;
             // 
             // label79
             // 
@@ -917,6 +909,7 @@ namespace MyWorkApplication
             this.SubType_comboBox.Size = new System.Drawing.Size(258, 30);
             this.SubType_comboBox.TabIndex = 4;
             this.SubType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.SubType_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // tableLayoutPanel1
             // 
@@ -1122,6 +1115,7 @@ namespace MyWorkApplication
             this.SubCategory_comboBox.TabIndex = 5;
             this.SubCategory_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.SubCategory_comboBox.SelectedIndexChanged += new System.EventHandler(this.SubCategory_comboBox_SelectedIndexChanged);
+            this.SubCategory_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // Career_comboBox
             // 
@@ -1140,6 +1134,7 @@ namespace MyWorkApplication
             this.Career_comboBox.Size = new System.Drawing.Size(123, 30);
             this.Career_comboBox.TabIndex = 6;
             this.Career_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.Career_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // SubHeader1_label
             // 
@@ -1202,6 +1197,8 @@ namespace MyWorkApplication
             this.AddImage_button.TabIndex = 3;
             this.AddImage_button.TabStop = false;
             this.AddImage_button.UseVisualStyleBackColor = false;
+            this.AddImage_button.MouseEnter += new System.EventHandler(this.AddImage_button_MouseEnter);
+            this.AddImage_button.MouseLeave += new System.EventHandler(this.AddImage_button_MouseLeave);
             // 
             // DeleteImage_button
             // 
@@ -1223,6 +1220,8 @@ namespace MyWorkApplication
             this.DeleteImage_button.TabIndex = 1;
             this.DeleteImage_button.TabStop = false;
             this.DeleteImage_button.UseVisualStyleBackColor = false;
+            this.DeleteImage_button.MouseEnter += new System.EventHandler(this.DeleteImage_button_MouseEnter);
+            this.DeleteImage_button.MouseLeave += new System.EventHandler(this.DeleteImage_button_MouseLeave);
             // 
             // Download_button
             // 
@@ -1247,6 +1246,8 @@ namespace MyWorkApplication
             this.toolTip1.SetToolTip(this.Download_button, "Download");
             this.Download_button.UseVisualStyleBackColor = false;
             this.Download_button.Click += new System.EventHandler(this.Download_button_Click);
+            this.Download_button.MouseEnter += new System.EventHandler(this.Download_button_MouseEnter);
+            this.Download_button.MouseLeave += new System.EventHandler(this.Download_button_MouseLeave);
             // 
             // PersonPicture_pictureBox
             // 
@@ -1328,6 +1329,7 @@ namespace MyWorkApplication
             this.Loan_radioButton.TabStop = true;
             this.Loan_radioButton.Text = "قرض";
             this.Loan_radioButton.UseVisualStyleBackColor = true;
+            this.Loan_radioButton.CheckedChanged += new System.EventHandler(this.Grant_radioButton_CheckedChanged);
             // 
             // Grant_radioButton
             // 
@@ -1342,6 +1344,7 @@ namespace MyWorkApplication
             this.Grant_radioButton.TabStop = true;
             this.Grant_radioButton.Text = "منحة";
             this.Grant_radioButton.UseVisualStyleBackColor = true;
+            this.Grant_radioButton.CheckedChanged += new System.EventHandler(this.Grant_radioButton_CheckedChanged);
             // 
             // MP_RequestedAmount_label
             // 
@@ -1366,6 +1369,7 @@ namespace MyWorkApplication
             this.MP_RequestedAmount_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_RequestedAmount_textBox.Size = new System.Drawing.Size(258, 29);
             this.MP_RequestedAmount_textBox.TabIndex = 570;
+            this.MP_RequestedAmount_textBox.TextChanged += new System.EventHandler(this.MP_RequestedAmount_textBox_TextChanged);
             // 
             // tableLayoutPanel5
             // 
@@ -1669,6 +1673,7 @@ namespace MyWorkApplication
             this.Military_Date_checkBox.Text = ":تاريخ التسريح";
             this.Military_Date_checkBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Military_Date_checkBox.UseVisualStyleBackColor = true;
+            this.Military_Date_checkBox.CheckedChanged += new System.EventHandler(this.Military_Date_checkBox_CheckedChanged);
             // 
             // label32
             // 
@@ -1775,6 +1780,7 @@ namespace MyWorkApplication
             this.P_Sex_comboBox.Size = new System.Drawing.Size(167, 30);
             this.P_Sex_comboBox.TabIndex = 5;
             this.P_Sex_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.P_Sex_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // label13
             // 
@@ -1874,6 +1880,7 @@ namespace MyWorkApplication
             this.P_NationalNum_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_NationalNum_textBox.Size = new System.Drawing.Size(528, 29);
             this.P_NationalNum_textBox.TabIndex = 8;
+            this.P_NationalNum_textBox.Leave += new System.EventHandler(this.PersonNationalNum_textBox_Leave);
             // 
             // label54
             // 
@@ -1900,6 +1907,8 @@ namespace MyWorkApplication
             this.P_DOB_textBox.Size = new System.Drawing.Size(171, 29);
             this.P_DOB_textBox.TabIndex = 9;
             this.P_DOB_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.P_DOB_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PersonDOB_textBox_KeyPress);
+            this.P_DOB_textBox.Leave += new System.EventHandler(this.PersonDOB_textBox_Leave);
             // 
             // label63
             // 
@@ -1930,6 +1939,7 @@ namespace MyWorkApplication
             this.P_MaritalState_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_MaritalState_comboBox.Size = new System.Drawing.Size(528, 30);
             this.P_MaritalState_comboBox.TabIndex = 6;
+            this.P_MaritalState_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // P_HomeStateNote_textBox
             // 
@@ -2037,6 +2047,7 @@ namespace MyWorkApplication
             this.Street_comboBox.Size = new System.Drawing.Size(171, 30);
             this.Street_comboBox.TabIndex = 21;
             this.Street_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.Street_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // P_HomeType_comboBox
             // 
@@ -2055,6 +2066,7 @@ namespace MyWorkApplication
             this.P_HomeType_comboBox.Size = new System.Drawing.Size(171, 30);
             this.P_HomeType_comboBox.TabIndex = 21;
             this.P_HomeType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.P_HomeType_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // P_Mobile2_textBox
             // 
@@ -2125,6 +2137,7 @@ namespace MyWorkApplication
             this.MilitarySingle_radioButton.TabStop = true;
             this.MilitarySingle_radioButton.Text = "وحيد";
             this.MilitarySingle_radioButton.UseVisualStyleBackColor = false;
+            this.MilitarySingle_radioButton.CheckedChanged += new System.EventHandler(this.MilitaryFinished_radioButton_CheckedChanged);
             // 
             // MilitaryFinished_radioButton
             // 
@@ -2141,6 +2154,7 @@ namespace MyWorkApplication
             this.MilitaryFinished_radioButton.TabStop = true;
             this.MilitaryFinished_radioButton.Text = "مسرّح";
             this.MilitaryFinished_radioButton.UseVisualStyleBackColor = false;
+            this.MilitaryFinished_radioButton.CheckedChanged += new System.EventHandler(this.MilitaryFinished_radioButton_CheckedChanged);
             // 
             // MilitaryNow_radioButton
             // 
@@ -2157,6 +2171,7 @@ namespace MyWorkApplication
             this.MilitaryNow_radioButton.TabStop = true;
             this.MilitaryNow_radioButton.Text = "عسكري";
             this.MilitaryNow_radioButton.UseVisualStyleBackColor = false;
+            this.MilitaryNow_radioButton.CheckedChanged += new System.EventHandler(this.MilitaryFinished_radioButton_CheckedChanged);
             // 
             // P_IntermidiaryName_label
             // 
@@ -2222,6 +2237,7 @@ namespace MyWorkApplication
             this.P_Priest2_comboBox.Size = new System.Drawing.Size(104, 30);
             this.P_Priest2_comboBox.TabIndex = 265;
             this.P_Priest2_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.P_Priest2_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // P_Priest_comboBox
             // 
@@ -2240,6 +2256,7 @@ namespace MyWorkApplication
             this.P_Priest_comboBox.Size = new System.Drawing.Size(104, 30);
             this.P_Priest_comboBox.TabIndex = 17;
             this.P_Priest_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.P_Priest_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // P_Priest_label
             // 
@@ -2282,6 +2299,7 @@ namespace MyWorkApplication
             this.P_Parish_comboBox.Size = new System.Drawing.Size(171, 30);
             this.P_Parish_comboBox.TabIndex = 16;
             this.P_Parish_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.P_Parish_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // flowLayoutPanel3
             // 
@@ -2331,6 +2349,7 @@ namespace MyWorkApplication
             this.PersonType_comboBox.TabIndex = 565;
             this.PersonType_comboBox.TabStop = false;
             this.PersonType_comboBox.SelectedIndexChanged += new System.EventHandler(this.PersonType_comboBox_SelectedIndexChanged);
+            this.PersonType_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // PersonType_label
             // 
@@ -2485,6 +2504,12 @@ namespace MyWorkApplication
             this.FamilyMember_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.FamilyMember_dataGridView.Size = new System.Drawing.Size(1085, 237);
             this.FamilyMember_dataGridView.TabIndex = 560;
+            this.FamilyMember_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.FamilyMembers_DataGridView_CellContentClick);
+            this.FamilyMember_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.FamilyMember_dataGridView_CellLeave);
+            this.FamilyMember_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.FamilyMembers_DataGridView_CellPainting);
+            this.FamilyMember_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
+            this.FamilyMember_dataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.FamilyMember_dataGridView_RowsAdded);
+            this.FamilyMember_dataGridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.FamilyMember_dataGridView_RowsRemoved);
             // 
             // FP_ID
             // 
@@ -2944,6 +2969,10 @@ namespace MyWorkApplication
             this.AidSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.AidSource_dataGridView.Size = new System.Drawing.Size(1085, 180);
             this.AidSource_dataGridView.TabIndex = 499;
+            this.AidSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AidSource_dataGridView_CellContentClick);
+            this.AidSource_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.AidSource_dataGridView_CellLeave);
+            this.AidSource_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.AidSource_dataGridView_CellPainting);
+            this.AidSource_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             // 
             // AidP_ID
             // 
@@ -3090,38 +3119,43 @@ namespace MyWorkApplication
             this.showChecklistToolStripMenuItem,
             this.addNotesToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 124);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 152);
             // 
             // Visits_toolStripMenuItem
             // 
             this.Visits_toolStripMenuItem.Name = "Visits_toolStripMenuItem";
-            this.Visits_toolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.Visits_toolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.Visits_toolStripMenuItem.Text = "Show Visits";
+            this.Visits_toolStripMenuItem.Click += new System.EventHandler(this.visits_toolStripMenuItem1_Click);
             // 
             // payments_toolStripMenuItem
             // 
             this.payments_toolStripMenuItem.Name = "payments_toolStripMenuItem";
-            this.payments_toolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.payments_toolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.payments_toolStripMenuItem.Text = "Show Payments";
+            this.payments_toolStripMenuItem.Click += new System.EventHandler(this.payments_toolStripMenuItem2_Click);
             // 
             // attachments_toolStripMenuItem
             // 
             this.attachments_toolStripMenuItem.Name = "attachments_toolStripMenuItem";
-            this.attachments_toolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.attachments_toolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.attachments_toolStripMenuItem.Text = "Show Attachments";
+            this.attachments_toolStripMenuItem.Click += new System.EventHandler(this.attachments_toolStripMenuItem3_Click);
             // 
             // showChecklistToolStripMenuItem
             // 
             this.showChecklistToolStripMenuItem.Name = "showChecklistToolStripMenuItem";
-            this.showChecklistToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.showChecklistToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.showChecklistToolStripMenuItem.Text = "Show Checklist";
+            this.showChecklistToolStripMenuItem.Click += new System.EventHandler(this.showChecklistToolStripMenuItem_Click);
             // 
             // addNotesToolStripMenuItem
             // 
             this.addNotesToolStripMenuItem.Name = "addNotesToolStripMenuItem";
             this.addNotesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.addNotesToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.addNotesToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.addNotesToolStripMenuItem.Text = "Add Notes";
+            this.addNotesToolStripMenuItem.Click += new System.EventHandler(this.addNotesToolStripMenuItem_Click);
             // 
             // Final_tableLayoutPanel
             // 
@@ -3161,18 +3195,20 @@ namespace MyWorkApplication
             this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel4.ColumnCount = 6;
+            this.tableLayoutPanel4.ColumnCount = 7;
             this.Final_tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel4, 5);
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.Save_button, 3, 0);
-            this.tableLayoutPanel4.Controls.Add(this.AddPartner_button, 4, 0);
+            this.tableLayoutPanel4.Controls.Add(this.Save_button, 4, 0);
+            this.tableLayoutPanel4.Controls.Add(this.AddPartner_button, 5, 0);
             this.tableLayoutPanel4.Controls.Add(this.AddExtention_button, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.Delete_MP_button, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.Update_button, 3, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 284);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -3196,7 +3232,7 @@ namespace MyWorkApplication
             this.Save_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Save_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Save_button.Location = new System.Drawing.Point(546, 4);
+            this.Save_button.Location = new System.Drawing.Point(613, 4);
             this.Save_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Save_button.MaximumSize = new System.Drawing.Size(125, 40);
             this.Save_button.MinimumSize = new System.Drawing.Size(125, 40);
@@ -3205,6 +3241,8 @@ namespace MyWorkApplication
             this.Save_button.TabIndex = 100;
             this.Save_button.UseVisualStyleBackColor = false;
             this.Save_button.Click += new System.EventHandler(this.Save_button_Click);
+            this.Save_button.MouseEnter += new System.EventHandler(this.Save_button_MouseEnter);
+            this.Save_button.MouseLeave += new System.EventHandler(this.Save_button_MouseLeave);
             // 
             // AddPartner_button
             // 
@@ -3218,7 +3256,7 @@ namespace MyWorkApplication
             this.AddPartner_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.AddPartner_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddPartner_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.AddPartner_button.Location = new System.Drawing.Point(679, 4);
+            this.AddPartner_button.Location = new System.Drawing.Point(746, 4);
             this.AddPartner_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddPartner_button.MaximumSize = new System.Drawing.Size(125, 40);
             this.AddPartner_button.MinimumSize = new System.Drawing.Size(125, 40);
@@ -3226,6 +3264,8 @@ namespace MyWorkApplication
             this.AddPartner_button.Size = new System.Drawing.Size(125, 40);
             this.AddPartner_button.TabIndex = 111;
             this.AddPartner_button.UseVisualStyleBackColor = false;
+            this.AddPartner_button.MouseEnter += new System.EventHandler(this.AddPartner_button_MouseEnter);
+            this.AddPartner_button.MouseLeave += new System.EventHandler(this.AddPartner_button_MouseLeave);
             // 
             // AddExtention_button
             // 
@@ -3239,7 +3279,7 @@ namespace MyWorkApplication
             this.AddExtention_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.AddExtention_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddExtention_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.AddExtention_button.Location = new System.Drawing.Point(280, 4);
+            this.AddExtention_button.Location = new System.Drawing.Point(214, 4);
             this.AddExtention_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddExtention_button.MaximumSize = new System.Drawing.Size(125, 40);
             this.AddExtention_button.MinimumSize = new System.Drawing.Size(125, 40);
@@ -3247,6 +3287,8 @@ namespace MyWorkApplication
             this.AddExtention_button.Size = new System.Drawing.Size(125, 40);
             this.AddExtention_button.TabIndex = 112;
             this.AddExtention_button.UseVisualStyleBackColor = false;
+            this.AddExtention_button.MouseEnter += new System.EventHandler(this.Extention_button_MouseEnter);
+            this.AddExtention_button.MouseLeave += new System.EventHandler(this.Extention_button_MouseLeave);
             // 
             // Delete_MP_button
             // 
@@ -3260,7 +3302,7 @@ namespace MyWorkApplication
             this.Delete_MP_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Delete_MP_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete_MP_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Delete_MP_button.Location = new System.Drawing.Point(413, 4);
+            this.Delete_MP_button.Location = new System.Drawing.Point(347, 4);
             this.Delete_MP_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Delete_MP_button.MaximumSize = new System.Drawing.Size(125, 40);
             this.Delete_MP_button.MinimumSize = new System.Drawing.Size(125, 40);
@@ -3268,6 +3310,9 @@ namespace MyWorkApplication
             this.Delete_MP_button.Size = new System.Drawing.Size(125, 40);
             this.Delete_MP_button.TabIndex = 113;
             this.Delete_MP_button.UseVisualStyleBackColor = false;
+            this.Delete_MP_button.Click += new System.EventHandler(this.Delete_MP_button_Click);
+            this.Delete_MP_button.MouseEnter += new System.EventHandler(this.Delete_MP_button_MouseEnter);
+            this.Delete_MP_button.MouseLeave += new System.EventHandler(this.Delete_MP_button_MouseLeave);
             // 
             // flowLayoutPanel13
             // 
@@ -3353,6 +3398,7 @@ namespace MyWorkApplication
             this.PaperApplicationUser_comboBox.Size = new System.Drawing.Size(165, 30);
             this.PaperApplicationUser_comboBox.TabIndex = 91;
             this.PaperApplicationUser_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.PaperApplicationUser_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // label27
             // 
@@ -3539,7 +3585,7 @@ namespace MyWorkApplication
             this.AidPeriodR_comboBox.Items.AddRange(new object[] {
             "المستفيد",
             "الشريك"});
-            this.AidPeriodR_comboBox.Location = new System.Drawing.Point(4, 49);
+            this.AidPeriodR_comboBox.Location = new System.Drawing.Point(4, 45);
             this.AidPeriodR_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AidPeriodR_comboBox.Name = "AidPeriodR_comboBox";
             this.AidPeriodR_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3559,7 +3605,7 @@ namespace MyWorkApplication
             this.AidPeriodA_comboBox.Items.AddRange(new object[] {
             "المستفيد",
             "الشريك"});
-            this.AidPeriodA_comboBox.Location = new System.Drawing.Point(4, 9);
+            this.AidPeriodA_comboBox.Location = new System.Drawing.Point(4, 5);
             this.AidPeriodA_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AidPeriodA_comboBox.Name = "AidPeriodA_comboBox";
             this.AidPeriodA_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3633,13 +3679,14 @@ namespace MyWorkApplication
             this.AidA_comboBox.Items.AddRange(new object[] {
             "المستفيد",
             "الشريك"});
-            this.AidA_comboBox.Location = new System.Drawing.Point(485, 9);
+            this.AidA_comboBox.Location = new System.Drawing.Point(485, 5);
             this.AidA_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AidA_comboBox.Name = "AidA_comboBox";
             this.AidA_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AidA_comboBox.Size = new System.Drawing.Size(426, 30);
             this.AidA_comboBox.TabIndex = 593;
             this.AidA_comboBox.TabStop = false;
+            this.AidA_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // AidR_comboBox
             // 
@@ -3653,13 +3700,14 @@ namespace MyWorkApplication
             this.AidR_comboBox.Items.AddRange(new object[] {
             "المستفيد",
             "الشريك"});
-            this.AidR_comboBox.Location = new System.Drawing.Point(485, 49);
+            this.AidR_comboBox.Location = new System.Drawing.Point(485, 45);
             this.AidR_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AidR_comboBox.Name = "AidR_comboBox";
             this.AidR_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AidR_comboBox.Size = new System.Drawing.Size(426, 30);
             this.AidR_comboBox.TabIndex = 594;
             this.AidR_comboBox.TabStop = false;
+            this.AidR_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // SubHeader11_label
             // 
@@ -3726,6 +3774,7 @@ namespace MyWorkApplication
             this.HomePowerSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.HomePowerSource_dataGridView.Size = new System.Drawing.Size(1085, 197);
             this.HomePowerSource_dataGridView.TabIndex = 593;
+            this.HomePowerSource_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             // 
             // HPowerP_ID
             // 
@@ -4221,6 +4270,7 @@ namespace MyWorkApplication
             this.Loss_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Loss_dataGridView.Size = new System.Drawing.Size(1085, 133);
             this.Loss_dataGridView.TabIndex = 573;
+            this.Loss_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             // 
             // LPerson_ID
             // 
@@ -4509,6 +4559,7 @@ namespace MyWorkApplication
             this.Illness_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Illness_dataGridView.Size = new System.Drawing.Size(1085, 180);
             this.Illness_dataGridView.TabIndex = 575;
+            this.Illness_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             // 
             // Ill_Person_ID
             // 
@@ -4737,6 +4788,7 @@ namespace MyWorkApplication
             this.Assets_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Assets_dataGridView.Size = new System.Drawing.Size(1085, 180);
             this.Assets_dataGridView.TabIndex = 576;
+            this.Assets_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             // 
             // APerson_ID
             // 
@@ -5194,6 +5246,8 @@ namespace MyWorkApplication
             this.FamilyNum_textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.FamilyNum_textBox1.Size = new System.Drawing.Size(147, 29);
             this.FamilyNum_textBox1.TabIndex = 552;
+            this.FamilyNum_textBox1.TextChanged += new System.EventHandler(this.FamilyNum_textBox1_TextChanged);
+            this.FamilyNum_textBox1.Leave += new System.EventHandler(this.FamilyNum_textBox1_Leave);
             // 
             // P_NumAtHome_textBox
             // 
@@ -5407,6 +5461,10 @@ namespace MyWorkApplication
             this.Materials_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Materials_dataGridView.Size = new System.Drawing.Size(1085, 212);
             this.Materials_dataGridView.TabIndex = 613;
+            this.Materials_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Materials_dataGridView_CellContentClick);
+            this.Materials_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Materials_dataGridView_CellEndEdit);
+            this.Materials_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.Materials_dataGridView_CellPainting);
+            this.Materials_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             // 
             // M_ID
             // 
@@ -5527,6 +5585,7 @@ namespace MyWorkApplication
             this.OverallSyrian_label.Size = new System.Drawing.Size(212, 36);
             this.OverallSyrian_label.TabIndex = 552;
             this.OverallSyrian_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.OverallSyrian_label.TextChanged += new System.EventHandler(this.OverallSyrian_label_TextChanged);
             // 
             // s6_tableLayoutPanel
             // 
@@ -5540,8 +5599,8 @@ namespace MyWorkApplication
             this.s6_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.s6_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.s6_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.s6_tableLayoutPanel.Controls.Add(this.s5_textBox, 1, 1);
-            this.s6_tableLayoutPanel.Controls.Add(this.textBox8, 2, 1);
+            this.s6_tableLayoutPanel.Controls.Add(this.MP_PlaceAddress_textBox, 1, 1);
+            this.s6_tableLayoutPanel.Controls.Add(this.MP_PlaceNote_textBox, 2, 1);
             this.s6_tableLayoutPanel.Controls.Add(this.MP_PlaceType_comboBox, 0, 1);
             this.s6_tableLayoutPanel.Controls.Add(this.label109, 2, 0);
             this.s6_tableLayoutPanel.Controls.Add(this.label108, 1, 0);
@@ -5558,27 +5617,27 @@ namespace MyWorkApplication
             this.s6_tableLayoutPanel.TabIndex = 595;
             this.s6_tableLayoutPanel.TabStop = true;
             // 
-            // s5_textBox
+            // MP_PlaceAddress_textBox
             // 
-            this.s5_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.s5_textBox.BackColor = System.Drawing.Color.White;
-            this.s5_textBox.Location = new System.Drawing.Point(366, 49);
-            this.s5_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.s5_textBox.Name = "s5_textBox";
-            this.s5_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.s5_textBox.Size = new System.Drawing.Size(354, 29);
-            this.s5_textBox.TabIndex = 593;
+            this.MP_PlaceAddress_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.MP_PlaceAddress_textBox.BackColor = System.Drawing.Color.White;
+            this.MP_PlaceAddress_textBox.Location = new System.Drawing.Point(366, 49);
+            this.MP_PlaceAddress_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MP_PlaceAddress_textBox.Name = "MP_PlaceAddress_textBox";
+            this.MP_PlaceAddress_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MP_PlaceAddress_textBox.Size = new System.Drawing.Size(354, 29);
+            this.MP_PlaceAddress_textBox.TabIndex = 593;
             // 
-            // textBox8
+            // MP_PlaceNote_textBox
             // 
-            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox8.BackColor = System.Drawing.Color.White;
-            this.textBox8.Location = new System.Drawing.Point(4, 49);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox8.Size = new System.Drawing.Size(355, 29);
-            this.textBox8.TabIndex = 592;
+            this.MP_PlaceNote_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.MP_PlaceNote_textBox.BackColor = System.Drawing.Color.White;
+            this.MP_PlaceNote_textBox.Location = new System.Drawing.Point(4, 49);
+            this.MP_PlaceNote_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.MP_PlaceNote_textBox.Name = "MP_PlaceNote_textBox";
+            this.MP_PlaceNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MP_PlaceNote_textBox.Size = new System.Drawing.Size(355, 29);
+            this.MP_PlaceNote_textBox.TabIndex = 592;
             // 
             // MP_PlaceType_comboBox
             // 
@@ -5596,6 +5655,7 @@ namespace MyWorkApplication
             this.MP_PlaceType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_PlaceType_comboBox.Size = new System.Drawing.Size(354, 30);
             this.MP_PlaceType_comboBox.TabIndex = 505;
+            this.MP_PlaceType_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // label109
             // 
@@ -5740,6 +5800,10 @@ namespace MyWorkApplication
             this.PowerSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.PowerSource_dataGridView.Size = new System.Drawing.Size(1085, 124);
             this.PowerSource_dataGridView.TabIndex = 598;
+            this.PowerSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PowerSource_dataGridView_CellContentClick);
+            this.PowerSource_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.PowerSource_dataGridView_CellLeave);
+            this.PowerSource_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.PowerSource_dataGridView_CellPainting);
+            this.PowerSource_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             // 
             // Power_MP_ID
             // 
@@ -5885,6 +5949,7 @@ namespace MyWorkApplication
             this.AmperNumber_textBox.TabIndex = 600;
             this.AmperNumber_textBox.Text = "0";
             this.AmperNumber_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.AmperNumber_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AmperNumber_textBox_KeyPress);
             // 
             // flowLayoutPanel19
             // 
@@ -6324,6 +6389,10 @@ namespace MyWorkApplication
             this.Course_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Course_dataGridView.Size = new System.Drawing.Size(1085, 152);
             this.Course_dataGridView.TabIndex = 553;
+            this.Course_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Course_dataGridView_CellContentClick);
+            this.Course_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Course_dataGridView_CellLeave);
+            this.Course_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.Course_dataGridView_CellPainting);
+            this.Course_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             // 
             // CPerosn_ID
             // 
@@ -6543,97 +6612,11 @@ namespace MyWorkApplication
             this.Education_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Education_dataGridView.Size = new System.Drawing.Size(1085, 152);
             this.Education_dataGridView.TabIndex = 552;
-            // 
-            // PE_ID
-            // 
-            this.PE_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PE_ID.HeaderText = "PE_ID";
-            this.PE_ID.MinimumWidth = 6;
-            this.PE_ID.Name = "PE_ID";
-            this.PE_ID.Visible = false;
-            // 
-            // E_ID
-            // 
-            this.E_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_ID.HeaderText = "E_ID";
-            this.E_ID.MinimumWidth = 6;
-            this.E_ID.Name = "E_ID";
-            this.E_ID.Visible = false;
-            // 
-            // P_ID
-            // 
-            this.P_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_ID.HeaderText = "P_ID";
-            this.P_ID.MinimumWidth = 6;
-            this.P_ID.Name = "P_ID";
-            this.P_ID.Visible = false;
-            // 
-            // E_Level
-            // 
-            this.E_Level.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_Level.DisplayStyleForCurrentCellOnly = true;
-            this.E_Level.FillWeight = 33F;
-            this.E_Level.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.E_Level.HeaderText = "التحصيل العلمي";
-            this.E_Level.MinimumWidth = 6;
-            this.E_Level.Name = "E_Level";
-            // 
-            // E_Type
-            // 
-            this.E_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_Type.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.E_Type.DisplayStyleForCurrentCellOnly = true;
-            this.E_Type.FillWeight = 33F;
-            this.E_Type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.E_Type.HeaderText = "الدرجة العلمية";
-            this.E_Type.Items.AddRange(new object[] {
-            "إجازة جامعية",
-            "تعليم أساسي",
-            "دبلوم",
-            "دكتوراه",
-            "ماجستير",
-            "معهد"});
-            this.E_Type.MinimumWidth = 6;
-            this.E_Type.Name = "E_Type";
-            // 
-            // E_Name
-            // 
-            this.E_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_Name.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.E_Name.DisplayStyleForCurrentCellOnly = true;
-            this.E_Name.FillWeight = 33F;
-            this.E_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.E_Name.HeaderText = "الاختصاص";
-            this.E_Name.MinimumWidth = 6;
-            this.E_Name.Name = "E_Name";
-            // 
-            // Edu_DeleteRow
-            // 
-            this.Edu_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Edu_DeleteRow.FillWeight = 10F;
-            this.Edu_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Edu_DeleteRow.HeaderText = " ";
-            this.Edu_DeleteRow.MinimumWidth = 50;
-            this.Edu_DeleteRow.Name = "Edu_DeleteRow";
-            this.Edu_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Edu_DeleteRow.Text = "Delete";
-            this.Edu_DeleteRow.UseColumnTextForButtonValue = true;
-            this.Edu_DeleteRow.Width = 50;
-            // 
-            // Edu_InDataBase
-            // 
-            this.Edu_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Edu_InDataBase.HeaderText = "Edu_InDataBase";
-            this.Edu_InDataBase.MinimumWidth = 6;
-            this.Edu_InDataBase.Name = "Edu_InDataBase";
-            this.Edu_InDataBase.Visible = false;
-            // 
-            // Edu_RowID
-            // 
-            this.Edu_RowID.HeaderText = "Edu_RowID";
-            this.Edu_RowID.MinimumWidth = 6;
-            this.Edu_RowID.Name = "Edu_RowID";
-            this.Edu_RowID.Visible = false;
+            this.Education_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Education_dataGridView_CellContentClick);
+            this.Education_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Education_dataGridView_CellEndEdit);
+            this.Education_dataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Education_dataGridView_CellEnter);
+            this.Education_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.Education_dataGridView_CellPainting);
+            this.Education_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             // 
             // flowLayoutPanel11
             // 
@@ -6932,6 +6915,10 @@ namespace MyWorkApplication
             this.Exp_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Exp_dataGridView.Size = new System.Drawing.Size(1085, 214);
             this.Exp_dataGridView.TabIndex = 508;
+            this.Exp_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Exp_dataGridView_CellContentClick);
+            this.Exp_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Exp_dataGridView_CellLeave);
+            this.Exp_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.Exp_dataGridView_CellPainting);
+            this.Exp_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             // 
             // ExpP_ID
             // 
@@ -7143,6 +7130,10 @@ namespace MyWorkApplication
             this.Work_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Work_dataGridView.Size = new System.Drawing.Size(1085, 167);
             this.Work_dataGridView.TabIndex = 31;
+            this.Work_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Work_dataGridView_CellContentClick);
+            this.Work_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Work_dataGridView_CellLeave);
+            this.Work_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.Work_dataGridView_CellPainting);
+            this.Work_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             // 
             // WP_ID
             // 
@@ -7513,6 +7504,159 @@ namespace MyWorkApplication
             this.P_Goals_panel2.Size = new System.Drawing.Size(879, 142);
             this.P_Goals_panel2.TabIndex = 566;
             // 
+            // PE_ID
+            // 
+            this.PE_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PE_ID.HeaderText = "PE_ID";
+            this.PE_ID.MinimumWidth = 6;
+            this.PE_ID.Name = "PE_ID";
+            this.PE_ID.Visible = false;
+            // 
+            // E_ID
+            // 
+            this.E_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_ID.HeaderText = "E_ID";
+            this.E_ID.MinimumWidth = 6;
+            this.E_ID.Name = "E_ID";
+            this.E_ID.Visible = false;
+            // 
+            // P_ID
+            // 
+            this.P_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_ID.HeaderText = "P_ID";
+            this.P_ID.MinimumWidth = 6;
+            this.P_ID.Name = "P_ID";
+            this.P_ID.Visible = false;
+            // 
+            // E_Level
+            // 
+            this.E_Level.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_Level.DisplayStyleForCurrentCellOnly = true;
+            this.E_Level.FillWeight = 33F;
+            this.E_Level.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E_Level.HeaderText = "التحصيل العلمي";
+            this.E_Level.Items.AddRange(new object[] {
+            "طالب",
+            "متخرج"});
+            this.E_Level.MinimumWidth = 6;
+            this.E_Level.Name = "E_Level";
+            // 
+            // E_Type
+            // 
+            this.E_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_Type.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.E_Type.DisplayStyleForCurrentCellOnly = true;
+            this.E_Type.FillWeight = 33F;
+            this.E_Type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E_Type.HeaderText = "الدرجة العلمية";
+            this.E_Type.Items.AddRange(new object[] {
+            "تعليم أساسي",
+            "إجازة جامعية",
+            "معهد",
+            "دبلوم",
+            "ماجستير",
+            "دكتوراه"});
+            this.E_Type.MinimumWidth = 6;
+            this.E_Type.Name = "E_Type";
+            // 
+            // E_Name
+            // 
+            this.E_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_Name.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.E_Name.DisplayStyleForCurrentCellOnly = true;
+            this.E_Name.FillWeight = 33F;
+            this.E_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E_Name.HeaderText = "الاختصاص";
+            this.E_Name.MinimumWidth = 6;
+            this.E_Name.Name = "E_Name";
+            // 
+            // Edu_DeleteRow
+            // 
+            this.Edu_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Edu_DeleteRow.FillWeight = 10F;
+            this.Edu_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Edu_DeleteRow.HeaderText = " ";
+            this.Edu_DeleteRow.MinimumWidth = 50;
+            this.Edu_DeleteRow.Name = "Edu_DeleteRow";
+            this.Edu_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Edu_DeleteRow.Text = "Delete";
+            this.Edu_DeleteRow.UseColumnTextForButtonValue = true;
+            this.Edu_DeleteRow.Width = 50;
+            // 
+            // Edu_InDataBase
+            // 
+            this.Edu_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Edu_InDataBase.HeaderText = "Edu_InDataBase";
+            this.Edu_InDataBase.MinimumWidth = 6;
+            this.Edu_InDataBase.Name = "Edu_InDataBase";
+            this.Edu_InDataBase.Visible = false;
+            // 
+            // Edu_RowID
+            // 
+            this.Edu_RowID.HeaderText = "Edu_RowID";
+            this.Edu_RowID.MinimumWidth = 6;
+            this.Edu_RowID.Name = "Edu_RowID";
+            this.Edu_RowID.Visible = false;
+            // 
+            // Update_button
+            // 
+            this.Update_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Update_button.BackColor = System.Drawing.Color.DarkGray;
+            this.Update_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Update_button.FlatAppearance.BorderSize = 0;
+            this.Update_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.Update_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Update_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Update_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Update_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Update_button.Location = new System.Drawing.Point(480, 4);
+            this.Update_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Update_button.MaximumSize = new System.Drawing.Size(125, 40);
+            this.Update_button.MinimumSize = new System.Drawing.Size(125, 40);
+            this.Update_button.Name = "Update_button";
+            this.Update_button.Size = new System.Drawing.Size(125, 40);
+            this.Update_button.TabIndex = 114;
+            this.Update_button.Text = "Update";
+            this.Update_button.UseVisualStyleBackColor = false;
+            // 
+            // ApplyDate_bcDateTimePicker
+            // 
+            this.ApplyDate_bcDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ApplyDate_bcDateTimePicker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ApplyDate_bcDateTimePicker.CustomFormat = "yyyy/MM/dd";
+            this.ApplyDate_bcDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.ApplyDate_bcDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(533, 178);
+            this.ApplyDate_bcDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ApplyDate_bcDateTimePicker.Name = "ApplyDate_bcDateTimePicker";
+            this.ApplyDate_bcDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
+            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(245, 29);
+            this.ApplyDate_bcDateTimePicker.TabIndex = 6;
+            // 
+            // delete_contextMenuStrip
+            // 
+            this.delete_contextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.delete_contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.delete_person_ToolStripMenuItem,
+            this.delete_project_person_ToolStripMenuItem});
+            this.delete_contextMenuStrip.Name = "delete_contextMenuStrip";
+            this.delete_contextMenuStrip.Size = new System.Drawing.Size(247, 52);
+            // 
+            // delete_person_ToolStripMenuItem
+            // 
+            this.delete_person_ToolStripMenuItem.Name = "delete_person_ToolStripMenuItem";
+            this.delete_person_ToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
+            this.delete_person_ToolStripMenuItem.Text = "حذف المستفيد فقط";
+            this.delete_person_ToolStripMenuItem.Click += new System.EventHandler(this.delete_person_ToolStripMenuItem_Click);
+            // 
+            // delete_project_person_ToolStripMenuItem
+            // 
+            this.delete_project_person_ToolStripMenuItem.Name = "delete_project_person_ToolStripMenuItem";
+            this.delete_project_person_ToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
+            this.delete_project_person_ToolStripMenuItem.Text = "حذف الاستمارة بشكل كامل";
+            this.delete_project_person_ToolStripMenuItem.Click += new System.EventHandler(this.delete_all_project_ToolStripMenuItem_Click);
+            // 
             // Application_New_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 27F);
@@ -7527,6 +7671,7 @@ namespace MyWorkApplication
             this.Name = "Application_New_Form";
             this.Text = "Application_New_Form";
             this.Load += new System.EventHandler(this.Application_New_Form_Load);
+            this.Shown += new System.EventHandler(this.Application_Form_Shown);
             this.First_tableLayoutPanel.ResumeLayout(false);
             this.First_tableLayoutPanel.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -7665,6 +7810,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel25.PerformLayout();
             this.flowLayoutPanel26.ResumeLayout(false);
             this.flowLayoutPanel26.PerformLayout();
+            this.delete_contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -8019,8 +8165,8 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label label110;
         private System.Windows.Forms.Label label111;
         private System.Windows.Forms.TableLayoutPanel s6_tableLayoutPanel;
-        private System.Windows.Forms.TextBox s5_textBox;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox MP_PlaceAddress_textBox;
+        private System.Windows.Forms.TextBox MP_PlaceNote_textBox;
         private System.Windows.Forms.ComboBox MP_PlaceType_comboBox;
         private System.Windows.Forms.Label label109;
         private System.Windows.Forms.Label label108;
@@ -8072,15 +8218,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.DataGridViewTextBoxColumn M_InDataBase;
         private System.Windows.Forms.Label SubHeader13_label;
         private System.Windows.Forms.Label OverallSyrian_label;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PE_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn E_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn P_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn E_Level;
-        private System.Windows.Forms.DataGridViewComboBoxColumn E_Type;
-        private System.Windows.Forms.DataGridViewComboBoxColumn E_Name;
-        private System.Windows.Forms.DataGridViewButtonColumn Edu_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Edu_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Edu_RowID;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label49;
@@ -8128,5 +8265,18 @@ namespace MyWorkApplication
         private System.Windows.Forms.FlowLayoutPanel P_HasEducation_flowLayoutPanel;
         private System.Windows.Forms.RadioButton P_HasEducationNo_radioButton;
         private System.Windows.Forms.RadioButton P_HasEducationYes_radioButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PE_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn E_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn E_Level;
+        private System.Windows.Forms.DataGridViewComboBoxColumn E_Type;
+        private System.Windows.Forms.DataGridViewComboBoxColumn E_Name;
+        private System.Windows.Forms.DataGridViewButtonColumn Edu_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Edu_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Edu_RowID;
+        private System.Windows.Forms.Button Update_button;
+        private System.Windows.Forms.ContextMenuStrip delete_contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem delete_person_ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem delete_project_person_ToolStripMenuItem;
     }
 }

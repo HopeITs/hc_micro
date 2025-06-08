@@ -898,7 +898,18 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message, "Error");
             }
         }
-
+        private void newPriest_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddNewPriest Form = new AddNewPriest();
+                Form.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
         private void visitorsStatisticsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -1451,6 +1462,8 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
+
+
 
 
 
