@@ -1,20 +1,15 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWorkApplication.Classes
 {
-    public class Donor 
+    public class Donor
     {
         private string query;
 
         public void Insert(string name, string name_abb)
         {
-            
+
             Program.buildConnection();
 
             query = "INSERT INTO `donor`(`Name`, `Name_abb`) values (N'" + name + "',N'" + name_abb + "')";
@@ -27,7 +22,7 @@ namespace MyWorkApplication.Classes
 
         public void Update(int ID, string name, string name_abb)
         {
-            
+
             Program.buildConnection();
             query = "Update `donor` set "
                     + " `Name` = N'" + name + "' "
@@ -42,7 +37,7 @@ namespace MyWorkApplication.Classes
 
         public void Delete(int ID)
         {
-            
+
             Program.buildConnection();
             query = "delete From `donor` where `ID` =" + ID;
             using (var sc = new MySqlCommand(query, Program.MyConn))
@@ -54,7 +49,7 @@ namespace MyWorkApplication.Classes
 
         public DataTable Select(string Name)
         {
-            
+
             Program.buildConnection();
             query = "select `ID`, `Name`, `Name_abb` from `donor` ";
             var condition = "";

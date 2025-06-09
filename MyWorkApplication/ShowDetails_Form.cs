@@ -1,22 +1,21 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Data;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
-using ClosedXML.Excel;
-using MySql.Data.MySqlClient;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication
 {
     public partial class ShowDetails_Form : Form
     {
         DataTable dt;
-        BindingSource bs = new BindingSource(); 
+        BindingSource bs = new BindingSource();
         string Original_Filter_String = "";
 
-        public ShowDetails_Form(DataTable dt,string form_lable)
+        public ShowDetails_Form(DataTable dt, string form_lable)
         {
             InitializeComponent();
             this.dt = dt;
@@ -25,7 +24,7 @@ namespace MyWorkApplication
             dataGridView.DoubleBuffered(true);
             bs.ListChanged += bs_ListChanged;
         }
-          
+
         private void ShowDetails_Form_Load(object sender, EventArgs e)
         {
             try
@@ -35,8 +34,8 @@ namespace MyWorkApplication
                     newTheme.ShowDetails_Form_ToNight(this);
                 else
                     newTheme.ShowDetails_Form_ToLight(this);
-                 
-                dataGridView.DataSource = null; 
+
+                dataGridView.DataSource = null;
                 dataGridView.Columns.Clear();
                 dataGridView.Rows.Clear();
                 dataGridView.ColumnHeadersVisible = false;
@@ -209,7 +208,7 @@ namespace MyWorkApplication
             //                    select row.Cells["رقم المشروع"]).Distinct().Count();
             //Count_label.Text = "All: " + distinctRows.ToString("#,##0");
             Count_label.Text = "All: " + dataGridView.Rows.Count.ToString("#,##0");
-        } 
+        }
         #endregion
 
 
@@ -269,7 +268,7 @@ namespace MyWorkApplication
 
                     wb.SaveAs(filename);
                     wb.Dispose();
-                     
+
                     Process.Start(filename);
                 }
                 else
@@ -281,13 +280,13 @@ namespace MyWorkApplication
             }
         }
 
-         
+
         #region mouse hover
 
         private void ExportToExcel_button_MouseEnter(object sender, EventArgs e)
         {
             ExportToExcel_button.BackgroundImage = Resources.Excel_L;
-        } 
+        }
         private void ExportToExcel_button_MouseLeave(object sender, EventArgs e)
         {
             ExportToExcel_button.BackgroundImage = Resources.Excel_D;

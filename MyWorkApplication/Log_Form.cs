@@ -1,10 +1,10 @@
-﻿using System;
-using System.Data;
-using System.Windows.Forms;
+﻿using Microsoft.Office.Interop.Excel;
 using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
-using Microsoft.Office.Interop.Excel;
+using System;
+using System.Data;
+using System.Windows.Forms;
 using Application = Microsoft.Office.Interop.Excel.Application;
 
 namespace MyWorkApplication
@@ -23,7 +23,7 @@ namespace MyWorkApplication
         {
             InitializeComponent();
         }
-         
+
         private void Log_Form_Load(object sender, EventArgs e)
         {
             try
@@ -35,7 +35,7 @@ namespace MyWorkApplication
                 Log_dataGridView.DoubleBuffered(true);
                 bs.ListChanged += bs_ListChanged;
 
-                log_bind("","");
+                log_bind("", "");
                 //user_bind("");
 
                 var NewTheme = new NewTheme();
@@ -73,13 +73,13 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message, "Error");
             }
-        } 
+        }
         private void Log_dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
                 var SelectedRowCount = Log_dataGridView.Rows.GetRowCount(DataGridViewElementStates.Selected);
-                Selected_label.Text = "عدد الأسطر المحددة: " + SelectedRowCount.ToString("#,##0"); 
+                Selected_label.Text = "عدد الأسطر المحددة: " + SelectedRowCount.ToString("#,##0");
             }
             catch (Exception ex)
             {
@@ -132,7 +132,7 @@ namespace MyWorkApplication
                     }
                     string All_Filters = Original_Filter_String == "" ? NewFilter : Original_Filter_String + " and (" + NewFilter + ")";
                     bs.Filter = All_Filters;
-                } 
+                }
             }
             catch (Exception ex)
             {
@@ -251,7 +251,7 @@ namespace MyWorkApplication
                     Log_IDs = new int[SelectedRowCount];
                     for (var i = 0; i < SelectedRowCount; i++)
                     {
-                        LogSelectedDataRow = ((DataRowView) Log_dataGridView.SelectedRows[i].DataBoundItem).Row;
+                        LogSelectedDataRow = ((DataRowView)Log_dataGridView.SelectedRows[i].DataBoundItem).Row;
                         Log_IDs[i] = int.Parse(LogSelectedDataRow["Log_ID"].ToString());
                     }
 
@@ -262,7 +262,7 @@ namespace MyWorkApplication
                     l.Update_Log();
                 }
 
-                log_bind("","");
+                log_bind("", "");
             }
             catch (Exception ex)
             {
@@ -274,7 +274,7 @@ namespace MyWorkApplication
         {
             try
             {
-                 
+
             }
             catch (Exception ex)
             {
@@ -301,7 +301,7 @@ namespace MyWorkApplication
         {
             DeleteImage_button.BackgroundImage = Resources.Trash_D;
         }
-         
+
         private void ExportToExcel_button_Click(object sender, EventArgs e)
         {
             try

@@ -1,21 +1,16 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWorkApplication.Classes
 {
     public class WorkExperience
     {
 
-        private string query="";
+        private string query = "";
 
         public void Insert(string Name)
-        {  
-            
+        {
+
             Program.buildConnection();
             query = "INSERT INTO `work` (`W_Name`) VALUES (@Name)";
             using (var sc = new MySqlCommand(query, Program.MyConn))
@@ -27,7 +22,7 @@ namespace MyWorkApplication.Classes
         }
 
         public void Update(int ID, string Name)
-        { 
+        {
             Program.buildConnection();
             query = "Update `work` set W_Name = @Name where `W_ID` = @ID ";
             using (var sc = new MySqlCommand(query, Program.MyConn))
@@ -41,7 +36,7 @@ namespace MyWorkApplication.Classes
 
         public void Delete(int ID)
         {
-            
+
             Program.buildConnection();
             query = "delete From `work` where `W_ID` = @ID";
             using (var sc = new MySqlCommand(query, Program.MyConn))
@@ -54,7 +49,7 @@ namespace MyWorkApplication.Classes
 
         public DataTable Select(string name)
         {
-            
+
             Program.buildConnection();
             query = "SELECT W_ID as 'ID', W_Name as 'Name' from `work` order by W_Name asc ";
             var sc = new MySqlCommand(query, Program.MyConn);

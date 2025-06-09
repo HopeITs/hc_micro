@@ -2,7 +2,7 @@
 using MyWorkApplication.Properties;
 using System;
 using System.Collections.Generic;
-using System.Drawing; 
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace MyWorkApplication
@@ -10,7 +10,7 @@ namespace MyWorkApplication
     public partial class NewIdea_Form : Form
     {
 
-        public NewIdea_Form(string Form_Name,string Project, List<string> emails)
+        public NewIdea_Form(string Form_Name, string Project, List<string> emails)
         {
             InitializeComponent();
             this.Form_Name = Form_Name;
@@ -28,7 +28,7 @@ namespace MyWorkApplication
         string Form_Name;
         string Project;
         List<string> emails;
-        
+
         private void NewIdea_Form_Load(object sender, EventArgs e)
         {
             u = new User();
@@ -46,7 +46,7 @@ namespace MyWorkApplication
                 Subject_TextBox.Text = "Micro App. Notes From:" + Program.UserName;
 
                 NewIdea_TextBox.Text = "أكتب رسالتك هنا";
-                NewIdea_TextBox.ForeColor = Color.LightGray; 
+                NewIdea_TextBox.ForeColor = Color.LightGray;
             }
             else
             {
@@ -66,13 +66,13 @@ namespace MyWorkApplication
             {
                 if (string.IsNullOrWhiteSpace(NewIdea_TextBox.Text) || NewIdea_TextBox.Text == "أكتب رسالتك هنا")
                 {
-                    throw new InvalidOperationException("لا يمكن إرسال رسالة فارغة"); 
+                    throw new InvalidOperationException("لا يمكن إرسال رسالة فارغة");
                 }
 
                 if (string.IsNullOrWhiteSpace(Subject_TextBox.Text))
                 {
                     MessageBox.Show("لا يمكن إرسال الرسالة بدون عنوان", "Error");
-                } 
+                }
                 else
                 {
                     string Message = NewIdea_TextBox.Text + Environment.NewLine + "Date:" + DateTime.Now.ToString();
@@ -81,7 +81,7 @@ namespace MyWorkApplication
                     else u.Send_New_NoteEmail(Subject_TextBox.Text, Message, emails);
 
                     MessageBox.Show("تم الإرسال بنجاح", "Confirmation");
-                    
+
                     this.Close();
                 }
             }
@@ -118,11 +118,11 @@ namespace MyWorkApplication
                 NewIdea_TextBox.ForeColor = Color.LightGray;
             }
         }
-         
+
         private void Close_button_Click(object sender, EventArgs e)
         {
             Close();
         }
-         
+
     }
 }

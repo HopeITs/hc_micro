@@ -1,10 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWorkApplication.Classes
 {
@@ -53,7 +48,7 @@ namespace MyWorkApplication.Classes
         }
 
         public DataTable Select(string Name)
-        { 
+        {
             Program.buildConnection();
             query = "select `ID`, `Name`, `Name_en` from `aidsource` ";
             var condition = "";

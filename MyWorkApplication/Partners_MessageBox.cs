@@ -1,6 +1,6 @@
-﻿using System;
+﻿using MyWorkApplication.Visit_Forms;
+using System;
 using System.Windows.Forms;
-using MyWorkApplication.Visit_Forms;
 
 namespace MyWorkApplication
 {
@@ -59,12 +59,12 @@ namespace MyWorkApplication
                     if (Category_ID == 1 || Category_ID == 2)
                     {
                         Form Visit_V_Form = new V_ME_Taxi_Form(mainForm, V_Num, Person_Name, MicroProject_ID, 1);
-                        mainForm.showNewTab(Visit_V_Form, V_NAME_TO_SHOW,0);
+                        mainForm.showNewTab(Visit_V_Form, V_NAME_TO_SHOW, 0);
                     }
                     else
                     {
                         Form Visit_O_Form = new V_ME_Other_Form(mainForm, V_Num, Person_Name, MicroProject_ID, 1);
-                        mainForm.showNewTab(Visit_O_Form, V_NAME_TO_SHOW,0);
+                        mainForm.showNewTab(Visit_O_Form, V_NAME_TO_SHOW, 0);
                     }
 
                     Close();
@@ -119,7 +119,7 @@ namespace MyWorkApplication
                             DataGridView.Rows[grid_index].Cells["P_ID"].Value =
                                 int.Parse(dt.Rows[i]["Person_ID"].ToString());
                             DataGridView.Rows[grid_index].Cells["Beneficiary_Name"].Value =
-                                (string) dt.Rows[i]["Beneficiary Name"];
+                                (string)dt.Rows[i]["Beneficiary Name"];
                             grid_index++;
                         }
             }

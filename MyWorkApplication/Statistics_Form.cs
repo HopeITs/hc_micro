@@ -1,28 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Reflection;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
-using Microsoft.Office.Interop.Excel;
+﻿using Microsoft.Office.Interop.Excel;
 using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
 using MyWorkApplication.Visit_Forms;
+using PresentationControls;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Globalization;
+using System.Linq;
+using System.Reflection;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Application = Microsoft.Office.Interop.Excel.Application;
 using ChartArea = System.Windows.Forms.DataVisualization.Charting.ChartArea;
-using Series = System.Windows.Forms.DataVisualization.Charting.Series;
 using DataTable = System.Data.DataTable;
 using Font = System.Drawing.Font;
 using Legend = System.Windows.Forms.DataVisualization.Charting.Legend;
-using System.Linq;
-using PresentationControls;
-using DocumentFormat.OpenXml.Math;
-using Org.BouncyCastle.Utilities;
-using System.Windows.Controls.Primitives;
+using Series = System.Windows.Forms.DataVisualization.Charting.Series;
 
 namespace MyWorkApplication
 {
@@ -41,7 +38,7 @@ namespace MyWorkApplication
 
         private bool user_mode;
         private DataSet ds, combo_ds;
-        private string from = "", inner_from = "", same_from = ""; 
+        private string from = "", inner_from = "", same_from = "";
         private string from3 = "";
         private string condition = " where 1 ";
 
@@ -59,7 +56,7 @@ namespace MyWorkApplication
         private List<Color> colors = new List<Color>();
         NewTheme newTheme;
         Street st;
-        SubCategory sub; 
+        SubCategory sub;
         Select s;
 
         public Statistics_Form(MainForm main_form)
@@ -89,7 +86,7 @@ namespace MyWorkApplication
                 PW = Search_panel.Height;
                 Hided = true;
                 Search_panel.Height = 0;
-                 
+
                 X_Axis_list = new List<string>();
                 X_Axis_list.Add("Project Status");
                 X_Axis_list.Add("Fund Type");
@@ -98,11 +95,11 @@ namespace MyWorkApplication
                 X_Axis_list.Add("Sub Categories");
                 X_Axis_list.Add("Donors");
                 X_Axis_list.Add("Partnership");
-                X_Axis_list.Add("Experience VS Project"); 
-                X_Axis_list.Add("Parishes"); 
+                X_Axis_list.Add("Experience VS Project");
+                X_Axis_list.Add("Parishes");
                 X_Axis_list.Add("Gender");
                 X_Axis_list.Add("Marital Status");
-                X_Axis_list.Add("Age"); 
+                X_Axis_list.Add("Age");
                 X_Axis_list.Add("Profit Rate");
                 X_Axis_list.Add("Success Rate");
                 X_Axis_list.Add("Fund Year");
@@ -117,10 +114,10 @@ namespace MyWorkApplication
                 chart1.Series.Clear();
 
                 Bind_All_ComboBoxes();
-                 
+
                 fillChartTypesComboBox();
                 comboBox1.SelectedIndex = 0;
-                 
+
                 user_mode = true;
                 X_Axis_comboBox.SelectedIndex = 0;
             }
@@ -129,7 +126,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
         private void X_Axis_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -271,7 +268,7 @@ namespace MyWorkApplication
 
                             Fill_ChartArea("Partnership");
                         }
-                        
+
                         // experience //
                         else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(7))
                         {
@@ -347,7 +344,7 @@ namespace MyWorkApplication
 
                         //to show/hide columns
                         if (withFunded_checkBox.Visible)
-                            WithFunded_checkBox_CheckStateChanged(sender, e); 
+                            WithFunded_checkBox_CheckStateChanged(sender, e);
                     }
                 }
             }
@@ -356,7 +353,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-        
+
         private void Category_comboBox_Leave(object sender, EventArgs e)
         {
             //try
@@ -591,7 +588,7 @@ namespace MyWorkApplication
 
             //Funded Date 
             if (FundedDate_condition != "") condition += FundedDate_condition;
-              
+
             //Requested Amount
             if (RequestedAmount_condition != "")
                 condition += RequestedAmount_condition;
@@ -691,7 +688,7 @@ namespace MyWorkApplication
                 //releaseObject(xlWorkSheet);
                 //releaseObject(xlWorkBook);
                 //releaseObject(xlApp);
-            } 
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -704,7 +701,7 @@ namespace MyWorkApplication
         {
             try
             {
-                Chart_type = (SeriesChartType) comboBox1.SelectedItem;
+                Chart_type = (SeriesChartType)comboBox1.SelectedItem;
                 refreshPageToolStripMenuItem_Click(sender, e);
                 //Category_comboBox_Leave(sender, e);
             }
@@ -749,9 +746,9 @@ namespace MyWorkApplication
             //    comboBox1.Items.Add(SeriesChartType.SplineArea); 
             //    comboBox1.Items.Add(SeriesChartType.StackedArea);  
         }
-         
+
         private void executeQuery_countAll(string query)
-        { 
+        {
             Program.buildConnection();
             MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
             sc.ExecuteNonQuery();
@@ -765,11 +762,11 @@ namespace MyWorkApplication
 
             var sumObject = ds.Tables[0].Compute("Sum(numOfProjects)", string.Empty);
             var sumObject2 = ds.Tables[0].Compute("Sum(numOfFundedProjects)", string.Empty);
-             
+
             Count_all_label.Text = "All:" + sumObject.ToString();
             Count_funded_label.Text = "Funded:" + sumObject2.ToString();
         }
-        
+
         #region select project statistics 
         private void Project_Status_BindChart()
         {
@@ -793,21 +790,21 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
         private void Project_Type_BindChart()
         {
             try
             {
-                 
+
                 string query =
                     " select fundtype.Name_en " +
                     ", count(DISTINCT MP_ID) as numOfProjects" +
                     ", (select count(DISTINCT microproject.MP_ID) " +
-                            inner_from + condition + 
+                            inner_from + condition +
                             " and State_ID in (4,5,7,8) and Current_State = 1 " +
                             " and MP.MP_FundType_ID = microproject.MP_FundType_ID " +
                       ") as numOfFundedProjects "; //مقسمين نفس التقسيمة 
-                 
+
                 var GroupBycondition = " group by fundtype.Name ";
                 query += from + condition + GroupBycondition + ";";
 
@@ -825,7 +822,7 @@ namespace MyWorkApplication
                 string query = " Select microprojectsubtype.Name_en as 'sub Type'" +
                     ", count(DISTINCT MP_ID) as numOfProjects " +
                     ", (select count(DISTINCT microproject.MP_ID) " +
-                             inner_from + condition + 
+                             inner_from + condition +
                              " and State_ID in (4,5,7,8) " +
                              " and Current_State = 1 " +
                              " and MP.MP_SubType_ID = microproject.MP_SubType_ID ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
@@ -844,11 +841,11 @@ namespace MyWorkApplication
         {
             try
             {
-                 
+
                 string query = "select C.Name " +
                     ", count(DISTINCT MP_ID) as numOfProjects " +
                     ", (select count(DISTINCT microproject.MP_ID) " +
-                    inner_from + condition + 
+                    inner_from + condition +
                              " and State_ID in (4,5,7,8) " +
                              " and Current_State = 1" +
                     " and MP.Category_ID = microproject.Category_ID  ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
@@ -871,7 +868,7 @@ namespace MyWorkApplication
                 string query = "select sub.Name " +
                     ", count(DISTINCT MP_ID) as numOfProjects " +
                     ", (select count(DISTINCT microproject.MP_ID) " +
-                    inner_from + condition + 
+                    inner_from + condition +
                              " and State_ID in (4,5,7,8) " +
                              " and Current_State = 1 " +
                     " and MP.SubCategory_ID = microproject.SubCategory_ID  ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
@@ -895,11 +892,11 @@ namespace MyWorkApplication
                 string query = "Select donor.Name " +
                     ", count(DISTINCT MP_ID) as numOfProjects " +
                     ", (select count(DISTINCT microproject.MP_ID) " +
-                             inner_from + condition + 
+                             inner_from + condition +
                              " and State_ID in (4,5,7,8) " +
                              " and Current_State = 1 " +
                 " and MP.MP_Donor = microproject.MP_Donor ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
-                 
+
                 var GroupBycondition = " group by donor.Name ";
                 query += from + condition + GroupBycondition + ";";
 
@@ -909,19 +906,19 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
         private void Project_Partnership_BindChart()
         {
             try
-            { 
+            {
                 string query = "Select CASE Partnership WHEN '1' THEN 'Individual' ELSE 'Partnership' END as 'Partnership'"
                              + ", count(DISTINCT MP_ID) as numOfProjects "
-                             + ", (select count(DISTINCT microproject.MP_ID) " 
-                             + inner_from + condition + 
+                             + ", (select count(DISTINCT microproject.MP_ID) "
+                             + inner_from + condition +
                              " and State_ID in (4,5,7,8) " +
                              " and Current_State = 1 " +
                              " and MP.Partnership = microproject.Partnership ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
-                 
+
                 var GroupBycondition = "  group by Partnership ";
                 query += from + condition + GroupBycondition + ";";
 
@@ -944,7 +941,7 @@ namespace MyWorkApplication
                 string query = @"SELECT case ms.value when 1 then 'Yes' when 0 then 'No' else 'N/A' end as 'Experience'
 , count(DISTINCT MP_ID) as numOfProjects 
 , (select count(DISTINCT microproject.MP_ID) " +
-        inner_from + inner_from3 + condition + 
+        inner_from + inner_from3 + condition +
                              " and State_ID in (4,5,7,8) " +
                              " and Current_State = 1 " +
         " and ms.value = microproject_score.value ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
@@ -960,7 +957,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
         #endregion
         #region select beneficiary statistics 
         private void Project_Parish_BindChart()
@@ -971,7 +968,7 @@ namespace MyWorkApplication
                 string query = "Select parish.Name_en " +
                     ", count(P_ID) as numOfProjects " +
                     ", (select count(person.P_ID) " +
-                        inner_from + condition + 
+                        inner_from + condition +
                              " and State_ID in (4,5,7,8) " +
                              " and Current_State = 1 " +
                         " and  P.P_Parish_ID = person.P_Parish_ID ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
@@ -989,7 +986,7 @@ namespace MyWorkApplication
         private void Project_Gender_BindChart()
         {
             try
-            { 
+            {
                 string query =
                     " SELECT (CASE P_Sex WHEN N'أنثى' THEN N'Female' WHEN N'ذكر' THEN N'Male' ELSE N'N/A' End) " +
                     ", COUNT(P_ID) as numOfProjects " +
@@ -1009,7 +1006,7 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
         private void Project_MaritalStatus_BindChart()
         {
             try
@@ -1024,7 +1021,7 @@ namespace MyWorkApplication
                              " and State_ID in (4,5,7,8) " +
                              " and Current_State = 1 " +
                              " and P.P_MaritalStatus_ID = person.P_MaritalStatus_ID  ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
-                  
+
                 var GroupBycondition = " group by maritalstatus.Name_en ";
                 query += from + condition + GroupBycondition + ";";
 
@@ -1034,44 +1031,44 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
         private void Project_Age_BindChart()
         {
             try
             {
                 condition += " and lower(IsProjectOwner) like 'yes' ";
-                string query = " Select a.Name as 'Age'" 
-                    + ", count(P_ID) as numOfProjects "   
+                string query = " Select a.Name as 'Age'"
+                    + ", count(P_ID) as numOfProjects "
                     + ", (select count(person.P_ID) "
-                    + inner_from 
-                    + " LEFT JOIN age ON TIMESTAMPDIFF(YEAR, person.P_DOB, microproject.MP_DateOfRequest) >= age.Min " 
+                    + inner_from
+                    + " LEFT JOIN age ON TIMESTAMPDIFF(YEAR, person.P_DOB, microproject.MP_DateOfRequest) >= age.Min "
                                  + " AND TIMESTAMPDIFF(YEAR, person.P_DOB, microproject.MP_DateOfRequest) < age.Max "
-                    + condition 
-                    + " and State_ID in (4,5,7,8) " 
-                    + " and Current_State = 1 " 
+                    + condition
+                    + " and State_ID in (4,5,7,8) "
+                    + " and Current_State = 1 "
                     + " and age.Name = a.Name "
                     + ") as numOfFundedProjects ";      //مقسمين نفس التقسيمة  
 
                 var GroupBycondition = " Group by `Age` ORDER BY `P_DOB` desc";
                 query += from
-                    + " LEFT JOIN age a ON TIMESTAMPDIFF(YEAR, P_DOB, MP_DateOfRequest) >= a.Min " 
+                    + " LEFT JOIN age a ON TIMESTAMPDIFF(YEAR, P_DOB, MP_DateOfRequest) >= a.Min "
                                    + " AND TIMESTAMPDIFF(YEAR, P_DOB, MP_DateOfRequest) <  a.Max "
-                    + condition 
+                    + condition
                     + GroupBycondition + ";";
-                 
+
                 executeQuery_countAll(query);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }  
+        }
         private void Project_LastProfitRate_BindChart()
         {
             try
             {
                 MySqlCommand sc = new MySqlCommand("calculate_profit_rates", Program.MyConn);
-                sc.CommandType = CommandType.StoredProcedure; 
+                sc.CommandType = CommandType.StoredProcedure;
                 sc.Parameters.AddWithValue("@MyCondition", condition);
 
                 using (MySqlDataAdapter sda = new MySqlDataAdapter(sc))
@@ -1083,15 +1080,15 @@ namespace MyWorkApplication
 
                     Count_all_label.Text = Count_funded_label.Text = "";
 
-                    var sumObject = dt.Compute("Sum(numOfProjects)", string.Empty);  
+                    var sumObject = dt.Compute("Sum(numOfProjects)", string.Empty);
                     Count_funded_label.Text = "Funded:" + sumObject.ToString();
-                }  
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
         private void Project_LastMEResults_BindChart()
         {
             try
@@ -1112,7 +1109,7 @@ namespace MyWorkApplication
                     var sumObject = dt.Compute("Sum(numOfProjects)", string.Empty);
 
                     Count_funded_label.Text = "Funded:" + sumObject.ToString();
-                } 
+                }
             }
             catch (Exception ex)
             {
@@ -1128,7 +1125,7 @@ namespace MyWorkApplication
                 string query = "Select YEAR(Loan_DateTaken) as 'Fund Year'"
                              + ", count(DISTINCT MP_ID) as numOfProjects "
                              + ", (select count(DISTINCT microproject.MP_ID) "
-                             + inner_from + condition + 
+                             + inner_from + condition +
                              " and State_ID in (4,5,7,8) " +
                              " and Current_State = 1 " +
                              " and YEAR(L.Loan_DateTaken) = YEAR(loan.Loan_DateTaken) ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
@@ -1158,8 +1155,8 @@ namespace MyWorkApplication
                     " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 4001 AND 5000 THEN '5001-5001' " +
                     " ELSE '>6000' END as 'Fund Amount' "
 
-                    + ", count(DISTINCT MP_ID) as numOfProjects "  
-                    +", (select count(DISTINCT microproject.MP_ID) "
+                    + ", count(DISTINCT MP_ID) as numOfProjects "
+                    + ", (select count(DISTINCT microproject.MP_ID) "
                             + inner_from + condition +
                             " and State_ID in (4,5,7,8) " +
                             " and Current_State = 1 " +
@@ -1187,7 +1184,7 @@ namespace MyWorkApplication
 
         #region comboBox bind and events
         private void Bind_All_ComboBoxes()
-        { 
+        {
             string query = "";
 
             query += @"SELECT ID, Name from `category` ORDER BY Name ASC;"; //0
@@ -1234,7 +1231,7 @@ namespace MyWorkApplication
             //Set_comboBox_datasource(HomeStreet_comboBox,        combo_ds.Tables[10]);
             //Set_comboBox_datasource(ProjectStreet_comboBox,     combo_ds.Tables[11]);
             //Set_comboBox_datasource(P_Parish_comboBox,          combo_ds.Tables[12]);
-             
+
             Set_checkboxcomboBox_datasource(Category_comboBox, combo_ds.Tables[0]);
             Set_checkboxcomboBox_datasource(SubCategory_comboBox, combo_ds.Tables[1]);
             Set_checkboxcomboBox_datasource(Career_comboBox, combo_ds.Tables[2]);
@@ -1244,15 +1241,15 @@ namespace MyWorkApplication
             Set_checkboxcomboBox_datasource(Type_comboBox, combo_ds.Tables[6]);
             Set_checkboxcomboBox_datasource(SubType_comboBox, combo_ds.Tables[7]);
             Set_checkboxcomboBox_datasource(MaritalStatus_comboBox, combo_ds.Tables[8]);
-            Set_checkboxcomboBox_datasource(Age_comboBox, combo_ds.Tables[9]);            
-            
+            Set_checkboxcomboBox_datasource(Age_comboBox, combo_ds.Tables[9]);
+
             Set_checkboxcomboBox_datasource(MP_Status_comboBox, combo_ds.Tables[10]);
             Set_checkboxcomboBox_datasource(P_Parish_comboBox, combo_ds.Tables[11]);
             Set_checkboxcomboBox_datasource(HomeStreet_comboBox, combo_ds.Tables[12]);
             Set_checkboxcomboBox_datasource(ProjectStreet_comboBox, combo_ds.Tables[13]);
-            
 
-             
+
+
             ApplyDate_comboBox.Items.Clear();
             FundDate_comboBox.Items.Clear();
 
@@ -1263,7 +1260,7 @@ namespace MyWorkApplication
             }
 
             ApplyDateTo_DateTimePicker.Value = FundedDateTo_DateTimePicker.Value = DateTime.Today;
-        } 
+        }
         private void Set_comboBox_datasource(ComboBox cBox, DataTable c_dt)
         {
             cBox.DataSource = null;
@@ -1554,7 +1551,7 @@ namespace MyWorkApplication
         {
             if (Category_comboBox.SelectedIndex != -1)
             {
-                int id = Convert.ToInt32( Category_comboBox.SelectedValue);
+                int id = Convert.ToInt32(Category_comboBox.SelectedValue);
                 SubCategory_bind(id.ToString());
             }
             else
@@ -1616,7 +1613,7 @@ namespace MyWorkApplication
             chart1.ChartAreas[0].AxisX.Interval = 1;
             chart1.ChartAreas[0].AxisY.LabelStyle.Format = "#,#";
         }
-         
+
         private void Build_ChartArea(int index)
         {
             try
@@ -1628,7 +1625,7 @@ namespace MyWorkApplication
                 chartArea1.AxisX.LabelAutoFitMaxFontSize = 11;
                 chartArea1.AxisX.LabelAutoFitMinFontSize = 8;
                 chartArea1.AxisX.LabelAutoFitStyle = LabelAutoFitStyles.DecreaseFont;
-                 
+
                 chart1.ChartAreas.Insert(index, chartArea1);
             }
             catch (Exception ex)
@@ -1636,7 +1633,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-         
+
         private void Build_Legend(int ChartAreas_index)
         {
             try
@@ -1692,8 +1689,8 @@ namespace MyWorkApplication
                     ",LabelStyle=Top" +
                     ",EmptyPointValue=Zero";
 
-                chart1.Series.Add(s1); 
-                chart1.Series[Name].ChartType = Chart_type; 
+                chart1.Series.Add(s1);
+                chart1.Series[Name].ChartType = Chart_type;
             }
             catch (Exception ex)
             {
@@ -1702,11 +1699,11 @@ namespace MyWorkApplication
         }
 
         private void Fill_ChartArea(string Name)
-        {  
+        {
             Build_Series("all projects - " + Name);
 
-            if(X_Axis_comboBox.SelectedIndex != 12 
-                && X_Axis_comboBox.SelectedIndex != 13 
+            if (X_Axis_comboBox.SelectedIndex != 12
+                && X_Axis_comboBox.SelectedIndex != 13
                 && X_Axis_comboBox.SelectedIndex != 14
                 && X_Axis_comboBox.SelectedIndex != 15) //not profit rate , success rate , me results
                 Build_Series("funded projects - " + Name);
@@ -1724,13 +1721,13 @@ namespace MyWorkApplication
                 chart1.Legends[0].Enabled = true;
                 chart1.Legends[1].Enabled = false;
             }
-              
+
             //if there is more than chartarea specially for doughnut type
             for (int i = 0; i < chart1.ChartAreas.Count; i++)
-            { 
+            {
                 chart1.Series[i].ChartArea = chart1.ChartAreas[i].Name;
                 chart1.Series[i].Legend = chart1.Legends[i].Name;
-            } 
+            }
 
             var max_value = 0;
             for (var i = 0; i < results_dataGridView.Rows.Count; i++)
@@ -1739,13 +1736,13 @@ namespace MyWorkApplication
                 chart1.Series["all projects - " + Name].Points.AddXY(
                     results_dataGridView.Rows[i].Cells[0].Value.ToString(), Convert.ToInt32(results_dataGridView.Rows[i].Cells[1].Value.ToString()));
 
-                if (X_Axis_comboBox.SelectedIndex != 12 
+                if (X_Axis_comboBox.SelectedIndex != 12
                     && X_Axis_comboBox.SelectedIndex != 13
                     && X_Axis_comboBox.SelectedIndex != 14
                     && X_Axis_comboBox.SelectedIndex != 15) //not profit rate ,success rate, me results
                     chart1.Series["funded projects - " + Name].Points.AddXY(
                         results_dataGridView.Rows[i].Cells[0].Value.ToString(), Convert.ToInt32(results_dataGridView.Rows[i].Cells[2].Value.ToString()));
-                 
+
                 //save the maximum value
                 if (Convert.ToInt32(results_dataGridView.Rows[i].Cells[1].Value) > max_value)
                     max_value = Convert.ToInt32(results_dataGridView.Rows[i].Cells[1].Value);
@@ -1758,7 +1755,7 @@ namespace MyWorkApplication
                 newTheme.Statistics_ToNight(this, Hided);
             else
                 newTheme.Statistics_ToLight(this, Hided);
-        } 
+        }
         #endregion
 
         #region mouse hover
@@ -1815,25 +1812,25 @@ namespace MyWorkApplication
         private void clearAllFiltersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             user_mode = false;
-            FundType_comboBox.Text = Type_comboBox.Text 
-                = SubType_comboBox.Text= Partnership_comboBox.Text
-                = MP_Status_comboBox.Text = Donor_comboBox.Text 
+            FundType_comboBox.Text = Type_comboBox.Text
+                = SubType_comboBox.Text = Partnership_comboBox.Text
+                = MP_Status_comboBox.Text = Donor_comboBox.Text
                 = DonorGroup_comboBox.Text = Career_comboBox.Text
-                = ApplyDate_comboBox.Text = FundDate_comboBox.Text 
+                = ApplyDate_comboBox.Text = FundDate_comboBox.Text
                 = Category_comboBox.Text = SubCategory_comboBox.Text
-                = P_Parish_comboBox.Text = Age_comboBox.Text 
-                = Gender_comboBox.Text = MaritalStatus_comboBox.Text 
+                = P_Parish_comboBox.Text = Age_comboBox.Text
+                = Gender_comboBox.Text = MaritalStatus_comboBox.Text
                 = HomeStreet_comboBox.Text = ProjectStreet_comboBox.Text = "";
-            
+
             FundedDate_checkBox.Checked = ApplyDate_checkBox.Checked = false;
             //Funded_checkBox.Checked = Requested_checkBox.Checked = 
 
             RequestedFrom_textBox.Text = RequestedTo_textBox.Text
                 = FundedFrom_textBox.Text = FundedTo_textBox.Text = "";
-             
+
             ApplyDate_condition = FundedDate_condition
                 = RequestedAmount_condition = FundedAmount_condition = "";
-             
+
             user_mode = true;
 
             X_Axis_comboBox_SelectedIndexChanged(sender, e);
@@ -1843,11 +1840,11 @@ namespace MyWorkApplication
         {
             try
             {
-                DataSet ds = s.Select_Applications(condition, false); 
+                DataSet ds = s.Select_Applications(condition, false);
                 using (var ShowFamilyMembers = new ShowDetails_Form(ds.Tables[0], "المستفيدين"))
                 {
                     ShowFamilyMembers.ShowDialog();
-                } 
+                }
             }
             catch (Exception ex)
             {
@@ -1856,15 +1853,15 @@ namespace MyWorkApplication
         }
 
         #endregion
-         
-//  string FundType, string Type, string SubType
-//, string Partners, string State
-//, string Donor, string DonorGroup
-//, string Category, string SubCategory
-//, string Parish, string Age, string Sex, string MaritalStatus
-//, string ApplyDate, string FundDate
-//, string ApplyDate_Condition, string FundedDate_Condition
-//, string HomeStreet,string ProjectStreet
+
+        //  string FundType, string Type, string SubType
+        //, string Partners, string State
+        //, string Donor, string DonorGroup
+        //, string Category, string SubCategory
+        //, string Parish, string Age, string Sex, string MaritalStatus
+        //, string ApplyDate, string FundDate
+        //, string ApplyDate_Condition, string FundedDate_Condition
+        //, string HomeStreet,string ProjectStreet
 
 
         #region requested and fund date 
@@ -1899,7 +1896,7 @@ namespace MyWorkApplication
                 {
                     FundedDateFrom_DateTimePicker.Enabled = FundedDateFrom_label.Enabled
                         = FundedDateTo_DateTimePicker.Enabled = true;
-                       // = FundedDateTo_label.Enabled 
+                    // = FundedDateTo_label.Enabled 
                     //FundedDateTo_bcDateTimePicker_ValueChanged(sender, e);
                 }
                 else
@@ -1907,7 +1904,7 @@ namespace MyWorkApplication
                     FundedDate_condition = "";
                     FundedDateFrom_DateTimePicker.Enabled = FundedDateFrom_label.Enabled
                         = FundedDateTo_DateTimePicker.Enabled = false;
-                       // = FundedDateTo_label.Enabled 
+                    // = FundedDateTo_label.Enabled 
                     //X_Axis_comboBox_SelectedIndexChanged(sender, e);
                 }
             }

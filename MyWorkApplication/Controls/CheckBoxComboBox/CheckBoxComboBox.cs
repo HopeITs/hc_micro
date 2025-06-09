@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using VS = System.Windows.Forms.VisualStyles;
 
 namespace MyWorkApplication.Classes.CheckBoxComboBox
 {
@@ -579,7 +578,7 @@ namespace MyWorkApplication.Classes.CheckBoxComboBox
             // Helps to maintain the Checked status of this
             // checkbox before the control is visible
             if (_ComboBoxItem is INotifyPropertyChanged)
-                ((INotifyPropertyChanged) _ComboBoxItem).PropertyChanged +=
+                ((INotifyPropertyChanged)_ComboBoxItem).PropertyChanged +=
                     CheckBoxComboBoxItem_PropertyChanged;
         }
 
@@ -645,7 +644,7 @@ namespace MyWorkApplication.Classes.CheckBoxComboBox
         {
             if (e.PropertyName == _CheckBoxComboBox.ValueMember)
                 Checked =
-                    (bool) _ComboBoxItem
+                    (bool)_ComboBoxItem
                         .GetType()
                         .GetProperty(_CheckBoxComboBox.ValueMember)
                         .GetValue(_ComboBoxItem, null);
@@ -724,7 +723,7 @@ namespace MyWorkApplication.Classes.CheckBoxComboBox
                         var PropertyInfo
                             = Item.ComboBoxItem.GetType().GetProperty(
                                 Item.DataBindings["Text"].BindingMemberInfo.BindingMember);
-                        Text = (string) PropertyInfo.GetValue(Item.ComboBoxItem, null);
+                        Text = (string)PropertyInfo.GetValue(Item.ComboBoxItem, null);
                     }
                     else
                     {

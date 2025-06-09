@@ -1,13 +1,13 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using MySql.Data.MySqlClient;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication
 {
@@ -106,7 +106,7 @@ namespace MyWorkApplication
 
         private void bind_Category_into_ComboBox()
         {
-            
+
             Program.buildConnection();
 
             var query = "select ID,Name from `category`";
@@ -129,7 +129,7 @@ namespace MyWorkApplication
         public DataTable Loan_bind(int MP_ID)
         {
             Program.MyConn.Close();
-            
+
             Program.buildConnection();
 
             MySS.query = "select `Loan_ID` as 'ID'" +
@@ -149,7 +149,7 @@ namespace MyWorkApplication
         public DataTable Payment_bind(int Loan_ID)
         {
             Program.MyConn.Close();
-            
+
             Program.buildConnection();
 
             MySS.query = "select `Pay_Amount` as 'Amount'" +
@@ -168,7 +168,7 @@ namespace MyWorkApplication
 
         private DateTime GetApplyDate(int MP_ID)
         {
-            
+
             Program.buildConnection();
 
             MySS.query = " select MP.MP_DateOfRequest as 'Apply Date'"
@@ -196,20 +196,20 @@ namespace MyWorkApplication
             {
                 if (MicroProject_ID_textBox.Text != "")
                 {
-                    
+
                     Program.buildConnection();
-                    var query = "select PMP.MicroProject_ID as 'MicroProject_ID'" 
-                        + " ,CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName) as 'Beneficiary Name'" 
-                        + " ,L.Loan_ID as 'Loan_ID'" 
+                    var query = "select PMP.MicroProject_ID as 'MicroProject_ID'"
+                        + " ,CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName) as 'Beneficiary Name'"
+                        + " ,L.Loan_ID as 'Loan_ID'"
                         + " ,L.Loan_Amount as 'Loan Amount'"
                         + " ,L.Loan_DateTaken as 'Loan Date'"
                         + " ,L.Loan_PaymentsCount as 'Payments Count'"
                         + " ,state.Name_Ar as 'Project State'"
                         + " from person_microproject PMP left outer join person P1 on P1.P_ID = PMP.Person_ID "
                         + " left outer join microproject MP on PMP.MicroProject_ID = MP.MP_ID"
-                        + " left outer join loan L on MP.MP_ID = L.MicroProject_ID " 
+                        + " left outer join loan L on MP.MP_ID = L.MicroProject_ID "
                         + " LEFT OUTER JOIN `microproject_state` mps on mps.MicroProject_ID = microproject.MP_ID "
-                        + " LEFT OUTER JOIN `state` on state.ID = mps.State_ID " 
+                        + " LEFT OUTER JOIN `state` on state.ID = mps.State_ID "
                         + " where PMP.MicroProject_ID = " + Convert.ToInt32(MicroProject_ID_textBox.Text);
 
                     MySS.sc = new MySqlCommand(query, Program.MyConn);
@@ -231,12 +231,12 @@ namespace MyWorkApplication
                             var ddd = Loan_bind(MicroProject_ID);
                             if (ddd.Rows.Count > 0)
                             {
-                                Loan_ID = (int) ddd.Rows[0]["ID"];
-                                var Re_date = (DateTime) ddd.Rows[0]["Receive Date"];
-                                date = (DateTime) ddd.Rows[0]["Receive Date"];
+                                Loan_ID = (int)ddd.Rows[0]["ID"];
+                                var Re_date = (DateTime)ddd.Rows[0]["Receive Date"];
+                                date = (DateTime)ddd.Rows[0]["Receive Date"];
                                 ReceiveDate = date.ToString("dd-MM-yyyy");
 
-                                NumOfAllPayments = (int) ddd.Rows[0]["Payments Count"];
+                                NumOfAllPayments = (int)ddd.Rows[0]["Payments Count"];
 
                                 ddd = Payment_bind(Loan_ID);
                                 if (ddd.Rows.Count > 0)
@@ -244,7 +244,7 @@ namespace MyWorkApplication
                                     var i = 0;
                                     foreach (DataRow row in ddd.Rows)
                                     {
-                                        date = (DateTime) row["Pay Date"];
+                                        date = (DateTime)row["Pay Date"];
                                         state = row["State"].ToString();
                                         PayDate[i, 0] = date.ToString();
                                         PayDate[i, 1] = state == "Paid" ? "Black" : "Red";
@@ -287,20 +287,20 @@ namespace MyWorkApplication
             {
                 if (Person_Name_textBox.Text != "")
                 {
-                    
+
                     Program.buildConnection();
-                    var query = "select PMP.MicroProject_ID as 'MicroProject_ID'" 
-                        + " ,CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName) as 'Beneficiary Name'" 
-                        + " ,L.Loan_ID as 'Loan_ID'" 
-                        + " ,L.Loan_Amount as 'Loan Amount'" 
-                        + " ,L.Loan_DateTaken as 'Loan Date'" 
+                    var query = "select PMP.MicroProject_ID as 'MicroProject_ID'"
+                        + " ,CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName) as 'Beneficiary Name'"
+                        + " ,L.Loan_ID as 'Loan_ID'"
+                        + " ,L.Loan_Amount as 'Loan Amount'"
+                        + " ,L.Loan_DateTaken as 'Loan Date'"
                         + " ,L.Loan_PaymentsCount as 'Payments Count'"
                         + " ,state.Name_Ar as 'Project State'"
                         + " from person_microproject PMP left outer join person P1 on P1.P_ID = PMP.Person_ID "
                         + " left outer join microproject MP on PMP.MicroProject_ID = MP.MP_ID"
-                        + " left outer join loan L on MP.MP_ID = L.MicroProject_ID " 
+                        + " left outer join loan L on MP.MP_ID = L.MicroProject_ID "
                         + " LEFT OUTER JOIN `microproject_state` mps on mps.MicroProject_ID = microproject.MP_ID "
-                        + " LEFT OUTER JOIN `state` on state.ID = mps.State_ID " 
+                        + " LEFT OUTER JOIN `state` on state.ID = mps.State_ID "
                         + " WHERE CONCAT(TRIM(P1.P_FirstName), ' ', TRIM(P1.P_LastName), ' ابن/ة ', TRIM(P1.P_FatherName)) LIKE '%" +
                         Person_Name_textBox.Text + "%'";
 
@@ -431,11 +431,11 @@ namespace MyWorkApplication
         {
             var str = "(" + string.Join(", ", Array.ConvertAll(MP_IDs, v => v.ToString(CultureInfo.InvariantCulture))) +
                       ")";
-            
+
             Program.buildConnection();
             var query = "select PMP.MicroProject_ID as 'MicroProject_ID'"
-                + " ,CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName) as 'Beneficiary Name'" 
-                + " ,L.Loan_ID as 'Loan_ID'" 
+                + " ,CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName) as 'Beneficiary Name'"
+                + " ,L.Loan_ID as 'Loan_ID'"
                 + " ,L.Loan_Amount as 'Loan Amount'"
                 + " ,L.Loan_DateTaken as 'Loan Date'"
                 + " ,L.Loan_PaymentsCount as 'Payments Count'"
@@ -466,11 +466,11 @@ namespace MyWorkApplication
                     var ddd = Loan_bind(MicroProject_ID);
                     if (ddd.Rows.Count > 0)
                     {
-                        Loan_ID = (int) ddd.Rows[0]["ID"];
-                        var Re_date = (DateTime) ddd.Rows[0]["Receive Date"];
+                        Loan_ID = (int)ddd.Rows[0]["ID"];
+                        var Re_date = (DateTime)ddd.Rows[0]["Receive Date"];
                         //    Re_date = Convert.ToDateTime(Re_date.ToString("dd-MM-yyyy"));
 
-                        NumOfAllPayments = (int) ddd.Rows[0]["Payments Count"];
+                        NumOfAllPayments = (int)ddd.Rows[0]["Payments Count"];
 
                         ddd = Payment_bind(Loan_ID);
                         if (ddd.Rows.Count > 0)
@@ -478,7 +478,7 @@ namespace MyWorkApplication
                             var i = 0;
                             foreach (DataRow row in ddd.Rows)
                             {
-                                date = (DateTime) row["Pay Date"];
+                                date = (DateTime)row["Pay Date"];
                                 state = row["State"].ToString();
                                 PayDate[i, 0] = date.ToString();
                                 PayDate[i, 1] = state == "Paid" ? "Black" : "Red";
@@ -487,7 +487,7 @@ namespace MyWorkApplication
                             //build the chart
 
                             var ss = Create_New_Line_Series(MicroProject_ID);
-                            Fill_Series(Ap_date, Re_date, MP_State, j + 1, ss); 
+                            Fill_Series(Ap_date, Re_date, MP_State, j + 1, ss);
                         }
                         else //the project has a loan but doesn't have payments yet
                         {
@@ -586,7 +586,7 @@ namespace MyWorkApplication
             var list = new List<DateTime>();
             var payArray = column(PayDate, 0);
 
-            ss.SmartLabelStyle = new SmartLabelStyle {CalloutLineAnchorCapStyle = LineAnchorCapStyle.Diamond};
+            ss.SmartLabelStyle = new SmartLabelStyle { CalloutLineAnchorCapStyle = LineAnchorCapStyle.Diamond };
 
             chart1.Series[0].XValueType = chart1.Series[1].XValueType =
                 chart1.Series[2].XValueType = chart1.Series[3].XValueType = ChartValueType.DateTime;
@@ -712,13 +712,13 @@ namespace MyWorkApplication
 
         private void bind_Applications(string Category)
         {
-            
+
             Program.buildConnection();
-            var from = "  from `microproject` MP " 
+            var from = "  from `microproject` MP "
                 + " left join `person_microproject` PMP  on PMP.MicroProject_ID = MP.MP_ID "
                 + " LEFT JOIN `microproject_state` mps on mps.MicroProject_ID = microproject.MP_ID "
                 + " LEFT JOIN `state` on state.ID = mps.State_ID "
-                + " left join `person` P1 on P1.P_ID = PMP.Person_ID " 
+                + " left join `person` P1 on P1.P_ID = PMP.Person_ID "
                 + " left join `category` C on MP.Category_ID = C.ID  ";
 
             MySS.query = "select PMP.PMP_ID as 'PMP_ID'"
@@ -766,7 +766,7 @@ namespace MyWorkApplication
                     IDs_array = new int[SelectedRowCount];
                     for (var i = 0; i < SelectedRowCount; i++)
                     {
-                        SelectedDataRow = ((DataRowView) MP_dataGridView.SelectedRows[i].DataBoundItem).Row;
+                        SelectedDataRow = ((DataRowView)MP_dataGridView.SelectedRows[i].DataBoundItem).Row;
                         IDs_array[i] = int.Parse(SelectedDataRow["رقم المشروع"].ToString());
                     }
 

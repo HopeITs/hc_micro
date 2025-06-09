@@ -1,5 +1,5 @@
-﻿using System.Data;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace MyWorkApplication.Visit_Forms
 {
@@ -13,7 +13,7 @@ namespace MyWorkApplication.Visit_Forms
         }
 
         public void Insert_Office_Monitoring(int Visit_ID
-            , string Ans1, string Ans2, string Ans3, string Ans4,string Ans5, string Ans6, string Other
+            , string Ans1, string Ans2, string Ans3, string Ans4, string Ans5, string Ans6, string Other
             , int Ans1_Value, int Ans2_Value, int Ans3_Value
             , int Ans4_Value, int Ans5_Value, int Ans6_Value)
         {
@@ -24,7 +24,7 @@ namespace MyWorkApplication.Visit_Forms
                 + Visit_ID + ",N'"
                 + Ans1 + "',N'" + Ans2 + "',N'" + Ans3 + "',N'"
                 + Ans4 + "',N'" + Ans5 + "',N'" + Ans6 + "',N'"
-                + Other + "'," 
+                + Other + "',"
                 + Ans1_Value + "," + Ans2_Value + "," + Ans3_Value + ","
                 + Ans4_Value + "," + Ans5_Value + "," + Ans6_Value + ")";
 
@@ -36,7 +36,7 @@ namespace MyWorkApplication.Visit_Forms
         }
 
         public void Update_Office_Monitoring(int Visit_ID
-            , string Ans1, string Ans2, string Ans3, string Ans4,string Ans5, string Ans6, string Other
+            , string Ans1, string Ans2, string Ans3, string Ans4, string Ans5, string Ans6, string Other
             , int Ans1_Value, int Ans2_Value, int Ans3_Value
             , int Ans4_Value, int Ans5_Value, int Ans6_Value)
         {
@@ -46,9 +46,9 @@ namespace MyWorkApplication.Visit_Forms
                     ",`Ans3`=N'" + Ans3 + "'" + ",`Ans4`=N'" + Ans4 + "'" +
                     ",`Ans5`=N'" + Ans5 + "'" + ",`Ans6`=N'" + Ans6 + "'" +
                     ",`OtherComments`=N'" + Other + "'" +
-                    ",`Ans1_Value`= " + Ans1_Value + ",`Ans2_Value`= " + Ans2_Value +  
-                    ",`Ans3_Value`= " + Ans3_Value + ",`Ans4_Value`= " + Ans4_Value +  
-                    ",`Ans5_Value`= " + Ans5_Value + ",`Ans6_Value`= " + Ans6_Value +  
+                    ",`Ans1_Value`= " + Ans1_Value + ",`Ans2_Value`= " + Ans2_Value +
+                    ",`Ans3_Value`= " + Ans3_Value + ",`Ans4_Value`= " + Ans4_Value +
+                    ",`Ans5_Value`= " + Ans5_Value + ",`Ans6_Value`= " + Ans6_Value +
                     " where `Visit_ID` = " + Visit_ID;
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {

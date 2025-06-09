@@ -1,15 +1,13 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
-using System.Security;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication
 {
@@ -19,16 +17,16 @@ namespace MyWorkApplication
         {
 
             InitializeComponent();
-            Version_label.Text 
-                = "Micro Projects 2018 - " + DateTime.Now.Year.ToString() 
+            Version_label.Text
+                = "Micro Projects 2018 - " + DateTime.Now.Year.ToString()
                 + " |  V" + Assembly.GetExecutingAssembly().GetName().Version;
 
-            Copyright_label.Text 
-                = "2018 - " + DateTime.Now.Year.ToString() 
+            Copyright_label.Text
+                = "2018 - " + DateTime.Now.Year.ToString()
                 + " CHRISTIAN HOPE CENTER. All Rights Reserved";
 
             Screen screen = Screen.FromControl(this);
-            this.StartPosition = FormStartPosition.CenterScreen; 
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private Log l;
@@ -42,9 +40,9 @@ namespace MyWorkApplication
         List<string> User_In_Database = new List<string>(); //ADDED BY SARY (User_In_Database)
         DataTable User_info = new DataTable(); //ADDED BY SARY 
         //ADD ANY NEW CENTER HERE AFTER CREATE ITS DATABASE
-        List<string> Centers = new List<string> { "Aleppo", "Homs", "Damascus", "Latakia", "AlWadi", "Lebanon" 
+        List<string> Centers = new List<string> { "Aleppo", "Homs", "Damascus", "Latakia", "AlWadi", "Lebanon"
             , "PTS Aleppo" }; //ADDED BY SARY 
-         
+
         private void Login_Form_Load(object sender, EventArgs e)
         {
             try
@@ -123,7 +121,7 @@ namespace MyWorkApplication
                 {
                     Directory.CreateDirectory(specificFolder);
                 }
-                 
+
                 //Added By Maher
                 if (Properties.Settings.Default.RememberMe)
                 {
@@ -147,7 +145,7 @@ namespace MyWorkApplication
                                 ProfilePicture_pictureBox.BackgroundImage = Image.FromStream(stream);
                         }
                         else ProfilePicture_pictureBox.BackgroundImage = Resources.login_profile;
-                    } 
+                    }
                     //ProfilePicture_pictureBox.BackgroundImage = Resources.login_profile;
                 }
                 else
@@ -158,13 +156,13 @@ namespace MyWorkApplication
                     //DELETE IMAGE FILE
                     file = new FileInfo(path);
                     if (file.Exists.Equals(true) && !Settings.Default.RememberMe)
-                        file.Delete(); 
+                        file.Delete();
                     ProfilePicture_pictureBox.BackgroundImage = Resources.login_profile;
-                     
+
                     Remember_checkBox.Checked = false;
                     UserName_textBox.Text = "username";
                     Password_textBox.Text = "password";
-                } 
+                }
                 UserName_textBox.Select(UserName_textBox.Text.Length, UserName_textBox.Text.Length);
             }
             catch (Exception ex)
@@ -179,13 +177,13 @@ namespace MyWorkApplication
             {
                 // Set cursor as hourglass
                 Cursor.Current = Cursors.WaitCursor;
-                 
+
                 DataTable dt = new DataTable();
 
                 if (!Online_checkBox.Checked) //offline
                     Properties.Settings.Default.Online = false;
                 else if (Online_checkBox.Checked) //online
-                    Properties.Settings.Default.Online = true; 
+                    Properties.Settings.Default.Online = true;
 
                 Properties.Settings.Default.Save();
 
@@ -193,7 +191,7 @@ namespace MyWorkApplication
                 {
                     //Properties.Settings.Default.selected_hope = Centers[i].ToString();
                     //Properties.Settings.Default.Save();
-                    Program.selected_database = Centers[i].ToString(); 
+                    Program.selected_database = Centers[i].ToString();
                     Program.set_ConnectionString();
 
                     if (Program.firstbuildConnection())
@@ -222,8 +220,8 @@ namespace MyWorkApplication
                         {
                             // Versions are equal - Do nothing
                         }
-                         
-                        dt = Check_User(); 
+
+                        dt = Check_User();
                         if (dt.Rows.Count >= 1) //user exsist
                         {
                             User_In_Database.Add(Centers[i].ToString());
@@ -237,7 +235,7 @@ namespace MyWorkApplication
                     //Properties.Settings.Default.selected_hope = "";
                     //Properties.Settings.Default.Save(); 
 
-                    Program.selected_database = ""; 
+                    Program.selected_database = "";
                     Program.set_ConnectionString();
 
                     MessageBox.Show("please check your network connection and try again", "Login Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -255,15 +253,15 @@ namespace MyWorkApplication
                     return;
                 }
                 else if (User_In_Database.Count >= 1)
-                {  
+                {
                     Set_Properties();
                     Set_User_Image();
-                } 
+                }
                 // Set cursor as default arrow
                 Cursor.Current = Cursors.Default;
 
                 this.DialogResult = DialogResult.OK;
-                this.Close(); 
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -271,7 +269,7 @@ namespace MyWorkApplication
                 { MessageBox.Show("please check your network and try again", "Login Faild", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 else if (ex.Message.Contains("host"))
                 { MessageBox.Show("please check the server or your network connection and try again", "Login Faild", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-                else MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                else MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -300,7 +298,7 @@ namespace MyWorkApplication
         }
 
         private DataTable Check_User()
-        { 
+        {
             string query = "select * from `user` " +
                 " where UserName like '" + UserName_textBox.Text + "' " +
                 " and Password like '" + Password_textBox.Text + "' ";
@@ -309,11 +307,11 @@ namespace MyWorkApplication
             da.Fill(dt);
             Program.MyFirstConn.Close();
             return dt;
-            
+
         }
 
         private void Set_Properties()
-        { 
+        {
             Program.User_In_Database = User_In_Database;
             Program.selected_database = User_In_Database[0];
 
@@ -328,21 +326,21 @@ namespace MyWorkApplication
             if (Remember_checkBox.Checked)
             {
                 //save properties settings
-                Settings.Default.RememberMe = true; 
+                Settings.Default.RememberMe = true;
                 //var x = Encryption.EncryptString(Encryption.ToSecureString(Program.UserName));
                 //Settings.Default.username = x; 
                 //var y = Encryption.EncryptString(Encryption.ToSecureString(Program.Password));
                 //Settings.Default.password = y;
                 Settings.Default.username = Program.UserName;
-                Settings.Default.password = Program.Password; 
+                Settings.Default.password = Program.Password;
             }
             else
             {
                 //clear properties settings
-                Settings.Default.RememberMe = false; 
-                Settings.Default.username = Settings.Default.password = ""; 
-            } 
-            Properties.Settings.Default.Save(); 
+                Settings.Default.RememberMe = false;
+                Settings.Default.username = Settings.Default.password = "";
+            }
+            Properties.Settings.Default.Save();
         }
 
         private void Select_User_Profile()
@@ -369,7 +367,7 @@ namespace MyWorkApplication
         private void Set_User_Image()
         {
             FileInfo file;
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Micro Projects\Team\" + Program.UserName+ ".png";
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Micro Projects\Team\" + Program.UserName + ".png";
 
             //GET IMAGE IF NOT EXIST
             file = new FileInfo(path);
@@ -412,7 +410,7 @@ namespace MyWorkApplication
         private void Close_button_Click(object sender, EventArgs e)
         {
             //Added By Maher
-            Program.selected_database = ""; 
+            Program.selected_database = "";
             Program.set_ConnectionString();
 
             //
@@ -428,7 +426,7 @@ namespace MyWorkApplication
         {
             Close_button.BackgroundImage = Resources.login_close1;
         }
-        
+
         private void Connect_button_MouseEnter(object sender, EventArgs e)
         {
             Connect_button.BackgroundImage = Resources.login01;
@@ -438,7 +436,7 @@ namespace MyWorkApplication
         {
             Connect_button.BackgroundImage = Resources.login00;
         }
-         
+
         private void ShowPassword_button_Click(object sender, EventArgs e)
         {
             if (Password_textBox.PasswordChar == '*')

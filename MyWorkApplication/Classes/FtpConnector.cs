@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
 using System.Net;
 
 namespace MyWorkApplication.Classes
 {
     public class FtpConnector
-    { 
+    {
         public static void WriteFile(string FullName, string LocalName, Tuple<string, string> Credentials)
         {
             WebClient client = new WebClient();
@@ -17,20 +14,20 @@ namespace MyWorkApplication.Classes
         }
 
         public static void UploadFileToLocal(string FullName, string RemoteName, Tuple<string, string> Credentials)
-        { 
+        {
             WebClient client = new WebClient();
             client.Credentials = new NetworkCredential(Credentials.Item1, Credentials.Item2);
-            client.DownloadFile(FullName, RemoteName); 
+            client.DownloadFile(FullName, RemoteName);
         }
 
         public static void DowloadToLocal(string FullName, string OfflinePath, Tuple<string, string> Credentials)
         {
             WebClient client = new WebClient();
-            client.Credentials = new NetworkCredential(Credentials.Item1, Credentials.Item2); 
+            client.Credentials = new NetworkCredential(Credentials.Item1, Credentials.Item2);
             client.DownloadFile(FullName, OfflinePath);
         }
         public static void DeleteFile(string FullName, Tuple<string, string> Credentials)
-        { 
+        {
             ///DELETE
             FtpWebRequest request = (FtpWebRequest)WebRequest.Create(FullName);
             request.Method = WebRequestMethods.Ftp.DeleteFile;
@@ -75,7 +72,7 @@ namespace MyWorkApplication.Classes
                 if (response.StatusCode == FtpStatusCode.ActionNotTakenFileUnavailable)
                     return false;
             }
-            return false; 
+            return false;
         }
     }
 }

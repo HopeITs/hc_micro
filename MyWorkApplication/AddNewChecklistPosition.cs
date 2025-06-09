@@ -1,13 +1,8 @@
 ﻿using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyWorkApplication
@@ -23,7 +18,7 @@ namespace MyWorkApplication
         string Type;
         private int ID;
         private Log l;
-        CheckList cl;  
+        CheckList cl;
         DataTable checklist_position_dt;
 
         private void AddNewChecklistPosition_Load(object sender, EventArgs e)
@@ -35,15 +30,15 @@ namespace MyWorkApplication
                     newTheme.Category_ToNight(this);
                 else
                     newTheme.Category_ToLight(this);
-                 
+
                 checklist_position_dt = new System.Data.DataTable();
 
                 l = new Log();
                 cl = new CheckList();
 
-                checklist_position_dt = cl.Select_Positions("",Type);
+                checklist_position_dt = cl.Select_Positions("", Type);
 
-                bind(Type); 
+                bind(Type);
             }
             catch (Exception ex)
             {
@@ -93,7 +88,7 @@ namespace MyWorkApplication
 
                     if (e.ColumnIndex == 1) // name 
                     {
-                        string Name = dataGridView.Rows[r].Cells["Name"].Value.ToString(); 
+                        string Name = dataGridView.Rows[r].Cells["Name"].Value.ToString();
 
                         cl.Update_Position(ID, Name);
                         l.Insert_Log("Update Position:" + Type + ":" + Name, "Position", Program.UserName, DateTime.Now);
@@ -124,7 +119,7 @@ namespace MyWorkApplication
                     {
                         var ID = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                         cl.Delete_Position(ID);
-                        l.Insert_Log("Delete Position: " + dataGridView.Rows[e.RowIndex].Cells["Name"].Value ,
+                        l.Insert_Log("Delete Position: " + dataGridView.Rows[e.RowIndex].Cells["Name"].Value,
                             "Position", Program.UserName, DateTime.Now);
                         dataGridView.Rows.RemoveAt(e.RowIndex);
                     }
@@ -175,13 +170,13 @@ namespace MyWorkApplication
         {
             try
             {
-                if (Name_textBox.Text == "" )
+                if (Name_textBox.Text == "")
                     throw new InvalidOperationException("الرجاء التأكد من أنّ جميع الخلايا تم تعبئتها قبل عملية الحفظ");
 
-                cl.Insert_Position(Name_textBox.Text,Type);
+                cl.Insert_Position(Name_textBox.Text, Type);
                 l.Insert_Log("Insert " + Name_textBox.Text, "Position", Program.UserName, DateTime.Now);
- 
-                Name_textBox.Clear(); 
+
+                Name_textBox.Clear();
 
                 bind(Type);
             }
@@ -191,6 +186,6 @@ namespace MyWorkApplication
             }
         }
 
-        
+
     }
 }

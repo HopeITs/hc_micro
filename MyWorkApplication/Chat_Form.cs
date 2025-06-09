@@ -5,7 +5,6 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication
 {
@@ -118,7 +117,7 @@ namespace MyWorkApplication
         {
             try
             {
-                repeat:
+            repeat:
                 readData = null;
                 while (readData == null)
                 {

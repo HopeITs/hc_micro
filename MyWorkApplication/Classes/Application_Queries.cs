@@ -1,10 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlTypes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWorkApplication.Classes
 {
@@ -99,7 +94,7 @@ namespace MyWorkApplication.Classes
         }
 
         public void Update_Person_AidSource(int ID, int AidSource_ID, string DateYear, string Notes)
-        { 
+        {
             Program.buildConnection();
             query = "UPDATE `person_aidsource` SET "
                     + " `AidSource_ID` =@AidSource_ID "

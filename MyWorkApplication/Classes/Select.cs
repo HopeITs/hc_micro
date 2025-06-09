@@ -1,7 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace MyWorkApplication.Classes
 {
@@ -17,7 +17,7 @@ namespace MyWorkApplication.Classes
         }
 
         public DataSet Select_Applications(string condition, bool show_Images)
-        { 
+        {
             string from = @" From microproject 
 LEFT OUTER JOIN person_microproject on microproject.MP_ID = person_microproject.MicroProject_ID 
 LEFT OUTER JOIN person on person.P_ID = person_microproject.Person_ID  
@@ -95,7 +95,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
             string order_by = " order by MP_ID DESC ";
 
             query1 += from + condition + order_by + ";";
-                 
+
             //calculate sum of family members for all projects// 
             string query2 = "select IFNULL(count(DISTINCT MP_ID),0),IFNULL(sum(P_NumAtHome),0)" + from + condition + ";";
 
@@ -113,21 +113,21 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
             da.Fill(ds);
             Program.MyConn.Close();
 
-            return ds;  
+            return ds;
         }
 
         #region family
 
         public DataTable FamilyMembers_bind(int Family_ID, int P_ID)
         {
-            
+
             Program.buildConnection();
             var query = "select p.P_ID as 'ID'" +
                         ",p.P_FirstName as 'FirstName'" +
                         ",p.P_LastName as 'LastName'" +
                         ",p.P_MotherName as 'MotherName'" +
                         ",p.P_FatherName as 'FatherName'" +
-                        ",p.P_NationalNumber as 'National Number'" + 
+                        ",p.P_NationalNumber as 'National Number'" +
                         ",pf.IsInNow as 'IsInNow'" +
                         ",pf.Relation as 'Relation'" +
                         ",p.P_Sex as 'Gender'" +
@@ -142,7 +142,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
                         " from `person` p " +
                         " left outer join `person_family` pf on p.P_ID = pf.Person_ID " +
-                        " left outer join `family` F on F.F_ID = pf.Family_ID "+
+                        " left outer join `family` F on F.F_ID = pf.Family_ID " +
                         " left outer join `personstate` on p.P_State_ID = personstate.ID ";
 
             var condition = " where pf.P_Provider_ID = " + P_ID;
@@ -199,7 +199,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable ExeFile_bind(int ExeFile_ID)
         {
-            
+
             Program.buildConnection();
             MySS.query = "select PMP.MicroProject_ID as 'MicroProject_ID'"
                          + " ,CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName) as 'Beneficiary Name'"
@@ -227,7 +227,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public AutoCompleteStringCollection select_beneficiaries(string category, string Financed)
         {
-            
+
             Program.buildConnection();
             var where = "";
             if (category == "")
@@ -242,7 +242,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
             else if (category.Contains("V"))
             {
                 where = " where microproject.Category_ID in (1, 2) ";
-                if (Financed == "Yes") 
+                if (Financed == "Yes")
                     where += " and MP_ID in (select MicroProject_ID from microproject_state " +
                                     " where MicroProject_ID = microproject.MP_ID " +
                                     " and State_ID in (1,4,5,7,8) " +
@@ -251,7 +251,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
             else if (category.Contains("O"))
             {
                 where = " where microproject.Category_ID not in (1, 2) ";
-                if (Financed == "Yes") 
+                if (Financed == "Yes")
                     where += " and MP_ID in (select MicroProject_ID from microproject_state " +
                                     " where MicroProject_ID = microproject.MP_ID " +
                                     " and State_ID in (1,4,5,7,8) " +
@@ -282,13 +282,13 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public AutoCompleteStringCollection select_project_IDs(string category, string Financed)
         {
-            
+
             Program.buildConnection();
             var where = "";
             if (category == "")
             {
                 where = "";
-                if (Financed == "Yes") 
+                if (Financed == "Yes")
                     where += " where MP_ID in (select MicroProject_ID from microproject_state " +
                  " where MicroProject_ID = microproject.MP_ID " +
                  " and State_ID in (1,4,5,7,8) " +
@@ -297,7 +297,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
             else if (category.Contains("V"))
             {
                 where = " where microproject.Category_ID in (1, 2) ";
-                if (Financed == "Yes") 
+                if (Financed == "Yes")
                     where += " and MP_ID in (select MicroProject_ID from microproject_state " +
                 " where MicroProject_ID = microproject.MP_ID " +
                 " and State_ID in (1,4,5,7,8) " +
@@ -306,7 +306,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
             else if (category.Contains("O"))
             {
                 where = " where microproject.Category_ID not in (1, 2) ";
-                if (Financed == "Yes") 
+                if (Financed == "Yes")
                     where += " and MP_ID in (select MicroProject_ID from microproject_state " +
                 " where MicroProject_ID = microproject.MP_ID " +
                 " and State_ID in (1,4,5,7,8) " +
@@ -332,7 +332,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable select_visitors()
         {
-            
+
             Program.buildConnection();
             var query =
                 @"select UserID as 'U_ID',UserName as 'Visitors' from `user` where IsVisitor = 1 order by UserName ASC";
@@ -345,7 +345,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable select_users()
         {
-            
+
             Program.buildConnection();
             var da = new MySqlDataAdapter(
                 "select UserID as 'U_ID',UserName as 'Users' from `user` where IsVisitor != -1 order by UserName ASC",
@@ -357,7 +357,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
         }
 
         public DataTable select_M_E()
-        { 
+        {
             Program.buildConnection();
             var da = new MySqlDataAdapter(" select UserID as 'U_ID',UserName as 'Users' from `user` where IsME = 1 ",
                 Program.MyConn);
@@ -369,7 +369,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable select_Communication()
         {
-            
+
             Program.buildConnection();
             var da = new MySqlDataAdapter(
                 " select UserID as 'U_ID',UserName as 'Users' from `user` where IsCommunication = 1 ", Program.MyConn);
@@ -382,7 +382,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
         // to send the payments notifications must be with role financial OR isCashier = 1 //
         public DataTable select_Financial()
         {
-            
+
             Program.buildConnection();
             var da = new MySqlDataAdapter(
                 " select UserID as 'U_ID',UserName as 'Users' from `user` where UserRoleID = 3 or IsCashier = 1 ", Program.MyConn);
@@ -394,7 +394,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable select_Lawful()
         {
-            
+
             Program.buildConnection();
             var da = new MySqlDataAdapter(
                 " select UserID as 'U_ID',UserName as 'Users' from `user` where UserRoleID = 7 ", Program.MyConn);
@@ -406,7 +406,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable select_Beneficiaries_of_project(string MicroProject_ID)
         {
-            
+
             Program.buildConnection();
             string query = @"select Person_ID as 'ID'
  , CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName) as 'Name'
@@ -431,7 +431,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public int HasPartner(int MicroProject_ID)
         {
-            
+
             Program.buildConnection();
             MySS.query = "SELECT count(Person_ID) FROM `person_microproject` WHERE MicroProject_ID = " +
                          MicroProject_ID;
@@ -445,7 +445,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable Image_bind(int MP_ID, string type)
         {
-            
+
             Program.buildConnection();
 
             MySS.query = "SELECT `Image_ID` " +
@@ -466,7 +466,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public byte[] Show_image(int image_ID)
         {
-            
+
             Program.buildConnection();
 
             byte[] arr = null;
@@ -474,7 +474,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
             MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
             MySS.reader = MySS.sc.ExecuteReader();
             MySS.reader.Read();
-            if (MySS.reader.HasRows) arr = (byte[]) MySS.reader[0];
+            if (MySS.reader.HasRows) arr = (byte[])MySS.reader[0];
             MySS.reader.Close();
             Program.MyConn.Close();
             return arr;
@@ -505,13 +505,13 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
             string from = @" from `payment` left join `loan` on payment.Loan_ID = loan.Loan_ID  
  left join `microproject` on microproject.MP_ID = loan.MicroProject_ID  
  left join `donorgroup` on donorgroup.ID = microproject.DonorGroup_ID ";
-             
-            var filtered_col = "Pay_DueDate"; 
+
+            var filtered_col = "Pay_DueDate";
             if (paid == "Paid") filtered_col = "Pay_RecievedOnDate";
             else filtered_col = "Pay_DueDate";
 
             var condition = "  Where 1 ";
-            if (month != "") condition += " and Month("+ filtered_col + ") in (" + month + ") ";
+            if (month != "") condition += " and Month(" + filtered_col + ") in (" + month + ") ";
             if (year != "") condition += " and Year(" + filtered_col + ") like " + year;
             if (group != "") condition += " and lower(donorgroup.Name) Like lower('" + @group + "') ";
             if (paid != "") condition += " and Pay_IsPaid Like '" + paid + "' ";
@@ -531,7 +531,8 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable Select_Loan_All_Data(string Loan_ID, string cond)
         {
-            try {
+            try
+            {
                 var from = @" from `loan` L 
      LEFT OUTER join `microproject` MP on L.MicroProject_ID = MP.MP_ID  
      LEFT OUTER join `person_microproject` PMP on PMP.MicroProject_ID = MP.MP_ID  
@@ -606,11 +607,11 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
                 string condition = "";
                 //= " where Current_State = 1 ";
-                if(cond != "")
+                if (cond != "")
                     condition += cond;
 
                 if (Loan_ID != "")
-                    if(condition == "") condition += " where L.Loan_ID = " + Loan_ID;
+                    if (condition == "") condition += " where L.Loan_ID = " + Loan_ID;
                     else condition += " and L.Loan_ID = " + Loan_ID;
 
                 //for group_concat//
@@ -620,7 +621,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
                 Loan_from = from;
                 Loan_condition = condition;
-            
+
                 Program.buildConnection();
                 var sc = new MySqlCommand(query, Program.MyConn);
                 sc.ExecuteNonQuery();
@@ -638,52 +639,52 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
             }
         }
 
-        public DataTable Select_Loan_Sum(string id_loan_str,string donor)
-            {
-                var net_query = ""; string query = "";
+        public DataTable Select_Loan_Sum(string id_loan_str, string donor)
+        {
+            var net_query = ""; string query = "";
 
-                if (id_loan_str == "")
-                    net_query = @" ,IFNULL((select sum(`Pay_Amount`) from `payment` where Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0)";
-                else
-                    net_query = @" ,IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount < 0 and `Pay_IsPaid` = N'Paid') ,0) + IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0)";
+            if (id_loan_str == "")
+                net_query = @" ,IFNULL((select sum(`Pay_Amount`) from `payment` where Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0)";
+            else
+                net_query = @" ,IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount < 0 and `Pay_IsPaid` = N'Paid') ,0) + IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0)";
 
-                if (donor != "") net_query += @"-(select SUM(lulu.Loan_Amount) from loan lulu join microproject m on lulu.MicroProject_ID = m.MP_ID left join donor on donor.ID = m.MP_Donor left join donorgroup on donorgroup.ID = m.DonorGroup_ID where donor.Name like '" + donor + "' and donorgroup.Name like '%Installment%') ";
-                net_query += " as 'Remaining'";
+            if (donor != "") net_query += @"-(select SUM(lulu.Loan_Amount) from loan lulu join microproject m on lulu.MicroProject_ID = m.MP_ID left join donor on donor.ID = m.MP_Donor left join donorgroup on donorgroup.ID = m.DonorGroup_ID where donor.Name like '" + donor + "' and donorgroup.Name like '%Installment%') ";
+            net_query += " as 'Remaining'";
 
 
-                if (id_loan_str == "")
-                    query = @"select SUM(`Loan_Amount`) as 'Export'
+            if (id_loan_str == "")
+                query = @"select SUM(`Loan_Amount`) as 'Export'
  ,IFNULL((select sum(`Pay_Amount`) from `payment` where Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Import' " +
-    ",IFNULL((select sum(`Pay_Amount`) from `payment` where Pay_Amount < 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Returned' " +
-    ",IFNULL((select sum(`Pay_Amount`) from `payment` where Pay_Amount < 0 and `Pay_IsPaid` = N'Paid') ,0) + IFNULL((select sum(`Pay_Amount`) from `payment` where Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Net'" +
-    ",IFNULL( SUM( ( Loan_Amount / (SELECT Rate from donorgroup where donorgroup.ID = microproject.DonorGroup_ID))) ,0) as 'Export($)'"
-     + net_query
-     + " from `loan` left join `microproject` on loan.MicroProject_ID = microproject.MP_ID ";
-                else
-                    query = @"select SUM(`Loan_Amount`) as 'Export'
+",IFNULL((select sum(`Pay_Amount`) from `payment` where Pay_Amount < 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Returned' " +
+",IFNULL((select sum(`Pay_Amount`) from `payment` where Pay_Amount < 0 and `Pay_IsPaid` = N'Paid') ,0) + IFNULL((select sum(`Pay_Amount`) from `payment` where Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Net'" +
+",IFNULL( SUM( ( Loan_Amount / (SELECT Rate from donorgroup where donorgroup.ID = microproject.DonorGroup_ID))) ,0) as 'Export($)'"
+ + net_query
+ + " from `loan` left join `microproject` on loan.MicroProject_ID = microproject.MP_ID ";
+            else
+                query = @"select SUM(`Loan_Amount`) as 'Export'
  ,IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Import' " +
-    ",IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount < 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Returned' " +
-    ",IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount < 0 and `Pay_IsPaid` = N'Paid') ,0) + IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Net'" +
-    ",IFNULL( SUM( ( Loan_Amount / (SELECT Rate from donorgroup where donorgroup.ID = microproject.DonorGroup_ID))) ,0) as 'Export($)'"
-      + net_query
-      + " from `loan` left join `microproject` on loan.MicroProject_ID = microproject.MP_ID where `Loan_ID` in " + id_loan_str + " ";
+",IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount < 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Returned' " +
+",IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount < 0 and `Pay_IsPaid` = N'Paid') ,0) + IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Net'" +
+",IFNULL( SUM( ( Loan_Amount / (SELECT Rate from donorgroup where donorgroup.ID = microproject.DonorGroup_ID))) ,0) as 'Export($)'"
+  + net_query
+  + " from `loan` left join `microproject` on loan.MicroProject_ID = microproject.MP_ID where `Loan_ID` in " + id_loan_str + " ";
 
-                //        ,SUM(IF(((L.Loan_Amount * L.Loan_Rate / 100) - (select sum(`Pay_Amount`) from `payment` where `Pay_IsPaid` like N'Paid' and `Loan_ID` = L.Loan_ID)) < 0
-                //,0,((L.Loan_Amount * L.Loan_Rate / 100) - (select sum(`Pay_Amount`) from `payment` where `Pay_IsPaid` like N'Paid' and `Loan_ID` = L.Loan_ID)))) as 'Remaining'
-                 
-                Program.buildConnection();
-                var sc = new MySqlCommand(query, Program.MyConn);
-                sc.ExecuteNonQuery();
-                var da = new MySqlDataAdapter(sc);
-                var dt = new DataTable();
-                da.Fill(dt);
-                Program.MyConn.Close();
-                return dt;
+            //        ,SUM(IF(((L.Loan_Amount * L.Loan_Rate / 100) - (select sum(`Pay_Amount`) from `payment` where `Pay_IsPaid` like N'Paid' and `Loan_ID` = L.Loan_ID)) < 0
+            //,0,((L.Loan_Amount * L.Loan_Rate / 100) - (select sum(`Pay_Amount`) from `payment` where `Pay_IsPaid` like N'Paid' and `Loan_ID` = L.Loan_ID)))) as 'Remaining'
+
+            Program.buildConnection();
+            var sc = new MySqlCommand(query, Program.MyConn);
+            sc.ExecuteNonQuery();
+            var da = new MySqlDataAdapter(sc);
+            var dt = new DataTable();
+            da.Fill(dt);
+            Program.MyConn.Close();
+            return dt;
         }
 
         public int Count_Distinct_Loan_IDs()
         {
-            
+
             Program.buildConnection();
             //count rows
             var sel = "select count(DISTINCT MP_ID) " + Loan_from + Loan_condition;
@@ -700,7 +701,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
         //micro project bind//
         public DataTable MicroProject_bind(int Person_ID, int MicroProject_ID)
         {
-            
+
             Program.buildConnection();
 
             var query = "select MP.MP_ID as 'MicroProject_ID'"
@@ -710,15 +711,15 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
                 + ", MP_PeriodOfExecution as 'Requested Time'"
                 + ", MP_DateOfRequest as 'Application Date'"
                 + ", MP_Description as 'Description'"
-                
+
                 + ", MP_FundType_ID as 'FundType_ID'"
                 + ", MP_Type_ID as 'Type_ID'"
                 + ", MP_SubType_ID as 'SubType_ID'"
-                
+
                 + ", (select Name from microprojecttype where microprojecttype.ID = MP_Type_ID limit 1) as 'Type'"
 
                 + ", Category_ID "
-                + ", SubCategory_ID " 
+                + ", SubCategory_ID "
                 + ", Career_ID "
 
                 + ", (select Name from `category` where ID = MP.Category_ID) as 'Category'"
@@ -744,17 +745,17 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
                 + ", MP_HasLedger as 'Has Ledger'"
                 + ", MP_AmperNumber as 'Amper Number'"
 
-                + ", MP_Donor as 'Donor_ID'" 
+                + ", MP_Donor as 'Donor_ID'"
                 + ", (select donor.Name from donor where donor.ID = MP_Donor) as 'Donor'"
-                
+
                 + ", state.Name_ar as 'Project State' "
                 + ", mps.Date as 'Project State Date' "
-                
+
                 + ", MP_Visited as 'Visited'"
                 + ", MP_Message as 'Message'"
                 + ", MP_MessageDate as 'Message Date'"
 
-                + ", IsContentUpdated as 'IsContentUpdated'" 
+                + ", IsContentUpdated as 'IsContentUpdated'"
 
                 + ", MP_PaperUser_ID as    'PaperUser_ID'"
                 + ", MP_ProgramUser_ID as  'ProgramUser_ID'"
@@ -766,7 +767,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
                 + ", (SELECT IFNULL(COUNT(ID),0) FROM `microproject_checklist` WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'k') as 'KeyPerson'"
 
-                + " from `microproject` MP" 
+                + " from `microproject` MP"
                 + " LEFT JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID "
                 + " LEFT OUTER JOIN `state` on state.ID = mps.State_ID "
 
@@ -783,9 +784,9 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
         }
 
         public DataTable MicroProject_PowerSource_bind(int MicroProject_ID)
-        { 
-            Program.buildConnection(); 
-            string query = " select microproject_powersource.ID as 'ID'" + 
+        {
+            Program.buildConnection();
+            string query = " select microproject_powersource.ID as 'ID'" +
                          " ,powersource.Name as 'Name'" +
                          " ,microproject_powersource.Note as 'Note'" +
                          " ,microproject_powersource.Cost as 'Cost'" +
@@ -793,12 +794,12 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
                          " ,microproject_powersource.PowerSource_ID as 'Power_ID'" +
 
                          " from `microproject_powersource` left join `powersource` on microproject_powersource.PowerSource_ID = powersource.ID" +
-                         " where microproject_powersource.MicroProject_ID = " + MicroProject_ID + ""; 
+                         " where microproject_powersource.MicroProject_ID = " + MicroProject_ID + "";
             MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
             sc.ExecuteNonQuery();
             MySqlDataAdapter da = new MySqlDataAdapter(sc);
             DataTable dt = new DataTable();
-            da.Fill(dt); 
+            da.Fill(dt);
             Program.MyConn.Close();
             return dt;
         }
@@ -806,11 +807,11 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
         //micro project details bind// 
         public DataTable MicroProject_Priest_bind(int MicroProject_ID)
         {
-            
-            Program.buildConnection(); 
+
+            Program.buildConnection();
             MySS.query =
                 "select Priest_Name as 'Name' from `priest` right outer join `microproject` on priest.Priest_ID = microproject.MP_Priest_ID "
-                + " where microproject.MP_ID = " + MicroProject_ID + " "; 
+                + " where microproject.MP_ID = " + MicroProject_ID + " ";
             MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
             MySS.sc.ExecuteNonQuery();
             MySS.da = new MySqlDataAdapter(MySS.sc);
@@ -822,7 +823,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable Budget_Item_bind(int MicroProject_ID)
         {
-            
+
             Program.buildConnection();
 
             MySS.query = "select I.I_Name as 'Item Name'" +
@@ -842,7 +843,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable Materials_bind(int MicroProject_ID)
         {
-            
+
             Program.buildConnection();
 
             MySS.query = "select `ID` as 'ID'" +
@@ -865,7 +866,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable Risks_bind(int MicroProject_ID)
         {
-            
+
             Program.buildConnection();
             MySS.query = "select risk.Name as 'Name'" +
                          ",`Risk_ID` as 'Risk_ID'" +
@@ -883,7 +884,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable Score_bind(int MicroProject_ID)
         {
-            
+
             Program.buildConnection();
             MySS.query = "select score.Name as 'Name'" +
                          ",`Score_ID` as 'Score_ID'" +
@@ -903,7 +904,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
 
         public DataTable Application_Details_Procedure(string condition)
-        { 
+        {
             Program.buildConnection();
             MySqlCommand sc = new MySqlCommand("select_application_details", Program.MyConn);
             sc.CommandType = CommandType.StoredProcedure;
@@ -922,18 +923,18 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
         #region beneficiary 
         //benefeciary bind//
         public DataTable Person_bind(int Person_ID)
-        { 
+        {
             Program.buildConnection();
 
             MySS.query = "select P_ID as 'ID'"
                          + ",P_FirstName as 'First Name'"
                          + ",P_LastName as 'Last Name'"
                          + ",P_FatherName as 'Father Name'"
-                         + ",P_MotherName as 'Mother Name'" 
-                         + ",P_FullName_en as 'Full Name En'" 
+                         + ",P_MotherName as 'Mother Name'"
+                         + ",P_FullName_en as 'Full Name En'"
                          + ",P_DOB as 'Birth Date'"
                          + ",P_MilitaryService as 'Military Services'"
-                         + ",P_MilitaryService_Date as 'Military Services Date'" 
+                         + ",P_MilitaryService_Date as 'Military Services Date'"
                          + ",P_MilitaryService_Note as 'Military Services Note'"
                          + ",P_Mobile as 'Mobile'"
                          + ",P_HomeTel as 'Land Line'"
@@ -964,7 +965,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
                          + ",P_MaristesCourse as 'Maristes Course'"
                          + ",P_OtherCourses as 'Other Courses'"
                          + ",P_PowerSource_Note as 'PowerSource_Note'"
-                          
+
                          + ",P_Parish_ID as 'Parish_ID'"
                          + ",parish.Name_ar as 'Parish'"
 
@@ -973,7 +974,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
                          + ",P_State_ID as 'State_ID'"
                          + ",personstate.Name as 'State'"
-                          
+
                          //+ ",P_ProfilePath as 'Picture Path'"
                          //+ ",image.image_NewPath as 'Picture Path'"
                          //+ ",image.Image_ID as 'Image_ID'"
@@ -990,7 +991,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
                          + ",person_microproject.PersonType as 'PersonType' "
 
-                         + " From `person` " 
+                         + " From `person` "
                          + "  left outer join `priest` on priest.Priest_ID = person.P_Priest_ID "
                          + "  left outer join `parish` on parish.ID = person.P_Parish_ID "
                          + "  left outer join `person_microproject` on person_microproject.Person_ID = person.P_ID "
@@ -1029,7 +1030,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
         //benefeciary details bind//
         public DataTable Person_Education_bind(int Person_ID)
         {
-            
+
             Program.buildConnection();
 
             MySS.query = "select PEdu_ID as 'ID'" +
@@ -1053,7 +1054,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable Person_Experience_bind(int Person_ID, int MicroProject_ID)
         {
-            
+
             Program.buildConnection();
 
             MySS.query = "select PW_ID as 'ID'" +
@@ -1085,7 +1086,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable Person_Work_bind(int Person_ID, int MicroProject_ID)
         {
-            
+
             Program.buildConnection();
 
             MySS.query = "select PW_ID as 'ID'" +
@@ -1117,7 +1118,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
         public DataTable Person_AidSource_bind(int Person_ID, int MicroProject_ID)
         {
 
-            Program.buildConnection(); 
+            Program.buildConnection();
             MySS.query = " select person_aidsource.`ID` " +
                          " ,aidsource.Name as 'Name'" +
                          " ,person_aidsource.DateYear " +
@@ -1126,8 +1127,8 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
                          " ,person_aidsource.`MicroProject_ID`" +
                          " ,person_aidsource.`Person_ID` "
 
-                         + " from `person_aidsource` left join `aidsource` on person_aidsource.AidSource_ID = aidsource.ID" 
-                         + " where person_aidsource.Person_ID=" + Person_ID 
+                         + " from `person_aidsource` left join `aidsource` on person_aidsource.AidSource_ID = aidsource.ID"
+                         + " where person_aidsource.Person_ID=" + Person_ID
                          + " and person_aidsource.MicroProject_ID=" + MicroProject_ID;
 
             MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
@@ -1140,25 +1141,25 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
         }
 
         public DataTable Person_PowerSource_bind(int Person_ID)
-        { 
-            Program.buildConnection(); 
+        {
+            Program.buildConnection();
             MySS.query = " select person_powersource.PowerSource_ID as 'ID' " +
                         " ,powersource.Name as 'Name' " +
                         " from `person_powersource` " +
                         " left join `powersource` on person_powersource.PowerSource_ID = powersource.ID " +
-                        " where person_powersource.Person_ID = " + Person_ID; 
+                        " where person_powersource.Person_ID = " + Person_ID;
             MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
             MySS.sc.ExecuteNonQuery();
             MySS.da = new MySqlDataAdapter(MySS.sc);
             MySS.dt = new DataTable();
-            MySS.da.Fill(MySS.dt); 
+            MySS.da.Fill(MySS.dt);
             Program.MyConn.Close();
             return MySS.dt;
         }
 
         public DataTable Person_Courses_bind(int Person_ID)
         {
-            
+
             Program.buildConnection();
 
             MySS.query = "select PC.Course_ID as 'ID' " +
@@ -1178,7 +1179,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable Person_Loss_bind(int Person_ID)
         {
-            
+
             Program.buildConnection();
 
             var query = "select PL.Loss_ID as 'ID' " +
@@ -1238,8 +1239,8 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
         //}
 
         #endregion
-             
- 
+
+
         public DataTable Category_Select()
         {
 

@@ -1,15 +1,12 @@
-﻿using System;
-using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+﻿using ClosedXML.Excel;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
-using Microsoft.Office.Interop.Excel;
-using Application = Microsoft.Office.Interop.Excel.Application;
+using System;
+using System.Data;
 using System.Diagnostics;
-using ClosedXML.Excel;
+using System.Drawing;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace MyWorkApplication
 {

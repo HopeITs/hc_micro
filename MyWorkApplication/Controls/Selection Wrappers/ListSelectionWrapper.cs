@@ -21,10 +21,10 @@ namespace MyWorkApplication.Classes.Selection_Wrappers
             switch (e.ListChangedType)
             {
                 case ListChangedType.ItemAdded:
-                    Add(CreateSelectionWrapper((IEnumerator) ((IBindingList) _Source)[e.NewIndex]));
+                    Add(CreateSelectionWrapper((IEnumerator)((IBindingList)_Source)[e.NewIndex]));
                     break;
                 case ListChangedType.ItemDeleted:
-                    Remove(FindObjectWithItem((T) ((IBindingList) _Source)[e.OldIndex]));
+                    Remove(FindObjectWithItem((T)((IBindingList)_Source)[e.OldIndex]));
                     break;
                 case ListChangedType.Reset:
                     Populate();
@@ -53,7 +53,7 @@ namespace MyWorkApplication.Classes.Selection_Wrappers
             _Source = source;
             _ShowCounts = showCounts;
             if (_Source is IBindingList)
-                ((IBindingList) _Source).ListChanged += ListSelectionWrapper_ListChanged;
+                ((IBindingList)_Source).ListChanged += ListSelectionWrapper_ListChanged;
             Populate();
         }
 
@@ -159,7 +159,7 @@ namespace MyWorkApplication.Classes.Selection_Wrappers
         /// <returns></returns>
         private ObjectSelectionWrapper<T> CreateSelectionWrapper(IEnumerator Object)
         {
-            Type[] Types = {typeof(T), GetType()};
+            Type[] Types = { typeof(T), GetType() };
             var CI = typeof(ObjectSelectionWrapper<T>).GetConstructor(Types);
             if (CI == null)
                 throw new InvalidOperationException(string.Format(
@@ -167,14 +167,14 @@ namespace MyWorkApplication.Classes.Selection_Wrappers
                     typeof(ObjectSelectionWrapper<T>),
                     typeof(T),
                     GetType()));
-            object[] parameters = {Object.Current, this};
+            object[] parameters = { Object.Current, this };
             var result = CI.Invoke(parameters);
-            return (ObjectSelectionWrapper<T>) result;
+            return (ObjectSelectionWrapper<T>)result;
         }
 
         public ObjectSelectionWrapper<T> FindObjectWithItem(T Object)
         {
-            return Find(delegate(ObjectSelectionWrapper<T> target) { return target.Item.Equals(Object); });
+            return Find(delegate (ObjectSelectionWrapper<T> target) { return target.Item.Equals(Object); });
         }
 
         /*

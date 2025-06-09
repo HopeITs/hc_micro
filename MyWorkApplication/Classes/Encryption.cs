@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MyWorkApplication.Classes
 {
@@ -17,7 +13,7 @@ namespace MyWorkApplication.Classes
         public static string DecryptedData = "";
         private static byte[] entropy = Encoding.Unicode.GetBytes("YZbtvE5nW679sCUFYGxH");
         private static readonly string fileName = @"Connections.txt";
-         
+
         [DllImport("KERNEL32.DLL", EntryPoint = "RtlZeroMemory")]
         public static extern bool ZeroMemory(IntPtr Destination, int Length);
         public static byte[] GenerateSalt()
@@ -83,10 +79,10 @@ namespace MyWorkApplication.Classes
 
             }
 
-            System.IO.File.Copy( inputFileName
+            System.IO.File.Copy(inputFileName
             , appdata_path + @"\" + fileName + ".aes"
             , true);
-             
+
             byte[] passwords = Encoding.UTF8.GetBytes(password);
             byte[] salt = new byte[32];
             using (FileStream fsCrypt = new FileStream(appdata_path + @"\" + fileName + ".aes", FileMode.Open))
@@ -119,7 +115,7 @@ namespace MyWorkApplication.Classes
         public static void DecryptCredentials(string datalocation)
         {
 
-            if (DecryptedData == "") FileDecrypt(); 
+            if (DecryptedData == "") FileDecrypt();
 
             int Name_start = DecryptedData.IndexOf(datalocation);
             int Connection_Start = DecryptedData.IndexOf(';', Name_start) + 1;
@@ -166,7 +162,7 @@ namespace MyWorkApplication.Classes
             int OnlineRoot_length = DecryptedData.IndexOf("\n", OnlineRoot_Connection_Start) - OnlineRoot_Connection_Start - 1;
 
             Program.ConnectionString = DecryptedData.Substring(Connection_Start, length);
-            
+
             //Program.RemotelyCredentials = new Tuple<string, string, string>(DecryptedData.Substring(RemotelyName_Connection_Start, RemotelyName_length), DecryptedData.Substring(RemotelyUser_Connection_Start, RemotelyUser_length), DecryptedData.Substring(RemotelyPassword_Connection_Start, RemotelyPassword_length));
             //Program.OnlineserversCredentials = new Tuple<string, string>(DecryptedData.Substring(OnlineserversName_Connection_Start, OnlineserversName_length), DecryptedData.Substring(OnlineserversPassword_Connection_Start, OnlineserversPassword_length));
             //Program.OfflineserversCredentials = new Tuple<string, string>(DecryptedData.Substring(OfflineserversName_Connection_Start, OfflineserversName_length), DecryptedData.Substring(OfflineserversPassword_Connection_Start, OfflineserversPassword_length));

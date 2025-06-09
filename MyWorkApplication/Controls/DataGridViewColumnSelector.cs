@@ -48,7 +48,7 @@ namespace MyWorkApplication.Classes
 
             //mPopup.SetAutoScrollMargin(5, 5);
             //mPopup.AutoScrollOffset = new Point(5,5);
-             
+
             mPopup.AutoClose = true;
             mPopup.Items.Add(mControlHost);
         }
@@ -86,8 +86,8 @@ namespace MyWorkApplication.Classes
             //mCheckedListBox.Height = (PreferredHeight < MaxHeight) ? PreferredHeight : MaxHeight;
             //mCheckedListBox.Width = this.Width;
 
-            pUserControl1.Initialize(DataGridView); 
-            mPopup.Show(DataGridView.PointToScreen(new Point(1, 0))); 
+            pUserControl1.Initialize(DataGridView);
+            mPopup.Show(DataGridView.PointToScreen(new Point(1, 0)));
 
             //}
         }

@@ -1,15 +1,12 @@
-﻿using System;
-using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+﻿using ClosedXML.Excel;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
-using Microsoft.Office.Interop.Excel;
-using Application = Microsoft.Office.Interop.Excel.Application;
+using System;
+using System.Data;
 using System.Diagnostics;
-using ClosedXML.Excel;
+using System.Drawing;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace MyWorkApplication
 {
@@ -17,7 +14,7 @@ namespace MyWorkApplication
     {
         private int ID;
         private Log l;
-        private StateReason s; 
+        private StateReason s;
         private System.Data.DataTable dt;
 
         public AddNewStateReasons()
@@ -34,7 +31,7 @@ namespace MyWorkApplication
                     newTheme.Category_ToNight(this);
                 else
                     newTheme.Category_ToLight(this);
-                 
+
                 s = new StateReason();
                 l = new Log();
                 dt = new System.Data.DataTable();
@@ -102,7 +99,7 @@ namespace MyWorkApplication
                 s.Insert(Name_textBox.Text);
                 l.Insert_Log("Insert " + Name_textBox.Text, "State Reason", Program.UserName, DateTime.Now);
                 Name_textBox.Clear();
-                ID = -1; 
+                ID = -1;
 
                 dt.Rows.Clear();
                 bind("");
@@ -251,7 +248,7 @@ namespace MyWorkApplication
         {
             e.Cancel = true;
         }
-         
+
         private void dataGridView_SelectionChanged_1(object sender, EventArgs e)
         {
             try

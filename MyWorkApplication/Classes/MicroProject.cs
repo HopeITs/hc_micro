@@ -1,5 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
 using System.Data.SqlTypes;
 
 namespace MyWorkApplication.Classes
@@ -15,8 +14,8 @@ namespace MyWorkApplication.Classes
         }
 
         public void Update_Project_State(int MicroProject_ID, string State, string StateDate)
-        { 
-            query = " update microproject_state set Current_State = 0 where MicroProject_ID = " + MicroProject_ID + ";" 
+        {
+            query = " update microproject_state set Current_State = 0 where MicroProject_ID = " + MicroProject_ID + ";"
                 + " INSERT INTO microproject_state (`MicroProject_ID`, `State_ID`, `Date`) Values ("
                 + MicroProject_ID + ","
                 + "(select ID from `state` where Name_ar like N'" + State + "')" + ","
@@ -24,8 +23,8 @@ namespace MyWorkApplication.Classes
 
             if (State == "منتهي" || State == "منسحب" || State == "ملغى")
                 query += " UPDATE user_notification set `Seen` = 1 WHERE user_notification.MicroProject_ID = " + MicroProject_ID + ";";
-             
-           Program.buildConnection();
+
+            Program.buildConnection();
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.ExecuteNonQuery();
@@ -60,7 +59,7 @@ namespace MyWorkApplication.Classes
         public void Update_Micro_VisitDetails(int MicroProject_ID, string isVisited
             , string Visit_Date, string Visit_Time
             , string Visit_Notes, string MP_KeyPersonNotes
-            , string Team_Date, string Commity_Date )
+            , string Team_Date, string Commity_Date)
         {
             query = "Update `microproject` set " +
 
@@ -68,7 +67,7 @@ namespace MyWorkApplication.Classes
                 ",MP_TeamDate =  " + (Team_Date == "" ? "NULL" : "'" + Team_Date + "' ") +
                 ",MP_VisitDate = " + (Visit_Date == "" ? "NULL" : "'" + Visit_Date + "' ") +
                 ",MP_VisitTime = '" + Visit_Time + "' " +
-                ",MP_VisitNotes = N'" + Visit_Notes + "' " + 
+                ",MP_VisitNotes = N'" + Visit_Notes + "' " +
                 ",MP_CommityDate =  " + (Commity_Date == "" ? "NULL" : "'" + Commity_Date + "' ");
 
             //" MP_ParishNotes = '" + MP_ParishNotes + "' " +
@@ -91,14 +90,14 @@ namespace MyWorkApplication.Classes
         }
 
 
-        public void Update_MP_Place(int MP_ID, int MP_Street_ID,string MP_AddressAfterFund)
+        public void Update_MP_Place(int MP_ID, int MP_Street_ID, string MP_AddressAfterFund)
         {
-            var query = " Update `microproject` set " 
+            var query = " Update `microproject` set "
                 + " MP_Street_ID = " + (MP_Street_ID == -1 ? SqlInt32.Null : MP_Street_ID)
-                + ",MP_AddressAfterFund = N'" + MP_AddressAfterFund + "'" 
+                + ",MP_AddressAfterFund = N'" + MP_AddressAfterFund + "'"
                 + " where MP_ID = " + MP_ID;
 
-            
+
             Program.buildConnection();
             var sc = new MySqlCommand(query, Program.MyConn);
             sc.ExecuteNonQuery();

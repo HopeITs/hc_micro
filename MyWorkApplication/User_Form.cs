@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
@@ -7,8 +9,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication
 {
@@ -70,7 +70,7 @@ namespace MyWorkApplication
         {
             users_dataGridView.Columns.Clear();
 
-            var dt = u.Select_Users(Username,"","");
+            var dt = u.Select_Users(Username, "", "");
             users_dataGridView.DataSource = dt;
             var dgC2 = users_dataGridView.Columns["ID"];
             dgC2.Visible = false;
@@ -99,7 +99,7 @@ namespace MyWorkApplication
             users_dataGridView.Columns.Add(colCB);
 
             var imageColumn = new DataGridViewImageColumn();
-            imageColumn = (DataGridViewImageColumn) users_dataGridView.Columns["#"];
+            imageColumn = (DataGridViewImageColumn)users_dataGridView.Columns["#"];
             imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
             imageColumn.Width = 175;
 
@@ -174,19 +174,19 @@ namespace MyWorkApplication
         {
             try
             {
-                SelectedDataRow = ((DataRowView) users_dataGridView.CurrentRow.DataBoundItem).Row;
+                SelectedDataRow = ((DataRowView)users_dataGridView.CurrentRow.DataBoundItem).Row;
                 if (SelectedDataRow != null)
                 {
-                    ID = int.Parse(SelectedDataRow["ID"].ToString()); 
+                    ID = int.Parse(SelectedDataRow["ID"].ToString());
                     Username_textBox.Text = SelectedDataRow["Username"].ToString();
                     Password_textBox.Text = SelectedDataRow["Password"].ToString();
                     Email_textBox.Text = SelectedDataRow["Email"].ToString();
                     Role_comboBox1.Text = SelectedDataRow["Role"].ToString();
 
-                    var IsVisitor = (int) SelectedDataRow["IsVisitor"];
-                    var IsME = (int) SelectedDataRow["IsME"];
-                    var IsCommunication = (int) SelectedDataRow["IsCommunication"];
-                    var IsCashier = (int) SelectedDataRow["IsCashier"];
+                    var IsVisitor = (int)SelectedDataRow["IsVisitor"];
+                    var IsME = (int)SelectedDataRow["IsME"];
+                    var IsCommunication = (int)SelectedDataRow["IsCommunication"];
+                    var IsCashier = (int)SelectedDataRow["IsCashier"];
 
                     if (IsVisitor == 0)
                         No_V_button_Click(sender, e);
@@ -257,14 +257,14 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
- 
+
         private void Save_button_Click(object sender, EventArgs e)
         {
             try
             {
                 if (Username_textBox.Text == "" || Password_textBox.Text == "" || Role_comboBox1.SelectedIndex == -1)
                     throw new InvalidOperationException("You Can't leave empty fields.. Please check and try again!");
-                
+
                 string email = Email_textBox.Text;
                 Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
                 Match match = regex.Match(email);
@@ -323,7 +323,7 @@ namespace MyWorkApplication
                 //Clear_Boxes();
                 Bind_Users("");
             }
-            
+
             catch (FormatException)
             {
                 MessageBox.Show("الرجاء التأكد من كتابة البريد الالكتروني بشكل صحيح", "Email Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -334,7 +334,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
         private void Clear_Boxes()
         {
             Username_textBox.Text = Password_textBox.Text = Email_textBox.Text = "";
@@ -424,7 +424,7 @@ namespace MyWorkApplication
         public static byte[] ImageToByte(Image img)
         {
             var converter = new ImageConverter();
-            return (byte[]) converter.ConvertTo(img, typeof(byte[]));
+            return (byte[])converter.ConvertTo(img, typeof(byte[]));
         }
 
         private void CallDialog()
@@ -441,7 +441,7 @@ namespace MyWorkApplication
                 PicArr = null;
                 var fs = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
                 var br = new BinaryReader(fs);
-                PicArr = br.ReadBytes((int) fs.Length);
+                PicArr = br.ReadBytes((int)fs.Length);
 
                 if (PicArr == null || PicArr.Length == 0)
                 {
@@ -548,7 +548,7 @@ namespace MyWorkApplication
             No_Pay_button.ForeColor = Color.Black;
             Yes_Pay_button.BackColor = Pressed_BackColor;
             Yes_Pay_button.ForeColor = Pressed_ForeColor;
-        } 
+        }
         private void No_Pay_button_Click(object sender, EventArgs e)
         {
             No_Pay_button.BackColor = Pressed_BackColor;
@@ -575,7 +575,7 @@ namespace MyWorkApplication
         #endregion
 
         private void ShowPassword_button_Click(object sender, EventArgs e)
-        { 
+        {
             if (Password_textBox.PasswordChar == '*')
             {
                 Password_textBox.PasswordChar = '\0';
@@ -593,10 +593,10 @@ namespace MyWorkApplication
                 Password_textBox.Text = Pass;
                 ShowPassword_button.BackgroundImage = Properties.Resources.show_password_false;
                 toolTip1.SetToolTip(ShowPassword_button, "Show Password");
-            } 
+            }
         }
-        
-        
+
+
 
         private void Role_comboBox1_TextChanged(object sender, EventArgs e)
         {

@@ -52,11 +52,11 @@ namespace MyWorkApplication.Classes
                 fWidth = Math.Max(fWidth, pSizeF.Width);
             }
 
-            var iWidth = (int) fWidth + m_iImageColumnWidth + m_iExtraWidth;
+            var iWidth = (int)fWidth + m_iImageColumnWidth + m_iExtraWidth;
 
             m_pMemBitmap = new Bitmap(iWidth, iHeight);
             m_pMemGraphics = Graphics.FromImage(m_pMemBitmap);
-            
+
         }
 
         private MenuCommand HitTest(int X, int Y)
@@ -110,7 +110,7 @@ namespace MyWorkApplication.Classes
         private void DrawBackground(Graphics g, Rectangle rectWin)
         {
             var main = new Rectangle(0, 0, rectWin.Width, rectWin.Height);
-             
+
             var xStart = 1;
             var yStart = 2;
             var yHeight = main.Height - yStart - 1;

@@ -2,13 +2,8 @@
 using MyWorkApplication.Properties;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyWorkApplication
@@ -25,7 +20,7 @@ namespace MyWorkApplication
         string Type;
         private int ID;
         private Log l;
-        CheckList cl; 
+        CheckList cl;
         DataTable checklist_member_dt, positions_dt;
 
         private void AddNewChecklistMember_Load(object sender, EventArgs e)
@@ -37,12 +32,12 @@ namespace MyWorkApplication
                     newTheme.Category_ToNight(this);
                 else
                     newTheme.Category_ToLight(this);
-                 
+
                 checklist_member_dt = new System.Data.DataTable();
-                 
+
                 l = new Log();
                 cl = new CheckList();
-                 
+
                 bind(Type);
                 bind_Positions();
             }
@@ -63,7 +58,7 @@ namespace MyWorkApplication
             positions_dt = cl.Select_Positions("", Type);
 
             Position_comboBox.DataSource = null;
-            Position_comboBox.DataSource = positions_dt; 
+            Position_comboBox.DataSource = positions_dt;
             Position_comboBox.DisplayMember = "Name";
             Position_comboBox.ValueMember = "ID";
             Position_comboBox.SelectedIndex = -1;
@@ -73,7 +68,7 @@ namespace MyWorkApplication
         {
             checklist_member_dt = cl.Select_Checklist_Members("", Type);
 
-            dataGridView.Rows.Clear(); 
+            dataGridView.Rows.Clear();
             for (int i = 0; i < checklist_member_dt.Rows.Count; i++)
             {
                 dataGridView.Rows.Add();
@@ -85,20 +80,20 @@ namespace MyWorkApplication
                 P_Name = checklist_member_dt.Rows[i].Field<string>(3);
                 P_Type = checklist_member_dt.Rows[i].Field<string>(4);
 
-                dataGridView.Rows[i].Cells["Position_Name"] = Load_Position_ComboBox(P_Name,P_Type);
+                dataGridView.Rows[i].Cells["Position_Name"] = Load_Position_ComboBox(P_Name, P_Type);
                 dataGridView.Rows[i].Cells["Position_Name"].Value = P_Name;
                 dataGridView.Rows[i].Cells["Position_Type"].Value = P_Type;
-            }  
+            }
             Count_label.Text = "All:" + dataGridView.Rows.GetRowCount(DataGridViewElementStates.Visible);
         }
 
         private DataGridViewComboBoxCell Load_Position_ComboBox(string Name, string Type)
-        { 
+        {
             var dt = new DataTable();
             dt = cl.Select_Positions(Name, Type);
 
             var cell = new DataGridViewComboBoxCell();
-            
+
             var row = new ArrayList();
             //add items to array list from datatable
             foreach (DataRow dr in dt.Rows) row.Add(dr[1].ToString());
@@ -132,7 +127,7 @@ namespace MyWorkApplication
                         cl.Update_Member(ID, Name, Position_ID);
                         l.Insert_Log("Update " + Name + ":" + Position, "Checklist", Program.UserName, DateTime.Now);
                     }
-                    dataGridView.EndEdit(); 
+                    dataGridView.EndEdit();
                 }
                 else
                 {
@@ -143,7 +138,7 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        } 
+        }
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -157,7 +152,7 @@ namespace MyWorkApplication
                     {
                         var ID = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells["Member_ID"].Value.ToString());
                         cl.Delete_Member(ID);
-                        l.Insert_Log("Delete Checklist Member: " + dataGridView.Rows[e.RowIndex].Cells["Member_Name"].Value 
+                        l.Insert_Log("Delete Checklist Member: " + dataGridView.Rows[e.RowIndex].Cells["Member_Name"].Value
                             + ":" + dataGridView.Rows[e.RowIndex].Cells["Position_Name"].Value,
                             "Checklist", Program.UserName, DateTime.Now);
                         dataGridView.Rows.RemoveAt(e.RowIndex);
@@ -171,7 +166,7 @@ namespace MyWorkApplication
                 else
                     MessageBox.Show(ex.Message);
             }
-        } 
+        }
         private void dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             try
@@ -205,7 +200,7 @@ namespace MyWorkApplication
             try
             {
                 if (e.ColumnIndex == 3) //type updated and enter to name
-                {  
+                {
                     dataGridView.Rows[e.RowIndex].Cells[3] = Load_Position_ComboBox("", Type);
                 }
             }
@@ -248,7 +243,7 @@ namespace MyWorkApplication
                 using (var form = new AddNewChecklistPosition(Type))
                 {
                     form.ShowDialog();
-                    { 
+                    {
                         bind_Positions();
                     }
                 }
@@ -259,6 +254,6 @@ namespace MyWorkApplication
             }
         }
 
-       
+
     }
 }

@@ -1,10 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWorkApplication.Classes
 {
@@ -27,9 +23,9 @@ namespace MyWorkApplication.Classes
             //insert log
             query += @"INSERT INTO `log`(`Log_Type`, `Log_OnTable`, `Log_User`, `Log_Date`, `Log_Seen`) VALUES (
  N'insert image: @Image_NewPath to @MicroProject_ID'
-,N'image' ,N'" + Program.UserName 
-      + "',N'" + DateTime.Now.Year + "/" + DateTime.Now.Month + "/"  + DateTime.Now.Day + " " 
-               + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + 
+,N'image' ,N'" + Program.UserName
+      + "',N'" + DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + " "
+               + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second +
 "',0)"; //not seen
 
             using (var sc = new MySqlCommand(query, Program.MyConn))
@@ -85,7 +81,7 @@ namespace MyWorkApplication.Classes
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.Parameters.AddWithValue("@Image_ID", Image_ID);
-                sc.Parameters.AddWithValue("@MicroProject_ID", MicroProject_ID); 
+                sc.Parameters.AddWithValue("@MicroProject_ID", MicroProject_ID);
                 sc.Parameters.AddWithValue("@ImaImage_NewPathge_ID", Image_NewPath);
                 sc.ExecuteNonQuery();
                 Program.MyConn.Close();
@@ -99,10 +95,10 @@ namespace MyWorkApplication.Classes
             string result = "";
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
-                sc.Parameters.AddWithValue("@Image_ID",Image_ID);
+                sc.Parameters.AddWithValue("@Image_ID", Image_ID);
                 result = sc.ExecuteScalar().ToString();
                 Program.MyConn.Close();
-            } 
+            }
             return result;
         }
 
@@ -114,10 +110,10 @@ namespace MyWorkApplication.Classes
             if (Image_ID != -1) condition += " and Image_ID = @Image_ID ";
             if (Person_ID != -1) condition += " and Person_ID = @Person_ID ";
             if (imageType != "") condition += " and ImageType_ID in (select imagetype.ID from imagetype where imagetype.Name_en like @imageType) ";
-            
+
             query += condition;
             var sc = new MySqlCommand(query, Program.MyConn);
-            sc.Parameters.AddWithValue("@Image_ID" , Image_ID);
+            sc.Parameters.AddWithValue("@Image_ID", Image_ID);
             sc.Parameters.AddWithValue("@Person_ID", Person_ID);
             sc.Parameters.AddWithValue("@imageType", imageType);
             sc.ExecuteNonQuery();
@@ -129,7 +125,7 @@ namespace MyWorkApplication.Classes
         }
 
         public DataSet SelectImageTypes()
-        { 
+        {
             Program.buildConnection();
             query = "";
             switch (Program.role)
@@ -169,7 +165,7 @@ namespace MyWorkApplication.Classes
             return ds;
         }
 
-        public DataSet Select_MP_Images(int MP_ID,string type_ids)
+        public DataSet Select_MP_Images(int MP_ID, string type_ids)
         {
             Program.buildConnection();
             var query = "SELECT Image_ID as 'ID' " +
@@ -187,7 +183,7 @@ namespace MyWorkApplication.Classes
             query += @"SELECT imagetype.Name as 'Type', IFNULL(COUNT(ImageType_ID),0) as 'Count'
     FROM imagetype
     Left OUTER join `image` on image.ImageType_ID = imagetype.ID 
-                            and image.MicroProject_ID = " + MP_ID 
+                            and image.MicroProject_ID = " + MP_ID
   + " GROUP BY imagetype.Name; ";
 
             query += @"SELECT IFNULL(COUNT(image.Image_ID),0) as 'AllCount'

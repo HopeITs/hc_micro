@@ -1,13 +1,12 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication.Visit_Forms
 {
@@ -22,7 +21,7 @@ namespace MyWorkApplication.Visit_Forms
         private UserNotification noti;
         private Office_Monitoring O;
         private int Office_Monitoring_ID;
-        private Select s; 
+        private Select s;
         private TasksOfProjects TasksOfProjects;
         private bool Update_Mode;
         private Visit v;
@@ -31,7 +30,7 @@ namespace MyWorkApplication.Visit_Forms
         private readonly List<int> User_IDs = new List<int>();
         private bool mevisits_generated = false;
         private string Type;
-         
+
         public VOpening_Other_Form(int V_ID, MainForm mainForm)
         {
             InitializeComponent();
@@ -106,7 +105,7 @@ namespace MyWorkApplication.Visit_Forms
                 users_bind(V2_comboBox);
                 users_bind(V3_comboBox);
                 users_bind(V4_comboBox);
-                
+
                 Person_Name_textBox.AutoCompleteCustomSource = s.select_beneficiaries(_KIND, "Yes");
                 MicroProject_ID_textBox.AutoCompleteCustomSource = s.select_project_IDs(_KIND, "Yes");
 
@@ -114,9 +113,9 @@ namespace MyWorkApplication.Visit_Forms
                 if (user_db != null)
                     for (var i = 0; i < user_db.Rows.Count; i++)
                         User_IDs.Add(user_db.Rows[i].Field<int>(0));
-                 
+
                 if (V_ID != -1)
-                { 
+                {
                     DataTable v_dt = v.Get_Visit(V_ID.ToString(), "", "", _KIND);
                     fill_visit_boxes(v_dt);
 
@@ -132,7 +131,7 @@ namespace MyWorkApplication.Visit_Forms
 
 
                 }
-                 
+
 
             }
             catch (Exception ex)
@@ -158,12 +157,12 @@ namespace MyWorkApplication.Visit_Forms
                     //Delete this project Visit notifications//
                     noti.Delete_Notification(MicroProject_ID, "", "Visit M%", Person_Name_textBox.Text, -1);
                     l.Insert_Log("Delete visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ", "Visit", Program.UserName, DateTime.Now);
-                      
+
                     if (Type.Contains("زراع"))
                         generate_me_agricultural_visits_notifications();
                     else
                         generate_me_visits_notifications();
-                } 
+                }
             }
         }
 
@@ -186,7 +185,7 @@ namespace MyWorkApplication.Visit_Forms
         private void fill_visit_boxes(DataTable dt)
         {
             try
-            { 
+            {
                 if (dt != null)
                 {
                     MicroProject_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
@@ -195,7 +194,7 @@ namespace MyWorkApplication.Visit_Forms
                     MP_Name_textBox.Text = (string)dt.Rows[0]["Project Name"];
                     Mobile_textBox.Text = (string)dt.Rows[0]["Mobile"];
 
-                    if(dt.Rows[0]["Address"] != DBNull.Value)
+                    if (dt.Rows[0]["Address"] != DBNull.Value)
                         WorkAddress_textBox.Text = (string)dt.Rows[0]["Address"];
                     Person_ID = int.Parse(dt.Rows[0]["Beneficiary_ID"].ToString());
 
@@ -221,7 +220,7 @@ namespace MyWorkApplication.Visit_Forms
                     if (Update_Mode)
                     {
                         V_ID = int.Parse(dt.Rows[0]["ID"].ToString());
-                         
+
                         var date1 = (DateTime)dt.Rows[0]["Date"];
                         VisitDate_dateTimePicker.Value = date1;
 
@@ -291,7 +290,7 @@ namespace MyWorkApplication.Visit_Forms
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
 
         #region set get radio_buttons
         void set_radioButtons(int ansNo, int value)
@@ -472,7 +471,7 @@ namespace MyWorkApplication.Visit_Forms
                         fill_visit_boxes(dt);
                     }
             }
-       
+
         }
 
         private void generate_me_visits_notifications()
@@ -496,7 +495,7 @@ namespace MyWorkApplication.Visit_Forms
             M3_Visit_date = M2_Visit_date.AddMonths(visit_interval);
             M4_Visit_date = M3_Visit_date.AddMonths(visit_interval);
             M5_Visit_date = M4_Visit_date.AddMonths(visit_interval);
-            
+
             //Send to M&E//
             if (User_IDs.Count == 0)
                 MessageBox.Show(
@@ -521,7 +520,7 @@ namespace MyWorkApplication.Visit_Forms
             MessageBox.Show("تم توليد إشعارات زيارات المراقبة والتقييم الخاصة بهذا المشروع بنجاح");
         }
         private void generate_me_agricultural_visits_notifications()
-        { 
+        {
             // زيارة الافتتاحية //updated
             DateTime OpeningVisit_date = VisitDate_dateTimePicker.Value;
 
@@ -532,23 +531,23 @@ namespace MyWorkApplication.Visit_Forms
             DateTime M1_Visit_date = OpeningVisit_date;
             DateTime M2_Visit_date, M3_Visit_date, M4_Visit_date, M5_Visit_date;
             M2_Visit_date = M3_Visit_date = M4_Visit_date = M5_Visit_date = DateTime.Now;
-             
+
             string day, month, year;
             day = OpeningVisit_date.Day.ToString();
             if (OpeningVisit_date.Day == 31) day = "30";
             year = OpeningVisit_date.Year.ToString();
 
             if (OpeningVisit_date.Month >= 1 && OpeningVisit_date.Month < 4)
-            { 
-                month = "04"; 
-                string dateString = year + "-" + month + "-" + day; 
-                M1_Visit_date = DateTime.Parse(dateString);  
+            {
+                month = "04";
+                string dateString = year + "-" + month + "-" + day;
+                M1_Visit_date = DateTime.Parse(dateString);
 
                 M2_Visit_date = M1_Visit_date.AddMonths(7); //11
                 M3_Visit_date = M2_Visit_date.AddMonths(5); //4
                 M4_Visit_date = M3_Visit_date.AddMonths(7); //11
                 M5_Visit_date = M4_Visit_date.AddMonths(5); //4 
-            }  
+            }
             else if (OpeningVisit_date.Month >= 4 && OpeningVisit_date.Month < 11)
             {
                 month = "11";
@@ -601,7 +600,7 @@ namespace MyWorkApplication.Visit_Forms
         private void Save_button_Click(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 CheckUserPermission();
                 if (MicroProject_ID_textBox.Text == "" || Person_Name_textBox.Text == "" || MicroProject_ID == -1)
                     throw new InvalidOperationException("You should choose a project first ..!!");
@@ -616,7 +615,7 @@ namespace MyWorkApplication.Visit_Forms
                         , get_radioButtons_values(1), get_radioButtons_values(2), get_radioButtons_values(3)
                         , get_radioButtons_values(4), get_radioButtons_values(5), get_radioButtons_values(6)
                         , get_radioButtons_values(7)
-                        , "" , Program.UserName);
+                        , "", Program.UserName);
 
                     l.Insert_Log("Insert visit-" + _KIND + " to " + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
                         "Visit", Program.UserName, DateTime.Now);
@@ -642,12 +641,12 @@ namespace MyWorkApplication.Visit_Forms
                     ////////////////////////////////////////////////////////////////////////////////////////// 
 
                     //update notification
-                    noti.Update_MicroUsers_Notification(MicroProject_ID , "", "Visit Opening-O" , "", -21, "1");
-                    l.Insert_Log( "Set seen=1 to Notification of Visit Opening-O:" + Person_Name_textBox.Text + "-" + MicroProject_ID ,
+                    noti.Update_MicroUsers_Notification(MicroProject_ID, "", "Visit Opening-O", "", -21, "1");
+                    l.Insert_Log("Set seen=1 to Notification of Visit Opening-O:" + Person_Name_textBox.Text + "-" + MicroProject_ID,
                         "user_notification visit", Program.UserName, DateTime.Now);
                     //////////////////////////////////////////////////////////////////////////////////////////   
 
-                    MessageBox.Show("سيتم توليد إشعارات زيارات المراقبة والتقييم وذلك حسب تاريخ زيارة الافتتاحية التالية"); 
+                    MessageBox.Show("سيتم توليد إشعارات زيارات المراقبة والتقييم وذلك حسب تاريخ زيارة الافتتاحية التالية");
                     //Delete this project Visit notifications//
                     noti.Delete_Notification(MicroProject_ID, "", "Visit M%", Person_Name_textBox.Text, -1);
                     l.Insert_Log("Delete visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ", "Visit", Program.UserName, DateTime.Now);
@@ -668,7 +667,7 @@ namespace MyWorkApplication.Visit_Forms
                         , get_radioButtons_values(1), get_radioButtons_values(2), get_radioButtons_values(3)
                         , get_radioButtons_values(4), get_radioButtons_values(5), get_radioButtons_values(6)
                         , get_radioButtons_values(7)
-                        , "" , Program.UserName);
+                        , "", Program.UserName);
                     l.Insert_Log(
                         "Update visit-" + _KIND + " of " + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
                         "Visit", Program.UserName, DateTime.Now);
@@ -725,7 +724,7 @@ namespace MyWorkApplication.Visit_Forms
                     "Visit", Program.UserName, DateTime.Now);
 
                 //check عدا الزراعي
-                if(!Type.Contains("زراع"))
+                if (!Type.Contains("زراع"))
                     check_visit_notifications();
 
                 MessageBox.Show("Visit saved successfuly");
@@ -734,7 +733,7 @@ namespace MyWorkApplication.Visit_Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } 
+            }
         }
 
         private void Delete_button_Click(object sender, EventArgs e)
@@ -787,17 +786,17 @@ namespace MyWorkApplication.Visit_Forms
                 case 9: //Media
                     {
                         throw new InvalidOperationException(" نعتذر ! لا تملك الصلاحية للقيام بهذا الفعل.");
-                    } 
+                    }
             }
         }
 
         private void clear_Visit_boxes(int j)
         {
             V_ID = -1;
-             
-            V1_comboBox.Text = V2_comboBox.Text = V3_comboBox.Text = V4_comboBox.Text = Place_Note_textBox.Text= "";
+
+            V1_comboBox.Text = V2_comboBox.Text = V3_comboBox.Text = V4_comboBox.Text = Place_Note_textBox.Text = "";
             V1_comboBox.SelectedIndex = V2_comboBox.SelectedIndex
-                = V3_comboBox.SelectedIndex = V4_comboBox.SelectedIndex 
+                = V3_comboBox.SelectedIndex = V4_comboBox.SelectedIndex
                 = Street_comboBox.SelectedIndex = -1;
 
             CreatedBy_User_label.Text = EditedBy_User_label.Text = "";
@@ -807,11 +806,11 @@ namespace MyWorkApplication.Visit_Forms
             = Ans3_textBox.Text = Ans4_textBox.Text = Ans5_textBox.Text = Ans6_textBox.Text = "";
 
             //clear radiobuttons
-            for (int i = 1; i <=7; i++)
+            for (int i = 1; i <= 7; i++)
                 set_radioButtons(i, -1);
-            for (int i = 1; i <=6; i++)
+            for (int i = 1; i <= 6; i++)
                 set_office_radioButtons(i, -1);
-         
+
             Office1_textBox.Text = Office2_textBox.Text = Office3_textBox.Text =
                 Office4_textBox.Text = Office5_textBox.Text = Office6_textBox.Text = OtherComments_textBox.Text = "";
 
@@ -836,7 +835,7 @@ namespace MyWorkApplication.Visit_Forms
 
         private void bind_Street_into_ComboBox()
         {
-            
+
             Program.buildConnection();
 
             MySS.query = "select ID, Name from street ORDER BY Name ASC";
@@ -933,7 +932,7 @@ namespace MyWorkApplication.Visit_Forms
             foreach (RadioButton r in ans6_tableLayoutPanel.Controls.OfType<RadioButton>())
                 r.Checked = false;
         }
-         
+
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             foreach (RadioButton r in ans7_tableLayoutPanel.Controls.OfType<RadioButton>())
@@ -964,7 +963,7 @@ namespace MyWorkApplication.Visit_Forms
                 r.Checked = false;
         }
 
-        
+
 
         private void o5_pictureBox_Click(object sender, EventArgs e)
         {

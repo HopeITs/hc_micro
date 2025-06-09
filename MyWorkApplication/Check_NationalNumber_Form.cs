@@ -2,13 +2,8 @@
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyWorkApplication
@@ -32,7 +27,7 @@ namespace MyWorkApplication
                     newTheme.MessageBox_ToNight(this);
                 else
                     newTheme.MessageBox_ToLight(this);
-                 
+
                 l = new Log();
             }
             catch (Exception ex)
@@ -40,12 +35,12 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
 
         private DataSet Check_National_Number(string PersonNationalNum)
         {
             //online
-            Properties.Settings.Default.Online = false; 
+            Properties.Settings.Default.Online = false;
             Program.set_ConnectionString();
             Properties.Settings.Default.Save();
 
@@ -65,29 +60,29 @@ namespace MyWorkApplication
             sc.ExecuteNonQuery();
             var da = new MySqlDataAdapter(sc);
             var dt = new DataTable();
-            da.Fill(dt); 
+            da.Fill(dt);
             Program.MyConn.Close();
 
             //build queries from all available databases
             string q2 = "";
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                string db = dt.Rows[i].Field<string>(0); 
-                if(db.Contains("hcsyria_f2f_ajudy"))
+                string db = dt.Rows[i].Field<string>(0);
+                if (db.Contains("hcsyria_f2f_ajudy"))
                 {
                     q2 += " select count(*)" +
-                        " , (select schema_name FROM information_schema.schemata where schema_name LIKE '" + db+"' ) as 'database' " +
+                        " , (select schema_name FROM information_schema.schemata where schema_name LIKE '" + db + "' ) as 'database' " +
                         " , CONCAT(first_Name, ' ', father_Name, ' ', last_Name) as 'name' " +
 
                         " , (select (case " + db + ".`family_partner`.IsActive when 1 then 'فعال' else 'غير فعال' end) from " + db + ".`family_partner` " +
                         " left join " + db + ".`person_family` on " + db + ".`family_partner`.family_id = " + db + ".`person_family`.family_id " +
                         " where " + db + ".`person_family`.person_id = " + db + ".`person`.id " +
                         " order by " + db + ".`family_partner`.id desc limit 1 ) as 'state' " +
-                          
+
                         " from " + db + ".`person` " +
-                        " where national_Number like '" + PersonNationalNum_without_zero + "' or national_Number like '" +PersonNationalNum+"';";
+                        " where national_Number like '" + PersonNationalNum_without_zero + "' or national_Number like '" + PersonNationalNum + "';";
                 }
-                else if(db.Contains("hcsyria_disc"))
+                else if (db.Contains("hcsyria_disc"))
                 {
                     q2 += "select count(*)" +
                         " , (select schema_name FROM information_schema.schemata where schema_name LIKE '" + db + "' ) as 'database' " +
@@ -115,7 +110,7 @@ namespace MyWorkApplication
                         " where P_NationalNumber like '" + PersonNationalNum_without_zero + "' or P_NationalNumber like '" + PersonNationalNum + "';";
                 }
             }
-             
+
             Program.buildConnection();
             sc = new MySqlCommand(q2, Program.MyConn);
             sc.ExecuteNonQuery();
@@ -127,9 +122,9 @@ namespace MyWorkApplication
             //offline
             Properties.Settings.Default.Online = false;
             Program.set_ConnectionString();
-            Properties.Settings.Default.Save(); 
+            Properties.Settings.Default.Save();
 
-            return ds; 
+            return ds;
         }
 
         private void Check_Button_Click(object sender, EventArgs e)
@@ -143,14 +138,14 @@ namespace MyWorkApplication
                 {
                     Result_label.Text = "";
                     Result_button.BackgroundImage = null;
-                } 
+                }
                 else
                 {
                     DataSet ds = Check_National_Number(NationalNumber_textBox.Text.Trim());
-                    string msg = ""; 
+                    string msg = "";
                     for (int i = 0; i < ds.Tables.Count; i++)
                     {
-                        if ( ds.Tables[i].Rows[0].Field<object>(0).ToString() == "0") continue;
+                        if (ds.Tables[i].Rows[0].Field<object>(0).ToString() == "0") continue;
                         else
                         {
                             string db1 = ds.Tables[i].Rows[0].Field<string>(1);
@@ -168,7 +163,7 @@ namespace MyWorkApplication
                             else if (db1.Equals("hcsyria_disc_a")) project = "DISC - Aleppo";
 
                             msg += "المستفيد/ة: "
-                           + ds.Tables[i].Rows[0].Field<string>(2) + Environment.NewLine 
+                           + ds.Tables[i].Rows[0].Field<string>(2) + Environment.NewLine
                            + "المشروع: " + project + Environment.NewLine
                            + "الحالة: " + ds.Tables[i].Rows[0].Field<string>(3) + Environment.NewLine;
                         }
@@ -192,7 +187,7 @@ namespace MyWorkApplication
                 // Set cursor as defaul
                 Cursor.Current = Cursors.Default;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 if (ex.Message.Contains("Unable to connect to the server") || ex.Message.Contains("MySQL"))
                     MessageBox.Show("Unable to connect to the server please try again or check your connection",

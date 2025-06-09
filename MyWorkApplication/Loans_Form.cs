@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlTypes;
-using System.Drawing;
-using System.Globalization;
-using System.Reflection;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace MyWorkApplication
 {
@@ -58,7 +56,7 @@ namespace MyWorkApplication
                 mainForm.Project_label.Visible = mainForm.TabName_label.Visible = true;
                 mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = false;
                 mainForm.TabName_label.Text = "Loans and Payments";
-                 
+
                 MySS = new MySqlComponents();
                 l = new Log();
                 s = new Select();
@@ -85,7 +83,7 @@ namespace MyWorkApplication
                 dateTimePicker1.Size = new Size(oRectangle.Width, oRectangle.Height);
                 // Setting location for dateTimePicker1.
                 dateTimePicker1.Location = new Point(oRectangle.X, oRectangle.Y);
-                 
+
                 Payment_dataGridView.Controls.Add(dateTimePicker1);
                 dateTimePicker1.ValueChanged += DateTimePickerChange;
 
@@ -96,8 +94,8 @@ namespace MyWorkApplication
                     dateTimePicker1.BackColor = Color.FromArgb(75, 75, 75);
                     dateTimePicker1.ForeColor = Color.White;
                 }
-                else newTheme.Loan_ToLight(this); 
-                  
+                else newTheme.Loan_ToLight(this);
+
                 Payment_dataGridView.DoubleBuffered(true);
                 //Payment_dataGridView.Focus();
 
@@ -126,11 +124,11 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
         private void insertPayment(int Loan_ID, string pay_amount, DateTime Pay_DueDate, string Pay_IsPaid,
             DateTime Pay_RecievedOnDate, string pay_note)
         {
-            
+
             Program.buildConnection();
 
             pay = pay_amount.Replace(",", "");
@@ -156,7 +154,7 @@ namespace MyWorkApplication
         private void updatePayment(int P_ID, string pay_amount, DateTime Pay_DueDate, string Pay_IsPaid,
             DateTime Pay_RecievedOnDate, string pay_note)
         {
-            
+
             Program.buildConnection();
 
             var pay = pay_amount.Replace(",", "");
@@ -181,7 +179,7 @@ namespace MyWorkApplication
 
         private int getCurrentPaymentID()
         {
-            
+
             Program.buildConnection();
             MySS.query = "select MAX(`Pay_ID`) from `payment`  ";
             MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
@@ -191,7 +189,7 @@ namespace MyWorkApplication
         }
 
         private int Insert_Loan(int MP_ID)
-        { 
+        {
             double rate, count;
 
             Loan = LoanAmount_textBox.Text.Replace(",", "");
@@ -225,7 +223,7 @@ namespace MyWorkApplication
                 + " SET @loan_id = Last_Insert_ID();"
                 + " SELECT @loan_id;"
                 + " COMMIT;";
-             
+
             Program.buildConnection();
             MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
             //MySS.sc.ExecuteNonQuery();
@@ -260,7 +258,7 @@ namespace MyWorkApplication
                          ",`Loan_PaymentsAmount` = " + pay +
                          ",`Loan_Note` = N'" + Note_textBox.Text + "'" +
                          ",`Loan_ReceiptID` = N'" + ReceiptNo_textBox.Text + "' " +
-                         
+
                          " where `Loan_ID` = " + L_ID + " ";
 
 
@@ -272,7 +270,7 @@ namespace MyWorkApplication
 
         private void Delete_Loan(int L_ID)
         {
-            
+
             Program.buildConnection();
             MySS.query = "delete from `loan` where `Loan_ID` = " + L_ID + " ";
             MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
@@ -299,9 +297,9 @@ namespace MyWorkApplication
             var Amount = LoanAmount_textBox.Text.Replace(",", "");
             var loan_amount = Convert.ToDouble(Amount);
 
-            if (PaymentAmount_textBox.Text == "" 
+            if (PaymentAmount_textBox.Text == ""
              || PaymentAmount_textBox.Text == "0"
-             || ReturnedAmount1_textBox.Text == "" 
+             || ReturnedAmount1_textBox.Text == ""
              || ReturnedAmount1_textBox.Text == "0") return;
 
             // القسط
@@ -321,9 +319,9 @@ namespace MyWorkApplication
             ////Return_amount = loan_amount * rate / 100;
 
             // عدد الدفعات الكلي //
-            all_pay_count = (decimal) Return_amount / (decimal) payment_amount;
+            all_pay_count = (decimal)Return_amount / (decimal)payment_amount;
 
-            var loan_dt = s.Select_Loan_All_Data(LoanID.ToString(),"");
+            var loan_dt = s.Select_Loan_All_Data(LoanID.ToString(), "");
             if (loan_dt.Rows.Count != 0)
             {
                 //// عدد الدفعات المدفوعة //
@@ -345,8 +343,8 @@ namespace MyWorkApplication
 
 
                 ////fill textboxes////
-                PaidAmount_label.Text =  Paid_amount.ToString("#,##0");
-                RemainOfReturned_label.Text =   Remain_Amount.ToString("#,##0");
+                PaidAmount_label.Text = Paid_amount.ToString("#,##0");
+                RemainOfReturned_label.Text = Remain_Amount.ToString("#,##0");
                 //تلوين في حال كان المبلغ المتبقي اصغر من مبلغ قسط ونصف القسط
                 if (Remain_Amount < (payment_amount + 0.5 * payment_amount))
                 {
@@ -362,25 +360,25 @@ namespace MyWorkApplication
                 }
                 /////////////////////////////////////////////////////////////////////
 
-                PaidPaymentsCount_label.Text =  paid_pay_count.ToString("N1");
-                RemainOfPaymentsCount_label.Text =   remain_Pay_Count.ToString("N1");
+                PaidPaymentsCount_label.Text = paid_pay_count.ToString("N1");
+                RemainOfPaymentsCount_label.Text = remain_Pay_Count.ToString("N1");
             }
             else
             {
-                PaidAmount_label.Text =  "0";
-                RemainOfReturned_label.Text =   "0";
-                PaidPaymentsCount_label.Text =  "0";
+                PaidAmount_label.Text = "0";
+                RemainOfReturned_label.Text = "0";
+                PaidPaymentsCount_label.Text = "0";
                 RemainOfPaymentsCount_label.Text = "المتبقية = " + "0";
             }
 
-            ReturnedAmount2_label.Text =  Return_amount.ToString("#,##0");
-            PaymentsCount_label.Text =  all_pay_count.ToString("N1");
+            ReturnedAmount2_label.Text = Return_amount.ToString("#,##0");
+            PaymentsCount_label.Text = all_pay_count.ToString("N1");
             Rate_textBox.Text = rate.ToString("N1");
         }
 
         private void Payment_bind(int L_ID)
         {
-            
+
             Program.buildConnection();
 
             MySS.query = "select Pay_ID as 'ID'" +
@@ -445,15 +443,15 @@ namespace MyWorkApplication
 
                     Payment_dataGridView.Rows[i].Cells["P_InDataBase"].Value = "1";
 
-                    var realDate = (DateTime) Payment_dataGridView.Rows[i].Cells["Pay_RecievedOnDate"].Value;
-                    var dueDate = (DateTime) Payment_dataGridView.Rows[i].Cells["Pay_DueDate"].Value;
+                    var realDate = (DateTime)Payment_dataGridView.Rows[i].Cells["Pay_RecievedOnDate"].Value;
+                    var dueDate = (DateTime)Payment_dataGridView.Rows[i].Cells["Pay_DueDate"].Value;
                     //if ((realDate - dueDate).Days > 10)
                     //    late_num++;
                 }
 
             Payment_dataGridView.Columns["Pay_RecievedOnDate"].DefaultCellStyle.Format = "dd/MM/yyyy";
             Payment_dataGridView.Columns["Pay_DueDate"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            
+
         }
 
         private void Payment_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -479,7 +477,7 @@ namespace MyWorkApplication
                             var L_ID = Convert.ToInt32(Payment_dataGridView.Rows[e.RowIndex].Cells["Pay_Loan_ID"].Value
                                 .ToString());
 
-                            
+
                             Program.buildConnection();
                             MySS.query = "delete from `payment` where Pay_ID = " + P_ID + " ";
                             MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
@@ -607,10 +605,10 @@ namespace MyWorkApplication
                         Paid = "Paid";
                     else Paid = "Not Paid";
 
-                    dueTo_date = (DateTime) Payment_dataGridView.Rows[i].Cells["Pay_DueDate"].Value;
+                    dueTo_date = (DateTime)Payment_dataGridView.Rows[i].Cells["Pay_DueDate"].Value;
                     if (Payment_dataGridView.Rows[i].Cells["Pay_RecievedOnDate"].Value == null)
                         Receive_date = dueTo_date;
-                    else Receive_date = (DateTime) Payment_dataGridView.Rows[i].Cells["Pay_RecievedOnDate"].Value;
+                    else Receive_date = (DateTime)Payment_dataGridView.Rows[i].Cells["Pay_RecievedOnDate"].Value;
 
                     if (Payment_dataGridView.Rows[i].Cells["P_InDataBase"].Value == null) //insert new payment
                     {
@@ -660,8 +658,8 @@ namespace MyWorkApplication
 
                 string Paid1, Paid2;
                 //check if last payment has paid and there is no other payments
-                if (Payment_dataGridView.RowCount > 1) 
-                {  
+                if (Payment_dataGridView.RowCount > 1)
+                {
                     //check if last payment has paid and there is no other payments//
                     /////////////////////////////////////////////////////////////////
                     var ch2 = Payment_dataGridView.Rows[Payment_dataGridView.RowCount - 2].Cells["Pay_IsPaid"] as DataGridViewCheckBoxCell;
@@ -730,7 +728,7 @@ namespace MyWorkApplication
                     dateTimePicker1.Visible = true;
                     if (Payment_dataGridView.CurrentCell.Value != DBNull.Value &&
                         Payment_dataGridView.CurrentCell.Value != null)
-                        dateTimePicker1.Value = (DateTime) Payment_dataGridView.CurrentCell.Value;
+                        dateTimePicker1.Value = (DateTime)Payment_dataGridView.CurrentCell.Value;
                     else
                         dateTimePicker1.Value = DateTime.Today;
                 }
@@ -741,7 +739,7 @@ namespace MyWorkApplication
                     dateTimePicker1.Visible = true;
                     if (Payment_dataGridView.CurrentCell.Value != DBNull.Value &&
                         Payment_dataGridView.CurrentCell.Value != null)
-                        dateTimePicker1.Value = (DateTime) Payment_dataGridView.CurrentCell.Value;
+                        dateTimePicker1.Value = (DateTime)Payment_dataGridView.CurrentCell.Value;
                     else
                         dateTimePicker1.Value = DateTime.Today;
                 }
@@ -794,7 +792,7 @@ namespace MyWorkApplication
             {
                 case 1: //admin 
                 case 8: //Admin_L0 
-                    { 
+                    {
                         DeleteLoan_button.Visible = true;
                         break;
                     }
@@ -818,8 +816,8 @@ namespace MyWorkApplication
         {
             try
             {
-                if (LoanAmount_textBox.Text != "" 
-                        && ReturnedAmount1_textBox.Text != "" 
+                if (LoanAmount_textBox.Text != ""
+                        && ReturnedAmount1_textBox.Text != ""
                         && PaymentAmount_textBox.Text != "")
                     Calculate_RemainedAmount(Loan_ID);
             }
@@ -841,18 +839,18 @@ namespace MyWorkApplication
                 //generate the M1 to M5 visits AFTER saving the opening visit//
                 ///////////////////////////////////////////////////////////////
 
-                if (type.Contains("ترميم") && fundtype.Contains("منحة") )
+                if (type.Contains("ترميم") && fundtype.Contains("منحة"))
                 {
-                    if(deleteAndInsert)
-                    //delete old notification
-                    userNotification.Delete_Notification(
-                        MicroProject_ID
-                        , ""
-                        , "Visit Closing-R"
-                        , Person_Name_textBox.Text
-                        , -21);
+                    if (deleteAndInsert)
+                        //delete old notification
+                        userNotification.Delete_Notification(
+                            MicroProject_ID
+                            , ""
+                            , "Visit Closing-R"
+                            , Person_Name_textBox.Text
+                            , -21);
                 }
-                else 
+                else
                 {
                     if (deleteAndInsert)
                         //delete old notification
@@ -872,7 +870,7 @@ namespace MyWorkApplication
                     foreach (var u in User_IDs)
                     {
                         if (type.Contains("ترميم") && fundtype.Contains("منحة"))
-                        { 
+                        {
                             //generate only 1 rehabilitation closing visit
                             userNotification.Insert_UserNotification(OpeningVisit_date.ToString("yyyy/MM/dd"), "Visit Closing-R",
                                 Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
@@ -892,7 +890,7 @@ namespace MyWorkApplication
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
-       
+
 
         private void AddLoan_button_Click(object sender, EventArgs e)
         {
@@ -903,7 +901,7 @@ namespace MyWorkApplication
                 MicroProject_ID = int.Parse(MicroProject_ID_textBox.Text);
 
                 var date = DateTime.Now.Year + "/"
-                         + DateTime.Now.Month + "/" + DateTime.Now.Day + " " 
+                         + DateTime.Now.Month + "/" + DateTime.Now.Day + " "
                          + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":"
                          + DateTime.Now.Second;
 
@@ -918,7 +916,7 @@ namespace MyWorkApplication
                     /////////////////////////////////////////////////////
                     l.Insert_Log("Update Project State of:" + MicroProject_ID + " to Financed ممول", "MicroProject",
                         Program.UserName, DateTime.Now);
-                     
+
                     //////////////////   task = تسليم كامل المبلغ و تحديد الأقساط ///////////
                     string task = "تسليم كامل المبلغ و تحديد الأقساط";
                     TasksOfProjects = new TasksOfProjects();
@@ -928,9 +926,9 @@ namespace MyWorkApplication
                 }
                 else
                 {
-                    Update_Loan(Loan_ID);  
+                    Update_Loan(Loan_ID);
                     l.Insert_Log("Update the Loan of: " + MicroProject_ID + " ", "Loan", Program.UserName,
-                        DateTime.Now); 
+                        DateTime.Now);
                 }
 
                 //update DonorGroup_ID and Donor_ID in microproject Table//
@@ -960,7 +958,7 @@ namespace MyWorkApplication
                     generate_me_visits_notifications(false);
                 else
                     generate_me_visits_notifications(true);
-                 
+
                 Calculate_RemainedAmount(Loan_ID);
             }
             catch (NoNullAllowedException)
@@ -984,10 +982,10 @@ namespace MyWorkApplication
                     PaidPaymentsCount_label.Text = PaidAmount_label.Text = "";
 
             RemainOfReturned_label.BackColor = Color.Transparent;
-            if (Settings.Default.theme == "Dark") 
+            if (Settings.Default.theme == "Dark")
                 RemainOfReturned_label.ForeColor = Color.WhiteSmoke;
             else RemainOfReturned_label.ForeColor = Color.Black;
-            
+
             Rate_textBox.Text = PaymentAmount_textBox.Text = ReceiptNo_textBox.Text = Note_textBox.Text = "";
             LoanDate_DateTimePicker.Value = DateTime.Now;
             Group_comboBox.SelectedIndex = -1;
@@ -1039,7 +1037,7 @@ namespace MyWorkApplication
 
         DataTable project_dt;
         public void fill_loan(string where)
-        { 
+        {
             Program.buildConnection();
             var query = "select PMP.MicroProject_ID as 'MicroProject_ID'"
                         + " ,CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName) as 'Beneficiary Name'"
@@ -1054,8 +1052,8 @@ namespace MyWorkApplication
                         + " ,L.Loan_ReceiptID  as 'ReceiptID'"
                         + " ,SubCategory_ID as 'SubCategory_ID'"
                         + " ,MP.DonorGroup_ID as 'Group_ID'"
-                        + " ,MP.MP_Donor as 'Donor_ID'"  
-                        + " , microprojecttype.Name as 'Type' " 
+                        + " ,MP.MP_Donor as 'Donor_ID'"
+                        + " , microprojecttype.Name as 'Type' "
                         + " , fundtype.Name as 'FundType' "
 
                         + @" From person_microproject PMP
@@ -1089,17 +1087,17 @@ namespace MyWorkApplication
                         int donor_id = int.Parse(project_dt.Rows[0]["Donor_ID"].ToString());
                         //select the groups of this donor and bind
                         try
-                        { 
-                            System.Data.DataTable dt_selected = dt_Group.Select("Donor_ID=" + donor_id).CopyToDataTable(); 
+                        {
+                            System.Data.DataTable dt_selected = dt_Group.Select("Donor_ID=" + donor_id).CopyToDataTable();
                             Group_comboBox.DataSource = null;
                             Group_comboBox.DataSource = dt_selected;
                             Group_comboBox.DisplayMember = "Name";
                             Group_comboBox.ValueMember = "ID";
                         }
-                        catch 
+                        catch
                         {
                             //Fill all donor groups because there isn't a group according to this donor
-                            MessageBox.Show("انتبه! لا يوجد مجموعة خاصة لممول هذا المشروع، لذا سيتم عرض كل المجموعات", "Info",MessageBoxButtons.OK,MessageBoxIcon.Hand);
+                            MessageBox.Show("انتبه! لا يوجد مجموعة خاصة لممول هذا المشروع، لذا سيتم عرض كل المجموعات", "Info", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                         }
 
                         MicroProject_ID = int.Parse(project_dt.Rows[0]["MicroProject_ID"].ToString());
@@ -1212,7 +1210,7 @@ namespace MyWorkApplication
                     SavePayments_button.Visible = false;
                 }
         }
-         
+
         private void AddGroup_button_Click(object sender, EventArgs e)
         {
             try
@@ -1223,7 +1221,7 @@ namespace MyWorkApplication
                     if (r == DialogResult.OK)
                     {
                         Group_bind();
-                    } 
+                    }
                 }
             }
             catch (Exception ex)
@@ -1244,7 +1242,7 @@ namespace MyWorkApplication
         private void Donor_bind()
         {
             var d = new Donor();
-            dt_Donor = d.Select(""); 
+            dt_Donor = d.Select("");
         }
 
         private void Group_comboBox_Enter(object sender, EventArgs e)
@@ -1378,7 +1376,7 @@ namespace MyWorkApplication
             if (Settings.Default.theme == "Dark")
                 AddLoan_button.BackgroundImage = Resources.Save2_L;
             else AddLoan_button.BackgroundImage = Resources.Save2_D;
-        } 
+        }
 
         private void DeleteLoan_button_MouseEnter(object sender, EventArgs e)
         {
@@ -1386,7 +1384,7 @@ namespace MyWorkApplication
                 DeleteLoan_button.BackgroundImage = Resources.Delete2_D;
             else DeleteLoan_button.BackgroundImage = Resources.Delete2_L;
         }
-        
+
         private void DeleteLoan_button_MouseLeave(object sender, EventArgs e)
         {
             if (Settings.Default.theme == "Dark")
@@ -1506,7 +1504,7 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        } 
+        }
         private void Payment_dataGridView_Enter(object sender, EventArgs e)
         {
             try

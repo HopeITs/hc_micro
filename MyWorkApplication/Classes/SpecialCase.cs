@@ -1,10 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWorkApplication.Classes
 {
@@ -18,7 +13,7 @@ namespace MyWorkApplication.Classes
         }
 
         public int Insert(int MicroProject_ID, int User_ID, int Type_ID, string Date
-            , string Reason, string Description, string Action )
+            , string Reason, string Description, string Action)
         {
             Program.buildConnection();
             query = @"INSERT INTO `specialcase` (`MicroProject_ID`, `User_ID`, `Type_ID`, `Date`, `Reason`, `Description`, `Action`) 
@@ -29,22 +24,22 @@ VALUES (@MicroProject_ID, @User_ID , @Type_ID , @Date , @Reason , @Description ,
             {
                 sc.Parameters.AddWithValue("@MicroProject_ID", MicroProject_ID);
                 sc.Parameters.AddWithValue("@User_ID", User_ID);
-                sc.Parameters.AddWithValue("@Type_ID", Type_ID); 
+                sc.Parameters.AddWithValue("@Type_ID", Type_ID);
                 sc.Parameters.AddWithValue("@Date", Date);
 
-                sc.Parameters.AddWithValue("@Reason", Reason); 
+                sc.Parameters.AddWithValue("@Reason", Reason);
                 sc.Parameters.AddWithValue("@Description", Description);
-                sc.Parameters.AddWithValue("@Action", Action); 
-                 
+                sc.Parameters.AddWithValue("@Action", Action);
+
                 sc.ExecuteNonQuery();
                 lastID = sc.LastInsertedId;
-                
+
                 Program.MyConn.Close();
             }
             return int.Parse(lastID.ToString());
         }
 
-        public void Update(int ID , int User_ID, int Type_ID, string Date
+        public void Update(int ID, int User_ID, int Type_ID, string Date
             , string Reason, string Description, string Action)
         {
             Program.buildConnection();
@@ -54,7 +49,7 @@ VALUES (@MicroProject_ID, @User_ID , @Type_ID , @Date , @Reason , @Description ,
                     ",`Date`= @Date " +
                     ",`Reason`= @Reason " +
                     ",`Description`= @Description " +
-                    ",`Action`= @Action "   +
+                    ",`Action`= @Action " +
                     " where `ID` = @ID";
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
@@ -103,7 +98,7 @@ VALUES (@MicroProject_ID, @User_ID , @Type_ID , @Date , @Reason , @Description ,
 , MP_AddressAfterFund as 'Short Address' 
 , microprojecttype.Name as 'Type' ";
 
-            if(SC_ID!= "")
+            if (SC_ID != "")
                 query += @"  , sc.ID as 'ID'
  , `User_ID` , user.UserName
  , `Type_ID` , specialcasetype.Name 'SpecialCase Type'
@@ -125,7 +120,7 @@ VALUES (@MicroProject_ID, @User_ID , @Type_ID , @Date , @Reason , @Description ,
 
             if (SC_ID != "") condition += " and sc.ID = " + SC_ID + "";
             if (name != "") condition += " and CONCAT(TRIM(P_FirstName),' ', TRIM(P_LastName),' ابن/ة ',TRIM(P_FatherName)) LIKE '%" + name + "%'";
-            if (MicroProject_ID != "") condition += " and PMP.MicroProject_ID = " + MicroProject_ID; 
+            if (MicroProject_ID != "") condition += " and PMP.MicroProject_ID = " + MicroProject_ID;
 
             query += from + condition;
 
@@ -151,7 +146,7 @@ VALUES (@MicroProject_ID, @User_ID , @Type_ID , @Date , @Reason , @Description ,
  left join person P on P.P_ID = PMP.Person_ID ";
 
             if (name != "") condition += " and CONCAT(TRIM(P_FirstName),' ', TRIM(P_LastName),' ابن/ة ',TRIM(P_FatherName)) LIKE '%" + name + "%'";
-            if (MicroProject_ID != "") condition += " and PMP.MicroProject_ID = " + MicroProject_ID; 
+            if (MicroProject_ID != "") condition += " and PMP.MicroProject_ID = " + MicroProject_ID;
 
             query += from + condition;
             using (var sc = new MySqlCommand(query, Program.MyConn))

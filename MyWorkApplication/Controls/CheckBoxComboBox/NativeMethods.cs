@@ -34,7 +34,7 @@ namespace MyWorkApplication.Classes.CheckBoxComboBox
 
         internal static int HIWORD(IntPtr n)
         {
-            return HIWORD(unchecked((int) (long) n));
+            return HIWORD(unchecked((int)(long)n));
         }
 
         internal static int LOWORD(int n)
@@ -44,7 +44,7 @@ namespace MyWorkApplication.Classes.CheckBoxComboBox
 
         internal static int LOWORD(IntPtr n)
         {
-            return LOWORD(unchecked((int) (long) n));
+            return LOWORD(unchecked((int)(long)n));
         }
 
         [StructLayout(LayoutKind.Sequential)]

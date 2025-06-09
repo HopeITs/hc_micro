@@ -1,10 +1,10 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication
 {
@@ -40,7 +40,7 @@ namespace MyWorkApplication
         private void insertExeFile(int MicroProject_ID, DateTime BeginDate1, DateTime ImpoundDate1,
             DateTime CurrentDate1)
         {
-            
+
             Program.buildConnection();
 
             var query =
@@ -65,7 +65,7 @@ namespace MyWorkApplication
 
         private void updateExeFile(int ExeF_ID, DateTime BeginDate1, DateTime ImpoundDate1, DateTime CurrentDate1)
         {
-            
+
             Program.buildConnection();
 
             MySS.query = "update `exefile` set " +
@@ -91,7 +91,7 @@ namespace MyWorkApplication
 
         private void deleteExeFile(int ExeF_ID)
         {
-            
+
             Program.buildConnection();
             MySS.query = "delete from `exefile` where ExeF_ID = " + ExeF_ID + " ";
             MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
@@ -150,22 +150,22 @@ namespace MyWorkApplication
 
                     ExeF_No_textBox.Text = DRow.Rows[0]["Number"].ToString();
 
-                    var date1 = (DateTime) DRow.Rows[0]["Begin Date"];
+                    var date1 = (DateTime)DRow.Rows[0]["Begin Date"];
                     ExeF_BeginDate_maskedTextBox.Text = date1.ToString("dd-MM-yyyy");
-                    date1 = (DateTime) DRow.Rows[0]["Current Date"];
+                    date1 = (DateTime)DRow.Rows[0]["Current Date"];
                     ExeF_CurrentDate_maskedTextBox.Text = date1.ToString("dd-MM-yyyy");
 
                     Calculate_Set_ExpiredDate();
 
-                    date1 = (DateTime) DRow.Rows[0]["Impound Date"];
+                    date1 = (DateTime)DRow.Rows[0]["Impound Date"];
                     ExeF_ImpoundDate_maskedTextBox.Text = date1.ToString("dd-MM-yyyy");
                     ExeF_ImpoundType_textBox.Text = DRow.Rows[0]["Impound Type"].ToString();
 
-                    var months = (int) DRow.Rows[0]["Months"];
+                    var months = (int)DRow.Rows[0]["Months"];
                     Months_numericUpDown.Value = months;
 
                     Person_Name_textBox.Text = DRow.Rows[0]["Beneficiary Name"].ToString();
-                    MicroProject_ID = (int) DRow.Rows[0]["MicroProject_ID"];
+                    MicroProject_ID = (int)DRow.Rows[0]["MicroProject_ID"];
                     MicroProject_ID_textBox.Text = MicroProject_ID.ToString();
 
                     update_mode = true;
@@ -183,7 +183,7 @@ namespace MyWorkApplication
 
         private void Fill_ExeFile_Boxes(string MP_ID, string P_Name)
         {
-            
+
             Program.buildConnection();
             var query = "select PMP.MicroProject_ID as 'MicroProject_ID'"
                         + " ,CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName) as 'Beneficiary Name'"
@@ -227,14 +227,14 @@ namespace MyWorkApplication
 
                     ExeF_No_textBox.Text = dt.Rows[0]["Number"].ToString();
 
-                    var beg_date = (DateTime) dt.Rows[0]["Begin Date"];
+                    var beg_date = (DateTime)dt.Rows[0]["Begin Date"];
                     ExeF_BeginDate_maskedTextBox.Text = beg_date.ToString("dd-MM-yyyy");
-                    var cur_date = (DateTime) dt.Rows[0]["Current Date"];
+                    var cur_date = (DateTime)dt.Rows[0]["Current Date"];
                     ExeF_CurrentDate_maskedTextBox.Text = cur_date.ToString("dd-MM-yyyy");
 
                     if (dt.Rows[0]["Impound Date"] != DBNull.Value)
                     {
-                        var imp_date = (DateTime) dt.Rows[0]["Impound Date"];
+                        var imp_date = (DateTime)dt.Rows[0]["Impound Date"];
                         ExeF_ImpoundDate_maskedTextBox.Text = imp_date.ToString("dd-MM-yyyy");
                         ExeF_ImpoundType_textBox.Text = dt.Rows[0]["Impound Type"].ToString();
                     }
@@ -274,7 +274,7 @@ namespace MyWorkApplication
 
         private void getCurrentExeFileID()
         {
-            
+
             Program.buildConnection();
 
             MySS.query = "select MAX(`ExeF_ID`) from `exefile` ";

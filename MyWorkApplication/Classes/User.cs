@@ -1,9 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Net;
 using System.Net.Mail;
-using MySql.Data.MySqlClient;
 
 namespace MyWorkApplication.Classes
 {
@@ -19,13 +19,13 @@ namespace MyWorkApplication.Classes
         }
 
         public void Insert_User(string Username, string Password, string Email, int UserRoleID
-            , int IsVisitor, int IsME,  int IsCommunication,int IsCashier
+            , int IsVisitor, int IsME, int IsCommunication, int IsCashier
             , byte[] ProfilePicture)
         {
             query =
                 @"INSERT  INTO `user`( `UserName`, `Password`, `Email`, `UserRoleID`, `IsVisitor`, `IsME`, `IsCommunication`,`IsCashier`, `ProfilePicture`) VALUES (
  @Username ,@Password, @Email, @UserRoleID, @IsVisitor, @IsME, @IsCommunication, @IsCashier ,@PicArr )";
-            
+
             Program.buildConnection();
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
@@ -46,7 +46,7 @@ namespace MyWorkApplication.Classes
 
         public void Update_User(int ID
             , string Username, string Password, string Email, int UserRoleID
-            , int IsVisitor, int IsME, int IsCommunication,int IsCashier
+            , int IsVisitor, int IsME, int IsCommunication, int IsCashier
             , byte[] ProfilePicture)
         {
             query = @" UPDATE `user` SET 
@@ -60,7 +60,7 @@ namespace MyWorkApplication.Classes
  ,`IsCashier` = @IsCashier 
  , ProfilePicture = @PicArr 
  WHERE UserID = @ID ";
-            
+
             Program.buildConnection();
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
@@ -84,7 +84,7 @@ namespace MyWorkApplication.Classes
         public void Delete_User(int ID)
         {
             query = "delete from `user` where `UserID` = @ID ";
-            
+
             Program.buildConnection();
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
@@ -95,7 +95,7 @@ namespace MyWorkApplication.Classes
         }
 
         public DataTable Select_Users(string Name, string RoleName, string special_condition)
-        { 
+        {
             Program.buildConnection();
             query = "select `UserID` as 'ID'" +
                     ", `UserName` as 'Username'" +
@@ -107,7 +107,7 @@ namespace MyWorkApplication.Classes
                     ", `IsCommunication`" +
                     ", `IsCashier`" +
                     ", `Password`" +
-                    ", `UserRoleID` as 'Role_ID'" + 
+                    ", `UserRoleID` as 'Role_ID'" +
 
                     " from `user` left join `role` on user.UserRoleID = role.Role_ID ";
             var condition = " where 1 ";
@@ -133,7 +133,7 @@ namespace MyWorkApplication.Classes
         public byte[] Select_ProfilePicture(int ID)
         {
             byte[] arr = null;
-            
+
             Program.buildConnection();
             MySqlDataReader reader;
             query = "select ProfilePicture from `user` where UserID = @ID  ";
@@ -144,21 +144,21 @@ namespace MyWorkApplication.Classes
             reader.Read();
             if (reader.HasRows)
             {
-                arr = (byte[]) reader[0];
+                arr = (byte[])reader[0];
                 reader.Close();
                 Program.MyConn.Close();
             }
 
             return arr;
         }
-        
+
         public List<string> Select_User_Tasks(int User_ID)
         {
-            
+
             Program.buildConnection();
             query = @"select T_Name
  from `task` left join task_user on task.T_ID = task_user.Task_ID 
- where T_State = 1 and `User_ID` = @User_ID" ;
+ where T_State = 1 and `User_ID` = @User_ID";
             sc = new MySqlCommand(query, Program.MyConn);
             sc.Parameters.AddWithValue("@User_ID", User_ID);
 
@@ -175,7 +175,7 @@ namespace MyWorkApplication.Classes
 
         public List<string> Select_Tasks()
         {
-            
+
             Program.buildConnection();
             query = @"select T_Name from `task` where T_State =1";
             sc = new MySqlCommand(query, Program.MyConn);
@@ -192,7 +192,7 @@ namespace MyWorkApplication.Classes
 
         public DataTable Select_Roles()
         {
-            
+
             Program.buildConnection();
             query = @"select Role_ID,Role_Name from `role` ORDER BY Role_ID ASC ";
 
@@ -204,14 +204,14 @@ namespace MyWorkApplication.Classes
             Program.MyConn.Close();
             return dt;
         }
-         
+
         public void Insert_Task(int User_ID, string Task)
         {
             query = @"INSERT INTO `task_user`(`Task_ID` , `User_ID`) VALUES ("
                     + "(select T_ID from `task` where T_Name like N'" + Task + "')"
                     + "," + User_ID
                     + ")";
-            
+
             Program.buildConnection();
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
@@ -224,7 +224,7 @@ namespace MyWorkApplication.Classes
         {
             query = @"DELETE from `task_user` where `Task_ID` = (select T_ID from `task` where T_Name like @Task )"
                     + " and `User_ID` =  @User_ID ";
-            
+
             Program.buildConnection();
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
@@ -236,14 +236,14 @@ namespace MyWorkApplication.Classes
             }
         }
 
-        public void Send_New_Idea(string Subject,string Message)
+        public void Send_New_Idea(string Subject, string Message)
         {
             MailMessage msgMail = new MailMessage();
             msgMail.From = new MailAddress("feedback.userapp@hcsyria.org");
             msgMail.To.Add("sary.zainoun@hcsyria.org");
             msgMail.To.Add("judy.dadaghlian@hcsyria.org");
- 
-            msgMail.Subject = Subject; 
+
+            msgMail.Subject = Subject;
             msgMail.Body = Message;
 
             SmtpClient mailClient = new SmtpClient("mail.s807.sureserver.com", 587);
@@ -264,7 +264,7 @@ namespace MyWorkApplication.Classes
             for (int i = 0; i < emails.Count; i++)
             {
                 string email = emails[i];
-                msgMail.To.Add(email); 
+                msgMail.To.Add(email);
             }
 
             msgMail.Subject = Subject;
@@ -295,8 +295,8 @@ namespace MyWorkApplication.Classes
                 Program.MyConn.Close();
                 return dt;
             }
-            catch(Exception ex)
-            { return null; } 
+            catch (Exception ex)
+            { return null; }
         }
 
         public void Update_Version(string version)
@@ -315,7 +315,7 @@ namespace MyWorkApplication.Classes
 
         public string Get_FTP_Path(string center)
         {
-            
+
             Program.buildConnection();
             query = @"select `ftp_path` from `databases` where `center` like @center ";
             sc = new MySqlCommand(query, Program.MyConn);

@@ -1,18 +1,17 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Excel;
+using MySql.Data.MySqlClient;
+using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using MySql.Data.MySqlClient;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
 using Application = Microsoft.Office.Interop.Excel.Application;
 using DataTable = System.Data.DataTable;
 using Label = System.Windows.Forms.Label;
-using System.Drawing;
 
 namespace MyWorkApplication
 {
@@ -22,7 +21,7 @@ namespace MyWorkApplication
         private DataGridViewImageCell cell;
         private int col_index;
 
-        private readonly List<int> Communication_IDs = new List<int>(); 
+        private readonly List<int> Communication_IDs = new List<int>();
         private string condition = "";
         private readonly ImageConverter converter = new ImageConverter();
         private DataGridViewColumnSelector cs;
@@ -81,7 +80,7 @@ namespace MyWorkApplication
 
                 user_mode = false;
                 TaskType_comboBox.SelectedIndex = 1;
-                taskType = "f"; 
+                taskType = "f";
                 user_mode = true;
 
                 cs = new DataGridViewColumnSelector(MP_dataGridView);
@@ -91,7 +90,7 @@ namespace MyWorkApplication
                 MP_dataGridView.DoubleBuffered(true);
                 MP_dataGridView.Focus();
 
-                timer1.Start(); 
+                timer1.Start();
             }
             catch (Exception ex)
             {
@@ -118,15 +117,15 @@ namespace MyWorkApplication
                     }
                 }
             }
-            catch(Exception ex)
-            { 
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
             }
         }
 
         private void Bind_All_ComboBoxes()
-        { 
-            string query = ""; 
+        {
+            string query = "";
             query += "SELECT ID, Name_abb from `donor` ORDER BY Name ASC;"; //0 
             query += "SELECT ID, Name from `microprojecttype` ORDER BY ID ASC;"; //1 
 
@@ -136,7 +135,7 @@ namespace MyWorkApplication
             var da = new MySqlDataAdapter(sc);
             DataSet combo_ds = new DataSet();
             da.Fill(combo_ds);
-            Program.MyConn.Close(); 
+            Program.MyConn.Close();
 
             // بدنا نضيف سطر فاضي قبل الداتا //
             DataRow row = combo_ds.Tables[0].NewRow();
@@ -147,7 +146,7 @@ namespace MyWorkApplication
             row[0] = -1;
             row[1] = "";
             combo_ds.Tables[1].Rows.InsertAt(row, 0);
-             
+
             f05_Donor_comboBox.DisplayMember = "Name_abb";
             f05_Donor_comboBox.ValueMember = "ID";
             f05_Donor_comboBox.DataSource = combo_ds.Tables[0];
@@ -222,7 +221,7 @@ namespace MyWorkApplication
                             else if (col_index == "12") row = tasks_users_dt.Select("Task like 'زيارة المحل'");
                             else if (col_index == "13") row = tasks_users_dt.Select("Task like 'اجتماع الفريق'");
                             else if (col_index == "14") row = tasks_users_dt.Select("Task like 'اجتماع اللجنة'");
-                             
+
                             if (row == null || row.Length == 0) lbl.Text = "";
                             else lbl.Text = row[0].Field<string>("Username");
                         }
@@ -238,12 +237,12 @@ namespace MyWorkApplication
                 {
                     tick++;
                     //first time
-                    if (taskType == "f") bind_f_tasks(null); 
+                    if (taskType == "f") bind_f_tasks(null);
                     else if (taskType == "a") bind_a_tasks(null);
 
                     Fill_User_Names(taskType);
                     Bind_All_ComboBoxes();
-                    
+
                 }
                 else
                 {
@@ -268,10 +267,10 @@ namespace MyWorkApplication
                 MySS.dt = dt;
             }
             else
-            {  
-                orderBy = " order by mps.State_ID ASC "; 
+            {
+                orderBy = " order by mps.State_ID ASC ";
                 Program.buildConnection();
-                
+
                 var query = @"SELECT PMP.MicroProject_ID as 'رقم المشروع'
 ,GROUP_CONCAT(DISTINCT CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName)) as 'المستفيد'
 ,P_Mobile as 'الموبايل'
@@ -309,20 +308,20 @@ namespace MyWorkApplication
 ,( SELECT State From `task_microproject` where MicroProject_ID = PMP.MicroProject_ID and Task_ID = 38 limit 1)AS 'Video Uploaded'
 
 ,PMP.Person_ID as 'رقم المستفيد'
-" + from; 
+" + from;
                 condition = " where State_ID in (1, 4, 5, 7, 8) and Current_State = 1 ";
                 query += condition;
                 query += " Group By PMP.MicroProject_ID ";
                 query += orderBy;
                 MySS.da = new MySqlDataAdapter(query, Program.MyConn);
-                MySS.dt = new DataTable(); 
+                MySS.dt = new DataTable();
                 MySS.da.Fill(MySS.dt);
             }
 
-            Filters_tableLayoutPanel.Visible = false; 
+            Filters_tableLayoutPanel.Visible = false;
             MP_dataGridView.DataSource = null;
             MP_dataGridView.Columns.Clear();
-            MP_dataGridView.Rows.Clear(); 
+            MP_dataGridView.Rows.Clear();
             MP_dataGridView.ColumnHeadersVisible = false;
             MP_dataGridView.DataSource = MySS.dt;
             MP_dataGridView.Columns["تاريخ بداية المشروع"].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -427,7 +426,7 @@ namespace MyWorkApplication
             MP_dataGridView.ColumnHeadersVisible = true;
             Program.MyConn.Close();
         }
-         
+
         private void ConvertCellsToCheckBox_Color()
         {
             MP_dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
@@ -517,7 +516,7 @@ namespace MyWorkApplication
                         MP_dataGridView.Columns.RemoveAt(j);
                     }
                 }
-                
+
                 var width = 0;
                 var grid_width = 0;
                 for (var k = 0; k < MP_dataGridView.Columns.Count; k++)
@@ -542,7 +541,7 @@ namespace MyWorkApplication
                 {
                     MP_dataGridView.Columns[j].SortMode = DataGridViewColumnSortMode.Programmatic;
                     //رقم المشروع //المستفيد//اسم المشروع//الموبايل//تاريخ التقديم //رقم المستفيد
-                    if (j == 0 || j == 1 || j == 2 || j == 3 || j== 15 || j == lastcolumnindex)
+                    if (j == 0 || j == 1 || j == 2 || j == 3 || j == 15 || j == lastcolumnindex)
                     {
                         if (j == 15 || j == 0)
                             for (var i = 0; i < MP_dataGridView.RowCount; i++)
@@ -729,15 +728,15 @@ namespace MyWorkApplication
         #endregion
 
         #region columns visibility
-        private string[] arr_str; 
+        private string[] arr_str;
         private void save_visible_columns()
         {
             arr_str = new string[MP_dataGridView.ColumnCount];
 
             for (var j = 0; j < MP_dataGridView.ColumnCount; j++)
-                if (MP_dataGridView.Columns[j].Visible) 
+                if (MP_dataGridView.Columns[j].Visible)
                     arr_str[j] = MP_dataGridView.Columns[j].Name;
-                else 
+                else
                     arr_str[j] = "";
             var value_str = string.Join(",", arr_str.Select(i => i.ToString()).ToArray());
 
@@ -747,7 +746,7 @@ namespace MyWorkApplication
                 Settings.Default.Task1_Visible_arr = value_str;
 
             Settings.Default.Save();
-        } 
+        }
         private void restore_visible_columns()
         {
             try
@@ -759,7 +758,7 @@ namespace MyWorkApplication
 
                 if (arr_str == null) //using LINQ
                     MP_dataGridView.Columns.OfType<DataGridViewColumn>().ToList().ForEach(col => col.Visible = true);
-                else 
+                else
                     for (var i = 0; i < MP_dataGridView.ColumnCount; i++)
                     {
                         if (arr_str[i] != "") MP_dataGridView.Columns[i].Visible = true; // if (arr[i] == 1) MP_dataGridView.Columns[i].Visible = true;  
@@ -775,7 +774,7 @@ namespace MyWorkApplication
 
                 save_visible_columns();
             }
-        } 
+        }
         private void ProjectsTasks_FormClosing(object sender, FormClosingEventArgs e)
         {
             save_visible_columns();
@@ -816,7 +815,7 @@ namespace MyWorkApplication
                     MP_dataGridView.CurrentCell = null;
                     MP_dataGridView.Rows[r.Index].Visible = false;
                 }
-            } 
+            }
         }
         private void ExactSearch_checkBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -847,7 +846,7 @@ namespace MyWorkApplication
                     MP_dataGridView.CurrentCell = null;
                     MP_dataGridView.Rows[r.Index].Visible = false;
                 }
-            } 
+            }
         }
         private void State_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -856,7 +855,7 @@ namespace MyWorkApplication
                 var s = new StringBuilder();
                 var _items = new List<KeyValue_List>();
                 var f = 0;
-                 
+
                 if (taskType == "f")
                 {
                     foreach (Control c in Filters_tableLayoutPanel.Controls)
@@ -1015,7 +1014,7 @@ namespace MyWorkApplication
                         }
                 }
 
-                var currencyManager1 = (CurrencyManager) BindingContext[MP_dataGridView.DataSource];
+                var currencyManager1 = (CurrencyManager)BindingContext[MP_dataGridView.DataSource];
                 currencyManager1.SuspendBinding();
 
                 // Make all rows visible
@@ -1081,13 +1080,13 @@ namespace MyWorkApplication
 
                 var r = e.RowIndex;
                 var c = e.ColumnIndex;
-                
-                Program.buildConnection();  
+
+                Program.buildConnection();
                 string query = "SELECT `User_ID` FROM `task_user` WHERE `Task_ID` = (SELECT `T_ID` FROM `task` where T_Name like '" + MP_dataGridView.Columns[c].HeaderText + "' limit 1) ";
                 var da = new MySqlDataAdapter(query, Program.MyConn);
                 var dt = new DataTable();
                 var userHasPermission = false;
-                da.Fill(dt); 
+                da.Fill(dt);
                 Program.MyConn.Close();
 
                 for (var i = 0; i < dt.Rows.Count; i++)
@@ -1106,7 +1105,7 @@ namespace MyWorkApplication
                 {
                     isChecked = true;
                     cell = new DataGridViewImageCell();
-                    PicArr = (byte[]) converter.ConvertTo(img, typeof(byte[]));
+                    PicArr = (byte[])converter.ConvertTo(img, typeof(byte[]));
                     cell.Value = PicArr;
                     MP_dataGridView.Rows[r].Cells[c] = cell;
                     MP_dataGridView.Rows[r].Height = 36;
@@ -1124,14 +1123,14 @@ namespace MyWorkApplication
                 MicroProject_ID = Convert.ToInt32(MP_dataGridView.Rows[r].Cells["رقم المشروع"].Value);
 
                 var selectedtaskName = MP_dataGridView.Columns[c].HeaderText;
-                TasksOfProjects.Update_Task_MicroProject(MicroProject_ID, selectedtaskName, isChecked, DateTime.Now); 
+                TasksOfProjects.Update_Task_MicroProject(MicroProject_ID, selectedtaskName, isChecked, DateTime.Now);
                 l.Insert_Log("Update the task: " + selectedtaskName + " of project: " + MicroProject_ID + " ",
                     " Task_Project ", Program.UserName, DateTime.Now);
 
                 if (selectedtaskName == "مشتريات")
                 {
                     if (isChecked)
-                    { 
+                    {
                         // send notification to (communication) //
                         var s = new Select();
                         var com_db = s.select_Communication();
@@ -1146,9 +1145,9 @@ namespace MyWorkApplication
                     }
                     else
                     {
-                        u.Update_NotificationWithPaymentID(-3,"","","1");
+                        u.Update_NotificationWithPaymentID(-3, "", "", "1");
                     }
-                } 
+                }
             }
             catch (Exception ex)
             {
@@ -1161,7 +1160,7 @@ namespace MyWorkApplication
             {
                 if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
                 {
-                    SelectedDataRow = ((DataRowView) MP_dataGridView.CurrentRow.DataBoundItem).Row;
+                    SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
                     if (SelectedDataRow != null)
                     {
                         if (SelectedDataRow["رقم المشروع"] == null || SelectedDataRow["رقم المشروع"] == DBNull.Value)
@@ -1171,11 +1170,11 @@ namespace MyWorkApplication
                         if (SelectedDataRow["رقم المستفيد"] == null ||
                             SelectedDataRow["رقم المستفيد"] == DBNull.Value)
                             Person_ID = -1;
-                        else Person_ID = int.Parse(SelectedDataRow["رقم المستفيد"].ToString()); 
+                        else Person_ID = int.Parse(SelectedDataRow["رقم المستفيد"].ToString());
                     }
 
                     Form application_Form = new Application_Form(Person_ID, MicroProject_ID, main_form);
-                    main_form.showNewTab(application_Form, "Application",0);
+                    main_form.showNewTab(application_Form, "Application", 0);
                 }
             }
             catch (Exception ex)
@@ -1196,8 +1195,8 @@ namespace MyWorkApplication
                 var r = e.RowIndex;
                 var c = e.ColumnIndex;
 
-                Program.buildConnection();  
-                var query = "SELECT `User_ID` FROM `task_user` WHERE `Task_ID` = (SELECT `T_ID` FROM `task` where T_Name like '" + MP_dataGridView.Columns[c].HeaderText +"' limit 1)";
+                Program.buildConnection();
+                var query = "SELECT `User_ID` FROM `task_user` WHERE `Task_ID` = (SELECT `T_ID` FROM `task` where T_Name like '" + MP_dataGridView.Columns[c].HeaderText + "' limit 1)";
                 var da = new MySqlDataAdapter(query, Program.MyConn);
                 var dt = new DataTable();
                 var userHasPermission = false;
@@ -1277,11 +1276,11 @@ namespace MyWorkApplication
             if (e.StateChanged == DataGridViewElementStates.Visible)
             {
                 if (e.Column.Visible == false)
-                    Filters_tableLayoutPanel.ColumnStyles[e.Column.Index + 1].Width = 0; 
+                    Filters_tableLayoutPanel.ColumnStyles[e.Column.Index + 1].Width = 0;
                 else
-                    Filters_tableLayoutPanel.ColumnStyles[e.Column.Index + 1].Width = e.Column.Width + 1; 
-            } 
-            Filters_tableLayoutPanel.Width = MP_dataGridView.Width + 10; 
+                    Filters_tableLayoutPanel.ColumnStyles[e.Column.Index + 1].Width = e.Column.Width + 1;
+            }
+            Filters_tableLayoutPanel.Width = MP_dataGridView.Width + 10;
         }
         private void MP_dataGridView_Sorted(object sender, EventArgs e)
         {
@@ -1308,7 +1307,7 @@ namespace MyWorkApplication
             try
             {
                 Form Search_Form = new Search_Form(main_form);
-                main_form.showNewTab(Search_Form, "Search",0);
+                main_form.showNewTab(Search_Form, "Search", 0);
             }
             catch (Exception ex)
             {
@@ -1320,7 +1319,7 @@ namespace MyWorkApplication
             try
             {
                 Form Statistics_Form = new Statistics_Form(main_form);
-                main_form.showNewTab(Statistics_Form, "Statistics",0);
+                main_form.showNewTab(Statistics_Form, "Statistics", 0);
             }
             catch (Exception ex)
             {
@@ -1334,7 +1333,7 @@ namespace MyWorkApplication
             try
             {
                 var projectsTasks = new TaskBoard_Form(main_form);
-                main_form.showNewTab(projectsTasks, "Task Board",0);
+                main_form.showNewTab(projectsTasks, "Task Board", 0);
             }
             catch (Exception ex)
             {
@@ -1344,7 +1343,7 @@ namespace MyWorkApplication
         private void clearAllFiltersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MP_dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-            Search_TxtBox.Text = ""; 
+            Search_TxtBox.Text = "";
             foreach (Control c in Filters_tableLayoutPanel.Controls)
                 if (c.GetType() == typeof(ComboBox))
                 {

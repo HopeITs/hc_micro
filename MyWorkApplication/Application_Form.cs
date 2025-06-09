@@ -1,9 +1,12 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using MyWorkApplication.Visit_Forms;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlTypes;
-using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -11,10 +14,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
-using MyWorkApplication.Visit_Forms;
 
 namespace MyWorkApplication
 {
@@ -28,11 +27,11 @@ namespace MyWorkApplication
         //private string imageFilePath, imageName,
         //private byte[] PersonPicArr; 
 
-        private string RequestedAmount, SimpleProfit; 
+        private string RequestedAmount, SimpleProfit;
         //Added By Maher 
         string FullPicName = "";
         string FilePicName = "";
-        private Document d; 
+        private Document d;
         private Log l;
         private User user;
         private Street st;
@@ -50,13 +49,13 @@ namespace MyWorkApplication
 
         private int Person_ID, Family_ID, Priest_ID, Husband_Wife_ID;
         public int MicroProject_ID; // to be visible in main form //
-         
+
         private double sumOfItemsPrice_SYR;
         private int type;
         private Application_Queries app;
-        private bool Update_Mode, NoFamily, CanAddFamilyMembers; 
+        private bool Update_Mode, NoFamily, CanAddFamilyMembers;
         bool user_mode;
-        DataSet ds, grid_ds; 
+        DataSet ds, grid_ds;
 
         public Application_Form(MainForm mainForm)
         {
@@ -70,7 +69,7 @@ namespace MyWorkApplication
             MyDataGridViewInitializationMethod();
 
             this.mainForm = mainForm;
-            Update_Mode = false; AddPartner_button.Visible = false; 
+            Update_Mode = false; AddPartner_button.Visible = false;
         }
 
         public Application_Form(int Person_ID, int MicroProject_ID, MainForm mainForm)
@@ -104,37 +103,37 @@ namespace MyWorkApplication
                 career = new Career();
                 img = new Images();
                 Get_Last_MicroProjectID();
-                
+
                 Education_dataGridView.AutoGenerateColumns = false;
-                Work_dataGridView.AutoGenerateColumns = Exp_dataGridView.AutoGenerateColumns 
+                Work_dataGridView.AutoGenerateColumns = Exp_dataGridView.AutoGenerateColumns
                     = FamilyMember_dataGridView.AutoGenerateColumns = false;
                 Materials_dataGridView.AutoGenerateColumns = false;
-                 
+
                 Bind_All_ComboBoxes(-1);
                 Bind_Gridview_ComboBox(-1);
 
                 //////////////////// handle auto scrolling for all comboBoxes //////////////////////
-                Type_comboBox.MouseWheel        += new MouseEventHandler(comboBox_MouseWheel);
-                SubType_comboBox.MouseWheel     += new MouseEventHandler(comboBox_MouseWheel);
-                SubCategory_comboBox.MouseWheel    += new MouseEventHandler(comboBox_MouseWheel);
+                Type_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                SubType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                SubCategory_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 Career_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
 
-                P_Parish_comboBox.MouseWheel    += new MouseEventHandler(comboBox_MouseWheel);
-                P_Priest_comboBox.MouseWheel    += new MouseEventHandler(comboBox_MouseWheel);
-                Street_comboBox.MouseWheel      += new MouseEventHandler(comboBox_MouseWheel);
+                P_Parish_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                P_Priest_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                Street_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
 
-                PersonType_comboBox.MouseWheel  += new MouseEventHandler(comboBox_MouseWheel);
-                P_Sex_comboBox.MouseWheel       += new MouseEventHandler(comboBox_MouseWheel);
-                P_MaritalState_comboBox.MouseWheel     += new MouseEventHandler(comboBox_MouseWheel);
+                PersonType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                P_Sex_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                P_MaritalState_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 P_State_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-                 
+
                 FPersonSex_comboBox1.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 FPersonMaritalState_comboBox1.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 FPersonState_comboBox1.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
 
                 PaperApplicationUser_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 ///////////////////////////////////////////////////////////////////////////////////////
-                 
+
                 Type_comboBox.SelectedIndex = 0; // default MICRO
 
                 users_bind(PaperApplicationUser_comboBox);
@@ -155,7 +154,7 @@ namespace MyWorkApplication
                 //Reset the nubmer of family members//
                 P_NumAtHome_textBox.Text = "0";
                 P_State_comboBox.SelectedValue = 1; //مقيم
-                 
+
                 if (MicroProject_ID != -1)
                 {
                     user_mode = false;
@@ -171,7 +170,7 @@ namespace MyWorkApplication
                     Save_MP_ID_button.Visible = false;
                     Save_MP_ID_button.BackgroundImage = Properties.Resources.Cheked;
                     toolTip1.SetToolTip(Save_MP_ID_button, "محجوز");
-                    
+
                     /// check if this project got partners or not ///
                     var query = "select count(*) from `person_microproject` where MicroProject_ID = " + MicroProject_ID;
                     Program.buildConnection();
@@ -180,7 +179,7 @@ namespace MyWorkApplication
                     Program.MyConn.Close();
                     if (partners_count > 1) Partners_lable.Text = "شراكة";
                     else Partners_lable.Text = "فردي";
-                     
+
                     //show delete-partner buttons on Update
                     AddPartner_button.Visible = Delete_MP_button.Visible = true;
                     /////////////////////////////////////////////////
@@ -235,7 +234,7 @@ namespace MyWorkApplication
                             = AddImage_button.Visible = DeleteImage_button.Visible = Download_button.Visible
                             = true;
                         return true;
-                    } 
+                    }
                 case 2: //Data
                     {
                         payments_toolStripMenuItem.Visible
@@ -247,7 +246,7 @@ namespace MyWorkApplication
                             = AddImage_button.Visible = DeleteImage_button.Visible = Download_button.Visible
                             = true;
                         return true;
-                    } 
+                    }
                 case 3: //Financial 
                 case 7: //Lawful
                     {
@@ -261,7 +260,7 @@ namespace MyWorkApplication
                             = AddImage_button.Visible = DeleteImage_button.Visible = Download_button.Visible
                             = false;
                         return false;
-                    } 
+                    }
                 case 4: //Guest
                 case 9: //Media
                     {
@@ -277,9 +276,9 @@ namespace MyWorkApplication
                             = AddImage_button.Visible = DeleteImage_button.Visible = Download_button.Visible
                            = false;
                         return false;
-                    } 
+                    }
             }
-            return false; 
+            return false;
         }
 
         #region combobox painting
@@ -287,7 +286,7 @@ namespace MyWorkApplication
         {
             // Draw the background.
             e.DrawBackground();
-            SolidBrush brush = new SolidBrush(Color.FromArgb(189,189,189));
+            SolidBrush brush = new SolidBrush(Color.FromArgb(189, 189, 189));
             if (e.Index >= 0)
             {
                 if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
@@ -305,16 +304,16 @@ namespace MyWorkApplication
         {
             Type_comboBox.SelectionLength = 0;
             Type_comboBox.SelectionStart = Type_comboBox.Text.Length;
-            
+
             SubType_comboBox.SelectionLength = 0;
             SubType_comboBox.SelectionStart = SubType_comboBox.Text.Length;
-            
+
             SubCategory_comboBox.SelectionLength = 0;
             SubCategory_comboBox.SelectionStart = SubCategory_comboBox.Text.Length;
-          
-            Career_comboBox.SelectionLength = 0; 
+
+            Career_comboBox.SelectionLength = 0;
             Career_comboBox.SelectionStart = Career_comboBox.Text.Length;
-        
+
             P_Sex_comboBox.SelectionLength = 0; P_Sex_comboBox.SelectionStart = P_Sex_comboBox.Text.Length;
             P_MaritalState_comboBox.SelectionLength = 0; P_MaritalState_comboBox.SelectionStart = P_MaritalState_comboBox.Text.Length;
             P_State_comboBox.SelectionLength = 0; P_State_comboBox.SelectionStart = P_State_comboBox.Text.Length;
@@ -330,7 +329,7 @@ namespace MyWorkApplication
             P_Parish_comboBox.SelectionLength = 0; P_Parish_comboBox.SelectionStart = P_Parish_comboBox.Text.Length;
 
             PaperApplicationUser_comboBox.SelectionLength = 0; PaperApplicationUser_comboBox.SelectionStart = PaperApplicationUser_comboBox.Text.Length;
-            
+
         }
         #endregion
 
@@ -364,7 +363,7 @@ namespace MyWorkApplication
         #region datagridview with comboxBoxes methods
         private void MyDataGridViewInitializationMethod()
         {
-            FamilyMember_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(FamilyMember_dataGridView_EditingControlShowing); 
+            FamilyMember_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(FamilyMember_dataGridView_EditingControlShowing);
             Education_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(Education_dataGridView_EditingControlShowing);
             Work_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(Work_dataGridView_EditingControlShowing);
             Exp_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(Exp_dataGridView_EditingControlShowing);
@@ -399,7 +398,7 @@ namespace MyWorkApplication
 
         private void FamilyMember_dataGridView_Control_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar) 
+            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar)
                 && (FamilyMember_dataGridView.CurrentCellAddress.X == 7))
             {
                 e.Handled = true;
@@ -407,14 +406,14 @@ namespace MyWorkApplication
         }
         private void Education_dataGridView_Control_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (   !char.IsNumber(e.KeyChar) 
-                && !char.IsControl(e.KeyChar) 
+            if (!char.IsNumber(e.KeyChar)
+                && !char.IsControl(e.KeyChar)
                 && Education_dataGridView.CurrentCellAddress.X == 3)
             {
                 e.Handled = true;
             }
-            if (   !char.IsNumber(e.KeyChar) 
-                && !char.IsControl(e.KeyChar) 
+            if (!char.IsNumber(e.KeyChar)
+                && !char.IsControl(e.KeyChar)
                 && Education_dataGridView.CurrentCellAddress.X == 4)
             {
                 e.Handled = true;
@@ -423,8 +422,8 @@ namespace MyWorkApplication
         private void Work_dataGridView_Control_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Make a specific column only accept numeric value in datagridview in Keypress event
-            if (   !char.IsNumber(e.KeyChar) 
-                && !char.IsControl(e.KeyChar) 
+            if (!char.IsNumber(e.KeyChar)
+                && !char.IsControl(e.KeyChar)
                 && Work_dataGridView.CurrentCellAddress.X == 8)
             {
                 e.Handled = true;
@@ -433,8 +432,8 @@ namespace MyWorkApplication
         private void Exp_dataGridView_Control_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Make a specific column only accept numeric value in datagridview in Keypress event
-            if (   !char.IsNumber(e.KeyChar) 
-                && !char.IsControl(e.KeyChar) 
+            if (!char.IsNumber(e.KeyChar)
+                && !char.IsControl(e.KeyChar)
                 && Exp_dataGridView.CurrentCellAddress.X == 8)
             {
                 e.Handled = true;
@@ -443,8 +442,8 @@ namespace MyWorkApplication
         private void PowerSource_dataGridView_Control_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Make a specific column only accept numeric value in datagridview in Keypress event
-            if (   !char.IsNumber(e.KeyChar) 
-                && !char.IsControl(e.KeyChar) 
+            if (!char.IsNumber(e.KeyChar)
+                && !char.IsControl(e.KeyChar)
                 && PowerSource_dataGridView.CurrentCellAddress.X == 4)
             {
                 e.Handled = true;
@@ -505,7 +504,7 @@ namespace MyWorkApplication
             string p_query = "START TRANSACTION;";
             p_query += " Insert Into `person`(`P_FirstName`, `P_LastName`, `P_FatherName`, `P_MotherName`, `P_FullName_en`, `P_DOB`" +
                          ", `P_MilitaryService` ,`P_MilitaryService_Date`, `P_MilitaryService_Note`, `P_Mobile`, `P_HomeTel`, `Street_ID`, `P_HomeAddress`, `P_NationalNumber`, `P_RegistrationPlace`" +
-                         ", `P_Sex`, `P_MaritalStatus_ID`, `P_IsLivingWithFamily`,`P_LiveWithFamily_Note`, `P_NumAtHome`" + 
+                         ", `P_Sex`, `P_MaritalStatus_ID`, `P_IsLivingWithFamily`,`P_LiveWithFamily_Note`, `P_NumAtHome`" +
                          //", `P_ProfilePath` " + 
                          ", `IsProjectOwner`, `IsProvider`" +
                          ", `P_SourceOfIncome`, `P_MedicalCond`, `P_MedicalHelp`, `P_MedicalHelp_Note`, `P_Loss`, `P_IntermidiarySide`" +
@@ -532,11 +531,11 @@ namespace MyWorkApplication
                          + P_NationalNum_textBox.Text + "',N'"
                          + P_Registration_textBox.Text + "',N'"
                          + P_Sex_comboBox.Text + "',"
-                         + (P_MaritalState_comboBox.SelectedValue == null ? SqlInt32.Null: P_MaritalState_comboBox.SelectedValue) + ",'"
+                         + (P_MaritalState_comboBox.SelectedValue == null ? SqlInt32.Null : P_MaritalState_comboBox.SelectedValue) + ",'"
                          + (P_LiveWithFamily_radioButton.Checked ? "Yes" : "No") + "','"
                          + LiveWithFamilyDesc_textBox.Text + "',"
                          + P_NumAtHome_textBox.Text + ",'"
-                          
+
                          //+ "" + "',N'" //P_ProfilePath
                          + "YES',N'" // يملك مشروع IsProjectOwner 
                          + (IsProvider_radioButton.Checked ? "Yes" : "No") + "','"
@@ -556,8 +555,8 @@ namespace MyWorkApplication
                          + "" + "',N'" //maristes course
                          + "" + "',N'" //other courses 
                          + "" + "'," //power sources note
-                         
-                         + (P_Parish_comboBox.SelectedValue != null ? P_Parish_comboBox.SelectedValue : SqlInt32.Null) + "," 
+
+                         + (P_Parish_comboBox.SelectedValue != null ? P_Parish_comboBox.SelectedValue : SqlInt32.Null) + ","
                          + (P_Priest_comboBox.SelectedValue != null ? P_Priest_comboBox.SelectedValue : SqlInt32.Null) + ","
                          + (P_State_comboBox.SelectedValue != null ? P_State_comboBox.SelectedValue : SqlInt32.Null) +
                          " );";
@@ -565,7 +564,7 @@ namespace MyWorkApplication
             p_query += " SET @person_id = Last_Insert_ID();";
             p_query += " SELECT @person_id;";
             p_query += " COMMIT;";
-             
+
             //the connection string must contain Allow User Variables=True , to execute @id in mysql
 
             Program.buildConnection();
@@ -575,18 +574,18 @@ namespace MyWorkApplication
             int id = Convert.ToInt32(sc.ExecuteScalar());
             Program.MyConn.Close();
 
-            return id; 
+            return id;
         }
 
         private void Insert_MicroProject()
         {
-            MySS.query = "START TRANSACTION;" ;
+            MySS.query = "START TRANSACTION;";
             MySS.query += " INSERT Into `microproject`(`MP_ID`,`MP_ProgramUser_ID`) VALUES (" +
                 Convert.ToInt32(MPID_textBox.Text) + "," + Program.userID + ");";
             MySS.query += " INSERT INTO `microproject_state`(`MicroProject_ID`, `State_ID`, `StateReason_ID`, `Date`) VALUES (" +
                 Convert.ToInt32(MPID_textBox.Text) + ",3,1,N'" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "');";
             MySS.query += "COMMIT;";
-             
+
             Program.buildConnection();
             {
                 MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
@@ -594,10 +593,10 @@ namespace MyWorkApplication
                 Program.MyConn.Close();
             }
         }
-          
+
         private void Insert_MicroProject_Material(string name, double amount, double price, double contribution,
             string comments, int MP_ID)
-        { 
+        {
             MySS.query =
                 "Insert INTO `material`(`Name`, `Amount`, `Price`,`LocalContribution`,`Comments`, `MicroProject_ID`) VALUES ("
                 + "N'" + name + "'," + amount + "," + price + "," + contribution + ",N'" + comments + "'," + MP_ID +
@@ -609,7 +608,7 @@ namespace MyWorkApplication
         }
 
         private void Insert_Person_MicroProject(int personID, int microProjectID, string type)
-        { 
+        {
             MySS.query = "Insert into `person_microproject`(`Person_ID`, `MicroProject_ID`, `PersonType`) values ("
                          + personID + ","
                          + microProjectID + ",N'"
@@ -622,8 +621,8 @@ namespace MyWorkApplication
         }
         private void Update_Person_MicroProject(int personID, int microProjectID, string type)
         {
-            
-            
+
+
             MySS.query = " update `person_microproject` set PersonType = N'" + type + "' " +
                 " where Person_ID = " + personID + " and MicroProject_ID = " + microProjectID;
             Program.buildConnection();
@@ -636,27 +635,27 @@ namespace MyWorkApplication
             , int providerID, string WorkName)
         {
             string query = "START TRANSACTION;" +
-                "Insert Into `family`(`F_Number`) values (N'" + FamilyNum_textBox1.Text + "');"; 
+                "Insert Into `family`(`F_Number`) values (N'" + FamilyNum_textBox1.Text + "');";
             query += " SET @family_id = Last_Insert_ID();";
             query += " Insert Into `person_family`(`Family_ID`, `Person_ID`, `IsInNow`, `Relation`, `P_Provider_ID`, `Work_Name`) values("
-              + "@family_id," + Person_ID + ",'"+ IsInNow + "',N'" + relation + "'," + providerID + ",N'" + WorkName + "'" + ");"; 
+              + "@family_id," + Person_ID + ",'" + IsInNow + "',N'" + relation + "'," + providerID + ",N'" + WorkName + "'" + ");";
             query += " SELECT @family_id;";
             query += " COMMIT;";
 
             Program.buildConnection();
             MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
             int id = -1;
-            int.TryParse(sc.ExecuteScalar().ToString() , out id);
+            int.TryParse(sc.ExecuteScalar().ToString(), out id);
             Program.MyConn.Close();
 
             return id;
         }
-          
+
         private int Insert_FMember(string f_name, string l_name, string father_name, string mother_name
             , string date, string national_num, string sex, int state_id, int maritalstate_id
             , int F_ID, string relation, int providerID, string WorkName)
         {
-            string p_query = "START TRANSACTION;"; 
+            string p_query = "START TRANSACTION;";
             p_query += " Insert Into `person`(`P_FirstName`, `P_LastName`, `P_FatherName`, `P_MotherName`, `P_DOB`" +
                          ", `P_MilitaryService`,`P_MilitaryService_Note`, `P_Mobile`, `P_HomeTel`, `P_HomeAddress`, `P_NationalNumber`, `P_RegistrationPlace`" +
                          ", `P_Sex`, `P_MaritalStatus_ID`, `P_IsLivingWithFamily`,`P_LiveWithFamily_Note`, `P_NumAtHome`" +
@@ -666,20 +665,20 @@ namespace MyWorkApplication
                          ", `P_SourceOfIncome`, `P_MedicalCond`, `P_MedicalHelp`, `P_MedicalHelp_Note`, `P_Loss`, `P_IntermidiarySide`" +
                          ", `P_HomeState`, `P_HomeState_Note`, `P_OtherProperties`, `P_OtherProperties_Note`, `P_OtherIncomeSources`, `P_OtherIncomeSources_Note`" +
                          ", `P_Courses_Note`, `P_MaristesCourse`, `P_OtherCourses`, `P_Parish_ID`, `P_Priest_ID`, `P_State_ID`) values("
-                         + "TRIM(N'"+ f_name + "'),"
-                         + "TRIM(N'"+ (l_name != "" ? l_name : "") + "'),"
-                         + "TRIM(N'"+ (father_name != "" ? father_name : "") + "'),"
-                         + "TRIM(N'"+ (mother_name != "" ? mother_name : "") + "'),"
+                         + "TRIM(N'" + f_name + "'),"
+                         + "TRIM(N'" + (l_name != "" ? l_name : "") + "'),"
+                         + "TRIM(N'" + (father_name != "" ? father_name : "") + "'),"
+                         + "TRIM(N'" + (mother_name != "" ? mother_name : "") + "'),"
                          + (date == "" ? "null" : "'" + date + "/01/01'") + ",N'"
                          + "" + "',N'" // Military service
                          + "" + "',N'" // Military service Note
                          + "" + "','" // Mobile
                          + "" + "',N'" // HomeTel
                          + "" + "','" // HomeAdd
-                         + national_num  + "',N'" //NationalNumber 
+                         + national_num + "',N'" //NationalNumber 
                          + "" + "',N'" // RegistrationPlace
                          + sex + "',"
-                         + (maritalstate_id == -1 ? SqlInt32.Null : maritalstate_id)+ ",'"
+                         + (maritalstate_id == -1 ? SqlInt32.Null : maritalstate_id) + ",'"
                          + "" + "',N'" // LiveWithAnotherFamily
                          + "" + "','" // LiveWithAnotherFamily Note
                          + "00" + "',N'" // NumAtHome
@@ -713,7 +712,7 @@ namespace MyWorkApplication
               + F_ID + ",@person_id, 'Yes',N'" + relation + "',"
               + providerID + ",N'" + WorkName + "'" + ");";
 
-            p_query += " SELECT @person_id;"; 
+            p_query += " SELECT @person_id;";
             p_query += " COMMIT;";
 
             Program.buildConnection();
@@ -724,7 +723,7 @@ namespace MyWorkApplication
             Program.MyConn.Close();
             return id;
         }
-        
+
         private void Update_Person(int PID)
         {
             string home_state, military, LiveWithFamily, IsProvider;
@@ -757,7 +756,7 @@ namespace MyWorkApplication
             if (IsProvider_radioButton.Checked) IsProvider = "Yes"; //  
             else if (IsNotProvider_radioButton.Checked) IsProvider = "No"; //
             else IsProvider = "";
-              
+
             if (MedicalHelp_radioButton.Checked) MedicalHelp = 1; //  
             else if (NoMedicalHelp_radioButton.Checked) MedicalHelp = 0; //  
             else MedicalHelp = -1; //non of them
@@ -779,11 +778,11 @@ namespace MyWorkApplication
                              + "P_FirstName = TRIM(N'" + P_FirstName_textBox.Text + "')"
                              + ",P_LastName = TRIM(N'" + P_LastName_textBox.Text + "')"
                              + ",P_FatherName = TRIM(N'" + P_FatherName_textBox.Text + "')"
-                             + ",P_MotherName = TRIM(N'" + P_MotherName_textBox.Text + "')" 
-                             + ",P_FullName_en = TRIM(N'" + P_FullName_En_textBox.Text + "')" 
-                             + ",P_DOB = " +(P_DOB_textBox.Text == "" ? "null" : "N'" + P_DOB_textBox.Text + "/01/01"+ "'") 
+                             + ",P_MotherName = TRIM(N'" + P_MotherName_textBox.Text + "')"
+                             + ",P_FullName_en = TRIM(N'" + P_FullName_En_textBox.Text + "')"
+                             + ",P_DOB = " + (P_DOB_textBox.Text == "" ? "null" : "N'" + P_DOB_textBox.Text + "/01/01" + "'")
                              + ",P_MilitaryService = N'" + military + "'"
-                             + ",P_MilitaryService_Date = " + (military_date == "null" ? "null" : "'" + military_date + "'") 
+                             + ",P_MilitaryService_Date = " + (military_date == "null" ? "null" : "'" + military_date + "'")
                              + ",P_MilitaryService_Note = N'" + Military_textBox.Text + "'"
                              + ",P_Mobile = N'" + P_Mobile_textBox.Text + "'"
                              + ",P_HomeTel = N'" + P_HomeTel_textBox.Text + "'"
@@ -794,7 +793,7 @@ namespace MyWorkApplication
                              + ",P_NationalNumber = N'" + P_NationalNum_textBox.Text + "'"
                              + ",P_RegistrationPlace = N'" + P_Registration_textBox.Text + "'"
                              + ",P_Sex = N'" + P_Sex_comboBox.Text + "'"
-                              
+
                              + ",P_MaritalStatus_ID = " + (P_MaritalState_comboBox.SelectedValue != null
                                  ? P_MaritalState_comboBox.SelectedValue
                                  : SqlInt32.Null) + " "
@@ -803,7 +802,7 @@ namespace MyWorkApplication
                              + ",P_LiveWithFamily_Note  = N'" + LiveWithFamilyDesc_textBox.Text + "'"
                              + ",P_NumAtHome = " +
                              (P_NumAtHome_textBox.Text == "" ? 0 : Convert.ToInt32(P_NumAtHome_textBox.Text)) + ""
-                         
+
                              + ",IsProvider = N'" + IsProvider + "' "
                              + ",P_SourceOfIncome = N'" + P_SourceOfIncome_textBox.Text + "'"
                              + ",P_MedicalCond = N'" + P_MedicalCond_textBox.Text + "'"
@@ -827,12 +826,12 @@ namespace MyWorkApplication
                              + ",P_Priest_ID = " + (P_Priest_comboBox.SelectedValue != null
                                  ? P_Priest_comboBox.SelectedValue
                                  : SqlInt32.Null) + " "
-                        
+
                              + ",P_State_ID = " + (P_State_comboBox.SelectedValue != null
                              ? P_State_comboBox.SelectedValue
                              : SqlInt32.Null) + " "
                          + " where P_ID =" + PID;
-             
+
             Program.buildConnection();
             {
                 MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
@@ -840,12 +839,12 @@ namespace MyWorkApplication
                 Program.MyConn.Close();
             }
         }
-         
+
         private void Update_MP(int MP_ID)
         {
             RequestedAmount = MP_RequestedAmount_textBox.Text.Replace(",", "");
             SimpleProfit = MP_SimpleProfit_textBox.Text.Replace(",", "");
-            
+
             string HasPreviousDonors, IsNeedLicense, HasCompetitors
                 , SuppliesInsurance, IncomeKind, HasLedger;
 
@@ -878,7 +877,7 @@ namespace MyWorkApplication
             int sub_ID = -1;
             if (SubCategory_comboBox.SelectedValue != null)
             {
-                sub_ID = int.Parse(SubCategory_comboBox.SelectedValue.ToString()); 
+                sub_ID = int.Parse(SubCategory_comboBox.SelectedValue.ToString());
                 DataRow[] rows = ds.Tables[0].Select("ID=" + sub_ID);
                 cat_ID = rows[0].Field<int>(2);
             }
@@ -890,7 +889,7 @@ namespace MyWorkApplication
                 ",MP_PeriodOfExecution = N'" + MP_RequestedTime_textBox.Text + "'" +
                 ",MP_DateOfRequest = N'" + ApplyDate_bcDateTimePicker.Value.ToString("yyyy/MM/dd") + "'" +
                 ",MP_Description = N'" + MP_Description_textBox.Text + "'" +
-                
+
                 ",MP_FundType_ID = " + (Loan_radioButton.Checked ? 1 : 2) + // 1 = loan , 2 = grant
                 ",MP_Type_ID = " + (Type_comboBox.SelectedValue != null
                     ? int.Parse(Type_comboBox.SelectedValue.ToString())
@@ -898,8 +897,8 @@ namespace MyWorkApplication
 
                 ",MP_SubType_ID = " + (SubType_comboBox.SelectedValue != null
                     ? int.Parse(SubType_comboBox.SelectedValue.ToString())
-                    : SqlInt32.Null) + " " +  
-                
+                    : SqlInt32.Null) + " " +
+
                 ",Category_ID = " + (cat_ID != -1 ? cat_ID : SqlInt32.Null) + " " +
 
                 ",SubCategory_ID = " + (sub_ID != -1 ? sub_ID : SqlInt32.Null) + " " +
@@ -907,12 +906,12 @@ namespace MyWorkApplication
                 ",Career_ID = " + (Career_comboBox.SelectedValue != null
                     ? int.Parse(Career_comboBox.SelectedValue.ToString())
                     : SqlInt32.Null) + " " +
-  
+
                 ",MP_HasPreviousDonors = N'" + HasPreviousDonors + "'" +
                 ",MP_OtherDonors = N'" + MP_OtherDonors_textBox.Text + "'" +
-                ",MP_IsNeedLicense = N'" +  IsNeedLicense + "'" +
+                ",MP_IsNeedLicense = N'" + IsNeedLicense + "'" +
                 ",MP_LicenseSide = N'" + MP_LicenseSide_textBox.Text + "'" +
-                ",MP_HasCompetitors = N'" +  HasCompetitors + "'" +
+                ",MP_HasCompetitors = N'" + HasCompetitors + "'" +
                 ",MP_Competitors = N'" + MP_Competitors_textBox.Text + "'" +
                 ",MP_SuppliesInsurance = N'" + SuppliesInsurance + "'" +
                 ",MP_Suppliers = N'" + MP_Suppliers_textBox.Text + "'" +
@@ -928,14 +927,14 @@ namespace MyWorkApplication
                 ",MP_AmperNumber = " + AmperNumber_textBox.Text + " " +
 
                 ",Partnership = " + (Partners_lable.Text == "شراكة" ? 2 : 1) + // شراكة 2 - فردي 1
-                          
+
                 ",MP_PaperUser_ID = " + (PaperApplicationUser_comboBox.SelectedValue != null
                     ? int.Parse(PaperApplicationUser_comboBox.SelectedValue.ToString())
                     : SqlInt32.Null) + " " +
-                
+
                 ",MP_EditedByUser_ID = " + Program.userID +
                 " where MP_ID = " + MP_ID;
-            
+
             Program.buildConnection();
             MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
             MySS.sc.ExecuteNonQuery();
@@ -957,31 +956,31 @@ namespace MyWorkApplication
             , string date, string national_num, string sex, int state_id, int maritalstate_id
             , int F_ID, string relation, string work)
         {
-            string p_query = "Start Transaction;"; 
+            string p_query = "Start Transaction;";
             p_query += " Update `person` set "
                         + " P_FirstName = TRIM(N'" + f_name + "')"
-                        + ",P_LastName = TRIM(N'" +   (l_name != "" ? l_name : "") + "')"
+                        + ",P_LastName = TRIM(N'" + (l_name != "" ? l_name : "") + "')"
                         + ",P_FatherName = TRIM(N'" + (father_name != "" ? father_name : "") + "')"
-                        + ",P_MotherName = TRIM(N'" + (mother_name != "" ? mother_name : "") + "')" 
-                        + ",P_DOB =" + (date == "" ? "null" : "N'" + date + "/01/01"+ "'") 
+                        + ",P_MotherName = TRIM(N'" + (mother_name != "" ? mother_name : "") + "')"
+                        + ",P_DOB =" + (date == "" ? "null" : "N'" + date + "/01/01" + "'")
                         + ",P_NationalNumber = N'" + national_num + "'"
-                        + ",P_Sex = N'" + sex + "'" 
-                        + ",P_State_ID = " + (state_id == -1 ? SqlInt32.Null : state_id) + " "  
-                        + ",P_MaritalStatus_ID = " + (maritalstate_id == -1 ? SqlInt32.Null : maritalstate_id) + " " 
-                        + " where P_ID =" + PID + ";";  
+                        + ",P_Sex = N'" + sex + "'"
+                        + ",P_State_ID = " + (state_id == -1 ? SqlInt32.Null : state_id) + " "
+                        + ",P_MaritalStatus_ID = " + (maritalstate_id == -1 ? SqlInt32.Null : maritalstate_id) + " "
+                        + " where P_ID =" + PID + ";";
 
             p_query += "UPDATE `person_family` SET "
                     + " `Relation`= N'" + relation + "' "
                     + ",`Work_Name`= N'" + work + "' "
-                    + " WHERE `Person_ID` = " + PID + " and `Family_ID` = " + F_ID + " ;"; 
+                    + " WHERE `Person_ID` = " + PID + " and `Family_ID` = " + F_ID + " ;";
             p_query += " COMMIT;";
-             
+
             Program.buildConnection();
             var sc = new MySqlCommand(p_query, Program.MyConn);
             sc.ExecuteNonQuery();
             Program.MyConn.Close();
         }
-        
+
         private void Get_Last_MicroProjectID()
         {
             MySS.query = "select MAX(MP_ID) from `microproject`";
@@ -992,13 +991,13 @@ namespace MyWorkApplication
             MPID_textBox.Text = (++n).ToString();
             Program.MyConn.Close();
         }
-         
+
         private void Delete_Person(int PID)
-        { 
+        {
             string q2 = "delete From `person` where P_ID =" + PID;
             Program.buildConnection();
             using (var sc = new MySqlCommand(q2, Program.MyConn))
-            { 
+            {
                 sc.ExecuteNonQuery();
                 Program.MyConn.Close();
             }
@@ -1014,11 +1013,11 @@ namespace MyWorkApplication
                 Program.MyConn.Close();
             }
         }
-        private void Edit_MP(int old_MP_ID,int new_MP_ID)
+        private void Edit_MP(int old_MP_ID, int new_MP_ID)
         {
-            
-            MySS.query = "update `microproject` set MP_ID = " + new_MP_ID+" where MP_ID = " + old_MP_ID + " ";
-            Program.buildConnection(); 
+
+            MySS.query = "update `microproject` set MP_ID = " + new_MP_ID + " where MP_ID = " + old_MP_ID + " ";
+            Program.buildConnection();
             MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
             MySS.sc.ExecuteNonQuery();
             Program.MyConn.Close();
@@ -1028,7 +1027,7 @@ namespace MyWorkApplication
         {
             user_mode = false;
             string query = "";
-            
+
             query += "SELECT ID, Name, Category_ID from `subcategory` ORDER BY Name ASC;"; //0
             query += "SELECT ID, Name, SubCategory_ID from `career` ORDER BY Name ASC;"; //1 
             query += "SELECT ID, Name from `street` order by Name ASC;"; //2
@@ -1046,7 +1045,7 @@ namespace MyWorkApplication
             ds = new DataSet();
             da.Fill(ds);
             Program.MyConn.Close();
-             
+
             if (updated_id == -1 || updated_id == 0) // -1 bind all 
             {
                 SubCategory_comboBox.DataSource = null;
@@ -1061,31 +1060,35 @@ namespace MyWorkApplication
                 Career_comboBox.DisplayMember = "Name";
                 Career_comboBox.ValueMember = "ID";
                 Career_comboBox.DataSource = ds.Tables[1];
-                Career_comboBox.SelectedIndex = -1; 
+                Career_comboBox.SelectedIndex = -1;
             }
             if (updated_id == -1 || updated_id == 2) // -1 bind all 
-            { Street_comboBox.DataSource = null;
+            {
+                Street_comboBox.DataSource = null;
                 Street_comboBox.DisplayMember = "Name";
                 Street_comboBox.ValueMember = "ID";
                 Street_comboBox.DataSource = ds.Tables[2];
                 Street_comboBox.SelectedIndex = -1;
             }
             if (updated_id == -1 || updated_id == 3) // -1 bind all 
-            { P_Priest_comboBox.DataSource = null;
+            {
+                P_Priest_comboBox.DataSource = null;
                 P_Priest_comboBox.DisplayMember = "Name";
                 P_Priest_comboBox.ValueMember = "ID";
                 P_Priest_comboBox.DataSource = ds.Tables[3];
                 P_Priest_comboBox.SelectedIndex = -1;
             }
             if (updated_id == -1 || updated_id == 4) // -1 bind all 
-            { Type_comboBox.DataSource = null;
+            {
+                Type_comboBox.DataSource = null;
                 Type_comboBox.DisplayMember = "Name";
                 Type_comboBox.ValueMember = "ID";
                 Type_comboBox.DataSource = ds.Tables[4];
                 Type_comboBox.SelectedIndex = -1;
             }
             if (updated_id == -1 || updated_id == 5) // -1 bind all 
-            { SubType_comboBox.DataSource = null;
+            {
+                SubType_comboBox.DataSource = null;
                 SubType_comboBox.DisplayMember = "Name";
                 SubType_comboBox.ValueMember = "ID";
                 SubType_comboBox.DataSource = ds.Tables[5];
@@ -1115,17 +1118,17 @@ namespace MyWorkApplication
             {
                 //Multiple Combo Boxes With The Same Data Source (C#)
                 P_Parish_comboBox.BindingContext = new BindingContext();   //create a new context
-                P_Parish_comboBox.DataSource     = null;
-                P_Parish_comboBox.DisplayMember  = "Name";
-                P_Parish_comboBox.ValueMember    = "ID";
-                P_Parish_comboBox.DataSource     = ds.Tables[8];
-                P_Parish_comboBox.SelectedIndex  = -1;
+                P_Parish_comboBox.DataSource = null;
+                P_Parish_comboBox.DisplayMember = "Name";
+                P_Parish_comboBox.ValueMember = "ID";
+                P_Parish_comboBox.DataSource = ds.Tables[8];
+                P_Parish_comboBox.SelectedIndex = -1;
             }
             user_mode = true;
         }
 
         private void Bind_Gridview_ComboBox(int updated_id)
-        { 
+        {
             user_mode = false;
             string query = "";
 
@@ -1148,13 +1151,13 @@ namespace MyWorkApplication
             {
                 P_State.DataSource = grid_ds.Tables[0];
                 P_State.DisplayMember = "Name";
-                P_State.ValueMember = "ID"; 
+                P_State.ValueMember = "ID";
             }
             if (updated_id == -1 || updated_id == 1) // -1 bind all 
             {
                 E_Name.DataSource = grid_ds.Tables[1];
                 E_Name.DisplayMember = "E_Name";
-                E_Name.ValueMember = "E_ID"; 
+                E_Name.ValueMember = "E_ID";
             }
             if (updated_id == -1 || updated_id == 2) // -1 bind all 
             {
@@ -1164,7 +1167,7 @@ namespace MyWorkApplication
 
                 Exp_Name.DataSource = grid_ds.Tables[2];
                 Exp_Name.DisplayMember = "W_Name";
-                Exp_Name.ValueMember = "W_ID"; 
+                Exp_Name.ValueMember = "W_ID";
             }
             //combobox column name in datagridviews// 
             if (updated_id == -1 || updated_id == 3) // -1 bind all 
@@ -1182,7 +1185,7 @@ namespace MyWorkApplication
             }
             user_mode = true;
         }
-         
+
         private void Career_bind(string SubCategory_ID)
         {
             user_mode = false;
@@ -1191,7 +1194,7 @@ namespace MyWorkApplication
             Career_comboBox.ValueMember = "ID";
 
             if (SubCategory_ID != "")
-            { 
+            {
                 DataRow[] rows = null;
                 rows = ds.Tables[1].Select("SubCategory_ID=" + SubCategory_ID);
 
@@ -1205,11 +1208,11 @@ namespace MyWorkApplication
                     Career_comboBox.DataSource = selected_rows_dt;
             }
             else
-            { 
+            {
                 Career_comboBox.DataSource = ds.Tables[1];
                 Career_comboBox.SelectedIndex = -1;
             }
-            user_mode = true; 
+            user_mode = true;
         }
         private void SubType_bind(string Type_ID)
         {
@@ -1242,7 +1245,7 @@ namespace MyWorkApplication
                 SubType_comboBox.SelectedIndex = -1;
             }
             user_mode = true;
-        } 
+        }
         private void users_bind(ComboBox comboBox)
         {
             try
@@ -1258,7 +1261,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-        
+
         #endregion
 
         #region functions
@@ -1272,7 +1275,7 @@ namespace MyWorkApplication
             for (var i = 0; i < FamilyMember_dataGridView.RowCount - 1; i++)
             {
                 F_FName = FamilyMember_dataGridView.Rows[i].Cells["P_FirstName"].Value.ToString();
-                if (FamilyMember_dataGridView.Rows[i].Cells["P_DOB"].Value == null 
+                if (FamilyMember_dataGridView.Rows[i].Cells["P_DOB"].Value == null
                     || FamilyMember_dataGridView.Rows[i].Cells["P_DOB"].Value == DBNull.Value
                     || FamilyMember_dataGridView.Rows[i].Cells["P_DOB"].Value.ToString() == "0000-00-00")
                     F_DOB = "";
@@ -1292,23 +1295,23 @@ namespace MyWorkApplication
                     FamilyMember_dataGridView.Rows[i].Cells["Relation"].Value.ToString() == null)
                     relationInFamily = "";
                 else relationInFamily = FamilyMember_dataGridView.Rows[i].Cells["Relation"].Value.ToString();
-                 
+
                 //////////
                 if (FamilyMember_dataGridView.Rows[i].Cells["P_State"].Value == null ||
                     FamilyMember_dataGridView.Rows[i].Cells["P_State"].Value.ToString() == null)
                     PersonState_id = -1;
                 else int.TryParse(FamilyMember_dataGridView.Rows[i].Cells["P_State"].Value.ToString(), out PersonState_id);
                 ////////// 
-                 
+
                 if (FamilyMember_dataGridView.Rows[i].Cells["P_InDataBase"].Value == null)
                 {
                     int F_Member_ID =
-                        Insert_FMember(F_FName, F_LName,"","" , F_DOB,"","", PersonState_id , Person_MaritalStatus
+                        Insert_FMember(F_FName, F_LName, "", "", F_DOB, "", "", PersonState_id, Person_MaritalStatus
                         , Family_ID, relationInFamily, Person_ID, WorkName);
 
                     l.Insert_Log("Insert the Family Member: " + F_FName + " " + F_LName, "Family Member",
                         Program.UserName, DateTime.Now);
-                      
+
                     //set P_ID columns
                     FamilyMember_dataGridView.Rows[i].Cells["FP_ID"].Value = F_Member_ID;
                     FamilyMember_dataGridView.Rows[i].Cells["F_ID"].Value = Family_ID;
@@ -1324,7 +1327,7 @@ namespace MyWorkApplication
                     Update_FMember(F_Member_ID, F_FName, F_LName, "", ""
                         , F_DOB, "", "", PersonState_id, Person_MaritalStatus
                         , Family_ID, relationInFamily, WorkName);
-                      
+
                     l.Insert_Log("Update the Family Member: " + F_FName + " " + F_LName, "Family Member",
                         Program.UserName, DateTime.Now);
                 }
@@ -1347,14 +1350,14 @@ namespace MyWorkApplication
                     {
                         p_details_query += "Insert Into `person_powersource`(`Person_ID`, `PowerSource_ID`) values("
                             + Person_ID + ","
-                            + "(select ID from `powersource` where Name like '" + CBox.Text + "' limit 1)" 
+                            + "(select ID from `powersource` where Name like '" + CBox.Text + "' limit 1)"
                             + ")" + ";"; ;
 
                         P_log_query += "INSERT INTO `log`(`Log_Type`, `Log_OnTable`, `Log_User`, `Log_Date`, `Log_Seen`) VALUES (N'"
                             + "Insert PowerSource: " + CBox.Text + " to Beneficiary : " + P_FirstName_textBox.Text + " " + P_LastName_textBox.Text + "',N'"
                             + "person_powersource" + "',N'"
                             + Program.UserName + "',N'"
-                            + DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + " " 
+                            + DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + " "
                             + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + "',"
                             + "0" + ")" + ";"; //not seen 
                     }
@@ -1372,7 +1375,7 @@ namespace MyWorkApplication
                     {
                         p_details_query += "Insert Into `person_course`(`Person_ID`, `Course_ID`) values("
                                     + Person_ID + ","
-                                    + "(select ID from `course` where Name like '" + CBox.Text + "' limit 1)" 
+                                    + "(select ID from `course` where Name like '" + CBox.Text + "' limit 1)"
                                     + ")" + ";";
 
                         P_log_query += "INSERT INTO `log`(`Log_Type`, `Log_OnTable`, `Log_User`, `Log_Date`, `Log_Seen`) VALUES (N'"
@@ -1411,7 +1414,7 @@ namespace MyWorkApplication
                     {
                         p_details_query += "Insert Into `person_loss`(`Person_ID`, `Loss_ID`) values("
                                      + Person_ID + ","
-                                     + "(select ID from `loss` where Name like '" + CBox.Text + "' limit 1)" 
+                                     + "(select ID from `loss` where Name like '" + CBox.Text + "' limit 1)"
                                      + ")" + ";";
 
                         P_log_query += "INSERT INTO `log`(`Log_Type`, `Log_OnTable`, `Log_User`, `Log_Date`, `Log_Seen`) VALUES (N'"
@@ -1437,7 +1440,7 @@ namespace MyWorkApplication
                         //    P_LastName_textBox.Text, "Person_Course", Program.UserName, DateTime.Now);
                     }
                 }
-             
+
             p_details_query += P_log_query;
             p_details_query += " COMMIT;";
             Program.buildConnection();
@@ -1449,7 +1452,7 @@ namespace MyWorkApplication
             // Education //
             var edu_Name = "";
             for (var i = 0; i < Education_dataGridView.RowCount - 1; i++)
-            { 
+            {
                 var E_ID = -1;
                 if (Education_dataGridView.Rows[i].Cells["E_Name"].Value == null ||
                     Education_dataGridView.Rows[i].Cells["E_Name"].Value.ToString() == null)
@@ -1460,13 +1463,13 @@ namespace MyWorkApplication
                         Education_dataGridView.Rows[i].Cells["E_Name"].Value.ToString() == null)
                         edu_Name = "";
                     else edu_Name = Education_dataGridView.Rows[i].Cells["E_Name"].Value.ToString();
-                     
+
                     DataRow[] rows = grid_ds.Tables[1].Select("E_Name='" + edu_Name + "'");
                     E_ID = rows[0].Field<int>(0);
                 }
                 ////set E_ID and P_ID columns
-                Education_dataGridView.Rows[i].Cells["P_ID"].Value = Person_ID; 
-                Education_dataGridView.Rows[i].Cells["E_ID"].Value = E_ID; 
+                Education_dataGridView.Rows[i].Cells["P_ID"].Value = Person_ID;
+                Education_dataGridView.Rows[i].Cells["E_ID"].Value = E_ID;
 
                 if (Education_dataGridView.Rows[i].Cells["Edu_InDataBase"].Value == null)
                 {
@@ -1480,7 +1483,7 @@ namespace MyWorkApplication
 
                     ID = ID + 1;
                     Program.MyConn.Close();
-                     
+
                     MySS.query = "Insert Into `person_education`(`Person_ID`, `Education_ID`,`PEdu_ID`) values("
                                  + Person_ID + ","
                                  + E_ID + ","
@@ -1527,7 +1530,7 @@ namespace MyWorkApplication
                     int.TryParse(Work_dataGridView.Rows[i].Cells["W_Name"].Value.ToString(), out W_ID);
                     DataRow[] rows = grid_ds.Tables[2].Select("W_ID=" + W_ID);
                     Work_Name_string = rows[0].Field<string>(1);
-                } 
+                }
                 if (Work_dataGridView.Rows[i].Cells["W_Description"].Value == null ||
                     Work_dataGridView.Rows[i].Cells["W_Description"].Value.ToString() == null)
                     WorkDescription_string = " ";
@@ -1564,7 +1567,7 @@ namespace MyWorkApplication
                 else Double.TryParse(Work_dataGridView.Rows[i].Cells["W_Salary"].Value.ToString().Replace(",", ""), out WorkSalary);
 
                 //set W_ID and P_ID columns
-                 
+
                 Work_dataGridView.Rows[i].Cells["WP_ID"].Value = Person_ID;
 
                 Work_dataGridView.Rows[i].Cells["W_ID"].Value = W_ID;
@@ -1575,7 +1578,7 @@ namespace MyWorkApplication
                 if (Work_dataGridView.Rows[i].Cells["W_InDataBase"].Value == null)
                 {
                     //Insert into person_workexp_Table
-                    
+
                     var query = "select MAX(PW_ID) from `person_workexp` ";
                     Program.buildConnection();
                     sc = new MySqlCommand(query, Program.MyConn);
@@ -1584,7 +1587,7 @@ namespace MyWorkApplication
                     ID = sc.ExecuteScalar() == DBNull.Value ? 0 : Convert.ToInt32(sc.ExecuteScalar().ToString());
                     ID = ID + 1;
                     Program.MyConn.Close();
-                     
+
                     MySS.query = "Insert Into `person_workexp`(`PW_ID`,`Person_ID`, `Work_ID`" +
                                  ", `W_Description`, `W_BeginDate`, `W_EndDate`, `W_Place`,`W_PlaceState`, `W_Status`" +
                                  ", `W_CauseOfLose`, `W_CauseOfLoseDescription`, `W_Salary`,`MicroProject_ID`) values("
@@ -1632,9 +1635,9 @@ namespace MyWorkApplication
                     continue;
                 else
                 {
-                    int.TryParse(Exp_dataGridView.Rows[i].Cells["Exp_Name"].Value.ToString(), out Exp_ID); 
+                    int.TryParse(Exp_dataGridView.Rows[i].Cells["Exp_Name"].Value.ToString(), out Exp_ID);
                     DataRow[] rows = grid_ds.Tables[2].Select("W_ID=" + Exp_ID);
-                    Work_Name_string = rows[0].Field<string>(1); 
+                    Work_Name_string = rows[0].Field<string>(1);
                 }
                 if (Exp_dataGridView.Rows[i].Cells["Exp_Description"].Value == null)
                     WorkDescription_string = " ";
@@ -1656,7 +1659,7 @@ namespace MyWorkApplication
                     string.IsNullOrWhiteSpace(Exp_dataGridView.Rows[i].Cells["Exp_PlaceState"].Value.ToString()))
                     WorkPlaceState_string = "";
                 else WorkPlaceState_string = Exp_dataGridView.Rows[i].Cells["Exp_PlaceState"].Value.ToString();
-                 
+
                 if (Exp_dataGridView.Rows[i].Cells["Exp_CauseOfLose"].Value == null)
                     WorkCauseOfLoseDesc_string = " ";
                 else WorkCauseOfLoseDesc_string = Exp_dataGridView.Rows[i].Cells["Exp_CauseOfLose"].Value.ToString();
@@ -1667,9 +1670,9 @@ namespace MyWorkApplication
                 else Double.TryParse(Exp_dataGridView.Rows[i].Cells["Exp_Salary"].Value.ToString().Replace(",", ""), out WorkSalary);
 
                 //set W_ID and P_ID columns 
-                Exp_dataGridView.Rows[i].Cells["ExpP_ID"].Value = Person_ID; 
-                Exp_dataGridView.Rows[i].Cells["Exp_ID"].Value = Exp_ID; 
-                 
+                Exp_dataGridView.Rows[i].Cells["ExpP_ID"].Value = Person_ID;
+                Exp_dataGridView.Rows[i].Cells["Exp_ID"].Value = Exp_ID;
+
                 Work_status_string = "No"; //سابق
                 if (Exp_dataGridView.Rows[i].Cells["Exp_InDataBase"].Value == null)
                 {
@@ -1682,7 +1685,7 @@ namespace MyWorkApplication
                     ID = sc.ExecuteScalar() == DBNull.Value ? 0 : Convert.ToInt32(sc.ExecuteScalar().ToString());
 
                     ID = ID + 1;
-                    Program.MyConn.Close(); 
+                    Program.MyConn.Close();
                     MySS.query = "Insert Into `person_workexp`(`PW_ID`,`Person_ID`, `Work_ID`," +
                                  " `W_Description`, `W_BeginDate`, `W_EndDate`, `W_Place`, `W_PlaceState`, `W_Status`," +
                                  " `W_CauseOfLose`, `W_CauseOfLoseDescription`, `W_Salary`,`MicroProject_ID`) values("
@@ -1718,7 +1721,7 @@ namespace MyWorkApplication
 
 
             // AidSource //
-            string aidsource_Name, aidsource_Notes_string , aidsource_Year_string;
+            string aidsource_Name, aidsource_Notes_string, aidsource_Year_string;
             aidsource_Name = aidsource_Notes_string = "";
             aidsource_Year_string = "0000";
 
@@ -1784,7 +1787,7 @@ namespace MyWorkApplication
                 else /// update
                 {
                     var ID = Convert.ToInt32(aidsource_dataGridView.Rows[i].Cells["AidSource_RowID"].Value);
-                    app.Update_Person_AidSource(ID, AidSource_ID,aidsource_Year_string,aidsource_Notes_string);
+                    app.Update_Person_AidSource(ID, AidSource_ID, aidsource_Year_string, aidsource_Notes_string);
                     l.Insert_Log(
                         "Update the AidSource: " + edu_Name + " to Beneficiary : " + P_FirstName_textBox.Text + " " +
                         P_LastName_textBox.Text, "Person_AidSource", Program.UserName, DateTime.Now);
@@ -1801,7 +1804,7 @@ namespace MyWorkApplication
             Double Power_Cost = 0.0;
             Power_Name_string = "0";
             Power_Note_string = Power_Responsability_string = " ";
-             
+
             for (var i = 0; i < PowerSource_dataGridView.RowCount - 1; i++)
             {
                 // get the data of 1 row 
@@ -1824,28 +1827,28 @@ namespace MyWorkApplication
                         DataRow[] rows = grid_ds.Tables[3].Select("ID=" + Power_ID);
                         Power_Name_string = rows[0].Field<string>(1);
                     }
-                    
+
                 }
 
                 if (PowerSource_dataGridView.Rows[i].Cells["Power_Note"].Value == null ||
                     PowerSource_dataGridView.Rows[i].Cells["Power_Note"].Value.ToString() == null)
                     Power_Note_string = " ";
                 else Power_Note_string = PowerSource_dataGridView.Rows[i].Cells["Power_Note"].Value.ToString();
-                  
+
                 if (PowerSource_dataGridView.Rows[i].Cells["Power_Cost"].Value == null ||
                     string.IsNullOrWhiteSpace(PowerSource_dataGridView.Rows[i].Cells["Power_Cost"].Value.ToString()))
                     Power_Cost = 0;
                 else Double.TryParse(PowerSource_dataGridView.Rows[i].Cells["Power_Cost"].Value.ToString().Replace(",", ""), out Power_Cost);
-                 
+
                 if (PowerSource_dataGridView.Rows[i].Cells["Power_Responsability"].Value == null ||
                     PowerSource_dataGridView.Rows[i].Cells["Power_Responsability"].Value.ToString() == null)
-                     Power_Responsability_string = " ";
+                    Power_Responsability_string = " ";
                 else Power_Responsability_string = PowerSource_dataGridView.Rows[i].Cells["Power_Responsability"].Value.ToString();
 
                 //set W_ID and P_ID columns 
-                PowerSource_dataGridView.Rows[i].Cells["Power_MP_ID"].Value = MicroProject_ID; 
+                PowerSource_dataGridView.Rows[i].Cells["Power_MP_ID"].Value = MicroProject_ID;
                 PowerSource_dataGridView.Rows[i].Cells["Power_ID"].Value = Power_ID;
-                 
+
                 if (PowerSource_dataGridView.Rows[i].Cells["Power_InDataBase"].Value == null)
                 {
                     //Insert into microproject_powersource Table 
@@ -1859,11 +1862,11 @@ namespace MyWorkApplication
                     Program.MyConn.Close();
 
                     MySS.query = "INSERT INTO `microproject_powersource`(`ID`, `MicroProject_ID`, `PowerSource_ID`, `Note`, `Cost`, `Responsability`) values("
-                                 + ID + "," 
-                                 + MicroProject_ID + "," 
-                                 + Power_ID+ ",N'" 
-                                 + Power_Note_string + "'," 
-                                 + Power_Cost + ",N'" 
+                                 + ID + ","
+                                 + MicroProject_ID + ","
+                                 + Power_ID + ",N'"
+                                 + Power_Note_string + "',"
+                                 + Power_Cost + ",N'"
                                  + Power_Responsability_string + "'"
                                  + ")";
                     Program.buildConnection();
@@ -1874,7 +1877,7 @@ namespace MyWorkApplication
                     PowerSource_dataGridView.Rows[i].Cells["Power_RowID"].Value = ID;
                     PowerSource_dataGridView.Rows[i].Cells["Power_InDataBase"].Value = "1";
                     l.Insert_Log(
-                        "Insert the PowerSource: " + Power_Name_string + " to Project: " + MicroProject_ID  , 
+                        "Insert the PowerSource: " + Power_Name_string + " to Project: " + MicroProject_ID,
                         "microproject_powersource", Program.UserName, DateTime.Now);
                 }
                 else /// update
@@ -1891,7 +1894,7 @@ namespace MyWorkApplication
                     MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
                     MySS.sc.ExecuteNonQuery();
                     Program.MyConn.Close();
-                     
+
                     l.Insert_Log(
                         "Update the PowerSource: " + Power_Name_string + " to Project: " + MicroProject_ID
                         , "microproject_powersource", Program.UserName, DateTime.Now);
@@ -1988,7 +1991,7 @@ namespace MyWorkApplication
             sc = new MySqlCommand(q, Program.MyConn);
             sc.ExecuteNonQuery();
             //////////////////////////////////////////////////////////
-            
+
             if (s1_radioButton.Checked && !n1_radioButton.Checked)
             {
                 Score_ID = 1;
@@ -2214,8 +2217,8 @@ namespace MyWorkApplication
                     Family_ID = Insert_Family(FamilyNum_textBox1.Text, Person_ID, "Yes", "مستفيد", Person_ID, "لا يوجد");
 
                     l.Insert_Log("Insert the Family: " + FamilyNum_textBox1.Text, "Family",
-                        Program.UserName, DateTime.Now); 
-                     
+                        Program.UserName, DateTime.Now);
+
                     l.Insert_Log(
                         "Insert the Beneficiary " + P_FirstName_textBox.Text + " " + P_LastName_textBox.Text +
                         " to Family: " + FamilyNum_textBox1.Text, "Person_Family", Program.UserName,
@@ -2236,14 +2239,14 @@ namespace MyWorkApplication
 
                 //// *** Insert other family members *** //  only that aren't in database
                 /////////////////////////////////////////
-                Insert_Update_FamilyMembers(); 
+                Insert_Update_FamilyMembers();
             }
         }
         private void Insert_Update_WifeHusband()
         {
             /////// wife / husband /////////
-            if (FPersonFName_textBox1.Text != "" 
-                || FPersonLName_textBox1.Text != "" 
+            if (FPersonFName_textBox1.Text != ""
+                || FPersonLName_textBox1.Text != ""
                 || FPersonFatherName_textBox1.Text != "") //there is a wife
             {
                 //check the national number of wife/husband
@@ -2257,10 +2260,10 @@ namespace MyWorkApplication
                     int.Parse(FPersonState_comboBox1.SelectedValue.ToString()) : -1);
 
                 if (Husband_Wife_ID == -1)
-                { 
+                {
                     // *** Insert the wife/husband *** //
                     Husband_Wife_ID =
-                        Insert_FMember( FPersonFName_textBox1.Text, FPersonLName_textBox1.Text
+                        Insert_FMember(FPersonFName_textBox1.Text, FPersonLName_textBox1.Text
                         , FPersonFatherName_textBox1.Text, FPersonMotherName_textBox1.Text
                         , FPersonDOB_textBox1.Text, FPersonNationalNum_textBox1.Text, FPersonSex_comboBox1.Text
                         , status_id, marital_status_id, Family_ID, "زوج/ة", Person_ID, "");
@@ -2274,8 +2277,8 @@ namespace MyWorkApplication
                     /////////////////////////////
                     Update_FMember(Husband_Wife_ID, FPersonFName_textBox1.Text, FPersonLName_textBox1.Text
                         , FPersonFatherName_textBox1.Text, FPersonMotherName_textBox1.Text
-                        , FPersonDOB_textBox1.Text , FPersonNationalNum_textBox1.Text , FPersonSex_comboBox1.Text
-                        , status_id , marital_status_id, Family_ID, "زوج/ة", "");
+                        , FPersonDOB_textBox1.Text, FPersonNationalNum_textBox1.Text, FPersonSex_comboBox1.Text
+                        , status_id, marital_status_id, Family_ID, "زوج/ة", "");
 
                     l.Insert_Log("Update the wife/husband: " + FPersonFName_textBox1.Text + " " +
                         FPersonLName_textBox1.Text + " to Family: " + FamilyNum_textBox1.Text, "Person_Family",
@@ -2284,7 +2287,7 @@ namespace MyWorkApplication
             }
         }
         private bool Check_MicroProject_ID(string MP_ID)
-        {  
+        {
             Program.buildConnection();
             MySqlCommand sc = new MySqlCommand("select count(MP_ID) from `microproject` where MP_ID = " + MP_ID, Program.MyConn);
             var check_MP_ID = Convert.ToInt32(sc.ExecuteScalar());
@@ -2310,11 +2313,11 @@ namespace MyWorkApplication
             string q = "select count(P_NationalNumber) from `person` " +
                 " where P_NationalNumber like '" + PersonNationalNum_without_zero + "'" +
                 " or P_NationalNumber like '" + PersonNationalNum + "' ";
-            MySS.sc = new MySqlCommand(q , Program.MyConn);
+            MySS.sc = new MySqlCommand(q, Program.MyConn);
             var check_NationalID = Convert.ToInt32(MySS.sc.ExecuteScalar());
             Program.MyConn.Close();
             if (check_NationalID != 0)
-            { 
+            {
                 // Get ID 
                 var query = "select CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ',P_FatherName) as 'Beneficiary Name'"
                             + ",MP.MP_ID 'MicroProject_ID'"
@@ -2322,7 +2325,7 @@ namespace MyWorkApplication
                             + " from `microproject` MP inner join person_microproject PMP on PMP.MicroProject_ID = MP.MP_ID "
                             + " inner join person P on P.P_ID = PMP.Person_ID "
                             + " where P_NationalNumber like '" + PersonNationalNum_without_zero + "'"
-                            + " or P_NationalNumber like '" + PersonNationalNum + "' "; 
+                            + " or P_NationalNumber like '" + PersonNationalNum + "' ";
                 Program.buildConnection();
                 var sc = new MySqlCommand(query, Program.MyConn);
                 sc.ExecuteNonQuery();
@@ -2345,13 +2348,13 @@ namespace MyWorkApplication
                         {
                             //////open Old Application in new tab 
                             Form application_Form = new Application_Form(P_ID, MP_ID, mainForm);
-                            mainForm.showNewTab(application_Form, "Application",1);
+                            mainForm.showNewTab(application_Form, "Application", 1);
                         }
                         else if (r == DialogResult.No)
                         {
                             OldBeneficiary_NewProject = true;
                             Person_ID = int.Parse(dt.Rows[0]["P_ID"].ToString());
-                            MicroProject_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString()); 
+                            MicroProject_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
 
                             Fill_Person();
                             Fill_PersonDetails();
@@ -2369,7 +2372,7 @@ namespace MyWorkApplication
                             //P_NationalNum_textBox.Clear();
                         }
                     }
-                } 
+                }
                 else
                 {
                     throw new InvalidOperationException(
@@ -2377,7 +2380,7 @@ namespace MyWorkApplication
                 }
             }
         }
-        
+
         #endregion
 
         #region fill to Update ---- clear
@@ -2406,7 +2409,7 @@ namespace MyWorkApplication
                         P_State_comboBox.SelectedIndex = -1;
                     else P_State_comboBox.SelectedValue = int.Parse(MySS.dt.Rows[0]["State_ID"].ToString());
 
-                    if (MySS.dt.Rows[0]["Birth Date"] == DBNull.Value 
+                    if (MySS.dt.Rows[0]["Birth Date"] == DBNull.Value
                         || MySS.dt.Rows[0]["Birth Date"] == null
                         || MySS.dt.Rows[0]["Birth Date"].ToString() == "0001-01-01"
                         || MySS.dt.Rows[0]["Birth Date"].ToString() == "0000-00-00")
@@ -2442,7 +2445,7 @@ namespace MyWorkApplication
                         Military_Date_dateTimePicker.Value = (DateTime)MySS.dt.Rows[0]["Military Services Date"];
                     }
 
-                    Military_textBox.Text = (string)MySS.dt.Rows[0]["Military Services Note"]; 
+                    Military_textBox.Text = (string)MySS.dt.Rows[0]["Military Services Note"];
                     P_Mobile_textBox.Text = (string)MySS.dt.Rows[0]["Mobile"];
                     P_HomeTel_textBox.Text = (string)MySS.dt.Rows[0]["Land Line"];
 
@@ -2592,13 +2595,13 @@ namespace MyWorkApplication
                         PicName = (string)MySS.dt.Rows[0]["Picture Path"];
                         Image_ID = int.Parse(MySS.dt.Rows[0]["Image_ID"].ToString());
                     }
-                     
+
                     if (PicName != null && PicName.Length > 0 && PicName != "")
                     {
-                        string OfflinePicPath = Program.OfflineRoot + @"/" + PicName; 
+                        string OfflinePicPath = Program.OfflineRoot + @"/" + PicName;
                         string OnlinePicPath = Program.OnlineRoot + @"/" + PicName;
 
-                        bool imageExist_offline = false; 
+                        bool imageExist_offline = false;
                         bool imageExist_online = false;
 
                         string Type;
@@ -2629,9 +2632,9 @@ namespace MyWorkApplication
                                 catch { }
                             }
                             FileInfo file = new FileInfo(tempDirectory + "\\" + PicName);
-                            if(imageExist_online) 
+                            if (imageExist_online)
                                 d.CopyToLocal(OnlinePicPath, tempDirectory + "\\" + PicName, imageExist_online);
-                            else 
+                            else
                                 d.CopyToLocal(OfflinePicPath, tempDirectory + "\\" + PicName, imageExist_online);
 
                             // if there is missing data between online and offline folders
@@ -2655,13 +2658,13 @@ namespace MyWorkApplication
                             PersonPicture_pictureBox.ImageLocation = tempDirectory + "\\" + PicName;
                         }
                         else
-                        { 
-                            if (imageExist_online) 
+                        {
+                            if (imageExist_online)
                                 d.DeleteOnline(OnlinePicPath);
-                            if (imageExist_offline) 
+                            if (imageExist_offline)
                                 d.DeleteOffline(OfflinePicPath);
 
-                            img.DeleteImage(Image_ID, MicroProject_ID, PicName); 
+                            img.DeleteImage(Image_ID, MicroProject_ID, PicName);
 
                             PersonPicture_pictureBox.Image = Resources.Unknown_User;
                             ImageLocation_textBox.Text = "";
@@ -2670,11 +2673,11 @@ namespace MyWorkApplication
                         }
                     }
                     else
-                    { 
-                        PersonPicture_pictureBox.Image = Resources.Unknown_User; 
+                    {
+                        PersonPicture_pictureBox.Image = Resources.Unknown_User;
                     }
                 }
-            
+
         }
 
         private DataGridViewComboBoxCell Load_Education_ComboBox(string Edu_type, string Name)
@@ -2699,7 +2702,7 @@ namespace MyWorkApplication
             MySS.sc = new MySqlCommand(str, Program.MyConn);
             MySS.da = new MySqlDataAdapter();
             MySS.ds = new DataSet();
-            var dt = new DataTable(); 
+            var dt = new DataTable();
             MySS.da.SelectCommand = MySS.sc;
             MySS.da.Fill(MySS.ds);
             dt = MySS.ds.Tables[0];
@@ -2718,7 +2721,7 @@ namespace MyWorkApplication
         {
 
             var str = " select `ID`,`Name` from `aidsource`";
-            var condition = ""; 
+            var condition = "";
             if (Name != "")
                 condition += " where `Name` like '%" + Name + "%'";
             str += condition;
@@ -2748,15 +2751,15 @@ namespace MyWorkApplication
         private DataGridViewComboBoxCell Load_PowerSource_ComboBox(string Name)
         {
 
-            var str = " select `ID`,`Name` from `powersource`"; 
-            var condition = ""; 
+            var str = " select `ID`,`Name` from `powersource`";
+            var condition = "";
             if (Name != "")
-                condition += " where `Name` like '%" + Name + "%'"; 
+                condition += " where `Name` like '%" + Name + "%'";
             str += condition;
 
             var orderby = " order by `ID`";
             str += orderby;
-             
+
             //check connection//
             Program.buildConnection();
             MySS.sc = new MySqlCommand(str, Program.MyConn);
@@ -2780,181 +2783,181 @@ namespace MyWorkApplication
 
         private void Fill_PersonDetails()
         {
-                // Education //
-                var e_dt = new DataTable();
-                e_dt = s.Person_Education_bind(Person_ID);
-                var edu_Name = "";
-                    string edu_Type = "";
-                if (e_dt != null || e_dt.Rows.Count > 0)
-                    for (var i = 0; i < e_dt.Rows.Count; i++)
+            // Education //
+            var e_dt = new DataTable();
+            e_dt = s.Person_Education_bind(Person_ID);
+            var edu_Name = "";
+            string edu_Type = "";
+            if (e_dt != null || e_dt.Rows.Count > 0)
+                for (var i = 0; i < e_dt.Rows.Count; i++)
+                {
+                    Education_dataGridView.Rows.Add();
+
+                    var ID = e_dt.Rows[i].Field<int>("ID");
+                    Education_dataGridView.Rows[i].Cells["Edu_RowID"].Value = ID;
+
+                    // get the data of 1 row
+                    edu_Type = e_dt.Rows[i].Field<string>("E_Type");
+                    Education_dataGridView.Rows[i].Cells["E_Type"].Value = edu_Type;
+
+                    edu_Name = e_dt.Rows[i].Field<string>("Name");
+                    //just in education because we have to select specific datasouce and comboBox according to the type
+                    Education_dataGridView.Rows[i].Cells["E_Name"] = Load_Education_ComboBox(edu_Type, "");
+                    Education_dataGridView.Rows[i].Cells["E_Name"].Value = edu_Name;
+
+                    //set E_ID and P_ID columns
+                    Education_dataGridView.Rows[i].Cells["P_ID"].Value = Person_ID;
+                    Education_dataGridView.Rows[i].Cells["E_ID"].Value = e_dt.Rows[i].Field<int>("Education_ID");
+                    Education_dataGridView.Rows[i].Cells["Edu_InDataBase"].Value = "1";
+                }
+
+            if (!OldBeneficiary_NewProject)
+            {
+                // Work //
+                var w_dt = new DataTable();
+                w_dt = s.Person_Work_bind(Person_ID, MicroProject_ID);
+                var Work_Name_string = "";
+                if (w_dt != null)
+                    for (var i = 0; i < w_dt.Rows.Count; i++)
                     {
-                        Education_dataGridView.Rows.Add();
-
-                        var ID = e_dt.Rows[i].Field<int>("ID");
-                        Education_dataGridView.Rows[i].Cells["Edu_RowID"].Value = ID;
-
+                        Work_dataGridView.Rows.Add();
                         // get the data of 1 row
-                        edu_Type = e_dt.Rows[i].Field<string>("E_Type");
-                        Education_dataGridView.Rows[i].Cells["E_Type"].Value = edu_Type;
+                        Work_dataGridView.Rows[i].Cells["W_RowID"].Value = w_dt.Rows[i].Field<int>("ID").ToString();
 
-                        edu_Name = e_dt.Rows[i].Field<string>("Name");  
-                        //just in education because we have to select specific datasouce and comboBox according to the type
-                        Education_dataGridView.Rows[i].Cells["E_Name"] = Load_Education_ComboBox(edu_Type, "");
-                        Education_dataGridView.Rows[i].Cells["E_Name"].Value = edu_Name;
-                          
-                        //set E_ID and P_ID columns
-                        Education_dataGridView.Rows[i].Cells["P_ID"].Value = Person_ID; 
-                        Education_dataGridView.Rows[i].Cells["E_ID"].Value = e_dt.Rows[i].Field<int>("Education_ID"); 
-                        Education_dataGridView.Rows[i].Cells["Edu_InDataBase"].Value = "1";
+                        Work_Name_string = w_dt.Rows[i].Field<string>("Name");
+
+                        Work_dataGridView.Rows[i].Cells["W_Name"].Value = w_dt.Rows[i].Field<int>("Work_ID");
+
+                        if (w_dt.Rows[i].Field<string>("Description") == string.Empty ||
+                            w_dt.Rows[i].Field<string>("Description") == null)
+                            Work_dataGridView.Rows[i].Cells["W_Description"].Value = "";
+                        else
+                            Work_dataGridView.Rows[i].Cells["W_Description"].Value =
+                                w_dt.Rows[i].Field<string>("Description");
+
+                        if (w_dt.Rows[i].Field<string>("Begin Date") == string.Empty ||
+                            w_dt.Rows[i].Field<string>("Begin Date") == null)
+                            Work_dataGridView.Rows[i].Cells["W_BeginDate"].Value = "0000";
+                        else
+                            Work_dataGridView.Rows[i].Cells["W_BeginDate"].Value =
+                                w_dt.Rows[i].Field<string>("Begin Date");
+
+                        if (w_dt.Rows[i].Field<string>("End Date") == string.Empty ||
+                            w_dt.Rows[i].Field<string>("End Date") == null)
+                            Work_dataGridView.Rows[i].Cells["W_EndDate"].Value = "0000";
+                        else
+                            Work_dataGridView.Rows[i].Cells["W_EndDate"].Value =
+                                w_dt.Rows[i].Field<string>("End Date");
+
+                        if (w_dt.Rows[i].Field<string>("Place") == string.Empty ||
+                            w_dt.Rows[i].Field<string>("Place") == null)
+                            Work_dataGridView.Rows[i].Cells["W_Place"].Value = "";
+                        else Work_dataGridView.Rows[i].Cells["W_Place"].Value = w_dt.Rows[i].Field<string>("Place");
+
+                        if (w_dt.Rows[i].Field<string>("Place State") == string.Empty ||
+                            w_dt.Rows[i].Field<string>("Place State") == null)
+                            Work_dataGridView.Rows[i].Cells["W_PlaceState"].Value = "";
+                        else
+                            Work_dataGridView.Rows[i].Cells["W_PlaceState"].Value =
+                                w_dt.Rows[i].Field<string>("Place State");
+
+                        if (w_dt.Rows[i].Field<string>("Description Reason Of Lose") == string.Empty ||
+                            w_dt.Rows[i].Field<string>("Description Reason Of Lose") == null)
+                            Work_dataGridView.Rows[i].Cells["W_CauseOfLose"].Value = "";
+                        else
+                            Work_dataGridView.Rows[i].Cells["W_CauseOfLose"].Value =
+                                w_dt.Rows[i].Field<string>("Description Reason Of Lose");
+
+                        if (w_dt.Rows[i].Field<Double>("Salary") == 0)
+                            Work_dataGridView.Rows[i].Cells["W_Salary"].Value = 0;
+                        else
+                            Work_dataGridView.Rows[i].Cells["W_Salary"].Value =
+                                w_dt.Rows[i].Field<Double>("Salary").ToString("#,##0");
+
+                        Work_dataGridView.Rows[i].Cells["W_ID"].Value = w_dt.Rows[i].Field<int>("Work_ID");
+                        Work_dataGridView.Rows[i].Cells["W_InDataBase"].Value = "1";
                     }
 
-                if (!OldBeneficiary_NewProject)
-                {
-                    // Work //
-                    var w_dt = new DataTable();
-                    w_dt = s.Person_Work_bind(Person_ID, MicroProject_ID);
-                    var Work_Name_string = "";
-                    if (w_dt != null)
-                        for (var i = 0; i < w_dt.Rows.Count; i++)
-                        {
-                            Work_dataGridView.Rows.Add();
-                            // get the data of 1 row
-                            Work_dataGridView.Rows[i].Cells["W_RowID"].Value = w_dt.Rows[i].Field<int>("ID").ToString();
+                // Experience //
+                w_dt = new DataTable();
+                w_dt = s.Person_Experience_bind(Person_ID, MicroProject_ID);
+                var Exp_Name_string = "";
+                if (w_dt != null)
+                    for (var i = 0; i < w_dt.Rows.Count; i++)
+                    {
+                        Exp_dataGridView.Rows.Add();
+                        // get the data of 1 row
+                        Exp_dataGridView.Rows[i].Cells["Exp_RowID"].Value =
+                            w_dt.Rows[i].Field<int>("ID").ToString();
 
-                            Work_Name_string = w_dt.Rows[i].Field<string>("Name");
+                        Exp_Name_string = w_dt.Rows[i].Field<string>("Name");
 
-                            Work_dataGridView.Rows[i].Cells["W_Name"].Value = w_dt.Rows[i].Field<int>("Work_ID");
-                            
-                            if (w_dt.Rows[i].Field<string>("Description") == string.Empty ||
-                                w_dt.Rows[i].Field<string>("Description") == null)
-                                Work_dataGridView.Rows[i].Cells["W_Description"].Value = "";
-                            else
-                                Work_dataGridView.Rows[i].Cells["W_Description"].Value =
-                                    w_dt.Rows[i].Field<string>("Description");
+                        Exp_dataGridView.Rows[i].Cells["Exp_Name"].Value = w_dt.Rows[i].Field<int>("Work_ID");
 
-                            if (w_dt.Rows[i].Field<string>("Begin Date") == string.Empty ||
-                                w_dt.Rows[i].Field<string>("Begin Date") == null)
-                                Work_dataGridView.Rows[i].Cells["W_BeginDate"].Value = "0000";
-                            else
-                                Work_dataGridView.Rows[i].Cells["W_BeginDate"].Value =
-                                    w_dt.Rows[i].Field<string>("Begin Date");
+                        if (w_dt.Rows[i].Field<string>("Description") == string.Empty ||
+                            w_dt.Rows[i].Field<string>("Description") == null)
+                            Exp_dataGridView.Rows[i].Cells["Exp_Description"].Value = "";
+                        else
+                            Exp_dataGridView.Rows[i].Cells["Exp_Description"].Value =
+                                w_dt.Rows[i].Field<string>("Description");
 
-                            if (w_dt.Rows[i].Field<string>("End Date") == string.Empty ||
-                                w_dt.Rows[i].Field<string>("End Date") == null)
-                                Work_dataGridView.Rows[i].Cells["W_EndDate"].Value = "0000";
-                            else
-                                Work_dataGridView.Rows[i].Cells["W_EndDate"].Value =
-                                    w_dt.Rows[i].Field<string>("End Date");
+                        if (w_dt.Rows[i].Field<string>("Begin Date") == string.Empty ||
+                            w_dt.Rows[i].Field<string>("Begin Date") == null)
+                            Exp_dataGridView.Rows[i].Cells["Exp_BeginDate"].Value = "0000";
+                        else
+                            Exp_dataGridView.Rows[i].Cells["Exp_BeginDate"].Value =
+                                w_dt.Rows[i].Field<string>("Begin Date");
 
-                            if (w_dt.Rows[i].Field<string>("Place") == string.Empty ||
-                                w_dt.Rows[i].Field<string>("Place") == null)
-                                Work_dataGridView.Rows[i].Cells["W_Place"].Value = "";
-                            else Work_dataGridView.Rows[i].Cells["W_Place"].Value = w_dt.Rows[i].Field<string>("Place");
+                        if (w_dt.Rows[i].Field<string>("End Date") == string.Empty ||
+                            w_dt.Rows[i].Field<string>("End Date") == null)
+                            Exp_dataGridView.Rows[i].Cells["Exp_EndDate"].Value = "0000";
+                        else
+                            Exp_dataGridView.Rows[i].Cells["Exp_EndDate"].Value =
+                                w_dt.Rows[i].Field<string>("End Date");
 
-                            if (w_dt.Rows[i].Field<string>("Place State") == string.Empty ||
-                                w_dt.Rows[i].Field<string>("Place State") == null)
-                                Work_dataGridView.Rows[i].Cells["W_PlaceState"].Value = "";
-                            else
-                                Work_dataGridView.Rows[i].Cells["W_PlaceState"].Value =
-                                    w_dt.Rows[i].Field<string>("Place State");
+                        if (w_dt.Rows[i].Field<string>("Place") == string.Empty ||
+                            w_dt.Rows[i].Field<string>("Place") == null)
+                            Exp_dataGridView.Rows[i].Cells["Exp_Place"].Value = "";
+                        else
+                            Exp_dataGridView.Rows[i].Cells["Exp_Place"].Value = w_dt.Rows[i].Field<string>("Place");
 
-                            if (w_dt.Rows[i].Field<string>("Description Reason Of Lose") == string.Empty ||
-                                w_dt.Rows[i].Field<string>("Description Reason Of Lose") == null)
-                                Work_dataGridView.Rows[i].Cells["W_CauseOfLose"].Value = "";
-                            else
-                                Work_dataGridView.Rows[i].Cells["W_CauseOfLose"].Value =
-                                    w_dt.Rows[i].Field<string>("Description Reason Of Lose");
+                        if (w_dt.Rows[i].Field<string>("Place State") == string.Empty ||
+                            w_dt.Rows[i].Field<string>("Place State") == null)
+                            Exp_dataGridView.Rows[i].Cells["Exp_PlaceState"].Value = "";
+                        else
+                            Exp_dataGridView.Rows[i].Cells["Exp_PlaceState"].Value =
+                                w_dt.Rows[i].Field<string>("Place State");
 
-                            if (w_dt.Rows[i].Field<Double>("Salary") == 0)
-                                Work_dataGridView.Rows[i].Cells["W_Salary"].Value = 0;
-                            else
-                                Work_dataGridView.Rows[i].Cells["W_Salary"].Value =
-                                    w_dt.Rows[i].Field<Double>("Salary").ToString("#,##0");
-                              
-                            Work_dataGridView.Rows[i].Cells["W_ID"].Value = w_dt.Rows[i].Field<int>("Work_ID");  
-                            Work_dataGridView.Rows[i].Cells["W_InDataBase"].Value = "1";
-                        }
+                        if (w_dt.Rows[i].Field<string>("Description Reason Of Lose") == string.Empty ||
+                            w_dt.Rows[i].Field<string>("Description Reason Of Lose") == null)
+                            Exp_dataGridView.Rows[i].Cells["Exp_CauseOfLose"].Value = "";
+                        else
+                            Exp_dataGridView.Rows[i].Cells["Exp_CauseOfLose"].Value =
+                                w_dt.Rows[i].Field<string>("Description Reason Of Lose");
 
-                    // Experience //
-                    w_dt = new DataTable();
-                    w_dt = s.Person_Experience_bind(Person_ID, MicroProject_ID);
-                    var Exp_Name_string = "";
-                    if (w_dt != null)
-                        for (var i = 0; i < w_dt.Rows.Count; i++)
-                        {
-                            Exp_dataGridView.Rows.Add();
-                            // get the data of 1 row
-                            Exp_dataGridView.Rows[i].Cells["Exp_RowID"].Value =
-                                w_dt.Rows[i].Field<int>("ID").ToString();
+                        if (w_dt.Rows[i].Field<Double>("Salary") == 0)
+                            Exp_dataGridView.Rows[i].Cells["Exp_Salary"].Value = 0;
+                        else
+                            Exp_dataGridView.Rows[i].Cells["Exp_Salary"].Value =
+                                w_dt.Rows[i].Field<Double>("Salary").ToString("#,##0");
 
-                            Exp_Name_string = w_dt.Rows[i].Field<string>("Name");
+                        //set W_ID and P_ID columns
+                        Exp_dataGridView.Rows[i].Cells["ExpP_ID"].Value = Person_ID;
 
-                            Exp_dataGridView.Rows[i].Cells["Exp_Name"].Value = w_dt.Rows[i].Field<int>("Work_ID");
-                            
-                            if (w_dt.Rows[i].Field<string>("Description") == string.Empty ||
-                                w_dt.Rows[i].Field<string>("Description") == null)
-                                Exp_dataGridView.Rows[i].Cells["Exp_Description"].Value = "";
-                            else
-                                Exp_dataGridView.Rows[i].Cells["Exp_Description"].Value =
-                                    w_dt.Rows[i].Field<string>("Description");
-
-                            if (w_dt.Rows[i].Field<string>("Begin Date") == string.Empty ||
-                                w_dt.Rows[i].Field<string>("Begin Date") == null)
-                                Exp_dataGridView.Rows[i].Cells["Exp_BeginDate"].Value = "0000";
-                            else
-                                Exp_dataGridView.Rows[i].Cells["Exp_BeginDate"].Value =
-                                    w_dt.Rows[i].Field<string>("Begin Date");
-
-                            if (w_dt.Rows[i].Field<string>("End Date") == string.Empty ||
-                                w_dt.Rows[i].Field<string>("End Date") == null)
-                                Exp_dataGridView.Rows[i].Cells["Exp_EndDate"].Value = "0000";
-                            else
-                                Exp_dataGridView.Rows[i].Cells["Exp_EndDate"].Value =
-                                    w_dt.Rows[i].Field<string>("End Date");
-
-                            if (w_dt.Rows[i].Field<string>("Place") == string.Empty ||
-                                w_dt.Rows[i].Field<string>("Place") == null)
-                                Exp_dataGridView.Rows[i].Cells["Exp_Place"].Value = "";
-                            else
-                                Exp_dataGridView.Rows[i].Cells["Exp_Place"].Value = w_dt.Rows[i].Field<string>("Place");
-
-                            if (w_dt.Rows[i].Field<string>("Place State") == string.Empty ||
-                                w_dt.Rows[i].Field<string>("Place State") == null)
-                                Exp_dataGridView.Rows[i].Cells["Exp_PlaceState"].Value = "";
-                            else
-                                Exp_dataGridView.Rows[i].Cells["Exp_PlaceState"].Value =
-                                    w_dt.Rows[i].Field<string>("Place State");
-
-                            if (w_dt.Rows[i].Field<string>("Description Reason Of Lose") == string.Empty ||
-                                w_dt.Rows[i].Field<string>("Description Reason Of Lose") == null)
-                                Exp_dataGridView.Rows[i].Cells["Exp_CauseOfLose"].Value = "";
-                            else
-                                Exp_dataGridView.Rows[i].Cells["Exp_CauseOfLose"].Value =
-                                    w_dt.Rows[i].Field<string>("Description Reason Of Lose");
-
-                            if (w_dt.Rows[i].Field<Double>("Salary") == 0)
-                                Exp_dataGridView.Rows[i].Cells["Exp_Salary"].Value = 0;
-                            else
-                                Exp_dataGridView.Rows[i].Cells["Exp_Salary"].Value =
-                                    w_dt.Rows[i].Field<Double>("Salary").ToString("#,##0");
-
-                            //set W_ID and P_ID columns
-                            Exp_dataGridView.Rows[i].Cells["ExpP_ID"].Value = Person_ID; 
-
-                            Exp_dataGridView.Rows[i].Cells["Exp_ID"].Value = w_dt.Rows[i].Field<int>("Work_ID");
-                            Exp_dataGridView.Rows[i].Cells["Exp_InDataBase"].Value = "1";
-                        }
-                }
-                else
-                {
-                    Work_dataGridView.Rows.Clear();
-                    Exp_dataGridView.Rows.Clear();
-                }
+                        Exp_dataGridView.Rows[i].Cells["Exp_ID"].Value = w_dt.Rows[i].Field<int>("Work_ID");
+                        Exp_dataGridView.Rows[i].Cells["Exp_InDataBase"].Value = "1";
+                    }
+            }
+            else
+            {
+                Work_dataGridView.Rows.Clear();
+                Exp_dataGridView.Rows.Clear();
+            }
 
 
             // AidSource //
             var aid_dt = new DataTable();
-            aid_dt = s.Person_AidSource_bind(Person_ID,MicroProject_ID);
+            aid_dt = s.Person_AidSource_bind(Person_ID, MicroProject_ID);
             string aid_Name, aid_DateYear, aid_Notes;
 
             if (aid_dt != null || aid_dt.Rows.Count > 0)
@@ -2965,9 +2968,9 @@ namespace MyWorkApplication
 
                     var ID = aid_dt.Rows[i].Field<int>("ID");
                     aidsource_dataGridView.Rows[i].Cells["AidSource_RowID"].Value = ID;
-                     
+
                     aid_Name = aid_dt.Rows[i].Field<string>("Name");
-                    aidsource_dataGridView.Rows[i].Cells["AidSource_Name"].Value = aid_dt.Rows[i].Field<int>("AidSource_ID"); 
+                    aidsource_dataGridView.Rows[i].Cells["AidSource_Name"].Value = aid_dt.Rows[i].Field<int>("AidSource_ID");
 
                     aid_DateYear = aid_dt.Rows[i].Field<string>("DateYear");
                     aidsource_dataGridView.Rows[i].Cells["AidSource_DateYear"].Value = aid_DateYear;
@@ -2975,10 +2978,10 @@ namespace MyWorkApplication
                     aid_Notes = aid_dt.Rows[i].Field<string>("Notes");
                     aidsource_dataGridView.Rows[i].Cells["AidSource_Notes"].Value = aid_Notes;
 
-                    aidsource_dataGridView.Rows[i].Cells["AidSourceP_ID"].Value = Person_ID; 
+                    aidsource_dataGridView.Rows[i].Cells["AidSourceP_ID"].Value = Person_ID;
                     aidsource_dataGridView.Rows[i].Cells["AidSource_InDataBase"].Value = "1";
                 }
-          
+
 
             // PowerSource //
             var dt2 = new DataTable();
@@ -2995,85 +2998,85 @@ namespace MyWorkApplication
 
             // Courses //
             var dt1 = new DataTable();
-                dt1 = s.Person_Courses_bind(Person_ID);
-                if (dt1 != null || dt1.Rows.Count > 0)
-                    for (var i = 0; i < dt1.Rows.Count; i++)
-                        foreach (Control c in Course_tableLayoutPanel.Controls)
-                            if (c.GetType() == typeof(CheckBox))
-                            {
-                                var CBox = c as CheckBox;
-                                if (CBox.Text == dt1.Rows[i].Field<string>("Name")) CBox.Checked = true;
-                            }
+            dt1 = s.Person_Courses_bind(Person_ID);
+            if (dt1 != null || dt1.Rows.Count > 0)
+                for (var i = 0; i < dt1.Rows.Count; i++)
+                    foreach (Control c in Course_tableLayoutPanel.Controls)
+                        if (c.GetType() == typeof(CheckBox))
+                        {
+                            var CBox = c as CheckBox;
+                            if (CBox.Text == dt1.Rows[i].Field<string>("Name")) CBox.Checked = true;
+                        }
 
-                // Loss //
-                var dt = new DataTable();
-                dt = s.Person_Loss_bind(Person_ID);
-                if (dt != null || dt.Rows.Count > 0)
-                    for (var i = 0; i < dt.Rows.Count; i++)
-                        foreach (Control c in Loss_tableLayoutPanel.Controls)
-                            if (c.GetType() == typeof(CheckBox))
-                            {
-                                var CBox = c as CheckBox;
-                                if (CBox.Text == dt.Rows[i].Field<string>("Name")) CBox.Checked = true;
-                            }
-           
+            // Loss //
+            var dt = new DataTable();
+            dt = s.Person_Loss_bind(Person_ID);
+            if (dt != null || dt.Rows.Count > 0)
+                for (var i = 0; i < dt.Rows.Count; i++)
+                    foreach (Control c in Loss_tableLayoutPanel.Controls)
+                        if (c.GetType() == typeof(CheckBox))
+                        {
+                            var CBox = c as CheckBox;
+                            if (CBox.Text == dt.Rows[i].Field<string>("Name")) CBox.Checked = true;
+                        }
+
         }
 
         private void Fill_FamilyMembers(int x)
         {
-                //Reset the nubmer of family members//
-                //int NumberOfMembers = 0;
+            //Reset the nubmer of family members//
+            //int NumberOfMembers = 0;
 
-                // FAMILY MEMBERS //
-                MySS.dt = new DataTable();
-                MySS.dt = s.FamilyMembers_bind(-1, Person_ID);
-                var Relation = "";
-                FamilyNum_textBox1.Text = "";
-                Husband_Wife_ID = -1; 
-                Family_ID = -1;
-                NoFamily = true;
+            // FAMILY MEMBERS //
+            MySS.dt = new DataTable();
+            MySS.dt = s.FamilyMembers_bind(-1, Person_ID);
+            var Relation = "";
+            FamilyNum_textBox1.Text = "";
+            Husband_Wife_ID = -1;
+            Family_ID = -1;
+            NoFamily = true;
 
-                var j = 0;
-                if (MySS.dt != null && MySS.dt.Rows.Count > 0)
+            var j = 0;
+            if (MySS.dt != null && MySS.dt.Rows.Count > 0)
+            {
+                //get family book number and family id from first row (0) //
+                if (MySS.dt.Rows[0].Field<string>("Family Number") == null)
                 {
-                    //get family book number and family id from first row (0) //
-                    if (MySS.dt.Rows[0].Field<string>("Family Number") == null)
-                    { 
-                        MessageBox.Show("انتبه ! هذا المستفيد لا يملك رقم دفتر العائلة");
-                    }
-                    else
+                    MessageBox.Show("انتبه ! هذا المستفيد لا يملك رقم دفتر العائلة");
+                }
+                else
+                {
+                    FamilyNum_textBox1.Text = MySS.dt.Rows[0].Field<string>("Family Number");
+                    NoFamily = false;
+                    Family_ID = MySS.dt.Rows[0].Field<int>("Family_ID");
+                }
+
+                //fill family members //
+                for (var i = 0; i < MySS.dt.Rows.Count; i++)
+                {
+                    Relation = MySS.dt.Rows[i].Field<string>("Relation");
+                    if (Relation.Contains("مستفيد"))
                     {
-                        FamilyNum_textBox1.Text = MySS.dt.Rows[0].Field<string>("Family Number");
-                        NoFamily = false;
-                        Family_ID = MySS.dt.Rows[0].Field<int>("Family_ID");
+                        if (x == 0) continue;
+                        goto Finish;
                     }
 
-                    //fill family members //
-                    for (var i = 0; i < MySS.dt.Rows.Count; i++)
+                    if (Relation.Equals("زوج/ة")) //add to husband/wife textboxs   
                     {
-                        Relation = MySS.dt.Rows[i].Field<string>("Relation");
-                        if (Relation.Contains("مستفيد"))
-                        { 
-                            if (x == 0) continue;
-                            goto Finish;
-                        }
+                        Husband_Wife_ID = MySS.dt.Rows[i].Field<int>("ID");
 
-                        if (Relation.Equals("زوج/ة")) //add to husband/wife textboxs   
-                        { 
-                            Husband_Wife_ID = MySS.dt.Rows[i].Field<int>("ID");
-
-                            FPersonFName_textBox1.Text = MySS.dt.Rows[i].Field<string>("FirstName");
+                        FPersonFName_textBox1.Text = MySS.dt.Rows[i].Field<string>("FirstName");
 
                         if (MySS.dt.Rows[i]["Birth Date"] == DBNull.Value
                             || MySS.dt.Rows[i]["Birth Date"] == null
                             || MySS.dt.Rows[i]["Birth Date"].ToString() == "0001-01-01"
-                            || MySS.dt.Rows[i]["Birth Date"].ToString() == "0000-00-00") 
-                                FPersonDOB_textBox1.Text = "";
+                            || MySS.dt.Rows[i]["Birth Date"].ToString() == "0000-00-00")
+                            FPersonDOB_textBox1.Text = "";
                         else
                         {
                             var date = MySS.dt.Rows[i].Field<DateTime>("Birth Date");
                             FPersonDOB_textBox1.Text = date.Year.ToString();
-                        } 
+                        }
 
                         if (MySS.dt.Rows[i].Field<string>("LastName") == null)
                             FPersonLName_textBox1.Text = "";
@@ -3103,217 +3106,218 @@ namespace MyWorkApplication
                         //NumberOfMembers++;
 
                         continue;
-                        }
-
-                        Finish:
-                        {
-                            //add to datagridview//
-                            FamilyMember_dataGridView.Rows.Add();
-
-                            FamilyMember_dataGridView.Rows[j].Cells["FP_ID"].Value =
-                                MySS.dt.Rows[i].Field<int>("ID").ToString();
-                            FamilyMember_dataGridView.Rows[j].Cells["F_ID"].Value = Family_ID;
-
-                            FamilyMember_dataGridView.Rows[j].Cells["P_FirstName"].Value =
-                                MySS.dt.Rows[i].Field<string>("FirstName");
-
-                            if (MySS.dt.Rows[i].Field<string>("LastName") == null ||
-                                MySS.dt.Rows[i].Field<string>("LastName") == null)
-                                FamilyMember_dataGridView.Rows[j].Cells["P_LastName"].Value = "";
-                            else
-                                FamilyMember_dataGridView.Rows[j].Cells["P_LastName"].Value =
-                                    MySS.dt.Rows[i].Field<string>("LastName");
-
-                            if (MySS.dt.Rows[i]["Birth Date"] == DBNull.Value
-                                || MySS.dt.Rows[i]["Birth Date"] == null
-                                || MySS.dt.Rows[i]["Birth Date"].ToString() == "0001-01-01"
-                                || MySS.dt.Rows[i]["Birth Date"].ToString() == "0000-00-00")
-                                FamilyMember_dataGridView.Rows[j].Cells["P_DOB"].Value = "";
-                            else
-                            {
-                                var date = MySS.dt.Rows[i].Field<DateTime>("Birth Date");
-                                FamilyMember_dataGridView.Rows[j].Cells["P_DOB"].Value = date.Year.ToString();
-                            }
-                            
-                            FamilyMember_dataGridView.Rows[j].Cells["Relation"].Value = Relation;
-
-                            if (MySS.dt.Rows[i].Field<string>("Work") == null)
-                                FamilyMember_dataGridView.Rows[j].Cells["Work_Name"].Value = "";
-                            else
-                                FamilyMember_dataGridView.Rows[j].Cells["Work_Name"].Value =
-                                    MySS.dt.Rows[i].Field<string>("Work");
-
-                            if (MySS.dt.Rows[0]["State_ID"] == DBNull.Value || MySS.dt.Rows[i]["State_ID"] == null)
-                                FamilyMember_dataGridView.Rows[j].Cells["P_State"].Value = -1;
-                            else FamilyMember_dataGridView.Rows[j].Cells["P_State"].Value = Convert.ToInt32(MySS.dt.Rows[i]["State_ID"].ToString());
-
-                            //FamilyMember_dataGridView.Rows[j].Cells["P_State"].Value = MySS.dt.Rows[i].Field<int>("State_ID");
-                             
-                            FamilyMember_dataGridView.Rows[j].Cells["P_InDataBase"].Value = "1";
-                            j++; 
-                        }
                     }
-                } 
-                Calculate_NumAtHome();
+
+                Finish:
+                    {
+                        //add to datagridview//
+                        FamilyMember_dataGridView.Rows.Add();
+
+                        FamilyMember_dataGridView.Rows[j].Cells["FP_ID"].Value =
+                            MySS.dt.Rows[i].Field<int>("ID").ToString();
+                        FamilyMember_dataGridView.Rows[j].Cells["F_ID"].Value = Family_ID;
+
+                        FamilyMember_dataGridView.Rows[j].Cells["P_FirstName"].Value =
+                            MySS.dt.Rows[i].Field<string>("FirstName");
+
+                        if (MySS.dt.Rows[i].Field<string>("LastName") == null ||
+                            MySS.dt.Rows[i].Field<string>("LastName") == null)
+                            FamilyMember_dataGridView.Rows[j].Cells["P_LastName"].Value = "";
+                        else
+                            FamilyMember_dataGridView.Rows[j].Cells["P_LastName"].Value =
+                                MySS.dt.Rows[i].Field<string>("LastName");
+
+                        if (MySS.dt.Rows[i]["Birth Date"] == DBNull.Value
+                            || MySS.dt.Rows[i]["Birth Date"] == null
+                            || MySS.dt.Rows[i]["Birth Date"].ToString() == "0001-01-01"
+                            || MySS.dt.Rows[i]["Birth Date"].ToString() == "0000-00-00")
+                            FamilyMember_dataGridView.Rows[j].Cells["P_DOB"].Value = "";
+                        else
+                        {
+                            var date = MySS.dt.Rows[i].Field<DateTime>("Birth Date");
+                            FamilyMember_dataGridView.Rows[j].Cells["P_DOB"].Value = date.Year.ToString();
+                        }
+
+                        FamilyMember_dataGridView.Rows[j].Cells["Relation"].Value = Relation;
+
+                        if (MySS.dt.Rows[i].Field<string>("Work") == null)
+                            FamilyMember_dataGridView.Rows[j].Cells["Work_Name"].Value = "";
+                        else
+                            FamilyMember_dataGridView.Rows[j].Cells["Work_Name"].Value =
+                                MySS.dt.Rows[i].Field<string>("Work");
+
+                        if (MySS.dt.Rows[0]["State_ID"] == DBNull.Value || MySS.dt.Rows[i]["State_ID"] == null)
+                            FamilyMember_dataGridView.Rows[j].Cells["P_State"].Value = -1;
+                        else FamilyMember_dataGridView.Rows[j].Cells["P_State"].Value = Convert.ToInt32(MySS.dt.Rows[i]["State_ID"].ToString());
+
+                        //FamilyMember_dataGridView.Rows[j].Cells["P_State"].Value = MySS.dt.Rows[i].Field<int>("State_ID");
+
+                        FamilyMember_dataGridView.Rows[j].Cells["P_InDataBase"].Value = "1";
+                        j++;
+                    }
+                }
+            }
+            Calculate_NumAtHome();
         }
 
         private void Fill_Project()
         {
-                MySS.dt = new DataTable();
-                MySS.dt = s.MicroProject_bind(Person_ID, MicroProject_ID);
-                if (MySS.dt != null)
-                    if (MySS.dt.Rows.Count > 0)
-                    {
-                        MicroProject_ID = int.Parse(MySS.dt.Rows[0]["MicroProject_ID"].ToString());
-                        MPID_textBox.Text = MicroProject_ID.ToString();
+            MySS.dt = new DataTable();
+            MySS.dt = s.MicroProject_bind(Person_ID, MicroProject_ID);
+            if (MySS.dt != null)
+                if (MySS.dt.Rows.Count > 0)
+                {
+                    MicroProject_ID = int.Parse(MySS.dt.Rows[0]["MicroProject_ID"].ToString());
+                    MPID_textBox.Text = MicroProject_ID.ToString();
 
-                        MP_Name_textBox.Text = (string) MySS.dt.Rows[0]["Project Name"];
-                        MP_Name_En_textBox.Text = (string) MySS.dt.Rows[0]["Project Name En"];
+                    MP_Name_textBox.Text = (string)MySS.dt.Rows[0]["Project Name"];
+                    MP_Name_En_textBox.Text = (string)MySS.dt.Rows[0]["Project Name En"];
 
                     var price = Convert.ToDouble(MySS.dt.Rows[0]["Requested Amount"].ToString());
-                        MP_RequestedAmount_textBox.Text = price.ToString();
-                        MP_RequestedTime_textBox.Text = (string) MySS.dt.Rows[0]["Requested Time"];
+                    MP_RequestedAmount_textBox.Text = price.ToString();
+                    MP_RequestedTime_textBox.Text = (string)MySS.dt.Rows[0]["Requested Time"];
 
-                        if (MySS.dt.Rows[0]["Application Date"] == DBNull.Value || MySS.dt.Rows[0]["Application Date"].ToString().Contains("0001"))
-                            ApplyDate_bcDateTimePicker.Value = DateTime.Now;
-                        else
-                        {
-                            var date = (DateTime)MySS.dt.Rows[0]["Application Date"];
-                            ApplyDate_bcDateTimePicker.Value = date;
-                        }
-
-                        MP_Description_textBox.Text = (string) MySS.dt.Rows[0]["Description"];
-                        var temp = "";
-                        
-                        //fund type
-                        if (MySS.dt.Rows[0]["FundType_ID"] == DBNull.Value || MySS.dt.Rows[0]["FundType_ID"] == null)
-                            Loan_radioButton.Checked = Grant_radioButton.Checked = false;
-                        else {
-                            if ((int)MySS.dt.Rows[0]["FundType_ID"] == 1) Loan_radioButton.Checked = true;
-                            else Grant_radioButton.Checked = true;
-                        }
-                        
-                        //project type
-                        if (MySS.dt.Rows[0]["Type_ID"] == DBNull.Value || MySS.dt.Rows[0]["Type_ID"] == null)
-                            Type_comboBox.SelectedIndex = -1;
-                        else
-                        {
-                            //to trigger the event type_selectedValueChanged//
-                            user_mode = true;
-                            Type_comboBox.SelectedValue = Convert.ToInt32(MySS.dt.Rows[0]["Type_ID"]);
-                            if(MySS.dt.Rows[0]["Type"].ToString().Contains("ترميم")
-                                || MySS.dt.Rows[0]["Type"].ToString().Contains("زراع"))
-                                AddExtention_button.Visible = true;
-                            else AddExtention_button.Visible = false; 
-                            user_mode = false;
-                        }
-                        //project sub type
-                        if (MySS.dt.Rows[0]["SubType_ID"] == DBNull.Value || MySS.dt.Rows[0]["SubType_ID"] == null)
-                            SubType_comboBox.SelectedIndex = -1;
-                        else SubType_comboBox.SelectedValue = Convert.ToInt32(MySS.dt.Rows[0]["SubType_ID"]);
-                         
-                        //sub category
-                        if (MySS.dt.Rows[0]["SubCategory_ID"] == DBNull.Value || MySS.dt.Rows[0]["SubCategory_ID"] == null)
-                            SubCategory_comboBox.SelectedIndex = -1;
-                        else SubCategory_comboBox.SelectedValue = Convert.ToInt32(MySS.dt.Rows[0]["SubCategory_ID"]);
-                          
-                        //career
-                        if (MySS.dt.Rows[0]["Career_ID"] == DBNull.Value || MySS.dt.Rows[0]["Career_ID"] == null)
-                            Career_comboBox.SelectedIndex = -1;
-                        else Career_comboBox.SelectedValue = Convert.ToInt32(MySS.dt.Rows[0]["Career_ID"]);
-                         
-                        temp = (string) MySS.dt.Rows[0]["Has Previous Donors"];
-                        if (temp == "Yes") HasPreviousDonors_radioButton.Checked = true;
-                        else if (temp == "No") HasNotPreviousDonors_radioButton.Checked = true;
-                        else HasPreviousDonors_radioButton.Checked = HasNotPreviousDonors_radioButton.Checked = false;
-
-                        MP_OtherDonors_textBox.Text = (string) MySS.dt.Rows[0]["Other Donors"];
-
-                        temp = (string) MySS.dt.Rows[0]["needs a license"];
-                        if (temp == "Yes") MP_NeedLicense_radioButton.Checked = true;
-                        else MP_DontNeedLicense_radioButton.Checked = true;
-                        MP_LicenseSide_textBox.Text = (string) MySS.dt.Rows[0]["License Side"];
-
-                        temp = (string) MySS.dt.Rows[0]["Has Competitors"];
-                        if (temp == "Yes") HasCompetitors_radioButton.Checked = true;
-                        else if (temp == "No") HasNotCompetitors_radioButton.Checked = true;
-                        else HasCompetitors_radioButton.Checked = HasNotCompetitors_radioButton.Checked = false;
-
-                        MP_Competitors_textBox.Text = MySS.dt.Rows[0]["Competitors"].ToString();
-
-                        temp = (string) MySS.dt.Rows[0]["Supplies Insurance"];
-                        if (temp == "Easy") EasySupplies_radioButton.Checked = true;
-                        else if (temp == "Hard") HardSupplies_radioButton.Checked = true;
-                        else EasySupplies_radioButton.Checked = HardSupplies_radioButton.Checked = false;
-
-                        MP_Suppliers_textBox.Text = MySS.dt.Rows[0]["Suppliers"].ToString();
-                        MP_Risk_textBox.Text = MySS.dt.Rows[0]["Risk"].ToString();
-                        MP_Protection_textBox.Text = MySS.dt.Rows[0]["Protection"].ToString();
-
-                        MP_OtherNotes_textBox.Text = (string) MySS.dt.Rows[0]["Other Notes"];
-                        MP_Marketing_textBox.Text = (string) MySS.dt.Rows[0]["Marketing"];
-                        var num = (double) MySS.dt.Rows[0]["Simple Profit"];
-                        MP_SimpleProfit_textBox.Text = num.ToString();
-                        MP_SimpleProfit2_textBox.Text = (string) MySS.dt.Rows[0]["Profit Comment"];
-
-                        temp = (string) MySS.dt.Rows[0]["Income Kind"];
-                        if (temp == "Single") SingleIncome_radioButton.Checked = true;
-                        else if (temp == "Additional") AdditionalIncome_radioButton.Checked = true;
-                        else SingleIncome_radioButton.Checked = AdditionalIncome_radioButton.Checked = false;
-
-                        IncomeDesc_textBox.Text = (string) MySS.dt.Rows[0]["Income Kind Note"];
-
-                        temp = (string) MySS.dt.Rows[0]["Has Ledger"];
-                        if (temp == "Yes") HasLedger_radioButton.Checked = true;
-                        else if (temp == "No") HasNotLedger_radioButton.Checked = true;
-                        else HasLedger_radioButton.Checked = HasNotLedger_radioButton.Checked = false;
-
-                        AmperNumber_textBox.Text = ((int)MySS.dt.Rows[0]["Amper Number"]).ToString();
-
-                        var visited = (int) MySS.dt.Rows[0]["Visited"];
-                        if (visited == 0) Visit_checkBox.Checked = false;
-                        else Visit_checkBox.Checked = true;
-
-                        var IsContentUpdated = (int)MySS.dt.Rows[0]["IsContentUpdated"];
-                        if (IsContentUpdated == 0) ContentUpdated_checkBox.Checked = false;
-                        else ContentUpdated_checkBox.Checked = true;
-
-                        var message = (int) MySS.dt.Rows[0]["Message"];
-                        if (message == 0)
-                        {
-                            Reject_Message_checkBox.Checked = false;
-                            Reject_Message_checkBox.Text = "";
-                        }
-                        else
-                        {
-                            Reject_Message_checkBox.Checked = true;
-                            if (MySS.dt.Rows[0]["Message Date"] != DBNull.Value)
-                            {
-                                var date = (DateTime) MySS.dt.Rows[0]["Message Date"];
-                                Reject_Message_checkBox.Text = date.ToString("dd/MM/yyyy hh:mm:ss");
-                            }
-                        }
-
-                        //عرض رأي المفتاحيين
-                        int KeyPersonNumber = Convert.ToInt32( MySS.dt.Rows[0]["KeyPerson"].ToString());
-                        if (KeyPersonNumber == 0)
-                            KeyPerson_checkBox.Checked = false;
-                        else KeyPerson_checkBox.Checked = true;
-
-                        //user// 
-                        if (MySS.dt.Rows[0]["PaperUser_ID"] == DBNull.Value || MySS.dt.Rows[0]["PaperUser_ID"] == null)
-                            PaperApplicationUser_comboBox.SelectedIndex = -1;
-                        else PaperApplicationUser_comboBox.SelectedValue = Convert.ToInt32(MySS.dt.Rows[0]["PaperUser_ID"]);
-                         
-                        if (MySS.dt.Rows[0]["ProgramUser"] != DBNull.Value)
-                            CreatedBy_User_label.Text = (string)MySS.dt.Rows[0]["ProgramUser"];
-                        else CreatedBy_User_label.Text = "";
-
-                        if (MySS.dt.Rows[0]["EditedByUser"] != DBNull.Value)
-                            EditedBy_User_label.Text = (string) MySS.dt.Rows[0]["EditedByUser"];
-                        else EditedBy_User_label.Text = ""; 
-
+                    if (MySS.dt.Rows[0]["Application Date"] == DBNull.Value || MySS.dt.Rows[0]["Application Date"].ToString().Contains("0001"))
+                        ApplyDate_bcDateTimePicker.Value = DateTime.Now;
+                    else
+                    {
+                        var date = (DateTime)MySS.dt.Rows[0]["Application Date"];
+                        ApplyDate_bcDateTimePicker.Value = date;
                     }
+
+                    MP_Description_textBox.Text = (string)MySS.dt.Rows[0]["Description"];
+                    var temp = "";
+
+                    //fund type
+                    if (MySS.dt.Rows[0]["FundType_ID"] == DBNull.Value || MySS.dt.Rows[0]["FundType_ID"] == null)
+                        Loan_radioButton.Checked = Grant_radioButton.Checked = false;
+                    else
+                    {
+                        if ((int)MySS.dt.Rows[0]["FundType_ID"] == 1) Loan_radioButton.Checked = true;
+                        else Grant_radioButton.Checked = true;
+                    }
+
+                    //project type
+                    if (MySS.dt.Rows[0]["Type_ID"] == DBNull.Value || MySS.dt.Rows[0]["Type_ID"] == null)
+                        Type_comboBox.SelectedIndex = -1;
+                    else
+                    {
+                        //to trigger the event type_selectedValueChanged//
+                        user_mode = true;
+                        Type_comboBox.SelectedValue = Convert.ToInt32(MySS.dt.Rows[0]["Type_ID"]);
+                        if (MySS.dt.Rows[0]["Type"].ToString().Contains("ترميم")
+                            || MySS.dt.Rows[0]["Type"].ToString().Contains("زراع"))
+                            AddExtention_button.Visible = true;
+                        else AddExtention_button.Visible = false;
+                        user_mode = false;
+                    }
+                    //project sub type
+                    if (MySS.dt.Rows[0]["SubType_ID"] == DBNull.Value || MySS.dt.Rows[0]["SubType_ID"] == null)
+                        SubType_comboBox.SelectedIndex = -1;
+                    else SubType_comboBox.SelectedValue = Convert.ToInt32(MySS.dt.Rows[0]["SubType_ID"]);
+
+                    //sub category
+                    if (MySS.dt.Rows[0]["SubCategory_ID"] == DBNull.Value || MySS.dt.Rows[0]["SubCategory_ID"] == null)
+                        SubCategory_comboBox.SelectedIndex = -1;
+                    else SubCategory_comboBox.SelectedValue = Convert.ToInt32(MySS.dt.Rows[0]["SubCategory_ID"]);
+
+                    //career
+                    if (MySS.dt.Rows[0]["Career_ID"] == DBNull.Value || MySS.dt.Rows[0]["Career_ID"] == null)
+                        Career_comboBox.SelectedIndex = -1;
+                    else Career_comboBox.SelectedValue = Convert.ToInt32(MySS.dt.Rows[0]["Career_ID"]);
+
+                    temp = (string)MySS.dt.Rows[0]["Has Previous Donors"];
+                    if (temp == "Yes") HasPreviousDonors_radioButton.Checked = true;
+                    else if (temp == "No") HasNotPreviousDonors_radioButton.Checked = true;
+                    else HasPreviousDonors_radioButton.Checked = HasNotPreviousDonors_radioButton.Checked = false;
+
+                    MP_OtherDonors_textBox.Text = (string)MySS.dt.Rows[0]["Other Donors"];
+
+                    temp = (string)MySS.dt.Rows[0]["needs a license"];
+                    if (temp == "Yes") MP_NeedLicense_radioButton.Checked = true;
+                    else MP_DontNeedLicense_radioButton.Checked = true;
+                    MP_LicenseSide_textBox.Text = (string)MySS.dt.Rows[0]["License Side"];
+
+                    temp = (string)MySS.dt.Rows[0]["Has Competitors"];
+                    if (temp == "Yes") HasCompetitors_radioButton.Checked = true;
+                    else if (temp == "No") HasNotCompetitors_radioButton.Checked = true;
+                    else HasCompetitors_radioButton.Checked = HasNotCompetitors_radioButton.Checked = false;
+
+                    MP_Competitors_textBox.Text = MySS.dt.Rows[0]["Competitors"].ToString();
+
+                    temp = (string)MySS.dt.Rows[0]["Supplies Insurance"];
+                    if (temp == "Easy") EasySupplies_radioButton.Checked = true;
+                    else if (temp == "Hard") HardSupplies_radioButton.Checked = true;
+                    else EasySupplies_radioButton.Checked = HardSupplies_radioButton.Checked = false;
+
+                    MP_Suppliers_textBox.Text = MySS.dt.Rows[0]["Suppliers"].ToString();
+                    MP_Risk_textBox.Text = MySS.dt.Rows[0]["Risk"].ToString();
+                    MP_Protection_textBox.Text = MySS.dt.Rows[0]["Protection"].ToString();
+
+                    MP_OtherNotes_textBox.Text = (string)MySS.dt.Rows[0]["Other Notes"];
+                    MP_Marketing_textBox.Text = (string)MySS.dt.Rows[0]["Marketing"];
+                    var num = (double)MySS.dt.Rows[0]["Simple Profit"];
+                    MP_SimpleProfit_textBox.Text = num.ToString();
+                    MP_SimpleProfit2_textBox.Text = (string)MySS.dt.Rows[0]["Profit Comment"];
+
+                    temp = (string)MySS.dt.Rows[0]["Income Kind"];
+                    if (temp == "Single") SingleIncome_radioButton.Checked = true;
+                    else if (temp == "Additional") AdditionalIncome_radioButton.Checked = true;
+                    else SingleIncome_radioButton.Checked = AdditionalIncome_radioButton.Checked = false;
+
+                    IncomeDesc_textBox.Text = (string)MySS.dt.Rows[0]["Income Kind Note"];
+
+                    temp = (string)MySS.dt.Rows[0]["Has Ledger"];
+                    if (temp == "Yes") HasLedger_radioButton.Checked = true;
+                    else if (temp == "No") HasNotLedger_radioButton.Checked = true;
+                    else HasLedger_radioButton.Checked = HasNotLedger_radioButton.Checked = false;
+
+                    AmperNumber_textBox.Text = ((int)MySS.dt.Rows[0]["Amper Number"]).ToString();
+
+                    var visited = (int)MySS.dt.Rows[0]["Visited"];
+                    if (visited == 0) Visit_checkBox.Checked = false;
+                    else Visit_checkBox.Checked = true;
+
+                    var IsContentUpdated = (int)MySS.dt.Rows[0]["IsContentUpdated"];
+                    if (IsContentUpdated == 0) ContentUpdated_checkBox.Checked = false;
+                    else ContentUpdated_checkBox.Checked = true;
+
+                    var message = (int)MySS.dt.Rows[0]["Message"];
+                    if (message == 0)
+                    {
+                        Reject_Message_checkBox.Checked = false;
+                        Reject_Message_checkBox.Text = "";
+                    }
+                    else
+                    {
+                        Reject_Message_checkBox.Checked = true;
+                        if (MySS.dt.Rows[0]["Message Date"] != DBNull.Value)
+                        {
+                            var date = (DateTime)MySS.dt.Rows[0]["Message Date"];
+                            Reject_Message_checkBox.Text = date.ToString("dd/MM/yyyy hh:mm:ss");
+                        }
+                    }
+
+                    //عرض رأي المفتاحيين
+                    int KeyPersonNumber = Convert.ToInt32(MySS.dt.Rows[0]["KeyPerson"].ToString());
+                    if (KeyPersonNumber == 0)
+                        KeyPerson_checkBox.Checked = false;
+                    else KeyPerson_checkBox.Checked = true;
+
+                    //user// 
+                    if (MySS.dt.Rows[0]["PaperUser_ID"] == DBNull.Value || MySS.dt.Rows[0]["PaperUser_ID"] == null)
+                        PaperApplicationUser_comboBox.SelectedIndex = -1;
+                    else PaperApplicationUser_comboBox.SelectedValue = Convert.ToInt32(MySS.dt.Rows[0]["PaperUser_ID"]);
+
+                    if (MySS.dt.Rows[0]["ProgramUser"] != DBNull.Value)
+                        CreatedBy_User_label.Text = (string)MySS.dt.Rows[0]["ProgramUser"];
+                    else CreatedBy_User_label.Text = "";
+
+                    if (MySS.dt.Rows[0]["EditedByUser"] != DBNull.Value)
+                        EditedBy_User_label.Text = (string)MySS.dt.Rows[0]["EditedByUser"];
+                    else EditedBy_User_label.Text = "";
+
+                }
         }
 
         private void Fill_ProjectDetails()
@@ -3321,7 +3325,7 @@ namespace MyWorkApplication
             // PowerSource //
             var ps_dt = new DataTable();
             ps_dt = s.MicroProject_PowerSource_bind(MicroProject_ID);
-             
+
             if (ps_dt != null || ps_dt.Rows.Count > 0)
                 for (var i = 0; i < ps_dt.Rows.Count; i++)
                 {
@@ -3329,19 +3333,19 @@ namespace MyWorkApplication
 
                     var ID = ps_dt.Rows[i].Field<int>("ID");
                     PowerSource_dataGridView.Rows[i].Cells["Power_RowID"].Value = ID;
-                     
+
                     string Power_Name = ps_dt.Rows[i].Field<string>("Name");
                     //just in education because we have to select specific datasouce and comboBox according to the type
                     PowerSource_dataGridView.Rows[i].Cells["Power_Name"] = Load_PowerSource_ComboBox("");
                     PowerSource_dataGridView.Rows[i].Cells["Power_Name"].Value = Power_Name;
-                     
+
                     // get the data of 1 row
                     string Power_Note = ps_dt.Rows[i].Field<string>("Note");
                     PowerSource_dataGridView.Rows[i].Cells["Power_Note"].Value = Power_Note;
-                     
+
                     string Power_Responsability = ps_dt.Rows[i].Field<string>("Responsability");
                     PowerSource_dataGridView.Rows[i].Cells["Power_Responsability"].Value = Power_Responsability;
-                     
+
                     PowerSource_dataGridView.Rows[i].Cells["Power_Cost"].Value = ps_dt.Rows[i].Field<double>("Cost");
 
                     //set Power_ID and MP_ID columns
@@ -3393,7 +3397,7 @@ namespace MyWorkApplication
                             Materials_dataGridView.Rows[i].Cells["M_Comments"].Value =
                                 MySS.dt.Rows[i].Field<string>("Comments");
 
-                        Materials_dataGridView.Rows[i].Cells["M_InDataBase"].Value = "1"; 
+                        Materials_dataGridView.Rows[i].Cells["M_InDataBase"].Value = "1";
                     }
 
             //calculate sum of items //
@@ -3427,93 +3431,93 @@ namespace MyWorkApplication
                         switch (Score_ID)
                         {
                             case 1:
-                            {
-                                if (Value == 1) s1_radioButton.Checked = true;
-                                else if (Value == 0) n1_radioButton.Checked = true;
-                                else s1_radioButton.Checked = n1_radioButton.Checked = false;
-                                s1_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
-                            }
+                                {
+                                    if (Value == 1) s1_radioButton.Checked = true;
+                                    else if (Value == 0) n1_radioButton.Checked = true;
+                                    else s1_radioButton.Checked = n1_radioButton.Checked = false;
+                                    s1_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
+                                }
                                 break;
 
                             case 2:
-                            {
-                                if (Value == 1) s2_radioButton.Checked = true;
-                                else if (Value == 0) n2_radioButton.Checked = true;
-                                else s2_radioButton.Checked = n2_radioButton.Checked = false;
-                                s2_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
-                            }
+                                {
+                                    if (Value == 1) s2_radioButton.Checked = true;
+                                    else if (Value == 0) n2_radioButton.Checked = true;
+                                    else s2_radioButton.Checked = n2_radioButton.Checked = false;
+                                    s2_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
+                                }
                                 break;
 
                             case 3:
-                            {
-                                if (Value == 1) s3_radioButton.Checked = true;
-                                else if (Value == 0) n3_radioButton.Checked = true;
-                                else s3_radioButton.Checked = n3_radioButton.Checked = false;
-                                s3_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
-                            }
+                                {
+                                    if (Value == 1) s3_radioButton.Checked = true;
+                                    else if (Value == 0) n3_radioButton.Checked = true;
+                                    else s3_radioButton.Checked = n3_radioButton.Checked = false;
+                                    s3_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
+                                }
                                 break;
 
                             case 4:
-                            {
-                                if (Value == 1) s4_radioButton.Checked = true;
-                                else if (Value == 0) n4_radioButton.Checked = true;
-                                else s4_radioButton.Checked = n4_radioButton.Checked = false;
-                                s4_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
-                            }
+                                {
+                                    if (Value == 1) s4_radioButton.Checked = true;
+                                    else if (Value == 0) n4_radioButton.Checked = true;
+                                    else s4_radioButton.Checked = n4_radioButton.Checked = false;
+                                    s4_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
+                                }
                                 break;
 
                             case 5:
-                            {
-                                if (Value == 1) s5_radioButton.Checked = true;
-                                else if (Value == 0) n5_radioButton.Checked = true;
-                                else s5_radioButton.Checked = n5_radioButton.Checked = false;
-                                s5_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
-                            }
+                                {
+                                    if (Value == 1) s5_radioButton.Checked = true;
+                                    else if (Value == 0) n5_radioButton.Checked = true;
+                                    else s5_radioButton.Checked = n5_radioButton.Checked = false;
+                                    s5_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
+                                }
                                 break;
 
                             case 6:
-                            {
-                                if (Value == 1) s6_radioButton.Checked = true;
-                                else if (Value == 0) n6_radioButton.Checked = true;
-                                else s6_radioButton.Checked = n6_radioButton.Checked = false;
-                                s6_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
-                            }
+                                {
+                                    if (Value == 1) s6_radioButton.Checked = true;
+                                    else if (Value == 0) n6_radioButton.Checked = true;
+                                    else s6_radioButton.Checked = n6_radioButton.Checked = false;
+                                    s6_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
+                                }
                                 break;
 
                             case 7:
-                            {
-                                if (Value == 1) s7_radioButton.Checked = true;
-                                else if (Value == 0) n7_radioButton.Checked = true;
-                                else s7_radioButton.Checked = n7_radioButton.Checked = false;
-                                s7_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
-                            }
+                                {
+                                    if (Value == 1) s7_radioButton.Checked = true;
+                                    else if (Value == 0) n7_radioButton.Checked = true;
+                                    else s7_radioButton.Checked = n7_radioButton.Checked = false;
+                                    s7_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
+                                }
                                 break;
 
                             case 8:
-                            {
-                                if (Value == 1) s8_radioButton.Checked = true;
-                                else if (Value == 0) n8_radioButton.Checked = true;
-                                else s8_radioButton.Checked = n8_radioButton.Checked = false;
-                                s8_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
-                            }
+                                {
+                                    if (Value == 1) s8_radioButton.Checked = true;
+                                    else if (Value == 0) n8_radioButton.Checked = true;
+                                    else s8_radioButton.Checked = n8_radioButton.Checked = false;
+                                    s8_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
+                                }
                                 break;
 
                             case 9:
-                            {
-                                if (Value == 1) s9_radioButton.Checked = true;
-                                else if (Value == 0) n9_radioButton.Checked = true;
-                                else s9_radioButton.Checked = n9_radioButton.Checked = false;
-                                s9_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
-                            }
+                                {
+                                    if (Value == 1) s9_radioButton.Checked = true;
+                                    else if (Value == 0) n9_radioButton.Checked = true;
+                                    else s9_radioButton.Checked = n9_radioButton.Checked = false;
+                                    s9_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
+                                }
                                 break;
 
                             case 10:
-                            {
-                                if (Value == 1) s0_radioButton.Checked = true;
-                                else if (Value == 0) n0_radioButton.Checked = true;
-                                else s0_radioButton.Checked = n0_radioButton.Checked = false;
-                                s0_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
-                            }
+                                {
+                                    if (Value == 1) s0_radioButton.Checked = true;
+                                    else if (Value == 0) n0_radioButton.Checked = true;
+                                    else s0_radioButton.Checked = n0_radioButton.Checked = false;
+                                    s0_textBox.Text = MySS.dt.Rows[i].Field<string>("notes");
+                                }
                                 break;
                         }
                     }
@@ -3526,20 +3530,20 @@ namespace MyWorkApplication
             user_mode = false;
             PersonType_comboBox.SelectedIndex = 0;
             user_mode = true;
-            
+
             P_FirstName_textBox.Text = P_LastName_textBox.Text = P_FatherName_textBox.Text = P_MotherName_textBox.Text
                 = P_Sex_comboBox.Text = P_MaritalState_comboBox.Text = P_State_comboBox.Text
                 = P_NationalNum_textBox.Text = P_DOB_textBox.Text = "";
-            
-            MilitaryDelayed_radioButton.Checked = MilitaryFinished_radioButton.Checked 
-                = MilitaryNow_radioButton.Checked = MilitarySingle_radioButton.Checked 
+
+            MilitaryDelayed_radioButton.Checked = MilitaryFinished_radioButton.Checked
+                = MilitaryNow_radioButton.Checked = MilitarySingle_radioButton.Checked
                 = MilitaryExempt_radioButton.Checked = Military_Date_checkBox.Checked = false;
-            
-            Military_textBox.Text = P_IntermidiaryName_textBox.Text 
+
+            Military_textBox.Text = P_IntermidiaryName_textBox.Text
                 = P_Parish_comboBox.Text
                 = P_Priest_comboBox.Text = Street_comboBox.Text = "";//need to clear selection too
-            
-            P_Priest_comboBox.SelectedIndex = Street_comboBox.SelectedIndex =  - 1;
+
+            P_Priest_comboBox.SelectedIndex = Street_comboBox.SelectedIndex = -1;
 
             P_Mobile_textBox.Text = P_HomeTel_textBox.Text = P_Registration_textBox.Text = P_Address_textBox.Text
                 = LiveWithFamilyDesc_textBox.Text = HomeDesc_textBox.Text
@@ -3557,7 +3561,7 @@ namespace MyWorkApplication
                 = P_HomeOwnership_radioButton.Checked = P_HomeRent_radioButton.Checked
                 = P_Car_checkBox.Checked = P_Rented_checkBox.Checked = false;
 
-            P_NumAtHome_textBox.Text = FamilyNum_textBox1.Text = ""; 
+            P_NumAtHome_textBox.Text = FamilyNum_textBox1.Text = "";
             FamilyMember_dataGridView.Rows.Clear();//clear datagrid
             Work_dataGridView.Rows.Clear();
             Exp_dataGridView.Rows.Clear();
@@ -3572,12 +3576,12 @@ namespace MyWorkApplication
                 }
 
             OtherCourses_textBox.Text
-                = P_SourceOfIncome_textBox.Text = P_OtherIncomeSources_textBox.Text = P_MedicalHelp_textBox.Text 
+                = P_SourceOfIncome_textBox.Text = P_OtherIncomeSources_textBox.Text = P_MedicalHelp_textBox.Text
                 = P_MedicalCond_textBox.Text = P_Loss_textBox.Text = "";
 
-           IsProvider_radioButton.Checked = IsNotProvider_radioButton.Checked
-                = P_SourceRation_checkBox.Checked = P_SourceRelatives_checkBox.Checked 
-                = MedicalHelp_radioButton.Checked = NoMedicalHelp_radioButton.Checked = false;
+            IsProvider_radioButton.Checked = IsNotProvider_radioButton.Checked
+                 = P_SourceRation_checkBox.Checked = P_SourceRelatives_checkBox.Checked
+                 = MedicalHelp_radioButton.Checked = NoMedicalHelp_radioButton.Checked = false;
 
             //multiple checkbox select 
             foreach (Control c in Loss_tableLayoutPanel.Controls)
@@ -3592,7 +3596,7 @@ namespace MyWorkApplication
             FPersonFName_textBox1.Text = FPersonLName_textBox1.Text = FPersonFatherName_textBox1.Text = FPersonMotherName_textBox1.Text
                 = FPersonSex_comboBox1.Text = FPersonMaritalState_comboBox1.Text = FPersonState_comboBox1.Text
                 = FPersonNationalNum_textBox1.Text = FPersonDOB_textBox1.Text = "";
-            
+
 
             Family_ID = -1;
             Husband_Wife_ID = -1;
@@ -3626,15 +3630,15 @@ namespace MyWorkApplication
             Visit_checkBox.Checked = KeyPerson_checkBox.Checked
                 = Reject_Message_checkBox.Checked = ContentUpdated_checkBox.Checked = false;
 
-            SubType_comboBox.SelectedIndex 
+            SubType_comboBox.SelectedIndex
                 = SubCategory_comboBox.SelectedIndex = Career_comboBox.SelectedIndex = -1;
 
-            MP_Name_En_textBox.Text = MP_Name_textBox.Text  
-                = MP_RequestedAmount_textBox.Text = MP_RequestedTime_textBox.Text  
+            MP_Name_En_textBox.Text = MP_Name_textBox.Text
+                = MP_RequestedAmount_textBox.Text = MP_RequestedTime_textBox.Text
                 = MP_Description_textBox.Text = MP_OtherDonors_textBox.Text = "";
 
             HasNotPreviousDonors_radioButton.Checked = HasPreviousDonors_radioButton.Checked = false;
-             
+
             PowerSource_dataGridView.Rows.Clear();
             AmperNumber_textBox.Text = "0";
 
@@ -3662,15 +3666,15 @@ namespace MyWorkApplication
 
             MP_LicenseSide_textBox.Text = MP_Competitors_textBox.Text
                 = MP_Suppliers_textBox.Text = MP_Risk_textBox.Text = MP_Protection_textBox.Text
-                = MP_OtherNotes_textBox.Text = MP_Marketing_textBox.Text 
-                = MP_SimpleProfit2_textBox.Text = IncomeDesc_textBox.Text =  "";
+                = MP_OtherNotes_textBox.Text = MP_Marketing_textBox.Text
+                = MP_SimpleProfit2_textBox.Text = IncomeDesc_textBox.Text = "";
 
             MP_SimpleProfit_textBox.Text = "0";
 
             SingleIncome_radioButton.Checked = AdditionalIncome_radioButton.Checked
                 = HasLedger_radioButton.Checked = HasNotLedger_radioButton.Checked = false;
 
-            Materials_dataGridView.Rows.Clear(); 
+            Materials_dataGridView.Rows.Clear();
             OverallSyrian_label.Text = Sum_label.Text = "";
 
             PaperApplicationUser_comboBox.Text = EditedBy_User_label.Text = CreatedBy_User_label.Text = "";
@@ -3678,13 +3682,13 @@ namespace MyWorkApplication
 
             Get_Last_MicroProjectID();
             ApplyDate_bcDateTimePicker.Value = DateTime.Now;
-             
+
         }
-         
+
         #endregion
 
         #region education Work Exp material family
-          
+
         private void Education_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //if click is on new row or header row
@@ -3756,13 +3760,13 @@ namespace MyWorkApplication
                 e.Handled = true;
             }
         }
-  
+
         private void Education_dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 if (e.ColumnIndex == 3) // select the type to fill the education
-                { 
+                {
                 }
                 if (e.ColumnIndex == 4) //check if type iserted before the name
                 {
@@ -3907,11 +3911,11 @@ namespace MyWorkApplication
                             MessageBoxIcon.Warning);
                         Work_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
                     }
-                    else 
+                    else
                         Work_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = salary.ToString("#,##0");
                 }
             }
-             
+
         }
         //////////////////////////////////////////////////////////////////////////
 
@@ -4016,7 +4020,7 @@ namespace MyWorkApplication
                         Exp_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() != "")
                     {
                         string value = Exp_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                        Double salary = 0; 
+                        Double salary = 0;
                         if (!Double.TryParse(value, out salary))
                         {
                             MessageBox.Show("الرجاء إدخال المبلغ كرقم صحيح!", "Error", MessageBoxButtons.OK,
@@ -4026,7 +4030,7 @@ namespace MyWorkApplication
                         else
                             Exp_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = salary.ToString("#,##0");
                     }
-                } 
+                }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -4062,9 +4066,9 @@ namespace MyWorkApplication
                                 MessageBoxButtons.YesNo);
                             if (dialogResult == DialogResult.Yes)
                             {
-                                var MP_ID    = Convert.ToInt32(PowerSource_dataGridView.Rows[e.RowIndex].Cells["Power_MP_ID"].Value.ToString());
+                                var MP_ID = Convert.ToInt32(PowerSource_dataGridView.Rows[e.RowIndex].Cells["Power_MP_ID"].Value.ToString());
                                 var Power_ID = Convert.ToInt32(PowerSource_dataGridView.Rows[e.RowIndex].Cells["Power_ID"].Value.ToString());
-                                var Row_ID   = Convert.ToInt32(PowerSource_dataGridView.Rows[e.RowIndex].Cells["Power_RowID"].Value.ToString());
+                                var Row_ID = Convert.ToInt32(PowerSource_dataGridView.Rows[e.RowIndex].Cells["Power_RowID"].Value.ToString());
 
                                 var query = "DELETE FROM `microproject_powersource` WHERE ID = " + Row_ID + "";
                                 Program.buildConnection();
@@ -4131,7 +4135,7 @@ namespace MyWorkApplication
                     double cost = 0;
                     if (!double.TryParse(value, out cost))
                     {
-                        MessageBox.Show("الرجاء إدخال الكلفة كرقم صحيح!", "Error", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        MessageBox.Show("الرجاء إدخال الكلفة كرقم صحيح!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         PowerSource_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
                     }
                     else
@@ -4179,8 +4183,8 @@ namespace MyWorkApplication
                                 sc.ExecuteNonQuery();
                                 Program.MyConn.Close();
 
-                                l.Insert_Log("DELETE aidsource: " + aidsource_dataGridView.Rows[e.RowIndex].Cells["AidSource_Name"].Value 
-                                    + " from project: " + MicroProject_ID, "aidsource", Program.UserName, DateTime.Now); 
+                                l.Insert_Log("DELETE aidsource: " + aidsource_dataGridView.Rows[e.RowIndex].Cells["AidSource_Name"].Value
+                                    + " from project: " + MicroProject_ID, "aidsource", Program.UserName, DateTime.Now);
 
                                 aidsource_dataGridView.Rows.RemoveAt(e.RowIndex);
                             }
@@ -4294,7 +4298,7 @@ namespace MyWorkApplication
                         }
                     }
                 }
-                 
+
             }
             catch (Exception ex)
             {
@@ -4318,7 +4322,7 @@ namespace MyWorkApplication
                         Materials_dataGridView.CurrentCell.Value = deci_val.ToString("#,##0");
 
                         calculate_SumOfBudgetItems();
-                    } 
+                    }
                 }
                 else Materials_dataGridView.CurrentCell.Value = "";
             }
@@ -4326,12 +4330,12 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
 
         private void calculate_SumOfBudgetItems()
         {
             try
-            { 
+            {
                 sumOfItemsPrice_SYR = 0;
 
                 for (var RowIndex = 0; RowIndex < Materials_dataGridView.RowCount - 1; RowIndex++)
@@ -4350,7 +4354,7 @@ namespace MyWorkApplication
                     var local = Materials_dataGridView.Rows[RowIndex].Cells["M_LocalContribution"].Value.ToString().Replace(",", "");
                     var amount = Materials_dataGridView.Rows[RowIndex].Cells["M_Amount"].Value.ToString().Replace(",", "");
 
-                    Double AllPrice = Double.Parse(price) * Int64.Parse(amount); 
+                    Double AllPrice = Double.Parse(price) * Int64.Parse(amount);
                     itemOverAllsyr = AllPrice - Int64.Parse(local);
 
                     //save the overAll for each item
@@ -4394,16 +4398,16 @@ namespace MyWorkApplication
         }
 
         ///////////////////////////////////////////////////////////////////////////
-        
+
         private void FamilyMember_dataGridView_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 FamilyMember_dataGridView.EndEdit();
                 if (e.ColumnIndex == FamilyMember_dataGridView.Columns["P_DOB"].Index)
-                { 
-                    if (FamilyMember_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null 
-                        && FamilyMember_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != DBNull.Value 
+                {
+                    if (FamilyMember_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null
+                        && FamilyMember_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != DBNull.Value
                         && FamilyMember_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() != "")
                     {
                         string value = FamilyMember_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
@@ -4419,7 +4423,7 @@ namespace MyWorkApplication
                 }
                 Calculate_NumAtHome();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
 
@@ -4432,7 +4436,7 @@ namespace MyWorkApplication
                 if (!string.IsNullOrWhiteSpace(P_FirstName_textBox.Text)) NumberOfMembers++;
 
                 //  husband/wife
-                if (!string.IsNullOrWhiteSpace(FPersonFName_textBox1.Text) 
+                if (!string.IsNullOrWhiteSpace(FPersonFName_textBox1.Text)
                     && FPersonState_comboBox1.SelectedIndex != -1)
                 {
                     string value = FPersonState_comboBox1.SelectedValue.ToString();
@@ -4443,7 +4447,7 @@ namespace MyWorkApplication
                     {
                         if (rows[0].Field<string>(2).ToLower() == "active")
                             NumberOfMembers++;
-                    } 
+                    }
                 }
 
                 if (FamilyMember_dataGridView.Rows.Count > 0)
@@ -4471,8 +4475,8 @@ namespace MyWorkApplication
                         {
                             if (rows[0].Field<string>(2).ToLower() == "active")
                                 NumberOfMembers++;
-                        } 
-                    } 
+                        }
+                    }
                 P_NumAtHome_textBox.Text = NumberOfMembers.ToString();
             }
             catch (Exception ex)
@@ -4480,10 +4484,10 @@ namespace MyWorkApplication
         }
 
         private void FamilyMember_dataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        { 
-            FamilyMember_dataGridView["F_Number", e.RowIndex].Value = FamilyNum_textBox1.Text; 
-            FamilyMember_dataGridView["P_State", e.RowIndex].Value = 1; 
-            FamilyMember_dataGridView.Refresh(); 
+        {
+            FamilyMember_dataGridView["F_Number", e.RowIndex].Value = FamilyNum_textBox1.Text;
+            FamilyMember_dataGridView["P_State", e.RowIndex].Value = 1;
+            FamilyMember_dataGridView.Refresh();
         }
 
         private void FamilyMember_dataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
@@ -4746,7 +4750,7 @@ namespace MyWorkApplication
                 myTh = new Thread(CallDialog);
                 myTh.SetApartmentState(ApartmentState.STA);
                 myTh.Start();
-                myTh.Join(); 
+                myTh.Join();
 
                 int success = 0;
                 if (FullPicName != "")
@@ -4764,24 +4768,24 @@ namespace MyWorkApplication
                 MessageBox.Show("تعذّر حفظ الصورة على السرفر المحلّي أو الأونلاين، الرجاء المحاولة مرة ثانية");
             }
         }
-         
+
         private bool Save_Attachments(string FullAttachName)
         {
 
             //insert image//
             if (ImageLocation_textBox.Text == "") throw new InvalidOperationException("Please choose the image you want to add");
-             
-            bool sucess = false; 
-            string t; 
+
+            bool sucess = false;
+            string t;
             d.GetNameFromPath(FullAttachName, out t, out _);
 
             string new_name = MicroProject_ID + "_profile" + "_" + t;
-             
+
             while (d.Offline_Exist(new_name) || d.Online_Exist(new_name))
             {
                 t = "(1)" + t;
                 new_name = MicroProject_ID + "_profile" + "_" + t;
-            } 
+            }
 
             ////////////////// Upload Image to server ////////////////////
             if (d.SaveDocument(FullAttachName, new_name))
@@ -4796,7 +4800,7 @@ namespace MyWorkApplication
                 //l.Insert_Log("Upload Image of:" + MicroProject_ID + ":" + P_FirstName_textBox.Text + " " +
                 //    P_LastName_textBox.Text + " to the server", "Person", Program.UserName, DateTime.Now); 
                 sucess = true;
-            } 
+            }
             return sucess;
         }
 
@@ -4843,14 +4847,14 @@ namespace MyWorkApplication
             }
             catch (Exception ex)
             {
-                MessageBox.Show("تعذّر حذف الصورة من السرفر المحلي أو الأونلاين! الرجاء المحاولة مرة ثانية","Error");
+                MessageBox.Show("تعذّر حذف الصورة من السرفر المحلي أو الأونلاين! الرجاء المحاولة مرة ثانية", "Error");
             }
         }
 
         public static byte[] ImageToByte(Image img)
         {
             var converter = new ImageConverter();
-            return (byte[]) converter.ConvertTo(img, typeof(byte[]));
+            return (byte[])converter.ConvertTo(img, typeof(byte[]));
         }
 
         private void CallDialog()
@@ -4899,20 +4903,20 @@ namespace MyWorkApplication
             {
                 if (!CanAddFamilyMembers)
                     throw new InvalidOperationException("لا يمكن ترك رقم دفتر العائلة فارغ !");
-                 
+
                 //clear unused dummy families//
                 string q = "DELETE from family WHERE family.F_ID not in (SELECT person_family.Family_ID from person_family);";
                 //check if family is already inserted// 
                 q += "select count(F_Number) from `family` where F_Number like '" + FamilyNum_textBox1.Text + "';";
 
                 Program.buildConnection();
-                MySS.sc = new MySqlCommand(q,Program.MyConn);
+                MySS.sc = new MySqlCommand(q, Program.MyConn);
                 var FamilyBookID = Convert.ToInt32(MySS.sc.ExecuteScalar());
                 Program.MyConn.Close();
                 if (FamilyBookID != 0)
                 {
                     // get beneficiary names of this family
-                    
+
                     var query =
                         @"select CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ', P_FatherName) as 'الاسم الثلاثي'
 ,PMP.Person_ID as 'ID' , PMP.MicroProject_ID as 'MicroProject_ID' 
@@ -4960,14 +4964,14 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
             {
                 //Military_label.Visible = Military_label2.Visible = Military_textBox.Visible =
 
-                Military_tableLayoutPanel.Visible  = false;
+                Military_tableLayoutPanel.Visible = false;
                 FPersonSex_comboBox1.SelectedItem = "ذكر";
             }
             else
             {
                 //Military_label.Visible = Military_label2.Visible = Military_textBox.Visible =
 
-                Military_tableLayoutPanel.Visible =  true;
+                Military_tableLayoutPanel.Visible = true;
                 FPersonSex_comboBox1.SelectedItem = "أنثى";
             }
         }
@@ -4986,7 +4990,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 P_Sex_comboBox.SelectedItem = "ذكر";
             }
             else
-            { 
+            {
                 P_Sex_comboBox.SelectedItem = "أنثى";
             }
         }
@@ -5009,7 +5013,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 else { }
             }
             Calculate_NumAtHome();
-        }  
+        }
         private void P_State_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (FPersonState_comboBox1.Text == "متوفي/ة")
@@ -5020,7 +5024,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 {
                     P_MaritalState_comboBox.SelectedValue = rows[0].Field<int>(0);
                 }
-            } 
+            }
             Calculate_NumAtHome();
         }
         private void Grant_radioButton_CheckedChanged(object sender, EventArgs e)
@@ -5035,7 +5039,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
 
             if (Loan_radioButton.Checked)
             {
-                type = 0; 
+                type = 0;
                 TrainingOthers_lable.Text = "هل توافق على الالتزام بدفتر حسابات يمكننا الاطلاع عليه في حال قبول المشروع؟";
             }
             else
@@ -5057,7 +5061,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
         {
             //Category_bind();
         }
-          
+
         private void MPID_textBox_TextChanged(object sender, EventArgs e)
         {
             mainForm.MP_ID_label.Text = MPID_textBox.Text;
@@ -5142,7 +5146,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
             }
 
             if (P_DOB_textBox.Text != "")
-            { 
+            {
                 var date = Convert.ToInt32(P_DOB_textBox.Text);
                 if (date < 1900 || date > DateTime.Now.Year)
                 {
@@ -5150,7 +5154,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                         MessageBoxIcon.Warning);
                     P_DOB_textBox.Text = "";
                 }
-                if(DateTime.Now.Year - date < 18) // منع ادخال استمارة قاصرين
+                if (DateTime.Now.Year - date < 18) // منع ادخال استمارة قاصرين
                 {
                     MessageBox.Show("انتبه! المستفيد تحت السن القانوني", "Date error", MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
@@ -5245,7 +5249,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
             {
                 using (var AddNewEducation = new AddNewEducation())
                 {
-                    
+
                     var r = AddNewEducation.ShowDialog();
                     if (r == DialogResult.OK)
                     {
@@ -5266,7 +5270,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
             {
                 using (var AddNewExperience = new AddNewExperience())
                 {
-                    
+
                     var r = AddNewExperience.ShowDialog();
                     if (r == DialogResult.OK)
                     {
@@ -5293,7 +5297,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                     {
                         //refresh only this datatable -_-
                         Bind_All_ComboBoxes(3); //priest
-                    } 
+                    }
                 }
             }
             catch (Exception ex)
@@ -5356,7 +5360,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
 
             AddPriest_button.BackgroundImage = image;
         }
-         
+
         private void AddPriest_button_MouseLeave(object sender, EventArgs e)
         {
             Image image = null;
@@ -5376,7 +5380,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
 
             AddEducation_button.BackgroundImage = image;
         }
-        
+
         private void NewEducation_button_MouseLeave(object sender, EventArgs e)
         {
             Image image = null;
@@ -5386,7 +5390,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
 
             AddEducation_button.BackgroundImage = image;
         }
-         
+
         private void Save_button_MouseEnter(object sender, EventArgs e)
         {
             Image image = null;
@@ -5396,7 +5400,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
 
             Save_button.BackgroundImage = image;
         }
-        
+
         private void Save_button_MouseLeave(object sender, EventArgs e)
         {
             Image image = null;
@@ -5413,17 +5417,17 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
             if (Settings.Default.theme == "Light")
                 image = Resources.Delete2_L;
             else image = Resources.Delete2_D;
-            
+
             Delete_MP_button.BackgroundImage = image;
         }
-         
+
         private void Delete_MP_button_MouseLeave(object sender, EventArgs e)
         {
             Image image = null;
             if (Settings.Default.theme == "Light")
                 image = Resources.Delete2_D;
             else image = Resources.Delete2_L;
-            
+
             Delete_MP_button.BackgroundImage = image;
         }
 
@@ -5436,7 +5440,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
 
             AddPartner_button.BackgroundImage = image;
         }
-                
+
         private void AddPartner_button_MouseLeave(object sender, EventArgs e)
         {
             Image image = null;
@@ -5456,7 +5460,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
 
             AddExtention_button.BackgroundImage = image;
         }
-                     
+
         private void Extention_button_MouseLeave(object sender, EventArgs e)
         {
             Image image = null;
@@ -5476,7 +5480,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
 
             AddWork_button.BackgroundImage = image;
         }
-        
+
         private void NewWork_button_MouseLeave(object sender, EventArgs e)
         {
             Image image = null;
@@ -5630,7 +5634,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
         private void Download_button_Click(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 if (MicroProject_ID == -1)
                     throw new InvalidOperationException("Please Choose a project first.");
 
@@ -5666,16 +5670,16 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
         {
 
         }
-        
+
         private void Application_Form_Shown(object sender, EventArgs e)
         {
             Stop_Highlighting_Combobox();
         }
-          
+
         #region delete context menu strip
         private void Delete_MP_button_Click(object sender, EventArgs e)
         {
-            delete_contextMenuStrip.Show(Cursor.Position.X, Cursor.Position.Y); 
+            delete_contextMenuStrip.Show(Cursor.Position.X, Cursor.Position.Y);
         }
         private void delete_person_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -5711,7 +5715,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                             "لا يمكن حذف المستفيد! الرجاء اختيار استمارة من قائمة البحث أولاً ثم المحاولة مرة ثانية.");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -5784,7 +5788,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
             var _Form = new Loans_Form(MicroProject_ID, mainForm);
             mainForm.showNewTab(_Form, "Loans", 0);
         }
-          
+
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
             var _Form = new Attachments_Form(MicroProject_ID, mainForm);
@@ -5798,7 +5802,8 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
 
         private void addNotesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 //Find the admin in this database + who entered the application//
                 string my_condition = " and ( UserName like '" + CreatedBy_User_label.Text + "'";
                 if (CreatedBy_User_label.Text != EditedBy_User_label.Text)
@@ -5813,7 +5818,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                     for (int i = 0; i < u_dt.Rows.Count; i++)
                     {
                         string email = u_dt.Rows[i].Field<string>("Email");
-                        if(email != "")
+                        if (email != "")
                             emails.Add(email);
                     }
                 }
@@ -5821,7 +5826,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 if (emails.Count == 0)
                 {
                     string msg = "لا يمكنك كتابة ملاحظات على المشروع لأن الأشخاص المعنيين بإرسال الملاحظات لهم لا يملكون ايميل محفوظ على البرنامج !"
-                        + Environment.NewLine 
+                        + Environment.NewLine
                         + "لذلك يُرجى إضافتها من واجهة التحكم بالمستخدمين واعادة المحاولة لاحقاً";
                     throw new InvalidOperationException(msg);
                 }
@@ -5830,13 +5835,13 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 var _Form = new NewIdea_Form("Application", project, emails);
                 _Form.Show();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Hand);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
         #endregion
-         
+
         private void Save_MP_ID_button_Click(object sender, EventArgs e)
         {
             try
@@ -5867,7 +5872,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                     if (MPID_textBox.Text == "")
                         throw new InvalidOperationException("لا يمكن حجز الرقم. الرجاء التأكد من الرقم وإعادة المحاولة.");
                     else
-                    { 
+                    {
                         if (Check_MicroProject_ID(MPID_textBox.Text))
                         {
                             Insert_MicroProject();
@@ -5887,7 +5892,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
@@ -5902,7 +5907,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 var dialogResult = MessageBox.Show("هل تريد إضافة شريك آخر لهذا المشروع؟", "Partners", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Update_Mode = false; 
+                    Update_Mode = false;
                     clear_Person_boxes();
                     user_mode = false;
                     PersonType_comboBox.SelectedIndex = 1;
@@ -5910,12 +5915,12 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
 
                     Main_panel.AutoScrollPosition = new Point(0, 0);
                     first_tableLayoutPanel.Focus();
-                } 
+                }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         }
-          
+
         private void Save_button_Click(object sender, EventArgs e)
         {
             try
@@ -5927,32 +5932,32 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 ////////////////  Insert Person ///////////////////////
                 if (P_DOB_textBox.Text != "" && (DateTime.Now.Year - Convert.ToInt32(P_DOB_textBox.Text) < 18)) // منع ادخال استمارة قاصرين
                     throw new InvalidOperationException("لا يمكن الحفظ لأن المستفيد تحت السن القانوني");
-                
+
                 if (P_FirstName_textBox.Text == "" || P_LastName_textBox.Text == "" || P_FatherName_textBox.Text == ""
                     || P_NationalNum_textBox.Text == "" || P_NumAtHome_textBox.Text == "" || P_Parish_comboBox.Text == "")
                     throw new InvalidOperationException("لا يمكن الحفظ بوجود خلايا فارغة، يُرجى التأكد من كافة البيانات والمحاولة مرة أخرى.");
 
-                if(P_Sex_comboBox.Text == "ذكر" 
+                if (P_Sex_comboBox.Text == "ذكر"
                     && !MilitarySingle_radioButton.Checked && !MilitaryNow_radioButton.Checked
                     && !MilitaryFinished_radioButton.Checked && !MilitaryDelayed_radioButton.Checked
-                    && !MilitaryExempt_radioButton.Checked) 
-                        throw new InvalidOperationException("لا يمكن الحفظ قبل حفط حالة خدمة العلم للمستفيد، الرجاء التأكد من المعلومة والمحاولة مرة أخرى.");
+                    && !MilitaryExempt_radioButton.Checked)
+                    throw new InvalidOperationException("لا يمكن الحفظ قبل حفط حالة خدمة العلم للمستفيد، الرجاء التأكد من المعلومة والمحاولة مرة أخرى.");
 
-                if(FamilyNum_textBox1.Text == "")
+                if (FamilyNum_textBox1.Text == "")
                 {
                     string msg = "لن يتم حفظ معلومات أفراد العائلة أو الزوج/ة لأنه لا يوجد رقم دفتر عائلة";
                     msg += Environment.NewLine;
                     msg += "الرجاء كتابة أي معلومة أو رقم لامكانية ادخال كل أفراد العائلة بشكل صحيح";
                     throw new InvalidOperationException(msg);
                 }
-                 
+
                 //احتمال يكونوا حافظين المشروع فقط (حاجزين رقم ومامدخلين مستفيد أبدا
                 // أي اننا في مود التعديل ولكن رقم المستفيد -1
                 if (!Update_Mode || (Person_ID == -1 && Update_Mode))
                 {
                     Person_ID = Insert_Person();
                     l.Insert_Log("Insert " + P_FirstName_textBox.Text + " " + P_LastName_textBox.Text, " Benefeciary ", Program.UserName, DateTime.Now);
-                     
+
                     P_ID_textBox.Text = Person_ID.ToString();
                     Beneficiary_Count++;
 
@@ -5973,7 +5978,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
 
                     //insert the tasks of this project//
                     TasksOfProjects = new TasksOfProjects();
-                    TasksOfProjects.Insert_AllTasks_MicroProject(MicroProject_ID, DateTime.Now, "a"); 
+                    TasksOfProjects.Insert_AllTasks_MicroProject(MicroProject_ID, DateTime.Now, "a");
                     l.Insert_Log("Insert all (a) tasks of project: " + MicroProject_ID + " ", " Task_Project ",
                         Program.UserName, DateTime.Now);
                     ////////////////////////////////////////
@@ -5991,18 +5996,18 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                     else Update_Person_MicroProject(Person_ID, MicroProject_ID, "شريك");
 
 
-                    l.Insert_Log("Update " + P_FirstName_textBox.Text + " " + P_LastName_textBox.Text, " Benefeciary ", Program.UserName, DateTime.Now); 
+                    l.Insert_Log("Update " + P_FirstName_textBox.Text + " " + P_LastName_textBox.Text, " Benefeciary ", Program.UserName, DateTime.Now);
                 }
 
                 Update_MP(MicroProject_ID);
-                l.Insert_Log("Update the project: " + MicroProject_ID, "Micro Project", Program.UserName,DateTime.Now);
+                l.Insert_Log("Update the project: " + MicroProject_ID, "Micro Project", Program.UserName, DateTime.Now);
                 EditedBy_User_label.Text = Program.UserName;
-                 
+
                 /// *** Insert course - education - work - experience - loss - aidsource *** /// only that aren't in database
                 Insert_Update_PersonDetails(Person_ID);
 
                 Insert_Update_AllFamilyDetails();
-                 
+
                 Insert_Update_ProjectDetails(MicroProject_ID);
 
                 //  create new beneficiary //
@@ -6014,7 +6019,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
 
                     Update_Mode = false;
                     AddPartner_button.Visible = false;
-                     
+
                     mainForm.TabName_label.Text = "Application";
                     mainForm.MP_ID_label.Text = MPID_textBox.Text;
 
@@ -6032,9 +6037,9 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 }
             }
             catch (Exception ex)
-            { MessageBox.Show(ex.Message,"Save Error",MessageBoxButtons.OK,MessageBoxIcon.Exclamation); }
+            { MessageBox.Show(ex.Message, "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         }
-        
+
         private void AddExtention_button_Click(object sender, EventArgs e)
         {
             try
@@ -6049,9 +6054,9 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 {
                     form = new Agriculture_Form(mainForm, MicroProject_ID
                         , P_FirstName_textBox.Text + P_LastName_textBox.Text + " ابن/ة " + P_FatherName_textBox.Text
-                        , CreatedBy_User_label.Text,EditedBy_User_label.Text);
+                        , CreatedBy_User_label.Text, EditedBy_User_label.Text);
                     form.ShowDialog();
-                }     
+                }
                 else
                 { return; }
 

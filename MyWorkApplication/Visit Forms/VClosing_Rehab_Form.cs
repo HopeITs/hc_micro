@@ -1,14 +1,10 @@
 ﻿using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms; 
-using MyWorkApplication.Properties;
+using System.Windows.Forms;
 
 namespace MyWorkApplication.Visit_Forms
 {
@@ -20,10 +16,10 @@ namespace MyWorkApplication.Visit_Forms
         private int MicroProject_ID, V_ID, User_ID, Person_ID;
         private MySqlComponents MySS;
         private NewTheme NewTheme;
-        private UserNotification noti; 
+        private UserNotification noti;
         private Select s;
         private TasksOfProjects TasksOfProjects;
- 
+
         private VisitRehab v;
         private User user;
         private DataTable Visit_Users_dt;
@@ -38,7 +34,7 @@ namespace MyWorkApplication.Visit_Forms
         private void Delete_button_Click(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 DialogResult dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد حذف معلومات هذه الزيارة بشكل نهائي؟", "Warning", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -80,7 +76,7 @@ namespace MyWorkApplication.Visit_Forms
         #endregion
 
         bool DataApproved = false;
-        bool Update_Mode = false; 
+        bool Update_Mode = false;
 
         public VClosing_Rehab_Form()
         {
@@ -107,7 +103,7 @@ namespace MyWorkApplication.Visit_Forms
             try
             {
                 user_mode = false;
-                
+
                 NewTheme = new NewTheme();
                 if (Settings.Default.theme == "Light")
                     NewTheme.Visit_ToLight(this);
@@ -123,7 +119,7 @@ namespace MyWorkApplication.Visit_Forms
                 s = new Select();
                 v = new VisitRehab();
                 user = new User();
-                
+
 
                 switch (Program.role)
                 {
@@ -162,7 +158,7 @@ namespace MyWorkApplication.Visit_Forms
                 if (V_ID != -1)
                 {
                     DataSet v_ds = v.Get_Visit(V_ID.ToString(), "", "");
-                    Fill_Visit(v_ds); 
+                    Fill_Visit(v_ds);
                 }
                 else if (MicroProject_ID != -1)
                 {
@@ -200,13 +196,13 @@ namespace MyWorkApplication.Visit_Forms
         private void Fill_Visit(DataSet ds1)
         {
             try
-            { 
+            {
                 if (ds1 != null)
                 {
                     user_mode = false;
                     MicroProject_ID = int.Parse(ds1.Tables[0].Rows[0]["MicroProject_ID"].ToString());
                     MicroProject_ID_textBox.Text = MicroProject_ID.ToString();
-                    Person_Name_textBox.Text = (string)ds1.Tables[0].Rows[0]["Beneficiary Name"]; 
+                    Person_Name_textBox.Text = (string)ds1.Tables[0].Rows[0]["Beneficiary Name"];
                     Person_ID = int.Parse(ds1.Tables[0].Rows[0]["Beneficiary_ID"].ToString());
 
                     if (ds1.Tables[0].Rows[0]["Loan Amount"] == DBNull.Value)
@@ -218,9 +214,9 @@ namespace MyWorkApplication.Visit_Forms
                     }
 
                     CreatedBy_User_label.Text = ds1.Tables[0].Rows[0]["Created_By"].ToString();
-                    EditedBy_User_label.Text  = ds1.Tables[0].Rows[0]["Edited_By"].ToString();
+                    EditedBy_User_label.Text = ds1.Tables[0].Rows[0]["Edited_By"].ToString();
 
-                     
+
                     //check if there is a visit
                     if (ds1.Tables[0].Rows[0]["ID"] == DBNull.Value
                         || ds1.Tables[0].Rows[0]["ID"] == null)
@@ -274,13 +270,13 @@ namespace MyWorkApplication.Visit_Forms
                                     var VV = "_comboBox";
                                     var fullName = V + (i + 1) + VV;
                                     var cbx = Controls.Find(fullName, true).FirstOrDefault() as ComboBox;
-                                    if(cbx != null)
+                                    if (cbx != null)
                                         cbx.SelectedValue = u_id;
                                 }
                             }
                         Update_Mode = true;
                     }
-                      
+
                     user_mode = true;
                 }
             }
@@ -295,12 +291,12 @@ namespace MyWorkApplication.Visit_Forms
         void set_radioButtons(int ansNo, int value)
         {
             string radio_name = "";
-             
+
             if (value == -1)
             {
-                radio_name = "ans" + ansNo + "_" + "N" + "_radioButton"; 
+                radio_name = "ans" + ansNo + "_" + "N" + "_radioButton";
                 var rad_bx = Controls.Find(radio_name, true).FirstOrDefault() as RadioButton;
-                if(rad_bx == null) //not found => make all radios unchecked
+                if (rad_bx == null) //not found => make all radios unchecked
                 {
                     string table_name = "";
                     table_name = "ans" + ansNo + "_tableLayoutPanel";
@@ -317,7 +313,7 @@ namespace MyWorkApplication.Visit_Forms
                 rad_bx.Checked = true;
             }
         }
- 
+
         int get_radioButtons_values(int ansNo)
         {
             int value = -1;
@@ -338,9 +334,9 @@ namespace MyWorkApplication.Visit_Forms
                 }
             }
             return value;
-        } 
+        }
         #endregion
-         
+
         void comboBox_MouseWheel(object sender, MouseEventArgs e)
         {
             ((HandledMouseEventArgs)e).Handled = true;
@@ -366,14 +362,14 @@ namespace MyWorkApplication.Visit_Forms
                 V3_comboBox.ValueMember = V4_comboBox.ValueMember = "U_ID";
 
                 V1_comboBox.SelectedIndex = V2_comboBox.SelectedIndex =
-                V3_comboBox.SelectedIndex = V4_comboBox.SelectedIndex = -1; 
+                V3_comboBox.SelectedIndex = V4_comboBox.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
         private void Save_button_Click(object sender, EventArgs e)
         {
             try
@@ -390,12 +386,12 @@ namespace MyWorkApplication.Visit_Forms
 
                     }
                     else
-                    { 
-                        V_ID = v.Insert_Visit(MicroProject_ID, _KIND, visitDate, CreatedBy, Answers_Query, Visitors_Query); 
-                        Update_Mode = true; 
-                        MessageBox.Show("تم إدخال الزيارة بنجاح", "Confirmation"); 
+                    {
+                        V_ID = v.Insert_Visit(MicroProject_ID, _KIND, visitDate, CreatedBy, Answers_Query, Visitors_Query);
+                        Update_Mode = true;
+                        MessageBox.Show("تم إدخال الزيارة بنجاح", "Confirmation");
                     }
-                      
+
                     //Set_Controls(); 
                     //DataSet v_ds = v.Get_Visit(V_ID.ToString(), "", "");
                     //Fill_Visit(v_ds);  
@@ -412,24 +408,24 @@ namespace MyWorkApplication.Visit_Forms
                 if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
             }
         }
-         
+
         private bool Check_Data()
         {
             if (string.IsNullOrWhiteSpace(MicroProject_ID_textBox.Text))
             {
                 MessageBox.Show("الرجاء اختيار مشروع أولاً", "Error");
                 return false;
-            } 
-              
+            }
+
             foreach (Control c in answers_tableLayoutPanel.Controls)
             {
                 if (c.GetType() == typeof(TableLayoutPanel) && c.Name.Contains("ans")) /// inner table
                 {
                     bool Answered = false;
-                    foreach (Control rad in c.Controls )
-                    { 
+                    foreach (Control rad in c.Controls)
+                    {
                         if (rad.GetType() == typeof(RadioButton)) /// answers radiobuttons
-                        { 
+                        {
                             var radio = rad as RadioButton;
                             if (radio.Checked)
                             {
@@ -437,7 +433,7 @@ namespace MyWorkApplication.Visit_Forms
                             }
                         }
                     }
-                    if(Answered == false)
+                    if (Answered == false)
                     {
                         MessageBox.Show("الرجاء التأكد من أنك قمت باختيار جميع الاجابات", "Error");
                         return false;
@@ -448,7 +444,7 @@ namespace MyWorkApplication.Visit_Forms
             if (string.IsNullOrWhiteSpace(V1_comboBox.Text) &&
                 string.IsNullOrWhiteSpace(V2_comboBox.Text) &&
                 string.IsNullOrWhiteSpace(V3_comboBox.Text) &&
-                string.IsNullOrWhiteSpace(V4_comboBox.Text) )
+                string.IsNullOrWhiteSpace(V4_comboBox.Text))
             {
                 MessageBox.Show("الرجاء التأكد من اختيار زائر واحد على الأقل", "Error");
                 return false;
@@ -500,24 +496,24 @@ namespace MyWorkApplication.Visit_Forms
                 Answers_Query += "(@Visit_ID,N'" + Ans1 + "',N'" + Ans2 + "',N'" + Ans3 + "',N'" + Ans4 + "',N'" + Ans5 + "'"
                     + ",N'" + Ans6 + "',N'" + Ans7 + "',N'" + Ans8 + "',N'" + Ans9 + "',N'" + Ans10 + "'"
                     + ",N'" + Ans11 + "',N'" + Ans12 + "',N'" + Ans13 + "',N'" + Ans14 + "',N'" + Ans15 + "'"
-                    + "," +Ans1_Value +","+ Ans2_Value + "," + Ans3_Value + "," + Ans4_Value + "," + Ans5_Value 
-                    + "," + Ans6_Value + "," + Ans7_Value + "," + Ans8_Value + "," + Ans9_Value + "," + Ans10_Value 
-                    + "," + Ans11_Value + "," + Ans12_Value + "," + Ans13_Value + "," + Ans14_Value + "," + Ans15_Value +")";
+                    + "," + Ans1_Value + "," + Ans2_Value + "," + Ans3_Value + "," + Ans4_Value + "," + Ans5_Value
+                    + "," + Ans6_Value + "," + Ans7_Value + "," + Ans8_Value + "," + Ans9_Value + "," + Ans10_Value
+                    + "," + Ans11_Value + "," + Ans12_Value + "," + Ans13_Value + "," + Ans14_Value + "," + Ans15_Value + ")";
 
             }
             #endregion
 
             #region
             else if (Update_Mode)
-            { 
+            {
                 EditedBy = Program.UserName;
                 EditedBy_User_label.Text = Program.UserName;
                 visitDate = VisitDate_dateTimePicker.Value.ToString("yyyy/MM/dd");
 
-                if(V_ID != -1)
+                if (V_ID != -1)
                     Visit_Query += " UPDATE `visit` set Edited_By = '" + EditedBy + "'" +
-                        ", Date = '" + visitDate + "'" +  
-                        "  where ID = " + V_ID + ";"; 
+                        ", Date = '" + visitDate + "'" +
+                        "  where ID = " + V_ID + ";";
 
                 Ans1 = Ans1_textBox.Text == null ? "" : Ans1_textBox.Text;
                 Ans2 = Ans2_textBox.Text == null ? "" : Ans2_textBox.Text;
@@ -551,20 +547,20 @@ namespace MyWorkApplication.Visit_Forms
                 Ans14_Value = get_radioButtons_values(14);
                 Ans15_Value = get_radioButtons_values(15);
 
-                Answers_Query += " UPDATE `rehabvisit` set Ans1 = '" + Ans1 + "', Ans2 = '" + Ans2 
-                    + "', Ans3 = '" + Ans3 + "', Ans4 = '" + Ans4 + "', Ans5 = '" + Ans5 
-                    + "', Ans6 = '" + Ans6 + "', Ans7 = '" + Ans7 + "', Ans8 = '" + Ans8 
-                    + "', Ans9 = '" + Ans9 + "', Ans10 = '" + Ans10 + "', Ans11 = '" + Ans11 
-                    + "', Ans12 = '" + Ans12 + "',  Ans13 = '" + Ans13 + "', Ans14 = '" + Ans14  + "', Ans15 = '" + Ans15 
-                        
-                    + "', Ans1_Value = " + Ans1_Value + " , Ans2_Value = " + Ans2_Value + " , Ans3_Value = " + Ans3_Value 
-                    + " , Ans4_Value = " + Ans4_Value + " , Ans5_Value = " + Ans5_Value + " , Ans6_Value = " + Ans6_Value 
-                    + " , Ans7_Value = " + Ans7_Value + " , Ans8_Value = " + Ans8_Value + " , Ans9_Value = " + Ans9_Value 
-                    + " , Ans10_Value = " + Ans10_Value + " , Ans11_Value = " + Ans11_Value + " , Ans12_Value = " + Ans12_Value 
-                    + " , Ans13_Value = " + Ans13_Value + " , Ans14_Value = " + Ans14_Value + " , Ans15_Value = " + Ans15_Value  
+                Answers_Query += " UPDATE `rehabvisit` set Ans1 = '" + Ans1 + "', Ans2 = '" + Ans2
+                    + "', Ans3 = '" + Ans3 + "', Ans4 = '" + Ans4 + "', Ans5 = '" + Ans5
+                    + "', Ans6 = '" + Ans6 + "', Ans7 = '" + Ans7 + "', Ans8 = '" + Ans8
+                    + "', Ans9 = '" + Ans9 + "', Ans10 = '" + Ans10 + "', Ans11 = '" + Ans11
+                    + "', Ans12 = '" + Ans12 + "',  Ans13 = '" + Ans13 + "', Ans14 = '" + Ans14 + "', Ans15 = '" + Ans15
+
+                    + "', Ans1_Value = " + Ans1_Value + " , Ans2_Value = " + Ans2_Value + " , Ans3_Value = " + Ans3_Value
+                    + " , Ans4_Value = " + Ans4_Value + " , Ans5_Value = " + Ans5_Value + " , Ans6_Value = " + Ans6_Value
+                    + " , Ans7_Value = " + Ans7_Value + " , Ans8_Value = " + Ans8_Value + " , Ans9_Value = " + Ans9_Value
+                    + " , Ans10_Value = " + Ans10_Value + " , Ans11_Value = " + Ans11_Value + " , Ans12_Value = " + Ans12_Value
+                    + " , Ans13_Value = " + Ans13_Value + " , Ans14_Value = " + Ans14_Value + " , Ans15_Value = " + Ans15_Value
 
                     + " where Visit_ID = " + V_ID + " ;";
-   
+
             }
             #endregion
 
@@ -583,16 +579,16 @@ namespace MyWorkApplication.Visit_Forms
         {
             user_mode = false;
 
-            Ans1= Ans2= Ans3= Ans4= Ans5= Ans6= Ans7
-                = Ans8= Ans9= Ans10= Ans11= Ans12= Ans13= Ans14= Ans15
-                = Vistor1= Vistor2= Vistor3= Vistor4 
-                = CreatedBy= EditedBy= visitDate = "";
-             
-           Visit_Query = Answers_Query= Visitors_Query = "";
+            Ans1 = Ans2 = Ans3 = Ans4 = Ans5 = Ans6 = Ans7
+                = Ans8 = Ans9 = Ans10 = Ans11 = Ans12 = Ans13 = Ans14 = Ans15
+                = Vistor1 = Vistor2 = Vistor3 = Vistor4
+                = CreatedBy = EditedBy = visitDate = "";
+
+            Visit_Query = Answers_Query = Visitors_Query = "";
 
             Ans1_Value = Ans2_Value = Ans3_Value = Ans4_Value = Ans5_Value = Ans6_Value
                 = Ans7_Value = Ans8_Value = Ans9_Value = Ans10_Value = Ans11_Value = Ans12_Value
-                = Ans13_Value = Ans14_Value = Ans15_Value 
+                = Ans13_Value = Ans14_Value = Ans15_Value
                 = user1_id = user2_id = user3_id = user4_id = -1;
 
             //V_ID no need to clear
@@ -601,29 +597,29 @@ namespace MyWorkApplication.Visit_Forms
             General_Information_IsDirty = Answers_IsDirty = Visitors_IsDirty
                 = DataApproved = Update_Mode = false;
 
-            Ans1_textBox.Text = 
-            Ans2_textBox.Text = 
-            Ans3_textBox.Text = 
-            Ans4_textBox.Text = 
-            Ans5_textBox.Text = 
-            Ans6_textBox.Text = 
-            Ans7_textBox.Text = 
-            Ans8_textBox.Text = 
-            Ans9_textBox.Text = 
-            Ans10_textBox.Text =  
-            Ans11_textBox.Text =  
-            Ans12_textBox.Text =  
-            Ans13_textBox.Text =  
-            Ans14_textBox.Text =  
-            Ans15_textBox.Text =  "" ;
+            Ans1_textBox.Text =
+            Ans2_textBox.Text =
+            Ans3_textBox.Text =
+            Ans4_textBox.Text =
+            Ans5_textBox.Text =
+            Ans6_textBox.Text =
+            Ans7_textBox.Text =
+            Ans8_textBox.Text =
+            Ans9_textBox.Text =
+            Ans10_textBox.Text =
+            Ans11_textBox.Text =
+            Ans12_textBox.Text =
+            Ans13_textBox.Text =
+            Ans14_textBox.Text =
+            Ans15_textBox.Text = "";
 
             //MicroProject_ID_textBox.Text =
             Person_Name_textBox.Text = LoanAmount_textBox1.Text = "";
             CreatedBy_User_label.Text = EditedBy_User_label.Text = "";
 
             V1_comboBox.SelectedIndex = V2_comboBox.SelectedIndex = V3_comboBox.SelectedIndex = V4_comboBox.SelectedIndex = -1;
-            
-            for (int i = 1; i <= 15; i++)  set_radioButtons(i, -1); 
+
+            for (int i = 1; i <= 15; i++) set_radioButtons(i, -1);
 
             user_mode = true;
         }

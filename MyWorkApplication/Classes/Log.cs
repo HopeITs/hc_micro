@@ -1,6 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Text;
-using MySql.Data.MySqlClient;
 
 namespace MyWorkApplication.Classes
 {
@@ -25,7 +25,7 @@ namespace MyWorkApplication.Classes
                     + Date.Year + "/" + Date.Month + "/" + Date.Day + " " + Date.Hour + ":" + Date.Minute + ":" +
                     Date.Second + "',"
                     + "0" + ")"; //not seen
-              
+
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.ExecuteNonQuery();

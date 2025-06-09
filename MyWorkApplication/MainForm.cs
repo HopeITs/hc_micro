@@ -1,17 +1,14 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using MyWorkApplication.Visit_Forms;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
-using System.Xml;
-using Chilkat;
-using MySql.Data.MySqlClient;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
-using MyWorkApplication.Visit_Forms;
 using Tulpep.NotificationWindow;
 
 namespace MyWorkApplication
@@ -19,7 +16,7 @@ namespace MyWorkApplication
     public partial class MainForm : Form
     {
         private readonly List<Form> _childForms = new List<Form>();
-        private bool Have_Notifications;  
+        private bool Have_Notifications;
         private MySqlComponents MySS;
         private int tabCount;
         private NewTheme theme;
@@ -27,7 +24,7 @@ namespace MyWorkApplication
         private int tick_index;
 
         public MainForm()
-        { 
+        {
             InitializeComponent();
             SetStyle(ControlStyles.ResizeRedraw, true);
 
@@ -37,9 +34,9 @@ namespace MyWorkApplication
         private void MainForm_Load(object sender, EventArgs e)
         {
             try
-            {  
+            {
                 var newTheme = new NewTheme();
-                 
+
                 if (Settings.Default.theme == "Dark")
                 {
                     newTheme.Main_ToNight(this, false);
@@ -53,37 +50,38 @@ namespace MyWorkApplication
 
                 MySS = new MySqlComponents();
                 TabName_label.Text = MP_ID_label.Text = "";
-                MP_ID_label.Visible = ProjectNumber_label.Visible 
+                MP_ID_label.Visible = ProjectNumber_label.Visible
                     = Project_label.Visible = TabName_label.Visible = false;
 
                 Old_notifications_count = tick_index = 0;
-                 
-                Username_label.Text = Program.UserName; 
+
+                Username_label.Text = Program.UserName;
 
                 Get_User_Profile();
 
                 Check_Notifications();
-                
-                 if (Properties.Settings.Default.Online) //online
+
+                if (Properties.Settings.Default.Online) //online
                     Online_checkBox.Checked = true;
-                 else Online_checkBox.Checked = false;
-                  
+                else Online_checkBox.Checked = false;
+
                 Check_User_Role();
-                 
+
                 Text = Program.selected_database + " Hope Center - Micro Projects ";
-                
+
                 WindowState = FormWindowState.Maximized;
-                if(!Online_checkBox.Checked) SetPanelBackground();
-                else {
-                    byte[] arr  = Convert.FromBase64String(Settings.Default.Background);
+                if (!Online_checkBox.Checked) SetPanelBackground();
+                else
+                {
+                    byte[] arr = Convert.FromBase64String(Settings.Default.Background);
                     if (arr != null)
                     {
                         var ms = new MemoryStream(arr);
                         Home_panel.BackgroundImage = Image.FromStream(ms);
-                        Home_panel.BackgroundImageLayout = ImageLayout.Zoom; 
+                        Home_panel.BackgroundImageLayout = ImageLayout.Zoom;
                     }
                 }
-                timer1.Start(); 
+                timer1.Start();
             }
             catch (Exception ex)
             {
@@ -94,7 +92,7 @@ namespace MyWorkApplication
                     MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-         
+
         private void SetPanelBackground()
         {
             try
@@ -107,25 +105,25 @@ namespace MyWorkApplication
                 var da = new MySqlDataAdapter(sc);
                 var dt = new DataTable();
                 da.Fill(dt);
-                byte[] query_array = dt.Rows[0].Field<byte[]>(0); 
+                byte[] query_array = dt.Rows[0].Field<byte[]>(0);
                 if (query_array != null && query_array.Length > 0)
                 {
                     MySqlDataReader reader = sc.ExecuteReader();
-                    reader.Read(); 
+                    reader.Read();
                     arr = (byte[])reader[0];
 
                     var ms = new MemoryStream(arr);
                     Home_panel.BackgroundImage = Image.FromStream(ms);
-                    Home_panel.BackgroundImageLayout = ImageLayout.Zoom; 
+                    Home_panel.BackgroundImageLayout = ImageLayout.Zoom;
                     Settings.Default.Background = Convert.ToBase64String(arr);
-                    Settings.Default.Save(); 
+                    Settings.Default.Save();
                     reader.Close();
                 }
                 else
                 {
                     Home_panel.BackgroundImage = null;
                     Home_panel.BackColor = Color.White;
-                } 
+                }
                 Program.MyConn.Close();
             }
             catch (Exception ex)
@@ -136,16 +134,16 @@ namespace MyWorkApplication
 
         private void Get_User_Profile()
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Micro Projects\Team\" + Program.UserName+ ".png";
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Micro Projects\Team\" + Program.UserName + ".png";
 
             FileInfo file = new FileInfo(path);
 
             if (file.Exists.Equals(true))
-            { 
+            {
                 using (FileStream stream = new FileStream(path, FileMode.Open, System.IO.FileAccess.Read))
                 {
                     ProfilePicture_pictureBox.BackgroundImage = Image.FromStream(stream);
-                } 
+                }
             }
             else
             {
@@ -186,9 +184,9 @@ namespace MyWorkApplication
                 _childForms.Remove(toAdd);
                 if (_childForms.Count == 0)
                     Home_panel.Visible = true;
-            }; 
+            };
 
-            
+
         }
 
         private void ToDark_AllChidForms()
@@ -296,15 +294,15 @@ namespace MyWorkApplication
 
         private ToolStripItem[] GetAllChildren(ToolStripItem item)
         {
-            var Items = new List<ToolStripItem> {item};
+            var Items = new List<ToolStripItem> { item };
             if (item is ToolStripMenuItem)
-                foreach (ToolStripItem i in ((ToolStripMenuItem) item).DropDownItems)
+                foreach (ToolStripItem i in ((ToolStripMenuItem)item).DropDownItems)
                     Items.AddRange(GetAllChildren(i));
             else if (item is ToolStripSplitButton)
-                foreach (ToolStripItem i in ((ToolStripSplitButton) item).DropDownItems)
+                foreach (ToolStripItem i in ((ToolStripSplitButton)item).DropDownItems)
                     Items.AddRange(GetAllChildren(i));
             else if (item is ToolStripDropDownButton)
-                foreach (ToolStripItem i in ((ToolStripDropDownButton) item).DropDownItems)
+                foreach (ToolStripItem i in ((ToolStripDropDownButton)item).DropDownItems)
                     Items.AddRange(GetAllChildren(i));
             return Items.ToArray();
         }
@@ -316,9 +314,9 @@ namespace MyWorkApplication
                 //check the role of this user
                 Program.buildConnection();
                 //default user if there isn't any user
-                if (Program.UserName== "admin" && Program.Password == "4602543")
+                if (Program.UserName == "admin" && Program.Password == "4602543")
                 {
-                    for (var i = 0; i < menuStrip1.Items.Count; i++) 
+                    for (var i = 0; i < menuStrip1.Items.Count; i++)
                         menuStrip1.Items[i].Enabled = true;
                     return;
                 }
@@ -332,7 +330,7 @@ namespace MyWorkApplication
                 Bind_DataBase_comboBox();
 
                 switch (Program.role)
-                {  
+                {
                     case 1: //admin
                     case 8: // L0_Admin
                         {
@@ -366,25 +364,25 @@ namespace MyWorkApplication
 
                             // -------------------------------------------------------------------- 
 
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[0],  Keys.None);//title
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[1],  Keys.Alt | Keys.D1);//search
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[2],  Keys.Alt | Keys.D2);//statistics
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[3],  Keys.Alt | Keys.D3);//taskboard
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[4],  Keys.Alt | Keys.D5);//log 
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[5],  Keys.None);//theme
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[6],  Keys.Alt | Keys.Shift | Keys.D);//Dark
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[7],  Keys.Alt | Keys.Shift | Keys.L);//Light
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[8],  Keys.Alt | Keys.M);//message 
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[9] , Keys.None);  //data backup
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[0], Keys.None);//title
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[1], Keys.Alt | Keys.D1);//search
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[2], Keys.Alt | Keys.D2);//statistics
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[3], Keys.Alt | Keys.D3);//taskboard
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[4], Keys.Alt | Keys.D5);//log 
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[5], Keys.None);//theme
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[6], Keys.Alt | Keys.Shift | Keys.D);//Dark
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[7], Keys.Alt | Keys.Shift | Keys.L);//Light
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[8], Keys.Alt | Keys.M);//message 
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[9], Keys.None);  //data backup
                             ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[10], Keys.Alt | Keys.Shift | Keys.B); //backup
                             ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[11], Keys.Alt | Keys.Shift | Keys.R); //restor
                             ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[12], Keys.Alt | Keys.U); //users 
                             ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[13], Keys.Alt | Keys.Shift | Keys.C);//check national number
-                             
+
                         }
                         break;
                     case 2: //Data
-                    {  
+                        {
                             ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[0], Keys.None);//Title
                             ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[1], Keys.Alt | Keys.A);//Application
                             HideMenuItemWithShortcut((ToolStripMenuItem)applicationItems[2]);//Admin Panel
@@ -424,19 +422,19 @@ namespace MyWorkApplication
                             HideMenuItemWithShortcut((ToolStripMenuItem)toolsItems[11]); //restor
                             HideMenuItemWithShortcut((ToolStripMenuItem)toolsItems[12]); //users 
                             ShowMenuItemWithShortcut((ToolStripMenuItem)toolsItems[13], Keys.Alt | Keys.Shift | Keys.C);//check national number
-                            
+
                             // --------------------------------------------------------------------
                         }
                         break;
                     case 3: //Financial
                     case 7: //Lawful
-                    { 
+                        {
                             //Close the head item => close all the list 
                             HideMenuItemWithShortcut((ToolStripMenuItem)applicationItems[0]);
-                         
+
                             //enable the head item => enable all the list  
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[0], Keys.None);
-                             
+
                             //Close the head item => close all the list  
                             HideMenuItemWithShortcut((ToolStripMenuItem)mEItems[0]);
 
@@ -454,13 +452,13 @@ namespace MyWorkApplication
                             HideMenuItemWithShortcut((ToolStripMenuItem)toolsItems[11]); //restor
                             HideMenuItemWithShortcut((ToolStripMenuItem)toolsItems[12]); //users 
                             HideMenuItemWithShortcut((ToolStripMenuItem)toolsItems[13]); //check national number
-                             
-                    }
+
+                        }
                         break;
                     case 4: //Guest
                     case 6: //Out Of Service
                     case 9: //Media
-                        { 
+                        {
                             //Close the head item => close all the list 
                             HideMenuItemWithShortcut((ToolStripMenuItem)applicationItems[0]);
 
@@ -486,7 +484,7 @@ namespace MyWorkApplication
                             HideMenuItemWithShortcut((ToolStripMenuItem)toolsItems[13]); //check national number
 
                         }
-                        break; 
+                        break;
                 }
             }
             catch (Exception ex)
@@ -501,14 +499,14 @@ namespace MyWorkApplication
             menuItem.Visible = false;
             menuItem.Enabled = false;
             menuItem.ShortcutKeys = Keys.None;
-        } 
+        }
         // Method to show and restore shortcut keys for a menu item
         private void ShowMenuItemWithShortcut(ToolStripMenuItem menuItem, Keys shortcutKeys)
         {
             menuItem.Visible = true;
             menuItem.Enabled = true;
             menuItem.ShortcutKeys = shortcutKeys;
-        } 
+        }
 
         private void ProfilePicture_button_Click(object sender, EventArgs e)
         {
@@ -525,9 +523,9 @@ namespace MyWorkApplication
 
                     Check_Notifications();
                     Username_label.Text = Program.UserName;
-                     
+
                     //ADDED BY SARY TO APPLY THE NEW ROLES AFTER CHANGING THE USER
-                    Check_User_Role(); 
+                    Check_User_Role();
                 }
             }
             catch (Exception ex)
@@ -547,23 +545,23 @@ namespace MyWorkApplication
                 Properties.Settings.Default.Online = true;
             }
             Program.set_ConnectionString();
-             
+
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        { 
+        {
             if (MessageBox.Show("Are you sure you want to close the Application ?", "Close Application",
                 MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 // continue closing;
-                Application.ExitThread(); 
+                Application.ExitThread();
             }
             else
             {
                 e.Cancel = true;
-            } 
+            }
         }
-          
+
         #region ToolStripMenuItem_Click
 
         private void adminPageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -571,7 +569,7 @@ namespace MyWorkApplication
             try
             {
                 Form AllProjectsLikeExcel = new AdminPanel_From(this);
-                showNewTab(AllProjectsLikeExcel, "Admin Panel",0);
+                showNewTab(AllProjectsLikeExcel, "Admin Panel", 0);
             }
             catch (Exception ex)
             {
@@ -584,7 +582,7 @@ namespace MyWorkApplication
             try
             {
                 Form Application_Form = new Application_Form(this);
-                showNewTab(Application_Form, "Application",1);
+                showNewTab(Application_Form, "Application", 1);
             }
             catch (Exception ex)
             {
@@ -659,14 +657,14 @@ namespace MyWorkApplication
         {
             try
             {
-                
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
         private void monitoringVisitsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -679,7 +677,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-          
+
         private void monitorVisitResultsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -698,7 +696,7 @@ namespace MyWorkApplication
             try
             {
                 Form form = new Visits_Schedule_Form(this);
-                showNewTab(form, "Visit Dates",0);
+                showNewTab(form, "Visit Dates", 0);
             }
             catch (Exception ex)
             {
@@ -724,7 +722,7 @@ namespace MyWorkApplication
             try
             {
                 Form Loans_Form = new Loans_Form(this);
-                showNewTab(Loans_Form, "Loans",0);
+                showNewTab(Loans_Form, "Loans", 0);
             }
             catch (Exception ex)
             {
@@ -737,7 +735,7 @@ namespace MyWorkApplication
             try
             {
                 Form form = new Payments_Form(this);
-                showNewTab(form, "Payment Dates",0);
+                showNewTab(form, "Payment Dates", 0);
             }
             catch (Exception ex)
             {
@@ -750,7 +748,7 @@ namespace MyWorkApplication
             try
             {
                 Form Attachments_Form = new Attachments_Form(this);
-                showNewTab(Attachments_Form, "Attachments",0);
+                showNewTab(Attachments_Form, "Attachments", 0);
             }
             catch (Exception ex)
             {
@@ -763,14 +761,14 @@ namespace MyWorkApplication
             try
             {
                 Form ExecutiveFiles_Form = new ExecutiveFiles_Form(this);
-                showNewTab(ExecutiveFiles_Form, "Executive Files",0);
+                showNewTab(ExecutiveFiles_Form, "Executive Files", 0);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-         
+
         private void moveVisitsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -941,7 +939,7 @@ namespace MyWorkApplication
             try
             {
                 Form Statistics_Form = new Statistics_Form(this);
-                showNewTab(Statistics_Form, "Statistics",0);
+                showNewTab(Statistics_Form, "Statistics", 0);
             }
             catch (Exception ex)
             {
@@ -954,7 +952,7 @@ namespace MyWorkApplication
             try
             {
                 var projectsTasks = new TaskBoard_Form(this);
-                showNewTab(projectsTasks, "Task Board",0);
+                showNewTab(projectsTasks, "Task Board", 0);
             }
             catch (Exception ex)
             {
@@ -967,7 +965,7 @@ namespace MyWorkApplication
             try
             {
                 Form Search_Form = new Search_Form(this);
-                showNewTab(Search_Form, "Search",0);
+                showNewTab(Search_Form, "Search", 0);
             }
             catch (Exception ex)
             {
@@ -980,20 +978,20 @@ namespace MyWorkApplication
             try
             {
                 Form Timeline_Form = new Timeline_Form(this);
-                showNewTab(Timeline_Form, "Timeline",0);
+                showNewTab(Timeline_Form, "Timeline", 0);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
         private void logToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
                 Form Log_Form = new Log_Form();
-                showNewTab(Log_Form, "Log",0);
+                showNewTab(Log_Form, "Log", 0);
             }
             catch (Exception ex)
             {
@@ -1069,7 +1067,7 @@ namespace MyWorkApplication
             try
             {
                 Form User_Form = new User_Form(this);
-                showNewTab(User_Form, "User Control",0);
+                showNewTab(User_Form, "User Control", 0);
             }
             catch (Exception ex)
             {
@@ -1125,7 +1123,7 @@ namespace MyWorkApplication
                             ////    "person_microproject"
                             //};
                             mb.ExportToFile(destpath);
-                            conn.Close(); 
+                            conn.Close();
                             MessageBox.Show("Backup succeeded", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
@@ -1187,7 +1185,7 @@ namespace MyWorkApplication
         {
             try
             {
-                NewIdea_Form NewIdea_Form = new NewIdea_Form("New Idea","");
+                NewIdea_Form NewIdea_Form = new NewIdea_Form("New Idea", "");
                 NewIdea_Form.Show();
             }
             catch (Exception ex)
@@ -1223,7 +1221,7 @@ namespace MyWorkApplication
                 if (saveFileDialog1.FileName != "")
                 {
                     // Saves the Image via a FileStream created by the OpenFile method.  
-                    var fs = (FileStream) saveFileDialog1.OpenFile();
+                    var fs = (FileStream)saveFileDialog1.OpenFile();
                     destpath = saveFileDialog1.FileName;
                     fs.Close();
                 }
@@ -1241,7 +1239,7 @@ namespace MyWorkApplication
         #endregion
 
         #region notifications
-         
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             try
@@ -1367,7 +1365,7 @@ namespace MyWorkApplication
         }
 
         #endregion
-        
+
         private void MainForm_Resize(object sender, EventArgs e)
         {
             // To solve the problem of tabControl (hide the first tab when minimizing the form)
@@ -1376,18 +1374,18 @@ namespace MyWorkApplication
             //else
             //    tabControl1.ResumeLayout(true);
             ////////////////////////////////////////////////////////////////////////////////////
-            
+
             // i commnet this to solve the problem of Not resizing forms with resizing main form and tabcontrol //
         }
 
         private void tabControl1_SelectedTabChanged(object sender, EventArgs e)
         {
             Form form = (Form)tabControl1.SelectedForm;
-            if(form.Tag.Equals(1))//application
+            if (form.Tag.Equals(1))//application
             {
                 form = (Application_Form)form;
 
-                
+
                 ////////////////////////////////
                 //  I don't know what to do  //
 
@@ -1401,12 +1399,12 @@ namespace MyWorkApplication
             {
                 string selected_hope = DataBase_comboBox.GetItemText(DataBase_comboBox.SelectedItem);
                 Program.selected_database = selected_hope;
-                Program.set_ConnectionString(); 
+                Program.set_ConnectionString();
 
                 //Select userID from selected database and save it in properties//
                 User u = new User();
                 DataTable user_info_dt = u.Select_Users(Username_label.Text, "", "");
-                Program.userID = user_info_dt.Rows[0].Field<int>("ID");  
+                Program.userID = user_info_dt.Rows[0].Field<int>("ID");
                 Program.UserName = user_info_dt.Rows[0].Field<string>("Username");
                 Program.Password = user_info_dt.Rows[0].Field<string>("Password");
                 Program.role = user_info_dt.Rows[0].Field<int>("Role_ID");
@@ -1427,7 +1425,7 @@ namespace MyWorkApplication
             DataBase_comboBox.Items.AddRange(Program.User_In_Database.ToArray());
             DataBase_comboBox.SelectedItem = Program.selected_database;
 
-            if(DataBase_comboBox.Items.Count>1)
+            if (DataBase_comboBox.Items.Count > 1)
                 DataBase_comboBox.Visible = true;
         }
 
@@ -1441,7 +1439,7 @@ namespace MyWorkApplication
         {
             try
             {
-                Form Form = new Application_New_Form(this,false);
+                Form Form = new Application_New_Form(this, false);
                 showNewTab(Form, "Application", 0);
             }
             catch (Exception ex)
@@ -1454,7 +1452,7 @@ namespace MyWorkApplication
         {
             try
             {
-                Form Form = new Application_New_Form(this,true);
+                Form Form = new Application_New_Form(this, true);
                 showNewTab(Form, "Zero App", 0);
             }
             catch (Exception ex)

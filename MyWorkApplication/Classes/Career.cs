@@ -1,10 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWorkApplication.Classes
 {
@@ -26,7 +21,7 @@ namespace MyWorkApplication.Classes
         }
 
         public void Update(int ID, string Name, int SubCategory_ID)
-        { 
+        {
             Program.buildConnection();
             query = "Update `career` set "
                          + " Name = N'" + Name + "',"
@@ -56,7 +51,7 @@ namespace MyWorkApplication.Classes
 
             Program.buildConnection();
             query = "SELECT ID, Name, SubCategory_ID " +
-                ",(select Name from subcategory where ID = career.SubCategory_ID) as 'SubCategory' " + 
+                ",(select Name from subcategory where ID = career.SubCategory_ID) as 'SubCategory' " +
                 " from `career`";
 
             string condition = " where 1 ";

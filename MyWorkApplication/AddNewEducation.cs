@@ -1,15 +1,11 @@
-﻿using System;
-using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+﻿using ClosedXML.Excel;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
-using Microsoft.Office.Interop.Excel;
-using Application = Microsoft.Office.Interop.Excel.Application;
-using System.Threading;
+using System;
 using System.Diagnostics;
-using ClosedXML.Excel;
+using System.Drawing;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace MyWorkApplication
 {
@@ -17,7 +13,7 @@ namespace MyWorkApplication
     {
         private int Education_ID;
         private Log l; private Education ed;
-        private MySqlComponents MySS; 
+        private MySqlComponents MySS;
         private readonly string username;
         System.Data.DataTable Education_dt;
 
@@ -41,7 +37,7 @@ namespace MyWorkApplication
                     newTheme.Category_ToNight(this);
                 else
                     newTheme.Category_ToLight(this);
-                 
+
                 Education_dt = new System.Data.DataTable();
 
                 MySS = new MySqlComponents();
@@ -56,12 +52,12 @@ namespace MyWorkApplication
         }
 
         public void Education_bind(string Edu_type, string Name)
-        { 
-                Education_dt = ed.Select(Edu_type, Name);
-                dataGridView.DataSource = null;
-                dataGridView.Columns.Clear();
-                dataGridView.DataSource = Education_dt;
-          
+        {
+            Education_dt = ed.Select(Edu_type, Name);
+            dataGridView.DataSource = null;
+            dataGridView.Columns.Clear();
+            dataGridView.DataSource = Education_dt;
+
             var dgC2 = dataGridView.Columns["ID"]; dgC2.Visible = false;
             dataGridView.Columns["Type"].ReadOnly = true;
 
@@ -76,7 +72,7 @@ namespace MyWorkApplication
 
             Count_label.Text = "All:" + dataGridView.Rows.GetRowCount(DataGridViewElementStates.Visible);
         }
-         
+
         private void Save_button_Click(object sender, EventArgs e)
         {
             try
@@ -84,20 +80,20 @@ namespace MyWorkApplication
                 if (EducationName_textBox.Text == "" || EducationType_comboBox.Text == "")
                     throw new InvalidOperationException("You can't leave empty fields");
 
-                ed.Insert(EducationName_textBox.Text, EducationType_comboBox.Text); 
+                ed.Insert(EducationName_textBox.Text, EducationType_comboBox.Text);
                 l.Insert_Log("Insert " + EducationName_textBox.Text, " Education ", username, DateTime.Now);
 
                 EducationName_textBox.Clear();
-                Education_ID = -1; 
+                Education_ID = -1;
 
-                Education_dt.Rows.Clear(); 
+                Education_dt.Rows.Clear();
                 Education_bind("", "");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
 
         private void Close_Click(object sender, EventArgs e)
         {
@@ -108,13 +104,13 @@ namespace MyWorkApplication
         {
             try
             {
-                if(EducationType_comboBox.SelectedIndex != -1)
+                if (EducationType_comboBox.SelectedIndex != -1)
                     Education_bind(EducationType_comboBox.SelectedItem.ToString(), "");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            } 
+            }
         }
 
         private void EducationName_textBox_TextChanged(object sender, EventArgs e)
@@ -126,13 +122,13 @@ namespace MyWorkApplication
                     foreach (DataGridViewRow r in dataGridView.Rows)
                     {
                         var found = 0;
-                                 //columns -1 without delete button
-                        for (var i = 0; i < dataGridView.ColumnCount-1; i++) 
+                        //columns -1 without delete button
+                        for (var i = 0; i < dataGridView.ColumnCount - 1; i++)
                             if (r.Cells[i].Value.ToString().ToLower().Contains(EducationName_textBox.Text.ToLower()))
                             {
                                 dataGridView.Rows[r.Index].Visible = true;
                                 found = 1;
-                            }  
+                            }
                         if (found == 0)
                         {
                             dataGridView.CurrentCell = null;
@@ -149,7 +145,7 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
 
         #region mouse move 
         private void Add_button_MouseEnter(object sender, EventArgs e)
@@ -157,19 +153,19 @@ namespace MyWorkApplication
             if (Settings.Default.theme == "Light")
                 Save_button.BackgroundImage = Resources.Save_CL;
             else Save_button.BackgroundImage = Resources.Save_CD;
-        } 
+        }
         private void Add_button_MouseLeave(object sender, EventArgs e)
         {
             if (Settings.Default.theme == "Light")
                 Save_button.BackgroundImage = Resources.Save_CD;
             else Save_button.BackgroundImage = Resources.Save_CL;
-        } 
+        }
         private void Close_button_MouseEnter(object sender, EventArgs e)
         {
             if (Settings.Default.theme == "Light")
                 Close_button.BackgroundImage = Resources.Exit_L;
             else Close_button.BackgroundImage = Resources.Exit_D;
-        } 
+        }
         private void Close_button_MouseLeave(object sender, EventArgs e)
         {
             if (Settings.Default.theme == "Light")
@@ -177,7 +173,7 @@ namespace MyWorkApplication
             else Close_button.BackgroundImage = Resources.Exit_L;
         }
         #endregion
-         
+
         private void Education_dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             try

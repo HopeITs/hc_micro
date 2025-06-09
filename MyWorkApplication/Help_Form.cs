@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyWorkApplication
@@ -121,12 +112,12 @@ namespace MyWorkApplication
             {
                 using (FileStream stream = new FileStream(path, FileMode.Open, FileAccess.Read))
                 {
-                    webBrowser1.Navigate(path); 
+                    webBrowser1.Navigate(path);
                 }
 
             }
             else
-            { } 
+            { }
 
             //DELETE IMAGE FILE
             file = new FileInfo(path);

@@ -38,7 +38,7 @@ namespace MyWorkApplication.Classes
         public void Initialize(DataGridView pDataGridView)
         {
             m_pMenuControl = new MenuControl();
-             
+
             foreach (DataGridViewColumn c in pDataGridView.Columns) m_pMenuControl.Add(c.HeaderText, c.Visible);
 
             m_pMenuControl.Prepare(CreateGraphics());

@@ -1,10 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWorkApplication.Classes
 {
@@ -12,11 +7,11 @@ namespace MyWorkApplication.Classes
     {
         string query, condition;
 
-        public void Insert_MicroProjectRehab(int MicroProject_ID, string PropertyOwnership, string PropertyArea,string Created_By)
+        public void Insert_MicroProjectRehab(int MicroProject_ID, string PropertyOwnership, string PropertyArea, string Created_By)
         {
             Program.buildConnection();
             query = "INSERT INTO `microproject_rehab`(`MicroProject_ID`, `PropertyOwnership`, `PropertyArea`, `Created_By`) VALUES ("
-                + MicroProject_ID + ",N'" + PropertyOwnership + "',N'" + PropertyArea + "',N'" + Created_By +"' )";
+                + MicroProject_ID + ",N'" + PropertyOwnership + "',N'" + PropertyArea + "',N'" + Created_By + "' )";
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.ExecuteNonQuery();
@@ -24,7 +19,7 @@ namespace MyWorkApplication.Classes
             }
         }
 
-        public void Update_MicroProjectRehab(int ID, int MicroProject_ID, string PropertyOwnership, string PropertyArea,string Edited_By)
+        public void Update_MicroProjectRehab(int ID, int MicroProject_ID, string PropertyOwnership, string PropertyArea, string Edited_By)
         {
             Program.buildConnection();
             query = " UPDATE `microproject_rehab` SET " +
@@ -85,7 +80,7 @@ namespace MyWorkApplication.Classes
 , `Question_ID` 
  from `rehabquestion` left join `rehabanswer` on rehabquestion.ID = rehabanswer.Question_ID ";
 
-            var condition = ""; 
+            var condition = "";
             query += condition + " order by A_ID ";
 
             var da = new MySqlDataAdapter(query, Program.MyConn);
@@ -96,16 +91,16 @@ namespace MyWorkApplication.Classes
         }
 
         public void Insert_Rehab_Answers(int Rehab_ID, int Question_ID, int Answer_ID
-            , string Notes , int Number, double Price, string Result)
+            , string Notes, int Number, double Price, string Result)
         {
             Program.buildConnection();
             query = "INSERT INTO `microproject_rehab_answer`(`MicroRehab_ID`, `Question_ID`, `Answer_ID`, `Note`, `Number`, `Price`, `Result`) VALUES ("
                     + Rehab_ID + ","
                     + Question_ID + ","
                     + Answer_ID + ",N'"
-                    + Notes + "',"  
-                    + Number + ","  
-                    + Price + ",N'"  
+                    + Notes + "',"
+                    + Number + ","
+                    + Price + ",N'"
                     + Result + "' )";
 
             using (var sc = new MySqlCommand(query, Program.MyConn))
@@ -163,7 +158,7 @@ namespace MyWorkApplication.Classes
             {
                 int.TryParse(sc.ExecuteScalar().ToString(), out ID);
                 Program.MyConn.Close();
-            } 
+            }
             return ID;
         }
     }

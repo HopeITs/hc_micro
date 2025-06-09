@@ -1,14 +1,11 @@
 ﻿using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication
 {
@@ -19,7 +16,7 @@ namespace MyWorkApplication
         {
             InitializeComponent();
             this.mainForm = mainForm;
-            this.MicroProject_ID = MicroProject_ID; 
+            this.MicroProject_ID = MicroProject_ID;
             this.Person_Name_textBox.Text = PName;
             this.CreatedBy_User_label.Text = CreatedBy;
             this.EditedBy_User_label.Text = EditedBy;
@@ -74,7 +71,7 @@ namespace MyWorkApplication
                         }
                         break;
                 }
-                
+
                 Person_Name_textBox.AutoCompleteCustomSource = s.select_beneficiaries("", "");
                 MicroProject_ID_textBox.AutoCompleteCustomSource = s.select_project_IDs("", "");
 
@@ -102,22 +99,22 @@ namespace MyWorkApplication
             {
                 var Q_ID = -1;
                 foreach (Control table in panel1.Controls)
-                    if (table.GetType() == typeof(TableLayoutPanel) && table.Name.Contains("ans")) 
+                    if (table.GetType() == typeof(TableLayoutPanel) && table.Name.Contains("ans"))
                         foreach (Control c in table.Controls)
                             if (c.GetType() == typeof(TableLayoutPanel))
-                            {  
-                                var n1 = c as TableLayoutPanel; 
+                            {
+                                var n1 = c as TableLayoutPanel;
                                 var lbl = n1.GetControlFromPosition(0, 0) as Label;
-                                
+
                                 //ignore (-) in 1-
-                                if(lbl.Text.Length == 3)
+                                if (lbl.Text.Length == 3)
                                     Q_ID = Convert.ToInt32(lbl.Text.Substring(0, 2));
-                                else Q_ID = Convert.ToInt32(lbl.Text.Substring(0,1)); 
+                                else Q_ID = Convert.ToInt32(lbl.Text.Substring(0, 1));
                                 var row = ans_ques_dt.Select("Question_ID = " + Q_ID, "A_ID");
-                                
+
                                 //find Answers of this question 
                                 foreach (Control bb in n1.Controls)
-                                    if(bb.GetType() == typeof(FlowLayoutPanel)) //if the answers were in the flow panel//
+                                    if (bb.GetType() == typeof(FlowLayoutPanel)) //if the answers were in the flow panel//
                                     {
                                         bb.Controls.Clear();
 
@@ -130,12 +127,12 @@ namespace MyWorkApplication
                                             cbox.MaximumSize = new Size(140, 30);
                                             cbox.Text = row[i].Field<string>("A_Name");
                                             bb.Controls.Add(cbox);
-                                        } 
+                                        }
                                     }
-                                
+
                             }
 
-                
+
             }
             catch (Exception ex)
             {
@@ -163,15 +160,15 @@ namespace MyWorkApplication
         public void Fill_AgricultureApp()
         {
             user_mode = false;
-            clear_boxes(0); 
+            clear_boxes(0);
 
-            Fill_Agriculture_Answers(MicroProject_ID); 
-            Update_Mode = true; 
-            user_mode = true; 
+            Fill_Agriculture_Answers(MicroProject_ID);
+            Update_Mode = true;
+            user_mode = true;
         }
 
         private void clear_boxes(int j)
-        { 
+        {
             Update_Mode = false;
             CreatedBy_User_label.Text = EditedBy_User_label.Text = "";
 
@@ -187,17 +184,17 @@ namespace MyWorkApplication
                         if (c.GetType() == typeof(TableLayoutPanel))
                             foreach (Control bb in c.Controls)
                                 if (bb.GetType() == typeof(FlowLayoutPanel))
-                                    foreach(Control cbox in bb.Controls)
+                                    foreach (Control cbox in bb.Controls)
                                         if (cbox.GetType() == typeof(CheckBox))
-                                            {
-                                                var rad = cbox as CheckBox;
-                                                rad.Checked = false;
-                                            }
-                            
+                                        {
+                                            var rad = cbox as CheckBox;
+                                            rad.Checked = false;
+                                        }
+
         }
 
         private void Fill_Agriculture_Answers(int MP_ID)
-        { 
+        {
             var ans_dt = ag.Get_Agriculture_Answers(MP_ID);
             int Q_ID, A_ID;
 
@@ -207,10 +204,10 @@ namespace MyWorkApplication
                         if (c.GetType() == typeof(TableLayoutPanel))
                         {
                             var n1 = c as TableLayoutPanel;
-                            Q_ID = A_ID = -1; 
+                            Q_ID = A_ID = -1;
 
-                            DataRow[] row = null; 
-                             
+                            DataRow[] row = null;
+
                             var lbl = n1.GetControlFromPosition(0, 0) as Label;
 
                             //ignore (-) in 1-
@@ -221,12 +218,12 @@ namespace MyWorkApplication
                             //get the answers
                             row = ans_dt.Select("Question_ID = " + Q_ID + " ");
                             if (row == null || row.Length == 0) continue;
-                               
+
                             //find Answers of this question 
                             foreach (Control bb in n1.Controls)
                                 if (bb.GetType() == typeof(FlowLayoutPanel)) //if the answers were in the flow panel//
-                                    foreach(Control cBox in bb.Controls)
-                                        if(cBox.GetType() == typeof(CheckBox))
+                                    foreach (Control cBox in bb.Controls)
+                                        if (cBox.GetType() == typeof(CheckBox))
                                         {
                                             var rad = cBox as CheckBox;
                                             for (int i = 0; i < row.Count(); i++)
@@ -235,10 +232,10 @@ namespace MyWorkApplication
                                                 {
                                                     rad.Checked = true;
                                                 }
-                                            } 
-                                        } 
+                                            }
+                                        }
                         }
-             
+
         }
 
         private void Save_button_Click(object sender, EventArgs e)
@@ -252,7 +249,7 @@ namespace MyWorkApplication
 
                 if (!CheckAllQuestionsHaveAnswers())
                     throw new InvalidOperationException("لا يمكن ترك سؤال بدون إجابة ! الرجاء تعبئته والمحاولة مرة أخرى ");
-                  
+
                 // Insert answers and marks // 
                 int Q_ID, A_ID;
                 answer_query = "START TRANSACTION;";
@@ -297,7 +294,7 @@ namespace MyWorkApplication
 
                                             }
                             }
-                  
+
                 answer_query += "COMMIT;";
                 ag.Insert_Agriculture_Answers(answer_query);
                 l.Insert_Log(
@@ -305,7 +302,7 @@ namespace MyWorkApplication
                     Person_Name_textBox.Text, "Agriculture Application", Program.UserName, DateTime.Now);
 
                 Update_Mode = true;
-                MessageBox.Show("تم حفظ المعلومات بنجاح", "Save"); 
+                MessageBox.Show("تم حفظ المعلومات بنجاح", "Save");
             }
             catch (Exception ex)
             {
@@ -331,7 +328,7 @@ namespace MyWorkApplication
                     l.Insert_Log(
                         "Delete AgricultureApp of " + MicroProject_ID + " : " +
                         Person_Name_textBox.Text, "Agriculture Application", Program.UserName, DateTime.Now);
-                    
+
                     clear_boxes(1);
                 }
             }
@@ -346,31 +343,31 @@ namespace MyWorkApplication
             bool answer_checked;
             foreach (Control table in panel1.Controls)
                 if (table.GetType() == typeof(TableLayoutPanel) && table.Name.Contains("ans"))
-                        foreach (Control c in table.Controls)
-                            if (c.GetType() == typeof(TableLayoutPanel))
-                            {
-                                answer_checked = false;
-                                var n1 = c as TableLayoutPanel;
+                    foreach (Control c in table.Controls)
+                        if (c.GetType() == typeof(TableLayoutPanel))
+                        {
+                            answer_checked = false;
+                            var n1 = c as TableLayoutPanel;
 
-                                //find Answer of this question
-                                foreach (Control bb in n1.Controls)
-                                {
-                                    if (bb.GetType() == typeof(FlowLayoutPanel))
-                                        foreach (Control cBox in bb.Controls)
-                                            if (cBox.GetType() == typeof(CheckBox))
+                            //find Answer of this question
+                            foreach (Control bb in n1.Controls)
+                            {
+                                if (bb.GetType() == typeof(FlowLayoutPanel))
+                                    foreach (Control cBox in bb.Controls)
+                                        if (cBox.GetType() == typeof(CheckBox))
+                                        {
+                                            CheckBox rad = cBox as CheckBox;
+                                            if (rad.Checked)
                                             {
-                                                CheckBox rad = cBox as CheckBox;
-                                                if (rad.Checked)
-                                                {
-                                                    //عنا بس مجموعة من الاجوبة اللي مسموح نختارن سوا بنفس السؤال//
-                                                    answer_checked = true;
-                                                    break;
-                                                }
+                                                //عنا بس مجموعة من الاجوبة اللي مسموح نختارن سوا بنفس السؤال//
+                                                answer_checked = true;
+                                                break;
                                             }
-                                }
-                                if (!answer_checked)
-                                    return false;
-                            } 
+                                        }
+                            }
+                            if (!answer_checked)
+                                return false;
+                        }
             return true;
         }
 
@@ -378,7 +375,7 @@ namespace MyWorkApplication
         {
             addNotesToolStripMenuItem.Visible = false;
 
-            switch ( Program.role)
+            switch (Program.role)
             {
                 case 1: //admin 
                 case 8: //admin_l0

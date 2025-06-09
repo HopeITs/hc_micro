@@ -1,23 +1,16 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ClosedXML.Excel;
+using Microsoft.Office.Interop.Word;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
 using MyWorkApplication.Visit_Forms;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Microsoft.Office.Interop.Word;
-using Document = Microsoft.Office.Interop.Word.Document;
-using System.Threading;
 using System.IO;
-using ClosedXML.Excel;
-using System.Diagnostics; 
+using System.Linq;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace MyWorkApplication
 {
@@ -25,12 +18,12 @@ namespace MyWorkApplication
     {
         public CheckList_Form(MainForm mainForm)
         {
-            InitializeComponent(); 
+            InitializeComponent();
             this.mainForm = mainForm;
             this.MicroProject_ID = -1;
             MyDataGridViewInitializationMethod();
         }
-        public CheckList_Form(int MicroProject_ID,MainForm mainForm)
+        public CheckList_Form(int MicroProject_ID, MainForm mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
@@ -50,7 +43,8 @@ namespace MyWorkApplication
 
         private void CheckList_Form_Load(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 mainForm.Project_label.Visible = mainForm.TabName_label.Visible = true;
                 mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = false;
                 mainForm.TabName_label.Text = "Check List";
@@ -73,16 +67,16 @@ namespace MyWorkApplication
                 beneficiaries_dt = s.select_Beneficiaries_of_project("");
 
 
-                keyperson_dataGridView.AutoGenerateColumns 
-                    = team_dataGridView.AutoGenerateColumns 
+                keyperson_dataGridView.AutoGenerateColumns
+                    = team_dataGridView.AutoGenerateColumns
                     = visit_dataGridView.AutoGenerateColumns
-                    = commity_dataGridView.AutoGenerateColumns = false; 
-                 
+                    = commity_dataGridView.AutoGenerateColumns = false;
+
                 Bind_Gridview_ComboBox();
 
                 Update_Mode = false;
 
-                if(MicroProject_ID != -1)
+                if (MicroProject_ID != -1)
                 {
                     MicroProject_ID_textBox.Text = MicroProject_ID.ToString();
                     MicroProject_ID_textBox_Leave(sender, e);
@@ -107,7 +101,7 @@ namespace MyWorkApplication
                     {
                         Save_button.Visible = Delete_button.Visible = Print_button.Visible
                             = Add_C_button.Visible = Add_K_button.Visible
-                            = Add_T_button.Visible = Add_V_button.Visible 
+                            = Add_T_button.Visible = Add_V_button.Visible
                             = true;
                         return true;
                     }
@@ -117,8 +111,8 @@ namespace MyWorkApplication
 
                         Save_button.Visible = Delete_button.Visible = Print_button.Visible
                             = Add_C_button.Visible = Add_K_button.Visible
-                            = Add_T_button.Visible = Add_V_button.Visible 
-                            = true; 
+                            = Add_T_button.Visible = Add_V_button.Visible
+                            = true;
                         return true;
                     }
                 case 3: //Financial 
@@ -128,19 +122,19 @@ namespace MyWorkApplication
 
                         Save_button.Visible = Delete_button.Visible = Print_button.Visible
                             = Add_C_button.Visible = Add_K_button.Visible
-                            = Add_T_button.Visible = Add_V_button.Visible 
+                            = Add_T_button.Visible = Add_V_button.Visible
                             = false;
                         return false;
                     }
                 case 4: //Guest
                 case 9: //Media
                     {
-                        payments_toolStripMenuItem.Visible = 
+                        payments_toolStripMenuItem.Visible =
                             Visits_toolStripMenuItem.Visible = false;
 
                         Save_button.Visible = Delete_button.Visible = Print_button.Visible
                             = Add_C_button.Visible = Add_K_button.Visible
-                            = Add_T_button.Visible = Add_V_button.Visible 
+                            = Add_T_button.Visible = Add_V_button.Visible
                            = false;
                         return false;
                     }
@@ -156,7 +150,7 @@ namespace MyWorkApplication
             team_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(team_dataGridView_EditingControlShowing);
             commity_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(commity_dataGridView_EditingControlShowing);
 
-        } 
+        }
 
         private void team_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
@@ -168,13 +162,13 @@ namespace MyWorkApplication
         }
         private void keyperson_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            e.Control.KeyPress += new KeyPressEventHandler(keyperson_dataGridView_Control_KeyPress); 
-        } 
+            e.Control.KeyPress += new KeyPressEventHandler(keyperson_dataGridView_Control_KeyPress);
+        }
         private void visit_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress += new KeyPressEventHandler(visit_dataGridView_Control_KeyPress);
         }
-         
+
         private void team_dataGridView_Control_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar) && team_dataGridView.CurrentCellAddress.X == 2)
@@ -193,7 +187,7 @@ namespace MyWorkApplication
         {
             if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar) && keyperson_dataGridView.CurrentCellAddress.X == 2)
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
         }
         private void visit_dataGridView_Control_KeyPress(object sender, KeyPressEventArgs e)
@@ -215,20 +209,20 @@ namespace MyWorkApplication
 
             System.Data.DataTable dt_t = checklist_member_dt.Select("Type='t'").CopyToDataTable();
 
-            System.Data.DataTable dt_c = checklist_member_dt.Select("Type='c'").CopyToDataTable(); 
+            System.Data.DataTable dt_c = checklist_member_dt.Select("Type='c'").CopyToDataTable();
 
             K_Name.DataSource = dt_k;
             K_Name.DisplayMember = "Name";
             K_Name.ValueMember = "ID";
-              
+
             T_Name.DataSource = dt_t;
             T_Name.DisplayMember = "Name";
             T_Name.ValueMember = "ID";
-              
+
             V_Name.DataSource = dt_t;
             V_Name.DisplayMember = "Name";
             V_Name.ValueMember = "ID";
-             
+
             C_Name.DataSource = dt_c;
             C_Name.DisplayMember = "Name";
             C_Name.ValueMember = "ID";
@@ -244,7 +238,7 @@ namespace MyWorkApplication
                     if (MicroProject_ID_textBox.Text != "")
                     {
                         MicroProject_ID = Convert.ToInt32(MicroProject_ID_textBox.Text);
-                        Fill_checklist(MicroProject_ID_textBox.Text ,"");
+                        Fill_checklist(MicroProject_ID_textBox.Text, "");
                     }
             }
             catch (Exception ex)
@@ -256,7 +250,7 @@ namespace MyWorkApplication
         {
             try
             {
-                if(user_mode)
+                if (user_mode)
                     if (Person_Name_textBox.Text != "")
                     {
                         Fill_checklist("", Person_Name_textBox.Text);
@@ -271,20 +265,20 @@ namespace MyWorkApplication
         {
             user_mode = false;
             System.Data.DataTable dt = cl.Get_Checklist(MP_ID, P_Name);
-            if ( dt != null)
-                if ( dt.Rows.Count > 0)
+            if (dt != null)
+                if (dt.Rows.Count > 0)
                 {
                     MicroProject_ID = int.Parse(dt.Rows[0]["MP_ID"].ToString());
 
                     // if (MicroProject_ID_textBox.Text == "")
-                        MicroProject_ID_textBox.Text = MicroProject_ID.ToString(); 
+                    MicroProject_ID_textBox.Text = MicroProject_ID.ToString();
                     // Person_Name_textBox.Text = dt.Rows[0]["Beneficiary Name"].ToString();
                     string p_name = "";
                     DataRow[] rows = null;
-                    rows = beneficiaries_dt.Select("MicroProject_ID=" + MicroProject_ID);  
-                    for (int bb = 0; bb < rows.Length ; bb++)
+                    rows = beneficiaries_dt.Select("MicroProject_ID=" + MicroProject_ID);
+                    for (int bb = 0; bb < rows.Length; bb++)
                         p_name += rows[bb].Field<string>(1) + "-";
-                    if (p_name.Last() == '-') p_name = p_name.Remove(p_name.Length-1,1);
+                    if (p_name.Last() == '-') p_name = p_name.Remove(p_name.Length - 1, 1);
                     Person_Name_textBox.Text = p_name;
 
                     KeyPersonNotes_textBox.Text = dt.Rows[0]["MP_KeyPersonNotes"].ToString();
@@ -326,14 +320,14 @@ namespace MyWorkApplication
                     //set_radioButtons(2, Convert.ToInt32(dt.Rows[0]["ch_ProjectExperience"]));
                     //set_radioButtons(3, Convert.ToInt32(dt.Rows[0]["ch_ExpectedProjectSuccess"]));
                     //set_radioButtons(4, Convert.ToInt32(dt.Rows[0]["ch_WorkAbility"]));
-                     
+
                     keyperson_dataGridView.Rows.Clear();
                     team_dataGridView.Rows.Clear();
                     visit_dataGridView.Rows.Clear();
                     commity_dataGridView.Rows.Clear();
 
-                    int keyperson_index, team_index,visit_index, commity_index;
-                    keyperson_index= team_index= visit_index= commity_index = 0;
+                    int keyperson_index, team_index, visit_index, commity_index;
+                    keyperson_index = team_index = visit_index = commity_index = 0;
 
                     if (dt.Rows[0]["ID"] != DBNull.Value)
                     {
@@ -350,7 +344,7 @@ namespace MyWorkApplication
                                 keyperson_dataGridView.Rows.Add();
                                 keyperson_dataGridView.Rows[keyperson_index].Cells["K_Checklist_ID"].Value = dt.Rows[i].Field<int>("ID");
                                 keyperson_dataGridView.Rows[keyperson_index].Cells["K_ID"].Value = dt.Rows[i].Field<int>("Member_ID");
-                                 
+
                                 keyperson_dataGridView.Rows[keyperson_index].Cells["K_Name"].Value = dt.Rows[i].Field<int>("Member_ID");
                                 //keyperson_dataGridView.Rows[keyperson_index].Cells["K_Position"].Value = dt.Rows[i].Field<string>("Position").ToString();
 
@@ -379,7 +373,7 @@ namespace MyWorkApplication
                                 team_dataGridView.Rows.Add();
                                 team_dataGridView.Rows[team_index].Cells["T_Checklist_ID"].Value = dt.Rows[i].Field<int>("ID");
                                 team_dataGridView.Rows[team_index].Cells["T_ID"].Value = dt.Rows[i].Field<int>("Member_ID");
-                                 
+
                                 team_dataGridView.Rows[team_index].Cells["T_Name"].Value = dt.Rows[i].Field<int>("Member_ID");
 
                                 team_dataGridView.Rows[team_index].Cells["T_Position"].Value = dt.Rows[i].Field<string>("Position").ToString();
@@ -405,7 +399,7 @@ namespace MyWorkApplication
                                 visit_dataGridView.Rows.Add();
                                 visit_dataGridView.Rows[visit_index].Cells["V_Checklist_ID"].Value = dt.Rows[i].Field<int>("ID");
                                 visit_dataGridView.Rows[visit_index].Cells["V_ID"].Value = dt.Rows[i].Field<int>("Member_ID");
-                                 
+
                                 visit_dataGridView.Rows[visit_index].Cells["V_Name"].Value = dt.Rows[i].Field<int>("Member_ID");
 
                                 visit_dataGridView.Rows[visit_index].Cells["V_Notes"].Value = dt.Rows[i].Field<string>("Notes");
@@ -417,7 +411,7 @@ namespace MyWorkApplication
                                 commity_dataGridView.Rows.Add();
                                 commity_dataGridView.Rows[commity_index].Cells["C_Checklist_ID"].Value = dt.Rows[i].Field<int>("ID");
                                 commity_dataGridView.Rows[commity_index].Cells["C_ID"].Value = dt.Rows[i].Field<int>("Member_ID");
-                                 
+
                                 commity_dataGridView.Rows[commity_index].Cells["C_Name"].Value = dt.Rows[i].Field<int>("Member_ID");
 
                                 commity_dataGridView.Rows[commity_index].Cells["C_Position"].Value = dt.Rows[i].Field<string>("Position").ToString();
@@ -437,21 +431,21 @@ namespace MyWorkApplication
                                 commity_dataGridView.Rows[commity_index].Cells["C_InDataBase"].Value = "1";
                                 commity_index++;
                             }
-                        } 
+                        }
                         //Color_Tables();
                     }
                     keyperson_dataGridView.ClearSelection();
                     team_dataGridView.ClearSelection();
                     visit_dataGridView.ClearSelection();
                     commity_dataGridView.ClearSelection();
-                     
+
                     mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = true;
                     mainForm.MP_ID_label.Text = MicroProject_ID.ToString();
 
                     Update_Mode = true;
                     user_mode = true;
                 }
-        } 
+        }
         private void Clear_Boxes()
         {
             MicroProject_ID = -1;
@@ -466,9 +460,9 @@ namespace MyWorkApplication
             keyperson_dataGridView.Rows.Clear();
             team_dataGridView.Rows.Clear();
             visit_dataGridView.Rows.Clear();
-            commity_dataGridView.Rows.Clear(); 
+            commity_dataGridView.Rows.Clear();
         }
-         
+
         #region key persons table
         private void keyperson_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -477,7 +471,7 @@ namespace MyWorkApplication
                 //if click is on new row or header row
                 if (e.RowIndex == keyperson_dataGridView.NewRowIndex || e.RowIndex < 0)
                     return;
-                  
+
 
                 //Check if click is on specific column 
                 if (e.ColumnIndex == keyperson_dataGridView.Columns["K_DeleteRow"].Index)
@@ -520,14 +514,14 @@ namespace MyWorkApplication
         {
             //keyperson_dataGridView.EndEdit();
         }
-         
+
         private void keyperson_dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 keyperson_dataGridView.EndEdit();
                 // No Need to fill position Just in KeyPerson
-                
+
                 //if (e.ColumnIndex == 2) //Name
                 //{
                 //    if (keyperson_dataGridView.Rows[e.RowIndex].Cells[2].Value != null)
@@ -544,7 +538,7 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
         private void keyperson_dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             try
@@ -716,7 +710,7 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
         private void visit_dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             try
@@ -790,7 +784,7 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
         private void commity_dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -844,12 +838,12 @@ namespace MyWorkApplication
         {
             if (TeamDate_checkBox.Checked) TeamDate_dateTimePicker.Visible = false;
             else TeamDate_dateTimePicker.Visible = true;
-        } 
+        }
         private void Date_checkBox_CheckedChanged(object sender, EventArgs e)
         {
             if (VisitDate_checkBox.Checked) VisitDate_dateTimePicker.Visible = false;
             else VisitDate_dateTimePicker.Visible = true;
-        } 
+        }
         private void CommityDate_checkBox_CheckedChanged(object sender, EventArgs e)
         {
             if (CommityDate_checkBox.Checked) CommityDate_dateTimePicker.Visible = false;
@@ -868,7 +862,7 @@ namespace MyWorkApplication
                         throw new InvalidOperationException(
                             "لا يمكن حذف المشروع! الرجاء اختيار مشروع من قائمة البحث أولاً ثم المحاولة مرة ثانية.");
 
-                    mp.Update_Micro_VisitDetails(MicroProject_ID, "", "", "", "", "" ,"" ,"" );
+                    mp.Update_Micro_VisitDetails(MicroProject_ID, "", "", "", "", "", "", "");
                     cl.Delete_All(MicroProject_ID);
 
                     Clear_Boxes();
@@ -887,9 +881,9 @@ namespace MyWorkApplication
             try
             {
                 MicroProject_ID = Convert.ToInt32(MicroProject_ID_textBox.Text);
-                 
+
                 string Team_Date, Commity_Date, Visit_Date, Visit_Time, Visit_Notes, isVisited, ParishNotes, KeyPersonNotes;
-                Team_Date = Commity_Date = Visit_Date = Visit_Time = Visit_Notes = isVisited= ParishNotes = KeyPersonNotes =""; 
+                Team_Date = Commity_Date = Visit_Date = Visit_Time = Visit_Notes = isVisited = ParishNotes = KeyPersonNotes = "";
 
                 //Visit Details//
                 if (VisitDate_dateTimePicker.Visible)
@@ -904,7 +898,7 @@ namespace MyWorkApplication
 
                 if (TeamDate_dateTimePicker.Visible)
                 {
-                    Team_Date = TeamDate_dateTimePicker.Value.ToString("yyyy/MM/dd"); 
+                    Team_Date = TeamDate_dateTimePicker.Value.ToString("yyyy/MM/dd");
                 }
                 if (CommityDate_dateTimePicker.Visible)
                 {
@@ -917,10 +911,10 @@ namespace MyWorkApplication
 
                 mp.Update_Micro_VisitDetails(MicroProject_ID, isVisited
                     , Visit_Date, Visit_Time
-                    , Visit_Notes , KeyPersonNotes 
-                    , Team_Date , Commity_Date);
+                    , Visit_Notes, KeyPersonNotes
+                    , Team_Date, Commity_Date);
 
-                l.Insert_Log("Update Visit Details of Project:" +MicroProject_ID +":" + Person_Name_textBox.Text, "CheckList", Program.UserName, DateTime.Now);
+                l.Insert_Log("Update Visit Details of Project:" + MicroProject_ID + ":" + Person_Name_textBox.Text, "CheckList", Program.UserName, DateTime.Now);
 
                 Insert_Update_ChecklistDetails();
 
@@ -942,7 +936,7 @@ namespace MyWorkApplication
             name_notes = role_notes = ""; //Just for KeyPerson
             opinion = -1;
             for (var i = 0; i < keyperson_dataGridView.RowCount - 1; i++)
-            { 
+            {
                 if (keyperson_dataGridView.Rows[i].Cells["K_Name"].Value == null || keyperson_dataGridView.Rows[i].Cells["K_Name"].Value.ToString() == null)
                     K_ID = -1;
                 else K_ID = Convert.ToInt32(keyperson_dataGridView.Rows[i].Cells["K_Name"].Value.ToString());
@@ -997,7 +991,7 @@ namespace MyWorkApplication
             for (var i = 0; i < team_dataGridView.RowCount - 1; i++)
             {
                 if (team_dataGridView.Rows[i].Cells["T_Name"].Value == null || team_dataGridView.Rows[i].Cells["T_Name"].Value.ToString() == null)
-                      T_ID = -1;
+                    T_ID = -1;
                 else T_ID = Convert.ToInt32(team_dataGridView.Rows[i].Cells["T_Name"].Value.ToString());
 
                 if (team_dataGridView.Rows[i].Cells["T_Notes"].Value == null || team_dataGridView.Rows[i].Cells["T_Notes"].Value.ToString() == null)
@@ -1038,7 +1032,7 @@ namespace MyWorkApplication
             opinion = -1;
             int V_ID;
             for (var i = 0; i < visit_dataGridView.RowCount - 1; i++)
-            { 
+            {
                 if (visit_dataGridView.Rows[i].Cells["V_Name"].Value == null || visit_dataGridView.Rows[i].Cells["V_Name"].Value.ToString() == null)
                     V_ID = -1;
                 else V_ID = Convert.ToInt32(visit_dataGridView.Rows[i].Cells["V_Name"].Value.ToString());
@@ -1050,7 +1044,8 @@ namespace MyWorkApplication
                 //set ID columns// 
                 visit_dataGridView.Rows[i].Cells["V_ID"].Value = V_ID;
                 if (V_ID != -1)
-                {   if (visit_dataGridView.Rows[i].Cells["V_InDataBase"].Value == null)
+                {
+                    if (visit_dataGridView.Rows[i].Cells["V_InDataBase"].Value == null)
                     {
                         int RowID = cl.Insert(MicroProject_ID, V_ID, opinion, notes, "", "", "v");
 
@@ -1121,7 +1116,7 @@ namespace MyWorkApplication
         private void Add_K_button_Click(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 using (var form = new AddNewChecklistMember("Key Person", "k"))
                 {
                     form.ShowDialog();
@@ -1139,7 +1134,7 @@ namespace MyWorkApplication
         private void Add_T_button_Click(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 using (var form = new AddNewChecklistMember("Team Member", "t"))
                 {
                     form.ShowDialog();
@@ -1157,7 +1152,7 @@ namespace MyWorkApplication
         private void Add_V_button_Click(object sender, EventArgs e)
         {
             try
-            {  
+            {
                 using (var form = new AddNewChecklistMember("Visitors", "t"))
                 {
                     form.ShowDialog();
@@ -1175,7 +1170,7 @@ namespace MyWorkApplication
         private void Add_C_button_Click(object sender, EventArgs e)
         {
             try
-            {  
+            {
                 using (var form = new AddNewChecklistMember("Commity Member", "c"))
                 {
                     form.ShowDialog();
@@ -1220,7 +1215,7 @@ namespace MyWorkApplication
             int max_i = 3;
             if (ansNo == 1) max_i = 3;
             else if (ansNo == 2) max_i = 4;
-            else if (ansNo == 3 || ansNo == 4) max_i = 2; 
+            else if (ansNo == 3 || ansNo == 4) max_i = 2;
 
             if (value == -1)
             {
@@ -1245,7 +1240,7 @@ namespace MyWorkApplication
             if (ansNo == 1) max_i = 3;
             else if (ansNo == 2) max_i = 4;
             else if (ansNo == 3 || ansNo == 4) max_i = 2;
-             
+
             for (int i = 0; i < max_i; i++)
             {
                 string radio_name = "v" + ansNo + "_" + i + "_radioButton";
@@ -1268,7 +1263,7 @@ namespace MyWorkApplication
                 var _Form = new ChooseVisitKind_Form(MicroProject_ID, mainForm);
                 _Form.ShowDialog();
             }
-        }  
+        }
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             if (MicroProject_ID_textBox.Text != "")
@@ -1313,14 +1308,14 @@ namespace MyWorkApplication
 
                 if (Visit_checkBox.Checked == false) //not visited
                 {
-                    if (user_mode) mp.Update_Project(MicroProject_ID, "MP_Visited", "0","");
+                    if (user_mode) mp.Update_Project(MicroProject_ID, "MP_Visited", "0", "");
                     toolTip1.SetToolTip(Visit_checkBox, "لم تتم بعد");
                     Visit_checkBox.Text = "لم تتم بعد";
                     state = "Not Visited";
                 }
                 else // visited
                 {
-                    if (user_mode) mp.Update_Project(MicroProject_ID, "MP_Visited", "1","");
+                    if (user_mode) mp.Update_Project(MicroProject_ID, "MP_Visited", "1", "");
                     toolTip1.SetToolTip(Visit_checkBox, "تمت");
                     Visit_checkBox.Text = "تمت";
                     state = "Visited";
@@ -1334,15 +1329,15 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
         private void button1_Click(object sender, EventArgs e)
-        { 
+        {
             try
             {
                 if (MicroProject_ID_textBox.Text != "" && MicroProject_ID != -1)
                 {
                     string p_name = Person_Name_textBox.Text;
-                    int charLocation = Person_Name_textBox.Text.IndexOf("-", StringComparison.Ordinal); 
+                    int charLocation = Person_Name_textBox.Text.IndexOf("-", StringComparison.Ordinal);
                     if (charLocation > 0)
                     {
                         p_name = p_name.Substring(0, charLocation);
@@ -1381,27 +1376,27 @@ namespace MyWorkApplication
                     worker.Dispose();
                 }
 
-                FileInfo file; 
-                string sourcedirectory = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath) + @"\DocPrint"; 
+                FileInfo file;
+                string sourcedirectory = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath) + @"\DocPrint";
                 string myfilename = @"cl";
-                string word_path = sourcedirectory + @"\" + myfilename + ".docx"; 
-                string filename = sourcedirectory + @"\" +  myfilename + ".xlsx";
+                string word_path = sourcedirectory + @"\" + myfilename + ".docx";
+                string filename = sourcedirectory + @"\" + myfilename + ".xlsx";
                 XLWorkbook wb = new XLWorkbook { RightToLeft = true };
 
                 string appdata_path
                     = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Micro Projects\DocPrint";
 
                 file = new FileInfo(appdata_path);
-  
+
 
                 // To copy a folder's contents to a new location:
                 // Create a new target folder.
                 // If the directory already exists, this method does not create a new directory.
-                System.IO.Directory.CreateDirectory(appdata_path);  
+                System.IO.Directory.CreateDirectory(appdata_path);
 
                 // To copy a file to another location and
                 // overwrite the destination file if it already exists.
-                System.IO.File.Copy( 
+                System.IO.File.Copy(
                       sourcedirectory + @"\" + myfilename + ".docx"
                     , appdata_path + @"\" + myfilename + ".docx"
                     , true);
@@ -1414,21 +1409,21 @@ namespace MyWorkApplication
                 if (deletefile.Exists.Equals(true))
                 {
                     deletefile.Delete();
-                } 
+                }
 
                 wb.Worksheets.Add(dt4444, "Sheet1");
-                     
+
                 wb.SaveAs(filename);
                 wb.Dispose();
-                  
+
                 // convert .xlsx to .xls
                 string newfilename = filename.Remove(filename.Length - 1, 1);
                 System.IO.File.Delete(newfilename);
                 System.IO.File.Move(filename, newfilename);
-                 
+
                 Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
-                Microsoft.Office.Interop.Word.Document document = ap.Documents.Open($@"{appdata_path}/{myfilename}.docx"); 
-                document.MailMerge.MainDocumentType = WdMailMergeMainDocType.wdFormLetters;  
+                Microsoft.Office.Interop.Word.Document document = ap.Documents.Open($@"{appdata_path}/{myfilename}.docx");
+                document.MailMerge.MainDocumentType = WdMailMergeMainDocType.wdFormLetters;
                 document.MailMerge.OpenDataSource($@"{appdata_path}/{myfilename}.xls"
                     , WdMailMergeMainDocType.wdFormLetters
                     , false
@@ -1442,13 +1437,13 @@ namespace MyWorkApplication
                     , ""
                     , $@"Provider=Microsoft.ACE.OLEDB.12.0;User ID=Admin;Data Source={appdata_path}/{myfilename}.xlsx;"
                     , ""
-                    , ""); 
+                    , "");
                 document.MailMerge.Destination = WdMailMergeDestination.wdSendToNewDocument;
                 document.MailMerge.SuppressBlankLines = true;
                 document.MailMerge.DataSource.LastRecord = (int)WdMailMergeDefaultRecord.wdDefaultFirstRecord;
                 document.MailMerge.DataSource.LastRecord = (int)WdMailMergeDefaultRecord.wdDefaultLastRecord;
                 document.MailMerge.Execute();
-                document.Close(WdSaveOptions.wdDoNotSaveChanges); 
+                document.Close(WdSaveOptions.wdDoNotSaveChanges);
             }
             catch (Exception ex)
             {

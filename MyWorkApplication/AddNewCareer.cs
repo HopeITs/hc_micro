@@ -1,16 +1,12 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ClosedXML.Excel;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
 using System;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using Application = Microsoft.Office.Interop.Excel.Application;
 using System.Data;
-using ClosedXML.Excel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace MyWorkApplication
 {
@@ -22,10 +18,10 @@ namespace MyWorkApplication
         }
 
         private int ID;
-        private Log l; 
+        private Log l;
         private Career career;
         private SubCategory sub;
-        System.Data.DataTable SubCategory_dt,Career_dt;
+        System.Data.DataTable SubCategory_dt, Career_dt;
 
         private void AddNewSubCategory_Load(object sender, EventArgs e)
         {
@@ -36,14 +32,14 @@ namespace MyWorkApplication
                     newTheme.Category_ToNight(this);
                 else
                     newTheme.Category_ToLight(this);
-                 
+
                 l = new Log();
                 sub = new SubCategory();
                 career = new Career();
 
                 SubCategory_dt = new System.Data.DataTable();
                 Career_dt = new System.Data.DataTable();
-                 
+
                 SubCategory_bind();
                 Career_bind("", "");
             }
@@ -55,10 +51,10 @@ namespace MyWorkApplication
 
         private void SubCategory_bind()
         {
-            SubCategory_dt = sub.Select("","");
+            SubCategory_dt = sub.Select("", "");
             SubCategory_comboBox.DisplayMember = "Name";
             SubCategory_comboBox.ValueMember = "ID";
-            SubCategory_comboBox.DataSource = SubCategory_dt; 
+            SubCategory_comboBox.DataSource = SubCategory_dt;
         }
 
         public void Career_bind(string SubCategory_ID, string Name)
@@ -68,7 +64,7 @@ namespace MyWorkApplication
                 Career_dt = career.Select("", "");
                 dataGridView.DataSource = null;
                 dataGridView.Columns.Clear();
-                dataGridView.DataSource = Career_dt; 
+                dataGridView.DataSource = Career_dt;
             }
             else
             {
@@ -91,8 +87,8 @@ namespace MyWorkApplication
                 dataGridView.DataSource = null;
                 dataGridView.Columns.Clear();
 
-                System.Data.DataTable selected_rows_dt =new System.Data.DataTable();
-                
+                System.Data.DataTable selected_rows_dt = new System.Data.DataTable();
+
                 selected_rows_dt = Career_dt.Copy();
                 selected_rows_dt.Rows.Clear();
                 foreach (DataRow row in rows)
@@ -124,11 +120,11 @@ namespace MyWorkApplication
                 if (Name_textBox.Text == "" || SubCategory_comboBox.SelectedIndex == -1)
                     throw new InvalidOperationException("لا يمكن ترك بعض الخلايا فارغة!");
 
-                career.Insert(Name_textBox.Text, Convert.ToInt32(SubCategory_comboBox.SelectedValue.ToString())); 
+                career.Insert(Name_textBox.Text, Convert.ToInt32(SubCategory_comboBox.SelectedValue.ToString()));
                 l.Insert_Log("Insert Career:" + Name_textBox.Text, "Career", Program.UserName, DateTime.Now);
 
                 Name_textBox.Clear();
-                ID = -1; 
+                ID = -1;
 
                 Career_dt.Rows.Clear();
                 Career_bind(SubCategory_comboBox.SelectedValue.ToString(), "");
@@ -138,7 +134,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-          
+
         private void Close_button_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -200,7 +196,7 @@ namespace MyWorkApplication
         }
 
         #endregion
-         
+
 
         private void dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -246,7 +242,7 @@ namespace MyWorkApplication
                         MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        var ID = Convert.ToInt32( dataGridView.Rows[e.RowIndex].Cells["ID"].Value.ToString());
+                        var ID = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                         career.Delete(ID);
                         l.Insert_Log("Delete Career: " + dataGridView.Rows[e.RowIndex].Cells["Name"].Value,
                             "Career", Program.UserName, DateTime.Now);
@@ -279,7 +275,7 @@ namespace MyWorkApplication
                     var location = new System.Drawing.Point((e.CellBounds.Width - size.Width) / 2,
                         (e.CellBounds.Height - size.Height) / 2);
                     location.Offset(e.CellBounds.Location);
-                    e.Graphics.DrawImage(image, location); 
+                    e.Graphics.DrawImage(image, location);
                     e.Handled = true;
                 }
             }
@@ -288,7 +284,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-        
+
         private void dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel = true;

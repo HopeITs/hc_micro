@@ -1,5 +1,5 @@
-﻿using System.Data;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace MyWorkApplication.Classes
 {
@@ -9,10 +9,10 @@ namespace MyWorkApplication.Classes
 
         public void Insert(string name, double rate, int Donor_ID)
         {
-            
+
             Program.buildConnection();
 
-            query = "INSERT INTO `donorgroup`(`Name`, `Rate`, `Donor_ID`) values (N'" + name + "'," + rate + "," +Donor_ID+ ")";
+            query = "INSERT INTO `donorgroup`(`Name`, `Rate`, `Donor_ID`) values (N'" + name + "'," + rate + "," + Donor_ID + ")";
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.ExecuteNonQuery();
@@ -22,12 +22,12 @@ namespace MyWorkApplication.Classes
 
         public void Update(int ID, string name, double rate, int Donor_ID)
         {
-            
+
             Program.buildConnection();
             query = "Update `donorgroup` set "
                     + " `Name` = N'" + name + "'"
                     + ",`Rate` = " + rate + " "
-                    + ",`Donor_ID` = " + Donor_ID+ " "
+                    + ",`Donor_ID` = " + Donor_ID + " "
                     + " where `ID` =" + ID;
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
@@ -38,7 +38,7 @@ namespace MyWorkApplication.Classes
 
         public void Delete(int ID)
         {
-            
+
             Program.buildConnection();
             query = "delete From `donorgroup` where `ID` =" + ID;
             using (var sc = new MySqlCommand(query, Program.MyConn))
@@ -50,7 +50,7 @@ namespace MyWorkApplication.Classes
 
         public DataTable Select(string Name)
         {
-            
+
             Program.buildConnection();
             query = "select `ID`, `Name`, Round(Rate,3) as 'Rate' " +
                 " , (select donor.Name from donor where donor.ID = Donor_ID limit 1) as 'Donor'" +

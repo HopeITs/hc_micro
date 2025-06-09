@@ -1,10 +1,10 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication
 {
@@ -12,7 +12,7 @@ namespace MyWorkApplication
     {
         private DonorGroup group;
         private int ID;
-        private Log l; 
+        private Log l;
         DataTable donors_dt;
 
         public AddNewGroup()
@@ -53,7 +53,7 @@ namespace MyWorkApplication
 
                 var dgC2 = group_dataGridView.Columns["ID"];
                 var dgC1 = group_dataGridView.Columns["Donor_ID"];
-                dgC2.Visible =dgC1.Visible = false;
+                dgC2.Visible = dgC1.Visible = false;
 
                 var colCB = new DataGridViewButtonColumn();
                 colCB.Name = "DeleteRow";
@@ -71,8 +71,8 @@ namespace MyWorkApplication
                     var ComboBoxCell2 = new DataGridViewComboBoxCell();
                     //ComboBoxCell2.Items.Add("None");
 
-                    for (int dd = 0; dd< donors_dt.Rows.Count; dd++)
-                    { 
+                    for (int dd = 0; dd < donors_dt.Rows.Count; dd++)
+                    {
                         ComboBoxCell2.Items.Add(donors_dt.Rows[dd].Field<string>(1));
                     }
 
@@ -83,9 +83,9 @@ namespace MyWorkApplication
 
             }
         }
-                    
-                                    
-                   
+
+
+
 
         private void Name_textBox_TextChanged(object sender, EventArgs e)
         {
@@ -148,7 +148,7 @@ namespace MyWorkApplication
 
         private void Donor_bind()
         {
-            
+
             Program.buildConnection();
             var sc = new MySqlCommand("select ID,Name from `donor` ORDER BY Name ASC ", Program.MyConn);
             sc.ExecuteNonQuery();
@@ -184,17 +184,17 @@ namespace MyWorkApplication
                         double rate;
                         if (group_dataGridView.Rows[r].Cells["Rate"].Value == null) rate = 0;
                         else double.TryParse(group_dataGridView.Rows[r].Cells["Rate"].Value.ToString(), out rate);
-                         
+
                         string donor = replaceQuotation(group_dataGridView.Rows[r].Cells["Donor"].Value.ToString());
                         DataRow[] rows = null;
-                        rows = donors_dt.Select("Name='" + donor+ "'");
+                        rows = donors_dt.Select("Name='" + donor + "'");
                         int Donor_ID = rows[0].Field<int>("ID");
                         //var dValue = from row in donors_dt.AsEnumerable()
                         //             where row.Field<string>("Name") == donor
                         //             select row.Field<int>("ID"); 
 
                         group.Update(ID, group_dataGridView.Rows[r].Cells["Name"].Value.ToString(), rate, Donor_ID);
-                        l.Insert_Log("Update Group:" + group_dataGridView.Rows[r].Cells["Name"].Value + ":" + donor+ ":" + rate,
+                        l.Insert_Log("Update Group:" + group_dataGridView.Rows[r].Cells["Name"].Value + ":" + donor + ":" + rate,
                             "Group", Program.UserName, DateTime.Now);
                     }
 
@@ -268,7 +268,7 @@ namespace MyWorkApplication
 
         #region mouse hover
 
-      
+
         private void Add_button_MouseEnter(object sender, EventArgs e)
         {
             if (Settings.Default.theme == "Light")

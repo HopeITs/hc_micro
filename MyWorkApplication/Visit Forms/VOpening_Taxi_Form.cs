@@ -1,12 +1,12 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication.Visit_Forms
 {
@@ -21,7 +21,7 @@ namespace MyWorkApplication.Visit_Forms
         private UserNotification noti;
         private Office_Monitoring O;
         private int Office_Monitoring_ID;
-        private Select s; 
+        private Select s;
         private TasksOfProjects TasksOfProjects;
         private bool Update_Mode;
         private Visit v;
@@ -163,14 +163,14 @@ namespace MyWorkApplication.Visit_Forms
         private void fill_visit_boxes(DataTable dt)
         {
             try
-            { 
+            {
                 if (dt != null)
                 {
                     MicroProject_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
                     MicroProject_ID_textBox.Text = MicroProject_ID.ToString();
-                    Person_Name_textBox.Text = (string) dt.Rows[0]["Beneficiary Name"];
-                    MP_Name_textBox.Text = (string) dt.Rows[0]["Project Name"];
-                    Mobile_textBox.Text = (string) dt.Rows[0]["Mobile"]; 
+                    Person_Name_textBox.Text = (string)dt.Rows[0]["Beneficiary Name"];
+                    MP_Name_textBox.Text = (string)dt.Rows[0]["Project Name"];
+                    Mobile_textBox.Text = (string)dt.Rows[0]["Mobile"];
                     Person_ID = int.Parse(dt.Rows[0]["Beneficiary_ID"].ToString());
 
                     if (dt.Rows[0]["Loan Amount"] == DBNull.Value)
@@ -191,9 +191,9 @@ namespace MyWorkApplication.Visit_Forms
                     EditedBy_User_label.Text = dt.Rows[0]["Edited_By"].ToString();
 
                     if (Update_Mode)
-                    { 
+                    {
                         V_ID = int.Parse(dt.Rows[0]["ID"].ToString());
-                         
+
                         var date1 = (DateTime)dt.Rows[0]["Date"];
                         VisitDate_dateTimePicker.Value = date1;
 
@@ -230,7 +230,7 @@ namespace MyWorkApplication.Visit_Forms
                         }
 
                         VehicleNumber_textBox.Text = (string)dt.Rows[0]["VehicleNumber"];
-                         
+
                         V1_comboBox.Text = V2_comboBox.Text = V3_comboBox.Text = V4_comboBox.Text = "";
                         V1_comboBox.SelectedIndex = V2_comboBox.SelectedIndex =
                             V3_comboBox.SelectedIndex = V4_comboBox.SelectedIndex = -1;
@@ -315,7 +315,7 @@ namespace MyWorkApplication.Visit_Forms
         }
         void set_office_radioButtons(int ansNo, int value)
         {
-            string name = "Ans" + ansNo + "_Value"; 
+            string name = "Ans" + ansNo + "_Value";
             if (value == -1)
             {
                 for (int i = 0; i < 3; i++)
@@ -330,7 +330,7 @@ namespace MyWorkApplication.Visit_Forms
                 string radio_name = "o" + ansNo + "_" + value + "_radioButton";
                 var rad_bx = Controls.Find(radio_name, true).FirstOrDefault() as RadioButton;
                 rad_bx.Checked = true;
-            } 
+            }
         }
         int get_radioButtons_values(int ansNo)
         {
@@ -432,7 +432,7 @@ namespace MyWorkApplication.Visit_Forms
             {
                 DataTable dt = new DataTable();
                 if (v.Has_Visit("", Person_Name_textBox.Text, _KIND))
-                    dt = v.Get_Visit("",Person_Name_textBox.Text,"", _KIND);
+                    dt = v.Get_Visit("", Person_Name_textBox.Text, "", _KIND);
                 else
                     dt = v.Get_Visit("", Person_Name_textBox.Text, "", "");
 
@@ -445,7 +445,7 @@ namespace MyWorkApplication.Visit_Forms
                     }
             }
 
- 
+
         }
 
         private void generate_me_visits_notifications()
@@ -469,7 +469,7 @@ namespace MyWorkApplication.Visit_Forms
             M3_Visit_date = M2_Visit_date.AddMonths(visit_interval);
             M4_Visit_date = M3_Visit_date.AddMonths(visit_interval);
             M5_Visit_date = M4_Visit_date.AddMonths(visit_interval);
-            
+
             ////select the done visits to ignore generate notifications
             //M_and_E me = new M_and_E();
             //DataTable mevisits = me.GetVisitsOfBeneficiary(MicroProject_ID.ToString(), "");
@@ -503,9 +503,9 @@ namespace MyWorkApplication.Visit_Forms
                     noti.Insert_UserNotification(M4_Visit_date.ToString("yyyy/MM/dd"), "Visit M4-" + _KIND.Substring(0, 1),
                         Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
                     noti.Insert_UserNotification(M5_Visit_date.ToString("yyyy/MM/dd"), "Visit M5-" + _KIND.Substring(0, 1),
-                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21); 
+                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
                 }
-             
+
             l.Insert_Log("Insert visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
                     "Visit", Program.UserName, DateTime.Now);
             MessageBox.Show("تم توليد إشعارات زيارات المراقبة والتقييم الخاصة بهذا المشروع بنجاح");
@@ -520,21 +520,21 @@ namespace MyWorkApplication.Visit_Forms
                 if (MicroProject_ID_textBox.Text == "" || Person_Name_textBox.Text == "" || MicroProject_ID == -1)
                     throw new InvalidOperationException("You should choose a project first ..!!");
 
-                if (VehicleNumber_textBox.Text == "") 
+                if (VehicleNumber_textBox.Text == "")
                     throw new InvalidOperationException("انتبه لم تقم بإدخال رقم السيارة! الرجاء كتابته ثم إعادة المحاولة");
 
                 ////insert Section////
                 if (Update_Mode == false && V_ID == -1)
-                {  
+                {
                     v.Insert_Visit(MicroProject_ID, _KIND, "", VisitDate_dateTimePicker.Value.ToString("yyyy/MM/dd"),
                         Ans1_textBox.Text, Ans2_textBox.Text, Ans3_textBox.Text,
-                        Ans4_textBox.Text, Ans5_textBox.Text, Ans6_textBox.Text,"", Indicatores_textBox.Text
+                        Ans4_textBox.Text, Ans5_textBox.Text, Ans6_textBox.Text, "", Indicatores_textBox.Text
                         , get_radioButtons_values(1), get_radioButtons_values(2), get_radioButtons_values(3)
                         , get_radioButtons_values(4), get_radioButtons_values(5), get_radioButtons_values(6)
                         , -1
                         , VehicleNumber_textBox.Text
                         , Program.UserName);
-                    
+
                     l.Insert_Log(
                         "Insert visit-" + _KIND + " to " + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
                         " Visit ", Program.UserName, DateTime.Now);
@@ -548,10 +548,10 @@ namespace MyWorkApplication.Visit_Forms
                     O.Insert_Office_Monitoring(V_ID, Office1_textBox.Text, Office2_textBox.Text,
                         Office3_textBox.Text, Office4_textBox.Text, Office5_textBox.Text, Office6_textBox.Text,
                         OtherComments_textBox.Text
-                        ,get_office_radioButtons_values(1), get_office_radioButtons_values(2)
+                        , get_office_radioButtons_values(1), get_office_radioButtons_values(2)
                         , get_office_radioButtons_values(3), get_office_radioButtons_values(4)
                         , get_office_radioButtons_values(5), get_office_radioButtons_values(6));
-                    
+
                     //make the visit 1 task of this project ==> checked
                     //update task ^_^
                     ///////////////////////////   Task IDs = 25 opening  ////////////////////////////////////////////
@@ -593,7 +593,7 @@ namespace MyWorkApplication.Visit_Forms
                          , get_office_radioButtons_values(1), get_office_radioButtons_values(2)
                         , get_office_radioButtons_values(3), get_office_radioButtons_values(4)
                         , get_office_radioButtons_values(5), get_office_radioButtons_values(6));
-                     
+
                     //remove all users of this visit from database
                     v.Delete_Visit_Users(V_ID);
                 }
@@ -633,15 +633,15 @@ namespace MyWorkApplication.Visit_Forms
 
                 // set vehicals street to متنقل //
                 var query = "Update `microproject` set " +
-                        " MP_Street_ID = (select ID from street where Name like N'متنقل') "+
-                        " where MP_ID = " + MicroProject_ID; 
+                        " MP_Street_ID = (select ID from street where Name like N'متنقل') " +
+                        " where MP_ID = " + MicroProject_ID;
                 Program.buildConnection();
                 var sc = new MySqlCommand(query, Program.MyConn);
                 sc.ExecuteNonQuery();
                 Program.MyConn.Close();
 
                 check_visit_notifications();
-                 
+
                 MessageBox.Show("Visit saved successfuly");
                 clear_Visit_boxes(1);
             }
@@ -702,7 +702,7 @@ namespace MyWorkApplication.Visit_Forms
                 case 9: //Media
                     {
                         throw new InvalidOperationException(" نعتذر ! لا تملك الصلاحية للقيام بهذا الفعل.");
-                    } 
+                    }
             }
         }
 
@@ -712,16 +712,16 @@ namespace MyWorkApplication.Visit_Forms
             CreatedBy_User_label.Text = EditedBy_User_label.Text = "";
 
             V1_comboBox.Text = V2_comboBox.Text = V3_comboBox.Text = V4_comboBox.Text = "";
-            V1_comboBox.SelectedIndex = V2_comboBox.SelectedIndex 
+            V1_comboBox.SelectedIndex = V2_comboBox.SelectedIndex
                 = V3_comboBox.SelectedIndex = V4_comboBox.SelectedIndex = -1;
- 
+
             LoanDate_dateTimePicker.Value = VisitDate_dateTimePicker.Value = DateTime.Now;
-            Ans1_textBox.Text = Ans2_textBox.Text = Indicatores_textBox.Text 
-            = Ans3_textBox.Text =Ans4_textBox.Text = Ans5_textBox.Text = Ans6_textBox.Text = "";
+            Ans1_textBox.Text = Ans2_textBox.Text = Indicatores_textBox.Text
+            = Ans3_textBox.Text = Ans4_textBox.Text = Ans5_textBox.Text = Ans6_textBox.Text = "";
 
             //clear radiobuttons
             for (int i = 1; i <= 6; i++)
-            { 
+            {
                 set_radioButtons(i, -1);
                 set_office_radioButtons(i, -1);
             }
@@ -738,7 +738,7 @@ namespace MyWorkApplication.Visit_Forms
                 Update_Mode = false;
             }
         }
-        
+
         #region mouse hover
 
         private void Save_button_MouseEnter(object sender, EventArgs e)
@@ -756,7 +756,7 @@ namespace MyWorkApplication.Visit_Forms
             else
                 Save_button.BackgroundImage = Resources.Save2_L;
         }
-         
+
         private void Delete_button_MouseEnter(object sender, EventArgs e)
         {
             Image image = null;
@@ -781,7 +781,7 @@ namespace MyWorkApplication.Visit_Forms
 
         #region x pictureBox clicks 
         private void pictureBox1_Click(object sender, EventArgs e)
-        { 
+        {
             foreach (RadioButton r in ans1_tableLayoutPanel.Controls.OfType<RadioButton>())
                 r.Checked = false;
         }
@@ -803,7 +803,7 @@ namespace MyWorkApplication.Visit_Forms
             foreach (RadioButton r in ans4_tableLayoutPanel.Controls.OfType<RadioButton>())
                 r.Checked = false;
         }
-         
+
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             foreach (RadioButton r in ans5_tableLayoutPanel.Controls.OfType<RadioButton>())
@@ -840,7 +840,7 @@ namespace MyWorkApplication.Visit_Forms
                 r.Checked = false;
         }
 
-       
+
         private void o5_pictureBox_Click(object sender, EventArgs e)
         {
             foreach (RadioButton r in tableLayoutPanel_o5.Controls.OfType<RadioButton>())

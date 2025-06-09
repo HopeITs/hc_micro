@@ -1,9 +1,9 @@
-﻿using System;
-using System.Data;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace MyWorkApplication
 {
@@ -53,7 +53,7 @@ namespace MyWorkApplication
 
         public void Priest_bind(string Name)
         {
-            
+
             Program.buildConnection();
 
             MySS.query = "select `Priest_ID` as 'ID',`Priest_Name` as 'Name' from `priest`";
@@ -120,13 +120,13 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
 
         private void Priest_dataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
-                SelectedDataRow = ((DataRowView) Priest_dataGridView.CurrentRow.DataBoundItem).Row;
+                SelectedDataRow = ((DataRowView)Priest_dataGridView.CurrentRow.DataBoundItem).Row;
                 if (SelectedDataRow != null)
                 {
                     Priest_ID = int.Parse(SelectedDataRow["ID"].ToString());
@@ -149,7 +149,7 @@ namespace MyWorkApplication
         {
             try
             {
-                SelectedDataRow = ((DataRowView) Priest_dataGridView.CurrentRow.DataBoundItem).Row;
+                SelectedDataRow = ((DataRowView)Priest_dataGridView.CurrentRow.DataBoundItem).Row;
                 if (SelectedDataRow != null)
                 {
                     Priest_ID = int.Parse(SelectedDataRow["ID"].ToString());
@@ -195,7 +195,7 @@ namespace MyWorkApplication
 
         private void insertPriest()
         {
-            
+
             Program.buildConnection();
 
             MySS.query = "Insert Into `priest`(`Priest_Name`) values(N'" + PriestName_textBox.Text + "' )";
@@ -207,7 +207,7 @@ namespace MyWorkApplication
 
         private void updatePriest(int PriestID)
         {
-            
+
             Program.buildConnection();
 
             MySS.query = "Update `priest` set "
@@ -221,7 +221,7 @@ namespace MyWorkApplication
 
         private void deletePriest(int PriestID)
         {
-            
+
             Program.buildConnection();
 
             var delPriestQuery = "delete From `priest` where `Priest_ID` =" + PriestID;

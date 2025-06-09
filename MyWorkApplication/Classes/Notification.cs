@@ -1,5 +1,5 @@
-﻿using System;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
+using System;
 
 namespace MyWorkApplication.Classes
 {
@@ -14,7 +14,7 @@ namespace MyWorkApplication.Classes
 
         public void Insert_Notification(DateTime Date, int ExeMP_ID, int Payment_ID, string PName_Amount, int Type)
         {
-            
+
             Program.buildConnection();
 
             var query =
@@ -34,7 +34,7 @@ namespace MyWorkApplication.Classes
 
         public void Update_Notification(int N_ID)
         {
-            
+
             Program.buildConnection();
 
             var query = "update `notification` set `N_Seen` = 1 where `N_ID` = " + N_ID + " ";
@@ -49,7 +49,7 @@ namespace MyWorkApplication.Classes
 
         public void Update_NotificationWithPaymentID(int Pay_ID)
         {
-            
+
             Program.buildConnection();
 
             var query = "update `notification` set `N_Seen` = 1 where `N_PaymentID` = " + Pay_ID + " ";
@@ -63,7 +63,7 @@ namespace MyWorkApplication.Classes
 
         public void Update_NotificationWithExeFileID(int ExeF_ID)
         {
-            
+
             Program.buildConnection();
 
             var query = "update `notification` set `N_Seen` = 1 where `N_PaymentID` = -5 and `N_ExeMP_ID` = " +

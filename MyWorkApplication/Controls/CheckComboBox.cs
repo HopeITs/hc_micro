@@ -32,7 +32,7 @@ namespace MyWorkApplication.Classes
         /// <param name="e"></param>
         private void CheckComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var item = (CheckComboBoxItem) SelectedItem;
+            var item = (CheckComboBoxItem)SelectedItem;
             item.CheckState = !item.CheckState;
             if (CheckStateChanged != null)
                 CheckStateChanged(item, e);
@@ -61,7 +61,7 @@ namespace MyWorkApplication.Classes
             }
 
             // get the CheckComboBoxItem from the collection
-            var box = (CheckComboBoxItem) Items[e.Index];
+            var box = (CheckComboBoxItem)Items[e.Index];
 
             // render it
             CheckBoxRenderer.RenderMatchingApplicationState = true;

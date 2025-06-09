@@ -1,10 +1,10 @@
-﻿using System;
+﻿using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication
 {

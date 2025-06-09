@@ -1,9 +1,9 @@
-﻿using System;
+﻿using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication
 {
@@ -103,7 +103,7 @@ namespace MyWorkApplication
             }
         }
 
-        
+
 
         private void Notification_Box_MouseDown(object sender, MouseEventArgs e)
         {
@@ -127,18 +127,18 @@ namespace MyWorkApplication
         }
 
         private void Save_button_MouseEnter(object sender, EventArgs e)
-        { 
-                if (Settings.Default.theme == "Dark")
-                    Save_button.BackgroundImage = Properties.Resources.BtnBackground_D;
-                else Save_button.BackgroundImage = Properties.Resources.BtnBackground_L; 
-                 
+        {
+            if (Settings.Default.theme == "Dark")
+                Save_button.BackgroundImage = Properties.Resources.BtnBackground_D;
+            else Save_button.BackgroundImage = Properties.Resources.BtnBackground_L;
+
         }
 
         private void Save_button_MouseLeave(object sender, EventArgs e)
         {
-                if (Settings.Default.theme == "Dark")
-                    Save_button.BackgroundImage = Properties.Resources.BtnBackground_L;
-                else Save_button.BackgroundImage = Properties.Resources.BtnBackground_D;
+            if (Settings.Default.theme == "Dark")
+                Save_button.BackgroundImage = Properties.Resources.BtnBackground_L;
+            else Save_button.BackgroundImage = Properties.Resources.BtnBackground_D;
         }
     }
 }

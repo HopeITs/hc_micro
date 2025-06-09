@@ -1,21 +1,21 @@
-﻿using System;
+﻿using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication.Visit_Forms
 {
     public partial class ChooseVisitKind_Form : Form
     {
         private DataTable dt_old, dt_new;
-        private M_and_E m_And_E; 
+        private M_and_E m_And_E;
         private readonly MainForm mainForm;
         private int MicroProject_ID, Person_ID, SubCategory_ID, V_ID;
         private string type, fundtype;
         private int partners;
-        private Select s; 
+        private Select s;
         private Visit v;
 
         public ChooseVisitKind_Form(MainForm mainForm)
@@ -66,7 +66,7 @@ namespace MyWorkApplication.Visit_Forms
             {
                 if (MicroProject_ID_textBox1.Text != "")
                 {
-                    fill_beneficiaries_comboBox(MicroProject_ID_textBox1.Text); 
+                    fill_beneficiaries_comboBox(MicroProject_ID_textBox1.Text);
                 }
             }
             catch (Exception ex)
@@ -107,7 +107,7 @@ namespace MyWorkApplication.Visit_Forms
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
         private void color_buttons(DataTable dt_old1, DataTable dt_new1)
         {
             dataGridView_M.Visible = dataGridView_O.Visible = dataGridView_C.Visible = false;
@@ -132,15 +132,15 @@ namespace MyWorkApplication.Visit_Forms
                     // Put background image of project kind
                     Kind_button.Visible = true;
                     if (type.Contains("ترميم") && fundtype.Contains("منحة"))
-                        Kind_button.BackgroundImage = Properties.Resources.rehab3; 
+                        Kind_button.BackgroundImage = Properties.Resources.rehab3;
                     else if (SubCategory_ID == 1 || SubCategory_ID == 2)
                         Kind_button.BackgroundImage = Properties.Resources.taxi;
                     else if (type.Contains("زراع"))
                         Kind_button.BackgroundImage = Properties.Resources.agriculture;
                     else
-                        Kind_button.BackgroundImage = Properties.Resources.warehouse; 
+                        Kind_button.BackgroundImage = Properties.Resources.warehouse;
 
-                    VOpening_button.Enabled = VMonitoring_button.Enabled = VClosing_button.Enabled = true; 
+                    VOpening_button.Enabled = VMonitoring_button.Enabled = VClosing_button.Enabled = true;
                     VOpening_button.BackColor = VMonitoring_button.BackColor = VClosing_button.BackColor = Color.FromArgb(189, 189, 189);
                     VOpening_button.ForeColor = VMonitoring_button.ForeColor = VClosing_button.ForeColor = Color.FromArgb(96, 96, 96);
 
@@ -159,19 +159,19 @@ namespace MyWorkApplication.Visit_Forms
                                 VOpening_button.ForeColor = Color.White;
 
                                 DataTable selected_rows_dt = dt_old1.Copy();
-                                selected_rows_dt.Rows.Clear(); 
+                                selected_rows_dt.Rows.Clear();
                                 selected_rows_dt.ImportRow(dt_old1.Rows[i]);
-                                
+
                                 dataGridView_O.DataSource = selected_rows_dt;
                                 dataGridView_O.Columns["MicroProject_ID"].Visible
                                     = dataGridView_O.Columns["Beneficiary Name"].Visible
                                     = dataGridView_O.Columns["Person_ID"].Visible
-                                    = dataGridView_O.Columns["SubCategory_ID"].Visible 
+                                    = dataGridView_O.Columns["SubCategory_ID"].Visible
                                     = dataGridView_O.Columns["Kind"].Visible
                                     = dataGridView_O.Columns["FundType"].Visible
                                     = dataGridView_O.Columns["V_ID"].Visible = false;
 
-                                dataGridView_O.Visible = true; 
+                                dataGridView_O.Visible = true;
                             }
                             if (dt_old1.Rows[i]["Kind"].ToString().Contains("cl"))
                             {
@@ -193,8 +193,8 @@ namespace MyWorkApplication.Visit_Forms
                                     = dataGridView_C.Columns["FundType"].Visible
                                     = dataGridView_C.Columns["V_ID"].Visible = false;
 
-                                dataGridView_C.Visible = true; 
-                            } 
+                                dataGridView_C.Visible = true;
+                            }
                         }
                 }
                 else
@@ -207,7 +207,7 @@ namespace MyWorkApplication.Visit_Forms
                     // No thing // 
                 }
                 else
-                { 
+                {
                     //Fill Regular Visits//
                     dataGridView_M.DataSource = dt_new1;
                     dataGridView_M.Columns["MicroProject_ID"].Visible
@@ -239,15 +239,15 @@ namespace MyWorkApplication.Visit_Forms
                     {
                         MessageBox.Show("لا يوجد امكانية لاضافة زيارة افتتاحية لمشاريع الترتيم");
                     }
-                    else  if (SubCategory_ID == 1 || SubCategory_ID == 2)
+                    else if (SubCategory_ID == 1 || SubCategory_ID == 2)
                     {
                         Form Taxi_Visit1_Form = new VOpening_Taxi_Form(mainForm, MicroProject_ID);
                         mainForm.showNewTab(Taxi_Visit1_Form, "Opening visit", 0);
                     }
                     else
-                    { 
+                    {
                         Form Other_Visit1_Form = new VOpening_Other_Form(mainForm, MicroProject_ID);
-                        mainForm.showNewTab(Other_Visit1_Form, "Opening visit", 0); 
+                        mainForm.showNewTab(Other_Visit1_Form, "Opening visit", 0);
                     }
                 }
             }
@@ -276,7 +276,7 @@ namespace MyWorkApplication.Visit_Forms
                             int value = Convert.ToInt32(dataGridView_M.Rows[i].Cells["Number"].Value.ToString());
                             if (value > MaxNumber)
                                 MaxNumber = value;
-                        } 
+                        }
                         visit_num = (MaxNumber + 1).ToString();
                     }
                     ////////////////////////////////
@@ -288,22 +288,22 @@ namespace MyWorkApplication.Visit_Forms
                     else if (SubCategory_ID == 1 || SubCategory_ID == 2)
                     {
                         Form Visit_V_Form = new V_ME_Taxi_Form(mainForm, visit_num, Beneficiary_comboBox.Text
-                            ,Convert.ToInt32(MicroProject_ID_textBox1.Text), partners);
+                            , Convert.ToInt32(MicroProject_ID_textBox1.Text), partners);
                         mainForm.showNewTab(Visit_V_Form, "Vehicles Monitoring visit", 0);
-                    } 
+                    }
                     else
                     {
                         Form Visit_O_Form = new V_ME_Other_Form(mainForm, visit_num, Beneficiary_comboBox.Text
                             , Convert.ToInt32(MicroProject_ID_textBox1.Text), partners);
                         mainForm.showNewTab(Visit_O_Form, "Other Projects Monitoring visit", 0);
-                    } 
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
 
         private void VClosing_button_Click(object sender, EventArgs e)
         {
@@ -323,12 +323,12 @@ namespace MyWorkApplication.Visit_Forms
                     {
                         Form Taxi_Visit4_Form = new VClosing_Form(mainForm, MicroProject_ID, "V-cl");
                         mainForm.showNewTab(Taxi_Visit4_Form, "Vehicles Closing visit", 0);
-                    }  
+                    }
                     else
                     {
                         Form Other_Visit4_Form = new VClosing_Form(mainForm, MicroProject_ID, "O-cl");
                         mainForm.showNewTab(Other_Visit4_Form, "Other Projects Closing visit", 0);
-                    } 
+                    }
                 }
             }
             catch (Exception ex)
@@ -336,7 +336,7 @@ namespace MyWorkApplication.Visit_Forms
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
         private void Close_button_Click(object sender, EventArgs e)
         {
             Close();
@@ -357,12 +357,12 @@ namespace MyWorkApplication.Visit_Forms
 
                     if (SubCategory_ID == 1 || SubCategory_ID == 2)
                     {
-                        Form Visit1_Form = new VOpening_Taxi_Form(V_ID,mainForm);
+                        Form Visit1_Form = new VOpening_Taxi_Form(V_ID, mainForm);
                         mainForm.showNewTab(Visit1_Form, "Vehicles Opening Visit", 0);
                     }
                     else
                     {
-                        Form Visit1_Form = new VOpening_Other_Form(V_ID,mainForm);
+                        Form Visit1_Form = new VOpening_Other_Form(V_ID, mainForm);
                         mainForm.showNewTab(Visit1_Form, "Other Projects Opening Visit", 0);
                     }
                 }
@@ -393,14 +393,14 @@ namespace MyWorkApplication.Visit_Forms
                     }
                     else if (SubCategory_ID == 1 || SubCategory_ID == 2)
                     {
-                        Form VisitClosing_Form = new VClosing_Form(V_ID ,mainForm , "V-cl");
+                        Form VisitClosing_Form = new VClosing_Form(V_ID, mainForm, "V-cl");
                         mainForm.showNewTab(VisitClosing_Form, "Vehicles Closing Visit", 0);
-                    } 
+                    }
                     else
-                    { 
+                    {
                         Form VisitClosing_Form = new VClosing_Form(V_ID, mainForm, "O-cl");
                         mainForm.showNewTab(VisitClosing_Form, "Other Closing Visit", 0);
-                    } 
+                    }
                 }
             }
             catch (Exception ex)

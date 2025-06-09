@@ -78,7 +78,7 @@ namespace MyWorkApplication.Classes.Selection_Wrappers
                 }
                 else if (Item is DataRow) // A specific implementation for DataRow
                 {
-                    Name = ((DataRow) (object) Item)[_Container.DisplayNameProperty].ToString();
+                    Name = ((DataRow)(object)Item)[_Container.DisplayNameProperty].ToString();
                 }
                 else
                 {

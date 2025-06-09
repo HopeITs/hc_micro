@@ -1,6 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data;
-using MySql.Data.MySqlClient;
 
 namespace MyWorkApplication.Visit_Forms
 {
@@ -60,9 +60,9 @@ namespace MyWorkApplication.Visit_Forms
                 Program.MyConn.Close();
             }
         }
-         
+
         public void Update_Visit(int ID, string Type, string Date,
-            string Ans1, string Ans2, string Ans3, string Ans4, string Ans5, string Ans6,string Ans7
+            string Ans1, string Ans2, string Ans3, string Ans4, string Ans5, string Ans6, string Ans7
             , string Indicators
             , int Ans1_Value, int Ans2_Value, int Ans3_Value
             , int Ans4_Value, int Ans5_Value, int Ans6_Value, int Ans7_Value
@@ -71,23 +71,23 @@ namespace MyWorkApplication.Visit_Forms
         {
             Program.buildConnection();
             query = "update `Visit` set " +
-                    " `Type`= @Type "+ 
-                    ",`Date`= @Date "+  
-                    ",`Ans1`= @Ans1 "+ ",`Ans2`=@Ans2 " +
-                    ",`Ans3`= @Ans3 "+ ",`Ans4`=@Ans4 " +
-                    ",`Ans5`= @Ans5 "+ ",`Ans6`=@Ans6 " +
-                    ",`Ans7`= @Ans7 "+ 
-                    ",`Indicators`=@Indicators "+  
-                    ",`Ans1_Value`=@Ans1_Value "+ ",`Ans2_Value`= @Ans2_Value" +
-                    ",`Ans3_Value`=@Ans3_Value "+ ",`Ans4_Value`= @Ans4_Value" +
-                    ",`Ans5_Value`=@Ans5_Value "+ ",`Ans6_Value`= @Ans6_Value" +
-                    ",`Ans7_Value`=@Ans7_Value "+
+                    " `Type`= @Type " +
+                    ",`Date`= @Date " +
+                    ",`Ans1`= @Ans1 " + ",`Ans2`=@Ans2 " +
+                    ",`Ans3`= @Ans3 " + ",`Ans4`=@Ans4 " +
+                    ",`Ans5`= @Ans5 " + ",`Ans6`=@Ans6 " +
+                    ",`Ans7`= @Ans7 " +
+                    ",`Indicators`=@Indicators " +
+                    ",`Ans1_Value`=@Ans1_Value " + ",`Ans2_Value`= @Ans2_Value" +
+                    ",`Ans3_Value`=@Ans3_Value " + ",`Ans4_Value`= @Ans4_Value" +
+                    ",`Ans5_Value`=@Ans5_Value " + ",`Ans6_Value`= @Ans6_Value" +
+                    ",`Ans7_Value`=@Ans7_Value " +
                     ",`VehicleNumber`= @VehicleNumber" +
                     ",`Edited_By`= @Edited_By" +
                     " where `ID` = @ID";
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
-                sc.Parameters.AddWithValue("@ID", ID); 
+                sc.Parameters.AddWithValue("@ID", ID);
                 sc.Parameters.AddWithValue("@Type", Type);
                 sc.Parameters.AddWithValue("@Date", Date);
 
@@ -162,7 +162,7 @@ namespace MyWorkApplication.Visit_Forms
         public void Delete_Visit_Users(int V_ID)
         {
             Program.buildConnection();
-            query = "delete from `visit_user` where `Visit_ID` = @V_ID" ;
+            query = "delete from `visit_user` where `Visit_ID` = @V_ID";
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.Parameters.AddWithValue("@V_ID", V_ID);
@@ -186,10 +186,10 @@ namespace MyWorkApplication.Visit_Forms
                 Program.MyConn.Close();
 
                 return dt;
-            } 
+            }
         }
 
-        public DataTable Get_Visit(string V_ID, string name, string MicroProject_ID,string _Kind)
+        public DataTable Get_Visit(string V_ID, string name, string MicroProject_ID, string _Kind)
         {
             Program.buildConnection();
             query = @"SELECT PMP.`MicroProject_ID` as 'MicroProject_ID'
@@ -225,11 +225,11 @@ namespace MyWorkApplication.Visit_Forms
  left join street on street.ID =  microproject.MP_Street_ID 
  left join microprojecttype on microprojecttype.ID = microproject.MP_Type_ID ";
 
-            if (V_ID != "") condition += " and v.ID = " + V_ID + ""; 
-            if (name != "") condition+= " and CONCAT(TRIM(P_FirstName),' ', TRIM(P_LastName),' ابن/ة ',TRIM(P_FatherName)) LIKE '%" + name + "%'";
+            if (V_ID != "") condition += " and v.ID = " + V_ID + "";
+            if (name != "") condition += " and CONCAT(TRIM(P_FirstName),' ', TRIM(P_LastName),' ابن/ة ',TRIM(P_FatherName)) LIKE '%" + name + "%'";
             if (MicroProject_ID != "") condition += " and PMP.MicroProject_ID = " + MicroProject_ID;
             if (_Kind != "") condition += " and Kind like '" + _Kind + "' ";
-             
+
             query += from + condition;
 
             var da = new MySqlDataAdapter(query, Program.MyConn);
@@ -237,11 +237,11 @@ namespace MyWorkApplication.Visit_Forms
             da.Fill(dt);
             Program.MyConn.Close();
             return dt;
-        } 
-         
+        }
+
         public bool Has_Visit(string name, string MicroProject_ID, string _Kind)
         {
-            var V_count = 0; 
+            var V_count = 0;
 
             Program.buildConnection();
             query = @"SELECT count(*) ";
@@ -252,7 +252,7 @@ namespace MyWorkApplication.Visit_Forms
  left join person_microproject PMP on PMP.MicroProject_ID = v.MicroProject_ID
  left join microproject on PMP.MicroProject_ID = microproject.MP_ID
  left join person P on P.P_ID = PMP.Person_ID ";
-             
+
             if (name != "") condition += " and CONCAT(TRIM(P_FirstName),' ', TRIM(P_LastName),' ابن/ة ',TRIM(P_FatherName)) LIKE '%" + name + "%'";
             if (MicroProject_ID != "") condition += " and PMP.MicroProject_ID = " + MicroProject_ID;
             if (_Kind != "") condition += " and Kind like '" + _Kind + "' ";
@@ -370,7 +370,7 @@ namespace MyWorkApplication.Visit_Forms
             return all_conditions;
         }
 
-  
+
         public DataSet Get_Beneficiaries_Answers(
              string DateFrom, string DateTo
            , string visit_Kind

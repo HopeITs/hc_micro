@@ -1,14 +1,14 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using MySql.Data.MySqlClient;
+using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using MyWorkApplication.Visit_Forms;
+using System;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
-using ClosedXML.Excel;
-using MySql.Data.MySqlClient;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
-using MyWorkApplication.Visit_Forms;
 
 namespace MyWorkApplication
 {
@@ -60,7 +60,7 @@ namespace MyWorkApplication
                              " order by Date desc ";
             //// Date from just 3 Months till NOW-4 days //// Date > CURDATE() + INTERVAL -3 MONTH and 
 
-            
+
             Program.buildConnection();
             MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
             var ds = new DataSet();
@@ -135,7 +135,7 @@ namespace MyWorkApplication
                     newTheme.NotificationBox_ToNight(this);
                 else
                     newTheme.NotificationBox_ToLight(this);
-                 
+
                 MySS = new MySqlComponents();
                 userNotification = new UserNotification();
                 l = new Log();
@@ -177,7 +177,7 @@ namespace MyWorkApplication
                         checklistToolStripMenuItem.Visible =
                             visitsToolStripMenuItem.Visible = false;
                         applicationToolStripMenuItem.Visible =
-                            loansToolStripMenuItem.Visible = true; 
+                            loansToolStripMenuItem.Visible = true;
                     }
                     break;
                 case 2: //Data
@@ -185,7 +185,7 @@ namespace MyWorkApplication
                         checklistToolStripMenuItem.Visible =
                             visitsToolStripMenuItem.Visible =
                         applicationToolStripMenuItem.Visible = true;
-                            loansToolStripMenuItem.Visible =false ;
+                        loansToolStripMenuItem.Visible = false;
                     }
                     break;
                 case 4: //Guest 
@@ -194,9 +194,9 @@ namespace MyWorkApplication
                 case 9: //Media
                     {
                         applicationToolStripMenuItem.Visible = true;
-                           checklistToolStripMenuItem.Visible =
-                           loansToolStripMenuItem.Visible =
-                           visitsToolStripMenuItem.Visible = false;
+                        checklistToolStripMenuItem.Visible =
+                        loansToolStripMenuItem.Visible =
+                        visitsToolStripMenuItem.Visible = false;
                     }
                     break;
             }
@@ -263,7 +263,7 @@ namespace MyWorkApplication
                     ch2.ValueType = typeof(bool);
                     if (ch2.Value == null) continue;
 
-                    if ((bool) ch2.Value)
+                    if ((bool)ch2.Value)
                     {
                         var N_ID = row.Cells["N_ID"].Value.ToString();
                         var P_Name = row.Cells["Title"].Value.ToString();
@@ -275,7 +275,7 @@ namespace MyWorkApplication
                         if (Program.role == 3) //financial
                         {
                             var N_Pay_ID = row.Cells["Details"].Value.ToString();
-                            userNotification.Update_NotificationWithPaymentID(int.Parse(N_Pay_ID),"","","1");
+                            userNotification.Update_NotificationWithPaymentID(int.Parse(N_Pay_ID), "", "", "1");
                         }
                         else
                         {
@@ -284,9 +284,9 @@ namespace MyWorkApplication
                             var N_Pay_ID = row.Cells["Details"].Value.ToString();
 
                             var oDate = Convert.ToDateTime(N_Date);
-                            
+
                             // clear this notification from other micro users //
-                            userNotification.Update_MicroUsers_Notification(int.Parse(N_MicroProject_ID), oDate.ToString("yyyy/MM/dd"), N_Body,P_Name, int.Parse(N_Pay_ID), "1"); 
+                            userNotification.Update_MicroUsers_Notification(int.Parse(N_MicroProject_ID), oDate.ToString("yyyy/MM/dd"), N_Body, P_Name, int.Parse(N_Pay_ID), "1");
                         }
                         makeSeens = true;
                         l.Insert_Log("The Notification[" + N_ID + "]:" + P_Name + "-" + N_Body + ")",
@@ -349,7 +349,7 @@ namespace MyWorkApplication
                     checkBox.Value = check_all_seen_checkBox.Checked;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -368,11 +368,11 @@ namespace MyWorkApplication
                     contextMenuStrip1.Show(Notification_dataGridView, e.X, e.Y);
                 }
             }
-            catch(Exception ex)
-            { MessageBox.Show(ex.Message);}
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
-        private void GetSelectedRowIds(DataRow SelectedDataRow,bool with_P_ID)
+        private void GetSelectedRowIds(DataRow SelectedDataRow, bool with_P_ID)
         {
             MicroProject_ID = -1;
             P_ID = -1;
@@ -409,7 +409,7 @@ WHERE person_microproject.MicroProject_ID = " + MicroProject_ID;
         }
 
 
-        int MicroProject_ID,P_ID;
+        int MicroProject_ID, P_ID;
         string P_Name;
 
         private void applicationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -417,8 +417,8 @@ WHERE person_microproject.MicroProject_ID = " + MicroProject_ID;
             try
             {
                 DataRow row = ((DataRowView)Notification_dataGridView.CurrentRow.DataBoundItem).Row;
-                
-                GetSelectedRowIds(row,true);
+
+                GetSelectedRowIds(row, true);
 
                 if (P_ID != -1 && MicroProject_ID != -1)
                 {
@@ -438,12 +438,12 @@ WHERE person_microproject.MicroProject_ID = " + MicroProject_ID;
             {
                 DataRow row = ((DataRowView)Notification_dataGridView.CurrentRow.DataBoundItem).Row;
 
-                GetSelectedRowIds(row,false);
+                GetSelectedRowIds(row, false);
 
                 if (MicroProject_ID != -1)
-                { 
+                {
                     Form Form = new CheckList_Form(MicroProject_ID, main_form);
-                    main_form.showNewTab(Form, "Check List", 0); 
+                    main_form.showNewTab(Form, "Check List", 0);
                 }
                 else
                     MessageBox.Show("لا يمكن استعراض معلومات هذا السطر");
@@ -526,7 +526,7 @@ WHERE person_microproject.MicroProject_ID = " + MicroProject_ID;
 
                     //defaultView gets the visible rows only//
                     //if (bs.DataSource == null)
-                        ex_dt = ((DataTable)Notification_dataGridView.DataSource).DefaultView.ToTable();
+                    ex_dt = ((DataTable)Notification_dataGridView.DataSource).DefaultView.ToTable();
                     //else ex_dt = ((DataTable)bs.DataSource).DefaultView.ToTable();
 
                     //Remove invisible columns//

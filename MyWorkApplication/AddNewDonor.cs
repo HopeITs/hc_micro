@@ -1,15 +1,12 @@
-﻿using System;
-using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+﻿using ClosedXML.Excel;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
-using Microsoft.Office.Interop.Excel;
-using Application = Microsoft.Office.Interop.Excel.Application;
+using System;
+using System.Data;
 using System.Diagnostics;
-using ClosedXML.Excel;
+using System.Drawing;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace MyWorkApplication
 {
@@ -22,7 +19,7 @@ namespace MyWorkApplication
 
         private int ID;
         private Log l;
-        private Donor d; 
+        private Donor d;
         System.Data.DataTable dt;
 
         private void AddNewDonor_Load(object sender, EventArgs e)
@@ -34,7 +31,7 @@ namespace MyWorkApplication
                     newTheme.Category_ToNight(this);
                 else
                     newTheme.Category_ToLight(this);
-                 
+
                 d = new Donor();
                 l = new Log();
                 dt = new System.Data.DataTable();
@@ -103,12 +100,12 @@ namespace MyWorkApplication
                 string name = replaceQuotation(Name_textBox.Text);
                 string name_abb = replaceQuotation(Name_abb_textBox.Text);
 
-                d.Insert(name, name_abb );
+                d.Insert(name, name_abb);
                 l.Insert_Log("Insert " + name + ":" + name_abb, "Donor", Program.UserName, DateTime.Now);
 
                 Name_textBox.Clear();
                 Name_abb_textBox.Clear();
-                ID = -1; 
+                ID = -1;
 
                 dt.Rows.Clear();
                 bind("");
@@ -185,12 +182,12 @@ namespace MyWorkApplication
                     ID = Convert.ToInt32(dataGridView.Rows[r].Cells["ID"].Value);
 
                     if (e.ColumnIndex == 1) // name
-                    { 
+                    {
                         string name = replaceQuotation(dataGridView.Rows[r].Cells["Name"].Value.ToString());
                         string name_abb = replaceQuotation(dataGridView.Rows[r].Cells["Name_abb"].Value.ToString());
-                         
+
                         d.Update(ID, name, name_abb);
-                        l.Insert_Log("Update Donor:" + name , "Donor", Program.UserName, DateTime.Now);
+                        l.Insert_Log("Update Donor:" + name, "Donor", Program.UserName, DateTime.Now);
                     }
                     if (e.ColumnIndex == 2) // name_abb
                     {
@@ -228,7 +225,7 @@ namespace MyWorkApplication
                         var ID = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                         string name = replaceQuotation(dataGridView.Rows[e.RowIndex].Cells["Name"].Value.ToString());
                         string name_abb = replaceQuotation(dataGridView.Rows[e.RowIndex].Cells["Name_abb"].Value.ToString());
-                         
+
                         d.Delete(ID);
 
                         l.Insert_Log("Delete Donor: " + name + ":" + name_abb, "Donor", Program.UserName, DateTime.Now);
@@ -336,7 +333,7 @@ namespace MyWorkApplication
                     //        ex_dt.Columns.RemoveAt(j);
                     //Remove invisible columns//
                     for (var j = 0; j <= dataGridView.ColumnCount - 1; j++)
-                    { 
+                    {
                         if (dataGridView.Columns[j].Visible == false)
                             ex_dt.Columns.Remove(dataGridView.Columns[j].Name.ToString());
                     }

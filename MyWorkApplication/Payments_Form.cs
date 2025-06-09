@@ -1,15 +1,13 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
-using ClosedXML.Excel;
-using Microsoft.Office.Interop.Excel;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
-using Application = Microsoft.Office.Interop.Excel.Application;
 using Button = System.Windows.Forms.Button;
 using DataTable = System.Data.DataTable;
 
@@ -17,7 +15,7 @@ namespace MyWorkApplication
 {
     public partial class Payments_Form : Form
     {
-        private Log l; 
+        private Log l;
         private readonly MainForm main_form;
         private NewTheme NewTheme;
         private UserNotification noti;
@@ -99,7 +97,7 @@ namespace MyWorkApplication
                 SearchToolBar.SetColumns(dataGridView.Columns);
 
                 dataGridView.Columns["تاريخ الاستحقاق"].DefaultCellStyle.Format =
-                      dataGridView.Columns["تاريخ الدفع الفعلي"].DefaultCellStyle.Format ="yyyy/MM/dd";
+                      dataGridView.Columns["تاريخ الدفع الفعلي"].DefaultCellStyle.Format = "yyyy/MM/dd";
                 dataGridView.Columns["القسط"].DefaultCellStyle.Format = "#,##0";
 
                 DataGridViewColumn dgC1;
@@ -143,13 +141,13 @@ namespace MyWorkApplication
         private void Group_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (user_mode)
-            { 
+            {
                 refreshPageToolStripMenuItem_Click(sender, e);
             }
         }
 
         private void Paid_button_Click(object sender, EventArgs e)
-        { 
+        {
             Paid_button.BackColor = Color.FromArgb(104, 157, 202);
             Pending_button.BackColor = Color.Transparent;
 
@@ -157,7 +155,7 @@ namespace MyWorkApplication
         }
 
         private void Pending_button_Click(object sender, EventArgs e)
-        { 
+        {
             Pending_button.BackColor = Color.FromArgb(104, 157, 202);
             Paid_button.BackColor = Color.Transparent;
 
@@ -175,7 +173,7 @@ namespace MyWorkApplication
 
         #region menustrip functions
         private void refreshPageToolStripMenuItem_Click(object sender, EventArgs e)
-        { 
+        {
             try
             {
                 Month = string.Join(",", MonthArray.Where(s => !string.IsNullOrEmpty(s)));
@@ -237,7 +235,7 @@ namespace MyWorkApplication
                 Thread myTh = new Thread(SaveCallDialog);
                 myTh.SetApartmentState(ApartmentState.STA);
                 myTh.Start();
-                myTh.Join(); 
+                myTh.Join();
             }
             catch (Exception ex)
             {
@@ -288,7 +286,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-        
+
 
         #region datagridview functions
         private void dataGridView_FilterStringChanged(object sender, Zuby.ADGV.AdvancedDataGridView.FilterEventArgs e)
@@ -299,11 +297,12 @@ namespace MyWorkApplication
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) 
-                { MessageBox.Show("please check your network and try again", "Error"); } 
-                else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } 
-                else { 
-                    MessageBox.Show(ex.Message, "Error"); 
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL"))
+                { MessageBox.Show("please check your network and try again", "Error"); }
+                else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); }
+                else
+                {
+                    MessageBox.Show(ex.Message, "Error");
                 }
             }
         }
@@ -415,7 +414,7 @@ namespace MyWorkApplication
         private void dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel = true;
-        } 
+        }
         private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -462,8 +461,8 @@ namespace MyWorkApplication
                 {
                     MonthArray[0] = "";
                     button1.BackColor = Color.Transparent;
-                } 
-                refreshPageToolStripMenuItem_Click(sender, e);  
+                }
+                refreshPageToolStripMenuItem_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -684,7 +683,7 @@ namespace MyWorkApplication
                 {
                     MonthArray[10] = "";
                     button11.BackColor = Color.Transparent;
-                } 
+                }
                 refreshPageToolStripMenuItem_Click(sender, e);
             }
             catch (Exception ex)
@@ -706,7 +705,7 @@ namespace MyWorkApplication
                 {
                     MonthArray[11] = "";
                     button12.BackColor = Color.Transparent;
-                } 
+                }
                 refreshPageToolStripMenuItem_Click(sender, e);
             }
             catch (Exception ex)

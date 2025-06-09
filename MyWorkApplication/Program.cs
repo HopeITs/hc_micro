@@ -1,14 +1,12 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using MyWorkApplication.Classes;
+using PresentationControls;
+using System;
 using System.Collections.Generic;
-using System.Data; 
-using System.IO;
+using System.Data;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
-using PresentationControls;
 
 namespace MyWorkApplication
 {
@@ -31,7 +29,7 @@ namespace MyWorkApplication
         public static string theme = "Light";
         public static int role = -1;
         public static int userID = -1;
-        public static string selected_database = ""; 
+        public static string selected_database = "";
         public static string UserName = "";
         public static string Password = "";
 
@@ -39,13 +37,13 @@ namespace MyWorkApplication
         //public static Tuple<string, string, string> RemotelyCredentials;
         //public static Tuple<string, string> OfflineserversCredentials;
         //public static Tuple<string, string> OnlineserversCredentials;
-         
+
         //From Sary
         public static string OnlineRoot;
         public static string OfflineRoot;
-        public static Tuple<string, string> OnlineserversCredentials  = new Tuple<string, string>("judy" , "DAda1994@" );
+        public static Tuple<string, string> OnlineserversCredentials = new Tuple<string, string>("judy", "DAda1994@");
         public static Tuple<string, string> OfflineserversCredentials = new Tuple<string, string>("Admin", "admin54321");
-         
+
         //SET Localhost = true for using local database;
         public static bool Localhost = false;
 
@@ -57,14 +55,14 @@ namespace MyWorkApplication
             return value;
         }
 
-        public static string getSelectedItems_CheckboxComboBox(CheckBoxComboBox cbox,bool with_cotation)
+        public static string getSelectedItems_CheckboxComboBox(CheckBoxComboBox cbox, bool with_cotation)
         {
             string selected = "";
             foreach (var item in cbox.CheckBoxItems)
             {
                 if (item.Checked)
                 {
-                    if(with_cotation)
+                    if (with_cotation)
                         selected += "'" + ReplaceQuotation(item.Text.ToString().Trim()) + "'";
                     else
                         selected += ReplaceQuotation(item.Text.ToString().Trim());
@@ -132,8 +130,8 @@ namespace MyWorkApplication
                 datalocation = "online";
             else if (Localhost)
                 datalocation = "localhost";
-            else  datalocation = "localhost";
-                //datalocation = "PC-ADMIN";
+            else datalocation = "localhost";
+            //datalocation = "PC-ADMIN";
 
             OnlineRoot = "ftp://hcsyria.org/micro_images2/";
             OfflineRoot = "ftp://PC-ADMIN/micro_images/";
@@ -144,19 +142,19 @@ namespace MyWorkApplication
             {
                 ConnectionString = "Database=hcsyria_micro;" + ConnectionString;
                 OnlineRoot += "aleppo";
-                OfflineRoot += "aleppo"; 
+                OfflineRoot += "aleppo";
             }
             else if (selected_database == "Homs")
             {
                 ConnectionString = "Database=hcsyria_micro_h;" + ConnectionString;
                 OnlineRoot += "homs";
-                OfflineRoot += "homs"; 
+                OfflineRoot += "homs";
             }
             else if (selected_database == "Damascus")
             {
                 ConnectionString = "Database=hcsyria_micro_d;" + ConnectionString;
                 OnlineRoot += "damascus";
-                OfflineRoot += "damascus"; 
+                OfflineRoot += "damascus";
             }
             else if (selected_database == "Latakia")
             {
@@ -174,7 +172,7 @@ namespace MyWorkApplication
             {
                 ConnectionString = "Database=hcsyria_micro_lb;" + ConnectionString;
                 OnlineRoot += "lebanon";
-                OfflineRoot += "lebanon"; 
+                OfflineRoot += "lebanon";
             }
             else if (selected_database == "PTS Aleppo")
             {
@@ -193,10 +191,10 @@ namespace MyWorkApplication
             {
                 ConnectionString = "";
                 OnlineRoot = "";
-                OfflineRoot = ""; 
+                OfflineRoot = "";
             }
         }
-         
+
         public static bool buildConnection()
         {
             try
@@ -246,7 +244,7 @@ namespace MyWorkApplication
                 }
                 else return false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.Write(ex.Message);
                 return false;
@@ -259,15 +257,15 @@ namespace MyWorkApplication
             var pi = dgvType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
             pi.SetValue(dgv, setting, null);
         }
-         
-        
+
+
         [STAThread]
         private static void Main()
-        { 
+        {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
-              
+
             close_app = false;
             Login_Form login_Form = new Login_Form();
             DialogResult result = login_Form.ShowDialog();
@@ -277,9 +275,9 @@ namespace MyWorkApplication
             }
             else close_app = true;
 
-            Application.Run(new MainForm()); 
+            Application.Run(new MainForm());
 
         }
-         
+
     }
 }

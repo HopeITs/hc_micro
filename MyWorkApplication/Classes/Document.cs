@@ -1,13 +1,6 @@
-﻿using MySql.Data.MySqlClient;
-using MyWorkApplication.Properties;
+﻿using MyWorkApplication.Properties;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWorkApplication.Classes
 {
@@ -26,7 +19,7 @@ namespace MyWorkApplication.Classes
             int LastDot = name.LastIndexOf(".");
             Type = name.Substring(LastDot + 1, name.Length - LastDot - 1);
         }
-          
+
         public bool SaveDocument(String FullName, string Name)
         {
             try
@@ -45,7 +38,7 @@ namespace MyWorkApplication.Classes
             catch { return false; }
 
         }
-            
+
         public bool Online_Exist(string Name)
         {
             try
@@ -72,12 +65,12 @@ namespace MyWorkApplication.Classes
             }
             // return FtpConnector.ExistFile(OfflinePath, Program.OfflineserversCredentials); 
         }
-         
+
         public void CopyToLocal(string SourcePath, string DestinationPath, bool imageExistsOnline)
         {
             if (imageExistsOnline)
                 FtpConnector.DowloadToLocal(SourcePath, DestinationPath, Program.OnlineserversCredentials);
-            else 
+            else
                 FtpConnector.DowloadToLocal(SourcePath, DestinationPath, Program.OfflineserversCredentials);
         }
 
@@ -86,8 +79,8 @@ namespace MyWorkApplication.Classes
             FtpConnector.DeleteFile(FullName, Program.OnlineserversCredentials);
         }
         public void DeleteOffline(string FullName)
-        { 
-            FtpConnector.DeleteFile(FullName, Program.OfflineserversCredentials); 
+        {
+            FtpConnector.DeleteFile(FullName, Program.OfflineserversCredentials);
         }
 
         // Method to get an image by its name
@@ -101,7 +94,7 @@ namespace MyWorkApplication.Classes
 
                 WebClient request = new WebClient();
                 if (Offline_Exist(PicName))
-                { 
+                {
                     // If your FTP server requires credentials, set them here
                     request.Credentials = new NetworkCredential("Admin", "admin54321");
                     byte[] imageBytes = request.DownloadData(OfflinePicPath);

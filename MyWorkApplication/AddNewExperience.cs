@@ -1,25 +1,22 @@
-﻿using System;
-using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+﻿using ClosedXML.Excel;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
-using Microsoft.Office.Interop.Excel;
-using Application = Microsoft.Office.Interop.Excel.Application;
+using System;
+using System.Data;
 using System.Diagnostics;
-using ClosedXML.Excel;
+using System.Drawing;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace MyWorkApplication
 {
     public partial class AddNewExperience : Form
     {
         private int ID;
-        private Log l; 
-        private WorkExperience w;  
+        private Log l;
+        private WorkExperience w;
         System.Data.DataTable dt;
-          
+
         public AddNewExperience()
         {
             InitializeComponent();
@@ -33,7 +30,7 @@ namespace MyWorkApplication
                     newTheme.Category_ToNight(this);
                 else
                     newTheme.Category_ToLight(this);
-                 
+
                 w = new WorkExperience();
                 l = new Log();
                 dt = new System.Data.DataTable();
@@ -48,7 +45,7 @@ namespace MyWorkApplication
 
         public void Exp_bind(string Name)
         {
-            if ( dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
                 dt = w.Select("");
                 dataGridView.DataSource = null;
@@ -91,7 +88,7 @@ namespace MyWorkApplication
 
             Count_label.Text = "All:" + dataGridView.Rows.GetRowCount(DataGridViewElementStates.Visible);
         }
-         
+
         private void Save_button_Click(object sender, EventArgs e)
         {
             try
@@ -99,9 +96,9 @@ namespace MyWorkApplication
                 if (Name_textBox.Text == "")
                     throw new InvalidOperationException("لا يمكن ترك بعض الخلايا فارغة!");
                 w.Insert(Name_textBox.Text);
-                l.Insert_Log("Insert " + Name_textBox.Text, "Work", Program.UserName, DateTime.Now); 
+                l.Insert_Log("Insert " + Name_textBox.Text, "Work", Program.UserName, DateTime.Now);
                 Name_textBox.Clear();
-                ID = -1; 
+                ID = -1;
 
                 dt.Rows.Clear();
                 Exp_bind("");
@@ -111,11 +108,11 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
         private void ExperienceName_textBox_TextChanged(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 Exp_bind(Name_textBox.Text);
             }
             catch (Exception ex)
@@ -128,7 +125,7 @@ namespace MyWorkApplication
         {
             Close();
         }
-         
+
         #region mouse hover 
         private void Add_button_MouseEnter(object sender, EventArgs e)
         {

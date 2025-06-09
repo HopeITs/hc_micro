@@ -1,5 +1,5 @@
-﻿using System.Data;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace MyWorkApplication.Classes
 {
@@ -9,7 +9,7 @@ namespace MyWorkApplication.Classes
 
         public void Insert_SubCategory(string Name, int Category_ID)
         {
-            
+
             Program.buildConnection();
             query = "INSERT INTO `subcategory` (`Name`, `Category_ID`) VALUES ("
                         + "'" + Name + "',"
@@ -23,7 +23,7 @@ namespace MyWorkApplication.Classes
 
         public void Update_SubCategory(int ID, string Name, int Category_ID)
         {
-            
+
             Program.buildConnection();
             query = "Update `subcategory` set "
                          + " Name = N'" + Name + "',"
@@ -38,7 +38,7 @@ namespace MyWorkApplication.Classes
 
         public void Delete_SubCategory(int ID)
         {
-            
+
             Program.buildConnection();
             query = "delete From `subcategory` where `ID` =" + ID;
             using (var sc = new MySqlCommand(query, Program.MyConn))
@@ -47,17 +47,17 @@ namespace MyWorkApplication.Classes
                 Program.MyConn.Close();
             }
         }
-        
+
         public DataTable Select(string Category_ID, string Name)
         {
-            
+
             Program.buildConnection();
             query = "SELECT ID, Name, Category_ID " +
                 ",(select Name from category where ID = subcategory.Category_ID) as 'Category' from `subcategory`";
 
             string condition = " where 1 ";
             if (Category_ID != "") condition += " and Category_ID = " + Category_ID;
-            else if (Name != "") condition += " and Name like '"+Name+"' ";
+            else if (Name != "") condition += " and Name like '" + Name + "' ";
 
             query += condition + " order by Name asc ";
             var sc = new MySqlCommand(query, Program.MyConn);
@@ -69,7 +69,7 @@ namespace MyWorkApplication.Classes
             return dt;
         }
 
-        
+
 
     }
 }

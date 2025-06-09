@@ -1,20 +1,12 @@
-﻿using MyWorkApplication.Classes;
+﻿using ClosedXML.Excel;
+using MySql.Data.MySqlClient;
+using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
 using System;
 using System.Data;
-using System.Text;
-using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using Application = Microsoft.Office.Interop.Excel.Application;
-using DataTable = System.Data.DataTable; 
-using System.Collections.Generic;
-using System.ComponentModel; 
-using System.Drawing;
-using System.Linq; 
-using System.Threading.Tasks;
-using ClosedXML.Excel;
 using System.Diagnostics;
-using MySql.Data.MySqlClient;
+using System.Windows.Forms;
+using DataTable = System.Data.DataTable;
 
 namespace MyWorkApplication.Visit_Forms
 {
@@ -81,7 +73,7 @@ namespace MyWorkApplication.Visit_Forms
         }
 
         private void Bind_All_ComboBoxes()
-        {  
+        {
             string query = "";
             query += "select ID,Name from microprojecttype order by ID ASC;"; //0  
             Program.buildConnection();
@@ -91,17 +83,17 @@ namespace MyWorkApplication.Visit_Forms
             DataSet ds = new DataSet();
             da.Fill(ds);
             Program.MyConn.Close();
-             
+
             Type_comboBox.DataSource = null;
             Type_comboBox.DisplayMember = "Name";
             Type_comboBox.ValueMember = "ID";
             Type_comboBox.DataSource = ds.Tables[0];
-            Type_comboBox.SelectedIndex = -1; 
+            Type_comboBox.SelectedIndex = -1;
         }
 
         private void bind(string beginDate, string endDate, string Type)
-        { 
-            DataSet ds = v.Get_Visits_Statistics(beginDate, endDate, Type);  
+        {
+            DataSet ds = v.Get_Visits_Statistics(beginDate, endDate, Type);
 
             bs.DataSource = ds.Tables[0];
             Search_DataGridView.ColumnHeadersVisible = false;
@@ -139,7 +131,7 @@ namespace MyWorkApplication.Visit_Forms
             }
         }
         private void Search_DataGridView_SelectionChanged(object sender, EventArgs e)
-        { 
+        {
             try
             {
                 int sumNumbers = 0;
@@ -147,9 +139,9 @@ namespace MyWorkApplication.Visit_Forms
                 {
                     //if (!Search_DataGridView.SelectedCells.Contains(Search_DataGridView.Rows[i].Cells[i]))
                     //{
-                        int nextNumber = 0;
-                        if (int.TryParse(Search_DataGridView.SelectedCells[i].FormattedValue.ToString(), out nextNumber))
-                            sumNumbers += nextNumber;  
+                    int nextNumber = 0;
+                    if (int.TryParse(Search_DataGridView.SelectedCells[i].FormattedValue.ToString(), out nextNumber))
+                        sumNumbers += nextNumber;
                     //}
                 }
                 NumOfSelected1.Text = Search_DataGridView.SelectedCells.Count.ToString("#,##0");
@@ -162,7 +154,7 @@ namespace MyWorkApplication.Visit_Forms
 
         }
         private void SearchToolBar_Search(object sender, Zuby.ADGV.AdvancedDataGridViewSearchToolBarSearchEventArgs e)
-        { 
+        {
             try
             {
                 bool restartsearch = true;
@@ -216,13 +208,13 @@ namespace MyWorkApplication.Visit_Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error");
-            } 
+            }
 
         }
 
         private void bs_ListChanged(object sender, System.ComponentModel.ListChangedEventArgs e)
         {
-            NumOfRows1.Text = Search_DataGridView.Rows.Count.ToString(); 
+            NumOfRows1.Text = Search_DataGridView.Rows.Count.ToString();
         }
 
         private void DateFrom_dateTimePicker_ValueChanged(object sender, EventArgs e)
@@ -254,14 +246,14 @@ namespace MyWorkApplication.Visit_Forms
         {
             try
             {
-                bind(beginDate,endDate, Type_comboBox.Text);
+                bind(beginDate, endDate, Type_comboBox.Text);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error");
             }
         }
-        
+
         #region excel
         private void Export_Exel_Click(object sender, EventArgs e)
         {
@@ -308,15 +300,15 @@ namespace MyWorkApplication.Visit_Forms
         }
         private void Excel_Button_MouseEnter(object sender, EventArgs e)
         {
-            ExportToExcel_button.BackgroundImage = Properties.Resources.Excel_L; 
-        } 
+            ExportToExcel_button.BackgroundImage = Properties.Resources.Excel_L;
+        }
         private void Excel_Button_MouseLeave(object sender, EventArgs e)
         {
             ExportToExcel_button.BackgroundImage = Properties.Resources.Excel_D;
 
         }
         #endregion
-        
+
         #region show-hide columns
         private void Bind_Show_Hide_ToolStrip()
         {
@@ -369,7 +361,7 @@ namespace MyWorkApplication.Visit_Forms
                 MessageBox.Show(ex.Message, "Error");
             }
         }
-        
+
         private void Show_MenuItem_Closing(object sender, ToolStripDropDownClosingEventArgs e)
         {
             try
@@ -407,7 +399,7 @@ namespace MyWorkApplication.Visit_Forms
         }
         #endregion
 
-         private void Type_comboBox_SelectedValueChanged(object sender, EventArgs e)
+        private void Type_comboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             try
             {

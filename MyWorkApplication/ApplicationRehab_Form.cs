@@ -2,13 +2,9 @@
 using MyWorkApplication.Properties;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyWorkApplication
@@ -21,14 +17,14 @@ namespace MyWorkApplication
             this.mainForm = mainForm;
         }
 
-        public ApplicationRehab_Form(MainForm mainForm,int MicroProject_ID)
+        public ApplicationRehab_Form(MainForm mainForm, int MicroProject_ID)
         {
             InitializeComponent();
             this.mainForm = mainForm;
             this.MicroProject_ID = MicroProject_ID;
         }
 
-        private MainForm mainForm; 
+        private MainForm mainForm;
 
         private Log l;
         private Select s;
@@ -38,12 +34,12 @@ namespace MyWorkApplication
         private RehabApplication ra;
         private MicroProject mp;
 
-        private int MicroProject_ID, R_ID; 
-        private bool Update_Mode,user_mode;
+        private int MicroProject_ID, R_ID;
+        private bool Update_Mode, user_mode;
 
         string answer_query = "";
-        private DataTable ans_ques_dt; 
-         
+        private DataTable ans_ques_dt;
+
         private void ApplicationRehab_Form_Load(object sender, EventArgs e)
         {
             try
@@ -51,8 +47,8 @@ namespace MyWorkApplication
                 NewTheme = new NewTheme();
                 if (Properties.Settings.Default.theme == "Light") NewTheme.ME_Visit_ToLight(this);
                 else NewTheme.ME_Visit_ToNight(this);
-                
-               
+
+
                 l = new Log();
                 s = new Select();
                 user = new User();
@@ -60,7 +56,7 @@ namespace MyWorkApplication
                 ra = new RehabApplication();
                 mp = new MicroProject();
 
-                switch ( Program.role)
+                switch (Program.role)
                 {
                     case 1: //admin 
                     case 8: //admin_l0
@@ -82,7 +78,7 @@ namespace MyWorkApplication
                 //////////////////// handle auto scrolling for all comboBoxes //////////////////////
                 Street_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 ///////////////////////////////////////////////////////////////////////////////////////
-                 
+
                 Street_bind();
 
                 Person_Name_textBox.AutoCompleteCustomSource = s.select_beneficiaries("", "");
@@ -139,7 +135,7 @@ namespace MyWorkApplication
                                     //ignore the table that has the lables//
                                     if (n1.Name.Contains("_h")) continue;
 
-                                    var lbl =  n1.GetControlFromPosition(0 ,1) as Label; 
+                                    var lbl = n1.GetControlFromPosition(0, 1) as Label;
 
                                     Q_ID = Convert.ToInt32(lbl.Text);
                                     var row = ans_ques_dt.Select("Question_ID = " + Q_ID, "A_ID");
@@ -150,7 +146,7 @@ namespace MyWorkApplication
                                     {
                                         var rado = n1.GetControlFromPosition(i, 0) as CheckBox;
                                         rado.Text = row[index++].Field<string>("A_Name");
-                                    } 
+                                    }
                                 }
             }
             catch (Exception ex)
@@ -223,15 +219,15 @@ namespace MyWorkApplication
 
                     if (dt.Rows[0]["ID"] != DBNull.Value)
                     {
-                         R_ID = int.Parse(dt.Rows[0]["ID"].ToString());
-                         Fill_Rehabilitation_Answers(R_ID); 
+                        R_ID = int.Parse(dt.Rows[0]["ID"].ToString());
+                        Fill_Rehabilitation_Answers(R_ID);
 
                         mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = true;
                         mainForm.MP_ID_label.Text = MicroProject_ID.ToString();
 
                         Update_Mode = true;
                     }
-                     
+
                     user_mode = true;
                 }
         }
@@ -260,40 +256,40 @@ namespace MyWorkApplication
                                 Note = Result = "";
                                 Price = 0;
                                 Number = 0;
-                                  
+
                                 DataRow[] row = null;
                                 List<int> A_IDs = new List<int>();
-                                
+
                                 //find Q_ID
                                 var lbl = n1.GetControlFromPosition(0, 1) as Label;
                                 Q_ID = Convert.ToInt32(lbl.Text);
-                                 
+
                                 //get the answers
                                 row = ans_dt.Select("Question_ID = " + Q_ID + " ");
                                 if (row == null || row.Length == 0) continue;
-                                             
+
                                 for (int i = 0; i < row.Count(); i++)
-                                    A_IDs.Add(row[i].Field<int>("Answer_ID")); 
-                                     
+                                    A_IDs.Add(row[i].Field<int>("Answer_ID"));
+
                                 Note = row[0].Field<string>("Note");
                                 Number = row[0].Field<int>("Number");
                                 Price = row[0].Field<double>("Price");
                                 Result = row[0].Field<string>("Result");
-                                 
+
                                 var textBox = n1.GetControlFromPosition(4, 0) as TextBox;
                                 textBox.Text = Note;
                                 textBox = n1.GetControlFromPosition(6, 0) as TextBox;
-                                textBox.Text= Number.ToString();
+                                textBox.Text = Number.ToString();
                                 textBox = n1.GetControlFromPosition(7, 0) as TextBox;
                                 textBox.Text = Price.ToString("N2");
                                 textBox = n1.GetControlFromPosition(8, 0) as TextBox;
                                 textBox.Text = Result;
-                                 
+
                                 //if we have more than 1 answer to the same question//
                                 for (int i = 0; i < A_IDs.Count; i++)
-                                { 
+                                {
                                     var row2 = ans_ques_dt.Select("A_ID = " + A_IDs[i] + " ");
-                                    foreach(Control bb in n1.Controls)
+                                    foreach (Control bb in n1.Controls)
                                         if (bb.GetType() == typeof(CheckBox))
                                         {
                                             var rad = bb as CheckBox;
@@ -301,27 +297,27 @@ namespace MyWorkApplication
                                             {
                                                 rad.Checked = true;
                                             }
-                                        } 
+                                        }
                                 }
                             }
-              
+
             #endregion
         }
 
         private void clear_boxes(int j)
         {
-            R_ID = -1; 
+            R_ID = -1;
 
             CreatedBy_User_label.Text = EditedBy_User_label.Text = "";
             Update_Mode = false;
 
             PropertyOwner_textBox.Text = PropertyArea_textBox.Text = WorkAddress_textBox.Text = "";
             Street_comboBox.SelectedIndex = -1;
-             
+
             if (j != 0)
             {
                 MicroProject_ID_textBox.Text = Person_Name_textBox.Text = "";
-                MicroProject_ID = -1; 
+                MicroProject_ID = -1;
             }
 
             foreach (Control table in panel1.Controls)
@@ -336,14 +332,14 @@ namespace MyWorkApplication
                                     var rad = bb as CheckBox;
                                     rad.Checked = false;
                                 }
-                            } 
+                            }
         }
 
         private void CheckUserPermission()
         {
             addNotesToolStripMenuItem.Visible = false;
 
-            switch ( Program.role)
+            switch (Program.role)
             {
                 case 1: //admin 
                 case 8: //admin_l0
@@ -387,7 +383,7 @@ namespace MyWorkApplication
                     , WorkAddress_textBox.Text);
                 l.Insert_Log("Update place after fund of " + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
                     "Rehabilitation Application", Program.UserName, DateTime.Now);
-                
+
                 if (Update_Mode)
                 {
                     //update basic information of rehab app
@@ -395,21 +391,21 @@ namespace MyWorkApplication
                     l.Insert_Log(
                         "Update RehabApp of " + MicroProject_ID + " : " +
                         Person_Name_textBox.Text + " ", "Rehabilitation Application", Program.UserName, DateTime.Now);
-                    EditedBy_User_label.Text = Program.UserName; 
+                    EditedBy_User_label.Text = Program.UserName;
                 }
                 else
-                { 
+                {
                     ra.Insert_MicroProjectRehab(MicroProject_ID, PropertyOwner_textBox.Text, PropertyArea_textBox.Text, Program.UserName);
 
                     R_ID = ra.Get_Rehab_ID(MicroProject_ID);
                     l.Insert_Log(
                         "Insert RehabApp of " + MicroProject_ID + " : " +
                         Person_Name_textBox.Text + " ", "Rehabilitation Application", Program.UserName, DateTime.Now);
-                    CreatedBy_User_label.Text = Program.UserName; 
+                    CreatedBy_User_label.Text = Program.UserName;
                 }
-                 
+
                 // Insert answers and marks //
-                string Note,Result;
+                string Note, Result;
                 int Number = 0;
                 double Price = 0;
                 int Q_ID, A_ID;
@@ -436,9 +432,9 @@ namespace MyWorkApplication
                                     //find Note of this question
                                     /////////////////////////////////////////////////////
                                     var txt = n1.GetControlFromPosition(4, 0) as TextBox;
-                                    Note = txt.Text; 
+                                    Note = txt.Text;
                                     txt = n1.GetControlFromPosition(6, 0) as TextBox;
-                                    Number = (txt.Text=="" ? 0 : Convert.ToInt32(txt.Text));
+                                    Number = (txt.Text == "" ? 0 : Convert.ToInt32(txt.Text));
                                     txt = n1.GetControlFromPosition(7, 0) as TextBox;
                                     Price = (txt.Text == "" ? 0 : Convert.ToDouble(txt.Text));
                                     txt = n1.GetControlFromPosition(8, 0) as TextBox;
@@ -463,23 +459,23 @@ namespace MyWorkApplication
                                             }
                                         }
                                 }
-                  
+
                 answer_query += "COMMIT;";
-                ra.Insert_Rehab_Answers(answer_query); 
+                ra.Insert_Rehab_Answers(answer_query);
                 l.Insert_Log(
                     "Insert answers in RehabApp-" + R_ID + " of " + MicroProject_ID + " : " +
-                    Person_Name_textBox.Text,"Rehabilitation Application", Program.UserName, DateTime.Now);
-                  
-                Update_Mode = true; 
+                    Person_Name_textBox.Text, "Rehabilitation Application", Program.UserName, DateTime.Now);
+
+                Update_Mode = true;
                 MessageBox.Show("تم حفظ المعلومات بنجاح", "Save");
-               
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-         
+
         private void Delete_button_Click(object sender, EventArgs e)
         {
             try
@@ -493,16 +489,16 @@ namespace MyWorkApplication
                     MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    ra.Delete_MicroProjectRehab(R_ID); 
+                    ra.Delete_MicroProjectRehab(R_ID);
                     l.Insert_Log(
                         "Delete RehabApp-" + R_ID + " of " + MicroProject_ID + " : " +
                         Person_Name_textBox.Text, "Rehabilitation Application", Program.UserName, DateTime.Now);
 
                     //update microproject and add fundAddress and street//
-                    mp.Update_MP_Place(MicroProject_ID, -1 , "");
+                    mp.Update_MP_Place(MicroProject_ID, -1, "");
                     l.Insert_Log("Delete place after fund of " + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
                         "Rehabilitation Application", Program.UserName, DateTime.Now);
-                    
+
                     clear_boxes(1);
                 }
             }
@@ -547,14 +543,14 @@ namespace MyWorkApplication
                                         {
                                             //عنا بس مجموعة من الاجوبة اللي مسموح نختارن سوا بنفس السؤال// 
                                             ans_count++;
-                                            if(ans_count > max_ans_count)
+                                            if (ans_count > max_ans_count)
                                             {
                                                 answer_checked = false;
                                                 continue;
                                             }
-                                            answer_checked = true; 
+                                            answer_checked = true;
                                         }
-                                    } 
+                                    }
 
                                 if (!answer_checked)
                                     return false;
@@ -574,7 +570,7 @@ namespace MyWorkApplication
                     if (txt != "" && txt != "0")
                     {
                         int value = 0;
-                        int.TryParse(txt,out value);
+                        int.TryParse(txt, out value);
 
                         if (value == 0)
                         {
@@ -585,7 +581,7 @@ namespace MyWorkApplication
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             { MessageBox.Show("الرجاء إدخال قيمة رقمية"); }
         }
         private void DoubleNumbers_textBox_Leave(object sender, EventArgs e)
@@ -623,7 +619,7 @@ namespace MyWorkApplication
                 MicroProject_ID_textBox_Leave(sender, e);
             }
         }
-        
+
         private void addNotesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try

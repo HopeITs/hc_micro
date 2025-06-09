@@ -3,12 +3,8 @@ using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyWorkApplication
@@ -23,12 +19,12 @@ namespace MyWorkApplication
         private Log l;
         private readonly MainForm mainForm;
         private int MicroProject_ID, SC_ID, User_ID, Type_ID, Person_ID;
-        private MicroProject mp; 
+        private MicroProject mp;
         private NewTheme NewTheme;
-        private UserNotification noti;  
+        private UserNotification noti;
         private Select s;
         private SpecialCase sc;
-        private bool Update_Mode; 
+        private bool Update_Mode;
         private bool user_mode;
         private User user;
         private DataTable Visit_Users_dt;
@@ -47,10 +43,10 @@ namespace MyWorkApplication
         public SpecialCase_Form(int SC_ID, MainForm mainForm)
         {
             InitializeComponent();
-            this.mainForm = mainForm; 
+            this.mainForm = mainForm;
             this.SC_ID = SC_ID;
             Update_Mode = true;
-        } 
+        }
 
         private void SpecialCase_Form_Load(object sender, EventArgs e)
         {
@@ -64,11 +60,11 @@ namespace MyWorkApplication
                 mainForm.Project_label.Visible = mainForm.TabName_label.Visible = true;
                 mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = false;
                 mainForm.TabName_label.Text = "Special Case";
-                 
+
                 l = new Log();
                 s = new Select();
                 sc = new SpecialCase();
-                user = new User(); 
+                user = new User();
                 mp = new MicroProject();
 
                 switch (Program.role)
@@ -104,7 +100,7 @@ namespace MyWorkApplication
                 Type_comboBox.SelectedIndex = 0; //default هاتفية
                 User_comboBox.SelectedValue = Program.userID; //this user
 
-                Person_Name_textBox.AutoCompleteCustomSource     = s.select_beneficiaries("", "Yes");
+                Person_Name_textBox.AutoCompleteCustomSource = s.select_beneficiaries("", "Yes");
                 MicroProject_ID_textBox.AutoCompleteCustomSource = s.select_project_IDs("", "Yes");
 
                 if (SC_ID != -1)
@@ -116,7 +112,7 @@ namespace MyWorkApplication
 
                     mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = true;
                     mainForm.MP_ID_label.Text = MicroProject_ID.ToString();
-                } 
+                }
             }
             catch (Exception ex)
             {
@@ -141,11 +137,11 @@ namespace MyWorkApplication
             Program.MyConn.Close();
 
             Set_comboBox_datasource(User_comboBox, combo_ds.Tables[0]);
-            Set_comboBox_datasource(Type_comboBox, combo_ds.Tables[1]);  
-              
+            Set_comboBox_datasource(Type_comboBox, combo_ds.Tables[1]);
+
             user_mode = true;
         }
-         
+
         private void Set_comboBox_datasource(ComboBox cBox, DataTable c_dt)
         {
             cBox.DataSource = null;
@@ -189,11 +185,11 @@ namespace MyWorkApplication
                             var date = Convert.ToDateTime(dt.Rows[0]["Loan Date"].ToString());
                             LoanDate_dateTimePicker.Value = date;
                         }
-                    } 
+                    }
 
                     if (Update_Mode)
                     {
-                        SC_ID = int.Parse(dt.Rows[0]["ID"].ToString()); 
+                        SC_ID = int.Parse(dt.Rows[0]["ID"].ToString());
                         var date1 = (DateTime)dt.Rows[0]["Date"];
                         Date_dateTimePicker.Value = date1;
 
@@ -202,7 +198,7 @@ namespace MyWorkApplication
 
                         Reason_textBox.Text = (string)dt.Rows[0]["Reason"];
                         Description_textBox.Text = (string)dt.Rows[0]["Description"];
-                        Action_textBox.Text = (string)dt.Rows[0]["Action"];  
+                        Action_textBox.Text = (string)dt.Rows[0]["Action"];
                     }
                 }
             }
@@ -217,21 +213,21 @@ namespace MyWorkApplication
             if (MicroProject_ID_textBox.Text != "")
             {
                 DataTable dt = new DataTable();
-                if(Update_Mode) // يوجد بيانات على الصفحة
-                { 
+                if (Update_Mode) // يوجد بيانات على الصفحة
+                {
                     var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد اختيار مشروع جديد لتسجيل مراجعة جديدة؟", "Attention", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         Update_Mode = false;
                         clear_Visit_boxes();
-                        
+
                         dt = sc.Select_SpecialCase("", "", MicroProject_ID_textBox.Text);
                         if (dt != null && dt.Rows.Count > 0)
                         {
                             fill_boxes(dt);
                         }
                         mainForm.TabName_label.Text = "SpecialCase";
-                        mainForm.MP_ID_label.Text = MicroProject_ID_textBox.Text; 
+                        mainForm.MP_ID_label.Text = MicroProject_ID_textBox.Text;
                     }
                     else
                     {
@@ -240,7 +236,8 @@ namespace MyWorkApplication
                         //leave the content as it is//
                     }
                 }
-                else {
+                else
+                {
                     dt = sc.Select_SpecialCase("", "", MicroProject_ID_textBox.Text);
                     if (dt != null && dt.Rows.Count > 0)
                     {
@@ -266,12 +263,12 @@ namespace MyWorkApplication
             previous_p_name = Person_Name_textBox.Text;
         }
 
-         
+
         private void Person_Name_textBox1_Leave(object sender, EventArgs e)
         {
             if (Person_Name_textBox.Text != "")
             {
-                DataTable dt = new DataTable(); 
+                DataTable dt = new DataTable();
                 if (Update_Mode) // يوجد بيانات على الصفحة
                 {
                     var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد اختيار مشروع جديد لتسجيل مراجعة جديدة؟", "Attention", MessageBoxButtons.YesNo);
@@ -304,20 +301,20 @@ namespace MyWorkApplication
                     }
                     mainForm.TabName_label.Text = "SpecialCase";
                     mainForm.MP_ID_label.Text = MicroProject_ID_textBox.Text;
-                } 
+                }
             }
         }
 
         private void clear_Visit_boxes()
         {
             SC_ID = -1;
-            
+
             Type_ID = User_ID = -1;
             Type_comboBox.SelectedIndex = User_comboBox.SelectedIndex = -1;
 
-            LoanDate_dateTimePicker.Value = Date_dateTimePicker.Value = DateTime.Now; 
+            LoanDate_dateTimePicker.Value = Date_dateTimePicker.Value = DateTime.Now;
             Reason_textBox.Text = Description_textBox.Text = Action_textBox.Text = "";
-             
+
             LoanAmount_textBox1.Text = "";
 
             MP_Name_textBox.Text = Mobile_textBox.Text = WorkAddress_textBox.Text
@@ -383,17 +380,17 @@ namespace MyWorkApplication
 
                 User_ID = int.Parse(User_comboBox.SelectedValue.ToString());
                 Type_ID = int.Parse(Type_comboBox.SelectedValue.ToString());
-                 
+
                 ////insert Section////
                 if (Update_Mode == false && SC_ID == -1)
                 {
-                    SC_ID = sc.Insert(MicroProject_ID , User_ID  , Type_ID 
+                    SC_ID = sc.Insert(MicroProject_ID, User_ID, Type_ID
                         , Date_dateTimePicker.Value.ToString("yyyy/MM/dd")
-                        , Reason_textBox.Text, Description_textBox.Text,Action_textBox.Text);
+                        , Reason_textBox.Text, Description_textBox.Text, Action_textBox.Text);
 
                     l.Insert_Log(
                         "Insert SpecialCase to " + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
-                        "SpecialCase", Program.UserName, DateTime.Now);  
+                        "SpecialCase", Program.UserName, DateTime.Now);
                 }
                 else ////update section ////
                 {
@@ -403,14 +400,14 @@ namespace MyWorkApplication
 
                     l.Insert_Log(
                         "Update SpecialCase of " + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
-                        "SpecialCase", Program.UserName, DateTime.Now);  
+                        "SpecialCase", Program.UserName, DateTime.Now);
                 }
-                    
+
                 var dialogResult = MessageBox.Show("تم تسجيل المراجعة بنجاح. هل تريد إضافة مراجعة جديدة ؟", "Success", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    clear_Visit_boxes(); 
-                    Update_Mode = false; 
+                    clear_Visit_boxes();
+                    Update_Mode = false;
 
                     mainForm.TabName_label.Text = "Special Case";
                     mainForm.MP_ID_label.Text = "";
@@ -422,8 +419,8 @@ namespace MyWorkApplication
                     Update_Mode = true;
 
                     mainForm.TabName_label.Text = "Special Case";
-                    mainForm.MP_ID_label.Text = MicroProject_ID_textBox.Text; 
-                } 
+                    mainForm.MP_ID_label.Text = MicroProject_ID_textBox.Text;
+                }
             }
             catch (Exception ex)
             {
@@ -437,18 +434,18 @@ namespace MyWorkApplication
             {
                 CheckUserPermission();
 
-                if (SC_ID == -1) 
+                if (SC_ID == -1)
                     throw new InvalidOperationException("الرجاء التأكد من اختيار مراجعة لحذفها!");
 
-                var dialogResult = MessageBox.Show("هل أنت متأكد من أنك تريد حذف هذه المراجعة؟", "Delete",MessageBoxButtons.YesNo);
+                var dialogResult = MessageBox.Show("هل أنت متأكد من أنك تريد حذف هذه المراجعة؟", "Delete", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     sc.Delete(SC_ID);
-                    
+
                     l.Insert_Log(
                         "Delete SpecialCase of " + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
                         "SpecialCase", Program.UserName, DateTime.Now);
-                    
+
                     clear_Visit_boxes();
                 }
             }
@@ -488,7 +485,7 @@ namespace MyWorkApplication
             else image = Resources.Delete2_D;
 
             Delete_button.BackgroundImage = image;
-        } 
+        }
 
         private void Delete_button_MouseLeave(object sender, EventArgs e)
         {

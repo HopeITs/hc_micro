@@ -1,16 +1,12 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ClosedXML.Excel;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
 using System;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using Application = Microsoft.Office.Interop.Excel.Application;
 using System.Data;
-using System.Threading;
 using System.Diagnostics;
-using ClosedXML.Excel;
+using System.Drawing;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace MyWorkApplication
 {
@@ -23,7 +19,7 @@ namespace MyWorkApplication
 
         private int ID;
         private Log l;
-        private Street st; 
+        private Street st;
         System.Data.DataTable Street_dt;
 
         private void AddNewStreet_Load(object sender, EventArgs e)
@@ -35,7 +31,7 @@ namespace MyWorkApplication
                     newTheme.Category_ToNight(this);
                 else
                     newTheme.Category_ToLight(this);
-                 
+
                 l = new Log();
                 st = new Street();
 
@@ -66,7 +62,7 @@ namespace MyWorkApplication
                 {
                     condition += "Name='" + Name + "'";
                 }
-                
+
                 rows = Street_dt.Select(condition);
                 dataGridView.DataSource = null;
                 dataGridView.Columns.Clear();
@@ -99,13 +95,13 @@ namespace MyWorkApplication
         {
             try
             {
-                if (Name_textBox.Text == "" )
+                if (Name_textBox.Text == "")
                     throw new InvalidOperationException("لا يمكن ترك بعض الخلايا فارغة!");
                 st.Insert(Name_textBox.Text);
                 l.Insert_Log("Insert " + Name_textBox.Text, "Street", Program.UserName, DateTime.Now);
 
                 Name_textBox.Clear();
-                ID = -1; 
+                ID = -1;
 
                 Street_dt.Rows.Clear();
                 Street_bind("");
@@ -126,7 +122,7 @@ namespace MyWorkApplication
             try
             {
                 //if (Name_textBox.Text != "")
-                    Street_bind(Name_textBox.Text);
+                Street_bind(Name_textBox.Text);
             }
             catch (Exception ex)
             {
@@ -177,7 +173,7 @@ namespace MyWorkApplication
                     ID = Convert.ToInt32(dataGridView.Rows[r].Cells["ID"].Value);
 
                     if (e.ColumnIndex == 1) // name
-                    { 
+                    {
                         string Name = dataGridView.Rows[r].Cells["Name"].Value.ToString();
 
                         st.Update(ID, Name);
@@ -214,7 +210,7 @@ namespace MyWorkApplication
                             "Street", Program.UserName, DateTime.Now);
                         dataGridView.Rows.RemoveAt(e.RowIndex);
                     }
-                } 
+                }
             }
             catch (Exception ex)
             {

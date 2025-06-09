@@ -1,14 +1,12 @@
-﻿using System;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
+using System;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace MyWorkApplication
 {
@@ -22,10 +20,10 @@ namespace MyWorkApplication
         private string FilePicName;
 
         private string imageFilePath, imageName, Image_Path;
-            //, image_type;
-         
+        //, image_type;
+
         // The current scale.
-        private float ImageScale = 0.4f; 
+        private float ImageScale = 0.4f;
         private float zoomLevel = 0.4f; // Initial zoom level
 
         private string saveFolderPath = "";
@@ -51,7 +49,7 @@ namespace MyWorkApplication
         public Attachments_Form(MainForm mainForm)
         {
             InitializeComponent();
-            this.mainForm = mainForm; 
+            this.mainForm = mainForm;
             MicroProject_ID = Image_ID = -1;
         }
         public Attachments_Form(int MicroProject_ID, MainForm mainForm)
@@ -60,7 +58,7 @@ namespace MyWorkApplication
             this.mainForm = mainForm;
             this.MicroProject_ID = MicroProject_ID;
             Image_ID = -1;
-        } 
+        }
         public Attachments_Form(int MicroProject_ID, int I_ID, MainForm mainForm)
         {
             InitializeComponent();
@@ -94,7 +92,7 @@ namespace MyWorkApplication
                 Person_Name_textBox.AutoCompleteCustomSource = s.select_beneficiaries("", "");
                 MicroProject_ID_textBox.AutoCompleteCustomSource = s.select_project_IDs("", "");
 
-                if (MicroProject_ID != -1 )
+                if (MicroProject_ID != -1)
                 {
                     MicroProject_ID_textBox.Text = MicroProject_ID.ToString();
                     Program.buildConnection();
@@ -178,7 +176,7 @@ namespace MyWorkApplication
                         AddRadioButton(
                               img_types_ds.Tables[tableIndex].Rows[i]["Name"].ToString()
                             , img_types_ds.Tables[tableIndex].Rows[i]["ID"]
-                            , yOffset,"");
+                            , yOffset, "");
                         yOffset += 30; // Adjust spacing
                     }
                 }
@@ -190,10 +188,10 @@ namespace MyWorkApplication
             return type_ids;
         }
         // Add a method to create and add a RadioButton
-        void AddRadioButton(string text, object tag, int yOffset,string Name)
+        void AddRadioButton(string text, object tag, int yOffset, string Name)
         {
             RadioButton radioButton = new RadioButton();
-            if(Name!="") radioButton.Name = Name;
+            if (Name != "") radioButton.Name = Name;
             radioButton.Text = text;
             radioButton.Tag = tag;
             radioButton.AutoSize = true;
@@ -221,11 +219,11 @@ namespace MyWorkApplication
                 {
                     ImageType_ID = int.Parse(radioButton.Tag.ToString());
 
-                    if(ImageType_ID == -1)
+                    if (ImageType_ID == -1)
                         Image_bind(MicroProject_ID, "");
-                    else 
+                    else
                         Image_bind(MicroProject_ID, ImageType_ID.ToString());
-                     
+
                     //عدم السماح باضافة صورة شخصية من هذه الواجهة - فقط للاستعراض او الحذف
                     if (radioButton.Text == "صورة شخصية")
                         AddImage_button.Visible = false;
@@ -244,20 +242,20 @@ namespace MyWorkApplication
             {
                 //if (zoomLevel < 3.0f) // Limit maximum zoom level to 3x
                 //{
-                    zoomLevel += 0.1f; // You can adjust the zoom increment as needed
+                zoomLevel += 0.1f; // You can adjust the zoom increment as needed
                 //}
             }
             else // Mouse wheel rolled down (Zoom out)
             {
                 //if (zoomLevel > 0.2f) // Limit minimum zoom level to 20%
                 //{
-                    zoomLevel -= 0.1f; // You can adjust the zoom decrement as needed
+                zoomLevel -= 0.1f; // You can adjust the zoom decrement as needed
                 //}
             }
 
             // Apply zoom
             ApplyZoom();
-        } 
+        }
         private void ApplyZoom()
         {
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -266,7 +264,7 @@ namespace MyWorkApplication
             pictureBox1.ClientSize = new Size(newWidth, newHeight);
 
             // Update the TextBox with the zoom level in percentage
-            int percentage = (int)((zoomLevel+0.6) * 100);
+            int percentage = (int)((zoomLevel + 0.6) * 100);
             Percentage_textBox.Text = percentage + "%";
         }
 
@@ -274,7 +272,7 @@ namespace MyWorkApplication
         {
             zoomLevel = 0.4f; // Initial zoom level
 
-            
+
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.Size = new Size(UnderPicturBox_panel.Width - 5, UnderPicturBox_panel.Height - 5);
             pictureBox1.Location = new Point(0, 0);
@@ -324,7 +322,7 @@ namespace MyWorkApplication
                 ImageName_comboBox.DisplayMember = "Image Path";
                 ImageName_comboBox.ValueMember = "ID";
                 ImageName_comboBox.DataSource = images_ds.Tables[0];
-                
+
                 //fill count of images near image types
                 UpdateRadioButtonCounts(images_ds.Tables[1]);
                 RadioButton allRadioButton = this.ImageTypes_panel.Controls["All_radioButton"] as RadioButton;
@@ -332,14 +330,14 @@ namespace MyWorkApplication
 
                 ImagesCount_comboBox.Items.Clear();
                 if (ImageName_comboBox.Items.Count != 0)
-                {  
+                {
                     for (var i = 0; i < ImageName_comboBox.Items.Count; i++)
-                        ImagesCount_comboBox.Items.Add(i + 1);                    
-                    
+                        ImagesCount_comboBox.Items.Add(i + 1);
+
                     ImagesCount_comboBox.SelectedIndex = 0;
                 }
 
-                user_mode = true; 
+                user_mode = true;
 
             }
             catch (Exception ex)
@@ -361,9 +359,9 @@ namespace MyWorkApplication
                     {
                         radioButton.Text = $"{imageType} ({count})";
                         break;
-                    } 
-                } 
-            } 
+                    }
+                }
+            }
         }
 
         private void ImagesCount_comboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -387,7 +385,7 @@ namespace MyWorkApplication
         private void ImageName_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 if (ImageName_comboBox.SelectedValue == null)
                     return;
 
@@ -439,10 +437,10 @@ namespace MyWorkApplication
                         }
                         FileInfo file = new FileInfo(tempDirectory + "\\" + PicName);
                         if (imageExist_online)
-                            d.CopyToLocal(OnlinePicPath, tempDirectory + "\\" + PicName , imageExist_online);
+                            d.CopyToLocal(OnlinePicPath, tempDirectory + "\\" + PicName, imageExist_online);
                         else
                             d.CopyToLocal(OfflinePicPath, tempDirectory + "\\" + PicName, imageExist_online);
-                         
+
                         string extension = Path.GetExtension(tempDirectory + "\\" + PicName).ToLower();
                         if (extension == ".pdf")
                         {
@@ -485,7 +483,7 @@ namespace MyWorkApplication
                     pictureBox1.Image = null;
                     pictureBox1.ImageLocation = "";
                 }
-            } 
+            }
             catch (Exception ex)
             {
                 if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL"))
@@ -539,7 +537,7 @@ namespace MyWorkApplication
 
                 int success = 0;
                 if (FullPicNames != null && FullPicNames.Length > 0)
-                { 
+                {
                     foreach (var fileName in FullPicNames)
                     {
                         ImageLocation_textBox.Text += fileName + " , ";
@@ -550,30 +548,30 @@ namespace MyWorkApplication
 
                 if (success == 0 || success != FullPicNames.Length)
                     MessageBox.Show("تعذّر حفظ  المرفقات: "
-                        + FullPicNames.Length.ToString() + "/" + success.ToString() + Environment.NewLine 
+                        + FullPicNames.Length.ToString() + "/" + success.ToString() + Environment.NewLine
                         + " الرجاء التأكد من اختيار صورة ثم المحاولة مرة ثانية", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else MessageBox.Show("تم حفظ المعلومات بنجاح" 
-                    + Environment.NewLine + "المرفقات: نجح" 
+                else MessageBox.Show("تم حفظ المعلومات بنجاح"
+                    + Environment.NewLine + "المرفقات: نجح"
                     + FullPicNames.Length.ToString() + "/" + success.ToString(), "Success", MessageBoxButtons.OK);
 
 
                 ////// Find the "all" RadioButton by its Name
                 //RadioButton allRadioButton = this.ImageTypes_panel.Controls["All_radioButton"] as RadioButton;
                 //allRadioButton.Checked = true;
-                Image_bind(MicroProject_ID, ImageType_ID.ToString()); 
+                Image_bind(MicroProject_ID, ImageType_ID.ToString());
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-  
+
         private bool Save_Attachments(string FullAttachName)
         {
             //insert image//
-            if (ImageLocation_textBox.Text == "") 
+            if (ImageLocation_textBox.Text == "")
                 throw new InvalidOperationException("Please choose the image you want to add");
-            if (ImageType_ID == -1) 
+            if (ImageType_ID == -1)
                 throw new InvalidOperationException("Please choose the image type you want");
 
             bool sucess = false;
@@ -586,18 +584,18 @@ namespace MyWorkApplication
             {
                 t = "(1)" + t;
                 new_name = MicroProject_ID + "_img" + DateTime.Now.ToString("yyyyMMdd") + "_" + t;
-            } 
-                 
+            }
+
             ////////////////// Upload Image to server ////////////////////
             if (d.SaveDocument(FullAttachName, new_name))
-            {  
+            {
                 ////////////////// Update/save Image path into image //////////////////// 
                 img.InsertImage(MicroProject_ID, new_name, ImageType_ID);
                 sucess = true;
-            } 
+            }
             return sucess;
         }
-         
+
         private void DeleteImage_button_Click(object sender, EventArgs e)
         {
             try
@@ -609,12 +607,12 @@ namespace MyWorkApplication
                 var dialogResult = MessageBox.Show("Are you sure you want to delete ?", "Delete", MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
-                { 
+                {
                     //Added by Maher
                     string PicName = img.Select_ImageName(Image_ID);
                     if (PicName != null || PicName.Length > 0)
                     {
-                        string OfflinePicPath = Program.OfflineRoot + @"/" + PicName; 
+                        string OfflinePicPath = Program.OfflineRoot + @"/" + PicName;
                         string OnlinePicPath = Program.OnlineRoot + @"/" + PicName;
 
                         if (pictureBox1.Visible)
@@ -631,10 +629,10 @@ namespace MyWorkApplication
                             webBrowser1.DocumentText = "";
                             webBrowser1.Visible = false;
                         }
-                         
+
                         if (d.Online_Exist(OnlinePicPath)) d.DeleteOnline(OnlinePicPath);
                         if (d.Offline_Exist(OfflinePicPath)) d.DeleteOffline(OfflinePicPath);
-                         
+
                         //Clear Path From Database
                         img.DeleteImage(Image_ID, MicroProject_ID, PicName);
                         //l.Insert_Log("Delete Image:" + PicName + " of : " + MicroProject_ID + " ", "Image", Program.UserName, DateTime.Now);
@@ -666,7 +664,7 @@ namespace MyWorkApplication
             else
                 return;
         }
-         
+
         #region download image 
         private void DownloadSelected_toolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -714,15 +712,15 @@ namespace MyWorkApplication
                 myTh.Join();
 
                 if (success)
-                {                
-                    l.Insert_Log("download All images of:"+MicroProject_ID+" from the server"
+                {
+                    l.Insert_Log("download All images of:" + MicroProject_ID + " from the server"
                         , "Images"
                         , Program.UserName
                         , DateTime.Now);
                     // Open the save folder in File Explorer
                     System.Diagnostics.Process.Start("explorer.exe", saveFolderPath);
                     //MessageBox.Show("All images downloaded successfully.");
-                } 
+                }
             }
             catch (Exception ex)
             {
@@ -780,10 +778,10 @@ namespace MyWorkApplication
             {
                 if (folderDialog.ShowDialog() == DialogResult.OK)
                 {
-                    saveFolderPath = folderDialog.SelectedPath; 
+                    saveFolderPath = folderDialog.SelectedPath;
 
                     foreach (var item in ImageName_comboBox.Items)
-                    {                        
+                    {
                         // Cast item to DataRowView to access the data
                         DataRowView rowView = item as DataRowView;
                         if (rowView == null)
@@ -794,7 +792,7 @@ namespace MyWorkApplication
                         //string imageName = item.ToString();
                         //Image image = d.GetImageByName(imageName); // Replace with your method to get image by name
                         byte[] imageBytes = d.GetImageByName(imageName);// Get image bytes by path
-                         
+
                         if (imageBytes != null)
                         {
                             string extension = Path.GetExtension(imageName);
@@ -840,7 +838,7 @@ namespace MyWorkApplication
                     //{
                     //    MessageBox.Show("All images downloaded successfully.");
                     //} 
-                } 
+                }
             }
         }
         // Method to save an image to a specified path with a specified format
@@ -912,7 +910,7 @@ namespace MyWorkApplication
                 pictureBox1.Top = e.Y + pictureBox1.Top - MouseDownLocation.Y;
             }
         }
-         
+
         private void First_button_Click(object sender, EventArgs e)
         {
             try
@@ -974,7 +972,7 @@ namespace MyWorkApplication
             try
             {
                 if (MicroProject_ID_textBox.Text != "")
-                { 
+                {
                     Program.buildConnection();
                     var query = "select PMP.MicroProject_ID as 'MicroProject_ID'"
                                 + " ,CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName) as 'Beneficiary Name'"
@@ -997,7 +995,7 @@ namespace MyWorkApplication
                             //All_radioButton.Checked = true;
                             // Find the "all" RadioButton by its Name
                             RadioButton allRadioButton = this.ImageTypes_panel.Controls["All_radioButton"] as RadioButton;
-                            allRadioButton.Checked = true;  
+                            allRadioButton.Checked = true;
                             RadioButton_CheckedChanged(sender, e);
 
                             mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = true;
@@ -1017,7 +1015,7 @@ namespace MyWorkApplication
             {
                 if (Person_Name_textBox.Text != "")
                 {
-                    
+
                     Program.buildConnection();
                     var query = "select PMP.MicroProject_ID as 'MicroProject_ID'"
                                 + " ,CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName) as 'Beneficiary Name'"
@@ -1042,7 +1040,7 @@ namespace MyWorkApplication
                             //All_radioButton.Checked = true;
                             // Find the "all" RadioButton by its Name
                             RadioButton allRadioButton = this.ImageTypes_panel.Controls["All_radioButton"] as RadioButton;
-                            allRadioButton.Checked = true; 
+                            allRadioButton.Checked = true;
                             RadioButton_CheckedChanged(sender, e);
 
                             mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = true;
@@ -1064,7 +1062,7 @@ namespace MyWorkApplication
                 FitToScreen_button.BackgroundImage = Resources.FitToScreen_L;
             else FitToScreen_button.BackgroundImage = Resources.FitToScreen_D;
         }
-         
+
         private void FitToScreen_button_MouseLeave(object sender, EventArgs e)
         {
             if (Settings.Default.theme == "Light")
@@ -1081,7 +1079,7 @@ namespace MyWorkApplication
 
         private void Download_button_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left || e.Button == MouseButtons.Right) 
+            if (e.Button == MouseButtons.Left || e.Button == MouseButtons.Right)
             {
                 System.Windows.Forms.Button btnSender = (System.Windows.Forms.Button)sender;
                 System.Drawing.Point ptLowerLeft = new System.Drawing.Point(0, btnSender.Height);

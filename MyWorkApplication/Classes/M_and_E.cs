@@ -1,6 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data;
-using MySql.Data.MySqlClient;
 
 namespace MyWorkApplication.Visit_Forms
 {
@@ -30,7 +30,7 @@ namespace MyWorkApplication.Visit_Forms
                 + Ans2 + "',N'"
                 + Indicators + "',N'"
                 + Notes + "',"
-                + 0 + ",'"+ Program.UserName + "')";
+                + 0 + ",'" + Program.UserName + "')";
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.ExecuteNonQuery();
@@ -38,7 +38,7 @@ namespace MyWorkApplication.Visit_Forms
             }
         }
 
-        public void Update_Visit(int ID, string Type,string Number, DateTime Date, double Profit,
+        public void Update_Visit(int ID, string Type, string Number, DateTime Date, double Profit,
             string Ans1, string Ans2, string Indicators, string Notes)
         {
             Program.buildConnection();
@@ -184,9 +184,9 @@ namespace MyWorkApplication.Visit_Forms
             return dt;
         }
 
-        public DataTable SearchByName(string name,string mp_id)
+        public DataTable SearchByName(string name, string mp_id)
         {
-             
+
             Program.buildConnection();
             var query = @"select PMP.MicroProject_ID as 'MicroProject_ID'
 , CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ', P_FatherName) as 'Beneficiary Name'
@@ -214,7 +214,7 @@ namespace MyWorkApplication.Visit_Forms
             var Condition =
                 " WHERE CONCAT(TRIM(P1.P_FirstName),' ', TRIM(P1.P_LastName),' ابن/ة ',TRIM(P1.P_FatherName)) LIKE '%" + name + "%'";
 
-            if(mp_id != "") Condition += " and PMP.MicroProject_ID = " + mp_id;
+            if (mp_id != "") Condition += " and PMP.MicroProject_ID = " + mp_id;
 
             query += from + Condition;
             var sc = new MySqlCommand(query, Program.MyConn);
@@ -228,7 +228,7 @@ namespace MyWorkApplication.Visit_Forms
 
         public DataTable SearchByID(string MicroProject_ID)
         {
-            
+
             Program.buildConnection();
             var query = @"select PMP.MicroProject_ID as 'MicroProject_ID'
 , CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ', P_FatherName) as 'Beneficiary Name'
@@ -323,9 +323,9 @@ namespace MyWorkApplication.Visit_Forms
             cond += mp_type_condtition + category_condtition + subCategory_condtition + career_condtition + " ) ";
 
             if (visit_Kind != "")
-            { 
+            {
                 visit_Kind_condition = @" and mevisit.Kind like '" + visit_Kind + "' ";
-                inner_visit_Kind_condition = @" and me.Kind like '" + visit_Kind + "' "; 
+                inner_visit_Kind_condition = @" and me.Kind like '" + visit_Kind + "' ";
             }
             if (visit_Num != "")
             {
@@ -374,8 +374,8 @@ namespace MyWorkApplication.Visit_Forms
         }
 
         public DataTable Get_Questions_Answers_SideBySide(bool onlyLastVisit
-            , string visit_Kind, string visit_Num , string DateFrom, string DateTo
-            ,  string mp_type, string category, string subCategory, string career)
+            , string visit_Kind, string visit_Num, string DateFrom, string DateTo
+            , string mp_type, string category, string subCategory, string career)
         {
             string conditions = Check_Conditions(onlyLastVisit
             , visit_Kind, visit_Num, DateFrom, DateTo
@@ -385,19 +385,19 @@ namespace MyWorkApplication.Visit_Forms
             MySqlCommand sc = new MySqlCommand("count_mevisit_results", Program.MyConn);
             sc.CommandType = CommandType.StoredProcedure;
             sc.Parameters.AddWithValue("@MyCondition", conditions);
-            sc.Parameters.AddWithValue("@MyKind", visit_Kind); 
+            sc.Parameters.AddWithValue("@MyKind", visit_Kind);
             using (MySqlDataAdapter sda = new MySqlDataAdapter(sc))
             {
                 DataTable dt = new DataTable();
-                sda.Fill(dt); 
+                sda.Fill(dt);
                 Program.MyConn.Close();
                 return dt;
             }
         }
 
         public DataTable Get_Beneficiaries_Answers(bool onlyLastVisit
-            , string visit_Kind, string visit_Num , string DateFrom , string DateTo
-            , string mp_type , string category, string subCategory, string career)
+            , string visit_Kind, string visit_Num, string DateFrom, string DateTo
+            , string mp_type, string category, string subCategory, string career)
         {
             string conditions = Check_Conditions(onlyLastVisit
             , visit_Kind, visit_Num, DateFrom, DateTo
@@ -416,7 +416,7 @@ namespace MyWorkApplication.Visit_Forms
                 return dt;
             }
         }
-         
+
         public DataTable Get_Beneficaies(string Ans_IDs, string visitNumber, string DateFrom, string DateTo, string beneficiary, string category, string subCategory)
         {
             //TODO
@@ -437,10 +437,10 @@ namespace MyWorkApplication.Visit_Forms
                     " WHERE microproject.MP_ID in (select MicroProject_ID from microproject_state " +
                                     " where MicroProject_ID = microproject.MP_ID " +
                                     " and State_ID in (1,4,5,7,8) " +
-                                    " and Current_State = 1 ) "; 
-                    //"(1, 4, 5) ) ";
+                                    " and Current_State = 1 ) ";
+                //"(1, 4, 5) ) ";
             }
-              
+
             Program.buildConnection();
             query = @"SELECT person_microproject.MicroProject_ID as 'رقم المشروع'
 , CONCAT(P_FirstName, ' ', P_LastName) as 'المستفيد'
@@ -451,7 +451,7 @@ namespace MyWorkApplication.Visit_Forms
  join person_microproject on person_microproject.Person_ID =  mevisit.Person_ID
  join microproject on person_microproject.MicroProject_ID =  microproject.MP_ID ";
 
-            string condition = " WHERE " + Ans_IDs ;
+            string condition = " WHERE " + Ans_IDs;
             if (visitNumber != "")
                 condition += " and mevisit.Number like '" + visitNumber + "' ";
 
@@ -474,7 +474,7 @@ namespace MyWorkApplication.Visit_Forms
             Program.MyConn.Close();
             return dt;
         }
-         
+
         public void Insert_meVisit_Answers(int Visit_ID, int Question_ID, int Answer_ID, string Notes)
         {
             Program.buildConnection();

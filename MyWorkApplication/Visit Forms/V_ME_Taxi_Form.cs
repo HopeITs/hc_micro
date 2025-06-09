@@ -1,12 +1,12 @@
-﻿using System;
+﻿using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication.Visit_Forms
 {
@@ -89,7 +89,7 @@ namespace MyWorkApplication.Visit_Forms
                     case 8: //admin_l0
                         break;
                     case 2: //Data
-                        { 
+                        {
                             addNotesToolStripMenuItem.Visible = false;
                         }
                         break;
@@ -98,7 +98,7 @@ namespace MyWorkApplication.Visit_Forms
                     case 7: //Lawful
                     case 9: //Media
                         {
-                            application_toolStripMenuItem.Visible 
+                            application_toolStripMenuItem.Visible
                             = addNotesToolStripMenuItem.Visible = false;
                         }
                         break;
@@ -246,7 +246,7 @@ namespace MyWorkApplication.Visit_Forms
 
                     MicroProject_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
                     MicroProject_ID_textBox1.Text = MicroProject_ID.ToString();
-                    Person_Name_textBox1.Text = (string) dt.Rows[0]["Beneficiary Name"];
+                    Person_Name_textBox1.Text = (string)dt.Rows[0]["Beneficiary Name"];
                     Person_ID = int.Parse(dt.Rows[0]["Beneficiary_ID"].ToString());
                     MP_Name_textBox.Text = (string)dt.Rows[0]["Project Name"];
                     Mobile_textBox.Text = (string)dt.Rows[0]["Mobile"];
@@ -255,21 +255,21 @@ namespace MyWorkApplication.Visit_Forms
 
                     var dd = Convert.ToDouble(dt.Rows[0]["Loan Amount"].ToString());
                     LoanAmount_textBox1.Text = dd.ToString();
-                    var date = (DateTime) dt.Rows[0]["Loan Date"];
+                    var date = (DateTime)dt.Rows[0]["Loan Date"];
                     LoanDate_dateTimePicker.Value = date;
 
                     CreatedBy_User_label.Text = dt.Rows[0]["Created_By"].ToString();
                     EditedBy_User_label.Text = dt.Rows[0]["Edited_By"].ToString();
 
                     //VisitType_comboBox1.Text = (string) dt.Rows[0]["Type"];
-                    var date1 = (DateTime) dt.Rows[0]["Date"];
+                    var date1 = (DateTime)dt.Rows[0]["Date"];
                     VisitDate_dateTimePicker.Value = date1;
                     var Profit = double.Parse(dt.Rows[0]["Profit"].ToString());
                     Profit_textBox.Text = Profit.ToString();
-                    Ans1_textBox.Text = (string) dt.Rows[0]["Ans1"];
+                    Ans1_textBox.Text = (string)dt.Rows[0]["Ans1"];
                     //Ans2_textBox.Text = (string)dt.Rows[0]["Ans2"];
-                    Indicators_textBox.Text = (string) dt.Rows[0]["Indicators"];
-                    Notes_textBox.Text = (string) dt.Rows[0]["Notes"];
+                    Indicators_textBox.Text = (string)dt.Rows[0]["Indicators"];
+                    Notes_textBox.Text = (string)dt.Rows[0]["Notes"];
 
                     Visit_Num_textBox.Text = dt.Rows[0]["Number"].ToString();
 
@@ -420,7 +420,7 @@ namespace MyWorkApplication.Visit_Forms
         {
             if (Person_Name_textBox1.Text != "")
             {
-                var dt = m_And_E.SearchByName(Person_Name_textBox1.Text,MicroProject_ID_textBox1.Text);
+                var dt = m_And_E.SearchByName(Person_Name_textBox1.Text, MicroProject_ID_textBox1.Text);
                 clear_Visit_boxes(0);
 
                 if (dt != null && dt.Rows.Count > 0)
@@ -491,20 +491,20 @@ namespace MyWorkApplication.Visit_Forms
             {
                 case 1: //admin 
                 case 8: //admin_l0
-                    { 
+                    {
                         if (Update_Mood)
                             addNotesToolStripMenuItem.Visible = true;
                     }
                     break;
                 case 2: //Data
-                      break;
+                    break;
                 case 3: //Financial 
                 case 4: //Guest
                 case 7: //Lawful
                 case 9: //Media
                     {
                         throw new InvalidOperationException(" نعتذر ! لا تملك الصلاحية للقيام بهذا الفعل.");
-                    } 
+                    }
             }
         }
 
@@ -526,7 +526,7 @@ namespace MyWorkApplication.Visit_Forms
                 if (Update_Mood)
                 {
                     //update basic information of visit
-                    m_And_E.Update_Visit(V_ID, "" ,Visit_Num_textBox.Text.Trim(), VisitDate_dateTimePicker.Value, Profit
+                    m_And_E.Update_Visit(V_ID, "", Visit_Num_textBox.Text.Trim(), VisitDate_dateTimePicker.Value, Profit
                         , Ans1_textBox.Text, "", Indicators_textBox.Text, Notes_textBox.Text);
                     l.Insert_Log(
                         "Update m&e visit:" + V_Num + ":" + _KIND + " of " + MicroProject_ID + " : " +
@@ -567,7 +567,7 @@ namespace MyWorkApplication.Visit_Forms
                     //////////////////////////////////////////////////////////////////////////////////////////
 
                     //update notification
-                    noti.Update_MicroUsers_Notification(MicroProject_ID, "", "Visit M" + V_Num + "-V", Person_Name_textBox1.Text, -21, "1"); 
+                    noti.Update_MicroUsers_Notification(MicroProject_ID, "", "Visit M" + V_Num + "-V", Person_Name_textBox1.Text, -21, "1");
                     l.Insert_Log("Set seen=1 to Notification of Visit M" + V_Num + "-V:" + Person_Name_textBox1.Text + "-" + MicroProject_ID,
                         "user_notification visit", Program.UserName, DateTime.Now);
                     ////////////////////////////////////////////////////////////////////////////////////////// 
@@ -642,11 +642,11 @@ namespace MyWorkApplication.Visit_Forms
                     User_ID = Convert.ToInt32(V2_comboBox.SelectedValue);
                     m_And_E.Insert_Visit_User(V_ID, User_ID, V2_Eval_comboBox.Text);
                     users_of_visit += V2_comboBox.Text + " ";
-                } 
+                }
                 l.Insert_Log(
                     "Insert visitors-" + users_of_visit + " of the visit-" + _KIND + " of " + MicroProject_ID + " : " +
                     Person_Name_textBox1.Text + " ", " Visit ", Program.UserName, DateTime.Now);
-                 
+
                 if (Partners != 0)
                 {
                     var partners_MessageBox = new Partners_MessageBox(mainForm, MicroProject_ID, Person_ID, V_Num);
@@ -665,7 +665,7 @@ namespace MyWorkApplication.Visit_Forms
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-         
+
         private void Delete_button_Click(object sender, EventArgs e)
         {
             try
@@ -808,7 +808,7 @@ namespace MyWorkApplication.Visit_Forms
                 }
 
                 string project = MicroProject_ID.ToString() + ":" + Person_Name_textBox1.Text;
-                var _Form = new NewIdea_Form("M&E Visit-"+Visit_Num_textBox.Text, project, emails);
+                var _Form = new NewIdea_Form("M&E Visit-" + Visit_Num_textBox.Text, project, emails);
                 _Form.Show();
             }
             catch (Exception ex)

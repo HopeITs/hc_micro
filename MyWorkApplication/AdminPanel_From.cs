@@ -1,4 +1,9 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using MySql.Data.MySqlClient;
+using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using PresentationControls;
+using System;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlTypes;
@@ -6,21 +11,10 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Management;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
-using ClosedXML.Excel;
-using Microsoft.Office.Interop.Excel;
-using MySql.Data.MySqlClient;
-using MyWorkApplication.Classes; 
-using MyWorkApplication.Properties;
-using MyWorkApplication.Visit_Forms;
-using Org.BouncyCastle.Utilities.Encoders;
-using Application = Microsoft.Office.Interop.Excel.Application;
 using DataTable = System.Data.DataTable;
-using PresentationControls;
 
 namespace MyWorkApplication
 {
@@ -36,13 +30,13 @@ namespace MyWorkApplication
 
         private string direction_1;
         private bool Hided;
-        private Log l; 
+        private Log l;
         private readonly MainForm main_form;
         private int MicroProject_ID;
         private DataGridViewColumn oldColumn, newColumn;
         private int Person_ID;
         private int PW;
-        private DataRow SelectedDataRow; 
+        private DataRow SelectedDataRow;
         private TasksOfProjects TasksOfProjects;
         private string State = "";
         private Street st;
@@ -75,11 +69,11 @@ namespace MyWorkApplication
         private void AdminPanel_Load(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 l = new Log();
-                st = new Street(); sub = new SubCategory(); 
+                st = new Street(); sub = new SubCategory();
                 user_mode = false;
-                 
+
                 PW = Search_panel.Height;
                 Hided = true;
 
@@ -87,13 +81,13 @@ namespace MyWorkApplication
                 MP_dataGridView.DoubleBuffered(true);
 
                 bs.ListChanged += bs_ListChanged;
-                 
+
                 //to scroll the show/hide lists 
                 Hide_MenuItem.DropDown.Closing += Hide_MenuItem_Closing;
                 Show_MenuItem.DropDown.Closing += Show_MenuItem_Closing;
 
                 Bind_All_ComboBoxes();
-                timer1.Start(); 
+                timer1.Start();
 
 
                 // Use of the DataGridViewColumnSelector
@@ -118,7 +112,7 @@ namespace MyWorkApplication
 
         #region bind queries
         private void bind(string value)
-        { 
+        {
             try
             {
                 // Set cursor as hourglass
@@ -187,19 +181,19 @@ namespace MyWorkApplication
 
 
                 //////  عند إضافة عمود جديد لإظهاره تأكد من تفيير Column[index] عند الحفظ
-                var orderBy = " order by MP.MP_ID DESC ";  
+                var orderBy = " order by MP.MP_ID DESC ";
                 if (value != "") orderBy = " order by mps.State_ID, PMP.MicroProject_ID DESC ";
 
-                Check_Conditions(" where Current_State = 1 "); 
+                Check_Conditions(" where Current_State = 1 ");
                 query += from + condition + orderBy + ";";
 
                 //count rows
-                string query2 = "select IFNULL(count(DISTINCT MP_ID),0) " 
+                string query2 = "select IFNULL(count(DISTINCT MP_ID),0) "
                     + from + condition + ";";
 
                 string all_query = "";
-                all_query += query + query2 ;
-                
+                all_query += query + query2;
+
                 Program.buildConnection();
                 MySqlCommand sc = new MySqlCommand(all_query, Program.MyConn);
                 sc.ExecuteNonQuery();
@@ -214,22 +208,22 @@ namespace MyWorkApplication
                 MP_dataGridView.ColumnHeadersVisible = false;
                 MP_dataGridView.RowHeadersVisible = false;
 
-                bs.DataSource = main_ds.Tables[0]; 
+                bs.DataSource = main_ds.Tables[0];
                 MP_dataGridView.DataSource = bs;
 
                 total_bind_count = 0;
 
                 total_bind_count = Convert.ToInt32(main_ds.Tables[1].Rows[0][0].ToString());
                 Count_label.Text = "All:" + total_bind_count.ToString("#,##0");
-                
+
                 MP_dataGridView.Columns["المبلغ المطلوب"].DefaultCellStyle.Format = "#,##0";
                 MP_dataGridView.Columns["مبلغ التمويل"].DefaultCellStyle.Format = "#,##0";
                 MP_dataGridView.Columns["تاريخ التقديم"].DefaultCellStyle.Format = "yyyy/MM/dd";
-                
+
                 var dgC1 = MP_dataGridView.Columns["رقم المستفيد"];
                 dgC1.Visible = false;
 
-                MP_dataGridView.Columns["رقم المشروع"].ReadOnly = 
+                MP_dataGridView.Columns["رقم المشروع"].ReadOnly =
                     MP_dataGridView.Columns["المستفيد"].ReadOnly =
                     MP_dataGridView.Columns["اسم الأب"].ReadOnly =
                     MP_dataGridView.Columns["اسم الأم"].ReadOnly =
@@ -266,7 +260,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
         private void Bind_All_ComboBoxes()
         {
             user_mode = false;
@@ -310,21 +304,21 @@ namespace MyWorkApplication
             //Set_comboBox_datasource(StateReason_comboBox    , ds.Tables[10]);
             //Set_comboBox_datasource(P_Parish_comboBox       , ds.Tables[12]);
 
-            Set_checkboxcomboBox_datasource(Category_comboBox       , ds.Tables[0]);
-            Set_checkboxcomboBox_datasource(SubCategory_comboBox    , ds.Tables[1]);
-            Set_checkboxcomboBox_datasource(Career_comboBox         , ds.Tables[2]);
-            Set_checkboxcomboBox_datasource(Donor_comboBox          , ds.Tables[3]);
-            Set_checkboxcomboBox_datasource(DonorGroup_comboBox     , ds.Tables[4]);
-            Set_checkboxcomboBox_datasource(FundType_comboBox       , ds.Tables[5]);
-            Set_checkboxcomboBox_datasource(Type_comboBox           , ds.Tables[6]);
-            Set_checkboxcomboBox_datasource(SubType_comboBox        , ds.Tables[7]);
-            Set_checkboxcomboBox_datasource(MaritalStatus_comboBox  , ds.Tables[8]);
-            Set_checkboxcomboBox_datasource(Age_comboBox            , ds.Tables[9]);
+            Set_checkboxcomboBox_datasource(Category_comboBox, ds.Tables[0]);
+            Set_checkboxcomboBox_datasource(SubCategory_comboBox, ds.Tables[1]);
+            Set_checkboxcomboBox_datasource(Career_comboBox, ds.Tables[2]);
+            Set_checkboxcomboBox_datasource(Donor_comboBox, ds.Tables[3]);
+            Set_checkboxcomboBox_datasource(DonorGroup_comboBox, ds.Tables[4]);
+            Set_checkboxcomboBox_datasource(FundType_comboBox, ds.Tables[5]);
+            Set_checkboxcomboBox_datasource(Type_comboBox, ds.Tables[6]);
+            Set_checkboxcomboBox_datasource(SubType_comboBox, ds.Tables[7]);
+            Set_checkboxcomboBox_datasource(MaritalStatus_comboBox, ds.Tables[8]);
+            Set_checkboxcomboBox_datasource(Age_comboBox, ds.Tables[9]);
 
-            Set_checkboxcomboBox_datasource(StateReason_comboBox    , ds.Tables[10]);
-            Set_checkboxcomboBox_datasource(P_Parish_comboBox       , ds.Tables[11]);
-            Set_checkboxcomboBox_datasource(HomeStreet_comboBox     , ds.Tables[12]);
-            Set_checkboxcomboBox_datasource(ProjectStreet_comboBox  , ds.Tables[13]);
+            Set_checkboxcomboBox_datasource(StateReason_comboBox, ds.Tables[10]);
+            Set_checkboxcomboBox_datasource(P_Parish_comboBox, ds.Tables[11]);
+            Set_checkboxcomboBox_datasource(HomeStreet_comboBox, ds.Tables[12]);
+            Set_checkboxcomboBox_datasource(ProjectStreet_comboBox, ds.Tables[13]);
 
             ApplyDate_comboBox.Items.Clear();
             FundDate_comboBox.Items.Clear();
@@ -337,7 +331,7 @@ namespace MyWorkApplication
             user_mode = true;
         }
 
-        private void Set_comboBox_datasource(ComboBox cBox,DataTable c_dt)
+        private void Set_comboBox_datasource(ComboBox cBox, DataTable c_dt)
         {
             cBox.DataSource = null;
             cBox.DisplayMember = "Name";
@@ -481,9 +475,9 @@ namespace MyWorkApplication
             DonorGroup_comboBox.SelectedIndex = -1;
             user_mode = true;
         }
-         
+
         #endregion
-             
+
         #region state buttons
         private void Accepted_button_Click(object sender, EventArgs e)
         {
@@ -663,7 +657,7 @@ namespace MyWorkApplication
         }
 
         #region save-restore columns
-        private string[] arr_str; 
+        private string[] arr_str;
         private void save_visible_columns()
         {
             arr_str = new string[MP_dataGridView.ColumnCount];
@@ -673,7 +667,7 @@ namespace MyWorkApplication
                 else arr_str[j] = "";
             var value_str = string.Join(",", arr_str.Select(i => i.ToString()).ToArray());
 
-            Settings.Default.profile_picture = value_str;  
+            Settings.Default.profile_picture = value_str;
             Settings.Default.Save();
         }
         private void restore_visible_columns()
@@ -855,33 +849,33 @@ namespace MyWorkApplication
 
         }
         #endregion
-         
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (tick == 0)
             {
-                
+
                 bind("");
 
                 //, FundType_comboBox.Text, Type_comboBox.Text, SubType_comboBox.Text, State, replaceQuotation(Donor_comboBox.Text), replaceQuotation(Donor_comboBox.Text), Category_comboBox.Text
                 //    , SubCategory_comboBox.Text, Career_comboBox.Text, ApplyDate_comboBox.Text, FundDate_comboBox.Text, StateReason_comboBox.Text
                 //    , P_Parish_comboBox.Text, Age_comboBox.Text, Gender_comboBox.Text, MaritalStatus_comboBox.Text, Partnership_comboBox.Text
 
-                tick++; 
+                tick++;
             }
             else
             {
                 timer1.Stop();
             }
         }
-         
+
         private void ConvertCellToComboBoxAndColor()
-        { 
+        {
 
             for (var i = 0; i < MP_dataGridView.RowCount; i++)
             {
                 //حالة المشروع//
-                var ComboBoxCell1 = new DataGridViewComboBoxCell(); 
+                var ComboBoxCell1 = new DataGridViewComboBoxCell();
                 for (int dd = 0; dd < ds.Tables[14].Rows.Count; dd++)
                 {
                     ComboBoxCell1.Items.Add(ds.Tables[14].Rows[dd].Field<string>(1));
@@ -929,7 +923,7 @@ namespace MyWorkApplication
                 MP_dataGridView["تبديل المشروع", i] = ComboBoxCell5;
 
                 //color
-                 if (MP_dataGridView.Rows[i].Cells["حالة المشروع"].Value.ToString() == "بالانتظار")
+                if (MP_dataGridView.Rows[i].Cells["حالة المشروع"].Value.ToString() == "بالانتظار")
                 {
                     MP_dataGridView.Rows[i].DefaultCellStyle.BackColor =
                         MP_dataGridView.Rows[i].Cells["حالة المشروع"].Style.BackColor =
@@ -983,7 +977,7 @@ namespace MyWorkApplication
                     MP_dataGridView.Rows[i].DefaultCellStyle.BackColor =
                         MP_dataGridView.Rows[i].Cells["حالة المشروع"].Style.BackColor = Finished_button.BackColor;
                     MP_dataGridView.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
-                } 
+                }
                 else if (MP_dataGridView.Rows[i].Cells["حالة المشروع"].Value.ToString() == "منسحب")
                 {
                     MP_dataGridView.Rows[i].DefaultCellStyle.BackColor =
@@ -998,8 +992,8 @@ namespace MyWorkApplication
                             Cancelled_button.BackColor;
                     MP_dataGridView.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
                 }
-                
-                
+
+
             }
 
             MP_dataGridView.Columns["اسم الأم"].Width = MP_dataGridView.Columns["اسم الأب"].Width = 60;
@@ -1014,7 +1008,7 @@ namespace MyWorkApplication
                                     MP_dataGridView.Columns["رقم دفتر العائلة"].DefaultCellStyle.Alignment =
                                         MP_dataGridView.Columns["الجهة الممولة"].DefaultCellStyle.Alignment =
                                             MP_dataGridView.Columns["نوع المشروع"].DefaultCellStyle.Alignment =
-                                                DataGridViewContentAlignment.MiddleCenter; 
+                                                DataGridViewContentAlignment.MiddleCenter;
         }
         private void addStateButtonToGrid()
         {
@@ -1038,7 +1032,7 @@ namespace MyWorkApplication
         {
             Check_Theme();
         }
-       
+
         private void Refresh_button_Click_1(object sender, EventArgs e)
         {
             save_visible_columns();
@@ -1083,7 +1077,7 @@ namespace MyWorkApplication
                 if (res == DialogResult.OK && saveFileDialog1.FileName != "")
                 {
                     string filename = filename = saveFileDialog1.FileName;
-                    XLWorkbook wb = new XLWorkbook { RightToLeft = true }; 
+                    XLWorkbook wb = new XLWorkbook { RightToLeft = true };
                     //defaultView gets the visible rows only//
                     DataTable ex_dt = new DataTable();
 
@@ -1132,7 +1126,7 @@ namespace MyWorkApplication
             {
                 //المواليد- رقم المشروع - - المستفيد -الأب - الأم - الزوج - الرقم الوطني -القيد - رقم العائلة - مبلغ التمويل - الطائفة   
                 // منطقة السكن - العنوان التفصيلي - الكاهن
-                if (e.ColumnIndex == 0 || e.ColumnIndex == 1 || e.ColumnIndex == 2 || e.ColumnIndex == 3 
+                if (e.ColumnIndex == 0 || e.ColumnIndex == 1 || e.ColumnIndex == 2 || e.ColumnIndex == 3
                     || e.ColumnIndex == 4 || e.ColumnIndex == 5 || e.ColumnIndex == 6 || e.ColumnIndex == 7 || e.ColumnIndex == 8
                     || e.ColumnIndex == 12 || e.ColumnIndex == 13
                     || e.ColumnIndex == 14 || e.ColumnIndex == 15 || e.ColumnIndex == 16)
@@ -1161,7 +1155,7 @@ namespace MyWorkApplication
                     MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    
+
                     Program.buildConnection();
                     var r = e.RowIndex;
 
@@ -1182,11 +1176,11 @@ namespace MyWorkApplication
 
                             //insert the tasks of this project//
                             TasksOfProjects = new TasksOfProjects();
-                            TasksOfProjects.Insert_AllTasks_MicroProject(MicroProject_ID, DateTime.Now,"f");
+                            TasksOfProjects.Insert_AllTasks_MicroProject(MicroProject_ID, DateTime.Now, "f");
                             state = 1;
                             l.Insert_Log("Insert all (f) tasks of project: " + MicroProject_ID + " ", " Task_Project ",
-                                Program.UserName, DateTime.Now); 
-                        } 
+                                Program.UserName, DateTime.Now);
+                        }
                         if (edited_column == "منسحب")
                         {
                             // Delete all notificattions of this project (Mark Seen)
@@ -1202,7 +1196,7 @@ namespace MyWorkApplication
                             else
                             {
                                 query += "update `microproject` set MP_Donor = " + SqlInt32.Null
-                                + " where MP_ID = " + MicroProject_ID + ";"; 
+                                + " where MP_ID = " + MicroProject_ID + ";";
                                 MessageBox.Show("انتبه! سيتم حذف الجهة الممولة من المشروع");
                             }
                         }
@@ -1212,16 +1206,16 @@ namespace MyWorkApplication
                             //user_ID = -1 //// clear for all users 
                             var noti = new UserNotification();
                             noti.Update_UserNotification(MicroProject_ID, -1);
-                            l.Insert_Log("Update Notifications set SEEN of project:" 
+                            l.Insert_Log("Update Notifications set SEEN of project:"
                                 + MicroProject_ID + " : " + MP_dataGridView.Rows[r].Cells["المستفيد"].Value
                                 , "Admin Panel", Program.UserName, DateTime.Now);
-                        } 
+                        }
                         if (edited_column != "مرفوض" && edited_column != "بالانتظار")
                         {
                             //Send Notification to all users if the status changned - except rejected & waiting 
                             User user1 = new User();
-                            UserNotification noti1 = new UserNotification(); 
-                            var user_db = user1.Select_Users("","", " and role.Role_Name Not like 'Out of Service' and role.Role_Name Not like 'Guest'");
+                            UserNotification noti1 = new UserNotification();
+                            var user_db = user1.Select_Users("", "", " and role.Role_Name Not like 'Out of Service' and role.Role_Name Not like 'Guest'");
                             if (user_db != null)
                                 for (var i = 0; i < user_db.Rows.Count; i++)
                                     noti1.Insert_UserNotification(
@@ -1231,7 +1225,7 @@ namespace MyWorkApplication
                                         , MicroProject_ID
                                         , user_db.Rows[i].Field<int>(0)
                                         , Program.userID
-                                        , -998-i);
+                                        , -998 - i);
                         }
                         if (edited_column == "ممول")
                         {
@@ -1248,16 +1242,16 @@ namespace MyWorkApplication
                             + MicroProject_ID + ","
                             + "(select ID from `state` where Name_ar like N'" + edited_column + "')" + ","
                             + "N'" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "'" + ");";
-                         
-                        Updated_col_name = "State:"+ edited_column;
+
+                        Updated_col_name = "State:" + edited_column;
                     }
                     // الموبايل
-                    else if (e.ColumnIndex == 9) 
+                    else if (e.ColumnIndex == 9)
                     {
                         query = "update `person` set" +
                                 " P_Mobile = N'" + MP_dataGridView.Rows[r].Cells["الموبايل"].Value + "' " +
                                 " where P_ID = " + Person_ID + " ";
-                        Updated_col_name = "Mobile:"+ MP_dataGridView.Rows[r].Cells["الموبايل"].Value;
+                        Updated_col_name = "Mobile:" + MP_dataGridView.Rows[r].Cells["الموبايل"].Value;
                     }
                     // اسم المشروع - المبلغ المطلوب
                     else if (e.ColumnIndex == 10 || e.ColumnIndex == 12)
@@ -1271,20 +1265,20 @@ namespace MyWorkApplication
                         Updated_col_name = "Project Name/Requested money";
                     }
                     // سبب الحالة - ملاحظة الحالة
-                    else if (e.ColumnIndex == 24 || e.ColumnIndex == 25) 
-                    { 
-                        string edited_column = MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString(); 
+                    else if (e.ColumnIndex == 24 || e.ColumnIndex == 25)
+                    {
+                        string edited_column = MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString();
                         query = " update microproject_state set "
                             + " StateReason_ID = (select ID from `statereason` where Name like N'" + MP_dataGridView.Rows[r].Cells["سبب الحالة"].Value + "')"
                             + ",Note = N'" + MP_dataGridView.Rows[r].Cells["ملاحظة الحالة"].Value.ToString() + "' "
-                            
-                            + " where MicroProject_ID = " + MicroProject_ID 
-                            + " and State_ID = (select ID from `state` where Name_ar like N'" + edited_column + "')" 
-                            + " ORDER BY Date DESC LIMIT 1 "; 
-                        Updated_col_name = "State Reason:"+ MP_dataGridView.Rows[r].Cells["سبب الحالة"].Value;
+
+                            + " where MicroProject_ID = " + MicroProject_ID
+                            + " and State_ID = (select ID from `state` where Name_ar like N'" + edited_column + "')"
+                            + " ORDER BY Date DESC LIMIT 1 ";
+                        Updated_col_name = "State Reason:" + MP_dataGridView.Rows[r].Cells["سبب الحالة"].Value;
                     }
                     // ملاحظات المشروع
-                    else if (e.ColumnIndex == 20)  
+                    else if (e.ColumnIndex == 20)
                     {
                         query = "update `microproject` set MP_Note = N'" +
                                 replaceQuotation(MP_dataGridView.Rows[r].Cells["ملاحظات المشروع"].Value.ToString()) + "' "
@@ -1293,7 +1287,7 @@ namespace MyWorkApplication
                         Updated_col_name = "Comments";
                     }
                     //دورة تدريبية - ملاحظات-المستفيد
-                    else if (e.ColumnIndex == 19 || e.ColumnIndex == 21) 
+                    else if (e.ColumnIndex == 19 || e.ColumnIndex == 21)
                     {
                         query = "update `person` set" +
                                 " P_MaristesCourse = N'" + replaceQuotation(MP_dataGridView.Rows[r].Cells["دورة تدريبية"].Value.ToString()) +
@@ -1304,19 +1298,19 @@ namespace MyWorkApplication
                         Updated_col_name = "Maristes Course/Beneficiary State";
                     }
                     // الجهة الممولة
-                    else if (e.ColumnIndex == 23) 
+                    else if (e.ColumnIndex == 23)
                     {
                         string edited_column = Program.ReplaceQuotation(
                             MP_dataGridView.Rows[r].Cells["الجهة الممولة"].Value.ToString());
 
                         if (edited_column == "None")
-                        {    
+                        {
                             // مشاريع ممولة
-                            if ( 
+                            if (
                                 MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "مقبول" ||
-                                MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "ممول"  ||
+                                MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "ممول" ||
                                 MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "منتهي" ||
-                                MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "ملغى" ) 
+                                MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "ملغى")
                             {
                                 MP_dataGridView.CancelEdit(); // Set cell value back to what it was prior to user's change 
                                 throw new Exception("يجب تحديد الجهة الممولة للمشاريع الممولة");
@@ -1327,16 +1321,16 @@ namespace MyWorkApplication
                                 query = "update `microproject` set MP_Donor = " + SqlInt32.Null
                                       + " where MP_ID = " + MicroProject_ID + " ";
                             }
-                        } 
+                        }
                         // بحال اختيار جهة ممولة
                         else
                         {
                             // مشاريع ممولة
                             if (
                                 MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "مقبول" ||
-                                MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "ممول"  ||
+                                MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "ممول" ||
                                 MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "منتهي" ||
-                                MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "ملغى" )
+                                MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "ملغى")
                             {
                                 query = "update `microproject` " +
                                " set MP_Donor = (Select ID from donor where donor.Name like '" + edited_column + "') " +
@@ -1348,16 +1342,16 @@ namespace MyWorkApplication
                                 MP_dataGridView.Rows[r].Cells["الجهة الممولة"].Value = "None";
                                 MP_dataGridView.CancelEdit(); // Set cell value back to what it was prior to user's change 
                                 throw new Exception("لا يمكن اختيار جهة ممولة للمشاريع بحالة الانتظار أو الرفض أو الانسحاب");
-                            } 
+                            }
                         }
 
-                        Updated_col_name = "Donor:"+ edited_column ;
+                        Updated_col_name = "Donor:" + edited_column;
                     }
                     // تبديل المشروع
                     else if (e.ColumnIndex == 26)
                     {
                         query = "update `microproject` set" +
-                                " IsContentUpdated = " + (MP_dataGridView.Rows[r].Cells["تبديل المشروع"].Value.ToString() == "نعم" ? 1 : 0) + 
+                                " IsContentUpdated = " + (MP_dataGridView.Rows[r].Cells["تبديل المشروع"].Value.ToString() == "نعم" ? 1 : 0) +
                                 " where MP_ID = " + MicroProject_ID + " ";
                         Updated_col_name = "IsContentUpdated";
                     }
@@ -1372,7 +1366,7 @@ namespace MyWorkApplication
                     l.Insert_Log(
                         "Update " + Updated_col_name + " of " + MP_dataGridView.Rows[r].Cells["المستفيد"].Value +
                         " : " + MicroProject_ID + " ", "Admin Panel", Program.UserName, DateTime.Now);
-  
+
                     MP_dataGridView.EndEdit();
                     ConvertCellToComboBoxAndColor();
 
@@ -1395,7 +1389,7 @@ namespace MyWorkApplication
                     MP_dataGridView.CancelEdit(); // Set cell value back to what it was prior to user's change 
                 }
             }
-             catch (Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -1430,8 +1424,8 @@ namespace MyWorkApplication
                     da.Fill(dt);
                     Program.MyConn.Close();
 
-                
-                    Form form = new ShowDetails_Form(dt,"حالات المشروع");
+
+                    Form form = new ShowDetails_Form(dt, "حالات المشروع");
                     form.ShowDialog();
                 }
             }
@@ -1448,8 +1442,8 @@ namespace MyWorkApplication
                     return;
 
                 if (e.ColumnIndex == MP_dataGridView.Columns["StateHistory"].Index)
-                { 
-                    Image image = Resources.show_item16; 
+                {
+                    Image image = Resources.show_item16;
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
                     var size = image.Size;
                     var location = new System.Drawing.Point(
@@ -1457,7 +1451,7 @@ namespace MyWorkApplication
                         (e.CellBounds.Height - size.Height) / 2
                         );
                     location.Offset(e.CellBounds.Location);
-                    e.Graphics.DrawImage(image, location); 
+                    e.Graphics.DrawImage(image, location);
                     e.Handled = true;
                 }
             }
@@ -1469,11 +1463,11 @@ namespace MyWorkApplication
         private void MP_dataGridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
-            { 
-                SelectedDataRow = ((DataRowView) MP_dataGridView.CurrentRow.DataBoundItem).Row;
+            {
+                SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
                 if (SelectedDataRow != null)
                 {
-                    SelectedDataRow = ((DataRowView) MP_dataGridView.CurrentRow.DataBoundItem).Row;
+                    SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
                     if (SelectedDataRow != null)
                     {
                         if (SelectedDataRow["رقم المشروع"] == null ||
@@ -1488,12 +1482,12 @@ namespace MyWorkApplication
                     }
 
                     Form application_Form = new Application_Form(Person_ID, MicroProject_ID, main_form);
-                    main_form.showNewTab(application_Form, "Application",1);
+                    main_form.showNewTab(application_Form, "Application", 1);
                 }
                 else
                 {
                     throw new InvalidOperationException("Please Select a row first");
-                } 
+                }
             }
             catch (Exception ex)
             {
@@ -1525,7 +1519,7 @@ namespace MyWorkApplication
 
 
                     Form application_Form = new Application_Form(Person_ID, MicroProject_ID, main_form);
-                    main_form.showNewTab(application_Form, "Application",1);
+                    main_form.showNewTab(application_Form, "Application", 1);
                 }
             }
             catch (Exception ex)
@@ -1537,7 +1531,7 @@ namespace MyWorkApplication
         {
             try
             {
-                bs.Filter = Original_Filter_String = MP_dataGridView.FilterString; 
+                bs.Filter = Original_Filter_String = MP_dataGridView.FilterString;
                 ConvertCellToComboBoxAndColor();
             }
             catch (Exception ex)
@@ -1549,14 +1543,14 @@ namespace MyWorkApplication
         {
             try
             {
-                bs.Sort = MP_dataGridView.SortString; 
+                bs.Sort = MP_dataGridView.SortString;
                 ConvertCellToComboBoxAndColor();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error");
             }
-        } 
+        }
         private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -1567,7 +1561,7 @@ namespace MyWorkApplication
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            } 
+            }
         }
         private void SearchToolBar_Search(object sender, Zuby.ADGV.AdvancedDataGridViewSearchToolBarSearchEventArgs e)
         {
@@ -1606,7 +1600,7 @@ namespace MyWorkApplication
 
                                     if (i < VisibleColumnsCount - 1)
                                         NewFilter += " or ";
-                                } 
+                                }
                                 i++;
                             }
                         }
@@ -1676,11 +1670,11 @@ namespace MyWorkApplication
             }
         }
         private void bs_ListChanged(object sender, System.ComponentModel.ListChangedEventArgs e)
-        { 
+        {
             Count_label.Text = "All: " + MP_dataGridView.Rows.Count.ToString("#,##0");
         }
         #endregion
-         
+
         #region mouse enter-leave
         private void Refresh_button_MouseEnter(object sender, EventArgs e)
         {
@@ -1754,12 +1748,12 @@ namespace MyWorkApplication
         public void Check_Conditions(string initial_cond)
         {
             condition = "";
-            condition += initial_cond; 
-              
+            condition += initial_cond;
+
             //State
             if (State != "")
-            {   
-                condition += " and state.Name_Ar in ('" + State + "')"; 
+            {
+                condition += " and state.Name_Ar in ('" + State + "')";
             }
             //Reason
             if (StateReason_comboBox.Text != "" && StateReason_comboBox.Visible)
@@ -1803,7 +1797,7 @@ namespace MyWorkApplication
                 if (Partnership_comboBox.Text.Contains("فردي"))
                     condition += " and Partnership = 1 ";
             }
-             
+
             ////MP Status
             //if (MP_Status_comboBox.Text != "" && MP_Status_comboBox.Visible)
             //{
@@ -1813,7 +1807,7 @@ namespace MyWorkApplication
             //    condition += " and state.Name_Ar in ("
             //        + Program.getSelectedItems_CheckboxComboBox(MP_Status_comboBox, true) + ")";
             //}
-             
+
             //Donor
             if (Donor_comboBox.Text != "" && Donor_comboBox.Visible)
             {
@@ -1937,8 +1931,8 @@ namespace MyWorkApplication
                 var FinancedTo = FundedTo_textBox.Text.Replace(",", "");
 
                 //bind("");
-                
-                
+
+
                 //, FundType_comboBox.Text, Type_comboBox.Text, SubType_comboBox.Text, State, replaceQuotation(Donor_comboBox.Text), replaceQuotation(DonorGroup_comboBox.Text), Category_comboBox.Text
                 //, SubCategory_comboBox.Text, Career_comboBox.Text, ApplyDate_comboBox.Text, FundDate_comboBox.Text, StateReason_comboBox.Text
                 //, P_Parish_comboBox.Text, Age_comboBox.Text, Gender_comboBox.Text, MaritalStatus_comboBox.Text,Partnership_comboBox.Text
@@ -2002,7 +1996,7 @@ namespace MyWorkApplication
             }
         }
         #endregion
-         
+
         #region right click menu
         private void refreshPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -2013,7 +2007,7 @@ namespace MyWorkApplication
             try
             {
                 Form Search_Form = new Search_Form(main_form);
-                main_form.showNewTab(Search_Form, "Search",0);
+                main_form.showNewTab(Search_Form, "Search", 0);
             }
             catch (Exception ex)
             {
@@ -2025,7 +2019,7 @@ namespace MyWorkApplication
             try
             {
                 Form Statistics_Form = new Statistics_Form(main_form);
-                main_form.showNewTab(Statistics_Form, "Statistics",0);
+                main_form.showNewTab(Statistics_Form, "Statistics", 0);
             }
             catch (Exception ex)
             {
@@ -2037,7 +2031,7 @@ namespace MyWorkApplication
             try
             {
                 var projectsTasks = new TaskBoard_Form(main_form);
-                main_form.showNewTab(projectsTasks, "Task Board",0);
+                main_form.showNewTab(projectsTasks, "Task Board", 0);
             }
             catch (Exception ex)
             {
@@ -2046,7 +2040,7 @@ namespace MyWorkApplication
         }
         private void clearAllFiltersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Type_comboBox.Text = Donor_comboBox.Text = DonorGroup_comboBox.Text 
+            Type_comboBox.Text = Donor_comboBox.Text = DonorGroup_comboBox.Text
                 = Category_comboBox.Text = SubCategory_comboBox.Text
                 = Career_comboBox.Text = ApplyDate_comboBox.Text = FundDate_comboBox.Text = StateReason_comboBox.Text
                 = P_Parish_comboBox.Text = Age_comboBox.Text = Gender_comboBox.Text = MaritalStatus_comboBox.Text = "";
@@ -2151,8 +2145,8 @@ namespace MyWorkApplication
             if (ApplyDate_checkBox.Checked)
             {
 
-                ApplyDateFrom_dateTimePicker.Enabled = ApplyDateFrom_label.Enabled = 
-                ApplyDateTo_DateTimePicker.Enabled = true; 
+                ApplyDateFrom_dateTimePicker.Enabled = ApplyDateFrom_label.Enabled =
+                ApplyDateTo_DateTimePicker.Enabled = true;
 
                 ApplyDateFrom_dateTimePicker_ValueChanged(sender, e);
             }
@@ -2160,29 +2154,29 @@ namespace MyWorkApplication
             {
                 ApplyDate_condition = "";
 
-                ApplyDateFrom_dateTimePicker.Enabled = ApplyDateFrom_label.Enabled = 
-                ApplyDateTo_DateTimePicker.Enabled = false; 
+                ApplyDateFrom_dateTimePicker.Enabled = ApplyDateFrom_label.Enabled =
+                ApplyDateTo_DateTimePicker.Enabled = false;
 
                 //Refresh_button_Click_1(sender, e);
             }
-        } 
+        }
         private void FundedDate_checkBox_CheckedChanged(object sender, EventArgs e)
         {
             if (FundedDate_checkBox.Checked)
             {
 
-                FundedDateFrom_DateTimePicker.Enabled = FundedDateFrom_label.Enabled = 
+                FundedDateFrom_DateTimePicker.Enabled = FundedDateFrom_label.Enabled =
                     FundedDateTo_DateTimePicker.Enabled = true;
- 
+
                 FundedDateFrom_bcDateTimePicker_ValueChanged(sender, e);
             }
             else
             {
                 FundedDate_condition = "";
 
-                FundedDateFrom_DateTimePicker.Enabled = FundedDateFrom_label.Enabled = 
+                FundedDateFrom_DateTimePicker.Enabled = FundedDateFrom_label.Enabled =
                     FundedDateTo_DateTimePicker.Enabled = false;
- 
+
 
                 //Refresh_button_Click_1(sender, e);
             }
@@ -2262,7 +2256,7 @@ namespace MyWorkApplication
             }
         }
 
- 
+
 
         private void FundedFrom_textBox_Leave(object sender, EventArgs e)
         {
@@ -2288,6 +2282,6 @@ namespace MyWorkApplication
             }
         }
         #endregion
-         
+
     }
 }

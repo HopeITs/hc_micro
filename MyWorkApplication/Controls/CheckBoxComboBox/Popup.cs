@@ -52,7 +52,7 @@ namespace MyWorkApplication.Classes.CheckBoxComboBox
                 Dispose(true);
             };
             content.RegionChanged += delegate { UpdateRegion(); };
-            content.Paint += delegate(object sender, PaintEventArgs e) { PaintSizeGrip(e); };
+            content.Paint += delegate (object sender, PaintEventArgs e) { PaintSizeGrip(e); };
             UpdateRegion();
         }
 
@@ -365,7 +365,7 @@ namespace MyWorkApplication.Classes.CheckBoxComboBox
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         private bool OnGetMinMaxInfo(ref Message m)
         {
-            var minmax = (NativeMethods.MINMAXINFO) Marshal.PtrToStructure(m.LParam, typeof(NativeMethods.MINMAXINFO));
+            var minmax = (NativeMethods.MINMAXINFO)Marshal.PtrToStructure(m.LParam, typeof(NativeMethods.MINMAXINFO));
             minmax.maxTrackSize = MaximumSize;
             minmax.minTrackSize = MinimumSize;
             Marshal.StructureToPtr(minmax, m.LParam, false);
@@ -385,19 +385,19 @@ namespace MyWorkApplication.Classes.CheckBoxComboBox
             {
                 if (resizableRight && gripBouns.TopLeft.Contains(clientLocation))
                 {
-                    m.Result = contentControl ? transparent : (IntPtr) NativeMethods.HTTOPLEFT;
+                    m.Result = contentControl ? transparent : (IntPtr)NativeMethods.HTTOPLEFT;
                     return true;
                 }
 
                 if (!resizableRight && gripBouns.TopRight.Contains(clientLocation))
                 {
-                    m.Result = contentControl ? transparent : (IntPtr) NativeMethods.HTTOPRIGHT;
+                    m.Result = contentControl ? transparent : (IntPtr)NativeMethods.HTTOPRIGHT;
                     return true;
                 }
 
                 if (gripBouns.Top.Contains(clientLocation))
                 {
-                    m.Result = contentControl ? transparent : (IntPtr) NativeMethods.HTTOP;
+                    m.Result = contentControl ? transparent : (IntPtr)NativeMethods.HTTOP;
                     return true;
                 }
             }
@@ -405,32 +405,32 @@ namespace MyWorkApplication.Classes.CheckBoxComboBox
             {
                 if (resizableRight && gripBouns.BottomLeft.Contains(clientLocation))
                 {
-                    m.Result = contentControl ? transparent : (IntPtr) NativeMethods.HTBOTTOMLEFT;
+                    m.Result = contentControl ? transparent : (IntPtr)NativeMethods.HTBOTTOMLEFT;
                     return true;
                 }
 
                 if (!resizableRight && gripBouns.BottomRight.Contains(clientLocation))
                 {
-                    m.Result = contentControl ? transparent : (IntPtr) NativeMethods.HTBOTTOMRIGHT;
+                    m.Result = contentControl ? transparent : (IntPtr)NativeMethods.HTBOTTOMRIGHT;
                     return true;
                 }
 
                 if (gripBouns.Bottom.Contains(clientLocation))
                 {
-                    m.Result = contentControl ? transparent : (IntPtr) NativeMethods.HTBOTTOM;
+                    m.Result = contentControl ? transparent : (IntPtr)NativeMethods.HTBOTTOM;
                     return true;
                 }
             }
 
             if (resizableRight && gripBouns.Left.Contains(clientLocation))
             {
-                m.Result = contentControl ? transparent : (IntPtr) NativeMethods.HTLEFT;
+                m.Result = contentControl ? transparent : (IntPtr)NativeMethods.HTLEFT;
                 return true;
             }
 
             if (!resizableRight && gripBouns.Right.Contains(clientLocation))
             {
-                m.Result = contentControl ? transparent : (IntPtr) NativeMethods.HTRIGHT;
+                m.Result = contentControl ? transparent : (IntPtr)NativeMethods.HTRIGHT;
                 return true;
             }
 

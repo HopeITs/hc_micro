@@ -1,9 +1,9 @@
-﻿using System;
+﻿using MyWorkApplication.Properties;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication.Classes
 {

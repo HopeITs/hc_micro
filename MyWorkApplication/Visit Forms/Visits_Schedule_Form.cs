@@ -1,19 +1,17 @@
-﻿using System;
-using System.Diagnostics;
-using System.Drawing;
-using System.Threading;
-using System.Windows.Forms;
-using ClosedXML.Excel;
-using Microsoft.Office.Interop.Excel;
+﻿using ClosedXML.Excel;
+using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
-using Application = Microsoft.Office.Interop.Excel.Application;
-using Button = System.Windows.Forms.Button;
-using Point = System.Drawing.Point;
-using DataTable = System.Data.DataTable;
-using MySql.Data.MySqlClient;
+using System;
 using System.Data;
+using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
+using System.Threading;
+using System.Windows.Forms;
+using Button = System.Windows.Forms.Button;
+using DataTable = System.Data.DataTable;
+using Point = System.Drawing.Point;
 
 namespace MyWorkApplication
 {
@@ -26,12 +24,12 @@ namespace MyWorkApplication
         private UserNotification noti;
         private Select s;
         private bool user_mode;
-        string V_number = "", V_Kind = ""; 
+        string V_number = "", V_Kind = "";
         string Street = "", Type = "", Month = "";
         string[] MonthArray = new string[12];
 
         string Seen = "0";
-        private string Original_Filter_String = ""; 
+        private string Original_Filter_String = "";
         BindingSource bs = new BindingSource();
 
         public Visits_Schedule_Form(MainForm main_form)
@@ -56,16 +54,16 @@ namespace MyWorkApplication
                 bs.ListChanged += bs_ListChanged;
 
                 user_mode = false;
-                Year_comboBox.Items.Clear(); 
+                Year_comboBox.Items.Clear();
                 for (int i = 2018; i <= DateTime.Today.Year + 2; i++)
                 {
-                    Year_comboBox.Items.Add(i.ToString()); 
+                    Year_comboBox.Items.Add(i.ToString());
                 }
                 Bind_All_ComboBoxes();
                 Year_comboBox.SelectedItem = DateTime.Now.Year.ToString();
-                 
+
                 bind_VisitNotifications(Month, (Year_checkBox.Checked ? Year_comboBox.SelectedItem.ToString() : "")
-                    , V_Kind, V_number,Street,Type, Seen);
+                    , V_Kind, V_number, Street, Type, Seen);
                 user_mode = true;
             }
             catch (Exception ex)
@@ -102,8 +100,8 @@ namespace MyWorkApplication
             Street_comboBox.SelectedIndex = -1;
             user_mode = true;
         }
-          
-        private void bind_VisitNotifications(string month, string year, string V_Kind ,string V_number, string Street,string Type, string Seen)
+
+        private void bind_VisitNotifications(string month, string year, string V_Kind, string V_number, string Street, string Type, string Seen)
         {
             try
             {
@@ -114,7 +112,7 @@ namespace MyWorkApplication
 
                 bs.DataSource = dt;
                 MP_dataGridView.DataSource = bs;
-                 
+
                 MP_dataGridView.Columns["التاريخ"].DefaultCellStyle.Format = "yyyy/MM/dd";
 
                 DataGridViewColumn dgC1;
@@ -158,11 +156,11 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
         private void refreshPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
-            {  
+            {
                 Month = string.Join(",", MonthArray.Where(s => !string.IsNullOrEmpty(s)));
 
                 bind_VisitNotifications(Month
@@ -173,7 +171,7 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
         private void clearAllFiltersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (Control c in panel1.Controls)
@@ -191,8 +189,8 @@ namespace MyWorkApplication
             // Clear the values of the string array
             Array.Clear(MonthArray, 0, MonthArray.Length);
 
-            VisitNumber_comboBox.SelectedIndex = Visits_comboBox.SelectedIndex 
-                = Street_comboBox.SelectedIndex = Type_comboBox.SelectedIndex = - 1;
+            VisitNumber_comboBox.SelectedIndex = Visits_comboBox.SelectedIndex
+                = Street_comboBox.SelectedIndex = Type_comboBox.SelectedIndex = -1;
 
             bs.Filter = bs.Sort = "";
             Original_Filter_String = "";
@@ -201,13 +199,13 @@ namespace MyWorkApplication
 
             refreshPageToolStripMenuItem_Click(sender, e);
         }
-         
+
         #region datagridview functions
         private void dataGridView_FilterStringChanged(object sender, Zuby.ADGV.AdvancedDataGridView.FilterEventArgs e)
         {
             try
             {
-                Original_Filter_String = MP_dataGridView.FilterString; 
+                Original_Filter_String = MP_dataGridView.FilterString;
             }
             catch (Exception ex)
             {
@@ -225,7 +223,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message, "Error");
             }
         }
-         
+
         private void SearchToolBar_Search(object sender, Zuby.ADGV.AdvancedDataGridViewSearchToolBarSearchEventArgs e)
         {
             try
@@ -255,7 +253,7 @@ namespace MyWorkApplication
                             if (C.Visible == true)
                             {
                                 if (C.Name != "DeleteRow")
-                                {  
+                                {
                                     if (e.WholeWord)
                                         NewFilter += "convert(`" + C.Name + "`,'System.String') = '" + e.ValueToSearch + "'";
                                     else
@@ -265,19 +263,19 @@ namespace MyWorkApplication
                                         NewFilter += " or ";
                                 }
                                 i++;
-                            } 
+                            }
                         }
                     }
 
                     //remove last 'or'
-                    if(NewFilter.Substring(NewFilter.Length - 4, 4) == " or ")
+                    if (NewFilter.Substring(NewFilter.Length - 4, 4) == " or ")
                         NewFilter = NewFilter.Substring(0, NewFilter.Length - 4);
 
                     string All_Filters = Original_Filter_String == "" ? NewFilter : Original_Filter_String + " and (" + NewFilter + ")";
                     bs.Filter = All_Filters;
                 }
 
-          
+
             }
             catch (Exception ex)
             {
@@ -287,7 +285,7 @@ namespace MyWorkApplication
         private void bs_ListChanged(object sender, System.ComponentModel.ListChangedEventArgs e)
         {
             try
-            { 
+            {
                 Count_label.Text = "All: " + MP_dataGridView.Rows.Count.ToString("#,##0");
             }
             catch (Exception ex)
@@ -295,7 +293,7 @@ namespace MyWorkApplication
                 if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
             }
         }
-         
+
         private void MP_dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -307,11 +305,11 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
         private void MP_dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel = true;
-        } 
+        }
         private void MP_dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             try
@@ -339,7 +337,7 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
         private void MP_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -373,10 +371,10 @@ namespace MyWorkApplication
                         int Pay_ID = Convert.ToInt32(MP_dataGridView.Rows[e.RowIndex].Cells["Pay_ID"].Value.ToString());
 
                         DateTime Date_2 = Convert.ToDateTime(Date);
-                         
-                        noti.Update_MicroUsers_Notification(MP_ID, Date_2.ToString("yyyy/MM/dd"), Visit, P_Name, Pay_ID,seen);
+
+                        noti.Update_MicroUsers_Notification(MP_ID, Date_2.ToString("yyyy/MM/dd"), Visit, P_Name, Pay_ID, seen);
                         l.Insert_Log(
-                            "Set seen="+seen+" to Notification[" + ID + "] of " + Visit + ":" + P_Name + "-" + MP_ID,
+                            "Set seen=" + seen + " to Notification[" + ID + "] of " + Visit + ":" + P_Name + "-" + MP_ID,
                             "user_notification", Program.UserName, DateTime.Now);
 
                         refreshPageToolStripMenuItem_Click(sender, e);
@@ -389,7 +387,7 @@ namespace MyWorkApplication
             }
         }
         #endregion
-          
+
         private void ExportToExcel_button_Click(object sender, EventArgs e)
         {
             try
@@ -403,7 +401,7 @@ namespace MyWorkApplication
                 Thread myTh = new Thread(SaveCallDialog);
                 myTh.SetApartmentState(ApartmentState.STA);
                 myTh.Start();
-                myTh.Join(); 
+                myTh.Join();
             }
             catch (Exception ex)
             {
@@ -845,14 +843,14 @@ namespace MyWorkApplication
                 refreshPageToolStripMenuItem_Click(sender, e);
             }
         }
-         
+
         private void Deleted_checkBox_CheckedChanged(object sender, EventArgs e)
         {
             if (Deleted_checkBox.Checked) Seen = "1";
             else Seen = "0";
 
             refreshPageToolStripMenuItem_Click(sender, e);
-        } 
+        }
 
         private void VisitNumber_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {

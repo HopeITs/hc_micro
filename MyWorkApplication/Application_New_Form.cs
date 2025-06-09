@@ -1,6 +1,4 @@
 ﻿//using Chilkat;
-using DocumentFormat.OpenXml.Office.Word;
-using DocumentFormat.OpenXml.VariantTypes;
 using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
@@ -8,23 +6,19 @@ using MyWorkApplication.Visit_Forms;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Forms;
 using MessageBox = System.Windows.Forms.MessageBox;
 using Point = System.Drawing.Point;
 
 namespace MyWorkApplication
 {
-    public partial class Application_New_Form: Form
+    public partial class Application_New_Form : Form
     {
         private int Beneficiary_Count;
         private FtpConnector c;
@@ -103,13 +97,13 @@ namespace MyWorkApplication
                 t20_tableLayoutPanel.Visible = false;
 
                 //t21_tableLayoutPanel
-                 
+
                 ////////////////////////////////////
                 //t4_tableLayoutPanel
                 t4_tableLayoutPanel.Height = 0;
                 t4_tableLayoutPanel.Visible = false;
                 //////////////////////////////////////
-                 
+
                 //t9_tableLayoutPanel
                 t9_tableLayoutPanel.Height = 0;
                 t9_tableLayoutPanel.Visible = false;
@@ -119,15 +113,15 @@ namespace MyWorkApplication
 
                 //t11_tableLayoutPanel
                 t11_tableLayoutPanel.Height = 0;
-                t11_tableLayoutPanel.Visible = false; 
+                t11_tableLayoutPanel.Visible = false;
             }
 
             Loan_radioButton.Checked = true;
             MyDataGridViewInitializationMethod();
 
             this.mainForm = mainForm;
-            Update_Mode = false; 
-            AddPartner_button.Visible = false; 
+            Update_Mode = false;
+            AddPartner_button.Visible = false;
         }
 
         public Application_New_Form(int Person_ID, int MicroProject_ID, MainForm mainForm)
@@ -162,12 +156,12 @@ namespace MyWorkApplication
                 img = new Images();
                 Get_Last_MicroProjectID();
 
-                FamilyMember_dataGridView.AutoGenerateColumns = 
-                Work_dataGridView.AutoGenerateColumns = Exp_dataGridView.AutoGenerateColumns = 
+                FamilyMember_dataGridView.AutoGenerateColumns =
+                Work_dataGridView.AutoGenerateColumns = Exp_dataGridView.AutoGenerateColumns =
                 Education_dataGridView.AutoGenerateColumns = Course_dataGridView.AutoGenerateColumns =
-                Loss_dataGridView.AutoGenerateColumns =  Illness_dataGridView.AutoGenerateColumns =
+                Loss_dataGridView.AutoGenerateColumns = Illness_dataGridView.AutoGenerateColumns =
                 Assets_dataGridView.AutoGenerateColumns =
-                HomePowerSource_dataGridView.AutoGenerateColumns = PowerSource_dataGridView.AutoGenerateColumns = 
+                HomePowerSource_dataGridView.AutoGenerateColumns = PowerSource_dataGridView.AutoGenerateColumns =
                 Materials_dataGridView.AutoGenerateColumns = false;
 
                 Bind_All_ComboBoxes(-1);
@@ -177,12 +171,12 @@ namespace MyWorkApplication
                 Type_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 SubType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 SubCategory_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-                Career_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel); 
+                Career_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 P_Parish_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 P_Priest_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-                Street_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel); 
+                Street_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 P_Sex_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-                P_MaritalState_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);  
+                P_MaritalState_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 PaperApplicationUser_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
 
                 ////PersonType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
@@ -192,12 +186,12 @@ namespace MyWorkApplication
                 ///////////////////////////////////////////////////////////////////////////////////////
 
                 Type_comboBox.SelectedIndex = 0; // default MICRO
-                  
+
                 ////Save_MP_ID_button.Visible = true;
                 ////Save_MP_ID_button.BackgroundImage = Properties.Resources.Unchecked;
                 ////toolTip1.SetToolTip(Save_MP_ID_button, "لم يتم حجز الرقم بعد");
                 NoFamily = true;
-                  
+
                 ////user_mode = false;
                 ////PersonType_comboBox.SelectedIndex = 0;
                 ////user_mode = true;
@@ -245,17 +239,17 @@ namespace MyWorkApplication
                 mainForm.TabName_label.Text = "Application";
                 mainForm.MP_ID_label.Text = MPID_textBox.Text;
 
-                Education_dataGridView   .Columns["Edu_DeleteRow"].Width = 
-                Work_dataGridView        .Columns["W_DeleteRow"].Width =
-                Exp_dataGridView         .Columns["Exp_DeleteRow"].Width =
+                Education_dataGridView.Columns["Edu_DeleteRow"].Width =
+                Work_dataGridView.Columns["W_DeleteRow"].Width =
+                Exp_dataGridView.Columns["Exp_DeleteRow"].Width =
                 FamilyMember_dataGridView.Columns["P_DeleteRow"].Width =
-                Course_dataGridView      .Columns["C_DeleteRow"].Width =
-                Loss_dataGridView        .Columns["L_DeleteRow"].Width =
-                Illness_dataGridView     .Columns["Ill_DeleteRow"].Width =
-                Assets_dataGridView      .Columns["Asset_DeleteRow"].Width =
-                AidSource_dataGridView   .Columns["Aid_DeleteRow"].Width =
+                Course_dataGridView.Columns["C_DeleteRow"].Width =
+                Loss_dataGridView.Columns["L_DeleteRow"].Width =
+                Illness_dataGridView.Columns["Ill_DeleteRow"].Width =
+                Assets_dataGridView.Columns["Asset_DeleteRow"].Width =
+                AidSource_dataGridView.Columns["Aid_DeleteRow"].Width =
                 HomePowerSource_dataGridView.Columns["HPower_DeleteRow"].Width =
-                PowerSource_dataGridView .Columns["Power_DeleteRow"].Width = 50;
+                PowerSource_dataGridView.Columns["Power_DeleteRow"].Width = 50;
 
                 Main_panel.AutoScrollPosition = new System.Drawing.Point(0, 0);
                 //////////////////////////////
@@ -388,10 +382,10 @@ namespace MyWorkApplication
         private void Stop_Highlighting_Combobox()
         {
             SubCategory_comboBox.SelectionLength = 0; SubCategory_comboBox.SelectionStart = SubCategory_comboBox.Text.Length;
-            Career_comboBox.SelectionLength = 0     ; Career_comboBox.SelectionStart      = Career_comboBox.Text.Length;
-            Type_comboBox.SelectionLength = 0       ; Type_comboBox.SelectionStart        = Type_comboBox.Text.Length;
-            SubType_comboBox.SelectionLength = 0    ; SubType_comboBox.SelectionStart     = SubType_comboBox.Text.Length;
-            
+            Career_comboBox.SelectionLength = 0; Career_comboBox.SelectionStart = Career_comboBox.Text.Length;
+            Type_comboBox.SelectionLength = 0; Type_comboBox.SelectionStart = Type_comboBox.Text.Length;
+            SubType_comboBox.SelectionLength = 0; SubType_comboBox.SelectionStart = SubType_comboBox.Text.Length;
+
             P_Sex_comboBox.SelectionLength = 0; P_Sex_comboBox.SelectionStart = P_Sex_comboBox.Text.Length;
             P_MaritalState_comboBox.SelectionLength = 0; P_MaritalState_comboBox.SelectionStart = P_MaritalState_comboBox.Text.Length;
             P_Priest_comboBox.SelectionLength = 0; P_Priest_comboBox.SelectionStart = P_Priest_comboBox.Text.Length;
@@ -466,7 +460,7 @@ namespace MyWorkApplication
         {
             e.Control.KeyPress += new KeyPressEventHandler(AidSource_dataGridView_Control_KeyPress);
         }
-        
+
         private void HomePowerSource_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress += new KeyPressEventHandler(HomePowerSource_dataGridView_Control_KeyPress);
@@ -610,7 +604,7 @@ namespace MyWorkApplication
             }
         }
         #endregion
-         
+
         private void Get_Last_MicroProjectID()
         {
             string query = "select MAX(MP_ID) from `microproject`";
@@ -1051,10 +1045,10 @@ namespace MyWorkApplication
             query += "select ID, Name, Type from `personstate` order by ID ASC;"; //6
             query += "select ID, Name from `maritalstatus` order by ID ASC;"; //7
             query += "select ID, Name_ar as 'Name' from `parish` order by ID ASC;"; //8
-             
+
             query += "select ID, Name from `assettype` order by ID ASC;"; //9
-            query += "select UserID as 'ID', UserName as 'Name' from `user` " 
-                  +  " where IsVisitor = 1 order by UserName ASC;"; //10
+            query += "select UserID as 'ID', UserName as 'Name' from `user` "
+                  + " where IsVisitor = 1 order by UserName ASC;"; //10
             query += "SELECT ID, Name from `goal` order by ID ASC;"; //11
 
 
@@ -1094,11 +1088,11 @@ namespace MyWorkApplication
             {
                 //Multiple Combo Boxes With The Same Data Source (C#)
                 P_Priest_comboBox.BindingContext = new BindingContext();   //create a new context
-                P_Priest2_comboBox.DataSource     = P_Priest_comboBox.DataSource = null;
-                P_Priest2_comboBox.DisplayMember  = P_Priest_comboBox.DisplayMember = "Name";
-                P_Priest2_comboBox.ValueMember    = P_Priest_comboBox.ValueMember = "ID";
-                P_Priest2_comboBox.DataSource     = P_Priest_comboBox.DataSource = ds.Tables[3];
-                P_Priest2_comboBox.SelectedIndex  = P_Priest_comboBox.SelectedIndex = -1; 
+                P_Priest2_comboBox.DataSource = P_Priest_comboBox.DataSource = null;
+                P_Priest2_comboBox.DisplayMember = P_Priest_comboBox.DisplayMember = "Name";
+                P_Priest2_comboBox.ValueMember = P_Priest_comboBox.ValueMember = "ID";
+                P_Priest2_comboBox.DataSource = P_Priest_comboBox.DataSource = ds.Tables[3];
+                P_Priest2_comboBox.SelectedIndex = P_Priest_comboBox.SelectedIndex = -1;
 
             }
             if (updated_id == -1 || updated_id == 4) // -1 bind all 
@@ -1119,13 +1113,13 @@ namespace MyWorkApplication
             }
             //if (updated_id == -1 || updated_id == 6) // -1 bind all 
             //{
-                ////Multiple Combo Boxes With The Same Data Source (C#)
-                //FPersonState_comboBox1.BindingContext = new BindingContext();   //create a new context
-                //P_State_comboBox.DataSource = FPersonState_comboBox1.DataSource = null;
-                //P_State_comboBox.DisplayMember = FPersonState_comboBox1.DisplayMember = "Name";
-                //P_State_comboBox.ValueMember = FPersonState_comboBox1.ValueMember = "ID";
-                //P_State_comboBox.DataSource = FPersonState_comboBox1.DataSource = ds.Tables[6];
-                //P_State_comboBox.SelectedIndex = FPersonState_comboBox1.SelectedIndex = -1;
+            ////Multiple Combo Boxes With The Same Data Source (C#)
+            //FPersonState_comboBox1.BindingContext = new BindingContext();   //create a new context
+            //P_State_comboBox.DataSource = FPersonState_comboBox1.DataSource = null;
+            //P_State_comboBox.DisplayMember = FPersonState_comboBox1.DisplayMember = "Name";
+            //P_State_comboBox.ValueMember = FPersonState_comboBox1.ValueMember = "ID";
+            //P_State_comboBox.DataSource = FPersonState_comboBox1.DataSource = ds.Tables[6];
+            //P_State_comboBox.SelectedIndex = FPersonState_comboBox1.SelectedIndex = -1;
             //}
             if (updated_id == -1 || updated_id == 7) // -1 bind all 
             {
@@ -1136,7 +1130,7 @@ namespace MyWorkApplication
                 P_MaritalState_comboBox.SelectedIndex = -1;
             }
             if (updated_id == -1 || updated_id == 8) // -1 bind all 
-            { 
+            {
                 P_Parish_comboBox.DataSource = null;
                 P_Parish_comboBox.DisplayMember = "Name";
                 P_Parish_comboBox.ValueMember = "ID";
@@ -1148,10 +1142,10 @@ namespace MyWorkApplication
             {
                 //Multiple Combo Boxes With The Same Data Source (C#)
                 P_HomeType_comboBox.BindingContext = new BindingContext();   //create a new context
-                MP_PlaceType_comboBox.DataSource    = P_HomeType_comboBox.DataSource = null;
+                MP_PlaceType_comboBox.DataSource = P_HomeType_comboBox.DataSource = null;
                 MP_PlaceType_comboBox.DisplayMember = P_HomeType_comboBox.DisplayMember = "Name";
-                MP_PlaceType_comboBox.ValueMember   = P_HomeType_comboBox.ValueMember = "ID";
-                MP_PlaceType_comboBox.DataSource    = P_HomeType_comboBox.DataSource = ds.Tables[9];
+                MP_PlaceType_comboBox.ValueMember = P_HomeType_comboBox.ValueMember = "ID";
+                MP_PlaceType_comboBox.DataSource = P_HomeType_comboBox.DataSource = ds.Tables[9];
                 MP_PlaceType_comboBox.SelectedIndex = P_HomeType_comboBox.SelectedIndex = -1;
             }
             if (updated_id == -1 || updated_id == 10) // -1 bind all 
@@ -1172,7 +1166,7 @@ namespace MyWorkApplication
         {
             user_mode = false;
             string query = "";
-            
+
             //education edited
             query += "select ID, Name, Type from `personstate` ORDER BY ID;";  //0 
             query += "select ID ,Name, Type_ID from `education` ORDER BY Name ASC;"; //1 
@@ -1187,7 +1181,7 @@ namespace MyWorkApplication
             query += "SELECT ID, Name from `loss` ORDER BY ID ASC;"; //9
             query += "SELECT ID, Name from `illness` ORDER BY ID ASC;"; //10
             query += "SELECT ID, Name from `asset` ORDER BY ID ASC;"; //11
-             
+
             Program.buildConnection();
             MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
             sc.ExecuteNonQuery();
@@ -1221,7 +1215,7 @@ namespace MyWorkApplication
             }
             if (updated_id == -1 || updated_id == 3) // -1 bind all 
             {
-                DataTable sourceTable = grid_ds.Tables[3]; 
+                DataTable sourceTable = grid_ds.Tables[3];
                 // Clone the table for independent binding
                 DataTable source1 = sourceTable.Copy();
                 DataTable source2 = sourceTable.Copy();
@@ -1265,15 +1259,15 @@ namespace MyWorkApplication
                 P_WorkType.DataSource = source1;
                 P_WorkType.DisplayMember = "Name";
                 P_WorkType.ValueMember = "ID";
-                 
+
                 W_WorkType.DataSource = source2;
                 W_WorkType.DisplayMember = "Name";
                 W_WorkType.ValueMember = "ID";
-                 
+
                 Exp_WorkType.DataSource = source3;
                 Exp_WorkType.DisplayMember = "Name";
                 Exp_WorkType.ValueMember = "ID";
-                 
+
             }
             if (updated_id == -1 || updated_id == 8) // -1 bind all 
             {
@@ -1325,8 +1319,8 @@ namespace MyWorkApplication
                     Padding = new Padding(2, 0, 2, 0),
                     Margin = new Padding(15, 5, 15, 5)
                 };
-                 
-                P_Goals_panel2.Controls.Add(chk); 
+
+                P_Goals_panel2.Controls.Add(chk);
             }
         }
 
@@ -1390,12 +1384,12 @@ namespace MyWorkApplication
             }
             user_mode = true;
         }
-         
+
         #region sql queries 
         //TODO
         // edit queries type
         private void Edit_MP(int old_MP_ID, int new_MP_ID)
-        { 
+        {
             string query = "update `microproject` set MP_ID = " + new_MP_ID + " where MP_ID = " + old_MP_ID + " ";
             Program.buildConnection();
             MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
@@ -1548,7 +1542,7 @@ namespace MyWorkApplication
                                 NumOfActiveMembers++;
                         }
                     }
-                P_NumAtHome_textBox.Text    = NumOfActiveMembers.ToString();
+                P_NumAtHome_textBox.Text = NumOfActiveMembers.ToString();
                 P_NumOfMembers_textBox.Text = NumOfMembers.ToString();
             }
             catch (Exception ex)
@@ -1629,7 +1623,7 @@ namespace MyWorkApplication
                         }
                         else
                         {
-                             MPID_textBox.Text = MicroProject_ID.ToString();
+                            MPID_textBox.Text = MicroProject_ID.ToString();
                             //MPID_textBox.Focus();
                         }
                     }
@@ -1658,7 +1652,7 @@ namespace MyWorkApplication
                     message = "انتبه! سوف يتم تغيير صفة الشخص من شريك إلى مستفيد";
                 else message = "انتبه! سوف يتم تغيير صفة الشخص من مستفيد إلى شريك";
 
-                MessageBox.Show(message , "Information", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void P_FirstName_textBox_Leave(object sender, EventArgs e)
@@ -2054,14 +2048,14 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
             P_DeptAmount, P_DeptNote, P_SourceAssosiation, P_SourceRelative,
             MP_Address, MP_AddressNote, MP_Notes;
 
-       
+
 
         int SubCategory_ID, Career_ID, Type_ID, SubType_ID, FundType_ID,
             Sex_ID, PersonType_ID, P_MaritalState_ID,
             Parish_ID, Priest1_ID, Priest2_ID, Street_ID, HomeType_ID, Military_ID, MilitaryFinished,
-            NumAtHome, NumAllMembers, 
+            NumAtHome, NumAllMembers,
             Has_Education, Has_Course, Has_Loss, Has_Illness, Has_Asset, Has_AidSource, Has_Dept,
-            Has_Income, MP_PlaceType, MP_AmperNumber, MP_AmperType, 
+            Has_Income, MP_PlaceType, MP_AmperNumber, MP_AmperType,
             MP_Agreement1, MP_Agreement2, MP_Agreement3,
             EntredBy, EditedBy;
 
@@ -2092,19 +2086,19 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
         //from f2f
         private void Set_Controls()
         {
-            MPID_textBox_OriginalText= P_Mobile_textBox_OriginalText= MP_RequestedAmount_textBox_OriginalText=
-            P_Loss_TextBox_OriginalText= P_Goal_textBox_OriginalText= P_GoalHow_textBox_OriginalText= P_OtherNotes_textBox_OriginalText=
-            P_FirstName_textBox_OriginalText= P_FatherName_textBox_OriginalText= P_LastName_textBox_OriginalText=
-            P_MotherName_textBox_OriginalText= P_Registration_textBox_OriginalText= P_NationalNumber_textBox_OriginalText=
-            P_EngName_textBox_OriginalText= P_DOB_textBox_OriginalText= P_Intermidate_textBox_OriginalText=
-            P_Landline_textBox_OriginalText= P_Mobile2_textBox_OriginalText= P_HomeAddress_textBox_OriginalText=
-            P_HomeStateNote_textBox_OriginalText= P_Military_textBox_OriginalText=
-            NumberAtHome_textBox_OriginalText= NumberAllMembers_textBox_OriginalText= FamilyNumber_textBox_OriginalText=
-            P_WorkYears_textBox_OriginalText= AidSourceNote_textBox_OriginalText=
-            P_DeptAmount_textBox_OriginalText= P_DeptNote_textBox_OriginalText=
-            P_SourceAssociation_textBox_OriginalText= P_SourceRelative_textBox_OriginalText=
-            MP_Address_textBox_OriginalText= MP_AddressNote_textBox_OriginalText=
-            MP_AmperNumber_textBox_OriginalText= MP_Notes_textBox_OriginalText  = "";
+            MPID_textBox_OriginalText = P_Mobile_textBox_OriginalText = MP_RequestedAmount_textBox_OriginalText =
+            P_Loss_TextBox_OriginalText = P_Goal_textBox_OriginalText = P_GoalHow_textBox_OriginalText = P_OtherNotes_textBox_OriginalText =
+            P_FirstName_textBox_OriginalText = P_FatherName_textBox_OriginalText = P_LastName_textBox_OriginalText =
+            P_MotherName_textBox_OriginalText = P_Registration_textBox_OriginalText = P_NationalNumber_textBox_OriginalText =
+            P_EngName_textBox_OriginalText = P_DOB_textBox_OriginalText = P_Intermidate_textBox_OriginalText =
+            P_Landline_textBox_OriginalText = P_Mobile2_textBox_OriginalText = P_HomeAddress_textBox_OriginalText =
+            P_HomeStateNote_textBox_OriginalText = P_Military_textBox_OriginalText =
+            NumberAtHome_textBox_OriginalText = NumberAllMembers_textBox_OriginalText = FamilyNumber_textBox_OriginalText =
+            P_WorkYears_textBox_OriginalText = AidSourceNote_textBox_OriginalText =
+            P_DeptAmount_textBox_OriginalText = P_DeptNote_textBox_OriginalText =
+            P_SourceAssociation_textBox_OriginalText = P_SourceRelative_textBox_OriginalText =
+            MP_Address_textBox_OriginalText = MP_AddressNote_textBox_OriginalText =
+            MP_AmperNumber_textBox_OriginalText = MP_Notes_textBox_OriginalText = "";
 
             Person_Information_IsDirty =
             MicroProject_Information_IsDirty =
@@ -2121,39 +2115,39 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
             PowerSource_DataGridView_IsDirty =
             Material_DataGridView_IsDirty = false;
 
-            MP_ID= P_Mobile= MP_ApplyDate= MP_Name= MP_RequestedAmount=
-            P_Loss=
-            P_Goal=         // MP_Description
-            P_GoalHow=      // MP_Marketing
-            P_OtherNotes=   // MP_OtherNotes
-            P_FName= P_FaName= P_LName= P_MoName=
-            P_EngName= P_Registration= P_NationalNum= DOB= P_IntermidiaryName=
-            P_LandLine= P_Mobile2= P_Address= P_HomeStateNote= P_Military= P_MilitaryDate=
-            FamilyNumber=
-            P_WorkYears=    // s3
-            P_AidSourceNote=  //MP_OtherSources
-            P_DeptAmount= P_DeptNote= P_SourceAssosiation= P_SourceRelative=
-            MP_Address= MP_AddressNote= MP_Notes = "";
+            MP_ID = P_Mobile = MP_ApplyDate = MP_Name = MP_RequestedAmount =
+            P_Loss =
+            P_Goal =         // MP_Description
+            P_GoalHow =      // MP_Marketing
+            P_OtherNotes =   // MP_OtherNotes
+            P_FName = P_FaName = P_LName = P_MoName =
+            P_EngName = P_Registration = P_NationalNum = DOB = P_IntermidiaryName =
+            P_LandLine = P_Mobile2 = P_Address = P_HomeStateNote = P_Military = P_MilitaryDate =
+            FamilyNumber =
+            P_WorkYears =    // s3
+            P_AidSourceNote =  //MP_OtherSources
+            P_DeptAmount = P_DeptNote = P_SourceAssosiation = P_SourceRelative =
+            MP_Address = MP_AddressNote = MP_Notes = "";
 
-            SubCategory_ID= Career_ID= Type_ID= SubType_ID= FundType_ID=
-            Sex_ID= PersonType_ID= P_MaritalState_ID=
-            Parish_ID= Priest1_ID= Priest2_ID= Street_ID= HomeType_ID= Military_ID= MilitaryFinished=
-            NumAtHome= NumAllMembers=
-            Has_Education= Has_Course= Has_Loss= Has_Illness= Has_Asset= Has_AidSource= Has_Dept=
-            Has_Income= MP_PlaceType= MP_AmperNumber= MP_AmperType=
-            MP_Agreement1= MP_Agreement2= MP_Agreement3=
-            EntredBy= EditedBy  = -1;
+            SubCategory_ID = Career_ID = Type_ID = SubType_ID = FundType_ID =
+            Sex_ID = PersonType_ID = P_MaritalState_ID =
+            Parish_ID = Priest1_ID = Priest2_ID = Street_ID = HomeType_ID = Military_ID = MilitaryFinished =
+            NumAtHome = NumAllMembers =
+            Has_Education = Has_Course = Has_Loss = Has_Illness = Has_Asset = Has_AidSource = Has_Dept =
+            Has_Income = MP_PlaceType = MP_AmperNumber = MP_AmperType =
+            MP_Agreement1 = MP_Agreement2 = MP_Agreement3 =
+            EntredBy = EditedBy = -1;
 
             //NumOfUpdateTry = 0;
 
-            P_Goals_Query= FamilyMembers_Query=
-            Work_Query= Exp_Query= Education_Query= Course_Query=
-            Loss_Query= Illness_Query= Asset_Query= AidSource_Query=
-            HomePowerSource_Query= PowerSource_Query= Material_Query = "";
+            P_Goals_Query = FamilyMembers_Query =
+            Work_Query = Exp_Query = Education_Query = Course_Query =
+            Loss_Query = Illness_Query = Asset_Query = AidSource_Query =
+            HomePowerSource_Query = PowerSource_Query = Material_Query = "";
 
-            Delete_MP_button.Visible 
+            Delete_MP_button.Visible
                 //= Save_button.Visible 
-                = AddPartner_button.Visible 
+                = AddPartner_button.Visible
                 = AddExtention_button.Visible = false;
 
             //AddImage_button.Visible = Download_button.Visible = DeleteImage_button.Visible = false;
@@ -2164,7 +2158,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 {
                     CheckBox cbox = c as CheckBox;
                     cbox.Checked = false;
-                }  
+                }
             }
 
             if (!Update_Mode)
@@ -2638,7 +2632,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
         private void Course_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //TODO
-        } 
+        }
         private void Course_dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             try
@@ -2666,12 +2660,12 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
         private void Course_dataGridView_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
             //TODO
         }
-         
+
         /// //////////////////////////////////////////////////////////////////////
 
         private void PowerSource_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -2841,7 +2835,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 if (!string.IsNullOrWhiteSpace(Materials_dataGridView.CurrentCell.Value.ToString()))
                 {
                     if (e.ColumnIndex == Materials_dataGridView.Columns["M_Price"].Index
-                      //   || e.ColumnIndex == Materials_dataGridView.Columns["M_LocalContribution"].Index
+                         //   || e.ColumnIndex == Materials_dataGridView.Columns["M_LocalContribution"].Index
                          || e.ColumnIndex == Materials_dataGridView.Columns["M_Amount"].Index)
                     {
                         string value = Materials_dataGridView.CurrentCell.Value.ToString();
@@ -2990,7 +2984,7 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
             }
         }
 
-       
+
         ///////////////////////////////////////////////////////////////////////////
 
         private void FamilyMember_dataGridView_CellLeave(object sender, DataGridViewCellEventArgs e)

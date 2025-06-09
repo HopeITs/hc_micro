@@ -1,12 +1,12 @@
-﻿using System;
+﻿using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication.Visit_Forms
 {
@@ -49,7 +49,7 @@ namespace MyWorkApplication.Visit_Forms
             Partners = 0;
         }
 
-        public V_ME_Other_Form(MainForm mainForm, string V_Num, string P_Name,int mp_id, int Partners)
+        public V_ME_Other_Form(MainForm mainForm, string V_Num, string P_Name, int mp_id, int Partners)
         {
             InitializeComponent();
             this.mainForm = mainForm;
@@ -208,7 +208,7 @@ namespace MyWorkApplication.Visit_Forms
                 case 9: //Media
                     {
                         throw new InvalidOperationException(" نعتذر ! لا تملك الصلاحية للقيام بهذا الفعل.");
-                    } 
+                    }
             }
         }
 
@@ -227,11 +227,11 @@ namespace MyWorkApplication.Visit_Forms
                     throw new InvalidOperationException("لا يمكن ترك سؤال بدون إجابة ! الرجاء تعبئته والمحاولة مرة أخرى ");
 
                 double Profit = Convert.ToDouble(Profit_textBox.Text.Replace(",", ""));
-                  
+
                 if (Update_Mood)
                 {
                     //update basic information of visit
-                    m_And_E.Update_Visit(V_ID, "" ,Visit_Num_textBox.Text.Trim(), VisitDate_dateTimePicker.Value, Profit
+                    m_And_E.Update_Visit(V_ID, "", Visit_Num_textBox.Text.Trim(), VisitDate_dateTimePicker.Value, Profit
                         , Ans1_textBox.Text, "", Indicators_textBox.Text, Notes_textBox.Text);
                     l.Insert_Log(
                         "Update m&e visit:" + V_Num + ":" + _KIND + " of " + MicroProject_ID + " : " +
@@ -508,7 +508,7 @@ namespace MyWorkApplication.Visit_Forms
 
                     MicroProject_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
                     MicroProject_ID_textBox1.Text = MicroProject_ID.ToString();
-                    Person_Name_textBox1.Text = (string) dt.Rows[0]["Beneficiary Name"];
+                    Person_Name_textBox1.Text = (string)dt.Rows[0]["Beneficiary Name"];
                     Person_ID = int.Parse(dt.Rows[0]["Beneficiary_ID"].ToString());
                     MP_Name_textBox.Text = (string)dt.Rows[0]["Project Name"];
                     Mobile_textBox.Text = (string)dt.Rows[0]["Mobile"];
@@ -517,20 +517,20 @@ namespace MyWorkApplication.Visit_Forms
 
                     var dd = Convert.ToDouble(dt.Rows[0]["Loan Amount"].ToString());
                     LoanAmount_textBox1.Text = dd.ToString();
-                    var date = (DateTime) dt.Rows[0]["Loan Date"];
+                    var date = (DateTime)dt.Rows[0]["Loan Date"];
                     LoanDate_dateTimePicker.Value = date;
 
                     CreatedBy_User_label.Text = dt.Rows[0]["Created_By"].ToString();
                     EditedBy_User_label.Text = dt.Rows[0]["Edited_By"].ToString();
 
                     //VisitType_comboBox1.Text = (string) dt.Rows[0]["Type"];
-                    var date1 = (DateTime) dt.Rows[0]["Date"];
+                    var date1 = (DateTime)dt.Rows[0]["Date"];
                     VisitDate_dateTimePicker.Value = date1;
                     var Profit = double.Parse(dt.Rows[0]["Profit"].ToString());
                     Profit_textBox.Text = Profit.ToString();
-                    Ans1_textBox.Text = (string) dt.Rows[0]["Ans1"];
-                    Indicators_textBox.Text = (string) dt.Rows[0]["Indicators"];
-                    Notes_textBox.Text = (string) dt.Rows[0]["Notes"];
+                    Ans1_textBox.Text = (string)dt.Rows[0]["Ans1"];
+                    Indicators_textBox.Text = (string)dt.Rows[0]["Indicators"];
+                    Notes_textBox.Text = (string)dt.Rows[0]["Notes"];
 
                     Visit_Num_textBox.Text = dt.Rows[0]["Number"].ToString();
 
@@ -585,7 +585,7 @@ namespace MyWorkApplication.Visit_Forms
                                     }
 
                     //Calculate Profit Mark and add it to sum//
-                    
+
                     var Profit_Mark = m_And_E.Get_Mark_Of_Profit(Profit);
                     Sum_Of_Marks += Profit_Mark;
                     Sum_label.Text = "المجموع = " + Sum_Of_Marks;
@@ -644,7 +644,7 @@ namespace MyWorkApplication.Visit_Forms
                         MP_Name_textBox.Text = (string)dt.Rows[i]["Project Name"];
                         Mobile_textBox.Text = (string)dt.Rows[i]["Mobile"];
                         if (dt.Rows[i]["Address"] != DBNull.Value)
-                            WorkAddress_textBox.Text = (string)dt.Rows[i]["Address"]; 
+                            WorkAddress_textBox.Text = (string)dt.Rows[i]["Address"];
 
                         if (dt.Rows[i]["Loan Amount"] != DBNull.Value)
                         {
@@ -678,7 +678,7 @@ namespace MyWorkApplication.Visit_Forms
         {
             if (Person_Name_textBox1.Text != "")
             {
-                var dt = m_And_E.SearchByName(Person_Name_textBox1.Text,MicroProject_ID_textBox1.Text);
+                var dt = m_And_E.SearchByName(Person_Name_textBox1.Text, MicroProject_ID_textBox1.Text);
                 clear_Visit_boxes(0);
 
                 if (dt != null && dt.Rows.Count > 0)
@@ -816,7 +816,7 @@ namespace MyWorkApplication.Visit_Forms
                 }
 
                 string project = MicroProject_ID.ToString() + ":" + Person_Name_textBox1.Text;
-                var _Form = new NewIdea_Form("M&E Visit-"+Visit_Num_textBox.Text, project, emails);
+                var _Form = new NewIdea_Form("M&E Visit-" + Visit_Num_textBox.Text, project, emails);
                 _Form.Show();
             }
             catch (Exception ex)

@@ -1,12 +1,11 @@
-﻿using System;
+﻿using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
 
 namespace MyWorkApplication.Visit_Forms
 {
@@ -21,14 +20,14 @@ namespace MyWorkApplication.Visit_Forms
         private MySqlComponents MySS;
         private NewTheme NewTheme;
         private UserNotification noti;
-        private Office_Monitoring O;  
+        private Office_Monitoring O;
         private int Office_Monitoring_ID;
-        private Select s; 
+        private Select s;
         private TasksOfProjects TasksOfProjects;
         private bool Update_Mode;
         private Visit v;
         private User user;
-        private DataTable Visit_Users_dt; 
+        private DataTable Visit_Users_dt;
 
         public VClosing_Form(MainForm mainForm, string _KIND)
         {
@@ -174,7 +173,7 @@ namespace MyWorkApplication.Visit_Forms
                         throw new InvalidOperationException(" نعتذر ! لا تملك الصلاحية للقيام بهذا الفعل.");
                     }
                     break;
-                
+
             }
         }
 
@@ -194,8 +193,8 @@ namespace MyWorkApplication.Visit_Forms
                         Ans1_textBox.Text, Ans2_textBox.Text, Ans3_textBox.Text,
                         Ans4_textBox.Text, Ans5_textBox.Text, Ans6_textBox.Text, "", Indicatores_textBox.Text
                         , get_radioButtons_values(1), get_radioButtons_values(2), get_radioButtons_values(3)
-                        , -1, get_radioButtons_values(5), -1 , -1
-                        ,""
+                        , -1, get_radioButtons_values(5), -1, -1
+                        , ""
                         , Program.UserName);
 
                     l.Insert_Log(
@@ -208,10 +207,10 @@ namespace MyWorkApplication.Visit_Forms
 
                     /////////// insert office monitoring ////////////////
                     O.Insert_Office_Monitoring(V_ID, Office1_textBox.Text, Office2_textBox.Text,
-                        Office3_textBox.Text, Office4_textBox.Text,"","",""
+                        Office3_textBox.Text, Office4_textBox.Text, "", "", ""
                         , get_office_radioButtons_values(1), get_office_radioButtons_values(2)
                         , get_office_radioButtons_values(3), get_office_radioButtons_values(4)
-                        , -1,-1);
+                        , -1, -1);
 
 
                     //make theVisit1 task of this project ==> checked
@@ -227,8 +226,8 @@ namespace MyWorkApplication.Visit_Forms
                          Ans1_textBox.Text, Ans2_textBox.Text, Ans3_textBox.Text,
                         Ans4_textBox.Text, Ans5_textBox.Text, Ans6_textBox.Text, "", Indicatores_textBox.Text
                         , get_radioButtons_values(1), get_radioButtons_values(2), get_radioButtons_values(3)
-                        , -1, get_radioButtons_values(5), -1 , -1
-                        , "" , Program.UserName);
+                        , -1, get_radioButtons_values(5), -1, -1
+                        , "", Program.UserName);
                     l.Insert_Log(
                         "Update visit-" + _KIND + " of " + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
                         "Visit", Program.UserName, DateTime.Now);
@@ -236,10 +235,10 @@ namespace MyWorkApplication.Visit_Forms
 
                     /////////// update office monitoring ////////////////
                     O.Update_Office_Monitoring(V_ID, Office1_textBox.Text, Office2_textBox.Text,
-                        Office3_textBox.Text, Office4_textBox.Text,  "","",""
+                        Office3_textBox.Text, Office4_textBox.Text, "", "", ""
                         , get_office_radioButtons_values(1), get_office_radioButtons_values(2)
                         , get_office_radioButtons_values(3), get_office_radioButtons_values(4)
-                        , -1,-1);
+                        , -1, -1);
 
                     //remove all users of this visit from database
                     v.Delete_Visit_Users(V_ID);
@@ -429,7 +428,7 @@ namespace MyWorkApplication.Visit_Forms
 
         #region set get radio_buttons
         void set_radioButtons(int ansNo, int value)
-        { 
+        {
             if (value == -1)
             {
                 string table_name = "";
@@ -442,11 +441,11 @@ namespace MyWorkApplication.Visit_Forms
             else
             {
                 string radio_name = "";
-                radio_name = "ans" + ansNo + "_" + value + "_radioButton"; 
+                radio_name = "ans" + ansNo + "_" + value + "_radioButton";
 
                 var rad_bx = Controls.Find(radio_name, true).FirstOrDefault() as RadioButton;
                 rad_bx.Checked = true;
-            } 
+            }
         }
         void set_office_radioButtons(int ansNo, int value)
         {
@@ -469,18 +468,18 @@ namespace MyWorkApplication.Visit_Forms
         }
         int get_radioButtons_values(int ansNo)
         {
-            int value = -1;  
+            int value = -1;
             string table_name = "ans" + ansNo + "_tableLayoutPanel";
-            var table = Controls.Find(table_name, true).FirstOrDefault() as TableLayoutPanel; 
+            var table = Controls.Find(table_name, true).FirstOrDefault() as TableLayoutPanel;
             foreach (RadioButton r in table.Controls.OfType<RadioButton>())
             {
-                if(r.Checked)
+                if (r.Checked)
                 {
                     string radio_name = "";
                     radio_name = r.Name;
-                    value = Convert.ToInt32(radio_name.Substring(5,1));
+                    value = Convert.ToInt32(radio_name.Substring(5, 1));
                 }
-            } 
+            }
             return value;
         }
         int get_office_radioButtons_values(int ansNo)
@@ -500,7 +499,7 @@ namespace MyWorkApplication.Visit_Forms
             return value;
         }
         #endregion
-         
+
 
         //private void fill_visit_boxes(int V_ID)
         //{
@@ -614,10 +613,10 @@ namespace MyWorkApplication.Visit_Forms
                     }
             }
         }
-         
+
         private void clear_Visit_boxes(int j)
         {
-            V_ID = -1; 
+            V_ID = -1;
             V1_comboBox.Text = V2_comboBox.Text = V3_comboBox.Text = V4_comboBox.Text = "";
             V1_comboBox.SelectedIndex = V2_comboBox.SelectedIndex
                 = V3_comboBox.SelectedIndex = V4_comboBox.SelectedIndex = -1;
@@ -637,7 +636,7 @@ namespace MyWorkApplication.Visit_Forms
 
             for (int i = 1; i <= 4; i++)
                 set_office_radioButtons(i, -1);
-              
+
             Office1_textBox.Text = Office2_textBox.Text = Office3_textBox.Text = Office4_textBox.Text = "";
 
             LoanAmount_textBox1.Text = "";
@@ -712,13 +711,13 @@ namespace MyWorkApplication.Visit_Forms
             foreach (RadioButton r in ans3_tableLayoutPanel.Controls.OfType<RadioButton>())
                 r.Checked = false;
         }
-         
+
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             foreach (RadioButton r in ans5_tableLayoutPanel.Controls.OfType<RadioButton>())
                 r.Checked = false;
         }
-         
+
         /// ////////////////////////////////////////////////////////////////
         private void o1_pictureBox_Click(object sender, EventArgs e)
         {
@@ -730,7 +729,7 @@ namespace MyWorkApplication.Visit_Forms
         {
             foreach (RadioButton r in tableLayoutPanel_o2.Controls.OfType<RadioButton>())
                 r.Checked = false;
-        } 
+        }
         private void o3_pictureBox_Click(object sender, EventArgs e)
         {
             foreach (RadioButton r in tableLayoutPanel_o3.Controls.OfType<RadioButton>())
@@ -741,7 +740,7 @@ namespace MyWorkApplication.Visit_Forms
         {
             foreach (RadioButton r in tableLayoutPanel_o4.Controls.OfType<RadioButton>())
                 r.Checked = false;
-        } 
+        }
         #endregion
 
 
@@ -778,7 +777,7 @@ namespace MyWorkApplication.Visit_Forms
         private void addNotesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
-            {  
+            {
                 //Find the admin in this database + who entered the application//
                 string my_condition = " and ( UserName like '" + CreatedBy_User_label.Text + "'";
                 if (CreatedBy_User_label.Text != EditedBy_User_label.Text)

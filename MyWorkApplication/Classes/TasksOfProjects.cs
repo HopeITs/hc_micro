@@ -1,8 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using MySql.Data.MySqlClient;
 
 namespace MyWorkApplication.Classes
 {
@@ -18,7 +18,7 @@ namespace MyWorkApplication.Classes
 
         //public void Insert_Task_MicroProject(int MicroProject_ID, int Task_ID, int State, DateTime Date)
         //{
-            
+
         //    Program.buildConnection(); 
         //    MySS.query = "INSERT INTO `task_microproject`(`MicroProject_ID`, `Task_ID`, `State`, `Date`) VALUES ("
         //                 + MicroProject_ID + ","
@@ -32,7 +32,7 @@ namespace MyWorkApplication.Classes
 
         //public void Insert_NewTasks_MicroProject(int MicroProject_ID, DateTime Date)
         //{
-            
+
         //    Program.buildConnection();
 
         //    var task_IDs = new List<int>();
@@ -55,10 +55,10 @@ namespace MyWorkApplication.Classes
 
         public void Insert_AllTasks_MicroProject(int MicroProject_ID, DateTime Date, string Type)
         {
-            
+
             Program.buildConnection();
 
-            MySS.query = " SELECT `T_ID` FROM `task` where `T_Type` like '"+ Type +"';";
+            MySS.query = " SELECT `T_ID` FROM `task` where `T_Type` like '" + Type + "';";
             MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
             var reader = MySS.sc.ExecuteReader();
             var task_IDs = new List<int>();
@@ -73,12 +73,12 @@ namespace MyWorkApplication.Classes
             {
                 if (task_IDs.ElementAt(i) == 1) //Project aprooved
                     state = 1;
-                else state = 0; 
+                else state = 0;
                 query += "INSERT INTO `task_microproject`(`MicroProject_ID`, `Task_ID`, `State`, `Date`) VALUES ("
                             + MicroProject_ID + ","
                             + task_IDs.ElementAt(i) + ","
                             + state + ",'"
-                            + Date.Year + "/" + Date.Month + "/" + Date.Day + "' );"; 
+                            + Date.Year + "/" + Date.Month + "/" + Date.Day + "' );";
             }
             var sc = new MySqlCommand(query, Program.MyConn);
             sc.ExecuteNonQuery();
@@ -87,12 +87,12 @@ namespace MyWorkApplication.Classes
 
         public void Update_Task_MicroProject(int MicroProject_ID, int Task_ID, bool state, DateTime Date)
         {
-            
+
             Program.buildConnection();
             MySS.query = "update `task_microproject` set `State` = " + (state ? 1 : 0)
-                        + ", Date = '" + Date.Year + "/" + Date.Month 
+                        + ", Date = '" + Date.Year + "/" + Date.Month
                         + "/" + Date.Day + "' "
-                        + " where `MicroProject_ID` = " + MicroProject_ID 
+                        + " where `MicroProject_ID` = " + MicroProject_ID
                         + " and  Task_ID = " + Task_ID + " ";
             MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
             MySS.sc.ExecuteNonQuery();
@@ -100,13 +100,13 @@ namespace MyWorkApplication.Classes
         }
         public void Update_Task_MicroProject(int MicroProject_ID, string Task, bool state, DateTime Date)
         {
-            
+
             Program.buildConnection();
             MySS.query = "update `task_microproject` set `State` = " + (state ? 1 : 0)
                         + ", Date = '" + Date.Year + "/" + Date.Month
                         + "/" + Date.Day + "' "
                         + " where `MicroProject_ID` = " + MicroProject_ID
-                        + " and  Task_ID = (select T_ID from task where T_Name like '"+ Task + "') ";
+                        + " and  Task_ID = (select T_ID from task where T_Name like '" + Task + "') ";
             MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
             MySS.sc.ExecuteNonQuery();
             Program.MyConn.Close();
@@ -114,7 +114,7 @@ namespace MyWorkApplication.Classes
 
         public bool Get_Task_MicroProject_State(int MicroProject_ID, int Task_ID)
         {
-            
+
             Program.buildConnection();
 
             MySS.query = "SELECT `State` FROM `task_microproject` WHERE `MicroProject_ID` = " + MicroProject_ID +
@@ -140,7 +140,7 @@ namespace MyWorkApplication.Classes
             //if (type != "")
             //    query += " where T_Type like '" + type + "'";
 
- query += " ORDER BY `Task_ID` ";
+            query += " ORDER BY `Task_ID` ";
 
             var da = new MySqlDataAdapter(query, Program.MyConn);
             var dt = new DataTable();

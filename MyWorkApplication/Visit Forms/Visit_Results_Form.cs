@@ -1,26 +1,24 @@
-﻿using MyWorkApplication.Properties;
-using System;
-using System.Data;
-using System.Text;
-using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using Application = Microsoft.Office.Interop.Excel.Application;
-using DataTable = System.Data.DataTable;
-using MyWorkApplication.Classes;
-using System.Drawing;
+﻿using ClosedXML.Excel;
 using MySql.Data.MySqlClient;
+using MyWorkApplication.Classes;
+using MyWorkApplication.Properties;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using ClosedXML.Excel;
+using System.Data;
 using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
+using DataTable = System.Data.DataTable;
 
 namespace MyWorkApplication.Visit_Forms
 {
     public partial class Visit_Results_Form : Form
     {
         private M_and_E me;
-        private Visit v; 
+        private Visit v;
         private SubCategory sub;
         private Career c;
         private Select s;
@@ -29,8 +27,8 @@ namespace MyWorkApplication.Visit_Forms
         private List<string> searchBy_list;
         private BindingSource bs = new BindingSource();
         private BindingSource b_bs = new BindingSource();
-        private string Original_Filter_String; 
-        private string visitNum, visitKind,  mp_typeID , mp_categoryID , mp_subcategoryID, mp_careerID;  
+        private string Original_Filter_String;
+        private string visitNum, visitKind, mp_typeID, mp_categoryID, mp_subcategoryID, mp_careerID;
         private string DateFrom = "", DateTo = "";
         private bool onlyLastVisit = false;
 
@@ -54,7 +52,7 @@ namespace MyWorkApplication.Visit_Forms
                 sub = new SubCategory();
                 c = new Career();
                 s = new Select();
-                 
+
                 clear_filters();
 
                 PW = Search_panel.Height;
@@ -62,7 +60,7 @@ namespace MyWorkApplication.Visit_Forms
                 Search_panel.Height = 0;
 
                 user_mode = false;
-                bind_comboBoxes(); 
+                bind_comboBoxes();
 
                 Answers_dataGridView.DoubleBuffered(true);
                 //Benficiaries_dataGridView.DoubleBuffered(true);
@@ -75,7 +73,7 @@ namespace MyWorkApplication.Visit_Forms
 
                 bs.ListChanged += bs_ListChanged;
                 b_bs.ListChanged += bs_ListChanged;
-                 
+
                 DateFrom = DateFrom_dateTimePicker.Value.ToString("yyyy/MM/dd");
                 DateTo = DateTo_dateTimePicker.Value.ToString("yyyy/MM/dd");
 
@@ -84,7 +82,7 @@ namespace MyWorkApplication.Visit_Forms
                 LastV_button.BackColor = Color.Transparent;
                 visitKind = "v";
                 VisitKind_comboBox.SelectedIndex = 0; // مشاريع أخرى 
-                 
+
                 VisitNumber_comboBox.SelectedIndex = 0; //all Monitoring
 
                 Type_comboBox.SelectedIndex = 0; //مشاريع صغيرة 
@@ -98,16 +96,16 @@ namespace MyWorkApplication.Visit_Forms
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
         public void Check_Theme()
         {
             var newTheme = new NewTheme();
             if (Settings.Default.theme == "Dark")
-                newTheme.Search_ToNight(this,false);
+                newTheme.Search_ToNight(this, false);
             else
-                newTheme.Search_ToLight(this,false);
+                newTheme.Search_ToLight(this, false);
         }
-        
+
         private void bind_comboBoxes()
         {
             string query = "";
@@ -125,30 +123,30 @@ namespace MyWorkApplication.Visit_Forms
             Type_comboBox.DataSource = null;
             Type_comboBox.DisplayMember = "Name";
             Type_comboBox.ValueMember = "ID";
-            Type_comboBox.DataSource = ds.Tables[0]; 
+            Type_comboBox.DataSource = ds.Tables[0];
 
             Category_comboBox.DataSource = null;
             Category_comboBox.DisplayMember = "Name";
             Category_comboBox.ValueMember = "ID";
-            Category_comboBox.DataSource = ds.Tables[1]; 
+            Category_comboBox.DataSource = ds.Tables[1];
         }
         private void SubCategory_bind(string Category_ID)
-        {  
+        {
             DataTable sub_st = sub.Select(Category_ID, "");
             SubCategory_comboBox.DataSource = null;
             SubCategory_comboBox.DisplayMember = "Name";
             SubCategory_comboBox.ValueMember = "ID";
             SubCategory_comboBox.DataSource = sub_st;
-            SubCategory_comboBox.SelectedIndex = -1; 
+            SubCategory_comboBox.SelectedIndex = -1;
         }
         private void Career_bind(string SubCategory_ID)
-        {  
+        {
             DataTable c_st = c.Select(SubCategory_ID, "");
             Career_comboBox.DataSource = null;
             Career_comboBox.DisplayMember = "Name";
             Career_comboBox.ValueMember = "ID";
             Career_comboBox.DataSource = c_st;
-            Career_comboBox.SelectedIndex = -1; 
+            Career_comboBox.SelectedIndex = -1;
         }
 
         private void Category_comboBox_TextChanged(object sender, EventArgs e)
@@ -168,13 +166,13 @@ namespace MyWorkApplication.Visit_Forms
             }
         }
 
-        private void Select_AnswersNum(bool onlyLastVisit 
-            , string Visit_Kind , string visit_Num
-            , string DateFrom , string DateTo
-            , string Type, string category , string subCategory, string career)
+        private void Select_AnswersNum(bool onlyLastVisit
+            , string Visit_Kind, string visit_Num
+            , string DateFrom, string DateTo
+            , string Type, string category, string subCategory, string career)
         {
             try
-            {  
+            {
                 DataTable dt = new DataTable();
                 Answers_dataGridView.Columns.Clear();
                 Answers_dataGridView.DataSource = null;
@@ -185,12 +183,12 @@ namespace MyWorkApplication.Visit_Forms
                 bs.DataSource = null;
 
                 if (visit_Num.StartsWith("M"))
-                {      
+                {
                     dt = me.Get_Questions_Answers_SideBySide(onlyLastVisit
                         , Visit_Kind, visit_Num
                         , DateFrom, DateTo
                         , Type, category, subCategory, career);
-                     
+
                     bs.DataSource = dt;
                     Answers_dataGridView.DataSource = bs;
 
@@ -210,7 +208,7 @@ namespace MyWorkApplication.Visit_Forms
                 {
                     //nothing
                 }
-                 
+
                 Answers_dataGridView.ColumnHeadersVisible = true;
                 Answers_dataGridView.Refresh();
             }
@@ -226,13 +224,13 @@ namespace MyWorkApplication.Visit_Forms
             , string Type, string category, string subCategory, string career)
         {
             try
-            { 
+            {
                 Answers_dataGridView.Columns.Clear();
 
                 Answers_dataGridView.DataSource = null;
                 Answers_dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
                 Answers_dataGridView.ColumnHeadersVisible = false;
-                
+
                 bs.DataSource = null;
 
 
@@ -249,7 +247,7 @@ namespace MyWorkApplication.Visit_Forms
                     Answers_dataGridView.Columns["الربح الصافي"].DefaultCellStyle.Format = "#,##0";
                 }
                 else if (visit_Num.StartsWith("Opening") || visit_Num.StartsWith("Closing")) //Openeng & Closing according to visit_kind
-                { 
+                {
                     DataSet ds = v.Get_Beneficiaries_Answers(
                           DateFrom, DateTo
                         , Visit_Kind
@@ -266,7 +264,7 @@ namespace MyWorkApplication.Visit_Forms
                 }
                 else
                 { }
-                    
+
 
                 Answers_dataGridView.Columns["رقم المشروع"].Frozen =
                     Answers_dataGridView.Columns["المستفيد"].Frozen = true;
@@ -279,7 +277,7 @@ namespace MyWorkApplication.Visit_Forms
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
         private void SearchBy_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -302,7 +300,7 @@ namespace MyWorkApplication.Visit_Forms
 
                     // البحث حسب عدد اجوبة كل سؤال
                     if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
-                    { 
+                    {
                         Select_AnswersNum(onlyLastVisit
                             , visitKind, visitNum, DateFrom, DateTo
                             , mp_typeID, mp_categoryID, mp_subcategoryID, mp_careerID);
@@ -324,7 +322,7 @@ namespace MyWorkApplication.Visit_Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            } 
+            }
         }
 
         private void check_filters()
@@ -336,8 +334,8 @@ namespace MyWorkApplication.Visit_Forms
             {
                 if (VisitKind_comboBox.SelectedItem.ToString() == "مركبات")
                     visitKind = "v";
-                else visitKind = "o"; 
-            } 
+                else visitKind = "o";
+            }
             ////////////////////////////////////////////////////////////////////////////
             if (VisitNumber_comboBox.SelectedIndex == -1) //|| VisitNumber_comboBox.SelectedIndex == 0
                 visitNum = "";
@@ -369,14 +367,14 @@ namespace MyWorkApplication.Visit_Forms
         }
         private void clear_filters()
         {
-            user_mode = false; 
-            visitNum = mp_typeID =  mp_categoryID = mp_subcategoryID = mp_careerID = ""; 
+            user_mode = false;
+            visitNum = mp_typeID = mp_categoryID = mp_subcategoryID = mp_careerID = "";
             LastV_button.BackColor = Color.Transparent;
             onlyLastVisit = false;
             VisitNumber_comboBox.SelectedItem = 0;
-            VisitKind_comboBox.SelectedItem = 0; visitKind = "v"; 
-            Type_comboBox.SelectedIndex = Category_comboBox.SelectedIndex 
-                = SubCategory_comboBox.SelectedIndex = Career_comboBox.SelectedIndex = -1; 
+            VisitKind_comboBox.SelectedItem = 0; visitKind = "v";
+            Type_comboBox.SelectedIndex = Category_comboBox.SelectedIndex
+                = SubCategory_comboBox.SelectedIndex = Career_comboBox.SelectedIndex = -1;
             user_mode = true;
         }
 
@@ -406,7 +404,7 @@ namespace MyWorkApplication.Visit_Forms
         private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 var selectedCellCount = Answers_dataGridView.GetCellCount(DataGridViewElementStates.Selected);
                 SelectedCount_label.Text = "Selected Count: " + selectedCellCount.ToString("#,##0");
 
@@ -422,8 +420,8 @@ namespace MyWorkApplication.Visit_Forms
                 // البحث حسب عدد اجوبة كل سؤال
                 if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
                 {
-                     if (selectedCellCount > 0)
-                    { 
+                    if (selectedCellCount > 0)
+                    {
                         var sb = new StringBuilder();
 
                         for (var i = 0; i < selectedCellCount; i++)
@@ -443,7 +441,7 @@ namespace MyWorkApplication.Visit_Forms
                                 sb.Append(Answers_dataGridView.Rows[selected_row].Cells[selected_column + 3].Value); //edited selected_column + 2
                                 sb.Append(" AND ");
                             }
-                        } 
+                        }
                     }
                 }
             }
@@ -498,7 +496,7 @@ namespace MyWorkApplication.Visit_Forms
                     }
                     string All_Filters = Original_Filter_String == "" ? NewFilter : Original_Filter_String + " and (" + NewFilter + ")";
                     bs.Filter = All_Filters;
-                } 
+                }
             }
             catch (Exception ex)
             {
@@ -506,7 +504,7 @@ namespace MyWorkApplication.Visit_Forms
             }
         }
         private void bs_ListChanged(object sender, System.ComponentModel.ListChangedEventArgs e)
-        { 
+        {
             AllCount_label.Text = "All: " + Answers_dataGridView.Rows.Count.ToString("#,##0");
         }
 
@@ -548,23 +546,23 @@ namespace MyWorkApplication.Visit_Forms
         }
 
         private void ShowHide_button_Click(object sender, EventArgs e)
-        { 
-                if (Hided)
-                {
-                    Hided = false;
-                    if (Settings.Default.theme == "Light")
-                        ShowHide_button.BackgroundImage = Resources.Hide2_L;
-                    else ShowHide_button.BackgroundImage = Resources.Hide2_D;
-                    Search_panel.Height = PW;
-                }
-                else
-                {
-                    Hided = true;
-                    if (Settings.Default.theme == "Light")
-                        ShowHide_button.BackgroundImage = Resources.Show2_L;
-                    else ShowHide_button.BackgroundImage = Resources.Show2_D;
-                    Search_panel.Height = 0;
-                } 
+        {
+            if (Hided)
+            {
+                Hided = false;
+                if (Settings.Default.theme == "Light")
+                    ShowHide_button.BackgroundImage = Resources.Hide2_L;
+                else ShowHide_button.BackgroundImage = Resources.Hide2_D;
+                Search_panel.Height = PW;
+            }
+            else
+            {
+                Hided = true;
+                if (Settings.Default.theme == "Light")
+                    ShowHide_button.BackgroundImage = Resources.Show2_L;
+                else ShowHide_button.BackgroundImage = Resources.Show2_D;
+                Search_panel.Height = 0;
+            }
         }
         private void ShowHide_button_MouseEnter(object sender, EventArgs e)
         {
@@ -604,7 +602,7 @@ namespace MyWorkApplication.Visit_Forms
             clear_filters();
             SearchBy_comboBox_SelectedIndexChanged(sender, e);
         }
-         
+
         private void ExportToExcel_button_Click(object sender, EventArgs e)
         {
             try
@@ -672,13 +670,13 @@ namespace MyWorkApplication.Visit_Forms
                 MessageBox.Show(ex.Message);
             }
         }
-          
+
         private void VisitKind_comboBox_SelectedIndexChanged(object sender, EventArgs e)
-        { 
+        {
             if (user_mode)
-            {    
+            {
                 SearchBy_comboBox_SelectedIndexChanged(sender, e);
-            } 
+            }
         }
 
         private void LastV_button_Click(object sender, EventArgs e)
@@ -698,12 +696,12 @@ namespace MyWorkApplication.Visit_Forms
                 SearchBy_comboBox_SelectedIndexChanged(sender, e);
             }
         }
-          
+
         private void DateFrom_bcDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             if (user_mode)
-            { 
-                SearchBy_comboBox_SelectedIndexChanged(sender, e); 
+            {
+                SearchBy_comboBox_SelectedIndexChanged(sender, e);
             }
         }
     }

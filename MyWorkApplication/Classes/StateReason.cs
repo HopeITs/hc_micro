@@ -1,10 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWorkApplication.Classes
 {
@@ -14,7 +9,7 @@ namespace MyWorkApplication.Classes
 
         public void Insert(string Name)
         {
-            
+
             Program.buildConnection();
             query = "INSERT INTO `statereason` (`Name`) VALUES ('" + Name + "')";
             using (var sc = new MySqlCommand(query, Program.MyConn))
@@ -26,7 +21,7 @@ namespace MyWorkApplication.Classes
 
         public void Update(int ID, string Name)
         {
-            
+
             Program.buildConnection();
             query = "Update `statereason` set Name = N'" + Name + "'"
                          + " where `ID` =" + ID;
@@ -39,7 +34,7 @@ namespace MyWorkApplication.Classes
 
         public void Delete(int ID)
         {
-            
+
             Program.buildConnection();
             query = "delete From `statereason` where `ID` =" + ID;
             using (var sc = new MySqlCommand(query, Program.MyConn))
@@ -51,7 +46,7 @@ namespace MyWorkApplication.Classes
 
         public DataTable Select(string name)
         {
-            
+
             Program.buildConnection();
             query = "SELECT ID, Name from `statereason` order by Name asc ";
             var sc = new MySqlCommand(query, Program.MyConn);

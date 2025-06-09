@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MySql.Data.MySqlClient;
 using System.Data;
-using MySql.Data.MySqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWorkApplication.Classes
 {
@@ -88,6 +83,6 @@ namespace MyWorkApplication.Classes
             Program.MyConn.Close();
             return dt;
         }
-        
+
     }
 }
