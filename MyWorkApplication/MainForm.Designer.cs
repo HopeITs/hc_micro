@@ -103,6 +103,7 @@
             this.newWork_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newDonor_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newAid_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newPriest_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Checklist_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newNewApplicationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.zeroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -134,7 +135,6 @@
             this.AboutUs_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FeedBack_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Manual_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newPriest_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_Large_pictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).BeginInit();
@@ -906,6 +906,13 @@
             this.newAid_toolStripMenuItem.Text = "(جهات داعمة) Aid Sources";
             this.newAid_toolStripMenuItem.Click += new System.EventHandler(this.aidSourcesToolStripMenuItem_Click);
             // 
+            // newPriest_ToolStripMenuItem
+            // 
+            this.newPriest_ToolStripMenuItem.Name = "newPriest_ToolStripMenuItem";
+            this.newPriest_ToolStripMenuItem.Size = new System.Drawing.Size(418, 30);
+            this.newPriest_ToolStripMenuItem.Text = "(كاهن) Priest";
+            this.newPriest_ToolStripMenuItem.Click += new System.EventHandler(this.newPriest_ToolStripMenuItem_Click);
+            // 
             // Checklist_toolStripMenuItem
             // 
             this.Checklist_toolStripMenuItem.Name = "Checklist_toolStripMenuItem";
@@ -1150,13 +1157,6 @@
             this.Manual_toolStripMenuItem.Size = new System.Drawing.Size(233, 30);
             this.Manual_toolStripMenuItem.Text = "Read The Manual";
             this.Manual_toolStripMenuItem.Click += new System.EventHandler(this.readTheManualToolStripMenuItem_Click);
-            // 
-            // newPriest_ToolStripMenuItem
-            // 
-            this.newPriest_ToolStripMenuItem.Name = "newPriest_ToolStripMenuItem";
-            this.newPriest_ToolStripMenuItem.Size = new System.Drawing.Size(418, 30);
-            this.newPriest_ToolStripMenuItem.Text = "(كاهن) Priest";
-            this.newPriest_ToolStripMenuItem.Click += new System.EventHandler(this.newPriest_ToolStripMenuItem_Click);
             // 
             // MainForm
             // 

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Resource.Embedder.2.1.1\build\Resource.Embedder.props" Condition="Exists('..\packages\Resource.Embedder.2.1.1\build\Resource.Embedder.props')" />
+  <Import Project="..\packages\SixLabors.ImageSharp.3.1.9\build\SixLabors.ImageSharp.props" Condition="Exists('..\packages\SixLabors.ImageSharp.3.1.9\build\SixLabors.ImageSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -91,20 +91,11 @@
     <Reference Include="AdvancedDataGridView">
       <HintPath>..\packages\DG.AdvancedDataGridView.1.2.25902.3\lib\net40\AdvancedDataGridView.dll</HintPath>
     </Reference>
-    <Reference Include="Aspose.Cells, Version=22.5.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aspose.Cells.22.5.0\lib\net40\Aspose.Cells.dll</HintPath>
-    </Reference>
     <Reference Include="BitMiracle.LibTiff.NET, Version=2.4.649.0, Culture=neutral, PublicKeyToken=53879b3e20e7a7d6, processorArchitecture=MSIL">
       <HintPath>..\packages\BitMiracle.LibTiff.NET.2.4.649\lib\net40\BitMiracle.LibTiff.NET.dll</HintPath>
     </Reference>
-    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
-      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
-    </Reference>
     <Reference Include="Bunifu_UI_v1.5.4">
       <HintPath>Resources\Libraries\Bunifu_UI_v1.5.4.dll</HintPath>
-    </Reference>
-    <Reference Include="ChilkatDotNet46, Version=9.5.0.87, Culture=neutral, PublicKeyToken=eb5fc1fc52ef09bd, processorArchitecture=x86">
-      <HintPath>..\packages\chilkat-win32.9.5.0.87\lib\net46\ChilkatDotNet46.dll</HintPath>
     </Reference>
     <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll</HintPath>
@@ -117,18 +108,6 @@
     </Reference>
     <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
-    </Reference>
-    <Reference Include="Flurl, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Flurl.2.8.2\lib\net40\Flurl.dll</HintPath>
-    </Reference>
-    <Reference Include="Flurl.Http, Version=2.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Flurl.Http.2.4.2\lib\net46\Flurl.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="Flurl.Http.Xml, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Flurl.Http.Xml.1.6.1\lib\net45\Flurl.Http.Xml.dll</HintPath>
-    </Reference>
-    <Reference Include="FSharp.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\FSharp.Core.8.0.301\lib\netstandard2.0\FSharp.Core.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf, Version=3.19.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.19.4\lib\net45\Google.Protobuf.dll</HintPath>
@@ -163,37 +142,25 @@
       <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MsbuildAutomationHelper, Version=1.5.0.0, Culture=neutral, PublicKeyToken=a72e257822fd31b6, processorArchitecture=MSIL">
-      <HintPath>..\packages\MsbuildAutomationHelper443.1.5.0\lib\MsbuildAutomationHelper.dll</HintPath>
-    </Reference>
     <Reference Include="MySql.Data, Version=8.0.31.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.31\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="MySqlBackup, Version=2.3.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MySqlBackup.NET.2.3.3.1\lib\net452\MySqlBackup.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
-      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
-    </Reference>
-    <Reference Include="Select.HtmlToPdf, Version=20.1.0.0, Culture=neutral, PublicKeyToken=e0ae9f6e27a97018, processorArchitecture=MSIL">
-      <HintPath>..\packages\Select.HtmlToPdf.20.1.0\lib\net40\Select.HtmlToPdf.dll</HintPath>
+    <Reference Include="Renci.SshNet, Version=2020.0.2.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2020.0.2\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
     <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
       <HintPath>..\packages\BarCode.2023.8.4\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
     </Reference>
-    <Reference Include="SixLabors.ImageSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
-      <HintPath>..\packages\SixLabors.ImageSharp.2.1.3\lib\netstandard2.0\SixLabors.ImageSharp.dll</HintPath>
-    </Reference>
     <Reference Include="SixLabors.ImageSharp.Drawing, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
       <HintPath>..\packages\BarCode.2023.8.4\lib\netstandard2.0\SixLabors.ImageSharp.Drawing.dll</HintPath>
-    </Reference>
-    <Reference Include="SonarQube.Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SonarQube.Net.1.0.5\lib\net46\SonarQube.Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -220,14 +187,11 @@
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
-    <Reference Include="System.Text.Encoding.CodePages, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encoding.CodePages.5.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
-    </Reference>
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -554,7 +518,6 @@
     <Compile Include="Notification_Box.Designer.cs">
       <DependentUpon>Notification_Box.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\ReportToPDF.cs" />
     <Compile Include="TaskBoard_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -653,6 +616,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddNewAidSource.resx">
       <DependentUpon>AddNewAidSource.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AddNewChecklistMember.resx">
       <DependentUpon>AddNewChecklistMember.cs</DependentUpon>
@@ -689,6 +653,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddNewCareer.resx">
       <DependentUpon>AddNewCareer.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminPanel_From.resx">
       <DependentUpon>AdminPanel_From.cs</DependentUpon>
@@ -1125,9 +1090,9 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Resource.Embedder.2.1.1\build\Resource.Embedder.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Resource.Embedder.2.1.1\build\Resource.Embedder.props'))" />
     <Error Condition="!Exists('..\packages\IronSoftware.Native.PdfModel.2023.8.17287\build\net\IronSoftware.Native.PdfModel.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\IronSoftware.Native.PdfModel.2023.8.17287\build\net\IronSoftware.Native.PdfModel.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets'))" />
+    <Error Condition="!Exists('..\packages\SixLabors.ImageSharp.3.1.9\build\SixLabors.ImageSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SixLabors.ImageSharp.3.1.9\build\SixLabors.ImageSharp.props'))" />
   </Target>
   <Import Project="..\packages\IronSoftware.Native.PdfModel.2023.8.17287\build\net\IronSoftware.Native.PdfModel.targets" Condition="Exists('..\packages\IronSoftware.Native.PdfModel.2023.8.17287\build\net\IronSoftware.Native.PdfModel.targets')" />
   <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
