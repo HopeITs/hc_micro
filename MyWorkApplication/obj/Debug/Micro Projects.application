@@ -8,7 +8,7 @@
         <beforeApplicationStartup />
       </update>
     </subscription>
-    <deploymentProvider codebase="http://hc-it/Micro%20Projects/Micro%20Projects.application" />
+    <deploymentProvider codebase="http://pc-it/Micro%20Projects/Micro%20Projects.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
@@ -21,7 +21,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>2evQQJMPRECheQj4eOzpIKfeKjONOL2fYXp3Lk+65vU=</dsig:DigestValue>
+        <dsig:DigestValue>LlPIm/GhG8CAiVOUrBVDn88qWZY6/7BrjSiHyGhbyts=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

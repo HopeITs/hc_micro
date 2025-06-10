@@ -33,3 +33,12 @@ D:\MyProjects\MicroProject newTest\CheckBoxComboBox\obj\Debug\CheckBoxComboBox.c
 D:\MyProjects\MicroProject newTest\CheckBoxComboBox\obj\Debug\CheckBoxComboBox.csproj.CoreCompileInputs.cache
 D:\MyProjects\MicroProject newTest\CheckBoxComboBox\obj\Debug\CheckBoxComboBox.dll
 D:\MyProjects\MicroProject newTest\CheckBoxComboBox\obj\Debug\CheckBoxComboBox.pdb
+C:\Users\HC-Sary\Desktop\Ongoing Work\5-microproject\CheckBoxComboBox\bin\Debug\CheckBoxComboBox.dll
+C:\Users\HC-Sary\Desktop\Ongoing Work\5-microproject\CheckBoxComboBox\bin\Debug\CheckBoxComboBox.pdb
+C:\Users\HC-Sary\Desktop\Ongoing Work\5-microproject\CheckBoxComboBox\obj\Debug\CheckBoxComboBox.csproj.AssemblyReference.cache
+C:\Users\HC-Sary\Desktop\Ongoing Work\5-microproject\CheckBoxComboBox\obj\Debug\PresentationControls.CheckBoxComboBox.resources
+C:\Users\HC-Sary\Desktop\Ongoing Work\5-microproject\CheckBoxComboBox\obj\Debug\PresentationControls.PopupComboBox.resources
+C:\Users\HC-Sary\Desktop\Ongoing Work\5-microproject\CheckBoxComboBox\obj\Debug\CheckBoxComboBox.csproj.GenerateResource.cache
+C:\Users\HC-Sary\Desktop\Ongoing Work\5-microproject\CheckBoxComboBox\obj\Debug\CheckBoxComboBox.csproj.CoreCompileInputs.cache
+C:\Users\HC-Sary\Desktop\Ongoing Work\5-microproject\CheckBoxComboBox\obj\Debug\CheckBoxComboBox.dll
+C:\Users\HC-Sary\Desktop\Ongoing Work\5-microproject\CheckBoxComboBox\obj\Debug\CheckBoxComboBox.pdb
