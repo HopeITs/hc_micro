@@ -1,0 +1,1106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\SixLabors.ImageSharp.3.1.9\build\SixLabors.ImageSharp.props" Condition="Exists('..\packages\SixLabors.ImageSharp.3.1.9\build\SixLabors.ImageSharp.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FFBCBB55-3972-4966-98D6-34C08C970196}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyWorkApplication</RootNamespace>
+    <AssemblyName>Micro Projects</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <CodeAnalysisRuleSet>..\.sonarlint\microprojectscsharp.ruleset</CodeAnalysisRuleSet>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>http://localhost/Micro Projects/</UpdateUrl>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>true</Prefer32Bit>
+    <CodeAnalysisRuleSet>..\.sonarlint\microprojectscsharp.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>..\.sonarlint\microprojectscsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>logo_small.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>MyWorkApplication.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>C4C77745DB02A062BF2F010D39FD1A0EBFCB1E6E</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>MyWorkApplication_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="AdvancedDataGridView">
+      <HintPath>..\packages\DG.AdvancedDataGridView.1.2.25902.3\lib\net40\AdvancedDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="BitMiracle.LibTiff.NET, Version=2.4.649.0, Culture=neutral, PublicKeyToken=53879b3e20e7a7d6, processorArchitecture=MSIL">
+      <HintPath>..\packages\BitMiracle.LibTiff.NET.2.4.649\lib\net40\BitMiracle.LibTiff.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu_UI_v1.5.4">
+      <HintPath>Resources\Libraries\Bunifu_UI_v1.5.4.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DgvFilterPopup">
+      <HintPath>C:\Users\TUF\Downloads\DgvFilterPopup_dll_and_docs_cs\DgvFilterPopup.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.19.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.19.4\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="IronBarCode, Version=2023.8.0.4, Culture=neutral, PublicKeyToken=b971bb3971bdf306, processorArchitecture=MSIL">
+      <HintPath>..\packages\BarCode.2023.8.4\lib\netstandard2.0\IronBarCode.dll</HintPath>
+    </Reference>
+    <Reference Include="IronSoftware.Drawing.Common, Version=2023.7.1.0, Culture=neutral, PublicKeyToken=8d7e55c97b3e9835, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronSoftware.System.Drawing.2023.7.1\lib\netstandard2.0\IronSoftware.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Jacksiro.MdiTab, Version=1.1.6848.10224, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\Libraries\Jacksiro.MdiTab.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.2.6\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.31.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.31\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySqlBackup, Version=2.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySqlBackup.NET.2.3.3.1\lib\net452\MySqlBackup.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Renci.SshNet, Version=2020.0.2.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2020.0.2\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\packages\BarCode.2023.8.4\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.ImageSharp.Drawing, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\packages\BarCode.2023.8.4\lib\netstandard2.0\SixLabors.ImageSharp.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Tulpep.NotificationWindow, Version=1.1.37.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tulpep.NotificationWindow.1.1.37\lib\net40\Tulpep.NotificationWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="ZstdNet, Version=1.4.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.31\lib\net452\ZstdNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutUs_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutUs_Form.Designer.cs">
+      <DependentUpon>AboutUs_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewAidSource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewAidSource.Designer.cs">
+      <DependentUpon>AddNewAidSource.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewChecklistMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewChecklistMember.Designer.cs">
+      <DependentUpon>AddNewChecklistMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewChecklistPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewChecklistPosition.Designer.cs">
+      <DependentUpon>AddNewChecklistPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewDonor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewDonor.Designer.cs">
+      <DependentUpon>AddNewDonor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewEducation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewEducation.Designer.cs">
+      <DependentUpon>AddNewEducation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewExperience.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewExperience.Designer.cs">
+      <DependentUpon>AddNewExperience.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewGroup.Designer.cs">
+      <DependentUpon>AddNewGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewPriest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewPriest.Designer.cs">
+      <DependentUpon>AddNewPriest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewStateReasons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewStateReasons.Designer.cs">
+      <DependentUpon>AddNewStateReasons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewStreet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewStreet.Designer.cs">
+      <DependentUpon>AddNewStreet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewCareer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewCareer.Designer.cs">
+      <DependentUpon>AddNewCareer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel_From.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel_From.Designer.cs">
+      <DependentUpon>AdminPanel_From.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agriculture_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agriculture_Form.Designer.cs">
+      <DependentUpon>Agriculture_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationRehab_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationRehab_Form.Designer.cs">
+      <DependentUpon>ApplicationRehab_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Application_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Application_Form.Designer.cs">
+      <DependentUpon>Application_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Application_MessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Application_MessageBox.Designer.cs">
+      <DependentUpon>Application_MessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Application_New_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Application_New_Form.Designer.cs">
+      <DependentUpon>Application_New_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attachments_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Attachments_Form.Designer.cs">
+      <DependentUpon>Attachments_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chat_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chat_Form.Designer.cs">
+      <DependentUpon>Chat_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckList_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckList_Form.Designer.cs">
+      <DependentUpon>CheckList_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Check_NationalNumber_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Check_NationalNumber_Form.Designer.cs">
+      <DependentUpon>Check_NationalNumber_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\AgricultureApplication.cs" />
+    <Compile Include="Classes\AidSource.cs" />
+    <Compile Include="Classes\Application_Queries.cs" />
+    <Compile Include="Classes\Career.cs" />
+    <Compile Include="Classes\CheckList.cs" />
+    <Compile Include="Classes\DataTableWrappers.cs" />
+    <Compile Include="Classes\Document.cs" />
+    <Compile Include="Classes\Donor.cs" />
+    <Compile Include="Classes\Education.cs" />
+    <Compile Include="Classes\Encryption.cs" />
+    <Compile Include="Classes\Images.cs" />
+    <Compile Include="Classes\RehabApplication.cs" />
+    <Compile Include="Classes\SpecialCase.cs" />
+    <Compile Include="Classes\StateReason.cs" />
+    <Compile Include="Classes\Street.cs" />
+    <Compile Include="Classes\SubCategory.cs" />
+    <Compile Include="Classes\DonorGroup.cs" />
+    <Compile Include="Classes\MicroProject.cs" />
+    <Compile Include="Classes\OvalPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\Statusses.cs" />
+    <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\VisitRehab.cs" />
+    <Compile Include="Classes\WorkExperience.cs" />
+    <Compile Include="Controls\BCDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CCBoxItem.cs" />
+    <Compile Include="Controls\CheckBoxComboBox\CheckBoxComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CheckBoxComboBox\CheckBoxComboBox.Designer.cs">
+      <DependentUpon>CheckBoxComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CheckBoxComboBox\GripBounds.cs" />
+    <Compile Include="Controls\CheckBoxComboBox\NativeMethods.cs" />
+    <Compile Include="Controls\CheckBoxComboBox\Popup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CheckBoxComboBox\Popup.Designer.cs">
+      <DependentUpon>Popup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CheckBoxComboBox\PopupComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CheckBoxComboBox\PopupComboBox.Designer.cs">
+      <DependentUpon>PopupComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CheckComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CheckComboBoxItem.cs" />
+    <Compile Include="Controls\DataGridViewColumnSelector.cs" />
+    <Compile Include="Classes\KeyValue_List.cs" />
+    <Compile Include="Controls\MenuColorTable.cs" />
+    <Compile Include="Controls\MenuColorTable_Dark.cs" />
+    <Compile Include="Controls\MenuControl.cs" />
+    <Compile Include="Controls\MenuStripRenderer.cs" />
+    <Compile Include="Classes\NewTheme.cs" />
+    <Compile Include="Controls\Selection Wrappers\ListSelectionWrapper.cs" />
+    <Compile Include="Controls\Selection Wrappers\ObjectSelectionWrapper.cs" />
+    <Compile Include="Classes\TasksOfProjects.cs" />
+    <Compile Include="Controls\UserControlMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UserControlMenu.Designer.cs">
+      <DependentUpon>UserControlMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\UserNotification.cs" />
+    <Compile Include="Classes\FtpConnector.cs" />
+    <Compile Include="Classes\MySqlComponents.cs" />
+    <Compile Include="Encrypt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Encrypt.Designer.cs">
+      <DependentUpon>Encrypt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExecutiveFiles_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExecutiveFiles_Form.Designer.cs">
+      <DependentUpon>ExecutiveFiles_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Help_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help_Form.Designer.cs">
+      <DependentUpon>Help_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loans_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loans_Form.Designer.cs">
+      <DependentUpon>Loans_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login_Form.Designer.cs">
+      <DependentUpon>Login_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Log_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Log_Form.Designer.cs">
+      <DependentUpon>Log_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewIdea_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewIdea_Form.Designer.cs">
+      <DependentUpon>NewIdea_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Partners_MessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Partners_MessageBox.Designer.cs">
+      <DependentUpon>Partners_MessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payments_Form.Designer.cs">
+      <DependentUpon>Payments_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="QR_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QR_Form.Designer.cs">
+      <DependentUpon>QR_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search_Form.Designer.cs">
+      <DependentUpon>Search_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SendMessage_Box.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendMessage_Box.Designer.cs">
+      <DependentUpon>SendMessage_Box.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpecialCase_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpecialCase_Form.Designer.cs">
+      <DependentUpon>SpecialCase_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User_Form.Designer.cs">
+      <DependentUpon>User_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Evaluation_Statistics.cs" />
+    <Compile Include="Notification_Box.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notification_Box.Designer.cs">
+      <DependentUpon>Notification_Box.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskBoard_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskBoard_Form.Designer.cs">
+      <DependentUpon>TaskBoard_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Log.cs" />
+    <Compile Include="ShowDetails_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowDetails_Form.Designer.cs">
+      <DependentUpon>ShowDetails_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Notification.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Classes\Select.cs" />
+    <Compile Include="Statistics_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statistics_Form.Designer.cs">
+      <DependentUpon>Statistics_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Timeline_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Timeline_Form.Designer.cs">
+      <DependentUpon>Timeline_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visit Forms\ChooseVisitKind_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visit Forms\ChooseVisitKind_Form.Designer.cs">
+      <DependentUpon>ChooseVisitKind_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visit Forms\Visit_Results_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visit Forms\Visit_Results_Form.Designer.cs">
+      <DependentUpon>Visit_Results_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\M_and_E.cs" />
+    <Compile Include="Classes\Office_Monitoring.cs" />
+    <Compile Include="Visit Forms\VClosing_Rehab_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visit Forms\VClosing_Rehab_Form.Designer.cs">
+      <DependentUpon>VClosing_Rehab_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visit Forms\Visits_Statistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visit Forms\Visits_Statistics.Designer.cs">
+      <DependentUpon>Visits_Statistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visit Forms\VOpening_Other_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visit Forms\VOpening_Other_Form.Designer.cs">
+      <DependentUpon>VOpening_Other_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visit Forms\VClosing_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visit Forms\VClosing_Form.Designer.cs">
+      <DependentUpon>VClosing_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visit Forms\VOpening_Taxi_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visit Forms\VOpening_Taxi_Form.Designer.cs">
+      <DependentUpon>VOpening_Taxi_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Visit.cs" />
+    <Compile Include="Visit Forms\V_ME_Other_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visit Forms\V_ME_Other_Form.Designer.cs">
+      <DependentUpon>V_ME_Other_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visit Forms\V_ME_Taxi_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visit Forms\V_ME_Taxi_Form.Designer.cs">
+      <DependentUpon>V_ME_Taxi_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visit Forms\Visits_Schedule_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visit Forms\Visits_Schedule_Form.Designer.cs">
+      <DependentUpon>Visits_Schedule_Form.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AboutUs_Form.resx">
+      <DependentUpon>AboutUs_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewAidSource.resx">
+      <DependentUpon>AddNewAidSource.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewChecklistMember.resx">
+      <DependentUpon>AddNewChecklistMember.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewChecklistPosition.resx">
+      <DependentUpon>AddNewChecklistPosition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewDonor.resx">
+      <DependentUpon>AddNewDonor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewEducation.resx">
+      <DependentUpon>AddNewEducation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewExperience.resx">
+      <DependentUpon>AddNewExperience.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewGroup.resx">
+      <DependentUpon>AddNewGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewPriest.resx">
+      <DependentUpon>AddNewPriest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewStateReasons.resx">
+      <DependentUpon>AddNewStateReasons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewStreet.resx">
+      <DependentUpon>AddNewStreet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewCareer.resx">
+      <DependentUpon>AddNewCareer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPanel_From.resx">
+      <DependentUpon>AdminPanel_From.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Agriculture_Form.resx">
+      <DependentUpon>Agriculture_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationRehab_Form.resx">
+      <DependentUpon>ApplicationRehab_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Application_Form.resx">
+      <DependentUpon>Application_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Application_MessageBox.resx">
+      <DependentUpon>Application_MessageBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Application_New_Form.resx">
+      <DependentUpon>Application_New_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attachments_Form.resx">
+      <DependentUpon>Attachments_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chat_Form.resx">
+      <DependentUpon>Chat_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckList_Form.resx">
+      <DependentUpon>CheckList_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Check_NationalNumber_Form.resx">
+      <DependentUpon>Check_NationalNumber_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Encrypt.resx">
+      <DependentUpon>Encrypt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExecutiveFiles_Form.resx">
+      <DependentUpon>ExecutiveFiles_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help_Form.resx">
+      <DependentUpon>Help_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loans_Form.resx">
+      <DependentUpon>Loans_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login_Form.resx">
+      <DependentUpon>Login_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Log_Form.resx">
+      <DependentUpon>Log_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewIdea_Form.resx">
+      <DependentUpon>NewIdea_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Partners_MessageBox.resx">
+      <DependentUpon>Partners_MessageBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments_Form.resx">
+      <DependentUpon>Payments_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QR_Form.resx">
+      <DependentUpon>QR_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search_Form.resx">
+      <DependentUpon>Search_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SendMessage_Box.resx">
+      <DependentUpon>SendMessage_Box.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notification_Box.resx">
+      <DependentUpon>Notification_Box.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpecialCase_Form.resx">
+      <DependentUpon>SpecialCase_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskBoard_Form.resx">
+      <DependentUpon>TaskBoard_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowDetails_Form.resx">
+      <DependentUpon>ShowDetails_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistics_Form.resx">
+      <DependentUpon>Statistics_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Timeline_Form.resx">
+      <DependentUpon>Timeline_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Form.resx">
+      <DependentUpon>User_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visit Forms\ChooseVisitKind_Form.resx">
+      <DependentUpon>ChooseVisitKind_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visit Forms\Visit_Results_Form.resx">
+      <DependentUpon>Visit_Results_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visit Forms\VClosing_Rehab_Form.resx">
+      <DependentUpon>VClosing_Rehab_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visit Forms\Visits_Statistics.resx">
+      <DependentUpon>Visits_Statistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visit Forms\VOpening_Other_Form.resx">
+      <DependentUpon>VOpening_Other_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visit Forms\VClosing_Form.resx">
+      <DependentUpon>VClosing_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visit Forms\VOpening_Taxi_Form.resx">
+      <DependentUpon>VOpening_Taxi_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visit Forms\V_ME_Other_Form.resx">
+      <DependentUpon>V_ME_Other_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visit Forms\V_ME_Taxi_Form.resx">
+      <DependentUpon>V_ME_Taxi_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visit Forms\Visits_Schedule_Form.resx">
+      <DependentUpon>Visits_Schedule_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="..\.sonarlint\microprojectscsharp.ruleset">
+      <Link>microprojectscsharp.ruleset</Link>
+    </None>
+    <None Include="MyWorkApplication_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\microprojects\CSharp\SonarLint.xml">
+      <Link>SonarLint.xml</Link>
+    </AdditionalFiles>
+    <Content Include="logo_small.ico" />
+    <Content Include="DocPrint\cl.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Local Server xampp Read Me FINAL 2025.txt" />
+    <None Include="Resources\NewDesignIcons\Apply0.png" />
+    <None Include="Resources\NewDesignIcons\Apply1.png" />
+    <None Include="Resources\show_item16.png" />
+    <None Include="Resources\show_item48.png" />
+    <None Include="Resources\show_item2.png" />
+    <None Include="Resources\show_item24.png" />
+    <None Include="Resources\NewLogin24\copyright.png" />
+    <None Include="Resources\NewLogin24\login01.png" />
+    <None Include="Resources\NewLogin24\login_close2.png" />
+    <None Include="Resources\NewLogin24\login_close1.png" />
+    <None Include="Resources\NewLogin24\login_backgroud1.png" />
+    <None Include="Resources\NewLogin24\login00.png" />
+    <None Include="Resources\NewLogin24\login_profile.png" />
+    <None Include="Resources\NewLogin24\login_eye11.png" />
+    <None Include="Resources\NewLogin24\login_eye00.png" />
+    <None Include="Resources\Icons\rehab3.png" />
+    <None Include="Resources\Icons\rehab2.png" />
+    <None Include="Resources\Icons\rehab1.png" />
+    <None Include="Resources\Icons\show_item.png" />
+    <None Include="Resources\login_L.png" />
+    <None Include="Resources\login_D.png" />
+    <None Include="Resources\NewDesignIcons\BtnBackground_L.png" />
+    <None Include="Resources\NewDesignIcons\BtnBackground_D.png" />
+    <None Include="Resources\Icons\warehouse.png" />
+    <None Include="Resources\Icons\taxi.png" />
+    <None Include="Resources\NewDesignIcons\Download_L.png" />
+    <None Include="Resources\NewDesignIcons\Download_D.png" />
+    <None Include="Resources\Icons\agriculture.png" />
+    <Content Include="Resources\backgroun0221.jpg" />
+    <None Include="Resources\NewDesignIcons\AddExtention_L.png" />
+    <None Include="Resources\NewDesignIcons\AddExtention_D.png" />
+    <None Include="Resources\Icons\show_password_true.png" />
+    <None Include="Resources\Icons\show_password_false.png" />
+    <None Include="Resources\Icons\Undo24.png" />
+    <None Include="Resources\MP Training 2021.pdf" />
+    <None Include="Resources\MP Training 2021-compressed.pdf" />
+    <None Include="Resources\warehouse.png" />
+    <None Include="Resources\taxi.png" />
+    <None Include="Resources\Login 13-04-2021.png" />
+    <None Include="Resources\NewDesignIcons\AddPartner_L.png" />
+    <None Include="Resources\NewDesignIcons\AddPartner_D.png" />
+    <None Include="Resources\Icons\Cheked3.png" />
+    <None Include="Resources\Fonts\Arbic11b.ttf" />
+    <None Include="Resources\Fonts\AvenirLTStd-Book.otf" />
+    <None Include="Resources\Fonts\AvenirLTStd-BookOblique.otf" />
+    <None Include="Resources\Fonts\AvenirLTStd-Light.otf" />
+    <None Include="Resources\Fonts\AvenirLTStd-LightOblique.otf" />
+    <None Include="Resources\Fonts\AvenirLTStd-Medium.otf" />
+    <None Include="Resources\Fonts\AvenirLTStd-MediumOblique.otf" />
+    <None Include="Resources\Fonts\AvenirLTStd-Oblique.otf" />
+    <None Include="Resources\Fonts\AvenirLTStd-Roman.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-Bold.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-BoldCn.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-BoldCnIt.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-Cn.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-CnIt.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-Demi.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-DemiCn.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-DemiCnIt.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-DemiIt.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-HeavyCn.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-HeavyCnIt.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-It.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-MediumCn.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-MediumCnIt.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-Regular.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-UltLtCn.otf" />
+    <None Include="Resources\Fonts\AvenirNextLTPro-UltLtCnIt.otf" />
+    <None Include="Resources\Fonts\Cairo-Black.ttf" />
+    <None Include="Resources\Fonts\Cairo-Bold.ttf" />
+    <None Include="Resources\Fonts\Cairo-ExtraLight.ttf" />
+    <None Include="Resources\Fonts\Cairo-Light.ttf" />
+    <None Include="Resources\Fonts\Cairo-Regular.ttf" />
+    <None Include="Resources\Fonts\Cairo-SemiBold.ttf" />
+    <None Include="Resources\Fonts\CAIRO.TTF" />
+    <None Include="Resources\Fonts\GE SS Two Bold.otf" />
+    <None Include="Resources\Fonts\GE SS Two Light.otf" />
+    <None Include="Resources\Fonts\GE SS Two Medium.otf" />
+    <None Include="Resources\Fonts\GEDinarOne-Light.otf" />
+    <None Include="Resources\Fonts\GEDinarOne-Medium.otf" />
+    <None Include="Resources\Fonts\GEDinarTwo-Light.otf" />
+    <None Include="Resources\Fonts\GEDinarTwo-Medium.otf" />
+    <None Include="Resources\Fonts\JannaLT-Bold.ttf" />
+    <None Include="Resources\Fonts\JannaLT-Regular.ttf" />
+    <None Include="Resources\Fonts\ProximaNova-Black.otf" />
+    <None Include="Resources\Fonts\ProximaNova-Bold.otf" />
+    <None Include="Resources\Fonts\ProximaNova-BoldIt.otf" />
+    <None Include="Resources\Fonts\ProximaNova-Extrabold.otf" />
+    <None Include="Resources\Fonts\ProximaNova-Light.otf" />
+    <None Include="Resources\Fonts\ProximaNova-LightItalic.otf" />
+    <None Include="Resources\Fonts\ProximaNova-Regular.otf" />
+    <None Include="Resources\Fonts\ProximaNova-RegularItalic.otf" />
+    <None Include="Resources\Fonts\ProximaNova-Semibold.otf" />
+    <None Include="Resources\Fonts\ProximaNova-SemiboldItalic.otf" />
+    <None Include="Resources\Fonts\ProximaNovaCond-Light.otf" />
+    <None Include="Resources\Fonts\ProximaNovaCond-LightIt.otf" />
+    <None Include="Resources\Fonts\ProximaNovaCond-Regular.otf" />
+    <None Include="Resources\Fonts\ProximaNovaCond-RegularIt.otf" />
+    <None Include="Resources\Fonts\ProximaNovaCond-Semibold.otf" />
+    <None Include="Resources\Fonts\ProximaNovaCond-SemiboldIt.otf" />
+    <None Include="Resources\Fonts\tradbdo.ttf" />
+    <None Include="Resources\Fonts\traditional_arabic.ttf" />
+    <None Include="Resources\Fonts\trado.ttf" />
+    <None Include="Resources\Icons\info.png" />
+    <None Include="Resources\micro_b.jpg" />
+    <None Include="Resources\Icons\group_grey.png" />
+    <None Include="Resources\Icons\group_red.png" />
+    <None Include="Resources\Icons\ShowImage.png" />
+    <None Include="Resources\NewDesignIcons\Dark\Back_700_D.png" />
+    <None Include="Resources\NewDesignIcons\Dark\Back_600_D.png" />
+    <None Include="Resources\NewDesignIcons\Dark\Background_Border_D.png" />
+    <None Include="Resources\NewDesignIcons\Save2_L_Dis.png" />
+    <None Include="Resources\NewDesignIcons\Save2_D_Dis.png" />
+    <None Include="Resources\NewDesignIcons\KAKA Alii_D.png" />
+    <None Include="Resources\Icons\arrow_down.png" />
+    <None Include="Resources\NewDesignIcons\Login_2.jpg" />
+    <None Include="Resources\NewDesignIcons\Dark\Bell_DD.png" />
+    <None Include="Resources\NewDesignIcons\Dark\Red_Bell_DL.png" />
+    <None Include="Resources\NewDesignIcons\Dark\Red_Bell_DD.png" />
+    <None Include="Resources\NewDesignIcons\Dark\Bell_DL.png" />
+    <None Include="Resources\NewDesignIcons\Dark\Logo_Large_D.png" />
+    <None Include="Resources\NewDesignIcons\Logo_Large_L.png" />
+    <None Include="Resources\NewDesignIcons\Logo_Small_L.png" />
+    <None Include="Resources\NewDesignIcons\Dark\Logo_Small_D.png" />
+    <None Include="Resources\NewDesignIcons\Down_L.png" />
+    <None Include="Resources\NewDesignIcons\Down_D.png" />
+    <None Include="Resources\NewDesignIcons\Login_1.jpg" />
+    <None Include="Resources\NewDesignIcons\M_Dark.png" />
+    <None Include="Resources\NewDesignIcons\X_Dark.png" />
+    <None Include="Resources\NewDesignIcons\R_Dark.png" />
+    <None Include="Resources\NewDesignIcons\M_Light.png" />
+    <None Include="Resources\NewDesignIcons\X_Light.png" />
+    <None Include="Resources\NewDesignIcons\R_Light.png" />
+    <None Include="Resources\NewDesignIcons\KAKA Alii.png" />
+    <None Include="Resources\NewDesignIcons\Back_600.png" />
+    <None Include="Resources\NewDesignIcons\Back_700.png" />
+    <None Include="Resources\NewDesignIcons\Trash_Ls.png" />
+    <None Include="Resources\NewDesignIcons\Trash_Ds.png" />
+    <None Include="Resources\NewDesignIcons\First.png" />
+    <None Include="Resources\NewDesignIcons\Last.png" />
+    <None Include="Resources\NewDesignIcons\Next.png" />
+    <None Include="Resources\NewDesignIcons\Previous.png" />
+    <None Include="Resources\NewDesignIcons\Show_L.png" />
+    <None Include="Resources\NewDesignIcons\Delete_D.png" />
+    <None Include="Resources\NewDesignIcons\Delete_L.png" />
+    <None Include="Resources\NewDesignIcons\Hide_D.png" />
+    <None Include="Resources\NewDesignIcons\Hide_L.png" />
+    <None Include="Resources\NewDesignIcons\Save_D.png" />
+    <None Include="Resources\NewDesignIcons\Save_L.png" />
+    <None Include="Resources\NewDesignIcons\Show_D.png" />
+    <None Include="Resources\NewDesignIcons\FitToScreen_L.png" />
+    <None Include="Resources\NewDesignIcons\FitToScreen_D.png" />
+    <None Include="Resources\NewDesignIcons\Delete_CD.png" />
+    <None Include="Resources\NewDesignIcons\Delete_CL.png" />
+    <None Include="Resources\NewDesignIcons\Delete2_D.png" />
+    <None Include="Resources\NewDesignIcons\Delete2_L.png" />
+    <None Include="Resources\NewDesignIcons\Save2_D.png" />
+    <None Include="Resources\NewDesignIcons\Save2_L.png" />
+    <None Include="Resources\NewDesignIcons\Save_CD.png" />
+    <None Include="Resources\NewDesignIcons\Save_CL.png" />
+    <None Include="Resources\NewDesignIcons\Refresh2_D.png" />
+    <None Include="Resources\NewDesignIcons\Refresh2_L.png" />
+    <None Include="Resources\NewDesignIcons\Trash_L.png" />
+    <None Include="Resources\NewDesignIcons\Trash_D.png" />
+    <None Include="Resources\NewDesignIcons\Exit_L.png" />
+    <None Include="Resources\NewDesignIcons\Exit_D.png" />
+    <None Include="Resources\NewDesignIcons\Hide2_L.png" />
+    <None Include="Resources\NewDesignIcons\Show2_D.png" />
+    <None Include="Resources\NewDesignIcons\Show2_L.png" />
+    <None Include="Resources\NewDesignIcons\Hide2_D.png" />
+    <None Include="Resources\NewDesignIcons\Excel_L.png" />
+    <None Include="Resources\NewDesignIcons\Background_Border.png" />
+    <None Include="Resources\NewDesignIcons\Excel_D.png" />
+    <None Include="Resources\NewDesignIcons\X_Sq_D_24.png" />
+    <None Include="Resources\NewDesignIcons\X_Rd_L_24.png" />
+    <None Include="Resources\NewDesignIcons\X_Rd_D_24.png" />
+    <None Include="Resources\NewDesignIcons\Unknown_User.png" />
+    <None Include="Resources\NewDesignIcons\Plus_Sq_L_24.png" />
+    <None Include="Resources\NewDesignIcons\Plus_Sq_D_24.png" />
+    <None Include="Resources\NewDesignIcons\Plus_Rd_D_24.png" />
+    <None Include="Resources\NewDesignIcons\X_Sq_L_24.png" />
+    <None Include="Resources\NewDesignIcons\X_Sq_D.png" />
+    <None Include="Resources\NewDesignIcons\X_Rd_L.png" />
+    <None Include="Resources\NewDesignIcons\X_Rd_D.png" />
+    <None Include="Resources\NewDesignIcons\User.png" />
+    <None Include="Resources\NewDesignIcons\trash_16.png" />
+    <None Include="Resources\NewDesignIcons\Plus_Sq_L.png" />
+    <None Include="Resources\NewDesignIcons\Plus_Sq_D.png" />
+    <None Include="Resources\NewDesignIcons\Plus_Rd_L.png" />
+    <None Include="Resources\NewDesignIcons\Plus_Rd_D.png" />
+    <None Include="Resources\NewDesignIcons\Lock.png" />
+    <None Include="Resources\NewDesignIcons\Bell_Red_N.png" />
+    <None Include="Resources\NewDesignIcons\Bell_Red_L.png" />
+    <None Include="Resources\NewDesignIcons\Bell_N.png" />
+    <None Include="Resources\NewDesignIcons\Bell_L.png" />
+    <None Include="Resources\NewDesignIcons\X_Sq_L.png" />
+    <None Include="Resources\Icons\x_mark.png" />
+    <None Include="Resources\Icons\cancel_16.png" />
+    <None Include="Resources\Icons\cancel_24.png" />
+    <None Include="Resources\Icons\trash.png" />
+    <None Include="Resources\Icons\OK24.png" />
+    <None Include="Resources\Icons\OK32.png" />
+    <None Include="Resources\Icons\OK.ico" />
+    <None Include="Resources\Icons\Cheked.png" />
+    <None Include="Resources\Icons\excel2.png" />
+    <None Include="Resources\Icons\excel.png" />
+    <None Include="Resources\Icons\person2.png" />
+    <None Include="Resources\Icons\Light.png" />
+    <None Include="Resources\Icons\night.png" />
+    <None Include="Resources\Libraries\itextsharp.xtra.dll" />
+    <None Include="Resources\Libraries\itextsharp.xmlworker.dll" />
+    <None Include="Resources\Libraries\itextsharp.pdfa.dll" />
+    <None Include="Resources\Libraries\itextsharp.dll" />
+    <None Include="Resources\Icons\attachment.png" />
+    <None Include="Resources\Icons\browse.png" />
+    <None Include="Resources\Icons\contract.png" />
+    <None Include="Resources\Icons\database-export.png" />
+    <None Include="Resources\Icons\database-restore.png" />
+    <None Include="Resources\Icons\family.png" />
+    <None Include="Resources\Icons\file-export.png" />
+    <None Include="Resources\Icons\file-import.png" />
+    <None Include="Resources\Icons\files.png" />
+    <None Include="Resources\Icons\folder.png" />
+    <None Include="Resources\Icons\id 2.png" />
+    <None Include="Resources\Icons\id.png" />
+    <None Include="Resources\Icons\money.png" />
+    <None Include="Resources\Icons\next.png" />
+    <None Include="Resources\Icons\person.png" />
+    <None Include="Resources\Icons\personF.png" />
+    <None Include="Resources\Icons\personM.png" />
+    <None Include="Resources\Icons\print.png" />
+    <None Include="Resources\Icons\project.png" />
+    <None Include="Resources\Icons\settings.png" />
+    <None Include="Resources\Icons\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CheckBoxComboBox\CheckBoxComboBox.csproj">
+      <Project>{70A25201-8EA4-48F8-A4A6-ED13ADF8823C}</Project>
+      <Name>CheckBoxComboBox</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\IronSoftware.Native.PdfModel.2023.8.17287\build\net\IronSoftware.Native.PdfModel.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\IronSoftware.Native.PdfModel.2023.8.17287\build\net\IronSoftware.Native.PdfModel.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets'))" />
+    <Error Condition="!Exists('..\packages\SixLabors.ImageSharp.3.1.9\build\SixLabors.ImageSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SixLabors.ImageSharp.3.1.9\build\SixLabors.ImageSharp.props'))" />
+  </Target>
+  <Import Project="..\packages\IronSoftware.Native.PdfModel.2023.8.17287\build\net\IronSoftware.Native.PdfModel.targets" Condition="Exists('..\packages\IronSoftware.Native.PdfModel.2023.8.17287\build\net\IronSoftware.Native.PdfModel.targets')" />
+  <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
