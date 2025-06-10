@@ -244,6 +244,7 @@ namespace MyWorkApplication
             this.AddPartner_button = new System.Windows.Forms.Button();
             this.AddExtention_button = new System.Windows.Forms.Button();
             this.Delete_MP_button = new System.Windows.Forms.Button();
+            this.Update_button = new System.Windows.Forms.Button();
             this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
             this.EditedBy_User_label = new System.Windows.Forms.Label();
             this.Visitors_label = new System.Windows.Forms.Label();
@@ -455,6 +456,15 @@ namespace MyWorkApplication
             this.label66 = new System.Windows.Forms.Label();
             this.SubHeader4_label = new System.Windows.Forms.Label();
             this.Education_dataGridView = new System.Windows.Forms.DataGridView();
+            this.PE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.E_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.E_Level = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.E_Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.E_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Edu_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Edu_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edu_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
             this.label58 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
@@ -515,20 +525,10 @@ namespace MyWorkApplication
             this.P_Goal_textBox = new System.Windows.Forms.TextBox();
             this.P_Goals_panel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.PE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.E_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.E_Level = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.E_Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.E_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Edu_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Edu_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edu_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Update_button = new System.Windows.Forms.Button();
-            this.ApplyDate_bcDateTimePicker = new MyWorkApplication.Classes.BCDateTimePicker();
             this.delete_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.delete_person_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.delete_project_person_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ApplyDate_bcDateTimePicker = new MyWorkApplication.Classes.BCDateTimePicker();
             this.First_tableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -3119,33 +3119,33 @@ namespace MyWorkApplication
             this.showChecklistToolStripMenuItem,
             this.addNotesToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 152);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 124);
             // 
             // Visits_toolStripMenuItem
             // 
             this.Visits_toolStripMenuItem.Name = "Visits_toolStripMenuItem";
-            this.Visits_toolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.Visits_toolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.Visits_toolStripMenuItem.Text = "Show Visits";
             this.Visits_toolStripMenuItem.Click += new System.EventHandler(this.visits_toolStripMenuItem1_Click);
             // 
             // payments_toolStripMenuItem
             // 
             this.payments_toolStripMenuItem.Name = "payments_toolStripMenuItem";
-            this.payments_toolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.payments_toolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.payments_toolStripMenuItem.Text = "Show Payments";
             this.payments_toolStripMenuItem.Click += new System.EventHandler(this.payments_toolStripMenuItem2_Click);
             // 
             // attachments_toolStripMenuItem
             // 
             this.attachments_toolStripMenuItem.Name = "attachments_toolStripMenuItem";
-            this.attachments_toolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.attachments_toolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.attachments_toolStripMenuItem.Text = "Show Attachments";
             this.attachments_toolStripMenuItem.Click += new System.EventHandler(this.attachments_toolStripMenuItem3_Click);
             // 
             // showChecklistToolStripMenuItem
             // 
             this.showChecklistToolStripMenuItem.Name = "showChecklistToolStripMenuItem";
-            this.showChecklistToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.showChecklistToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.showChecklistToolStripMenuItem.Text = "Show Checklist";
             this.showChecklistToolStripMenuItem.Click += new System.EventHandler(this.showChecklistToolStripMenuItem_Click);
             // 
@@ -3153,7 +3153,7 @@ namespace MyWorkApplication
             // 
             this.addNotesToolStripMenuItem.Name = "addNotesToolStripMenuItem";
             this.addNotesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.addNotesToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.addNotesToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.addNotesToolStripMenuItem.Text = "Add Notes";
             this.addNotesToolStripMenuItem.Click += new System.EventHandler(this.addNotesToolStripMenuItem_Click);
             // 
@@ -3313,6 +3313,27 @@ namespace MyWorkApplication
             this.Delete_MP_button.Click += new System.EventHandler(this.Delete_MP_button_Click);
             this.Delete_MP_button.MouseEnter += new System.EventHandler(this.Delete_MP_button_MouseEnter);
             this.Delete_MP_button.MouseLeave += new System.EventHandler(this.Delete_MP_button_MouseLeave);
+            // 
+            // Update_button
+            // 
+            this.Update_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Update_button.BackColor = System.Drawing.Color.DarkGray;
+            this.Update_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Update_button.FlatAppearance.BorderSize = 0;
+            this.Update_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.Update_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Update_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Update_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Update_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Update_button.Location = new System.Drawing.Point(480, 4);
+            this.Update_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Update_button.MaximumSize = new System.Drawing.Size(125, 40);
+            this.Update_button.MinimumSize = new System.Drawing.Size(125, 40);
+            this.Update_button.Name = "Update_button";
+            this.Update_button.Size = new System.Drawing.Size(125, 40);
+            this.Update_button.TabIndex = 114;
+            this.Update_button.Text = "Update";
+            this.Update_button.UseVisualStyleBackColor = false;
             // 
             // flowLayoutPanel13
             // 
@@ -6618,6 +6639,100 @@ namespace MyWorkApplication
             this.Education_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.Education_dataGridView_CellPainting);
             this.Education_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             // 
+            // PE_ID
+            // 
+            this.PE_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PE_ID.HeaderText = "PE_ID";
+            this.PE_ID.MinimumWidth = 6;
+            this.PE_ID.Name = "PE_ID";
+            this.PE_ID.Visible = false;
+            // 
+            // E_ID
+            // 
+            this.E_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_ID.HeaderText = "E_ID";
+            this.E_ID.MinimumWidth = 6;
+            this.E_ID.Name = "E_ID";
+            this.E_ID.Visible = false;
+            // 
+            // P_ID
+            // 
+            this.P_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_ID.HeaderText = "P_ID";
+            this.P_ID.MinimumWidth = 6;
+            this.P_ID.Name = "P_ID";
+            this.P_ID.Visible = false;
+            // 
+            // E_Level
+            // 
+            this.E_Level.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_Level.DisplayStyleForCurrentCellOnly = true;
+            this.E_Level.FillWeight = 33F;
+            this.E_Level.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E_Level.HeaderText = "التحصيل العلمي";
+            this.E_Level.Items.AddRange(new object[] {
+            "طالب",
+            "متخرج"});
+            this.E_Level.MinimumWidth = 6;
+            this.E_Level.Name = "E_Level";
+            // 
+            // E_Type
+            // 
+            this.E_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_Type.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.E_Type.DisplayStyleForCurrentCellOnly = true;
+            this.E_Type.FillWeight = 33F;
+            this.E_Type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E_Type.HeaderText = "الدرجة العلمية";
+            this.E_Type.Items.AddRange(new object[] {
+            "تعليم أساسي",
+            "إجازة جامعية",
+            "معهد",
+            "دبلوم",
+            "ماجستير",
+            "دكتوراه"});
+            this.E_Type.MinimumWidth = 6;
+            this.E_Type.Name = "E_Type";
+            // 
+            // E_Name
+            // 
+            this.E_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_Name.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.E_Name.DisplayStyleForCurrentCellOnly = true;
+            this.E_Name.FillWeight = 33F;
+            this.E_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E_Name.HeaderText = "الاختصاص";
+            this.E_Name.MinimumWidth = 6;
+            this.E_Name.Name = "E_Name";
+            // 
+            // Edu_DeleteRow
+            // 
+            this.Edu_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Edu_DeleteRow.FillWeight = 10F;
+            this.Edu_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Edu_DeleteRow.HeaderText = " ";
+            this.Edu_DeleteRow.MinimumWidth = 50;
+            this.Edu_DeleteRow.Name = "Edu_DeleteRow";
+            this.Edu_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Edu_DeleteRow.Text = "Delete";
+            this.Edu_DeleteRow.UseColumnTextForButtonValue = true;
+            this.Edu_DeleteRow.Width = 50;
+            // 
+            // Edu_InDataBase
+            // 
+            this.Edu_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Edu_InDataBase.HeaderText = "Edu_InDataBase";
+            this.Edu_InDataBase.MinimumWidth = 6;
+            this.Edu_InDataBase.Name = "Edu_InDataBase";
+            this.Edu_InDataBase.Visible = false;
+            // 
+            // Edu_RowID
+            // 
+            this.Edu_RowID.HeaderText = "Edu_RowID";
+            this.Edu_RowID.MinimumWidth = 6;
+            this.Edu_RowID.Name = "Edu_RowID";
+            this.Edu_RowID.Visible = false;
+            // 
             // flowLayoutPanel11
             // 
             this.flowLayoutPanel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -7504,136 +7619,6 @@ namespace MyWorkApplication
             this.P_Goals_panel2.Size = new System.Drawing.Size(879, 142);
             this.P_Goals_panel2.TabIndex = 566;
             // 
-            // PE_ID
-            // 
-            this.PE_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PE_ID.HeaderText = "PE_ID";
-            this.PE_ID.MinimumWidth = 6;
-            this.PE_ID.Name = "PE_ID";
-            this.PE_ID.Visible = false;
-            // 
-            // E_ID
-            // 
-            this.E_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_ID.HeaderText = "E_ID";
-            this.E_ID.MinimumWidth = 6;
-            this.E_ID.Name = "E_ID";
-            this.E_ID.Visible = false;
-            // 
-            // P_ID
-            // 
-            this.P_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_ID.HeaderText = "P_ID";
-            this.P_ID.MinimumWidth = 6;
-            this.P_ID.Name = "P_ID";
-            this.P_ID.Visible = false;
-            // 
-            // E_Level
-            // 
-            this.E_Level.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_Level.DisplayStyleForCurrentCellOnly = true;
-            this.E_Level.FillWeight = 33F;
-            this.E_Level.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.E_Level.HeaderText = "التحصيل العلمي";
-            this.E_Level.Items.AddRange(new object[] {
-            "طالب",
-            "متخرج"});
-            this.E_Level.MinimumWidth = 6;
-            this.E_Level.Name = "E_Level";
-            // 
-            // E_Type
-            // 
-            this.E_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_Type.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.E_Type.DisplayStyleForCurrentCellOnly = true;
-            this.E_Type.FillWeight = 33F;
-            this.E_Type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.E_Type.HeaderText = "الدرجة العلمية";
-            this.E_Type.Items.AddRange(new object[] {
-            "تعليم أساسي",
-            "إجازة جامعية",
-            "معهد",
-            "دبلوم",
-            "ماجستير",
-            "دكتوراه"});
-            this.E_Type.MinimumWidth = 6;
-            this.E_Type.Name = "E_Type";
-            // 
-            // E_Name
-            // 
-            this.E_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_Name.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.E_Name.DisplayStyleForCurrentCellOnly = true;
-            this.E_Name.FillWeight = 33F;
-            this.E_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.E_Name.HeaderText = "الاختصاص";
-            this.E_Name.MinimumWidth = 6;
-            this.E_Name.Name = "E_Name";
-            // 
-            // Edu_DeleteRow
-            // 
-            this.Edu_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Edu_DeleteRow.FillWeight = 10F;
-            this.Edu_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Edu_DeleteRow.HeaderText = " ";
-            this.Edu_DeleteRow.MinimumWidth = 50;
-            this.Edu_DeleteRow.Name = "Edu_DeleteRow";
-            this.Edu_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Edu_DeleteRow.Text = "Delete";
-            this.Edu_DeleteRow.UseColumnTextForButtonValue = true;
-            this.Edu_DeleteRow.Width = 50;
-            // 
-            // Edu_InDataBase
-            // 
-            this.Edu_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Edu_InDataBase.HeaderText = "Edu_InDataBase";
-            this.Edu_InDataBase.MinimumWidth = 6;
-            this.Edu_InDataBase.Name = "Edu_InDataBase";
-            this.Edu_InDataBase.Visible = false;
-            // 
-            // Edu_RowID
-            // 
-            this.Edu_RowID.HeaderText = "Edu_RowID";
-            this.Edu_RowID.MinimumWidth = 6;
-            this.Edu_RowID.Name = "Edu_RowID";
-            this.Edu_RowID.Visible = false;
-            // 
-            // Update_button
-            // 
-            this.Update_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Update_button.BackColor = System.Drawing.Color.DarkGray;
-            this.Update_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Update_button.FlatAppearance.BorderSize = 0;
-            this.Update_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Update_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Update_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Update_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Update_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Update_button.Location = new System.Drawing.Point(480, 4);
-            this.Update_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Update_button.MaximumSize = new System.Drawing.Size(125, 40);
-            this.Update_button.MinimumSize = new System.Drawing.Size(125, 40);
-            this.Update_button.Name = "Update_button";
-            this.Update_button.Size = new System.Drawing.Size(125, 40);
-            this.Update_button.TabIndex = 114;
-            this.Update_button.Text = "Update";
-            this.Update_button.UseVisualStyleBackColor = false;
-            // 
-            // ApplyDate_bcDateTimePicker
-            // 
-            this.ApplyDate_bcDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ApplyDate_bcDateTimePicker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ApplyDate_bcDateTimePicker.CustomFormat = "yyyy/MM/dd";
-            this.ApplyDate_bcDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.ApplyDate_bcDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(533, 178);
-            this.ApplyDate_bcDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ApplyDate_bcDateTimePicker.Name = "ApplyDate_bcDateTimePicker";
-            this.ApplyDate_bcDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
-            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(245, 29);
-            this.ApplyDate_bcDateTimePicker.TabIndex = 6;
-            // 
             // delete_contextMenuStrip
             // 
             this.delete_contextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -7656,6 +7641,21 @@ namespace MyWorkApplication
             this.delete_project_person_ToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.delete_project_person_ToolStripMenuItem.Text = "حذف الاستمارة بشكل كامل";
             this.delete_project_person_ToolStripMenuItem.Click += new System.EventHandler(this.delete_all_project_ToolStripMenuItem_Click);
+            // 
+            // ApplyDate_bcDateTimePicker
+            // 
+            this.ApplyDate_bcDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ApplyDate_bcDateTimePicker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ApplyDate_bcDateTimePicker.CustomFormat = "yyyy/MM/dd";
+            this.ApplyDate_bcDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.ApplyDate_bcDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(533, 178);
+            this.ApplyDate_bcDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ApplyDate_bcDateTimePicker.Name = "ApplyDate_bcDateTimePicker";
+            this.ApplyDate_bcDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
+            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(245, 29);
+            this.ApplyDate_bcDateTimePicker.TabIndex = 6;
             // 
             // Application_New_Form
             // 

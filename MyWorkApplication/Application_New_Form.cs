@@ -1688,11 +1688,11 @@ namespace MyWorkApplication
 
                     var query =
                         @"select CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ', P_FatherName) as 'الاسم الثلاثي'
-,PMP.Person_ID as 'ID' , PMP.MicroProject_ID as 'MicroProject_ID' 
-From `person` p right outer join `person_family` pf on p.P_ID = pf.Person_ID 
-left outer join `family` f on f.F_ID = pf.Family_ID 
-left outer join `person_microproject` PMP on PMP.Person_ID = p.P_ID 
-where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'مستفيد'";
+                                ,PMP.Person_ID as 'ID' , PMP.MicroProject_ID as 'MicroProject_ID' 
+                                From `person` p right outer join `person_family` pf on p.P_ID = pf.Person_ID 
+                                left outer join `family` f on f.F_ID = pf.Family_ID 
+                                left outer join `person_microproject` PMP on PMP.Person_ID = p.P_ID 
+                                where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'مستفيد'";
                     Program.buildConnection();
                     MySS.sc = new MySqlCommand(query, Program.MyConn);
                     var name = MySS.sc.ExecuteScalar().ToString();
