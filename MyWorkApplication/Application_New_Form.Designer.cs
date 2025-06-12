@@ -83,6 +83,7 @@ namespace MyWorkApplication
             this.Type_lable = new System.Windows.Forms.Label();
             this.Type_comboBox = new System.Windows.Forms.ComboBox();
             this.label74 = new System.Windows.Forms.Label();
+            this.ApplyDate_bcDateTimePicker = new MyWorkApplication.Classes.BCDateTimePicker();
             this.label79 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.SubType_comboBox = new System.Windows.Forms.ComboBox();
@@ -528,7 +529,6 @@ namespace MyWorkApplication
             this.delete_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.delete_person_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.delete_project_person_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ApplyDate_bcDateTimePicker = new MyWorkApplication.Classes.BCDateTimePicker();
             this.First_tableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -865,6 +865,21 @@ namespace MyWorkApplication
             this.label74.TabIndex = 258;
             this.label74.Text = "تاريخ الطلب:";
             this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ApplyDate_bcDateTimePicker
+            // 
+            this.ApplyDate_bcDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ApplyDate_bcDateTimePicker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ApplyDate_bcDateTimePicker.CustomFormat = "yyyy/MM/dd";
+            this.ApplyDate_bcDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.ApplyDate_bcDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(533, 178);
+            this.ApplyDate_bcDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ApplyDate_bcDateTimePicker.Name = "ApplyDate_bcDateTimePicker";
+            this.ApplyDate_bcDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
+            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(245, 29);
+            this.ApplyDate_bcDateTimePicker.TabIndex = 6;
             // 
             // label79
             // 
@@ -1939,6 +1954,7 @@ namespace MyWorkApplication
             this.P_MaritalState_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_MaritalState_comboBox.Size = new System.Drawing.Size(528, 30);
             this.P_MaritalState_comboBox.TabIndex = 6;
+            this.P_MaritalState_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.P_MaritalState_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // P_HomeStateNote_textBox
@@ -2287,6 +2303,8 @@ namespace MyWorkApplication
             // P_Parish_comboBox
             // 
             this.P_Parish_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_Parish_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.P_Parish_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.P_Parish_comboBox.BackColor = System.Drawing.Color.White;
             this.P_Parish_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.P_Parish_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2348,6 +2366,7 @@ namespace MyWorkApplication
             this.PersonType_comboBox.Size = new System.Drawing.Size(171, 30);
             this.PersonType_comboBox.TabIndex = 565;
             this.PersonType_comboBox.TabStop = false;
+            this.PersonType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.PersonType_comboBox.SelectedIndexChanged += new System.EventHandler(this.PersonType_comboBox_SelectedIndexChanged);
             this.PersonType_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
@@ -3613,6 +3632,8 @@ namespace MyWorkApplication
             this.AidPeriodR_comboBox.Size = new System.Drawing.Size(474, 30);
             this.AidPeriodR_comboBox.TabIndex = 596;
             this.AidPeriodR_comboBox.TabStop = false;
+            this.AidPeriodR_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.AidPeriodR_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // AidPeriodA_comboBox
             // 
@@ -3633,6 +3654,8 @@ namespace MyWorkApplication
             this.AidPeriodA_comboBox.Size = new System.Drawing.Size(474, 30);
             this.AidPeriodA_comboBox.TabIndex = 595;
             this.AidPeriodA_comboBox.TabStop = false;
+            this.AidPeriodA_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.AidPeriodA_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // label113
             // 
@@ -3707,6 +3730,7 @@ namespace MyWorkApplication
             this.AidA_comboBox.Size = new System.Drawing.Size(426, 30);
             this.AidA_comboBox.TabIndex = 593;
             this.AidA_comboBox.TabStop = false;
+            this.AidA_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.AidA_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // AidR_comboBox
@@ -3728,6 +3752,7 @@ namespace MyWorkApplication
             this.AidR_comboBox.Size = new System.Drawing.Size(426, 30);
             this.AidR_comboBox.TabIndex = 594;
             this.AidR_comboBox.TabStop = false;
+            this.AidR_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.AidR_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // SubHeader11_label
@@ -5676,6 +5701,7 @@ namespace MyWorkApplication
             this.MP_PlaceType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_PlaceType_comboBox.Size = new System.Drawing.Size(354, 30);
             this.MP_PlaceType_comboBox.TabIndex = 505;
+            this.MP_PlaceType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.MP_PlaceType_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // label109
@@ -7641,21 +7667,6 @@ namespace MyWorkApplication
             this.delete_project_person_ToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.delete_project_person_ToolStripMenuItem.Text = "حذف الاستمارة بشكل كامل";
             this.delete_project_person_ToolStripMenuItem.Click += new System.EventHandler(this.delete_all_project_ToolStripMenuItem_Click);
-            // 
-            // ApplyDate_bcDateTimePicker
-            // 
-            this.ApplyDate_bcDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ApplyDate_bcDateTimePicker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ApplyDate_bcDateTimePicker.CustomFormat = "yyyy/MM/dd";
-            this.ApplyDate_bcDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.ApplyDate_bcDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(533, 178);
-            this.ApplyDate_bcDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ApplyDate_bcDateTimePicker.Name = "ApplyDate_bcDateTimePicker";
-            this.ApplyDate_bcDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
-            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(245, 29);
-            this.ApplyDate_bcDateTimePicker.TabIndex = 6;
             // 
             // Application_New_Form
             // 

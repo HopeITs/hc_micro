@@ -168,21 +168,24 @@ namespace MyWorkApplication
                 Bind_Gridview_ComboBox(-1);
 
                 //////////////////// handle auto scrolling for all comboBoxes //////////////////////
-                Type_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-                SubType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 SubCategory_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 Career_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                Type_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                SubType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                P_Sex_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                PersonType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                P_MaritalState_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 P_Parish_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 P_Priest_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-                Street_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-                P_Sex_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-                P_MaritalState_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-                PaperApplicationUser_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-
-                ////PersonType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 P_Priest2_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                Street_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 P_HomeType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 MP_PlaceType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                AidA_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                AidPeriodA_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                AidR_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                AidPeriodR_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                PaperApplicationUser_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
                 ///////////////////////////////////////////////////////////////////////////////////////
 
                 Type_comboBox.SelectedIndex = 0; // default MICRO
@@ -385,19 +388,20 @@ namespace MyWorkApplication
             Career_comboBox.SelectionLength = 0; Career_comboBox.SelectionStart = Career_comboBox.Text.Length;
             Type_comboBox.SelectionLength = 0; Type_comboBox.SelectionStart = Type_comboBox.Text.Length;
             SubType_comboBox.SelectionLength = 0; SubType_comboBox.SelectionStart = SubType_comboBox.Text.Length;
-
             P_Sex_comboBox.SelectionLength = 0; P_Sex_comboBox.SelectionStart = P_Sex_comboBox.Text.Length;
+            PersonType_comboBox.SelectionLength = 0; PersonType_comboBox.SelectionStart = PersonType_comboBox.Text.Length;
             P_MaritalState_comboBox.SelectionLength = 0; P_MaritalState_comboBox.SelectionStart = P_MaritalState_comboBox.Text.Length;
-            P_Priest_comboBox.SelectionLength = 0; P_Priest_comboBox.SelectionStart = P_Priest_comboBox.Text.Length;
-            Street_comboBox.SelectionLength = 0; Street_comboBox.SelectionStart = Street_comboBox.Text.Length;
             P_Parish_comboBox.SelectionLength = 0; P_Parish_comboBox.SelectionStart = P_Parish_comboBox.Text.Length;
-            PaperApplicationUser_comboBox.SelectionLength = 0; PaperApplicationUser_comboBox.SelectionStart = PaperApplicationUser_comboBox.Text.Length;
-
-            ////PersonType_comboBox.SelectionLength = 0; PersonType_comboBox.SelectionStart = PersonType_comboBox.Text.Length;
+            P_Priest_comboBox.SelectionLength = 0; P_Priest_comboBox.SelectionStart = P_Priest_comboBox.Text.Length;
             P_Priest2_comboBox.SelectionLength = 0; P_Priest2_comboBox.SelectionStart = P_Priest2_comboBox.Text.Length;
+            Street_comboBox.SelectionLength = 0; Street_comboBox.SelectionStart = Street_comboBox.Text.Length;
             P_HomeType_comboBox.SelectionLength = 0; P_HomeType_comboBox.SelectionStart = P_HomeType_comboBox.Text.Length;
             MP_PlaceType_comboBox.SelectionLength = 0; MP_PlaceType_comboBox.SelectionStart = MP_PlaceType_comboBox.Text.Length;
-
+            AidA_comboBox.SelectionLength = 0; AidA_comboBox.SelectionStart = AidA_comboBox.Text.Length;
+            AidPeriodA_comboBox.SelectionLength = 0; AidPeriodA_comboBox.SelectionStart = AidA_comboBox.Text.Length;
+            AidR_comboBox.SelectionLength = 0; AidR_comboBox.SelectionStart = AidR_comboBox.Text.Length;
+            AidPeriodA_comboBox.SelectionLength = 0; AidPeriodA_comboBox.SelectionStart = AidR_comboBox.Text.Length;
+            PaperApplicationUser_comboBox.SelectionLength = 0; PaperApplicationUser_comboBox.SelectionStart = PaperApplicationUser_comboBox.Text.Length;
         }
         private void comboBox_Leave(object sender, EventArgs e)
         {
@@ -414,6 +418,7 @@ namespace MyWorkApplication
                 }
             }
         }
+
         void comboBox_MouseWheel(object sender, MouseEventArgs e)
         {
             ((HandledMouseEventArgs)e).Handled = true;
@@ -2358,6 +2363,7 @@ namespace MyWorkApplication
         }
         private void Education_dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
+            /*
             if (e.RowIndex == Education_dataGridView.NewRowIndex || e.RowIndex < 0)
                 return;
 
@@ -2374,7 +2380,7 @@ namespace MyWorkApplication
                 location.Offset(e.CellBounds.Location);
                 e.Graphics.DrawImage(image, location);
                 e.Handled = true;
-            }
+            }*/
         }
         private void Education_dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -2637,6 +2643,7 @@ namespace MyWorkApplication
         {
             try
             {
+                /*
                 if (e.RowIndex == Exp_dataGridView.NewRowIndex || e.RowIndex < 0)
                     return;
 
@@ -2654,7 +2661,7 @@ namespace MyWorkApplication
                     e.Graphics.DrawImage(image, location);
 
                     e.Handled = true;
-                }
+                }*/
             }
             catch (Exception ex)
             {
@@ -2832,6 +2839,7 @@ namespace MyWorkApplication
         {
             try
             {
+                /*
                 if (!string.IsNullOrWhiteSpace(Materials_dataGridView.CurrentCell.Value.ToString()))
                 {
                     if (e.ColumnIndex == Materials_dataGridView.Columns["M_Price"].Index
@@ -2846,7 +2854,7 @@ namespace MyWorkApplication
                         calculate_SumOfBudgetItems();
                     }
                 }
-                else Materials_dataGridView.CurrentCell.Value = "";
+                else Materials_dataGridView.CurrentCell.Value = "";*/
             }
             catch (Exception ex)
             {
@@ -3242,6 +3250,7 @@ namespace MyWorkApplication
             var _Form = new Attachments_Form(MicroProject_ID, mainForm);
             mainForm.showNewTab(_Form, "Attachments", 0);
         }
+
         private void showChecklistToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var _Form = new CheckList_Form(MicroProject_ID, mainForm);
