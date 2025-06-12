@@ -124,18 +124,6 @@ namespace MyWorkApplication
             AddPartner_button.Visible = false;
         }
 
-        public Application_New_Form(int Person_ID, int MicroProject_ID, MainForm mainForm)
-        {
-            this.Person_ID = Person_ID;
-            this.MicroProject_ID = MicroProject_ID;
-
-            MyDataGridViewInitializationMethod();
-            Update_Mode = true; AddPartner_button.Visible = true;
-
-            this.mainForm = mainForm;
-
-        }
-
         private void Application_New_Form_Load(object sender, EventArgs e)
         {
             try
@@ -285,6 +273,7 @@ namespace MyWorkApplication
             else
                 newTheme.ApplicationNew_ToLight(this);
         }
+
         private bool CheckUserPermission()
         {
             switch (Program.role)
@@ -382,6 +371,7 @@ namespace MyWorkApplication
             }
             e.DrawFocusRectangle();
         }
+
         private void Stop_Highlighting_Combobox()
         {
             SubCategory_comboBox.SelectionLength = 0; SubCategory_comboBox.SelectionStart = SubCategory_comboBox.Text.Length;
@@ -403,6 +393,7 @@ namespace MyWorkApplication
             AidPeriodA_comboBox.SelectionLength = 0; AidPeriodA_comboBox.SelectionStart = AidR_comboBox.Text.Length;
             PaperApplicationUser_comboBox.SelectionLength = 0; PaperApplicationUser_comboBox.SelectionStart = PaperApplicationUser_comboBox.Text.Length;
         }
+
         private void comboBox_Leave(object sender, EventArgs e)
         {
             ComboBox cb = (ComboBox)sender;
@@ -428,64 +419,188 @@ namespace MyWorkApplication
         #region datagridview with comboxBoxes methods
         private void MyDataGridViewInitializationMethod()
         {
-            FamilyMember_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(FamilyMember_dataGridView_EditingControlShowing);
             Work_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(Work_dataGridView_EditingControlShowing);
             Exp_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(Exp_dataGridView_EditingControlShowing);
             Education_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(Education_dataGridView_EditingControlShowing);
             Course_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(Course_dataGridView_EditingControlShowing);
+            PowerSource_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(PowerSource_dataGridView_EditingControlShowing);
+            Materials_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(Materials_dataGridView_EditingControlShowing);
+            FamilyMember_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(FamilyMember_dataGridView_EditingControlShowing);
             Loss_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(Loss_dataGridView_EditingControlShowing);
             Illness_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(Illness_dataGridView_EditingControlShowing);
             Assets_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(Assets_dataGridView_EditingControlShowing);
             AidSource_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(AidSource_dataGridView_EditingControlShowing);
             HomePowerSource_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(HomePowerSource_dataGridView_EditingControlShowing);
-            PowerSource_dataGridView.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(PowerSource_dataGridView_EditingControlShowing);
+        }
+
+        private void Work_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (e.Control is ComboBox)
+            {
+                ComboBox cb = (ComboBox)e.Control;
+                cb.DrawMode = DrawMode.OwnerDrawVariable;
+                cb.DrawItem -= ComboBox_DrawItem;
+                cb.DrawItem += ComboBox_DrawItem;
+
+                cb.DropDownStyle = ComboBoxStyle.DropDown;
+                cb.AutoCompleteMode = AutoCompleteMode.Suggest;
+            }
+        }
+
+        private void Exp_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (e.Control is ComboBox)
+            {
+                ComboBox cb = (ComboBox)e.Control;
+                cb.DrawMode = DrawMode.OwnerDrawVariable;
+                cb.DrawItem -= ComboBox_DrawItem;
+                cb.DrawItem += ComboBox_DrawItem;
+
+                cb.DropDownStyle = ComboBoxStyle.DropDown;
+                cb.AutoCompleteMode = AutoCompleteMode.Suggest;
+            }
+        }
+
+        private void Education_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (e.Control is ComboBox)
+            {
+                ComboBox cb = (ComboBox)e.Control;
+                cb.DrawMode = DrawMode.OwnerDrawVariable;
+                cb.DrawItem -= ComboBox_DrawItem;
+                cb.DrawItem += ComboBox_DrawItem;
+
+                cb.DropDownStyle = ComboBoxStyle.DropDown;
+                cb.AutoCompleteMode = AutoCompleteMode.Suggest;
+            }
+        }
+
+        private void Course_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (e.Control is ComboBox)
+            {
+                ComboBox cb = (ComboBox)e.Control;
+                cb.DrawMode = DrawMode.OwnerDrawVariable;
+                cb.DrawItem -= ComboBox_DrawItem;
+                cb.DrawItem += ComboBox_DrawItem;
+
+                cb.DropDownStyle = ComboBoxStyle.DropDown;
+                cb.AutoCompleteMode = AutoCompleteMode.Suggest;
+            }
+        }
+
+        private void PowerSource_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (e.Control is ComboBox)
+            {
+                ComboBox cb = (ComboBox)e.Control;
+                cb.DrawMode = DrawMode.OwnerDrawVariable;
+                cb.DrawItem -= ComboBox_DrawItem;
+                cb.DrawItem += ComboBox_DrawItem;
+
+                cb.DropDownStyle = ComboBoxStyle.DropDown;
+                cb.AutoCompleteMode = AutoCompleteMode.Suggest;
+            }
+        }
+
+        private void Materials_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (e.Control is ComboBox)
+            {
+                ComboBox cb = (ComboBox)e.Control;
+                cb.DrawMode = DrawMode.OwnerDrawVariable;
+                cb.DrawItem -= ComboBox_DrawItem;
+                cb.DrawItem += ComboBox_DrawItem;
+
+                cb.DropDownStyle = ComboBoxStyle.DropDown;
+                cb.AutoCompleteMode = AutoCompleteMode.Suggest;
+            }
         }
 
         private void FamilyMember_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            e.Control.KeyPress += new KeyPressEventHandler(FamilyMember_dataGridView_Control_KeyPress);
+            if (e.Control is ComboBox)
+            {
+                ComboBox cb = (ComboBox)e.Control;
+                cb.DrawMode = DrawMode.OwnerDrawVariable;
+                cb.DrawItem -= ComboBox_DrawItem;
+                cb.DrawItem += ComboBox_DrawItem;
+
+                cb.DropDownStyle = ComboBoxStyle.DropDown;
+                cb.AutoCompleteMode = AutoCompleteMode.Suggest;
+            }
         }
-        private void Education_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+
+        private void Loss_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            e.Control.KeyPress += new KeyPressEventHandler(Education_dataGridView_Control_KeyPress);
+            if (e.Control is ComboBox)
+            {
+                ComboBox cb = (ComboBox)e.Control;
+                cb.DrawMode = DrawMode.OwnerDrawVariable;
+                cb.DrawItem -= ComboBox_DrawItem;
+                cb.DrawItem += ComboBox_DrawItem;
+
+                cb.DropDownStyle = ComboBoxStyle.DropDown;
+                cb.AutoCompleteMode = AutoCompleteMode.Suggest;
+            }
         }
-        private void Work_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+
+        private void Illness_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            e.Control.KeyPress += new KeyPressEventHandler(Work_dataGridView_Control_KeyPress);
+            if (e.Control is ComboBox)
+            {
+                ComboBox cb = (ComboBox)e.Control;
+                cb.DrawMode = DrawMode.OwnerDrawVariable;
+                cb.DrawItem -= ComboBox_DrawItem;
+                cb.DrawItem += ComboBox_DrawItem;
+
+                cb.DropDownStyle = ComboBoxStyle.DropDown;
+                cb.AutoCompleteMode = AutoCompleteMode.Suggest;
+            }
         }
-        private void Exp_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+
+        private void Assets_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            e.Control.KeyPress += new KeyPressEventHandler(Exp_dataGridView_Control_KeyPress);
+            if (e.Control is ComboBox)
+            {
+                ComboBox cb = (ComboBox)e.Control;
+                cb.DrawMode = DrawMode.OwnerDrawVariable;
+                cb.DrawItem -= ComboBox_DrawItem;
+                cb.DrawItem += ComboBox_DrawItem;
+
+                cb.DropDownStyle = ComboBoxStyle.DropDown;
+                cb.AutoCompleteMode = AutoCompleteMode.Suggest;
+            }
         }
-        private void PowerSource_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            e.Control.KeyPress += new KeyPressEventHandler(PowerSource_dataGridView_Control_KeyPress);
-        }
+
         private void AidSource_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            e.Control.KeyPress += new KeyPressEventHandler(AidSource_dataGridView_Control_KeyPress);
+            if (e.Control is ComboBox)
+            {
+                ComboBox cb = (ComboBox)e.Control;
+                cb.DrawMode = DrawMode.OwnerDrawVariable;
+                cb.DrawItem -= ComboBox_DrawItem;
+                cb.DrawItem += ComboBox_DrawItem;
+
+                cb.DropDownStyle = ComboBoxStyle.DropDown;
+                cb.AutoCompleteMode = AutoCompleteMode.Suggest;
+            }
         }
 
         private void HomePowerSource_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            e.Control.KeyPress += new KeyPressEventHandler(HomePowerSource_dataGridView_Control_KeyPress);
+            if (e.Control is ComboBox)
+            {
+                ComboBox cb = (ComboBox)e.Control;
+                cb.DrawMode = DrawMode.OwnerDrawVariable;
+                cb.DrawItem -= ComboBox_DrawItem;
+                cb.DrawItem += ComboBox_DrawItem;
+
+                cb.DropDownStyle = ComboBoxStyle.DropDown;
+                cb.AutoCompleteMode = AutoCompleteMode.Suggest;
+            }
         }
-        private void Assets_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            e.Control.KeyPress += new KeyPressEventHandler(Assets_dataGridView_Control_KeyPress);
-        }
-        private void Illness_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            e.Control.KeyPress += new KeyPressEventHandler(Illness_dataGridView_Control_KeyPress);
-        }
-        private void Loss_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            e.Control.KeyPress += new KeyPressEventHandler(Loss_dataGridView_dataGridView_Control_KeyPress);
-        }
-        private void Course_dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            e.Control.KeyPress += new KeyPressEventHandler(Course_dataGridView_dataGridView_Control_KeyPress);
-        }
+
 
 
         private void FamilyMember_dataGridView_Control_KeyPress(object sender, KeyPressEventArgs e)
