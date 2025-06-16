@@ -76,6 +76,7 @@ namespace MyWorkApplication
             this.Closed_button = new System.Windows.Forms.Button();
             this.ShowHide_button = new System.Windows.Forms.Button();
             this.ApplyFilter_button = new System.Windows.Forms.Button();
+            this.OnHold_button = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Search_panel = new System.Windows.Forms.Panel();
@@ -221,8 +222,9 @@ namespace MyWorkApplication
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel2.ColumnCount = 15;
+            this.tableLayoutPanel2.ColumnCount = 16;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
@@ -237,19 +239,20 @@ namespace MyWorkApplication
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.Controls.Add(this.Waiting_button, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.Refresh_button, 11, 0);
-            this.tableLayoutPanel2.Controls.Add(this.Finished_button, 8, 0);
-            this.tableLayoutPanel2.Controls.Add(this.Financed_button, 7, 0);
-            this.tableLayoutPanel2.Controls.Add(this.Accepted_button, 6, 0);
-            this.tableLayoutPanel2.Controls.Add(this.Withdrew_button, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.Prospecting_button, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.Delayed_button, 5, 0);
-            this.tableLayoutPanel2.Controls.Add(this.Regected_button, 4, 0);
-            this.tableLayoutPanel2.Controls.Add(this.Cancelled_button, 9, 0);
-            this.tableLayoutPanel2.Controls.Add(this.Closed_button, 10, 0);
-            this.tableLayoutPanel2.Controls.Add(this.ShowHide_button, 13, 0);
-            this.tableLayoutPanel2.Controls.Add(this.ApplyFilter_button, 12, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Waiting_button, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Refresh_button, 12, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Finished_button, 9, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Financed_button, 8, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Accepted_button, 7, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Withdrew_button, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Prospecting_button, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Delayed_button, 6, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Regected_button, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Cancelled_button, 10, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Closed_button, 11, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ShowHide_button, 14, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ApplyFilter_button, 13, 0);
+            this.tableLayoutPanel2.Controls.Add(this.OnHold_button, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -267,7 +270,7 @@ namespace MyWorkApplication
             this.Waiting_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
             this.Waiting_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Waiting_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Waiting_button.Location = new System.Drawing.Point(1200, 6);
+            this.Waiting_button.Location = new System.Drawing.Point(1156, 6);
             this.Waiting_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Waiting_button.MaximumSize = new System.Drawing.Size(31, 27);
             this.Waiting_button.MinimumSize = new System.Drawing.Size(28, 33);
@@ -287,7 +290,7 @@ namespace MyWorkApplication
             this.Refresh_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Refresh_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Refresh_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Refresh_button.Location = new System.Drawing.Point(759, 6);
+            this.Refresh_button.Location = new System.Drawing.Point(715, 6);
             this.Refresh_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Refresh_button.MaximumSize = new System.Drawing.Size(35, 31);
             this.Refresh_button.MinimumSize = new System.Drawing.Size(28, 33);
@@ -305,7 +308,7 @@ namespace MyWorkApplication
             this.Finished_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(201)))), ((int)(((byte)(231)))));
             this.Finished_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Finished_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Finished_button.Location = new System.Drawing.Point(892, 6);
+            this.Finished_button.Location = new System.Drawing.Point(848, 6);
             this.Finished_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Finished_button.MaximumSize = new System.Drawing.Size(31, 27);
             this.Finished_button.MinimumSize = new System.Drawing.Size(28, 33);
@@ -322,7 +325,7 @@ namespace MyWorkApplication
             this.Financed_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(234)))), ((int)(((byte)(251)))));
             this.Financed_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Financed_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Financed_button.Location = new System.Drawing.Point(936, 6);
+            this.Financed_button.Location = new System.Drawing.Point(892, 6);
             this.Financed_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Financed_button.MaximumSize = new System.Drawing.Size(31, 27);
             this.Financed_button.MinimumSize = new System.Drawing.Size(28, 33);
@@ -339,7 +342,7 @@ namespace MyWorkApplication
             this.Accepted_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(226)))), ((int)(((byte)(202)))));
             this.Accepted_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Accepted_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Accepted_button.Location = new System.Drawing.Point(980, 6);
+            this.Accepted_button.Location = new System.Drawing.Point(936, 6);
             this.Accepted_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Accepted_button.MaximumSize = new System.Drawing.Size(31, 27);
             this.Accepted_button.MinimumSize = new System.Drawing.Size(28, 33);
@@ -356,7 +359,7 @@ namespace MyWorkApplication
             this.Withdrew_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(163)))), ((int)(((byte)(203)))));
             this.Withdrew_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Withdrew_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Withdrew_button.Location = new System.Drawing.Point(1156, 6);
+            this.Withdrew_button.Location = new System.Drawing.Point(1112, 6);
             this.Withdrew_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Withdrew_button.MaximumSize = new System.Drawing.Size(31, 27);
             this.Withdrew_button.MinimumSize = new System.Drawing.Size(28, 33);
@@ -373,7 +376,7 @@ namespace MyWorkApplication
             this.Prospecting_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(249)))), ((int)(((byte)(184)))));
             this.Prospecting_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Prospecting_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Prospecting_button.Location = new System.Drawing.Point(1112, 6);
+            this.Prospecting_button.Location = new System.Drawing.Point(1068, 6);
             this.Prospecting_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Prospecting_button.MaximumSize = new System.Drawing.Size(31, 27);
             this.Prospecting_button.MinimumSize = new System.Drawing.Size(28, 33);
@@ -390,7 +393,7 @@ namespace MyWorkApplication
             this.Delayed_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(200)))), ((int)(((byte)(202)))));
             this.Delayed_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Delayed_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Delayed_button.Location = new System.Drawing.Point(1024, 6);
+            this.Delayed_button.Location = new System.Drawing.Point(980, 6);
             this.Delayed_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Delayed_button.MaximumSize = new System.Drawing.Size(31, 27);
             this.Delayed_button.MinimumSize = new System.Drawing.Size(28, 33);
@@ -407,7 +410,7 @@ namespace MyWorkApplication
             this.Regected_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(201)))), ((int)(((byte)(196)))));
             this.Regected_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Regected_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Regected_button.Location = new System.Drawing.Point(1068, 6);
+            this.Regected_button.Location = new System.Drawing.Point(1024, 6);
             this.Regected_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Regected_button.MaximumSize = new System.Drawing.Size(31, 27);
             this.Regected_button.MinimumSize = new System.Drawing.Size(28, 33);
@@ -424,7 +427,7 @@ namespace MyWorkApplication
             this.Cancelled_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(182)))), ((int)(((byte)(163)))));
             this.Cancelled_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Cancelled_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Cancelled_button.Location = new System.Drawing.Point(848, 6);
+            this.Cancelled_button.Location = new System.Drawing.Point(804, 6);
             this.Cancelled_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Cancelled_button.MaximumSize = new System.Drawing.Size(31, 27);
             this.Cancelled_button.MinimumSize = new System.Drawing.Size(28, 33);
@@ -441,7 +444,7 @@ namespace MyWorkApplication
             this.Closed_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(186)))), ((int)(((byte)(191)))));
             this.Closed_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Closed_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Closed_button.Location = new System.Drawing.Point(804, 6);
+            this.Closed_button.Location = new System.Drawing.Point(760, 6);
             this.Closed_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Closed_button.MaximumSize = new System.Drawing.Size(31, 27);
             this.Closed_button.MinimumSize = new System.Drawing.Size(28, 33);
@@ -500,6 +503,23 @@ namespace MyWorkApplication
             this.ApplyFilter_button.Click += new System.EventHandler(this.ApplyFilter_button_Click);
             this.ApplyFilter_button.MouseEnter += new System.EventHandler(this.ApplyFilter_button_MouseEnter);
             this.ApplyFilter_button.MouseLeave += new System.EventHandler(this.ApplyFilter_button_MouseLeave);
+            // 
+            // OnHold_button
+            // 
+            this.OnHold_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.OnHold_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(235)))), ((int)(((byte)(198)))));
+            this.OnHold_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.OnHold_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OnHold_button.Location = new System.Drawing.Point(1200, 6);
+            this.OnHold_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.OnHold_button.MaximumSize = new System.Drawing.Size(31, 27);
+            this.OnHold_button.MinimumSize = new System.Drawing.Size(28, 33);
+            this.OnHold_button.Name = "OnHold_button";
+            this.OnHold_button.Size = new System.Drawing.Size(31, 33);
+            this.OnHold_button.TabIndex = 653;
+            this.toolTip1.SetToolTip(this.OnHold_button, "تسجيل أولي/On Hold");
+            this.OnHold_button.UseVisualStyleBackColor = false;
+            this.OnHold_button.Click += new System.EventHandler(this.OnHold_button_Click);
             // 
             // timer1
             // 
@@ -1460,7 +1480,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.70951F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.59554F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.49871F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanel1.ContextMenuStrip = this.contextMenuStrip1;
             this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.ExportToExcel_button, 1, 0);
@@ -1483,7 +1503,7 @@ namespace MyWorkApplication
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(1046, 4);
+            this.label2.Location = new System.Drawing.Point(1050, 4);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(116, 27);
@@ -1522,11 +1542,11 @@ namespace MyWorkApplication
             this.Count_label.AutoSize = true;
             this.Count_label.BackColor = System.Drawing.Color.Transparent;
             this.Count_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Count_label.Location = new System.Drawing.Point(854, 4);
+            this.Count_label.Location = new System.Drawing.Point(862, 4);
             this.Count_label.Margin = new System.Windows.Forms.Padding(0);
             this.Count_label.Name = "Count_label";
             this.Count_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Count_label.Size = new System.Drawing.Size(189, 27);
+            this.Count_label.Size = new System.Drawing.Size(185, 27);
             this.Count_label.TabIndex = 473;
             this.Count_label.Text = "0000";
             this.Count_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1537,11 +1557,11 @@ namespace MyWorkApplication
             this.Selected_label.AutoSize = true;
             this.Selected_label.BackColor = System.Drawing.Color.Transparent;
             this.Selected_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Selected_label.Location = new System.Drawing.Point(677, 4);
+            this.Selected_label.Location = new System.Drawing.Point(690, 4);
             this.Selected_label.Margin = new System.Windows.Forms.Padding(0);
             this.Selected_label.Name = "Selected_label";
             this.Selected_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Selected_label.Size = new System.Drawing.Size(177, 27);
+            this.Selected_label.Size = new System.Drawing.Size(172, 27);
             this.Selected_label.TabIndex = 474;
             this.Selected_label.Text = "0000";
             this.Selected_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1806,5 +1826,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label year_label1;
         private System.Windows.Forms.Label to_label1;
         private System.Windows.Forms.Button ApplyFilter_button;
+        private System.Windows.Forms.Button OnHold_button;
     }
 }
