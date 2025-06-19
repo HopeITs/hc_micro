@@ -355,6 +355,7 @@
     <Compile Include="Classes\Education.cs" />
     <Compile Include="Classes\Encryption.cs" />
     <Compile Include="Classes\Images.cs" />
+    <Compile Include="Classes\InputValidationHelpercs.cs" />
     <Compile Include="Classes\RehabApplication.cs" />
     <Compile Include="Classes\SpecialCase.cs" />
     <Compile Include="Classes\StateReason.cs" />
