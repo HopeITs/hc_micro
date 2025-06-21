@@ -151,8 +151,10 @@ namespace MyWorkApplication
                 HomePowerSource_dataGridView.AutoGenerateColumns = PowerSource_dataGridView.AutoGenerateColumns =
                 Materials_dataGridView.AutoGenerateColumns = false;
 
-                Initialize_NumericTextBox_KeyPress();
 
+                Bind_Gridview_Dictionaries();
+                Initialize_IsDirty();
+                Initialize_NumericTextBox_KeyPress();
 
                 Stop_ComboBox_Scrolling();
                 Bind_Data(false);
@@ -259,12 +261,6 @@ namespace MyWorkApplication
                     e.Graphics.FillRectangle(brush, e.Bounds);
                 }
 
-                //object Ob = ((ComboBox)sender).Items[e.Index];
-                //// Draw the text.
-                //if (Properties.Settings.Default.theme == "Light")
-                //    e.Graphics.DrawString(((ComboBox)sender).GetItemText(((ComboBox)sender).Items[e.Index]), e.Font, Brushes.Black, e.Bounds.X, e.Bounds.Y);
-                //else e.Graphics.DrawString(((ComboBox)sender).GetItemText(((ComboBox)sender).Items[e.Index]), e.Font, Brushes.LightGray, e.Bounds.X, e.Bounds.Y);
-
                 ComboBox comboBox = (ComboBox)sender;
                 string text = comboBox.GetItemText(comboBox.Items[e.Index]);
 
@@ -300,10 +296,6 @@ namespace MyWorkApplication
             Street_comboBox.SelectionLength = 0; Street_comboBox.SelectionStart = Street_comboBox.Text.Length;
             P_HomeType_comboBox.SelectionLength = 0; P_HomeType_comboBox.SelectionStart = P_HomeType_comboBox.Text.Length;
             MP_PlaceType_comboBox.SelectionLength = 0; MP_PlaceType_comboBox.SelectionStart = MP_PlaceType_comboBox.Text.Length;
-            AidA_comboBox.SelectionLength = 0; AidA_comboBox.SelectionStart = AidA_comboBox.Text.Length;
-            AidPeriodA_comboBox.SelectionLength = 0; AidPeriodA_comboBox.SelectionStart = AidA_comboBox.Text.Length;
-            AidR_comboBox.SelectionLength = 0; AidR_comboBox.SelectionStart = AidR_comboBox.Text.Length;
-            AidPeriodA_comboBox.SelectionLength = 0; AidPeriodA_comboBox.SelectionStart = AidR_comboBox.Text.Length;
             PaperApplicationUser_comboBox.SelectionLength = 0; PaperApplicationUser_comboBox.SelectionStart = PaperApplicationUser_comboBox.Text.Length;
         }
 
@@ -344,10 +336,6 @@ namespace MyWorkApplication
             Street_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
             P_HomeType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
             MP_PlaceType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            AidA_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            AidPeriodA_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            AidR_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            AidPeriodR_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
             PaperApplicationUser_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
             ///////////////////////////////////////////////////////////////////////////////////////
         }
@@ -368,8 +356,6 @@ namespace MyWorkApplication
             query += "select Priest_ID as 'ID',Priest_Name as 'Name' from `priest` order by Priest_Name ASC;"; //P_Priest_comboBox, P_Priest2_comboBox
             query += "SELECT ID, Name from `street` order by Name ASC;"; //Street_comboBox
             query += "select ID, Name from `assettype` order by ID ASC;"; //P_HomeType_comboBox, MP_PlaceType_comboBox
-            query += "select ID, Name from `aid` order by ID ASC;"; //AidA_comboBox, AidR_comboBox
-            query += "select ID, Name from `aidperiod` order by ID ASC;"; //AidPeriodA_comboBox, AidPeriodR_comboBox, Ill_AidPeriod
             query += "select UserID as 'ID', UserName as 'Name' from `user` "
                   + " where IsVisitor = 1 order by UserName ASC;"; //PaperApplicationUser_comboBox
 
@@ -387,7 +373,10 @@ namespace MyWorkApplication
             query += "SELECT ID, Name from `illness` ORDER BY ID ASC;"; //Ill_Name
             query += "SELECT ID, Name from `medicalneeds` ORDER BY ID ASC;"; //Ill_MedicalNeeds
             query += "SELECT ID, Name from `asset` ORDER BY ID ASC;"; //Asset_Name
-            query += "select ID ,Name from `aidsource` ORDER BY ID ASC;"; //Aid_Name, Ill_Donor
+            query += "select ID, Name from `aid` order by ID ASC;"; //Help_Name
+            query += "select ID, Name from `aidperiod` order by ID ASC;"; //Help_Period, Ill_AidPeriod
+            query += "select ID ,Name from `aidsource` ORDER BY ID ASC;"; //Aid_Source, Help_Source, Ill_Donor
+
 
 
             //CheckBoxes
@@ -444,81 +433,77 @@ namespace MyWorkApplication
             DataTable dt81 = ds.Tables[8].Copy(); //MP_PlaceType_comboBox
             Bind_ComboBox(MP_PlaceType_comboBox, dt81, KeepSelection);
 
-            DataTable dt9 = ds.Tables[9].Copy(); //AidA_comboBox
-            Bind_ComboBox(AidA_comboBox, dt9, KeepSelection);
-
-            DataTable dt91 = ds.Tables[9].Copy(); //AidR_comboBox
-            Bind_ComboBox(AidR_comboBox, dt91, KeepSelection);
-
-
-            DataTable dt10 = ds.Tables[10].Copy(); //AidPeriodA_comboBox
-            Bind_ComboBox(AidPeriodA_comboBox, dt10, KeepSelection);
-
-            DataTable dt101 = ds.Tables[10].Copy(); //AidPeriodR_comboBox
-            Bind_ComboBox(AidPeriodR_comboBox, dt101, KeepSelection);
-
-            DataTable dt102 = ds.Tables[10].Copy(); //Ill_AidPeriod
-            Bind_Gridview_ComboBox(this.Ill_AidPeriod, dt102);
-
-            DataTable dt11 = ds.Tables[11].Copy(); //PaperApplicationUser_comboBox
-            Bind_ComboBox(PaperApplicationUser_comboBox, dt11, KeepSelection);
+            DataTable dt9 = ds.Tables[9].Copy(); //PaperApplicationUser_comboBox
+            Bind_ComboBox(PaperApplicationUser_comboBox, dt9, KeepSelection);
 
 
             //Datagrid_ComboBoxes
-            DataTable dt12 = ds.Tables[12].Copy(); //W_Name
-            Bind_Gridview_ComboBox(this.W_Name, dt12);
+            DataTable dt10 = ds.Tables[10].Copy(); //W_Name
+            Bind_Gridview_ComboBox(this.W_Name, dt10);
 
-            DataTable dt121 = ds.Tables[12].Copy(); //Exp_Name
-            Bind_Gridview_ComboBox(this.Exp_Name, dt121);
+            DataTable dt101 = ds.Tables[10].Copy(); //Exp_Name
+            Bind_Gridview_ComboBox(this.Exp_Name, dt101);
 
             //DataTable dt122 = ds.Tables[12].Copy(); //P_WorkName
             //Bind_Gridview_ComboBox(this.P_WorkName, dt122);
 
-            DataTable dt13 = ds.Tables[13].Copy(); //W_WorkType
-            Bind_Gridview_ComboBox(this.W_WorkType, dt13);
+            DataTable dt11 = ds.Tables[11].Copy(); //W_WorkType
+            Bind_Gridview_ComboBox(this.W_WorkType, dt11);
 
-            DataTable dt131 = ds.Tables[13].Copy(); //Exp_WorkType
-            Bind_Gridview_ComboBox(this.Exp_WorkType, dt131);
+            DataTable dt111 = ds.Tables[11].Copy(); //Exp_WorkType
+            Bind_Gridview_ComboBox(this.Exp_WorkType, dt111);
 
-            DataTable dt132 = ds.Tables[13].Copy(); //P_WorkType
-            Bind_Gridview_ComboBox(this.P_WorkType, dt132);
+            DataTable dt112 = ds.Tables[11].Copy(); //P_WorkType
+            Bind_Gridview_ComboBox(this.P_WorkType, dt112);
 
             // Fill on E_Type selection changed
-            //DataTable dt14 = ds.Tables[14].Copy(); //E_Name
-            //Bind_Gridview_ComboBox(this.E_Name, dt14);
+            //DataTable dt12 = ds.Tables[12].Copy(); //E_Name
+            //Bind_Gridview_ComboBox(this.E_Name, dt12);
 
-            DataTable dt15 = ds.Tables[15].Copy(); //C_SubCategory
-            Bind_Gridview_ComboBox(this.C_SubCategory, dt15);
+            DataTable dt13 = ds.Tables[13].Copy(); //C_SubCategory
+            Bind_Gridview_ComboBox(this.C_SubCategory, dt13);
 
-            DataTable dt16 = ds.Tables[16].Copy(); //Power_Name
-            Bind_Gridview_ComboBox(this.Power_Name, dt16);
+            DataTable dt14 = ds.Tables[14].Copy(); //Power_Name
+            Bind_Gridview_ComboBox(this.Power_Name, dt14);
 
-            DataTable dt161 = ds.Tables[16].Copy(); //HPower_Name
-            Bind_Gridview_ComboBox(this.HPower_Name, dt161);
+            DataTable dt141 = ds.Tables[14].Copy(); //HPower_Name
+            Bind_Gridview_ComboBox(this.HPower_Name, dt141);
 
-            DataTable dt17 = ds.Tables[17].Copy(); //P_Relation
-            Bind_Gridview_ComboBox(this.P_Relation, dt17);
+            DataTable dt15 = ds.Tables[15].Copy(); //P_Relation
+            Bind_Gridview_ComboBox(this.P_Relation, dt15);
 
-            DataTable dt18 = ds.Tables[18].Copy(); //P_State
-            Bind_Gridview_ComboBox(this.P_State, dt18);
+            DataTable dt16 = ds.Tables[16].Copy(); //P_State
+            Bind_Gridview_ComboBox(this.P_State, dt16);
 
-            DataTable dt19 = ds.Tables[19].Copy(); //L_Type
-            Bind_Gridview_ComboBox(this.L_Type, dt19);
+            DataTable dt17 = ds.Tables[17].Copy(); //L_Type
+            Bind_Gridview_ComboBox(this.L_Type, dt17);
 
-            DataTable dt20 = ds.Tables[20].Copy(); //Ill_Name
-            Bind_Gridview_ComboBox(this.Ill_Name, dt20);
+            DataTable dt18 = ds.Tables[18].Copy(); //Ill_Name
+            Bind_Gridview_ComboBox(this.Ill_Name, dt18);
 
-            DataTable dt21 = ds.Tables[21].Copy(); //Ill_MedicalNeeds
-            Bind_Gridview_ComboBox(this.Ill_MedicalNeeds, dt21);
+            DataTable dt19 = ds.Tables[19].Copy(); //Ill_MedicalNeeds
+            Bind_Gridview_ComboBox(this.Ill_MedicalNeeds, dt19);
 
-            DataTable dt22 = ds.Tables[22].Copy(); //Asset_Name
-            Bind_Gridview_ComboBox(this.Asset_Name, dt22);
+            DataTable dt20 = ds.Tables[20].Copy(); //Asset_Name
+            Bind_Gridview_ComboBox(this.Asset_Name, dt20);
 
-            DataTable dt23 = ds.Tables[23].Copy(); //Aid_Name
-            Bind_Gridview_ComboBox(this.Aid_Name, dt23);
+            DataTable dt21 = ds.Tables[21].Copy(); //Help_Name
+            Bind_Gridview_ComboBox(this.Help_Name, dt21);
 
-            DataTable dt231 = ds.Tables[23].Copy(); //Ill_Donor
-            Bind_Gridview_ComboBox(this.Ill_Donor, dt231);
+            DataTable dt22 = ds.Tables[22].Copy(); //Help_Period
+            Bind_Gridview_ComboBox(this.Help_Period, dt22);
+
+            DataTable dt221 = ds.Tables[22].Copy(); //Ill_AidPeriod
+            Bind_Gridview_ComboBox(this.Ill_AidPeriod, dt221);
+
+            DataTable dt23 = ds.Tables[23].Copy(); //Aid_Source
+            Bind_Gridview_ComboBox(this.Aid_Source, dt23);
+
+            DataTable dt231 = ds.Tables[23].Copy(); //Help_Source
+            Bind_Gridview_ComboBox(this.Help_Source, dt231);
+
+            DataTable dt232 = ds.Tables[23].Copy(); //Ill_Donor
+            Bind_Gridview_ComboBox(this.Ill_Donor, dt232);
 
             //CheckBoxes
             DataTable dt24 = ds.Tables[24].Copy();//GoalsCheckBoxes
@@ -550,13 +535,6 @@ namespace MyWorkApplication
             else
                 Combox_Name.SelectedIndex = -1;
 
-        }
-
-        private void Bind_Gridview_ComboBox(DataGridViewComboBoxColumn Combox_Name, DataTable dt)
-        {
-            Combox_Name.DataSource = dt;
-            Combox_Name.DisplayMember = "name";
-            Combox_Name.ValueMember = "id";
         }
 
         private void Bind_Chickbox_List(FlowLayoutPanel FlowLayoutPanel_Name, DataTable dt)
@@ -710,6 +688,55 @@ namespace MyWorkApplication
 
 
         #region dataGridView common functions
+
+        Dictionary<DataGridView, string> ID_Columns = new Dictionary<DataGridView, string>();
+        Dictionary<DataGridView, string> IsDirty_Columns = new Dictionary<DataGridView, string>();
+
+        private void Bind_Gridview_Dictionaries()
+
+        {
+            ID_Columns = new Dictionary<DataGridView, string>
+                {
+                    {Work_dataGridView,  "WP_ID"},
+                    {Exp_dataGridView,  "ExpP_ID"},
+                    {Education_dataGridView,  "PE_ID"},
+                    {Course_dataGridView,  "CPerosn_ID"},
+                    {PowerSource_dataGridView,  "Power_MP_ID"},
+                    {Materials_dataGridView,  "M_ID"},
+                    {FamilyMember_dataGridView,  "FP_ID"},
+                    {Loss_dataGridView,  "LPerson_ID"},
+                    {Illness_dataGridView,  "Ill_Person_ID"},
+                    {Assets_dataGridView,  "APerson_ID"},
+                    {AidSource_dataGridView,  "AidP_ID"},
+                    {HelpSource_dataGridView,  "HelpP_ID"},
+                    {HomePowerSource_dataGridView,  "HPowerP_ID"}
+                };
+
+            IsDirty_Columns = new Dictionary<DataGridView, string>
+                {
+                    {Work_dataGridView,  "W_IsDirty"},
+                    {Exp_dataGridView,  "Exp_IsDirty"},
+                    {Education_dataGridView,  "Edu_IsDirty"},
+                    {Course_dataGridView,  "C_IsDirty"},
+                    {PowerSource_dataGridView,  "Power_IsDirty"},
+                    {Materials_dataGridView,  "M_IsDirty"},
+                    {FamilyMember_dataGridView,  "P_IsDirty"},
+                    {Loss_dataGridView,  "P_IsDirty"},
+                    {Illness_dataGridView,  "Ill_IsDirty"},
+                    {Assets_dataGridView,  "Asset_IsDirty"},
+                    {AidSource_dataGridView,  "Aid_IsDirty"},
+                    {HelpSource_dataGridView,  "Help_IsDirty"},
+                    {HomePowerSource_dataGridView,  "HPower_IsDirty"}
+                };
+        }
+
+        private void Bind_Gridview_ComboBox(DataGridViewComboBoxColumn Combox_Name, DataTable dt)
+        {
+            Combox_Name.DataSource = dt;
+            Combox_Name.DisplayMember = "name";
+            Combox_Name.ValueMember = "id";
+        }
+
         private void dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             try
@@ -719,10 +746,11 @@ namespace MyWorkApplication
 
                 string columnName = dataGridView.Columns[e.ColumnIndex].Name;
 
-                if (columnName == "W_DeleteRow" || columnName == "Exp_DeleteRow" || columnName == "Edu_DeleteRow" 
+                if (columnName == "W_DeleteRow" || columnName == "Exp_DeleteRow" || columnName == "Edu_DeleteRow"
                     || columnName == "C_DeleteRow" || columnName == "Power_DeleteRow" || columnName == "M_DeleteRow"
                     || columnName == "P_DeleteRow" || columnName == "L_DeleteRow" || columnName == "Ill_DeleteRow"
-                    || columnName == "Asset_DeleteRow" || columnName ==  "Aid_DeleteRow" || columnName == "HPower_DeleteRow")
+                    || columnName == "Asset_DeleteRow" || columnName == "Aid_DeleteRow" || columnName == "HPower_DeleteRow"
+                    || columnName == "Help_DeleteRow")
                 {
                     Image image = null;
                     if (Settings.Default.theme == "Light")
@@ -835,81 +863,96 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-        #endregion
 
-
-        #region dataGridView Rebind Combobocxes
-        private void Education_dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
+                var dataGridView = sender as DataGridView;
+                if (e.RowIndex < 0 || e.ColumnIndex < 0 || e.RowIndex == dataGridView.NewRowIndex) return;
 
-                string columnName = Education_dataGridView.Columns[Education_dataGridView.CurrentCell.ColumnIndex].Name;
+                string columnName = dataGridView.Columns[e.ColumnIndex].Name;
+
+
+                //Check if click is on specific column 
+                if (columnName.Contains("DeleteRow"))
+                {
+                    DialogResult dialogResult = MessageBox.Show("تأكيد الحذف", "Warning", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        if (dataGridView.Rows[e.RowIndex].Cells[ID_Columns[dataGridView]].Value != null)
+                        {
+                            dataGridView.Rows[e.RowIndex].Cells[IsDirty_Columns[dataGridView]].Value = "1";
+                            dataGridView.Rows[e.RowIndex].Visible = false;
+                            IsDirty_DataGrid[dataGridView] = true;
+                        }
+                        else
+                        {
+                            dataGridView.Rows.RemoveAt(e.RowIndex);
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                var dataGridView = sender as DataGridView;
+                dataGridView.Rows[e.RowIndex].Cells[IsDirty_Columns[dataGridView]].Value = "1";
+                IsDirty_DataGrid[dataGridView] = true;
+
+
+                string columnName = dataGridView.Columns[dataGridView.CurrentCell.ColumnIndex].Name;
                 if (columnName == "E_Type")
                 {
-                    if (Education_dataGridView.Rows[e.RowIndex].Cells["E_Type"].Value != null && !string.IsNullOrWhiteSpace(Education_dataGridView.Rows[e.RowIndex].Cells["E_Type"].Value.ToString()))
+                    if (dataGridView.Rows[e.RowIndex].Cells["E_Type"].Value != null && !string.IsNullOrWhiteSpace(dataGridView.Rows[e.RowIndex].Cells["E_Type"].Value.ToString()))
                     {
-                        string Edu_Type = Education_dataGridView.Rows[e.RowIndex].Cells["E_Type"].Value.ToString();
+                        string Edu_Type = dataGridView.Rows[e.RowIndex].Cells["E_Type"].Value.ToString();
 
-                        Education_dataGridView.Rows[e.RowIndex].Cells["E_Name"] = Load_Education_ComboBox(Edu_Type);
+                        dataGridView.Rows[e.RowIndex].Cells["E_Name"] = Load_Education_ComboBox(Edu_Type);
+
+                    }
+                }
+                else if (columnName == "P_EducationType")
+                {
+                    if (dataGridView.Rows[e.RowIndex].Cells["P_EducationType"].Value != null && !string.IsNullOrWhiteSpace(dataGridView.Rows[e.RowIndex].Cells["P_EducationType"].Value.ToString()))
+                    {
+                        string Edu_Type = dataGridView.Rows[e.RowIndex].Cells["P_EducationType"].Value.ToString();
+
+                        dataGridView.Rows[e.RowIndex].Cells["P_E_Name"] = Load_Education_ComboBox(Edu_Type);
 
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
             }
         }
 
-        private void Education_dataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                string columnName = Education_dataGridView.Columns[Education_dataGridView.CurrentCell.ColumnIndex].Name;
+                var dataGridView = sender as DataGridView;
+
+                string columnName = dataGridView.Columns[dataGridView.CurrentCell.ColumnIndex].Name;
                 if (columnName == "E_Name")
                 {
-                    if (Education_dataGridView.Rows[e.RowIndex].Cells["E_Type"].Value == null || string.IsNullOrWhiteSpace(Education_dataGridView.Rows[e.RowIndex].Cells["E_Type"].Value.ToString()))
-                        throw new Exception("الرجاء قم باختيار درجة التحصيل العلمي أولا ثم حاول إدخال مجال الدراسة");
+                    if (dataGridView.Rows[e.RowIndex].Cells["E_Type"].Value == null || string.IsNullOrWhiteSpace(dataGridView.Rows[e.RowIndex].Cells["E_Type"].Value.ToString()))
+                        throw new Exception("الرجاء قم باختيار الدرجة العلمية أولاً");
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void FamilyMember_dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                string columnName = FamilyMember_dataGridView.Columns[FamilyMember_dataGridView.CurrentCell.ColumnIndex].Name;
-                if (columnName == "P_EducationType")
+                else if (columnName == "P_E_Name")
                 {
-                    if (FamilyMember_dataGridView.Rows[e.RowIndex].Cells["P_EducationType"].Value != null && !string.IsNullOrWhiteSpace(FamilyMember_dataGridView.Rows[e.RowIndex].Cells["P_EducationType"].Value.ToString()))
-                    {
-                        string Edu_Type = FamilyMember_dataGridView.Rows[e.RowIndex].Cells["P_EducationType"].Value.ToString();
-
-                        FamilyMember_dataGridView.Rows[e.RowIndex].Cells["P_E_Name"] = Load_Education_ComboBox(Edu_Type);
-
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void FamilyMember_dataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                string columnName = FamilyMember_dataGridView.Columns[FamilyMember_dataGridView.CurrentCell.ColumnIndex].Name;
-                if (columnName == "P_E_Name")
-                {
-                    if (FamilyMember_dataGridView.Rows[e.RowIndex].Cells["P_EducationType"].Value == null || string.IsNullOrWhiteSpace(FamilyMember_dataGridView.Rows[e.RowIndex].Cells["P_EducationType"].Value.ToString()))
-                        throw new Exception("الرجاء قم باختيار درجة التحصيل العلمي أولا ثم حاول إدخال مجال الدراسة");
+                    if (dataGridView.Rows[e.RowIndex].Cells["P_EducationType"].Value == null || string.IsNullOrWhiteSpace(dataGridView.Rows[e.RowIndex].Cells["P_EducationType"].Value.ToString()))
+                        throw new Exception("الرجاء قم باختيار الدرجة العلمية أولاً");
                 }
             }
             catch (Exception ex)
@@ -922,7 +965,7 @@ namespace MyWorkApplication
         {
             DataGridViewComboBoxCell cell = new DataGridViewComboBoxCell();
 
-            DataTable Education_dt = ds.Tables[14].Copy();
+            DataTable Education_dt = ds.Tables[12].Copy();
 
             DataTable selected_dt = new DataTable();
 
@@ -930,8 +973,6 @@ namespace MyWorkApplication
             if (rows.Length != 0)
             {
                 selected_dt = rows.CopyToDataTable();
-                if (selected_dt != null && selected_dt.Rows.Count > 0)
-                    Bind_ComboBox(SubType_comboBox, selected_dt, false);
             }
 
             cell.DataSource = selected_dt;
@@ -941,7 +982,9 @@ namespace MyWorkApplication
 
             return cell;
         }
+
         #endregion
+
 
         private void Initialize_NumericTextBox_KeyPress()
         {
@@ -973,9 +1016,29 @@ namespace MyWorkApplication
 
 
 
+        #region IsDirty
+        Dictionary<DataGridView, bool> IsDirty_DataGrid = new Dictionary<DataGridView, bool>();
 
-
-
+        private void Initialize_IsDirty()
+        {
+            IsDirty_DataGrid = new Dictionary<DataGridView, bool>
+                {
+                    {Work_dataGridView,  false},
+                    {Exp_dataGridView,  false},
+                    {Education_dataGridView,  false},
+                    {Course_dataGridView,  false},
+                    {PowerSource_dataGridView,  false},
+                    {Materials_dataGridView,  false},
+                    {FamilyMember_dataGridView,  false},
+                    {Loss_dataGridView, false},
+                    {Illness_dataGridView,  false},
+                    {Assets_dataGridView,  false},
+                    {AidSource_dataGridView,  false},
+                    {HelpSource_dataGridView,  false},
+                    {HomePowerSource_dataGridView, false}
+                };
+        }
+        #endregion
 
 
 
@@ -2206,346 +2269,6 @@ namespace MyWorkApplication
         }
 
 
-        #region education Work Exp course material family
-
-        private void Education_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //if click is on new row or header row
-            if (e.RowIndex == Education_dataGridView.NewRowIndex || e.RowIndex < 0)
-                return;
-
-            //Check if click is on specific column 
-            //if (e.ColumnIndex == Education_dataGridView.Columns["DeleteRow"].Index)
-            //{
-            //    if (!CheckUserPermission()) //if the user don't have the permission to delete
-            //    {
-            //        MessageBox.Show("Sorry! You don't have the permission to do this action.");
-            //        return;
-            //    }
-            //    else
-            //    {
-            //        if (Education_dataGridView["Edu_InDataBase", e.RowIndex].Value == null)
-            //        {
-            //            Education_dataGridView.Rows.RemoveAt(e.RowIndex);
-            //        }
-            //        else
-            //        {
-            //            var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد حذف التحصيل العلمي للمستفيد؟", "Delete",
-            //                MessageBoxButtons.YesNo);
-            //            if (dialogResult == DialogResult.Yes)
-            //            {
-            //                var P_ID = Convert.ToInt32(Education_dataGridView.Rows[e.RowIndex].Cells["P_ID"].Value
-            //                    .ToString());
-            //                var E_ID = Convert.ToInt32(Education_dataGridView.Rows[e.RowIndex].Cells["E_ID"].Value
-            //                    .ToString());
-            //                var ID = Convert.ToInt32(Education_dataGridView.Rows[e.RowIndex].Cells["Edu_RowID"].Value
-            //                    .ToString());
-
-
-            //                var query = "delete from `person_education` where PEdu_ID = " + ID;
-            //                Program.buildConnection();
-            //                var sc = new MySqlCommand(query, Program.MyConn);
-            //                sc.ExecuteNonQuery();
-            //                Program.MyConn.Close();
-
-            //                l.Insert_Log("Delete education: " + Education_dataGridView.Rows[e.RowIndex].Cells["E_Name"].Value +
-            //                    " from project: " + MicroProject_ID,
-            //                    "Education", Program.UserName, DateTime.Now);
-
-            //                Education_dataGridView.Rows.RemoveAt(e.RowIndex);
-            //            }
-            //        }
-            //    }
-            //}
-        }
-
-        private void Work_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                //if click is on new row or header row
-                if (e.RowIndex == Work_dataGridView.NewRowIndex || e.RowIndex < 0)
-                    return;
-
-                //Check if click is on specific column 
-                if (e.ColumnIndex == Work_dataGridView.Columns["W_DeleteRow"].Index)
-                {
-                    if (!CheckUserPermission()) //if the user don't have the permission to delete
-                    {
-                        MessageBox.Show("Sorry! You don't have the permission to do this action.");
-                        return;
-                    }
-                    else
-                    {
-                        if (Work_dataGridView["W_InDataBase", e.RowIndex].Value == null)
-                        {
-                            Work_dataGridView.Rows.RemoveAt(e.RowIndex);
-                        }
-                        else
-                        {
-                            var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد حذف مجال العمل للمستفيد؟", "Delete",
-                                MessageBoxButtons.YesNo);
-                            if (dialogResult == DialogResult.Yes)
-                            {
-                                var P_ID = Convert.ToInt32(Work_dataGridView.Rows[e.RowIndex].Cells["WP_ID"].Value
-                                    .ToString());
-                                var W_ID = Convert.ToInt32(
-                                    Work_dataGridView.Rows[e.RowIndex].Cells["W_ID"].Value.ToString());
-                                var PW_ID = Convert.ToInt32(Work_dataGridView.Rows[e.RowIndex].Cells["W_RowID"].Value
-                                    .ToString());
-
-                                var query = "delete from `person_workexp` where W_Status like 'Yes' and PW_ID = " + PW_ID +
-                                            "";
-                                Program.buildConnection();
-                                var sc = new MySqlCommand(query, Program.MyConn);
-                                sc.ExecuteNonQuery();
-                                Program.MyConn.Close();
-
-                                l.Insert_Log(
-                                    "delete work: " + Work_dataGridView.Rows[e.RowIndex].Cells["W_Name"].Value +
-                                    " from project: " + MicroProject_ID,
-                                    "Work", Program.UserName, DateTime.Now);
-
-
-                                Work_dataGridView.Rows.RemoveAt(e.RowIndex);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
- 
-        private void Exp_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                //if click is on new row or header row
-                if (e.RowIndex == Exp_dataGridView.NewRowIndex || e.RowIndex < 0)
-                    return;
-
-                //Check if click delete button
-                if (e.ColumnIndex == Exp_dataGridView.Columns["Exp_DeleteRow"].Index)
-                {
-                    if (!CheckUserPermission()) //if the user don't have the permission to delete
-                    {
-                        MessageBox.Show("Sorry! You don't have the permission to do this action.");
-                        return;
-                    }
-                    else
-                    {
-                        if (Exp_dataGridView["Exp_InDataBase", e.RowIndex].Value == null)
-                        {
-                            Exp_dataGridView.Rows.RemoveAt(e.RowIndex);
-                        }
-                        else
-                        {
-                            var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد حذف مجال العمل للمستفيد؟", "Delete",
-                                MessageBoxButtons.YesNo);
-                            if (dialogResult == DialogResult.Yes)
-                            {
-                                var P_ID = Convert.ToInt32(Exp_dataGridView.Rows[e.RowIndex].Cells["ExpP_ID"].Value
-                                    .ToString());
-                                var W_ID = Convert.ToInt32(Exp_dataGridView.Rows[e.RowIndex].Cells["Exp_ID"].Value
-                                    .ToString());
-                                var PW_ID = Convert.ToInt32(Exp_dataGridView.Rows[e.RowIndex].Cells["Exp_RowID"].Value
-                                    .ToString());
-
-                                var query = "delete from `person_workexp` " +
-                                            " where W_Status like 'No' and PW_ID = " + PW_ID + "";
-                                Program.buildConnection();
-                                var sc = new MySqlCommand(query, Program.MyConn);
-                                sc.ExecuteNonQuery();
-                                Program.MyConn.Close();
-                                l.Insert_Log(
-                                    "delete experiance: " + Exp_dataGridView.Rows[e.RowIndex].Cells["Exp_Name"].Value +
-                                    " from project: " + MicroProject_ID,
-                                    "Experiance", Program.UserName, DateTime.Now);
-
-
-                                Exp_dataGridView.Rows.RemoveAt(e.RowIndex);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-  
-        private void Course_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //TODO
-        }
-
-        private void PowerSource_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                //if click is on new row or header row
-                if (e.RowIndex == PowerSource_dataGridView.NewRowIndex || e.RowIndex < 0)
-                    return;
-
-                //Check if click is on specific column 
-                if (e.ColumnIndex == PowerSource_dataGridView.Columns["Power_DeleteRow"].Index)
-                {
-                    if (!CheckUserPermission()) //if the user don't have the permission to delete
-                    {
-                        MessageBox.Show("Sorry! You don't have the permission to do this action.");
-                        return;
-                    }
-                    else
-                    {
-                        if (PowerSource_dataGridView["Power_InDataBase", e.RowIndex].Value == null)
-                        {
-                            PowerSource_dataGridView.Rows.RemoveAt(e.RowIndex);
-                        }
-                        else
-                        {
-                            var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد حذف مصدر الطاقة للمشروع؟", "Delete",
-                                MessageBoxButtons.YesNo);
-                            if (dialogResult == DialogResult.Yes)
-                            {
-                                var MP_ID = Convert.ToInt32(PowerSource_dataGridView.Rows[e.RowIndex].Cells["Power_MP_ID"].Value.ToString());
-                                var Power_ID = Convert.ToInt32(PowerSource_dataGridView.Rows[e.RowIndex].Cells["Power_ID"].Value.ToString());
-                                var Row_ID = Convert.ToInt32(PowerSource_dataGridView.Rows[e.RowIndex].Cells["Power_RowID"].Value.ToString());
-
-                                var query = "DELETE FROM `microproject_powersource` WHERE ID = " + Row_ID + "";
-                                Program.buildConnection();
-                                var sc = new MySqlCommand(query, Program.MyConn);
-                                sc.ExecuteNonQuery();
-                                Program.MyConn.Close();
-
-                                l.Insert_Log("DELETE powersource: " + PowerSource_dataGridView.Rows[e.RowIndex].Cells["Power_Name"].Value +
-                                    " from project: " + MicroProject_ID,
-                                    "powersource", Program.UserName, DateTime.Now);
-
-
-                                PowerSource_dataGridView.Rows.RemoveAt(e.RowIndex);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void Materials_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                //if click is on new row or header row
-                if (e.RowIndex == Materials_dataGridView.NewRowIndex || e.RowIndex < 0)
-                    return;
-
-                //Check if click is on specific column 
-                if (e.ColumnIndex == Materials_dataGridView.Columns["M_DeleteRow"].Index)
-                {
-                    if (!CheckUserPermission()) //if the user don't have the permission to delete
-                    {
-                        MessageBox.Show("Sorry! You don't have the permission to do this action.");
-                        return;
-                    }
-                    else
-                    {
-                        if (Materials_dataGridView["M_InDataBase", e.RowIndex].Value == null)
-                        {
-                            Materials_dataGridView.Rows.RemoveAt(e.RowIndex);
-                        }
-                        else
-                        {
-                            var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد حذف المادة من الميزانية؟", "Delete",
-                                MessageBoxButtons.YesNo);
-                            if (dialogResult == DialogResult.Yes)
-                            {
-                                var M_ID = Convert.ToInt32(Materials_dataGridView.Rows[e.RowIndex].Cells["M_ID"].Value
-                                    .ToString());
-
-
-                                MySS.query = "DELETE FROM `material` WHERE `ID` = " + M_ID;
-                                Program.buildConnection();
-                                MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
-                                MySS.sc.ExecuteNonQuery();
-                                Program.MyConn.Close();
-                                l.Insert_Log(
-                                    "delete material: " + Materials_dataGridView.Rows[e.RowIndex].Cells["M_Name"].Value +
-                                    " from project: " + MicroProject_ID,
-                                    "Material", Program.UserName, DateTime.Now);
-
-                                Materials_dataGridView.Rows.RemoveAt(e.RowIndex);
-                            }
-                        }
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void AidSource_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                //if click is on new row or header row
-                if (e.RowIndex == AidSource_dataGridView.NewRowIndex || e.RowIndex < 0)
-                    return;
-
-                //Check if click is on specific column 
-                if (e.ColumnIndex == AidSource_dataGridView.Columns["Aid_DeleteRow"].Index)
-                {
-                    if (!CheckUserPermission()) //if the user don't have the permission to delete
-                    {
-                        MessageBox.Show("Sorry! You don't have the permission to do this action.");
-                        return;
-                    }
-                    else
-                    {
-                        if (AidSource_dataGridView["Aid_InDataBase", e.RowIndex].Value == null)
-                        {
-                            AidSource_dataGridView.Rows.RemoveAt(e.RowIndex);
-                        }
-                        else
-                        {
-                            var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد حذف مصدر الطاقة للمشروع؟", "Delete",
-                                MessageBoxButtons.YesNo);
-                            if (dialogResult == DialogResult.Yes)
-                            {
-                                var Row_ID = Convert.ToInt32(AidSource_dataGridView.Rows[e.RowIndex].Cells["Aid_RowID"].Value.ToString());
-
-                                var query = "DELETE FROM `person_aidsource` WHERE ID = " + Row_ID + "";
-                                Program.buildConnection();
-                                var sc = new MySqlCommand(query, Program.MyConn);
-                                sc.ExecuteNonQuery();
-                                Program.MyConn.Close();
-
-                                l.Insert_Log("DELETE aidsource: " + AidSource_dataGridView.Rows[e.RowIndex].Cells["Aid_Name"].Value
-                                    + " from project: " + MicroProject_ID, "aidsource", Program.UserName, DateTime.Now);
-
-                                AidSource_dataGridView.Rows.RemoveAt(e.RowIndex);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
- 
-        ///////////////////////////////////////////////////////////////////////////
-
         private void FamilyMember_dataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             //FamilyMember_dataGridView["F_Number", e.RowIndex].Value = FamilyNum_textBox1.Text;
@@ -2557,70 +2280,8 @@ namespace MyWorkApplication
             Calculate_NumAtHome();
             FamilyMember_dataGridView.Refresh();
         }
-        private void FamilyMembers_DataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                //if click is on new row or header row
-                if (e.RowIndex == FamilyMember_dataGridView.NewRowIndex || e.RowIndex < 0)
-                    return;
-
-                //Check if click is on specific column 
-                if (e.ColumnIndex == FamilyMember_dataGridView.Columns["P_DeleteRow"].Index)
-                {
-                    if (!CheckUserPermission()) //if the user don't have the permission to delete
-                    {
-                        MessageBox.Show("Sorry! You don't have the permission to do this action.");
-                        return;
-                    }
-                    else
-                    {
-                        if (FamilyMember_dataGridView.Rows[e.RowIndex].Cells["P_InDataBase"].Value == null)
-                        {
-                            FamilyMember_dataGridView.Rows.RemoveAt(e.RowIndex);
-                        }
-                        else
-                        {
-                            var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد حذف فرد من العائلة؟", "Delete",
-                                MessageBoxButtons.YesNo);
-                            if (dialogResult == DialogResult.Yes)
-                            {
-                                //get person ID
-                                var Member_ID = Convert.ToInt32(FamilyMember_dataGridView.Rows[e.RowIndex].Cells["FP_ID"]
-                                    .Value.ToString());
-                                var F_ID = Convert.ToInt32(FamilyMember_dataGridView.Rows[e.RowIndex].Cells["F_ID"].Value
-                                    .ToString());
 
 
-                                MySS.query = "DELETE FROM `person` WHERE `P_ID` = " + Member_ID;
-                                Program.buildConnection();
-                                MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
-                                MySS.sc.ExecuteNonQuery();
-                                Program.MyConn.Close();
-
-                                l.Insert_Log(
-                                    "delete family member : " +
-                                    FamilyMember_dataGridView.Rows[e.RowIndex].Cells["P_FirstName"].Value + " " +
-                                    FamilyMember_dataGridView.Rows[e.RowIndex].Cells["P_LastName"].Value,
-                                    "Beneficiary_Family", Program.UserName, DateTime.Now);
-
-
-                                FamilyMember_dataGridView.Rows.RemoveAt(e.RowIndex);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-   
-        /////////////////////////////////////////////////////////////////////////// 
-
-        /// ### ///  /// ### ///  /// ### ///  /// ### ///  /// ### ///
-        #endregion
 
 
 

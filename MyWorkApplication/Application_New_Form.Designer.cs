@@ -67,6 +67,9 @@ namespace MyWorkApplication
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Application_New_Form));
             this.label2 = new System.Windows.Forms.Label();
             this.P_MobileReadable_textBox = new System.Windows.Forms.TextBox();
@@ -83,6 +86,7 @@ namespace MyWorkApplication
             this.Type_lable = new System.Windows.Forms.Label();
             this.Type_comboBox = new System.Windows.Forms.ComboBox();
             this.label74 = new System.Windows.Forms.Label();
+            this.ApplyDate_bcDateTimePicker = new MyWorkApplication.Classes.BCDateTimePicker();
             this.label79 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.SubType_comboBox = new System.Windows.Forms.ComboBox();
@@ -202,6 +206,7 @@ namespace MyWorkApplication
             this.P_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.P_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.label30 = new System.Windows.Forms.Label();
@@ -223,7 +228,7 @@ namespace MyWorkApplication
             this.Aid_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aid_PName = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Aid_Relation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aid_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Aid_Source = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Aid_DateYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aid_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aid_ProjectType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -231,6 +236,7 @@ namespace MyWorkApplication
             this.Aid_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Aid_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aid_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aid_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.Main_panel = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -261,14 +267,17 @@ namespace MyWorkApplication
             this.P_HasIncomeSourceNo_radioButton = new System.Windows.Forms.RadioButton();
             this.P_HasIncomeSourceYes_radioButton = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.AidPeriodR_comboBox = new System.Windows.Forms.ComboBox();
-            this.AidPeriodA_comboBox = new System.Windows.Forms.ComboBox();
-            this.label113 = new System.Windows.Forms.Label();
-            this.label112 = new System.Windows.Forms.Label();
-            this.P_OtherIncomeSources_Note_textBox = new System.Windows.Forms.TextBox();
-            this.label70 = new System.Windows.Forms.Label();
-            this.AidA_comboBox = new System.Windows.Forms.ComboBox();
-            this.AidR_comboBox = new System.Windows.Forms.ComboBox();
+            this.HelpSource_dataGridView = new System.Windows.Forms.DataGridView();
+            this.HelpP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Help_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Help_Source = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Help_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Help_Period = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Help_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Help_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Help_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Help_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Help_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubHeader11_label = new System.Windows.Forms.Label();
             this.HomePowerSource_dataGridView = new System.Windows.Forms.DataGridView();
             this.HPowerP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -280,6 +289,7 @@ namespace MyWorkApplication
             this.HPower_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.HPower_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HPower_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HPower_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
             this.label89 = new System.Windows.Forms.Label();
             this.label90 = new System.Windows.Forms.Label();
@@ -310,6 +320,7 @@ namespace MyWorkApplication
             this.L_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.L_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.L_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.L_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel21 = new System.Windows.Forms.FlowLayoutPanel();
             this.label60 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
@@ -334,6 +345,7 @@ namespace MyWorkApplication
             this.Ill_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Ill_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ill_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ill_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
             this.label68 = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
@@ -349,6 +361,7 @@ namespace MyWorkApplication
             this.Asset_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Asset_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Asset_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asset_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
             this.label83 = new System.Windows.Forms.Label();
             this.label84 = new System.Windows.Forms.Label();
@@ -387,6 +400,7 @@ namespace MyWorkApplication
             this.MMP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.M_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.M_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.M_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel27 = new System.Windows.Forms.FlowLayoutPanel();
             this.label110 = new System.Windows.Forms.Label();
             this.label111 = new System.Windows.Forms.Label();
@@ -411,6 +425,7 @@ namespace MyWorkApplication
             this.Power_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Power_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Power_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Power_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel20 = new System.Windows.Forms.FlowLayoutPanel();
             this.label93 = new System.Windows.Forms.Label();
             this.label94 = new System.Windows.Forms.Label();
@@ -452,6 +467,7 @@ namespace MyWorkApplication
             this.C_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.C_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
             this.label67 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
@@ -466,6 +482,7 @@ namespace MyWorkApplication
             this.Edu_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Edu_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edu_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edu_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
             this.label58 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
@@ -482,9 +499,38 @@ namespace MyWorkApplication
             this.label53 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.Exp_dataGridView = new System.Windows.Forms.DataGridView();
+            this.ExpP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Exp_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Exp_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Exp_WorkType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Exp_BeginDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Exp_EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Exp_ExtraNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Exp_PlaceState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Exp_Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Exp_Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Exp_CauseOfLose = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Exp_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Exp_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Exp_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Exp_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.t5_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.MainHeader2_label = new System.Windows.Forms.Label();
             this.Work_dataGridView = new System.Windows.Forms.DataGridView();
+            this.WP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.W_WorkType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.W_BeginDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_ExtraNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_PlaceState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.W_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubHeader2_label = new System.Windows.Forms.Label();
             this.t2_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.P_Loss_textBox = new System.Windows.Forms.TextBox();
@@ -504,34 +550,6 @@ namespace MyWorkApplication
             this.delete_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.delete_person_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.delete_project_person_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.WP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.W_WorkType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.W_BeginDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_ExtraNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_PlaceState = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.W_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Exp_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Exp_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Exp_WorkType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Exp_BeginDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Exp_EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Exp_ExtraNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Exp_PlaceState = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Exp_Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Exp_Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Exp_CauseOfLose = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Exp_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Exp_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Exp_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApplyDate_bcDateTimePicker = new MyWorkApplication.Classes.BCDateTimePicker();
             this.First_tableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -564,6 +582,7 @@ namespace MyWorkApplication
             this.t11_tableLayoutPanel.SuspendLayout();
             this.P_HasIncomeSource_flowLayoutPanel.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HelpSource_dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HomePowerSource_dataGridView)).BeginInit();
             this.flowLayoutPanel18.SuspendLayout();
             this.t10_tableLayoutPanel.SuspendLayout();
@@ -846,7 +865,7 @@ namespace MyWorkApplication
             this.Type_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Type_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Type_comboBox.FormattingEnabled = true;
-            this.Type_comboBox.Location = new System.Drawing.Point(64, 177);
+            this.Type_comboBox.Location = new System.Drawing.Point(64, 180);
             this.Type_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Type_comboBox.Name = "Type_comboBox";
             this.Type_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -869,6 +888,21 @@ namespace MyWorkApplication
             this.label74.TabIndex = 258;
             this.label74.Text = "تاريخ الطلب:";
             this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ApplyDate_bcDateTimePicker
+            // 
+            this.ApplyDate_bcDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ApplyDate_bcDateTimePicker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ApplyDate_bcDateTimePicker.CustomFormat = "yyyy/MM/dd";
+            this.ApplyDate_bcDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.ApplyDate_bcDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(533, 178);
+            this.ApplyDate_bcDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ApplyDate_bcDateTimePicker.Name = "ApplyDate_bcDateTimePicker";
+            this.ApplyDate_bcDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
+            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(245, 29);
+            this.ApplyDate_bcDateTimePicker.TabIndex = 6;
             // 
             // label79
             // 
@@ -906,7 +940,7 @@ namespace MyWorkApplication
             this.SubType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.SubType_comboBox.FormattingEnabled = true;
-            this.SubType_comboBox.Location = new System.Drawing.Point(64, 216);
+            this.SubType_comboBox.Location = new System.Drawing.Point(64, 219);
             this.SubType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubType_comboBox.Name = "SubType_comboBox";
             this.SubType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1111,7 +1145,7 @@ namespace MyWorkApplication
             this.SubCategory_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubCategory_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.SubCategory_comboBox.FormattingEnabled = true;
-            this.SubCategory_comboBox.Location = new System.Drawing.Point(132, 4);
+            this.SubCategory_comboBox.Location = new System.Drawing.Point(132, 6);
             this.SubCategory_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubCategory_comboBox.Name = "SubCategory_comboBox";
             this.SubCategory_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1132,7 +1166,7 @@ namespace MyWorkApplication
             this.Career_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Career_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Career_comboBox.FormattingEnabled = true;
-            this.Career_comboBox.Location = new System.Drawing.Point(3, 4);
+            this.Career_comboBox.Location = new System.Drawing.Point(3, 6);
             this.Career_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Career_comboBox.Name = "Career_comboBox";
             this.Career_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1777,7 +1811,7 @@ namespace MyWorkApplication
             this.P_Sex_comboBox.Items.AddRange(new object[] {
             "ذكر",
             "أنثى"});
-            this.P_Sex_comboBox.Location = new System.Drawing.Point(3, 105);
+            this.P_Sex_comboBox.Location = new System.Drawing.Point(3, 107);
             this.P_Sex_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_Sex_comboBox.Name = "P_Sex_comboBox";
             this.P_Sex_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1936,7 +1970,7 @@ namespace MyWorkApplication
             this.P_MaritalState_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.P_MaritalState_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_MaritalState_comboBox.FormattingEnabled = true;
-            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(3, 265);
+            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(3, 267);
             this.P_MaritalState_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_MaritalState_comboBox.Name = "P_MaritalState_comboBox";
             this.P_MaritalState_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2044,7 +2078,7 @@ namespace MyWorkApplication
             this.Street_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Street_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Street_comboBox.FormattingEnabled = true;
-            this.Street_comboBox.Location = new System.Drawing.Point(758, 545);
+            this.Street_comboBox.Location = new System.Drawing.Point(758, 547);
             this.Street_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.Street_comboBox.Name = "Street_comboBox";
             this.Street_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2063,7 +2097,7 @@ namespace MyWorkApplication
             this.P_HomeType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_HomeType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_HomeType_comboBox.FormattingEnabled = true;
-            this.P_HomeType_comboBox.Location = new System.Drawing.Point(758, 585);
+            this.P_HomeType_comboBox.Location = new System.Drawing.Point(758, 587);
             this.P_HomeType_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_HomeType_comboBox.Name = "P_HomeType_comboBox";
             this.P_HomeType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2234,7 +2268,7 @@ namespace MyWorkApplication
             this.P_Priest2_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Priest2_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Priest2_comboBox.FormattingEnabled = true;
-            this.P_Priest2_comboBox.Location = new System.Drawing.Point(3, 4);
+            this.P_Priest2_comboBox.Location = new System.Drawing.Point(3, 6);
             this.P_Priest2_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Priest2_comboBox.Name = "P_Priest2_comboBox";
             this.P_Priest2_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2253,7 +2287,7 @@ namespace MyWorkApplication
             this.P_Priest_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Priest_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Priest_comboBox.FormattingEnabled = true;
-            this.P_Priest_comboBox.Location = new System.Drawing.Point(113, 4);
+            this.P_Priest_comboBox.Location = new System.Drawing.Point(113, 6);
             this.P_Priest_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Priest_comboBox.Name = "P_Priest_comboBox";
             this.P_Priest_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2298,7 +2332,7 @@ namespace MyWorkApplication
             this.P_Parish_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Parish_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Parish_comboBox.FormattingEnabled = true;
-            this.P_Parish_comboBox.Location = new System.Drawing.Point(758, 345);
+            this.P_Parish_comboBox.Location = new System.Drawing.Point(758, 347);
             this.P_Parish_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Parish_comboBox.Name = "P_Parish_comboBox";
             this.P_Parish_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2347,7 +2381,7 @@ namespace MyWorkApplication
             this.PersonType_comboBox.Items.AddRange(new object[] {
             "المستفيد",
             "الشريك"});
-            this.PersonType_comboBox.Location = new System.Drawing.Point(758, 145);
+            this.PersonType_comboBox.Location = new System.Drawing.Point(758, 147);
             this.PersonType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PersonType_comboBox.Name = "PersonType_comboBox";
             this.PersonType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2482,7 +2516,8 @@ namespace MyWorkApplication
             this.P_Salary,
             this.P_DeleteRow,
             this.P_InDataBase,
-            this.P_RowID});
+            this.P_RowID,
+            this.P_IsDirty});
             this.t4_tableLayoutPanel.SetColumnSpan(this.FamilyMember_dataGridView, 2);
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -2512,9 +2547,9 @@ namespace MyWorkApplication
             this.FamilyMember_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.FamilyMember_dataGridView.Size = new System.Drawing.Size(1085, 237);
             this.FamilyMember_dataGridView.TabIndex = 560;
-            this.FamilyMember_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.FamilyMembers_DataGridView_CellContentClick);
-            this.FamilyMember_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.FamilyMember_dataGridView_CellEndEdit);
-            this.FamilyMember_dataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.FamilyMember_dataGridView_CellEnter);
+            this.FamilyMember_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.FamilyMember_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
+            this.FamilyMember_dataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEnter);
             this.FamilyMember_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.FamilyMember_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.FamilyMember_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
@@ -2707,6 +2742,13 @@ namespace MyWorkApplication
             this.P_RowID.MinimumWidth = 6;
             this.P_RowID.Name = "P_RowID";
             this.P_RowID.Visible = false;
+            // 
+            // P_IsDirty
+            // 
+            this.P_IsDirty.HeaderText = "P_IsDirty";
+            this.P_IsDirty.MinimumWidth = 6;
+            this.P_IsDirty.Name = "P_IsDirty";
+            this.P_IsDirty.Visible = false;
             // 
             // tableLayoutPanel8
             // 
@@ -2965,14 +3007,15 @@ namespace MyWorkApplication
             this.Aid_ID,
             this.Aid_PName,
             this.Aid_Relation,
-            this.Aid_Name,
+            this.Aid_Source,
             this.Aid_DateYear,
             this.Aid_Amount,
             this.Aid_ProjectType,
             this.Aid_Notes,
             this.Aid_DeleteRow,
             this.Aid_InDataBase,
-            this.Aid_RowID});
+            this.Aid_RowID,
+            this.Aid_IsDirty});
             this.t10_tableLayoutPanel.SetColumnSpan(this.AidSource_dataGridView, 3);
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
@@ -2998,7 +3041,8 @@ namespace MyWorkApplication
             this.AidSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.AidSource_dataGridView.Size = new System.Drawing.Size(1085, 180);
             this.AidSource_dataGridView.TabIndex = 499;
-            this.AidSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AidSource_dataGridView_CellContentClick);
+            this.AidSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.AidSource_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.AidSource_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.AidSource_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.AidSource_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
@@ -3036,14 +3080,14 @@ namespace MyWorkApplication
             this.Aid_Relation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Aid_Relation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // Aid_Name
+            // Aid_Source
             // 
-            this.Aid_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Aid_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Aid_Name.HeaderText = "الجهة";
-            this.Aid_Name.MinimumWidth = 6;
-            this.Aid_Name.Name = "Aid_Name";
-            this.Aid_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Aid_Source.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Aid_Source.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Aid_Source.HeaderText = "الجهة";
+            this.Aid_Source.MinimumWidth = 6;
+            this.Aid_Source.Name = "Aid_Source";
+            this.Aid_Source.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Aid_DateYear
             // 
@@ -3095,6 +3139,13 @@ namespace MyWorkApplication
             this.Aid_RowID.MinimumWidth = 6;
             this.Aid_RowID.Name = "Aid_RowID";
             this.Aid_RowID.Visible = false;
+            // 
+            // Aid_IsDirty
+            // 
+            this.Aid_IsDirty.HeaderText = "Aid_IsDirty";
+            this.Aid_IsDirty.MinimumWidth = 6;
+            this.Aid_IsDirty.Name = "Aid_IsDirty";
+            this.Aid_IsDirty.Visible = false;
             // 
             // label6
             // 
@@ -3442,7 +3493,7 @@ namespace MyWorkApplication
             this.PaperApplicationUser_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.PaperApplicationUser_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaperApplicationUser_comboBox.FormattingEnabled = true;
-            this.PaperApplicationUser_comboBox.Location = new System.Drawing.Point(744, 205);
+            this.PaperApplicationUser_comboBox.Location = new System.Drawing.Point(744, 207);
             this.PaperApplicationUser_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PaperApplicationUser_comboBox.Name = "PaperApplicationUser_comboBox";
             this.PaperApplicationUser_comboBox.Size = new System.Drawing.Size(165, 30);
@@ -3602,14 +3653,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.37269F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.94465F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.49815F));
-            this.tableLayoutPanel3.Controls.Add(this.AidPeriodR_comboBox, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.AidPeriodA_comboBox, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label113, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label112, 2, 1);
-            this.tableLayoutPanel3.Controls.Add(this.P_OtherIncomeSources_Note_textBox, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.label70, 2, 2);
-            this.tableLayoutPanel3.Controls.Add(this.AidA_comboBox, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.AidR_comboBox, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.HelpSource_dataGridView, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 103);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -3623,147 +3667,143 @@ namespace MyWorkApplication
             this.tableLayoutPanel3.TabIndex = 574;
             this.tableLayoutPanel3.TabStop = true;
             // 
-            // AidPeriodR_comboBox
+            // HelpSource_dataGridView
             // 
-            this.AidPeriodR_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.AidPeriodR_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.AidPeriodR_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.AidPeriodR_comboBox.BackColor = System.Drawing.Color.White;
-            this.AidPeriodR_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.AidPeriodR_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AidPeriodR_comboBox.FormattingEnabled = true;
-            this.AidPeriodR_comboBox.Items.AddRange(new object[] {
-            "المستفيد",
-            "الشريك"});
-            this.AidPeriodR_comboBox.Location = new System.Drawing.Point(4, 45);
-            this.AidPeriodR_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AidPeriodR_comboBox.Name = "AidPeriodR_comboBox";
-            this.AidPeriodR_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AidPeriodR_comboBox.Size = new System.Drawing.Size(474, 30);
-            this.AidPeriodR_comboBox.TabIndex = 596;
-            this.AidPeriodR_comboBox.TabStop = false;
-            this.AidPeriodR_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
-            this.AidPeriodR_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
+            this.HelpSource_dataGridView.AllowUserToResizeRows = false;
+            this.HelpSource_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.HelpSource_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.HelpSource_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.HelpSource_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.HelpSource_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.HelpSource_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.HelpSource_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HelpSource_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.HelpP_ID,
+            this.Help_ID,
+            this.Help_Source,
+            this.Help_Name,
+            this.Help_Period,
+            this.Help_Note,
+            this.Help_DeleteRow,
+            this.Help_InDataBase,
+            this.Help_RowID,
+            this.Help_IsDirty});
+            this.tableLayoutPanel3.SetColumnSpan(this.HelpSource_dataGridView, 3);
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.HelpSource_dataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            this.HelpSource_dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HelpSource_dataGridView.EnableHeadersVisualStyles = false;
+            this.HelpSource_dataGridView.GridColor = System.Drawing.Color.DarkGray;
+            this.HelpSource_dataGridView.Location = new System.Drawing.Point(4, 5);
+            this.HelpSource_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.HelpSource_dataGridView.MultiSelect = false;
+            this.HelpSource_dataGridView.Name = "HelpSource_dataGridView";
+            this.HelpSource_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Rubik", 11F);
+            this.HelpSource_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.HelpSource_dataGridView.RowHeadersVisible = false;
+            this.HelpSource_dataGridView.RowHeadersWidth = 51;
+            this.tableLayoutPanel3.SetRowSpan(this.HelpSource_dataGridView, 4);
+            this.HelpSource_dataGridView.RowTemplate.Height = 35;
+            this.HelpSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.HelpSource_dataGridView.Size = new System.Drawing.Size(1077, 111);
+            this.HelpSource_dataGridView.TabIndex = 500;
+            this.HelpSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.HelpSource_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
+            this.HelpSource_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
+            this.HelpSource_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            this.HelpSource_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
+            this.HelpSource_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
-            // AidPeriodA_comboBox
+            // HelpP_ID
             // 
-            this.AidPeriodA_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.AidPeriodA_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.AidPeriodA_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.AidPeriodA_comboBox.BackColor = System.Drawing.Color.White;
-            this.AidPeriodA_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.AidPeriodA_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AidPeriodA_comboBox.FormattingEnabled = true;
-            this.AidPeriodA_comboBox.Items.AddRange(new object[] {
-            "المستفيد",
-            "الشريك"});
-            this.AidPeriodA_comboBox.Location = new System.Drawing.Point(4, 5);
-            this.AidPeriodA_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AidPeriodA_comboBox.Name = "AidPeriodA_comboBox";
-            this.AidPeriodA_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AidPeriodA_comboBox.Size = new System.Drawing.Size(474, 30);
-            this.AidPeriodA_comboBox.TabIndex = 595;
-            this.AidPeriodA_comboBox.TabStop = false;
-            this.AidPeriodA_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
-            this.AidPeriodA_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
+            this.HelpP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.HelpP_ID.HeaderText = "HelpP_ID";
+            this.HelpP_ID.MinimumWidth = 6;
+            this.HelpP_ID.Name = "HelpP_ID";
+            this.HelpP_ID.Visible = false;
             // 
-            // label113
+            // Help_ID
             // 
-            this.label113.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label113.AutoSize = true;
-            this.label113.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
-            this.label113.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label113.Location = new System.Drawing.Point(918, 6);
-            this.label113.Name = "label113";
-            this.label113.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label113.Size = new System.Drawing.Size(163, 29);
-            this.label113.TabIndex = 502;
-            this.label113.Text = "جمعيّة";
-            this.label113.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Help_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Help_ID.HeaderText = "Help_ID";
+            this.Help_ID.MinimumWidth = 6;
+            this.Help_ID.Name = "Help_ID";
+            this.Help_ID.Visible = false;
             // 
-            // label112
+            // Help_Source
             // 
-            this.label112.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label112.AutoSize = true;
-            this.label112.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
-            this.label112.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label112.Location = new System.Drawing.Point(918, 46);
-            this.label112.Name = "label112";
-            this.label112.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label112.Size = new System.Drawing.Size(163, 29);
-            this.label112.TabIndex = 503;
-            this.label112.Text = "أقــارب";
-            this.label112.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Help_Source.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Help_Source.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Help_Source.HeaderText = "الجهة";
+            this.Help_Source.MinimumWidth = 6;
+            this.Help_Source.Name = "Help_Source";
+            this.Help_Source.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // P_OtherIncomeSources_Note_textBox
+            // Help_Name
             // 
-            this.P_OtherIncomeSources_Note_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_OtherIncomeSources_Note_textBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel3.SetColumnSpan(this.P_OtherIncomeSources_Note_textBox, 2);
-            this.P_OtherIncomeSources_Note_textBox.Location = new System.Drawing.Point(4, 86);
-            this.P_OtherIncomeSources_Note_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.P_OtherIncomeSources_Note_textBox.Name = "P_OtherIncomeSources_Note_textBox";
-            this.P_OtherIncomeSources_Note_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_OtherIncomeSources_Note_textBox.Size = new System.Drawing.Size(907, 29);
-            this.P_OtherIncomeSources_Note_textBox.TabIndex = 590;
+            this.Help_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Help_Name.HeaderText = "نوع المساعدة";
+            this.Help_Name.MinimumWidth = 6;
+            this.Help_Name.Name = "Help_Name";
+            this.Help_Name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Help_Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // label70
+            // Help_Period
             // 
-            this.label70.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label70.AutoSize = true;
-            this.label70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label70.Location = new System.Drawing.Point(989, 86);
-            this.label70.Margin = new System.Windows.Forms.Padding(3);
-            this.label70.Name = "label70";
-            this.label70.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label70.Size = new System.Drawing.Size(92, 29);
-            this.label70.TabIndex = 592;
-            this.label70.Text = "ملاحظات:";
-            this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Help_Period.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Help_Period.HeaderText = "مدة المساعدة";
+            this.Help_Period.MinimumWidth = 6;
+            this.Help_Period.Name = "Help_Period";
+            this.Help_Period.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Help_Period.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // AidA_comboBox
+            // Help_Note
             // 
-            this.AidA_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.AidA_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.AidA_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.AidA_comboBox.BackColor = System.Drawing.Color.White;
-            this.AidA_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.AidA_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AidA_comboBox.FormattingEnabled = true;
-            this.AidA_comboBox.Items.AddRange(new object[] {
-            "المستفيد",
-            "الشريك"});
-            this.AidA_comboBox.Location = new System.Drawing.Point(485, 5);
-            this.AidA_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AidA_comboBox.Name = "AidA_comboBox";
-            this.AidA_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AidA_comboBox.Size = new System.Drawing.Size(426, 30);
-            this.AidA_comboBox.TabIndex = 593;
-            this.AidA_comboBox.TabStop = false;
-            this.AidA_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
-            this.AidA_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
+            this.Help_Note.HeaderText = "ملاحظات";
+            this.Help_Note.MinimumWidth = 6;
+            this.Help_Note.Name = "Help_Note";
             // 
-            // AidR_comboBox
+            // Help_DeleteRow
             // 
-            this.AidR_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.AidR_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.AidR_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.AidR_comboBox.BackColor = System.Drawing.Color.White;
-            this.AidR_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.AidR_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AidR_comboBox.FormattingEnabled = true;
-            this.AidR_comboBox.Items.AddRange(new object[] {
-            "المستفيد",
-            "الشريك"});
-            this.AidR_comboBox.Location = new System.Drawing.Point(485, 45);
-            this.AidR_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AidR_comboBox.Name = "AidR_comboBox";
-            this.AidR_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AidR_comboBox.Size = new System.Drawing.Size(426, 30);
-            this.AidR_comboBox.TabIndex = 594;
-            this.AidR_comboBox.TabStop = false;
-            this.AidR_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
-            this.AidR_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
+            this.Help_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Help_DeleteRow.FillWeight = 40F;
+            this.Help_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Help_DeleteRow.HeaderText = " ";
+            this.Help_DeleteRow.MinimumWidth = 50;
+            this.Help_DeleteRow.Name = "Help_DeleteRow";
+            this.Help_DeleteRow.Width = 50;
+            // 
+            // Help_InDataBase
+            // 
+            this.Help_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Help_InDataBase.HeaderText = "Help_InDataBase";
+            this.Help_InDataBase.MinimumWidth = 6;
+            this.Help_InDataBase.Name = "Help_InDataBase";
+            this.Help_InDataBase.Visible = false;
+            // 
+            // Help_RowID
+            // 
+            this.Help_RowID.HeaderText = "Help_RowID";
+            this.Help_RowID.MinimumWidth = 6;
+            this.Help_RowID.Name = "Help_RowID";
+            this.Help_RowID.Visible = false;
+            // 
+            // Help_IsDirty
+            // 
+            this.Help_IsDirty.HeaderText = "Help_IsDirty";
+            this.Help_IsDirty.MinimumWidth = 6;
+            this.Help_IsDirty.Name = "Help_IsDirty";
+            this.Help_IsDirty.Visible = false;
             // 
             // SubHeader11_label
             // 
@@ -3790,10 +3830,10 @@ namespace MyWorkApplication
             this.HomePowerSource_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.HomePowerSource_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.HomePowerSource_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.HomePowerSource_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.HomePowerSource_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.HomePowerSource_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.HomePowerSource_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.HPowerP_ID,
@@ -3804,16 +3844,17 @@ namespace MyWorkApplication
             this.HPower_Responsability,
             this.HPower_DeleteRow,
             this.HPower_InDataBase,
-            this.HPower_RowID});
+            this.HPower_RowID,
+            this.HPower_IsDirty});
             this.t11_tableLayoutPanel.SetColumnSpan(this.HomePowerSource_dataGridView, 3);
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.HomePowerSource_dataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.HomePowerSource_dataGridView.DefaultCellStyle = dataGridViewCellStyle11;
             this.HomePowerSource_dataGridView.EnableHeadersVisualStyles = false;
             this.HomePowerSource_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.HomePowerSource_dataGridView.Location = new System.Drawing.Point(3, 310);
@@ -3821,8 +3862,8 @@ namespace MyWorkApplication
             this.HomePowerSource_dataGridView.MultiSelect = false;
             this.HomePowerSource_dataGridView.Name = "HomePowerSource_dataGridView";
             this.HomePowerSource_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Rubik", 11F);
-            this.HomePowerSource_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Rubik", 11F);
+            this.HomePowerSource_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.HomePowerSource_dataGridView.RowHeadersVisible = false;
             this.HomePowerSource_dataGridView.RowHeadersWidth = 51;
             this.t11_tableLayoutPanel.SetRowSpan(this.HomePowerSource_dataGridView, 5);
@@ -3830,6 +3871,8 @@ namespace MyWorkApplication
             this.HomePowerSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.HomePowerSource_dataGridView.Size = new System.Drawing.Size(1085, 197);
             this.HomePowerSource_dataGridView.TabIndex = 593;
+            this.HomePowerSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.HomePowerSource_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.HomePowerSource_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.HomePowerSource_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.HomePowerSource_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
@@ -3904,6 +3947,13 @@ namespace MyWorkApplication
             this.HPower_RowID.MinimumWidth = 6;
             this.HPower_RowID.Name = "HPower_RowID";
             this.HPower_RowID.Visible = false;
+            // 
+            // HPower_IsDirty
+            // 
+            this.HPower_IsDirty.HeaderText = "HPower_IsDirty";
+            this.HPower_IsDirty.MinimumWidth = 6;
+            this.HPower_IsDirty.Name = "HPower_IsDirty";
+            this.HPower_IsDirty.Visible = false;
             // 
             // flowLayoutPanel18
             // 
@@ -4282,14 +4332,14 @@ namespace MyWorkApplication
             this.Loss_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Loss_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Loss_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Loss_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Loss_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.Loss_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Loss_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.LPerson_ID,
@@ -4299,16 +4349,17 @@ namespace MyWorkApplication
             this.L_Notes,
             this.L_DeleteRow,
             this.L_InDataBase,
-            this.L_RowID});
+            this.L_RowID,
+            this.L_IsDirty});
             this.t9_tableLayoutPanel.SetColumnSpan(this.Loss_dataGridView, 3);
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Loss_dataGridView.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Loss_dataGridView.DefaultCellStyle = dataGridViewCellStyle14;
             this.Loss_dataGridView.EnableHeadersVisualStyles = false;
             this.Loss_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.Loss_dataGridView.Location = new System.Drawing.Point(3, 91);
@@ -4316,8 +4367,8 @@ namespace MyWorkApplication
             this.Loss_dataGridView.MultiSelect = false;
             this.Loss_dataGridView.Name = "Loss_dataGridView";
             this.Loss_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Loss_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Loss_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.Loss_dataGridView.RowHeadersVisible = false;
             this.Loss_dataGridView.RowHeadersWidth = 51;
             this.Loss_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -4327,6 +4378,8 @@ namespace MyWorkApplication
             this.Loss_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Loss_dataGridView.Size = new System.Drawing.Size(1085, 133);
             this.Loss_dataGridView.TabIndex = 573;
+            this.Loss_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.Loss_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Loss_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.Loss_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.Loss_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
@@ -4407,6 +4460,13 @@ namespace MyWorkApplication
             this.L_RowID.MinimumWidth = 6;
             this.L_RowID.Name = "L_RowID";
             this.L_RowID.Visible = false;
+            // 
+            // L_IsDirty
+            // 
+            this.L_IsDirty.HeaderText = "L_IsDirty";
+            this.L_IsDirty.MinimumWidth = 6;
+            this.L_IsDirty.Name = "L_IsDirty";
+            this.L_IsDirty.Visible = false;
             // 
             // flowLayoutPanel21
             // 
@@ -4567,14 +4627,14 @@ namespace MyWorkApplication
             this.Illness_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Illness_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Illness_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Illness_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Illness_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.Illness_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Illness_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Ill_Person_ID,
@@ -4589,16 +4649,17 @@ namespace MyWorkApplication
             this.Ill_MedicalNeeds,
             this.Ill_DeleteRow,
             this.Ill_InDataBase,
-            this.Ill_RowID});
+            this.Ill_RowID,
+            this.Ill_IsDirty});
             this.t9_tableLayoutPanel.SetColumnSpan(this.Illness_dataGridView, 3);
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Illness_dataGridView.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Illness_dataGridView.DefaultCellStyle = dataGridViewCellStyle17;
             this.Illness_dataGridView.EnableHeadersVisualStyles = false;
             this.Illness_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.Illness_dataGridView.Location = new System.Drawing.Point(3, 393);
@@ -4606,8 +4667,8 @@ namespace MyWorkApplication
             this.Illness_dataGridView.MultiSelect = false;
             this.Illness_dataGridView.Name = "Illness_dataGridView";
             this.Illness_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Illness_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Illness_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.Illness_dataGridView.RowHeadersVisible = false;
             this.Illness_dataGridView.RowHeadersWidth = 51;
             this.Illness_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -4617,6 +4678,8 @@ namespace MyWorkApplication
             this.Illness_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Illness_dataGridView.Size = new System.Drawing.Size(1085, 180);
             this.Illness_dataGridView.TabIndex = 575;
+            this.Illness_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.Illness_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Illness_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.Illness_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.Illness_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
@@ -4742,6 +4805,13 @@ namespace MyWorkApplication
             this.Ill_RowID.Name = "Ill_RowID";
             this.Ill_RowID.Visible = false;
             // 
+            // Ill_IsDirty
+            // 
+            this.Ill_IsDirty.HeaderText = "Ill_IsDirty";
+            this.Ill_IsDirty.MinimumWidth = 6;
+            this.Ill_IsDirty.Name = "Ill_IsDirty";
+            this.Ill_IsDirty.Visible = false;
+            // 
             // flowLayoutPanel15
             // 
             this.flowLayoutPanel15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -4798,14 +4868,14 @@ namespace MyWorkApplication
             this.Assets_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Assets_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Assets_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Assets_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Assets_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.Assets_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Assets_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.APerson_ID,
@@ -4818,16 +4888,17 @@ namespace MyWorkApplication
             this.Asset_Note,
             this.Asset_DeleteRow,
             this.Asset_InDataBase,
-            this.Asset_RowID});
+            this.Asset_RowID,
+            this.Asset_IsDirty});
             this.t9_tableLayoutPanel.SetColumnSpan(this.Assets_dataGridView, 3);
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Assets_dataGridView.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Assets_dataGridView.DefaultCellStyle = dataGridViewCellStyle20;
             this.Assets_dataGridView.EnableHeadersVisualStyles = false;
             this.Assets_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.Assets_dataGridView.Location = new System.Drawing.Point(3, 728);
@@ -4835,8 +4906,8 @@ namespace MyWorkApplication
             this.Assets_dataGridView.MultiSelect = false;
             this.Assets_dataGridView.Name = "Assets_dataGridView";
             this.Assets_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Assets_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Assets_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.Assets_dataGridView.RowHeadersVisible = false;
             this.Assets_dataGridView.RowHeadersWidth = 51;
             this.Assets_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -4846,6 +4917,8 @@ namespace MyWorkApplication
             this.Assets_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Assets_dataGridView.Size = new System.Drawing.Size(1085, 180);
             this.Assets_dataGridView.TabIndex = 576;
+            this.Assets_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.Assets_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Assets_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.Assets_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.Assets_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
@@ -4952,6 +5025,13 @@ namespace MyWorkApplication
             this.Asset_RowID.MinimumWidth = 6;
             this.Asset_RowID.Name = "Asset_RowID";
             this.Asset_RowID.Visible = false;
+            // 
+            // Asset_IsDirty
+            // 
+            this.Asset_IsDirty.HeaderText = "Asset_IsDirty";
+            this.Asset_IsDirty.MinimumWidth = 6;
+            this.Asset_IsDirty.Name = "Asset_IsDirty";
+            this.Asset_IsDirty.Visible = false;
             // 
             // flowLayoutPanel16
             // 
@@ -5482,10 +5562,10 @@ namespace MyWorkApplication
             this.Materials_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Materials_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Materials_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Materials_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Materials_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.Materials_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Materials_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.M_ID,
@@ -5495,16 +5575,17 @@ namespace MyWorkApplication
             this.M_Amount,
             this.MMP_ID,
             this.M_DeleteRow,
-            this.M_InDataBase});
+            this.M_InDataBase,
+            this.M_IsDirty});
             this.t20_tableLayoutPanel.SetColumnSpan(this.Materials_dataGridView, 3);
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Materials_dataGridView.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Materials_dataGridView.DefaultCellStyle = dataGridViewCellStyle23;
             this.Materials_dataGridView.EnableHeadersVisualStyles = false;
             this.Materials_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.Materials_dataGridView.Location = new System.Drawing.Point(3, 924);
@@ -5513,8 +5594,8 @@ namespace MyWorkApplication
             this.Materials_dataGridView.Name = "Materials_dataGridView";
             this.Materials_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Materials_dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Materials_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Materials_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.Materials_dataGridView.RowHeadersVisible = false;
             this.Materials_dataGridView.RowHeadersWidth = 51;
             this.t20_tableLayoutPanel.SetRowSpan(this.Materials_dataGridView, 5);
@@ -5524,7 +5605,8 @@ namespace MyWorkApplication
             this.Materials_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Materials_dataGridView.Size = new System.Drawing.Size(1085, 212);
             this.Materials_dataGridView.TabIndex = 613;
-            this.Materials_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Materials_dataGridView_CellContentClick);
+            this.Materials_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.Materials_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Materials_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.Materials_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.Materials_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
@@ -5592,6 +5674,13 @@ namespace MyWorkApplication
             this.M_InDataBase.MinimumWidth = 6;
             this.M_InDataBase.Name = "M_InDataBase";
             this.M_InDataBase.Visible = false;
+            // 
+            // M_IsDirty
+            // 
+            this.M_IsDirty.HeaderText = "M_IsDirty";
+            this.M_IsDirty.MinimumWidth = 6;
+            this.M_IsDirty.Name = "M_IsDirty";
+            this.M_IsDirty.Visible = false;
             // 
             // flowLayoutPanel27
             // 
@@ -5713,7 +5802,7 @@ namespace MyWorkApplication
             this.MP_PlaceType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MP_PlaceType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.MP_PlaceType_comboBox.FormattingEnabled = true;
-            this.MP_PlaceType_comboBox.Location = new System.Drawing.Point(727, 49);
+            this.MP_PlaceType_comboBox.Location = new System.Drawing.Point(727, 51);
             this.MP_PlaceType_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.MP_PlaceType_comboBox.Name = "MP_PlaceType_comboBox";
             this.MP_PlaceType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5822,10 +5911,10 @@ namespace MyWorkApplication
             this.PowerSource_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.PowerSource_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PowerSource_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PowerSource_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PowerSource_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.PowerSource_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PowerSource_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Power_MP_ID,
@@ -5836,16 +5925,17 @@ namespace MyWorkApplication
             this.Power_Responsability,
             this.Power_DeleteRow,
             this.Power_InDataBase,
-            this.Power_RowID});
+            this.Power_RowID,
+            this.Power_IsDirty});
             this.t20_tableLayoutPanel.SetColumnSpan(this.PowerSource_dataGridView, 3);
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PowerSource_dataGridView.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PowerSource_dataGridView.DefaultCellStyle = dataGridViewCellStyle26;
             this.PowerSource_dataGridView.EnableHeadersVisualStyles = false;
             this.PowerSource_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.PowerSource_dataGridView.Location = new System.Drawing.Point(3, 308);
@@ -5853,8 +5943,8 @@ namespace MyWorkApplication
             this.PowerSource_dataGridView.MultiSelect = false;
             this.PowerSource_dataGridView.Name = "PowerSource_dataGridView";
             this.PowerSource_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Rubik", 11F);
-            this.PowerSource_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Rubik", 11F);
+            this.PowerSource_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.PowerSource_dataGridView.RowHeadersVisible = false;
             this.PowerSource_dataGridView.RowHeadersWidth = 51;
             this.t20_tableLayoutPanel.SetRowSpan(this.PowerSource_dataGridView, 3);
@@ -5865,7 +5955,8 @@ namespace MyWorkApplication
             this.PowerSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.PowerSource_dataGridView.Size = new System.Drawing.Size(1085, 124);
             this.PowerSource_dataGridView.TabIndex = 598;
-            this.PowerSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PowerSource_dataGridView_CellContentClick);
+            this.PowerSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.PowerSource_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.PowerSource_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.PowerSource_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.PowerSource_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
@@ -5941,6 +6032,13 @@ namespace MyWorkApplication
             this.Power_RowID.MinimumWidth = 6;
             this.Power_RowID.Name = "Power_RowID";
             this.Power_RowID.Visible = false;
+            // 
+            // Power_IsDirty
+            // 
+            this.Power_IsDirty.HeaderText = "Power_IsDirty";
+            this.Power_IsDirty.MinimumWidth = 6;
+            this.Power_IsDirty.Name = "Power_IsDirty";
+            this.Power_IsDirty.Visible = false;
             // 
             // flowLayoutPanel20
             // 
@@ -6404,14 +6502,14 @@ namespace MyWorkApplication
             this.Course_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Course_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Course_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Course_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Course_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
             this.Course_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Course_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CPerosn_ID,
@@ -6424,16 +6522,17 @@ namespace MyWorkApplication
             this.C_Date,
             this.C_DeleteRow,
             this.C_InDataBase,
-            this.C_RowID});
+            this.C_RowID,
+            this.C_IsDirty});
             this.t8_tableLayoutPanel.SetColumnSpan(this.Course_dataGridView, 3);
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Course_dataGridView.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Course_dataGridView.DefaultCellStyle = dataGridViewCellStyle29;
             this.Course_dataGridView.EnableHeadersVisualStyles = false;
             this.Course_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.Course_dataGridView.Location = new System.Drawing.Point(3, 364);
@@ -6441,8 +6540,8 @@ namespace MyWorkApplication
             this.Course_dataGridView.MultiSelect = false;
             this.Course_dataGridView.Name = "Course_dataGridView";
             this.Course_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Course_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Course_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.Course_dataGridView.RowHeadersVisible = false;
             this.Course_dataGridView.RowHeadersWidth = 51;
             this.Course_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -6452,7 +6551,8 @@ namespace MyWorkApplication
             this.Course_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Course_dataGridView.Size = new System.Drawing.Size(1085, 152);
             this.Course_dataGridView.TabIndex = 553;
-            this.Course_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Course_dataGridView_CellContentClick);
+            this.Course_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.Course_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Course_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.Course_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.Course_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
@@ -6552,6 +6652,13 @@ namespace MyWorkApplication
             this.C_RowID.Name = "C_RowID";
             this.C_RowID.Visible = false;
             // 
+            // C_IsDirty
+            // 
+            this.C_IsDirty.HeaderText = "C_IsDirty";
+            this.C_IsDirty.MinimumWidth = 6;
+            this.C_IsDirty.Name = "C_IsDirty";
+            this.C_IsDirty.Visible = false;
+            // 
             // flowLayoutPanel12
             // 
             this.flowLayoutPanel12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -6621,14 +6728,14 @@ namespace MyWorkApplication
             this.Education_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Education_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Education_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Education_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Education_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.Education_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Education_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PE_ID,
@@ -6639,16 +6746,17 @@ namespace MyWorkApplication
             this.E_Name,
             this.Edu_DeleteRow,
             this.Edu_InDataBase,
-            this.Edu_RowID});
+            this.Edu_RowID,
+            this.Edu_IsDirty});
             this.t8_tableLayoutPanel.SetColumnSpan(this.Education_dataGridView, 3);
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Education_dataGridView.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Education_dataGridView.DefaultCellStyle = dataGridViewCellStyle32;
             this.Education_dataGridView.EnableHeadersVisualStyles = false;
             this.Education_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.Education_dataGridView.Location = new System.Drawing.Point(3, 64);
@@ -6656,8 +6764,8 @@ namespace MyWorkApplication
             this.Education_dataGridView.MultiSelect = false;
             this.Education_dataGridView.Name = "Education_dataGridView";
             this.Education_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Education_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Education_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.Education_dataGridView.RowHeadersVisible = false;
             this.Education_dataGridView.RowHeadersWidth = 51;
             this.Education_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -6667,9 +6775,9 @@ namespace MyWorkApplication
             this.Education_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Education_dataGridView.Size = new System.Drawing.Size(1085, 152);
             this.Education_dataGridView.TabIndex = 552;
-            this.Education_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Education_dataGridView_CellContentClick);
-            this.Education_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Education_dataGridView_CellEndEdit);
-            this.Education_dataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Education_dataGridView_CellEnter);
+            this.Education_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.Education_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
+            this.Education_dataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEnter);
             this.Education_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.Education_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.Education_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
@@ -6763,6 +6871,13 @@ namespace MyWorkApplication
             this.Edu_RowID.MinimumWidth = 6;
             this.Edu_RowID.Name = "Edu_RowID";
             this.Edu_RowID.Visible = false;
+            // 
+            // Edu_IsDirty
+            // 
+            this.Edu_IsDirty.HeaderText = "Edu_IsDirty";
+            this.Edu_IsDirty.MinimumWidth = 6;
+            this.Edu_IsDirty.Name = "Edu_IsDirty";
+            this.Edu_IsDirty.Visible = false;
             // 
             // flowLayoutPanel11
             // 
@@ -7017,10 +7132,10 @@ namespace MyWorkApplication
             this.Exp_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Exp_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Exp_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Exp_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Exp_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
             this.Exp_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Exp_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ExpP_ID,
@@ -7036,16 +7151,17 @@ namespace MyWorkApplication
             this.Exp_CauseOfLose,
             this.Exp_DeleteRow,
             this.Exp_InDataBase,
-            this.Exp_RowID});
+            this.Exp_RowID,
+            this.Exp_IsDirty});
             this.t6_tableLayoutPanel.SetColumnSpan(this.Exp_dataGridView, 3);
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Exp_dataGridView.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Exp_dataGridView.DefaultCellStyle = dataGridViewCellStyle35;
             this.Exp_dataGridView.EnableHeadersVisualStyles = false;
             this.Exp_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.Exp_dataGridView.Location = new System.Drawing.Point(3, 61);
@@ -7053,8 +7169,8 @@ namespace MyWorkApplication
             this.Exp_dataGridView.MultiSelect = false;
             this.Exp_dataGridView.Name = "Exp_dataGridView";
             this.Exp_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Exp_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Exp_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.Exp_dataGridView.RowHeadersVisible = false;
             this.Exp_dataGridView.RowHeadersWidth = 51;
             this.t6_tableLayoutPanel.SetRowSpan(this.Exp_dataGridView, 6);
@@ -7062,11 +7178,126 @@ namespace MyWorkApplication
             this.Exp_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Exp_dataGridView.Size = new System.Drawing.Size(1085, 214);
             this.Exp_dataGridView.TabIndex = 508;
-            this.Exp_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Exp_dataGridView_CellContentClick);
+            this.Exp_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.Exp_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Exp_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.Exp_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.Exp_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.Exp_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
+            // 
+            // ExpP_ID
+            // 
+            this.ExpP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ExpP_ID.HeaderText = "ExpP_ID";
+            this.ExpP_ID.MinimumWidth = 6;
+            this.ExpP_ID.Name = "ExpP_ID";
+            this.ExpP_ID.Visible = false;
+            // 
+            // Exp_ID
+            // 
+            this.Exp_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Exp_ID.HeaderText = "Exp_ID";
+            this.Exp_ID.MinimumWidth = 6;
+            this.Exp_ID.Name = "Exp_ID";
+            this.Exp_ID.Visible = false;
+            // 
+            // Exp_Name
+            // 
+            this.Exp_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Exp_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Exp_Name.HeaderText = "المهنة";
+            this.Exp_Name.MinimumWidth = 6;
+            this.Exp_Name.Name = "Exp_Name";
+            this.Exp_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Exp_WorkType
+            // 
+            this.Exp_WorkType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Exp_WorkType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Exp_WorkType.HeaderText = "طبيعة العمل";
+            this.Exp_WorkType.MinimumWidth = 6;
+            this.Exp_WorkType.Name = "Exp_WorkType";
+            this.Exp_WorkType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Exp_WorkType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Exp_BeginDate
+            // 
+            this.Exp_BeginDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Exp_BeginDate.HeaderText = "تاريخ البداية";
+            this.Exp_BeginDate.MinimumWidth = 6;
+            this.Exp_BeginDate.Name = "Exp_BeginDate";
+            // 
+            // Exp_EndDate
+            // 
+            this.Exp_EndDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Exp_EndDate.HeaderText = "تاريخ النهاية";
+            this.Exp_EndDate.MinimumWidth = 6;
+            this.Exp_EndDate.Name = "Exp_EndDate";
+            // 
+            // Exp_ExtraNote
+            // 
+            this.Exp_ExtraNote.HeaderText = "ملاحظات";
+            this.Exp_ExtraNote.MinimumWidth = 6;
+            this.Exp_ExtraNote.Name = "Exp_ExtraNote";
+            // 
+            // Exp_PlaceState
+            // 
+            this.Exp_PlaceState.HeaderText = "ملكية العقار";
+            this.Exp_PlaceState.MinimumWidth = 6;
+            this.Exp_PlaceState.Name = "Exp_PlaceState";
+            // 
+            // Exp_Place
+            // 
+            this.Exp_Place.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Exp_Place.HeaderText = "العنوان";
+            this.Exp_Place.MinimumWidth = 6;
+            this.Exp_Place.Name = "Exp_Place";
+            // 
+            // Exp_Contact
+            // 
+            this.Exp_Contact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Exp_Contact.HeaderText = "اسم ورقم صاحب العمل";
+            this.Exp_Contact.MinimumWidth = 6;
+            this.Exp_Contact.Name = "Exp_Contact";
+            // 
+            // Exp_CauseOfLose
+            // 
+            this.Exp_CauseOfLose.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Exp_CauseOfLose.HeaderText = "سبب التوقّف";
+            this.Exp_CauseOfLose.MinimumWidth = 6;
+            this.Exp_CauseOfLose.Name = "Exp_CauseOfLose";
+            // 
+            // Exp_DeleteRow
+            // 
+            this.Exp_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Exp_DeleteRow.FillWeight = 40F;
+            this.Exp_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Exp_DeleteRow.HeaderText = " ";
+            this.Exp_DeleteRow.MinimumWidth = 50;
+            this.Exp_DeleteRow.Name = "Exp_DeleteRow";
+            this.Exp_DeleteRow.Width = 50;
+            // 
+            // Exp_InDataBase
+            // 
+            this.Exp_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Exp_InDataBase.HeaderText = "Exp_InDataBase";
+            this.Exp_InDataBase.MinimumWidth = 6;
+            this.Exp_InDataBase.Name = "Exp_InDataBase";
+            this.Exp_InDataBase.Visible = false;
+            // 
+            // Exp_RowID
+            // 
+            this.Exp_RowID.HeaderText = "Exp_RowID";
+            this.Exp_RowID.MinimumWidth = 6;
+            this.Exp_RowID.Name = "Exp_RowID";
+            this.Exp_RowID.Visible = false;
+            // 
+            // Exp_IsDirty
+            // 
+            this.Exp_IsDirty.HeaderText = "Exp_IsDirty";
+            this.Exp_IsDirty.MinimumWidth = 6;
+            this.Exp_IsDirty.Name = "Exp_IsDirty";
+            this.Exp_IsDirty.Visible = false;
             // 
             // t5_tableLayoutPanel
             // 
@@ -7127,10 +7358,10 @@ namespace MyWorkApplication
             this.Work_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Work_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Work_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Work_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Work_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             this.Work_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Work_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.WP_ID,
@@ -7145,16 +7376,17 @@ namespace MyWorkApplication
             this.W_Salary,
             this.W_DeleteRow,
             this.W_InDataBase,
-            this.W_RowID});
+            this.W_RowID,
+            this.W_IsDirty});
             this.t5_tableLayoutPanel.SetColumnSpan(this.Work_dataGridView, 3);
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Work_dataGridView.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Work_dataGridView.DefaultCellStyle = dataGridViewCellStyle38;
             this.Work_dataGridView.EnableHeadersVisualStyles = false;
             this.Work_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.Work_dataGridView.Location = new System.Drawing.Point(3, 173);
@@ -7162,8 +7394,8 @@ namespace MyWorkApplication
             this.Work_dataGridView.MultiSelect = false;
             this.Work_dataGridView.Name = "Work_dataGridView";
             this.Work_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Work_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Work_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
             this.Work_dataGridView.RowHeadersVisible = false;
             this.Work_dataGridView.RowHeadersWidth = 51;
             this.t5_tableLayoutPanel.SetRowSpan(this.Work_dataGridView, 5);
@@ -7174,11 +7406,120 @@ namespace MyWorkApplication
             this.Work_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Work_dataGridView.Size = new System.Drawing.Size(1085, 167);
             this.Work_dataGridView.TabIndex = 31;
-            this.Work_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Work_dataGridView_CellContentClick);
+            this.Work_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.Work_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Work_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.Work_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.Work_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.Work_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
+            // 
+            // WP_ID
+            // 
+            this.WP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.WP_ID.HeaderText = "WP_ID";
+            this.WP_ID.MinimumWidth = 6;
+            this.WP_ID.Name = "WP_ID";
+            this.WP_ID.Visible = false;
+            // 
+            // W_ID
+            // 
+            this.W_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_ID.HeaderText = "W_ID";
+            this.W_ID.MinimumWidth = 6;
+            this.W_ID.Name = "W_ID";
+            this.W_ID.Visible = false;
+            // 
+            // W_Name
+            // 
+            this.W_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.W_Name.HeaderText = "المهنة";
+            this.W_Name.MinimumWidth = 6;
+            this.W_Name.Name = "W_Name";
+            this.W_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // W_WorkType
+            // 
+            this.W_WorkType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_WorkType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.W_WorkType.HeaderText = "طبيعة العمل";
+            this.W_WorkType.MinimumWidth = 6;
+            this.W_WorkType.Name = "W_WorkType";
+            this.W_WorkType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.W_WorkType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // W_BeginDate
+            // 
+            this.W_BeginDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_BeginDate.HeaderText = "تاريخ البداية";
+            this.W_BeginDate.MinimumWidth = 6;
+            this.W_BeginDate.Name = "W_BeginDate";
+            // 
+            // W_ExtraNote
+            // 
+            this.W_ExtraNote.HeaderText = "ملاحظات";
+            this.W_ExtraNote.MinimumWidth = 6;
+            this.W_ExtraNote.Name = "W_ExtraNote";
+            // 
+            // W_PlaceState
+            // 
+            this.W_PlaceState.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_PlaceState.HeaderText = "ملكية العقار";
+            this.W_PlaceState.MinimumWidth = 6;
+            this.W_PlaceState.Name = "W_PlaceState";
+            // 
+            // W_Place
+            // 
+            this.W_Place.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_Place.HeaderText = "العنوان";
+            this.W_Place.MinimumWidth = 6;
+            this.W_Place.Name = "W_Place";
+            // 
+            // W_Contact
+            // 
+            this.W_Contact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_Contact.HeaderText = "اسم ورقم صاحب العمل";
+            this.W_Contact.MinimumWidth = 6;
+            this.W_Contact.Name = "W_Contact";
+            // 
+            // W_Salary
+            // 
+            this.W_Salary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_Salary.HeaderText = "الربح";
+            this.W_Salary.MinimumWidth = 6;
+            this.W_Salary.Name = "W_Salary";
+            // 
+            // W_DeleteRow
+            // 
+            this.W_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.W_DeleteRow.FillWeight = 40F;
+            this.W_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.W_DeleteRow.HeaderText = " ";
+            this.W_DeleteRow.MinimumWidth = 50;
+            this.W_DeleteRow.Name = "W_DeleteRow";
+            this.W_DeleteRow.Width = 50;
+            // 
+            // W_InDataBase
+            // 
+            this.W_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_InDataBase.HeaderText = "W_InDataBase";
+            this.W_InDataBase.MinimumWidth = 6;
+            this.W_InDataBase.Name = "W_InDataBase";
+            this.W_InDataBase.Visible = false;
+            // 
+            // W_RowID
+            // 
+            this.W_RowID.HeaderText = "W_RowID";
+            this.W_RowID.MinimumWidth = 6;
+            this.W_RowID.Name = "W_RowID";
+            this.W_RowID.Visible = false;
+            // 
+            // W_IsDirty
+            // 
+            this.W_IsDirty.HeaderText = "W_IsDirty";
+            this.W_IsDirty.MinimumWidth = 6;
+            this.W_IsDirty.Name = "W_IsDirty";
+            this.W_IsDirty.Visible = false;
             // 
             // SubHeader2_label
             // 
@@ -7473,229 +7814,6 @@ namespace MyWorkApplication
             this.delete_project_person_ToolStripMenuItem.Text = "حذف الاستمارة بشكل كامل";
             this.delete_project_person_ToolStripMenuItem.Click += new System.EventHandler(this.delete_all_project_ToolStripMenuItem_Click);
             // 
-            // WP_ID
-            // 
-            this.WP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.WP_ID.HeaderText = "WP_ID";
-            this.WP_ID.MinimumWidth = 6;
-            this.WP_ID.Name = "WP_ID";
-            this.WP_ID.Visible = false;
-            // 
-            // W_ID
-            // 
-            this.W_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_ID.HeaderText = "W_ID";
-            this.W_ID.MinimumWidth = 6;
-            this.W_ID.Name = "W_ID";
-            this.W_ID.Visible = false;
-            // 
-            // W_Name
-            // 
-            this.W_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.W_Name.HeaderText = "المهنة";
-            this.W_Name.MinimumWidth = 6;
-            this.W_Name.Name = "W_Name";
-            this.W_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // W_WorkType
-            // 
-            this.W_WorkType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_WorkType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.W_WorkType.HeaderText = "طبيعة العمل";
-            this.W_WorkType.MinimumWidth = 6;
-            this.W_WorkType.Name = "W_WorkType";
-            this.W_WorkType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.W_WorkType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // W_BeginDate
-            // 
-            this.W_BeginDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_BeginDate.HeaderText = "تاريخ البداية";
-            this.W_BeginDate.MinimumWidth = 6;
-            this.W_BeginDate.Name = "W_BeginDate";
-            // 
-            // W_ExtraNote
-            // 
-            this.W_ExtraNote.HeaderText = "ملاحظات";
-            this.W_ExtraNote.MinimumWidth = 6;
-            this.W_ExtraNote.Name = "W_ExtraNote";
-            // 
-            // W_PlaceState
-            // 
-            this.W_PlaceState.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_PlaceState.HeaderText = "ملكية العقار";
-            this.W_PlaceState.MinimumWidth = 6;
-            this.W_PlaceState.Name = "W_PlaceState";
-            // 
-            // W_Place
-            // 
-            this.W_Place.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_Place.HeaderText = "العنوان";
-            this.W_Place.MinimumWidth = 6;
-            this.W_Place.Name = "W_Place";
-            // 
-            // W_Contact
-            // 
-            this.W_Contact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_Contact.HeaderText = "اسم ورقم صاحب العمل";
-            this.W_Contact.MinimumWidth = 6;
-            this.W_Contact.Name = "W_Contact";
-            // 
-            // W_Salary
-            // 
-            this.W_Salary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_Salary.HeaderText = "الربح";
-            this.W_Salary.MinimumWidth = 6;
-            this.W_Salary.Name = "W_Salary";
-            // 
-            // W_DeleteRow
-            // 
-            this.W_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.W_DeleteRow.FillWeight = 40F;
-            this.W_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.W_DeleteRow.HeaderText = " ";
-            this.W_DeleteRow.MinimumWidth = 50;
-            this.W_DeleteRow.Name = "W_DeleteRow";
-            this.W_DeleteRow.Width = 50;
-            // 
-            // W_InDataBase
-            // 
-            this.W_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_InDataBase.HeaderText = "W_InDataBase";
-            this.W_InDataBase.MinimumWidth = 6;
-            this.W_InDataBase.Name = "W_InDataBase";
-            this.W_InDataBase.Visible = false;
-            // 
-            // W_RowID
-            // 
-            this.W_RowID.HeaderText = "W_RowID";
-            this.W_RowID.MinimumWidth = 6;
-            this.W_RowID.Name = "W_RowID";
-            this.W_RowID.Visible = false;
-            // 
-            // ExpP_ID
-            // 
-            this.ExpP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ExpP_ID.HeaderText = "ExpP_ID";
-            this.ExpP_ID.MinimumWidth = 6;
-            this.ExpP_ID.Name = "ExpP_ID";
-            this.ExpP_ID.Visible = false;
-            // 
-            // Exp_ID
-            // 
-            this.Exp_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Exp_ID.HeaderText = "Exp_ID";
-            this.Exp_ID.MinimumWidth = 6;
-            this.Exp_ID.Name = "Exp_ID";
-            this.Exp_ID.Visible = false;
-            // 
-            // Exp_Name
-            // 
-            this.Exp_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Exp_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Exp_Name.HeaderText = "المهنة";
-            this.Exp_Name.MinimumWidth = 6;
-            this.Exp_Name.Name = "Exp_Name";
-            this.Exp_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Exp_WorkType
-            // 
-            this.Exp_WorkType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Exp_WorkType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Exp_WorkType.HeaderText = "طبيعة العمل";
-            this.Exp_WorkType.MinimumWidth = 6;
-            this.Exp_WorkType.Name = "Exp_WorkType";
-            this.Exp_WorkType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Exp_WorkType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Exp_BeginDate
-            // 
-            this.Exp_BeginDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Exp_BeginDate.HeaderText = "تاريخ البداية";
-            this.Exp_BeginDate.MinimumWidth = 6;
-            this.Exp_BeginDate.Name = "Exp_BeginDate";
-            // 
-            // Exp_EndDate
-            // 
-            this.Exp_EndDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Exp_EndDate.HeaderText = "تاريخ النهاية";
-            this.Exp_EndDate.MinimumWidth = 6;
-            this.Exp_EndDate.Name = "Exp_EndDate";
-            // 
-            // Exp_ExtraNote
-            // 
-            this.Exp_ExtraNote.HeaderText = "ملاحظات";
-            this.Exp_ExtraNote.MinimumWidth = 6;
-            this.Exp_ExtraNote.Name = "Exp_ExtraNote";
-            // 
-            // Exp_PlaceState
-            // 
-            this.Exp_PlaceState.HeaderText = "ملكية العقار";
-            this.Exp_PlaceState.MinimumWidth = 6;
-            this.Exp_PlaceState.Name = "Exp_PlaceState";
-            // 
-            // Exp_Place
-            // 
-            this.Exp_Place.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Exp_Place.HeaderText = "العنوان";
-            this.Exp_Place.MinimumWidth = 6;
-            this.Exp_Place.Name = "Exp_Place";
-            // 
-            // Exp_Contact
-            // 
-            this.Exp_Contact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Exp_Contact.HeaderText = "اسم ورقم صاحب العمل";
-            this.Exp_Contact.MinimumWidth = 6;
-            this.Exp_Contact.Name = "Exp_Contact";
-            // 
-            // Exp_CauseOfLose
-            // 
-            this.Exp_CauseOfLose.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Exp_CauseOfLose.HeaderText = "سبب التوقّف";
-            this.Exp_CauseOfLose.MinimumWidth = 6;
-            this.Exp_CauseOfLose.Name = "Exp_CauseOfLose";
-            // 
-            // Exp_DeleteRow
-            // 
-            this.Exp_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Exp_DeleteRow.FillWeight = 40F;
-            this.Exp_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Exp_DeleteRow.HeaderText = " ";
-            this.Exp_DeleteRow.MinimumWidth = 50;
-            this.Exp_DeleteRow.Name = "Exp_DeleteRow";
-            this.Exp_DeleteRow.Width = 50;
-            // 
-            // Exp_InDataBase
-            // 
-            this.Exp_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Exp_InDataBase.HeaderText = "Exp_InDataBase";
-            this.Exp_InDataBase.MinimumWidth = 6;
-            this.Exp_InDataBase.Name = "Exp_InDataBase";
-            this.Exp_InDataBase.Visible = false;
-            // 
-            // Exp_RowID
-            // 
-            this.Exp_RowID.HeaderText = "Exp_RowID";
-            this.Exp_RowID.MinimumWidth = 6;
-            this.Exp_RowID.Name = "Exp_RowID";
-            this.Exp_RowID.Visible = false;
-            // 
-            // ApplyDate_bcDateTimePicker
-            // 
-            this.ApplyDate_bcDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ApplyDate_bcDateTimePicker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ApplyDate_bcDateTimePicker.CustomFormat = "yyyy/MM/dd";
-            this.ApplyDate_bcDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.ApplyDate_bcDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(533, 178);
-            this.ApplyDate_bcDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ApplyDate_bcDateTimePicker.Name = "ApplyDate_bcDateTimePicker";
-            this.ApplyDate_bcDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
-            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(245, 29);
-            this.ApplyDate_bcDateTimePicker.TabIndex = 6;
-            // 
             // Application_New_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 27F);
@@ -7763,7 +7881,7 @@ namespace MyWorkApplication
             this.P_HasIncomeSource_flowLayoutPanel.ResumeLayout(false);
             this.P_HasIncomeSource_flowLayoutPanel.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HelpSource_dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HomePowerSource_dataGridView)).EndInit();
             this.flowLayoutPanel18.ResumeLayout(false);
             this.flowLayoutPanel18.PerformLayout();
@@ -8117,9 +8235,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.RadioButton P_HasIncomeSourceNo_radioButton;
         private System.Windows.Forms.RadioButton P_HasIncomeSourceYes_radioButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label113;
-        private System.Windows.Forms.Label label112;
-        private System.Windows.Forms.TextBox P_OtherIncomeSources_Note_textBox;
         private System.Windows.Forms.Label SubHeader11_label;
         private System.Windows.Forms.DataGridView HomePowerSource_dataGridView;
         private System.Windows.Forms.TableLayoutPanel t20_tableLayoutPanel;
@@ -8162,14 +8277,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.RadioButton Agreement4_No_radioButton;
         private System.Windows.Forms.RadioButton Agreement4_Yes_radioButton;
         private System.Windows.Forms.DataGridView Materials_dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn M_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn M_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn M_Comments;
-        private System.Windows.Forms.DataGridViewTextBoxColumn M_Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn M_Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MMP_ID;
-        private System.Windows.Forms.DataGridViewButtonColumn M_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn M_InDataBase;
         private System.Windows.Forms.Label SubHeader13_label;
         private System.Windows.Forms.Label OverallSyrian_label;
         private System.Windows.Forms.Label label28;
@@ -8181,11 +8288,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.ComboBox AidA_comboBox;
-        private System.Windows.Forms.ComboBox AidR_comboBox;
-        private System.Windows.Forms.ComboBox AidPeriodA_comboBox;
-        private System.Windows.Forms.ComboBox AidPeriodR_comboBox;
         private System.Windows.Forms.FlowLayoutPanel P_HasEducation_flowLayoutPanel;
         private System.Windows.Forms.RadioButton P_HasEducationNo_radioButton;
         private System.Windows.Forms.RadioButton P_HasEducationYes_radioButton;
@@ -8193,75 +8295,7 @@ namespace MyWorkApplication
         private System.Windows.Forms.ContextMenuStrip delete_contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem delete_person_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem delete_project_person_ToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LPerson_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn L_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn L_Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn L_Year;
-        private System.Windows.Forms.DataGridViewTextBoxColumn L_Notes;
-        private System.Windows.Forms.DataGridViewButtonColumn L_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn L_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn L_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Power_MP_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Power_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Power_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Power_Note;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Power_Cost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Power_Responsability;
-        private System.Windows.Forms.DataGridViewButtonColumn Power_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Power_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Power_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PE_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn E_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn P_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn E_Level;
-        private System.Windows.Forms.DataGridViewComboBoxColumn E_Type;
-        private System.Windows.Forms.DataGridViewComboBoxColumn E_Name;
-        private System.Windows.Forms.DataGridViewButtonColumn Edu_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Edu_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Edu_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AidP_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Aid_PName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_Relation;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Aid_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_DateYear;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_ProjectType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_Notes;
-        private System.Windows.Forms.DataGridViewButtonColumn Aid_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HPowerP_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HPower_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn HPower_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HPower_Note;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HPower_Cost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HPower_Responsability;
-        private System.Windows.Forms.DataGridViewButtonColumn HPower_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HPower_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HPower_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn APerson_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Asset_PName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_Relation;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Asset_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_Year;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_Desc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_Note;
-        private System.Windows.Forms.DataGridViewButtonColumn Asset_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPerosn_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Course_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn C_SubCategory_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn C_SubCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn C_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn C_Place;
-        private System.Windows.Forms.DataGridViewTextBoxColumn C_Donor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn C_Date;
-        private System.Windows.Forms.DataGridViewButtonColumn C_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn C_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn C_RowID;
+        private System.Windows.Forms.DataGridView HelpSource_dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn FP_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn F_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_FirstName;
@@ -8280,6 +8314,90 @@ namespace MyWorkApplication
         private System.Windows.Forms.DataGridViewButtonColumn P_DeleteRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LPerson_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn L_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn L_Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn L_Year;
+        private System.Windows.Forms.DataGridViewTextBoxColumn L_Notes;
+        private System.Windows.Forms.DataGridViewButtonColumn L_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn L_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn L_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn L_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M_Comments;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M_Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M_Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MMP_ID;
+        private System.Windows.Forms.DataGridViewButtonColumn M_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn M_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Power_MP_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Power_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Power_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Power_Note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Power_Cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Power_Responsability;
+        private System.Windows.Forms.DataGridViewButtonColumn Power_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Power_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Power_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Power_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPerosn_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Course_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C_SubCategory_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn C_SubCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C_Place;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C_Donor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C_Date;
+        private System.Windows.Forms.DataGridViewButtonColumn C_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PE_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn E_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn E_Level;
+        private System.Windows.Forms.DataGridViewComboBoxColumn E_Type;
+        private System.Windows.Forms.DataGridViewComboBoxColumn E_Name;
+        private System.Windows.Forms.DataGridViewButtonColumn Edu_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Edu_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Edu_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Edu_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AidP_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Aid_PName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_Relation;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Aid_Source;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_DateYear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_ProjectType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_Notes;
+        private System.Windows.Forms.DataGridViewButtonColumn Aid_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aid_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HelpP_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Help_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Help_Source;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Help_Name;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Help_Period;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Help_Note;
+        private System.Windows.Forms.DataGridViewButtonColumn Help_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Help_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Help_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Help_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HPowerP_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HPower_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn HPower_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HPower_Note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HPower_Cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HPower_Responsability;
+        private System.Windows.Forms.DataGridViewButtonColumn HPower_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HPower_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HPower_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HPower_IsDirty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Person_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ill_ID;
         private System.Windows.Forms.DataGridViewComboBoxColumn Ill_PName;
@@ -8293,6 +8411,19 @@ namespace MyWorkApplication
         private System.Windows.Forms.DataGridViewButtonColumn Ill_DeleteRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ill_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ill_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn APerson_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Asset_PName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_Relation;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Asset_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_Year;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_Desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_Note;
+        private System.Windows.Forms.DataGridViewButtonColumn Asset_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asset_IsDirty;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpP_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Exp_ID;
         private System.Windows.Forms.DataGridViewComboBoxColumn Exp_Name;
@@ -8307,6 +8438,7 @@ namespace MyWorkApplication
         private System.Windows.Forms.DataGridViewButtonColumn Exp_DeleteRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn Exp_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn Exp_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_IsDirty;
         private System.Windows.Forms.DataGridViewTextBoxColumn WP_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn W_ID;
         private System.Windows.Forms.DataGridViewComboBoxColumn W_Name;
@@ -8320,5 +8452,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.DataGridViewButtonColumn W_DeleteRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn W_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn W_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_IsDirty;
     }
 }
