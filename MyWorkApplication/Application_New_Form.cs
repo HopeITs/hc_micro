@@ -4,13 +4,11 @@ using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
 using MyWorkApplication.Visit_Forms;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
@@ -52,6 +50,8 @@ namespace MyWorkApplication
         private bool Update_Mode, NoFamily, CanAddFamilyMembers;
         bool user_mode;
         DataSet ds;
+
+        bool UserMode = false;
 
         public Application_New_Form(MainForm mainForm, bool zero)
         {
@@ -564,6 +564,8 @@ namespace MyWorkApplication
                 };
 
                 FlowLayoutPanel_Name.Controls.Add(chk);
+                chk.CheckedChanged -= P_Goals_checkBox_CheckedChanged;
+                chk.CheckedChanged += P_Goals_checkBox_CheckedChanged;
             }
         }
 
@@ -688,10 +690,8 @@ namespace MyWorkApplication
 
 
         #region dataGridView common functions
-
         Dictionary<DataGridView, string> ID_Columns = new Dictionary<DataGridView, string>();
         Dictionary<DataGridView, string> IsDirty_Columns = new Dictionary<DataGridView, string>();
-
         private void Bind_Gridview_Dictionaries()
 
         {
@@ -996,28 +996,14 @@ namespace MyWorkApplication
             P_DebtsAmount_textBox.KeyPress += InputValidationHelpercs.Decimal_NumericTextBox_KeyPress;
         }
 
-        private void PersonDOB_textBox_Leave(object sender, EventArgs e)
-        {
-            if (P_DOB_textBox.Text != "")
-            {
-                var date = Convert.ToInt32(P_DOB_textBox.Text);
-                if (date < 1900 || date > DateTime.Now.Year)
-                {
-                    MessageBox.Show("الرجاء إدخال تاريخ صالح!", "Date error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    P_DOB_textBox.Text = "";
-                }
-                else if (DateTime.Now.Year - date < 18) // منع ادخال استمارة قاصرين
-                {
-                    MessageBox.Show("انتبه! المستفيد تحت السن القانوني", "Date error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    P_DOB_textBox.Text = "";
-                }
-            }
-        }
+
 
 
 
         #region IsDirty
         Dictionary<DataGridView, bool> IsDirty_DataGrid = new Dictionary<DataGridView, bool>();
+
+        Dictionary<string, bool> IsDirty_Data = new Dictionary<string, bool>();
 
         private void Initialize_IsDirty()
         {
@@ -1037,10 +1023,1602 @@ namespace MyWorkApplication
                     {HelpSource_dataGridView,  false},
                     {HomePowerSource_dataGridView, false}
                 };
+
+            IsDirty_Data = new Dictionary<string, bool>
+                {
+                    {"Project_ISDirty",  false},
+                    {"ProjectStory_ISDirty",  false},
+                    {"Benificiry_ISDirty",  false},
+                    {"Work_ISDirty",  false},
+                    {"Edu_ISDirty",  false},
+                    {"Projrct_Info_ISDirty",  false},
+                    {"Family_ISDirty",  false},
+                    {"AditionalInfo_ISDirty", false},
+                };
+        }
+        #endregion
+
+        #region Project_ISDirty
+        string MP_RequestedAmount_textBox_original, MP_Name_textBox_original, P_MobileReadable_textBox_original, MPID_textBox_original, P_FullName_textBox_original;
+
+        private void P_FullName_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_FullName_textBox_original = P_FullName_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_FullName_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_FullName_textBox_original != P_FullName_textBox.Text)
+                    IsDirty_Data["Project_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+
+        }
+
+        private void MP_Name_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                MP_Name_textBox_original = MP_Name_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void MP_Name_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MP_Name_textBox_original != MP_Name_textBox.Text)
+                    IsDirty_Data["Project_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+
+        }
+
+
+        private void P_MobileReadable_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_MobileReadable_textBox_original = P_MobileReadable_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_MobileReadable_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_MobileReadable_textBox_original != P_MobileReadable_textBox.Text)
+                    IsDirty_Data["Project_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+
+        }
+
+
+        private void MPID_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                MPID_textBox_original = MPID_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void MPID_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MPID_textBox.Text == "")
+                { MessageBox.Show("لا يمكن ترك خلية رقم المشروع فارغة!"); }
+                else if (MPID_textBox_original != MPID_textBox.Text)
+                {
+                    var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد تغيير رقم المشروع من: " +
+                        MicroProject_ID.ToString() + " ؟ " + Environment.NewLine +
+                        "ليصبح الرقم: " + MPID_textBox.Text, "Edit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        if (Check_MicroProject_ID(MPID_textBox.Text))
+                        {
+                            IsDirty_Data["Project_ISDirty"] = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("الرجاء استخدام رقم مشروع آخر لأن هذا الرقم مستخدم من قبل مشروع آخر");
+                            MPID_textBox.Text = MicroProject_ID.ToString();
+                            MPID_textBox.Focus();
+                        }
+                    }
+                    else
+                    {
+                        MPID_textBox.Text = MicroProject_ID.ToString();
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+
+            //عند قيام المستخدم بتغيير رقم المشروع//
+            try
+            {
+                if (Save_MP_ID_button.BackgroundImage == Properties.Resources.Cheked || MicroProject_ID != -1)
+                {
+                    if (MPID_textBox.Text == "")
+                        MessageBox.Show("لا يمكن ترك خلية رقم المشروع فارغة!");
+                    else
+                    {
+                        var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد تغيير رقم المشروع من: " +
+                            MicroProject_ID.ToString() + " ؟ " + Environment.NewLine +
+                            "ليصبح الرقم: " + MPID_textBox.Text, "Edit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            //check if this number exist//
+                            if (Check_MicroProject_ID(MPID_textBox.Text))
+                            {
+                                int New_MP_ID = Convert.ToInt32(MPID_textBox.Text);
+                                Edit_MP(MicroProject_ID, New_MP_ID);
+                                l.Insert_Log("Update the project_ID from:" + MicroProject_ID + " to:" + MPID_textBox.Text, "Micro Project", Program.UserName, DateTime.Now);
+
+                                MicroProject_ID = New_MP_ID;
+                                MessageBox.Show("تم تعديل رقم المشروع بنجاح");
+                            }
+                            else
+                            {
+                                MessageBox.Show("الرجاء استخدام رقم مشروع آخر لأن هذا الرقم مستخدم من قبل مشروع آخر");
+                                MPID_textBox.Text = MicroProject_ID.ToString();
+                                MPID_textBox.Focus();
+                            }
+                        }
+                        else
+                        {
+                            MPID_textBox.Text = MicroProject_ID.ToString();
+                            //MPID_textBox.Focus();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        private void MP_RequestedAmount_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                MP_RequestedAmount_textBox_original = MP_RequestedAmount_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void MP_RequestedAmount_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                try
+                {
+                    if (MP_RequestedAmount_textBox_original != MP_RequestedAmount_textBox.Text)
+                        IsDirty_Data["Project_ISDirty"] = true;
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void ProjectArea_Combobox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                    IsDirty_Data["Project_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void ApplyDate_bcDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                    IsDirty_Data["Project_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void UpdateContent_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (user_mode)
+                {
+                    if (MicroProject_ID == -1 && ContentUpdated_checkBox.Checked)
+                    {
+                        ContentUpdated_checkBox.Checked = false;
+                        throw new InvalidOperationException("الرجاء حفظ المشروع أولاً ثم يمكنك التعديل على هذه الخلية.");
+                    }
+                    else
+                    {
+                        IsDirty_Data["Project_ISDirty"] = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Grant_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Loan_radioButton.Checked) type = 0;
+            else type = 1;
+
+            if (UserMode)
+                IsDirty_Data["Project_ISDirty"] = true;
+        }
+        #endregion
+
+        #region ProjectStory_ISDirty
+        string P_Loss_textBox_original, P_Goal_textBox_original, P_GoalHow_textBox_original, P_OtherNotes_textBox_original;
+
+        private void P_Loss_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_Loss_textBox_original = P_Loss_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_Loss_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_Loss_textBox_original != P_Loss_textBox.Text)
+                    IsDirty_Data["ProjectStory_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_Goal_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_Goal_textBox_original = P_Goal_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_Goal_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_Goal_textBox_original != P_Goal_textBox.Text)
+                    IsDirty_Data["ProjectStory_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_GoalHow_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_GoalHow_textBox_original = P_GoalHow_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_GoalHow_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_GoalHow_textBox_original != P_GoalHow_textBox.Text)
+                    IsDirty_Data["ProjectStory_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_OtherNotes_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_OtherNotes_textBox_original = P_OtherNotes_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_OtherNotes_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_OtherNotes_textBox_original != P_OtherNotes_textBox.Text)
+                    IsDirty_Data["ProjectStory_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_Goals_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (user_mode)
+                {
+                    IsDirty_Data["ProjectStory_ISDirty"] = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region Benificiry_ISDirty
+        string P_FirstName_textBox_original, P_LastName_textBox_original, P_FullName_En_textBox_original, P_FatherName_textBox_original, P_MotherName_textBox_original,
+            P_Registration_textBox_original, P_NationalNum_textBox_original, P_DOB_textBox_original, P_IntermidiaryName_textBox_original, P_Mobile_textBox_original,
+            P_HomeTel_textBox_original, P_Mobile2_textBox_original, P_Address_textBox_original, P_HomeStateNote_textBox_original, Military_textBox_original;
+
+        private void P_FirstName_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_FirstName_textBox_original = P_FirstName_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_FirstName_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                Calculate_NumAtHome();
+
+                if (P_FirstName_textBox_original != P_FirstName_textBox.Text)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_LastName_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_LastName_textBox_original = P_LastName_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_LastName_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_LastName_textBox_original != P_LastName_textBox.Text)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_FullName_En_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_FullName_En_textBox_original = P_FullName_En_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_FullName_En_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_FullName_En_textBox_original != P_FullName_En_textBox.Text)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_FatherName_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_FatherName_textBox_original = P_FatherName_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_FatherName_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_FatherName_textBox_original != P_FatherName_textBox.Text)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_MotherName_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_MotherName_textBox_original = P_MotherName_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_MotherName_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_MotherName_textBox_original != P_MotherName_textBox.Text)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_Registration_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_Registration_textBox_original = P_Registration_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_Registration_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_Registration_textBox_original != P_Registration_textBox.Text)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_NationalNum_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_NationalNum_textBox_original = P_NationalNum_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_NationalNum_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_NationalNum_textBox_original != P_NationalNum_textBox.Text)
+                {
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+                    if (!string.IsNullOrWhiteSpace(P_NationalNum_textBox.Text))
+                    {
+                        if (P_NationalNum_textBox.Text.Length != 11)
+                            MessageBox.Show("انتبه" + Environment.NewLine + Environment.NewLine + "عدد خانات الرقم الوطني لا تساوي 11"
+                                , "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        Check_National_Number(P_NationalNum_textBox.Text);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_DOB_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_DOB_textBox_original = P_DOB_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void PersonDOB_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_DOB_textBox_original != P_DOB_textBox.Text)
+                {
+                    var date = Convert.ToInt32(P_DOB_textBox.Text);
+                    if (date < 1900 || date > DateTime.Now.Year)
+                    {
+                        MessageBox.Show("الرجاء إدخال تاريخ صالح!", "Date error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        P_DOB_textBox.Text = P_DOB_textBox_original;
+                    }
+                    else if (DateTime.Now.Year - date < 18) // منع ادخال استمارة قاصرين
+                    {
+                        MessageBox.Show("انتبه! المستفيد تحت السن القانوني", "Date error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        P_DOB_textBox.Text = P_DOB_textBox_original;
+                    }
+                    else
+                    {
+                        IsDirty_Data["Benificiry_ISDirty"] = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+
+
+        }
+
+        private void P_IntermidiaryName_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_IntermidiaryName_textBox_original = P_IntermidiaryName_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_IntermidiaryName_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_IntermidiaryName_textBox_original != P_IntermidiaryName_textBox.Text)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_Mobile_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_Mobile_textBox_original = P_Mobile_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_Mobile_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_Mobile_textBox_original != P_Mobile_textBox.Text)
+                {
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+                    if (!string.IsNullOrWhiteSpace(P_MobileReadable_textBox.Text))
+                    {
+                        if (P_MobileReadable_textBox.Text.Length != 10)
+                            MessageBox.Show("انتبه" + Environment.NewLine + Environment.NewLine + "عدد خانات رقم الجوال لا تساوي 10"
+                                , "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+
+
+        }
+
+        private void P_HomeTel_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_HomeTel_textBox_original = P_HomeTel_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_HomeTel_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_HomeTel_textBox_original != P_HomeTel_textBox.Text)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_Mobile2_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_Mobile2_textBox_original = P_Mobile2_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_Mobile2_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_Mobile2_textBox_original != P_Mobile2_textBox.Text)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_Address_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_Address_textBox_original = P_Address_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_Address_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_Address_textBox_original != P_Address_textBox.Text)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_HomeStateNote_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_HomeStateNote_textBox_original = P_HomeStateNote_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_HomeStateNote_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_HomeStateNote_textBox_original != P_HomeStateNote_textBox.Text)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void Military_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                Military_textBox_original = Military_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void Military_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Military_textBox_original != Military_textBox.Text)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_Area_comboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void Military_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MilitaryFinished_radioButton.Checked)
+                {
+                    Military_Date_checkBox.Visible = true;
+
+                    if (Military_Date_checkBox.Checked)
+                        Military_Date_dateTimePicker.Visible = true;
+                }
+                else
+                    Military_Date_dateTimePicker.Visible = Military_Date_checkBox.Visible = false;
+
+                if (UserMode)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void Military_Date_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Military_Date_checkBox.Checked)
+                    Military_Date_dateTimePicker.Visible = true;
+                else Military_Date_dateTimePicker.Visible = false;
+
+                if (UserMode)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+
+
+        }
+
+        private void Military_Date_dateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                    IsDirty_Data["Benificiry_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        #endregion
+
+        #region Work_ISDirty
+        string P_WorkYears_textBox_original;
+
+        private void P_WorkYears_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_WorkYears_textBox_original = P_WorkYears_textBox.Text;
+
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_WorkYears_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (P_WorkYears_textBox_original != P_WorkYears_textBox.Text)
+                    IsDirty_Data["Work_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        #endregion
+
+        #region Edu_ISDirty
+
+        private void P_HasEducationYes_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (P_HasEducationYes_radioButton.Checked)
+                    {
+                        IsDirty_Data["Edu_ISDirty"] = true;
+                        Education_dataGridView.ReadOnly = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_HasEducationNo_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (P_HasEducationNo_radioButton.Checked)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("تأكيد الحذف", "Warning", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+
+                            IsDirty_Data["Edu_ISDirty"] = true;
+                            Education_dataGridView.ReadOnly = true;
+
+                            for (int i = 0; i < Education_dataGridView.Rows.Count - 1; i++)
+                            {
+                                if (Education_dataGridView.Rows[i].Cells[ID_Columns[Education_dataGridView]].Value != null)
+                                {
+                                    Education_dataGridView.Rows[i].Cells[IsDirty_Columns[Education_dataGridView]].Value = "1";
+                                    Education_dataGridView.Rows[i].Visible = false;
+                                    IsDirty_DataGrid[Education_dataGridView] = true;
+                                }
+                                else
+                                {
+                                    Education_dataGridView.Rows.RemoveAt(i);
+                                }
+                            }              
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_HasCoursesYes_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (P_HasCoursesYes_radioButton.Checked)
+                    {
+                        IsDirty_Data["Edu_ISDirty"] = true;
+                        Course_dataGridView.ReadOnly = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_HasCoursesNo_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (P_HasCoursesNo_radioButton.Checked)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("تأكيد الحذف", "Warning", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            IsDirty_Data["Edu_ISDirty"] = true;
+                            Course_dataGridView.ReadOnly = true;
+
+                            for (int i = 0; i < Course_dataGridView.Rows.Count - 1; i++)
+                            {
+                                if (Course_dataGridView.Rows[i].Cells[ID_Columns[Course_dataGridView]].Value != null)
+                                {
+                                    Course_dataGridView.Rows[i].Cells[IsDirty_Columns[Course_dataGridView]].Value = "1";
+                                    Course_dataGridView.Rows[i].Visible = false;
+                                    IsDirty_DataGrid[Course_dataGridView] = true;
+                                }
+                                else
+                                {
+                                    Course_dataGridView.Rows.RemoveAt(i);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
         }
         #endregion
 
 
+        #region Projrct_Info_ISDirty
+
+        string AmperNumber_textBox_original, MP_PlaceNote_textBox_original, MP_PlaceAddress_textBox_original;
+        private void AmperNumber_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                AmperNumber_textBox_original = AmperNumber_textBox.Text;
+
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void AmperNumber_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (AmperNumber_textBox_original != AmperNumber_textBox.Text)
+                    IsDirty_Data["Projrct_Info_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void MP_PlaceNote_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                MP_PlaceNote_textBox_original = MP_PlaceNote_textBox.Text;
+
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void MP_PlaceNote_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MP_PlaceNote_textBox_original != MP_PlaceNote_textBox.Text)
+                    IsDirty_Data["Projrct_Info_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void MP_PlaceAddress_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                MP_PlaceAddress_textBox_original = MP_PlaceAddress_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void MP_PlaceAddress_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MP_PlaceAddress_textBox_original != MP_PlaceAddress_textBox.Text)
+                    IsDirty_Data["Projrct_Info_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+
+        private void MP_PlaceType_comboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                    IsDirty_Data["Projrct_Info_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void Projrct_Info_Area_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                    IsDirty_Data["Projrct_Info_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        #endregion
+
+
+        #region Family_ISDirty
+        string FamilyNum_textBox1_original;
+        private void FamilyNum_textBox1_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                FamilyNum_textBox1_original = FamilyNum_textBox1.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void FamilyNum_textBox1_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (FamilyNum_textBox1_original != FamilyNum_textBox1.Text)
+                {
+                    if (!CanAddFamilyMembers)
+                        throw new InvalidOperationException("لا يمكن ترك رقم دفتر العائلة فارغ !");
+
+                    Check_Family_Num();
+                    IsDirty_Data["Family_ISDirty"] = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+
+        }
+
+        private void P_LiveWithFamily_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                    IsDirty_Data["Family_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_HasLossesYes_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (P_HasLossesYes_radioButton.Checked)
+                    {
+                        IsDirty_Data["Family_ISDirty"] = true;
+                        Loss_dataGridView.ReadOnly = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_HasLossesNo_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (P_HasLossesNo_radioButton.Checked)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("تأكيد الحذف", "Warning", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            IsDirty_Data["Family_ISDirty"] = true;
+                            Loss_dataGridView.ReadOnly = true;
+
+                            for (int i = 0; i < Loss_dataGridView.Rows.Count - 1; i++)
+                            {
+                                if (Loss_dataGridView.Rows[i].Cells[ID_Columns[Loss_dataGridView]].Value != null)
+                                {
+                                    Loss_dataGridView.Rows[i].Cells[IsDirty_Columns[Loss_dataGridView]].Value = "1";
+                                    Loss_dataGridView.Rows[i].Visible = false;
+                                    IsDirty_DataGrid[Loss_dataGridView] = true;
+                                }
+                                else
+                                {
+                                    Loss_dataGridView.Rows.RemoveAt(i);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_HasIllnessYes_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (P_HasIllnessYes_radioButton.Checked)
+                    {
+                        IsDirty_Data["Family_ISDirty"] = true;
+                        Illness_dataGridView.ReadOnly = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_HasIllnessNo_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (P_HasIllnessNo_radioButton.Checked)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("تأكيد الحذف", "Warning", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            IsDirty_Data["Family_ISDirty"] = true;
+                            Illness_dataGridView.ReadOnly = true;
+
+                            for (int i = 0; i < Illness_dataGridView.Rows.Count - 1; i++)
+                            {
+                                if (Illness_dataGridView.Rows[i].Cells[ID_Columns[Illness_dataGridView]].Value != null)
+                                {
+                                    Illness_dataGridView.Rows[i].Cells[IsDirty_Columns[Illness_dataGridView]].Value = "1";
+                                    Illness_dataGridView.Rows[i].Visible = false;
+                                    IsDirty_DataGrid[Illness_dataGridView] = true;
+                                }
+                                else
+                                {
+                                    Illness_dataGridView.Rows.RemoveAt(i);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_HasAssetsYes_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (P_HasAssetsYes_radioButton.Checked)
+                    {
+                        IsDirty_Data["Family_ISDirty"] = true;
+                        Assets_dataGridView.ReadOnly = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_HasAssetsNo_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (P_HasAssetsNo_radioButton.Checked)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("تأكيد الحذف", "Warning", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            IsDirty_Data["Family_ISDirty"] = true;
+                            Assets_dataGridView.ReadOnly = true;
+
+                            for (int i = 0; i < Assets_dataGridView.Rows.Count - 1; i++)
+                            {
+                                if (Assets_dataGridView.Rows[i].Cells[ID_Columns[Assets_dataGridView]].Value != null)
+                                {
+                                    Assets_dataGridView.Rows[i].Cells[IsDirty_Columns[Assets_dataGridView]].Value = "1";
+                                    Assets_dataGridView.Rows[i].Visible = false;
+                                    IsDirty_DataGrid[Assets_dataGridView] = true;
+                                }
+                                else
+                                {
+                                    Assets_dataGridView.Rows.RemoveAt(i);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+
+        }
+
+        private void P_HasAidSourceYes_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (P_HasAidSourceYes_radioButton.Checked)
+                    {
+                        IsDirty_Data["Family_ISDirty"] = true;
+                        AidSource_dataGridView.ReadOnly = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_HasAidSourceNo_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (P_HasAidSourceNo_radioButton.Checked)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("تأكيد الحذف", "Warning", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            IsDirty_Data["Family_ISDirty"] = true;
+                            AidSource_dataGridView.ReadOnly = true;
+
+                            for (int i = 0; i < AidSource_dataGridView.Rows.Count - 1; i++)
+                            {
+                                if (AidSource_dataGridView.Rows[i].Cells[ID_Columns[AidSource_dataGridView]].Value != null)
+                                {
+                                    AidSource_dataGridView.Rows[i].Cells[IsDirty_Columns[AidSource_dataGridView]].Value = "1";
+                                    AidSource_dataGridView.Rows[i].Visible = false;
+                                    IsDirty_DataGrid[AidSource_dataGridView] = true;
+                                }
+                                else
+                                {
+                                    AidSource_dataGridView.Rows.RemoveAt(i);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        #endregion
+
+        #region AditionalInfo_ISDirty
+        string MP_OtherDonors_textBox_original, P_DebtsAmount_textBox_original, P_DebtsNote_textBox_original, MP_SimpleProfit2_textBox_original;
+        private void MP_OtherDonors_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                MP_OtherDonors_textBox_original = MP_OtherDonors_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void MP_OtherDonors_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                try
+                {
+                    if (MP_OtherDonors_textBox_original != MP_OtherDonors_textBox.Text)
+                        IsDirty_Data["AditionalInfo_ISDirty"] = true;
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_DebtsAmount_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_DebtsAmount_textBox_original = P_DebtsAmount_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_DebtsAmount_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                try
+                {
+                    if (P_DebtsAmount_textBox_original != P_DebtsAmount_textBox.Text)
+                        IsDirty_Data["AditionalInfo_ISDirty"] = true;
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_DebtsNote_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                P_DebtsNote_textBox_original = P_DebtsNote_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_DebtsNote_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                try
+                {
+                    if (P_DebtsNote_textBox_original != P_DebtsNote_textBox.Text)
+                        IsDirty_Data["AditionalInfo_ISDirty"] = true;
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void MP_SimpleProfit2_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                MP_SimpleProfit2_textBox_original = MP_SimpleProfit2_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void MP_SimpleProfit2_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                try
+                {
+                    if (MP_SimpleProfit2_textBox_original != MP_SimpleProfit2_textBox.Text)
+                        IsDirty_Data["AditionalInfo_ISDirty"] = true;
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void P_HasHelpSourceYes_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (P_HasHelpSourceYes_radioButton.Checked)
+                    {
+                        IsDirty_Data["AditionalInfo_ISDirty"] = true;
+                        HelpSource_dataGridView.ReadOnly = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void P_HasHelpSourceNo_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (P_HasHelpSourceNo_radioButton.Checked)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("تأكيد الحذف", "Warning", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            IsDirty_Data["AditionalInfo_ISDirty"] = true;
+                            HelpSource_dataGridView.ReadOnly = true;
+
+                            for (int i = 0; i < HelpSource_dataGridView.Rows.Count - 1; i++)
+                            {
+                                if (HelpSource_dataGridView.Rows[i].Cells[ID_Columns[HelpSource_dataGridView]].Value != null)
+                                {
+                                    HelpSource_dataGridView.Rows[i].Cells[IsDirty_Columns[HelpSource_dataGridView]].Value = "1";
+                                    HelpSource_dataGridView.Rows[i].Visible = false;
+                                    IsDirty_DataGrid[HelpSource_dataGridView] = true;
+                                }
+                                else
+                                {
+                                    HelpSource_dataGridView.Rows.RemoveAt(i);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void HasDebts_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                    IsDirty_Data["AditionalInfo_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void PaperApplicationUser_comboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                    IsDirty_Data["AditionalInfo_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        #endregion
 
 
 
@@ -1640,6 +3218,66 @@ namespace MyWorkApplication
                 }
             }
         }
+        private void Check_Family_Num()
+        {
+
+            try
+            {
+
+
+                //clear unused dummy families//
+                string q = "DELETE from family WHERE family.F_ID not in (SELECT person_family.Family_ID from person_family);";
+                //check if family is already inserted// 
+                q += "select count(F_Number) from `family` where F_Number like '" + FamilyNum_textBox1.Text + "';";
+
+                Program.buildConnection();
+                MySS.sc = new MySqlCommand(q, Program.MyConn);
+                var FamilyBookID = Convert.ToInt32(MySS.sc.ExecuteScalar());
+                Program.MyConn.Close();
+                if (FamilyBookID != 0)
+                {
+                    // get beneficiary names of this family
+
+                    var query =
+                        @"select CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ', P_FatherName) as 'الاسم الثلاثي'
+                                ,PMP.Person_ID as 'ID' , PMP.MicroProject_ID as 'MicroProject_ID' 
+                                From `person` p right outer join `person_family` pf on p.P_ID = pf.Person_ID 
+                                left outer join `family` f on f.F_ID = pf.Family_ID 
+                                left outer join `person_microproject` PMP on PMP.Person_ID = p.P_ID 
+                                where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'مستفيد'";
+                    Program.buildConnection();
+                    MySS.sc = new MySqlCommand(query, Program.MyConn);
+                    var name = MySS.sc.ExecuteScalar().ToString();
+                    Program.MyConn.Close();
+
+                    //Beneficiary_In_Existing_Family = true;
+
+                    var r = MessageBox.Show(
+                        "رقم دفتر العائلة موجود مسبقاً ! " + Environment.NewLine +
+                        " المستفيد التابع لدفتر العائلة هذا هو: " + name, "Dublicate", MessageBoxButtons.OK);
+                    if (r == DialogResult.OK)
+                    {
+                        //int P_ID = Int32.Parse(dt.Rows[0]["P_ID"].ToString());
+                        //int MP_ID = Int32.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
+
+                        ////////open new tab 
+                        //Form application_Form = new Application_Form(Person_ID, MicroProject_ID, mainForm);
+                        //mainForm.showNewTab(application_Form, "Application");
+
+                        //Fill_FamilyMembers(1);
+                        //FamilyMember_dataGridView.Refresh();
+                    }
+                }
+                else
+                {
+                    Calculate_NumAtHome();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void Calculate_NumAtHome()
         {
             try
@@ -1739,61 +3377,6 @@ namespace MyWorkApplication
         /// ////////////////////////////////////////////////////////////////////////
 
         #region events
-        private void MPID_textBox_Leave(object sender, EventArgs e)
-        {
-            //عند قيام المستخدم بتغيير رقم المشروع//
-            try
-            {
-                if (Save_MP_ID_button.BackgroundImage == Properties.Resources.Cheked || MicroProject_ID != -1)
-                {
-                    if (MPID_textBox.Text == "")
-                        MessageBox.Show("لا يمكن ترك خلية رقم المشروع فارغة!");
-                    else
-                    {
-                        var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد تغيير رقم المشروع من: " +
-                            MicroProject_ID.ToString() + " ؟ " + Environment.NewLine +
-                            "ليصبح الرقم: " + MPID_textBox.Text, "Edit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (dialogResult == DialogResult.Yes)
-                        {
-                            //check if this number exist//
-                            if (Check_MicroProject_ID(MPID_textBox.Text))
-                            {
-                                int New_MP_ID = Convert.ToInt32(MPID_textBox.Text);
-                                Edit_MP(MicroProject_ID, New_MP_ID);
-                                l.Insert_Log("Update the project_ID from:" + MicroProject_ID + " to:" + MPID_textBox.Text, "Micro Project", Program.UserName, DateTime.Now);
-
-                                MicroProject_ID = New_MP_ID;
-                                MessageBox.Show("تم تعديل رقم المشروع بنجاح");
-                            }
-                            else
-                            {
-                                MessageBox.Show("الرجاء استخدام رقم مشروع آخر لأن هذا الرقم مستخدم من قبل مشروع آخر");
-                                MPID_textBox.Text = MicroProject_ID.ToString();
-                                MPID_textBox.Focus();
-                            }
-                        }
-                        else
-                        {
-                            MPID_textBox.Text = MicroProject_ID.ToString();
-                            //MPID_textBox.Focus();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void P_Mobile_textBox_Leave(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(P_MobileReadable_textBox.Text))
-            {
-                if (P_MobileReadable_textBox.Text.Length != 10)
-                    MessageBox.Show("انتبه" + Environment.NewLine + Environment.NewLine + "عدد خانات رقم الجوال لا تساوي 10"
-                        , "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
         private void PersonType_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (user_mode)
@@ -1806,10 +3389,7 @@ namespace MyWorkApplication
                 MessageBox.Show(message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-        private void P_FirstName_textBox_Leave(object sender, EventArgs e)
-        {
-            Calculate_NumAtHome();
-        }
+
         private void FamilyNum_textBox1_TextChanged(object sender, EventArgs e)
         {
             if (FamilyNum_textBox1.Text != "")
@@ -1817,79 +3397,8 @@ namespace MyWorkApplication
             else
                 CanAddFamilyMembers = false;
         }
-        private void FamilyNum_textBox1_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!CanAddFamilyMembers)
-                    throw new InvalidOperationException("لا يمكن ترك رقم دفتر العائلة فارغ !");
 
-                //clear unused dummy families//
-                string q = "DELETE from family WHERE family.F_ID not in (SELECT person_family.Family_ID from person_family);";
-                //check if family is already inserted// 
-                q += "select count(F_Number) from `family` where F_Number like '" + FamilyNum_textBox1.Text + "';";
 
-                Program.buildConnection();
-                MySS.sc = new MySqlCommand(q, Program.MyConn);
-                var FamilyBookID = Convert.ToInt32(MySS.sc.ExecuteScalar());
-                Program.MyConn.Close();
-                if (FamilyBookID != 0)
-                {
-                    // get beneficiary names of this family
-
-                    var query =
-                        @"select CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ', P_FatherName) as 'الاسم الثلاثي'
-                                ,PMP.Person_ID as 'ID' , PMP.MicroProject_ID as 'MicroProject_ID' 
-                                From `person` p right outer join `person_family` pf on p.P_ID = pf.Person_ID 
-                                left outer join `family` f on f.F_ID = pf.Family_ID 
-                                left outer join `person_microproject` PMP on PMP.Person_ID = p.P_ID 
-                                where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'مستفيد'";
-                    Program.buildConnection();
-                    MySS.sc = new MySqlCommand(query, Program.MyConn);
-                    var name = MySS.sc.ExecuteScalar().ToString();
-                    Program.MyConn.Close();
-
-                    //Beneficiary_In_Existing_Family = true;
-
-                    var r = MessageBox.Show(
-                        "رقم دفتر العائلة موجود مسبقاً ! " + Environment.NewLine +
-                        " المستفيد التابع لدفتر العائلة هذا هو: " + name, "Dublicate", MessageBoxButtons.OK);
-                    if (r == DialogResult.OK)
-                    {
-                        //int P_ID = Int32.Parse(dt.Rows[0]["P_ID"].ToString());
-                        //int MP_ID = Int32.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
-
-                        ////////open new tab 
-                        //Form application_Form = new Application_Form(Person_ID, MicroProject_ID, mainForm);
-                        //mainForm.showNewTab(application_Form, "Application");
-
-                        //Fill_FamilyMembers(1);
-                        //FamilyMember_dataGridView.Refresh();
-                    }
-                }
-                else
-                {
-                    Calculate_NumAtHome();
-                    FamilyMember_dataGridView.Refresh();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void MilitaryFinished_radioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if (MilitaryFinished_radioButton.Checked)
-                Military_Date_dateTimePicker.Visible = Military_Date_checkBox.Visible = true;
-            else
-                Military_Date_dateTimePicker.Visible = Military_Date_checkBox.Visible = false;
-        }
-        private void Grant_radioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Loan_radioButton.Checked) type = 0;
-            else type = 1;
-        }
         private void MPID_textBox_TextChanged(object sender, EventArgs e)
         {
             mainForm.MP_ID_label.Text = MPID_textBox.Text;
@@ -1909,99 +3418,15 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-
-
-        private void PersonNationalNum_textBox_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!string.IsNullOrWhiteSpace(P_NationalNum_textBox.Text))
-                {
-                    if (P_NationalNum_textBox.Text.Length != 11)
-                        MessageBox.Show("انتبه" + Environment.NewLine + Environment.NewLine + "عدد خانات الرقم الوطني لا تساوي 11"
-                            , "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                    Check_National_Number(P_NationalNum_textBox.Text);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void UpdateContent_checkBox_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (user_mode)
-                {
-                    if (MicroProject_ID == -1 && ContentUpdated_checkBox.Checked)
-                    {
-                        ContentUpdated_checkBox.Checked = false;
-                        throw new InvalidOperationException("الرجاء حفظ المشروع أولاً ثم يمكنك التعديل على هذه الخلية.");
-                    }
-
-                    var query = "";
-                    var state = "";
-
-                    User user1 = new User();
-                    UserNotification noti1 = new UserNotification();
-
-                    if (ContentUpdated_checkBox.Checked == false)
-                    {
-                        mp.Update_Project(MicroProject_ID, "IsContentUpdated", "0", "");
-                        toolTip1.SetToolTip(ContentUpdated_checkBox, "المشروع غير معدل");
-                        state = " Project content Is Not updated";
-
-                        noti1.Delete_Notification(
-                            MicroProject_ID
-                           , DateTime.Today.ToString("yyyy/MM/dd")
-                           , "تم تبديل المشروع إلى: " + MP_Name_textBox.Text
-                           , P_FirstName_textBox.Text + " " + P_LastName_textBox.Text + " ابن/ة " + P_FatherName_textBox.Text, -1);
-                    }
-                    else
-                    {
-                        mp.Update_Project(MicroProject_ID, "IsContentUpdated", "1", "");
-                        toolTip1.SetToolTip(ContentUpdated_checkBox, "تم تبديل المشروع");
-                        state = " Project content updated";
-
-                        //Send Notification to all users if the status changned - except rejected & waiting  
-                        var user_db = user1.Select_Users("", "", " and role.Role_Name Not like 'Out of Service' and role.Role_Name Not like 'Guest'");
-                        if (user_db != null)
-                            for (var i = 0; i < user_db.Rows.Count; i++)
-                                noti1.Insert_UserNotification(
-                                    DateTime.Today.ToString("yyyy/MM/dd")
-                                    , "تم تبديل المشروع إلى: " + MP_Name_textBox.Text
-                                    , P_FirstName_textBox.Text + " " + P_LastName_textBox.Text + " ابن/ة " + P_FatherName_textBox.Text
-                                    , MicroProject_ID
-                                    , user_db.Rows[i].Field<int>(0)
-                                    , Program.userID
-                                    , -998 + i);
-                    }
-
-                    l.Insert_Log("Update the project: " + MicroProject_ID + ":" + state, "micro project",
-                        Program.UserName, DateTime.Now);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void Military_Date_checkBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Military_Date_checkBox.Checked)
-                Military_Date_dateTimePicker.Enabled = true;
-            else Military_Date_dateTimePicker.Enabled = false;
-        }
-
         #endregion
 
         /// ////////////////////////////////////////////////////////////////////////
 
         #region downloan image
         bool success = false;
+
+
+
         private void SaveDialog()
         {
             success = false;
@@ -2043,6 +3468,7 @@ namespace MyWorkApplication
             else
                 return;
         }
+
         private void download_toolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
             Download_button_Click(sender, e);
@@ -2078,23 +3504,7 @@ namespace MyWorkApplication
 
 
 
-        //from f2f
-        #region //IsDirty
-        bool Person_Information_IsDirty = false,
-             MicroProject_Information_IsDirty = false,
-             FamilyMember_DataGridView_IsDirty = false,
-             Work_DataGridView_IsDirty = false,
-             Exp_DataGridView_IsDirty = false,
-             Education_DataGridView_IsDirty = false,
-             Course_DataGridView_IsDirty = false,
-             Loss_DataGridView_IsDirty = false,
-             Illness_DataGridView_IsDirty = false,
-             Asset_DataGridView_IsDirty = false,
-             AidSource_DataGridView_IsDirty = false,
-             HomePowerSource_DataGridView_IsDirty = false,
-             PowerSource_DataGridView_IsDirty = false,
-             Material_DataGridView_IsDirty = false;
-        #endregion
+
         //from f2f
         #region //Data
         string
@@ -2111,7 +3521,6 @@ namespace MyWorkApplication
             P_AidSourceNote,  //MP_OtherSources
             P_DeptAmount, P_DeptNote, P_SourceAssosiation, P_SourceRelative,
             MP_Address, MP_AddressNote, MP_Notes;
-
 
 
         int SubCategory_ID, Career_ID, Type_ID, SubType_ID, FundType_ID,
@@ -2132,55 +3541,10 @@ namespace MyWorkApplication
 
         #endregion
         //from f2f
-        #region //Original
-        string
-            MPID_textBox_OriginalText, P_Mobile_textBox_OriginalText, MP_RequestedAmount_textBox_OriginalText,
-            P_Loss_TextBox_OriginalText, P_Goal_textBox_OriginalText, P_GoalHow_textBox_OriginalText, P_OtherNotes_textBox_OriginalText,
-            P_FirstName_textBox_OriginalText, P_FatherName_textBox_OriginalText, P_LastName_textBox_OriginalText,
-            P_MotherName_textBox_OriginalText, P_Registration_textBox_OriginalText, P_NationalNumber_textBox_OriginalText,
-            P_EngName_textBox_OriginalText, P_DOB_textBox_OriginalText, P_Intermidate_textBox_OriginalText,
-            P_Landline_textBox_OriginalText, P_Mobile2_textBox_OriginalText, P_HomeAddress_textBox_OriginalText,
-            P_HomeStateNote_textBox_OriginalText, P_Military_textBox_OriginalText,
-            NumberAtHome_textBox_OriginalText, NumberAllMembers_textBox_OriginalText, FamilyNumber_textBox_OriginalText,
-            P_WorkYears_textBox_OriginalText, AidSourceNote_textBox_OriginalText,
-            P_DeptAmount_textBox_OriginalText, P_DeptNote_textBox_OriginalText,
-            P_SourceAssociation_textBox_OriginalText, P_SourceRelative_textBox_OriginalText,
-            MP_Address_textBox_OriginalText, MP_AddressNote_textBox_OriginalText,
-            MP_AmperNumber_textBox_OriginalText, MP_Notes_textBox_OriginalText;
 
-        #endregion
         //from f2f
         private void Set_Controls()
         {
-            MPID_textBox_OriginalText = P_Mobile_textBox_OriginalText = MP_RequestedAmount_textBox_OriginalText =
-            P_Loss_TextBox_OriginalText = P_Goal_textBox_OriginalText = P_GoalHow_textBox_OriginalText = P_OtherNotes_textBox_OriginalText =
-            P_FirstName_textBox_OriginalText = P_FatherName_textBox_OriginalText = P_LastName_textBox_OriginalText =
-            P_MotherName_textBox_OriginalText = P_Registration_textBox_OriginalText = P_NationalNumber_textBox_OriginalText =
-            P_EngName_textBox_OriginalText = P_DOB_textBox_OriginalText = P_Intermidate_textBox_OriginalText =
-            P_Landline_textBox_OriginalText = P_Mobile2_textBox_OriginalText = P_HomeAddress_textBox_OriginalText =
-            P_HomeStateNote_textBox_OriginalText = P_Military_textBox_OriginalText =
-            NumberAtHome_textBox_OriginalText = NumberAllMembers_textBox_OriginalText = FamilyNumber_textBox_OriginalText =
-            P_WorkYears_textBox_OriginalText = AidSourceNote_textBox_OriginalText =
-            P_DeptAmount_textBox_OriginalText = P_DeptNote_textBox_OriginalText =
-            P_SourceAssociation_textBox_OriginalText = P_SourceRelative_textBox_OriginalText =
-            MP_Address_textBox_OriginalText = MP_AddressNote_textBox_OriginalText =
-            MP_AmperNumber_textBox_OriginalText = MP_Notes_textBox_OriginalText = "";
-
-            Person_Information_IsDirty =
-            MicroProject_Information_IsDirty =
-            FamilyMember_DataGridView_IsDirty =
-            Work_DataGridView_IsDirty =
-            Exp_DataGridView_IsDirty =
-            Education_DataGridView_IsDirty =
-            Course_DataGridView_IsDirty =
-            Loss_DataGridView_IsDirty =
-            Illness_DataGridView_IsDirty =
-            Asset_DataGridView_IsDirty =
-            AidSource_DataGridView_IsDirty =
-            HomePowerSource_DataGridView_IsDirty =
-            PowerSource_DataGridView_IsDirty =
-            Material_DataGridView_IsDirty = false;
-
             MP_ID = P_Mobile = MP_ApplyDate = MP_Name = MP_RequestedAmount =
             P_Loss =
             P_Goal =         // MP_Description
@@ -2259,7 +3623,7 @@ namespace MyWorkApplication
                 if (P_HasIllnessYes_radioButton.Checked)
                     Illness_dataGridView.Enabled = true;
 
-                if (P_HasIncomeSourceYes_radioButton.Checked)
+                if (P_HasHelpSourceYes_radioButton.Checked)
                     P_HasIncomeSource_flowLayoutPanel.Enabled = true;
 
                 if (P_HasLossesYes_radioButton.Checked)
@@ -2267,7 +3631,6 @@ namespace MyWorkApplication
 
             }
         }
-
 
         private void FamilyMember_dataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
@@ -2280,10 +3643,6 @@ namespace MyWorkApplication
             Calculate_NumAtHome();
             FamilyMember_dataGridView.Refresh();
         }
-
-
-
-
 
 
 
@@ -2590,7 +3949,5 @@ namespace MyWorkApplication
             AddExtention_button.BackgroundImage = image;
         }
         #endregion
-
-
     }
 }

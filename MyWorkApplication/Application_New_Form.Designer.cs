@@ -264,8 +264,8 @@ namespace MyWorkApplication
             this.t11_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SubHeader10_label = new System.Windows.Forms.Label();
             this.P_HasIncomeSource_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.P_HasIncomeSourceNo_radioButton = new System.Windows.Forms.RadioButton();
-            this.P_HasIncomeSourceYes_radioButton = new System.Windows.Forms.RadioButton();
+            this.P_HasHelpSourceNo_radioButton = new System.Windows.Forms.RadioButton();
+            this.P_HasHelpSourceYes_radioButton = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.HelpSource_dataGridView = new System.Windows.Forms.DataGridView();
             this.HelpP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -659,6 +659,8 @@ namespace MyWorkApplication
             this.P_MobileReadable_textBox.Size = new System.Drawing.Size(245, 29);
             this.P_MobileReadable_textBox.TabIndex = 526;
             this.P_MobileReadable_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.P_MobileReadable_textBox.Enter += new System.EventHandler(this.P_MobileReadable_textBox_Enter);
+            this.P_MobileReadable_textBox.Leave += new System.EventHandler(this.P_MobileReadable_textBox_Leave);
             // 
             // label3
             // 
@@ -700,6 +702,7 @@ namespace MyWorkApplication
             this.MPID_textBox.TabIndex = 0;
             this.MPID_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.MPID_textBox.TextChanged += new System.EventHandler(this.MPID_textBox_TextChanged);
+            this.MPID_textBox.Enter += new System.EventHandler(this.MPID_textBox_Enter);
             this.MPID_textBox.Leave += new System.EventHandler(this.MPID_textBox_Leave);
             // 
             // P_FullName_En_textBox
@@ -713,6 +716,8 @@ namespace MyWorkApplication
             this.P_FullName_En_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_FullName_En_textBox.Size = new System.Drawing.Size(528, 29);
             this.P_FullName_En_textBox.TabIndex = 3;
+            this.P_FullName_En_textBox.Enter += new System.EventHandler(this.P_FullName_En_textBox_Enter);
+            this.P_FullName_En_textBox.Leave += new System.EventHandler(this.P_FullName_En_textBox_Leave);
             // 
             // label62
             // 
@@ -828,6 +833,8 @@ namespace MyWorkApplication
             this.MP_Name_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_Name_textBox.Size = new System.Drawing.Size(210, 29);
             this.MP_Name_textBox.TabIndex = 4;
+            this.MP_Name_textBox.Enter += new System.EventHandler(this.MP_Name_textBox_Enter);
+            this.MP_Name_textBox.Leave += new System.EventHandler(this.MP_Name_textBox_Leave);
             // 
             // label1
             // 
@@ -872,6 +879,7 @@ namespace MyWorkApplication
             this.Type_comboBox.Size = new System.Drawing.Size(258, 30);
             this.Type_comboBox.TabIndex = 3;
             this.Type_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.Type_comboBox.SelectionChangeCommitted += new System.EventHandler(this.ProjectArea_Combobox_SelectionChangeCommitted);
             this.Type_comboBox.SelectedValueChanged += new System.EventHandler(this.Type_comboBox_SelectedValueChanged);
             this.Type_comboBox.TextChanged += new System.EventHandler(this.Type_comboBox_TextChanged);
             this.Type_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
@@ -903,6 +911,7 @@ namespace MyWorkApplication
             this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
             this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(245, 29);
             this.ApplyDate_bcDateTimePicker.TabIndex = 6;
+            this.ApplyDate_bcDateTimePicker.ValueChanged += new System.EventHandler(this.ApplyDate_bcDateTimePicker_ValueChanged);
             // 
             // label79
             // 
@@ -947,6 +956,7 @@ namespace MyWorkApplication
             this.SubType_comboBox.Size = new System.Drawing.Size(258, 30);
             this.SubType_comboBox.TabIndex = 4;
             this.SubType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.SubType_comboBox.SelectionChangeCommitted += new System.EventHandler(this.ProjectArea_Combobox_SelectionChangeCommitted);
             this.SubType_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // tableLayoutPanel1
@@ -1152,6 +1162,7 @@ namespace MyWorkApplication
             this.SubCategory_comboBox.Size = new System.Drawing.Size(123, 30);
             this.SubCategory_comboBox.TabIndex = 5;
             this.SubCategory_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.SubCategory_comboBox.SelectionChangeCommitted += new System.EventHandler(this.ProjectArea_Combobox_SelectionChangeCommitted);
             this.SubCategory_comboBox.SelectedValueChanged += new System.EventHandler(this.SubCategory_comboBox_SelectedValueChanged);
             this.SubCategory_comboBox.TextChanged += new System.EventHandler(this.SubCategory_comboBox_TextChanged);
             this.SubCategory_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
@@ -1173,6 +1184,7 @@ namespace MyWorkApplication
             this.Career_comboBox.Size = new System.Drawing.Size(123, 30);
             this.Career_comboBox.TabIndex = 6;
             this.Career_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.Career_comboBox.SelectionChangeCommitted += new System.EventHandler(this.ProjectArea_Combobox_SelectionChangeCommitted);
             this.Career_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // SubHeader1_label
@@ -1328,6 +1340,8 @@ namespace MyWorkApplication
             this.P_FullName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_FullName_textBox.Size = new System.Drawing.Size(245, 29);
             this.P_FullName_textBox.TabIndex = 564;
+            this.P_FullName_textBox.Enter += new System.EventHandler(this.P_FullName_textBox_Enter);
+            this.P_FullName_textBox.Leave += new System.EventHandler(this.P_FullName_textBox_Leave);
             // 
             // FundType_label
             // 
@@ -1408,6 +1422,8 @@ namespace MyWorkApplication
             this.MP_RequestedAmount_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_RequestedAmount_textBox.Size = new System.Drawing.Size(258, 29);
             this.MP_RequestedAmount_textBox.TabIndex = 570;
+            this.MP_RequestedAmount_textBox.Enter += new System.EventHandler(this.MP_RequestedAmount_textBox_Enter);
+            this.MP_RequestedAmount_textBox.Leave += new System.EventHandler(this.MP_RequestedAmount_textBox_Leave);
             // 
             // tableLayoutPanel5
             // 
@@ -1697,6 +1713,8 @@ namespace MyWorkApplication
             this.Military_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Military_textBox.Size = new System.Drawing.Size(148, 29);
             this.Military_textBox.TabIndex = 17;
+            this.Military_textBox.Enter += new System.EventHandler(this.Military_textBox_Enter);
+            this.Military_textBox.Leave += new System.EventHandler(this.Military_textBox_Leave);
             // 
             // Military_Date_checkBox
             // 
@@ -1736,6 +1754,7 @@ namespace MyWorkApplication
             this.P_FirstName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_FirstName_textBox.Size = new System.Drawing.Size(171, 29);
             this.P_FirstName_textBox.TabIndex = 1;
+            this.P_FirstName_textBox.Enter += new System.EventHandler(this.P_FirstName_textBox_Enter);
             this.P_FirstName_textBox.Leave += new System.EventHandler(this.P_FirstName_textBox_Leave);
             // 
             // label52
@@ -1774,6 +1793,8 @@ namespace MyWorkApplication
             this.P_FatherName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_FatherName_textBox.Size = new System.Drawing.Size(171, 29);
             this.P_FatherName_textBox.TabIndex = 3;
+            this.P_FatherName_textBox.Enter += new System.EventHandler(this.P_FatherName_textBox_Enter);
+            this.P_FatherName_textBox.Leave += new System.EventHandler(this.P_FatherName_textBox_Leave);
             // 
             // label35
             // 
@@ -1798,6 +1819,8 @@ namespace MyWorkApplication
             this.P_LastName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_LastName_textBox.Size = new System.Drawing.Size(148, 29);
             this.P_LastName_textBox.TabIndex = 2;
+            this.P_LastName_textBox.Enter += new System.EventHandler(this.P_LastName_textBox_Enter);
+            this.P_LastName_textBox.Leave += new System.EventHandler(this.P_LastName_textBox_Leave);
             // 
             // P_Sex_comboBox
             // 
@@ -1818,6 +1841,7 @@ namespace MyWorkApplication
             this.P_Sex_comboBox.Size = new System.Drawing.Size(167, 30);
             this.P_Sex_comboBox.TabIndex = 5;
             this.P_Sex_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.P_Sex_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.P_Sex_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // label13
@@ -1857,6 +1881,8 @@ namespace MyWorkApplication
             this.P_Address_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_Address_textBox.Size = new System.Drawing.Size(528, 29);
             this.P_Address_textBox.TabIndex = 22;
+            this.P_Address_textBox.Enter += new System.EventHandler(this.P_Address_textBox_Enter);
+            this.P_Address_textBox.Leave += new System.EventHandler(this.P_Address_textBox_Leave);
             // 
             // P_MotherName_textBox
             // 
@@ -1869,6 +1895,8 @@ namespace MyWorkApplication
             this.P_MotherName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_MotherName_textBox.Size = new System.Drawing.Size(528, 29);
             this.P_MotherName_textBox.TabIndex = 4;
+            this.P_MotherName_textBox.Enter += new System.EventHandler(this.P_MotherName_textBox_Enter);
+            this.P_MotherName_textBox.Leave += new System.EventHandler(this.P_MotherName_textBox_Leave);
             // 
             // P_Registration_label
             // 
@@ -1893,6 +1921,8 @@ namespace MyWorkApplication
             this.P_Registration_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_Registration_textBox.Size = new System.Drawing.Size(171, 29);
             this.P_Registration_textBox.TabIndex = 553;
+            this.P_Registration_textBox.Enter += new System.EventHandler(this.P_Registration_textBox_Enter);
+            this.P_Registration_textBox.Leave += new System.EventHandler(this.P_Registration_textBox_Leave);
             // 
             // label42
             // 
@@ -1918,7 +1948,8 @@ namespace MyWorkApplication
             this.P_NationalNum_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_NationalNum_textBox.Size = new System.Drawing.Size(528, 29);
             this.P_NationalNum_textBox.TabIndex = 8;
-            this.P_NationalNum_textBox.Leave += new System.EventHandler(this.PersonNationalNum_textBox_Leave);
+            this.P_NationalNum_textBox.Enter += new System.EventHandler(this.P_NationalNum_textBox_Enter);
+            this.P_NationalNum_textBox.Leave += new System.EventHandler(this.P_NationalNum_textBox_Leave);
             // 
             // label54
             // 
@@ -1945,6 +1976,7 @@ namespace MyWorkApplication
             this.P_DOB_textBox.Size = new System.Drawing.Size(171, 29);
             this.P_DOB_textBox.TabIndex = 9;
             this.P_DOB_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.P_DOB_textBox.Enter += new System.EventHandler(this.P_DOB_textBox_Enter);
             this.P_DOB_textBox.Leave += new System.EventHandler(this.PersonDOB_textBox_Leave);
             // 
             // label63
@@ -1977,6 +2009,7 @@ namespace MyWorkApplication
             this.P_MaritalState_comboBox.Size = new System.Drawing.Size(528, 30);
             this.P_MaritalState_comboBox.TabIndex = 6;
             this.P_MaritalState_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.P_MaritalState_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.P_MaritalState_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // P_HomeStateNote_textBox
@@ -1990,6 +2023,8 @@ namespace MyWorkApplication
             this.P_HomeStateNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_HomeStateNote_textBox.Size = new System.Drawing.Size(528, 29);
             this.P_HomeStateNote_textBox.TabIndex = 528;
+            this.P_HomeStateNote_textBox.Enter += new System.EventHandler(this.P_HomeStateNote_textBox_Enter);
+            this.P_HomeStateNote_textBox.Leave += new System.EventHandler(this.P_HomeStateNote_textBox_Leave);
             // 
             // flowLayoutPanel5
             // 
@@ -2085,6 +2120,7 @@ namespace MyWorkApplication
             this.Street_comboBox.Size = new System.Drawing.Size(171, 30);
             this.Street_comboBox.TabIndex = 21;
             this.Street_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.Street_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.Street_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // P_HomeType_comboBox
@@ -2104,6 +2140,7 @@ namespace MyWorkApplication
             this.P_HomeType_comboBox.Size = new System.Drawing.Size(171, 30);
             this.P_HomeType_comboBox.TabIndex = 21;
             this.P_HomeType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.P_HomeType_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.P_HomeType_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // P_Mobile2_textBox
@@ -2117,6 +2154,8 @@ namespace MyWorkApplication
             this.P_Mobile2_textBox.Size = new System.Drawing.Size(167, 29);
             this.P_Mobile2_textBox.TabIndex = 558;
             this.P_Mobile2_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.P_Mobile2_textBox.Enter += new System.EventHandler(this.P_Mobile2_textBox_Enter);
+            this.P_Mobile2_textBox.Leave += new System.EventHandler(this.P_Mobile2_textBox_Leave);
             // 
             // Military_Date_dateTimePicker
             // 
@@ -2129,6 +2168,7 @@ namespace MyWorkApplication
             this.Military_Date_dateTimePicker.Size = new System.Drawing.Size(167, 29);
             this.Military_Date_dateTimePicker.TabIndex = 16;
             this.Military_Date_dateTimePicker.Visible = false;
+            this.Military_Date_dateTimePicker.ValueChanged += new System.EventHandler(this.Military_Date_dateTimePicker_ValueChanged);
             // 
             // Military_flowLayoutPanel
             // 
@@ -2175,7 +2215,7 @@ namespace MyWorkApplication
             this.MilitarySingle_radioButton.TabStop = true;
             this.MilitarySingle_radioButton.Text = "وحيد";
             this.MilitarySingle_radioButton.UseVisualStyleBackColor = false;
-            this.MilitarySingle_radioButton.CheckedChanged += new System.EventHandler(this.MilitaryFinished_radioButton_CheckedChanged);
+            this.MilitarySingle_radioButton.CheckedChanged += new System.EventHandler(this.Military_radioButton_CheckedChanged);
             // 
             // MilitaryFinished_radioButton
             // 
@@ -2192,7 +2232,7 @@ namespace MyWorkApplication
             this.MilitaryFinished_radioButton.TabStop = true;
             this.MilitaryFinished_radioButton.Text = "مسرّح";
             this.MilitaryFinished_radioButton.UseVisualStyleBackColor = false;
-            this.MilitaryFinished_radioButton.CheckedChanged += new System.EventHandler(this.MilitaryFinished_radioButton_CheckedChanged);
+            this.MilitaryFinished_radioButton.CheckedChanged += new System.EventHandler(this.Military_radioButton_CheckedChanged);
             // 
             // MilitaryNow_radioButton
             // 
@@ -2209,7 +2249,7 @@ namespace MyWorkApplication
             this.MilitaryNow_radioButton.TabStop = true;
             this.MilitaryNow_radioButton.Text = "عسكري";
             this.MilitaryNow_radioButton.UseVisualStyleBackColor = false;
-            this.MilitaryNow_radioButton.CheckedChanged += new System.EventHandler(this.MilitaryFinished_radioButton_CheckedChanged);
+            this.MilitaryNow_radioButton.CheckedChanged += new System.EventHandler(this.Military_radioButton_CheckedChanged);
             // 
             // P_IntermidiaryName_label
             // 
@@ -2234,6 +2274,8 @@ namespace MyWorkApplication
             this.P_IntermidiaryName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_IntermidiaryName_textBox.Size = new System.Drawing.Size(148, 29);
             this.P_IntermidiaryName_textBox.TabIndex = 15;
+            this.P_IntermidiaryName_textBox.Enter += new System.EventHandler(this.P_IntermidiaryName_textBox_Enter);
+            this.P_IntermidiaryName_textBox.Leave += new System.EventHandler(this.P_IntermidiaryName_textBox_Leave);
             // 
             // P_Priest_tableLayoutPanel
             // 
@@ -2275,6 +2317,7 @@ namespace MyWorkApplication
             this.P_Priest2_comboBox.Size = new System.Drawing.Size(104, 30);
             this.P_Priest2_comboBox.TabIndex = 265;
             this.P_Priest2_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.P_Priest2_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.P_Priest2_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // P_Priest_comboBox
@@ -2294,6 +2337,7 @@ namespace MyWorkApplication
             this.P_Priest_comboBox.Size = new System.Drawing.Size(104, 30);
             this.P_Priest_comboBox.TabIndex = 17;
             this.P_Priest_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.P_Priest_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.P_Priest_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // P_Priest_label
@@ -2339,6 +2383,7 @@ namespace MyWorkApplication
             this.P_Parish_comboBox.Size = new System.Drawing.Size(171, 30);
             this.P_Parish_comboBox.TabIndex = 16;
             this.P_Parish_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.P_Parish_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.P_Parish_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // flowLayoutPanel3
@@ -2390,6 +2435,7 @@ namespace MyWorkApplication
             this.PersonType_comboBox.TabStop = false;
             this.PersonType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.PersonType_comboBox.SelectedIndexChanged += new System.EventHandler(this.PersonType_comboBox_SelectedIndexChanged);
+            this.PersonType_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.PersonType_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // PersonType_label
@@ -2455,6 +2501,8 @@ namespace MyWorkApplication
             this.P_HomeTel_textBox.Size = new System.Drawing.Size(148, 29);
             this.P_HomeTel_textBox.TabIndex = 19;
             this.P_HomeTel_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.P_HomeTel_textBox.Enter += new System.EventHandler(this.P_HomeTel_textBox_Enter);
+            this.P_HomeTel_textBox.Leave += new System.EventHandler(this.P_HomeTel_textBox_Leave);
             // 
             // P_Mobile_textBox
             // 
@@ -2467,6 +2515,7 @@ namespace MyWorkApplication
             this.P_Mobile_textBox.Size = new System.Drawing.Size(171, 29);
             this.P_Mobile_textBox.TabIndex = 527;
             this.P_Mobile_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.P_Mobile_textBox.Enter += new System.EventHandler(this.P_Mobile_textBox_Enter);
             this.P_Mobile_textBox.Leave += new System.EventHandler(this.P_Mobile_textBox_Leave);
             // 
             // label5
@@ -2972,6 +3021,8 @@ namespace MyWorkApplication
             this.P_WorkYears_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_WorkYears_textBox.Size = new System.Drawing.Size(706, 29);
             this.P_WorkYears_textBox.TabIndex = 60;
+            this.P_WorkYears_textBox.Enter += new System.EventHandler(this.P_WorkYears_textBox_Enter);
+            this.P_WorkYears_textBox.Leave += new System.EventHandler(this.P_WorkYears_textBox_Leave);
             // 
             // label26
             // 
@@ -3499,6 +3550,7 @@ namespace MyWorkApplication
             this.PaperApplicationUser_comboBox.Size = new System.Drawing.Size(165, 30);
             this.PaperApplicationUser_comboBox.TabIndex = 91;
             this.PaperApplicationUser_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.PaperApplicationUser_comboBox.SelectionChangeCommitted += new System.EventHandler(this.PaperApplicationUser_comboBox_SelectionChangeCommitted);
             this.PaperApplicationUser_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // label27
@@ -3529,6 +3581,8 @@ namespace MyWorkApplication
             this.Final_tableLayoutPanel.SetRowSpan(this.MP_SimpleProfit2_textBox, 2);
             this.MP_SimpleProfit2_textBox.Size = new System.Drawing.Size(1085, 72);
             this.MP_SimpleProfit2_textBox.TabIndex = 587;
+            this.MP_SimpleProfit2_textBox.Enter += new System.EventHandler(this.MP_SimpleProfit2_textBox_Enter);
+            this.MP_SimpleProfit2_textBox.Leave += new System.EventHandler(this.MP_SimpleProfit2_textBox_Leave);
             // 
             // label100
             // 
@@ -3602,44 +3656,46 @@ namespace MyWorkApplication
             this.P_HasIncomeSource_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_HasIncomeSource_flowLayoutPanel.Controls.Add(this.P_HasIncomeSourceNo_radioButton);
-            this.P_HasIncomeSource_flowLayoutPanel.Controls.Add(this.P_HasIncomeSourceYes_radioButton);
+            this.P_HasIncomeSource_flowLayoutPanel.Controls.Add(this.P_HasHelpSourceNo_radioButton);
+            this.P_HasIncomeSource_flowLayoutPanel.Controls.Add(this.P_HasHelpSourceYes_radioButton);
             this.P_HasIncomeSource_flowLayoutPanel.Location = new System.Drawing.Point(3, 44);
             this.P_HasIncomeSource_flowLayoutPanel.Name = "P_HasIncomeSource_flowLayoutPanel";
             this.P_HasIncomeSource_flowLayoutPanel.Size = new System.Drawing.Size(227, 35);
             this.P_HasIncomeSource_flowLayoutPanel.TabIndex = 584;
             // 
-            // P_HasIncomeSourceNo_radioButton
+            // P_HasHelpSourceNo_radioButton
             // 
-            this.P_HasIncomeSourceNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasIncomeSourceNo_radioButton.AutoSize = true;
-            this.P_HasIncomeSourceNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasIncomeSourceNo_radioButton.Location = new System.Drawing.Point(5, 5);
-            this.P_HasIncomeSourceNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
-            this.P_HasIncomeSourceNo_radioButton.Name = "P_HasIncomeSourceNo_radioButton";
-            this.P_HasIncomeSourceNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasIncomeSourceNo_radioButton.Size = new System.Drawing.Size(90, 33);
-            this.P_HasIncomeSourceNo_radioButton.TabIndex = 4;
-            this.P_HasIncomeSourceNo_radioButton.TabStop = true;
-            this.P_HasIncomeSourceNo_radioButton.Text = "لا يوجد";
-            this.P_HasIncomeSourceNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasIncomeSourceNo_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasHelpSourceNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasHelpSourceNo_radioButton.AutoSize = true;
+            this.P_HasHelpSourceNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasHelpSourceNo_radioButton.Location = new System.Drawing.Point(5, 5);
+            this.P_HasHelpSourceNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
+            this.P_HasHelpSourceNo_radioButton.Name = "P_HasHelpSourceNo_radioButton";
+            this.P_HasHelpSourceNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasHelpSourceNo_radioButton.Size = new System.Drawing.Size(90, 33);
+            this.P_HasHelpSourceNo_radioButton.TabIndex = 4;
+            this.P_HasHelpSourceNo_radioButton.TabStop = true;
+            this.P_HasHelpSourceNo_radioButton.Text = "لا يوجد";
+            this.P_HasHelpSourceNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasHelpSourceNo_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasHelpSourceNo_radioButton.CheckedChanged += new System.EventHandler(this.P_HasHelpSourceNo_radioButton_CheckedChanged);
             // 
-            // P_HasIncomeSourceYes_radioButton
+            // P_HasHelpSourceYes_radioButton
             // 
-            this.P_HasIncomeSourceYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasIncomeSourceYes_radioButton.AutoSize = true;
-            this.P_HasIncomeSourceYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasIncomeSourceYes_radioButton.Location = new System.Drawing.Point(115, 5);
-            this.P_HasIncomeSourceYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.P_HasIncomeSourceYes_radioButton.Name = "P_HasIncomeSourceYes_radioButton";
-            this.P_HasIncomeSourceYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasIncomeSourceYes_radioButton.Size = new System.Drawing.Size(73, 33);
-            this.P_HasIncomeSourceYes_radioButton.TabIndex = 3;
-            this.P_HasIncomeSourceYes_radioButton.TabStop = true;
-            this.P_HasIncomeSourceYes_radioButton.Text = "يوجد";
-            this.P_HasIncomeSourceYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasIncomeSourceYes_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasHelpSourceYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasHelpSourceYes_radioButton.AutoSize = true;
+            this.P_HasHelpSourceYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasHelpSourceYes_radioButton.Location = new System.Drawing.Point(115, 5);
+            this.P_HasHelpSourceYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.P_HasHelpSourceYes_radioButton.Name = "P_HasHelpSourceYes_radioButton";
+            this.P_HasHelpSourceYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasHelpSourceYes_radioButton.Size = new System.Drawing.Size(73, 33);
+            this.P_HasHelpSourceYes_radioButton.TabIndex = 3;
+            this.P_HasHelpSourceYes_radioButton.TabStop = true;
+            this.P_HasHelpSourceYes_radioButton.Text = "يوجد";
+            this.P_HasHelpSourceYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasHelpSourceYes_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasHelpSourceYes_radioButton.CheckedChanged += new System.EventHandler(this.P_HasHelpSourceYes_radioButton_CheckedChanged);
             // 
             // tableLayoutPanel3
             // 
@@ -4071,6 +4127,7 @@ namespace MyWorkApplication
             this.P_HasAidSourceNo_radioButton.Text = "لا يوجد";
             this.P_HasAidSourceNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P_HasAidSourceNo_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasAidSourceNo_radioButton.CheckedChanged += new System.EventHandler(this.P_HasAidSourceNo_radioButton_CheckedChanged);
             // 
             // P_HasAidSourceYes_radioButton
             // 
@@ -4087,6 +4144,7 @@ namespace MyWorkApplication
             this.P_HasAidSourceYes_radioButton.Text = "يوجد";
             this.P_HasAidSourceYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P_HasAidSourceYes_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasAidSourceYes_radioButton.CheckedChanged += new System.EventHandler(this.P_HasAidSourceYes_radioButton_CheckedChanged);
             // 
             // P_Debts_tableLayoutPanel
             // 
@@ -4127,6 +4185,8 @@ namespace MyWorkApplication
             this.P_DebtsAmount_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_DebtsAmount_textBox.Size = new System.Drawing.Size(177, 29);
             this.P_DebtsAmount_textBox.TabIndex = 546;
+            this.P_DebtsAmount_textBox.Enter += new System.EventHandler(this.P_DebtsAmount_textBox_Enter);
+            this.P_DebtsAmount_textBox.Leave += new System.EventHandler(this.P_DebtsAmount_textBox_Leave);
             // 
             // label105
             // 
@@ -4151,6 +4211,8 @@ namespace MyWorkApplication
             this.P_DebtsNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_DebtsNote_textBox.Size = new System.Drawing.Size(346, 29);
             this.P_DebtsNote_textBox.TabIndex = 548;
+            this.P_DebtsNote_textBox.Enter += new System.EventHandler(this.P_DebtsNote_textBox_Enter);
+            this.P_DebtsNote_textBox.Leave += new System.EventHandler(this.P_DebtsNote_textBox_Leave);
             // 
             // P_HasDebts_flowLayoutPanel
             // 
@@ -4181,6 +4243,7 @@ namespace MyWorkApplication
             this.P_HasDebtsYes_radioButton.TabStop = true;
             this.P_HasDebtsYes_radioButton.Text = "نعم";
             this.P_HasDebtsYes_radioButton.UseVisualStyleBackColor = false;
+            this.P_HasDebtsYes_radioButton.CheckedChanged += new System.EventHandler(this.HasDebts_radioButton_CheckedChanged);
             // 
             // P_HasDebtsNo_radioButton
             // 
@@ -4197,6 +4260,7 @@ namespace MyWorkApplication
             this.P_HasDebtsNo_radioButton.TabStop = true;
             this.P_HasDebtsNo_radioButton.Text = "لا";
             this.P_HasDebtsNo_radioButton.UseVisualStyleBackColor = false;
+            this.P_HasDebtsNo_radioButton.CheckedChanged += new System.EventHandler(this.HasDebts_radioButton_CheckedChanged);
             // 
             // label55
             // 
@@ -4223,6 +4287,8 @@ namespace MyWorkApplication
             this.MP_OtherDonors_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_OtherDonors_textBox.Size = new System.Drawing.Size(872, 29);
             this.MP_OtherDonors_textBox.TabIndex = 587;
+            this.MP_OtherDonors_textBox.Enter += new System.EventHandler(this.MP_OtherDonors_textBox_Enter);
+            this.MP_OtherDonors_textBox.Leave += new System.EventHandler(this.MP_OtherDonors_textBox_Leave);
             // 
             // t9_tableLayoutPanel
             // 
@@ -4304,6 +4370,7 @@ namespace MyWorkApplication
             this.P_HasLossesNo_radioButton.Text = "لا يوجد";
             this.P_HasLossesNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P_HasLossesNo_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasLossesNo_radioButton.CheckedChanged += new System.EventHandler(this.P_HasLossesNo_radioButton_CheckedChanged);
             // 
             // P_HasLossesYes_radioButton
             // 
@@ -4320,6 +4387,7 @@ namespace MyWorkApplication
             this.P_HasLossesYes_radioButton.Text = "يوجد";
             this.P_HasLossesYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P_HasLossesYes_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasLossesYes_radioButton.CheckedChanged += new System.EventHandler(this.P_HasLossesYes_radioButton_CheckedChanged);
             // 
             // Loss_dataGridView
             // 
@@ -5169,6 +5237,7 @@ namespace MyWorkApplication
             this.P_HasIllnessNo_radioButton.Text = "لا يوجد";
             this.P_HasIllnessNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P_HasIllnessNo_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasIllnessNo_radioButton.CheckedChanged += new System.EventHandler(this.P_HasIllnessNo_radioButton_CheckedChanged);
             // 
             // P_HasIllnessYes_radioButton
             // 
@@ -5185,6 +5254,7 @@ namespace MyWorkApplication
             this.P_HasIllnessYes_radioButton.Text = "يوجد";
             this.P_HasIllnessYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P_HasIllnessYes_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasIllnessYes_radioButton.CheckedChanged += new System.EventHandler(this.P_HasIllnessYes_radioButton_CheckedChanged);
             // 
             // SubHeader8_label
             // 
@@ -5227,6 +5297,7 @@ namespace MyWorkApplication
             this.P_HasAssetsNo_radioButton.Text = "لا يوجد";
             this.P_HasAssetsNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P_HasAssetsNo_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasAssetsNo_radioButton.CheckedChanged += new System.EventHandler(this.P_HasAssetsNo_radioButton_CheckedChanged);
             // 
             // P_HasAssetsYes_radioButton
             // 
@@ -5243,6 +5314,7 @@ namespace MyWorkApplication
             this.P_HasAssetsYes_radioButton.Text = "يوجد";
             this.P_HasAssetsYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P_HasAssetsYes_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasAssetsYes_radioButton.CheckedChanged += new System.EventHandler(this.P_HasAssetsYes_radioButton_CheckedChanged);
             // 
             // t4_tableLayoutPanel
             // 
@@ -5390,6 +5462,7 @@ namespace MyWorkApplication
             this.FamilyNum_textBox1.Size = new System.Drawing.Size(147, 29);
             this.FamilyNum_textBox1.TabIndex = 552;
             this.FamilyNum_textBox1.TextChanged += new System.EventHandler(this.FamilyNum_textBox1_TextChanged);
+            this.FamilyNum_textBox1.Enter += new System.EventHandler(this.FamilyNum_textBox1_Enter);
             this.FamilyNum_textBox1.Leave += new System.EventHandler(this.FamilyNum_textBox1_Leave);
             // 
             // P_NumAtHome_textBox
@@ -5447,6 +5520,7 @@ namespace MyWorkApplication
             this.P_LiveWithFamily_radioButton.TabStop = true;
             this.P_LiveWithFamily_radioButton.Text = "نعم";
             this.P_LiveWithFamily_radioButton.UseVisualStyleBackColor = false;
+            this.P_LiveWithFamily_radioButton.CheckedChanged += new System.EventHandler(this.P_LiveWithFamily_radioButton_CheckedChanged);
             // 
             // P_NotLiveWithFamily_radioButton
             // 
@@ -5463,6 +5537,7 @@ namespace MyWorkApplication
             this.P_NotLiveWithFamily_radioButton.TabStop = true;
             this.P_NotLiveWithFamily_radioButton.Text = "لا";
             this.P_NotLiveWithFamily_radioButton.UseVisualStyleBackColor = false;
+            this.P_NotLiveWithFamily_radioButton.CheckedChanged += new System.EventHandler(this.P_LiveWithFamily_radioButton_CheckedChanged);
             // 
             // MainHeader3_label
             // 
@@ -5780,6 +5855,8 @@ namespace MyWorkApplication
             this.MP_PlaceAddress_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_PlaceAddress_textBox.Size = new System.Drawing.Size(354, 29);
             this.MP_PlaceAddress_textBox.TabIndex = 593;
+            this.MP_PlaceAddress_textBox.Enter += new System.EventHandler(this.MP_PlaceAddress_textBox_Enter);
+            this.MP_PlaceAddress_textBox.Leave += new System.EventHandler(this.MP_PlaceAddress_textBox_Leave);
             // 
             // MP_PlaceNote_textBox
             // 
@@ -5791,6 +5868,8 @@ namespace MyWorkApplication
             this.MP_PlaceNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_PlaceNote_textBox.Size = new System.Drawing.Size(355, 29);
             this.MP_PlaceNote_textBox.TabIndex = 592;
+            this.MP_PlaceNote_textBox.Enter += new System.EventHandler(this.MP_PlaceNote_textBox_Enter);
+            this.MP_PlaceNote_textBox.Leave += new System.EventHandler(this.MP_PlaceNote_textBox_Leave);
             // 
             // MP_PlaceType_comboBox
             // 
@@ -5809,6 +5888,7 @@ namespace MyWorkApplication
             this.MP_PlaceType_comboBox.Size = new System.Drawing.Size(354, 30);
             this.MP_PlaceType_comboBox.TabIndex = 505;
             this.MP_PlaceType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.MP_PlaceType_comboBox.SelectionChangeCommitted += new System.EventHandler(this.MP_PlaceType_comboBox_SelectionChangeCommitted);
             this.MP_PlaceType_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // label109
@@ -6111,6 +6191,8 @@ namespace MyWorkApplication
             this.AmperNumber_textBox.TabIndex = 600;
             this.AmperNumber_textBox.Text = "0";
             this.AmperNumber_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.AmperNumber_textBox.Enter += new System.EventHandler(this.AmperNumber_textBox_Enter);
+            this.AmperNumber_textBox.Leave += new System.EventHandler(this.AmperNumber_textBox_Leave);
             // 
             // flowLayoutPanel19
             // 
@@ -6140,6 +6222,7 @@ namespace MyWorkApplication
             this.radioButton19.Text = "أمبير";
             this.radioButton19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButton19.UseVisualStyleBackColor = true;
+            this.radioButton19.CheckedChanged += new System.EventHandler(this.Projrct_Info_Area_CheckedChanged);
             // 
             // radioButton20
             // 
@@ -6156,6 +6239,7 @@ namespace MyWorkApplication
             this.radioButton20.Text = "واط";
             this.radioButton20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButton20.UseVisualStyleBackColor = true;
+            this.radioButton20.CheckedChanged += new System.EventHandler(this.Projrct_Info_Area_CheckedChanged);
             // 
             // SubHeader14_label
             // 
@@ -6244,6 +6328,7 @@ namespace MyWorkApplication
             this.Agreement1_No_radioButton.Text = "لا";
             this.Agreement1_No_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Agreement1_No_radioButton.UseVisualStyleBackColor = true;
+            this.Agreement1_No_radioButton.CheckedChanged += new System.EventHandler(this.Projrct_Info_Area_CheckedChanged);
             // 
             // Agreement1_Yes_radioButton
             // 
@@ -6260,6 +6345,7 @@ namespace MyWorkApplication
             this.Agreement1_Yes_radioButton.Text = "نعم";
             this.Agreement1_Yes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Agreement1_Yes_radioButton.UseVisualStyleBackColor = true;
+            this.Agreement1_Yes_radioButton.CheckedChanged += new System.EventHandler(this.Projrct_Info_Area_CheckedChanged);
             // 
             // Agreement2_flowLayoutPanel
             // 
@@ -6288,6 +6374,7 @@ namespace MyWorkApplication
             this.Agreement2_No_radioButton.Text = "لا";
             this.Agreement2_No_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Agreement2_No_radioButton.UseVisualStyleBackColor = true;
+            this.Agreement2_No_radioButton.CheckedChanged += new System.EventHandler(this.Projrct_Info_Area_CheckedChanged);
             // 
             // Agreement2_Yes_radioButton
             // 
@@ -6304,6 +6391,7 @@ namespace MyWorkApplication
             this.Agreement2_Yes_radioButton.Text = "نعم";
             this.Agreement2_Yes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Agreement2_Yes_radioButton.UseVisualStyleBackColor = true;
+            this.Agreement2_Yes_radioButton.CheckedChanged += new System.EventHandler(this.Projrct_Info_Area_CheckedChanged);
             // 
             // Agreement3_flowLayoutPanel
             // 
@@ -6332,6 +6420,7 @@ namespace MyWorkApplication
             this.Agreement3_No_radioButton.Text = "لا";
             this.Agreement3_No_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Agreement3_No_radioButton.UseVisualStyleBackColor = true;
+            this.Agreement3_No_radioButton.CheckedChanged += new System.EventHandler(this.Projrct_Info_Area_CheckedChanged);
             // 
             // Agreement3_Yes_radioButton
             // 
@@ -6348,6 +6437,7 @@ namespace MyWorkApplication
             this.Agreement3_Yes_radioButton.Text = "نعم";
             this.Agreement3_Yes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Agreement3_Yes_radioButton.UseVisualStyleBackColor = true;
+            this.Agreement3_Yes_radioButton.CheckedChanged += new System.EventHandler(this.Projrct_Info_Area_CheckedChanged);
             // 
             // Agreement4_flowLayoutPanel
             // 
@@ -6376,6 +6466,7 @@ namespace MyWorkApplication
             this.Agreement4_No_radioButton.Text = "لا";
             this.Agreement4_No_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Agreement4_No_radioButton.UseVisualStyleBackColor = true;
+            this.Agreement4_No_radioButton.CheckedChanged += new System.EventHandler(this.Projrct_Info_Area_CheckedChanged);
             // 
             // Agreement4_Yes_radioButton
             // 
@@ -6392,6 +6483,7 @@ namespace MyWorkApplication
             this.Agreement4_Yes_radioButton.Text = "نعم";
             this.Agreement4_Yes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Agreement4_Yes_radioButton.UseVisualStyleBackColor = true;
+            this.Agreement4_Yes_radioButton.CheckedChanged += new System.EventHandler(this.Projrct_Info_Area_CheckedChanged);
             // 
             // SubHeader13_label
             // 
@@ -6474,6 +6566,7 @@ namespace MyWorkApplication
             this.P_HasEducationNo_radioButton.Text = "غير متعلّم";
             this.P_HasEducationNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P_HasEducationNo_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasEducationNo_radioButton.CheckedChanged += new System.EventHandler(this.P_HasEducationNo_radioButton_CheckedChanged);
             // 
             // P_HasEducationYes_radioButton
             // 
@@ -6490,6 +6583,7 @@ namespace MyWorkApplication
             this.P_HasEducationYes_radioButton.Text = "متعلّم";
             this.P_HasEducationYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P_HasEducationYes_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasEducationYes_radioButton.CheckedChanged += new System.EventHandler(this.P_HasEducationYes_radioButton_CheckedChanged);
             // 
             // Course_dataGridView
             // 
@@ -6996,6 +7090,7 @@ namespace MyWorkApplication
             this.P_HasCoursesNo_radioButton.Text = "لا يوجد";
             this.P_HasCoursesNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P_HasCoursesNo_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasCoursesNo_radioButton.CheckedChanged += new System.EventHandler(this.P_HasCoursesNo_radioButton_CheckedChanged);
             // 
             // P_HasCoursesYes_radioButton
             // 
@@ -7012,6 +7107,7 @@ namespace MyWorkApplication
             this.P_HasCoursesYes_radioButton.Text = "يوجد";
             this.P_HasCoursesYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P_HasCoursesYes_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasCoursesYes_radioButton.CheckedChanged += new System.EventHandler(this.P_HasCoursesYes_radioButton_CheckedChanged);
             // 
             // t7_tableLayoutPanel
             // 
@@ -7608,6 +7704,8 @@ namespace MyWorkApplication
             this.t2_tableLayoutPanel.SetRowSpan(this.P_Loss_textBox, 4);
             this.P_Loss_textBox.Size = new System.Drawing.Size(1085, 142);
             this.P_Loss_textBox.TabIndex = 552;
+            this.P_Loss_textBox.Enter += new System.EventHandler(this.P_Loss_textBox_Enter);
+            this.P_Loss_textBox.Leave += new System.EventHandler(this.P_Loss_textBox_Leave);
             // 
             // label10
             // 
@@ -7639,6 +7737,8 @@ namespace MyWorkApplication
             this.t2_tableLayoutPanel.SetRowSpan(this.P_GoalHow_textBox, 3);
             this.P_GoalHow_textBox.Size = new System.Drawing.Size(1085, 103);
             this.P_GoalHow_textBox.TabIndex = 560;
+            this.P_GoalHow_textBox.Enter += new System.EventHandler(this.P_GoalHow_textBox_Enter);
+            this.P_GoalHow_textBox.Leave += new System.EventHandler(this.P_GoalHow_textBox_Leave);
             // 
             // P_OtherNotes_textBox
             // 
@@ -7655,6 +7755,8 @@ namespace MyWorkApplication
             this.t2_tableLayoutPanel.SetRowSpan(this.P_OtherNotes_textBox, 3);
             this.P_OtherNotes_textBox.Size = new System.Drawing.Size(1085, 116);
             this.P_OtherNotes_textBox.TabIndex = 562;
+            this.P_OtherNotes_textBox.Enter += new System.EventHandler(this.P_OtherNotes_textBox_Enter);
+            this.P_OtherNotes_textBox.Leave += new System.EventHandler(this.P_OtherNotes_textBox_Leave);
             // 
             // flowLayoutPanel25
             // 
@@ -7775,6 +7877,8 @@ namespace MyWorkApplication
             this.t2_tableLayoutPanel.SetRowSpan(this.P_Goal_textBox, 2);
             this.P_Goal_textBox.Size = new System.Drawing.Size(1085, 68);
             this.P_Goal_textBox.TabIndex = 554;
+            this.P_Goal_textBox.Enter += new System.EventHandler(this.P_Goal_textBox_Enter);
+            this.P_Goal_textBox.Leave += new System.EventHandler(this.P_Goal_textBox_Leave);
             // 
             // P_Goals_panel2
             // 
@@ -8232,8 +8336,8 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.Label SubHeader10_label;
         private System.Windows.Forms.FlowLayoutPanel P_HasIncomeSource_flowLayoutPanel;
-        private System.Windows.Forms.RadioButton P_HasIncomeSourceNo_radioButton;
-        private System.Windows.Forms.RadioButton P_HasIncomeSourceYes_radioButton;
+        private System.Windows.Forms.RadioButton P_HasHelpSourceNo_radioButton;
+        private System.Windows.Forms.RadioButton P_HasHelpSourceYes_radioButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label SubHeader11_label;
         private System.Windows.Forms.DataGridView HomePowerSource_dataGridView;
