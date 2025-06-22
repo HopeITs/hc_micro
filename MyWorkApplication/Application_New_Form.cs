@@ -982,7 +982,6 @@ namespace MyWorkApplication
 
             return cell;
         }
-
         #endregion
 
 
@@ -996,7 +995,158 @@ namespace MyWorkApplication
             P_DebtsAmount_textBox.KeyPress += InputValidationHelpercs.Decimal_NumericTextBox_KeyPress;
         }
 
+        private void Clear_Data()
+        {
+            UserMode = false;
 
+            #region Project
+
+            P_FullName_textBox.Clear();
+            MPID_textBox.Clear();
+            P_MobileReadable_textBox.Clear();
+            SubCategory_comboBox.SelectedIndex = -1;
+            Career_comboBox.SelectedIndex = -1;
+            ApplyDate_bcDateTimePicker.Value = DateTime.Now;
+            Type_comboBox.SelectedIndex = -1;
+            MP_Name_textBox.Clear();
+            ContentUpdated_checkBox.Checked = false;
+            SubType_comboBox.SelectedIndex = -1;
+            Loan_radioButton.Checked = false;
+            Grant_radioButton.Checked = false;
+            MP_RequestedAmount_textBox.Clear();
+
+            #endregion
+
+
+            #region ProjectStory
+
+            P_Loss_textBox.Clear();
+            P_Goal_textBox.Clear();
+            P_GoalHow_textBox.Clear();
+            P_OtherNotes_textBox.Clear();
+
+            //foreach (Control c in FlowLayoutPanel.Controls())
+            //{
+            //    ElectricalDevices_CheckedListBox.SetItemCheckState(i, CheckState.Unchecked);
+            //}
+
+            #endregion
+
+
+            #region Benificiry
+
+            P_FirstName_textBox.Clear();
+            P_LastName_textBox.Clear();
+            P_Sex_comboBox.SelectedIndex = -1;
+            PersonType_comboBox.SelectedIndex = -1;
+            P_FullName_En_textBox.Clear();
+            P_FatherName_textBox.Clear();
+            P_MotherName_textBox.Clear();
+            P_Registration_textBox.Clear();
+            P_NationalNum_textBox.Clear();
+            P_DOB_textBox.Clear();
+            P_MaritalState_comboBox.SelectedIndex = -1;
+            P_Parish_comboBox.SelectedIndex = -1;
+            P_IntermidiaryName_textBox.Clear();
+            P_Priest_comboBox.SelectedIndex = -1;
+            P_Priest2_comboBox.SelectedIndex = -1;
+            P_Mobile_textBox.Clear();
+            P_HomeTel_textBox.Clear();
+            P_Mobile2_textBox.Clear();
+            Street_comboBox.SelectedIndex = -1;
+            P_Address_textBox.Clear();
+            P_HomeType_comboBox.SelectedIndex = -1;
+            P_HomeStateNote_textBox.Clear();
+            MilitarySingle_radioButton.Checked = false;
+            MilitaryFinished_radioButton.Checked = false;
+            MilitaryNow_radioButton.Checked = false;
+            Military_textBox.Clear();
+            Military_Date_checkBox.Checked = false;
+            Military_Date_dateTimePicker.Value = DateTime.Now;
+
+            #endregion
+
+
+            #region Work
+
+            Work_dataGridView.Rows.Clear();
+            Exp_dataGridView.Rows.Clear();
+            P_WorkYears_textBox.Clear();
+
+            #endregion
+
+            #region Edu
+
+            P_HasEducationYes_radioButton.Checked = false;
+            P_HasEducationNo_radioButton.Checked = false;
+            Education_dataGridView.Rows.Clear();
+            P_HasCoursesYes_radioButton.Checked = false;
+            P_HasCoursesNo_radioButton.Checked = false;
+            Course_dataGridView.Rows.Clear();
+
+            #endregion
+
+            #region Projrct_Info
+
+            MP_PlaceType_comboBox.SelectedIndex = -1;
+            MP_PlaceAddress_textBox.Clear();
+            MP_PlaceNote_textBox.Clear();
+            PowerSource_dataGridView.Rows.Clear();
+            AmperNumber_textBox.Clear();
+            radioButton19.Checked = false;
+            radioButton20.Checked = false;
+            Agreement1_Yes_radioButton.Checked = false;
+            Agreement1_No_radioButton.Checked = false;
+            Agreement2_Yes_radioButton.Checked = false;
+            Agreement2_No_radioButton.Checked = false;
+            Agreement3_No_radioButton.Checked = false;
+            Agreement3_Yes_radioButton.Checked = false;
+            Agreement4_Yes_radioButton.Checked = false;
+            Agreement4_No_radioButton.Checked = false;
+            Materials_dataGridView.Rows.Clear();
+
+            #endregion
+
+            #region Family
+
+            FamilyNum_textBox1.Clear();
+            P_LiveWithFamily_radioButton.Checked = false;
+            P_NotLiveWithFamily_radioButton.Checked = false;
+            FamilyMember_dataGridView.Rows.Clear();
+            P_HasLossesYes_radioButton.Checked = false;
+            P_HasLossesNo_radioButton.Checked = false;
+            Loss_dataGridView.Rows.Clear();
+            P_HasIllnessYes_radioButton.Checked = false;
+            P_HasIllnessNo_radioButton.Checked = false;
+            Illness_dataGridView.Rows.Clear();
+            P_HasAssetsYes_radioButton.Checked = false;
+            P_HasAssetsNo_radioButton.Checked = false;
+            Assets_dataGridView.Rows.Clear();
+            P_HasAidSourceYes_radioButton.Checked = false;
+            P_HasAidSourceNo_radioButton.Checked = false;
+            AidSource_dataGridView.Rows.Clear();
+
+            #endregion
+
+            #region AditionalInfo
+
+            MP_OtherDonors_textBox.Clear();
+            P_HasDebtsYes_radioButton.Checked = false;
+            P_HasDebtsNo_radioButton.Checked = false;
+            P_DebtsAmount_textBox.Clear();
+            P_DebtsNote_textBox.Clear();
+            P_HasHelpSourceYes_radioButton.Checked = false;
+            P_HasHelpSourceNo_radioButton.Checked = false;
+            HelpSource_dataGridView.Rows.Clear();
+            HomePowerSource_dataGridView.Rows.Clear();
+            MP_SimpleProfit2_textBox.Clear();
+            PaperApplicationUser_comboBox.SelectedIndex = -1;
+
+            #endregion
+
+            UserMode = true;
+
+        }
 
 
 
@@ -1091,7 +1241,6 @@ namespace MyWorkApplication
 
         }
 
-
         private void P_MobileReadable_textBox_Enter(object sender, EventArgs e)
         {
             try
@@ -1116,7 +1265,6 @@ namespace MyWorkApplication
             }
 
         }
-
 
         private void MPID_textBox_Enter(object sender, EventArgs e)
         {
@@ -1149,67 +1297,21 @@ namespace MyWorkApplication
                         else
                         {
                             MessageBox.Show("الرجاء استخدام رقم مشروع آخر لأن هذا الرقم مستخدم من قبل مشروع آخر");
-                            MPID_textBox.Text = MicroProject_ID.ToString();
+                            MPID_textBox.Text = MPID_textBox_original;
                             MPID_textBox.Focus();
                         }
                     }
                     else
                     {
-                        MPID_textBox.Text = MicroProject_ID.ToString();
+                        MPID_textBox.Text = MPID_textBox_original;
                     }
-
                 }
             }
             catch (Exception ex)
             {
                 if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
-            }
-
-            //عند قيام المستخدم بتغيير رقم المشروع//
-            try
-            {
-                if (Save_MP_ID_button.BackgroundImage == Properties.Resources.Cheked || MicroProject_ID != -1)
-                {
-                    if (MPID_textBox.Text == "")
-                        MessageBox.Show("لا يمكن ترك خلية رقم المشروع فارغة!");
-                    else
-                    {
-                        var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد تغيير رقم المشروع من: " +
-                            MicroProject_ID.ToString() + " ؟ " + Environment.NewLine +
-                            "ليصبح الرقم: " + MPID_textBox.Text, "Edit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (dialogResult == DialogResult.Yes)
-                        {
-                            //check if this number exist//
-                            if (Check_MicroProject_ID(MPID_textBox.Text))
-                            {
-                                int New_MP_ID = Convert.ToInt32(MPID_textBox.Text);
-                                Edit_MP(MicroProject_ID, New_MP_ID);
-                                l.Insert_Log("Update the project_ID from:" + MicroProject_ID + " to:" + MPID_textBox.Text, "Micro Project", Program.UserName, DateTime.Now);
-
-                                MicroProject_ID = New_MP_ID;
-                                MessageBox.Show("تم تعديل رقم المشروع بنجاح");
-                            }
-                            else
-                            {
-                                MessageBox.Show("الرجاء استخدام رقم مشروع آخر لأن هذا الرقم مستخدم من قبل مشروع آخر");
-                                MPID_textBox.Text = MicroProject_ID.ToString();
-                                MPID_textBox.Focus();
-                            }
-                        }
-                        else
-                        {
-                            MPID_textBox.Text = MicroProject_ID.ToString();
-                            //MPID_textBox.Focus();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            }    
         }
-
 
         private void MP_RequestedAmount_textBox_Enter(object sender, EventArgs e)
         {
@@ -1293,9 +1395,6 @@ namespace MyWorkApplication
 
         private void Grant_radioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (Loan_radioButton.Checked) type = 0;
-            else type = 1;
-
             if (UserMode)
                 IsDirty_Data["Project_ISDirty"] = true;
         }
@@ -1969,7 +2068,7 @@ namespace MyWorkApplication
                                 {
                                     Education_dataGridView.Rows.RemoveAt(i);
                                 }
-                            }              
+                            }
                         }
                     }
                 }
@@ -2113,7 +2212,6 @@ namespace MyWorkApplication
                 if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
             }
         }
-
 
         private void MP_PlaceType_comboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -3223,8 +3321,6 @@ namespace MyWorkApplication
 
             try
             {
-
-
                 //clear unused dummy families//
                 string q = "DELETE from family WHERE family.F_ID not in (SELECT person_family.Family_ID from person_family);";
                 //check if family is already inserted// 
@@ -3397,7 +3493,6 @@ namespace MyWorkApplication
             else
                 CanAddFamilyMembers = false;
         }
-
 
         private void MPID_textBox_TextChanged(object sender, EventArgs e)
         {
