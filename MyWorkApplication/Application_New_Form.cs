@@ -41,95 +41,39 @@ namespace MyWorkApplication
         private Thread myTh;
         private bool OldBeneficiary_NewProject;
 
-        private int Person_ID, Family_ID, Priest_ID, Husband_Wife_ID;
-        public int MicroProject_ID; // to be visible in main form //
+        private int Family_ID, Priest_ID, Husband_Wife_ID;
+
+
+        public int MicroProject_ID, Person_ID; // to be visible in main form //
 
         private double sumOfItemsPrice_SYR;
         private int type;
         private Application_Queries app;
-        private bool Update_Mode, NoFamily, CanAddFamilyMembers;
+        private bool MicroProject_Update_Mode, Pereson_Update_Mode, CanAddFamilyMembers;
         bool user_mode;
         DataSet ds;
 
-        bool UserMode = false;
+        bool UserMode = false; string ApplicationState;
 
-        public Application_New_Form(MainForm mainForm, bool zero)
+        public Application_New_Form(MainForm mainForm, int MicroProject_ID, int Person_ID, string ApplicationState)
         {
             InitializeComponent();
-
-            //clear_Person_boxes();
-            Person_ID = -1;
-            MicroProject_ID = -1;
-            SubHeader1_label.Text = "الاستمارة المشروع";
-
-            if (zero)
-            {
-                SubHeader1_label.Text = "الاستمارة الأولية للمشروع";
-
-                //First_tableLayoutPanel
-                FundType_label.Visible = FundType_flowLayoutPanel.Visible =
-                MP_RequestedAmount_label.Visible = MP_RequestedAmount_textBox.Visible = false;
-
-                //t2_tableLayoutPanel
-                t2_tableLayoutPanel.Height = 0;
-                t2_tableLayoutPanel.Visible = false;
-
-                //t3_tableLayoutPanel
-                P_FullName_En_label.Visible = P_FullName_En_textBox.Visible =
-                P_Registration_label.Visible = P_Registration_textBox.Visible =
-                P_Priest_tableLayoutPanel.Visible =
-                P_Mobile2_label.Visible = P_Mobile2_textBox.Visible =
-                P_HomeStateNote_label.Visible = P_HomeStateNote_textBox.Visible = false;
-
-                //t5_tableLayoutPanel
-
-                //t6_tableLayoutPanel
-                t6_tableLayoutPanel.Height = 0;
-                t6_tableLayoutPanel.Visible = false;
-
-                //t7_tableLayoutPanel
-
-                //t8_tableLayoutPanel
-                t8_tableLayoutPanel.Height = 0;
-                t8_tableLayoutPanel.Visible = false;
-
-                //t20_tableLayoutPanel
-                t20_tableLayoutPanel.Height = 0;
-                t20_tableLayoutPanel.Visible = false;
-
-                //t21_tableLayoutPanel
-
-                ////////////////////////////////////
-                //t4_tableLayoutPanel
-                t4_tableLayoutPanel.Height = 0;
-                t4_tableLayoutPanel.Visible = false;
-                //////////////////////////////////////
-
-                //t9_tableLayoutPanel
-                t9_tableLayoutPanel.Height = 0;
-                t9_tableLayoutPanel.Visible = false;
-
-                //t10_tableLayoutPanel
-                P_Debts_tableLayoutPanel.Visible = false;
-
-                //t11_tableLayoutPanel
-                t11_tableLayoutPanel.Height = 0;
-                t11_tableLayoutPanel.Visible = false;
-            }
-
-            Loan_radioButton.Checked = true;
-
             this.mainForm = mainForm;
-            Update_Mode = false;
-            AddPartner_button.Visible = false;
+            this.MicroProject_ID = MicroProject_ID;
+            this.Person_ID = Person_ID;
+            this.ApplicationState = ApplicationState;
+
+            if (MicroProject_ID > 0)
+                MicroProject_Update_Mode = true;
+
+            if (Person_ID > 0)
+                Pereson_Update_Mode = true;
         }
 
         private void Application_New_Form_Load(object sender, EventArgs e)
         {
             try
             {
-                Check_Theme();
-
                 d = new Document();
                 MySS = new MySqlComponents();
                 l = new Log();
@@ -143,70 +87,21 @@ namespace MyWorkApplication
                 career = new Career();
                 img = new Images();
 
-                FamilyMember_dataGridView.AutoGenerateColumns =
-                Work_dataGridView.AutoGenerateColumns = Exp_dataGridView.AutoGenerateColumns =
-                Education_dataGridView.AutoGenerateColumns = Course_dataGridView.AutoGenerateColumns =
-                Loss_dataGridView.AutoGenerateColumns = Illness_dataGridView.AutoGenerateColumns =
-                Assets_dataGridView.AutoGenerateColumns =
-                HomePowerSource_dataGridView.AutoGenerateColumns = PowerSource_dataGridView.AutoGenerateColumns =
-                Materials_dataGridView.AutoGenerateColumns = false;
-
+                Check_Theme();
 
                 Bind_Gridview_Dictionaries();
                 Initialize_IsDirty();
                 Initialize_NumericTextBox_KeyPress();
-
                 Stop_ComboBox_Scrolling();
+                Stop_AutoGenerateColumns();
+                Set_DeleteColumn_Width();
+
+                Clear_Data();
                 Bind_Data(false);
+                Set_Controls();
+
                 Stop_Highlighting_Combobox();
 
-                Type_comboBox.SelectedIndex = 0; // default MICRO
-
-                ////Save_MP_ID_button.Visible = true;
-                ////Save_MP_ID_button.BackgroundImage = Properties.Resources.Unchecked;
-                ////toolTip1.SetToolTip(Save_MP_ID_button, "لم يتم حجز الرقم بعد");
-                NoFamily = true;
-
-                ////user_mode = false;
-                ////PersonType_comboBox.SelectedIndex = 0;
-                ////user_mode = true;
-
-                //Reset the nubmer of family members//
-                P_NumAtHome_textBox.Text = "0";
-                ////P_State_comboBox.SelectedValue = 1; //مقيم
-
-                //TODO
-                //////if (MicroProject_ID != -1)
-                //////{
-                //////    user_mode = false;
-                //////    if (Person_ID != -1)
-                //////    {
-                //////        Fill_Person();
-                //////        Fill_PersonDetails();
-                //////        Fill_FamilyMembers(0);
-                //////    }
-                //////    Fill_Project();
-                //////    Fill_ProjectDetails();
-
-                //////    Save_MP_ID_button.Visible = false;
-                //////    Save_MP_ID_button.BackgroundImage = Properties.Resources.Cheked;
-                //////    toolTip1.SetToolTip(Save_MP_ID_button, "محجوز");
-
-                //////    /// check if this project got partners or not ///
-                //////    var query = "select count(*) from `person_microproject` where MicroProject_ID = " + MicroProject_ID;
-                //////    Program.buildConnection();
-                //////    MySS.sc = new MySqlCommand(query, Program.MyConn);
-                //////    var partners_count = Convert.ToInt32(MySS.sc.ExecuteScalar());
-                //////    Program.MyConn.Close();
-                //////    if (partners_count > 1) Partners_lable.Text = "شراكة";
-                //////    else Partners_lable.Text = "فردي";
-
-                //////    //show delete-partner buttons on Update
-                //////    AddPartner_button.Visible = Delete_MP_button.Visible = true;
-                //////    /////////////////////////////////////////////////
-
-                //////    user_mode = true;
-                //////}
 
                 //unable to cast db.null to system.string !!
                 mainForm.MP_ID_label.Visible = mainForm.ProjectNumber_label.Visible =
@@ -214,21 +109,10 @@ namespace MyWorkApplication
                 mainForm.TabName_label.Text = "Application";
                 mainForm.MP_ID_label.Text = MPID_textBox.Text;
 
-                Education_dataGridView.Columns["Edu_DeleteRow"].Width =
-                Work_dataGridView.Columns["W_DeleteRow"].Width =
-                Exp_dataGridView.Columns["Exp_DeleteRow"].Width =
-                FamilyMember_dataGridView.Columns["P_DeleteRow"].Width =
-                Course_dataGridView.Columns["C_DeleteRow"].Width =
-                Loss_dataGridView.Columns["L_DeleteRow"].Width =
-                Illness_dataGridView.Columns["Ill_DeleteRow"].Width =
-                Assets_dataGridView.Columns["Asset_DeleteRow"].Width =
-                AidSource_dataGridView.Columns["Aid_DeleteRow"].Width =
-                HomePowerSource_dataGridView.Columns["HPower_DeleteRow"].Width =
-                PowerSource_dataGridView.Columns["Power_DeleteRow"].Width = 50;
+
 
                 Main_panel.AutoScrollPosition = new System.Drawing.Point(0, 0);
                 //////////////////////////////
-                Set_Controls(); //from F2F
 
 
                 CheckUserPermission();
@@ -245,6 +129,440 @@ namespace MyWorkApplication
         {
             Stop_Highlighting_Combobox();
         }
+
+
+
+        #region One time entri functions 
+        private void Bind_Gridview_Dictionaries()
+
+        {
+            ID_Columns = new Dictionary<DataGridView, string>
+                {
+                    {Work_dataGridView,  "WP_ID"},
+                    {Exp_dataGridView,  "ExpP_ID"},
+                    {Education_dataGridView,  "PE_ID"},
+                    {Course_dataGridView,  "CPerosn_ID"},
+                    {PowerSource_dataGridView,  "Power_MP_ID"},
+                    {Materials_dataGridView,  "M_ID"},
+                    {FamilyMember_dataGridView,  "FP_ID"},
+                    {Loss_dataGridView,  "LPerson_ID"},
+                    {Illness_dataGridView,  "Ill_Person_ID"},
+                    {Assets_dataGridView,  "APerson_ID"},
+                    {AidSource_dataGridView,  "AidP_ID"},
+                    {HelpSource_dataGridView,  "HelpP_ID"},
+                    {HomePowerSource_dataGridView,  "HPowerP_ID"}
+                };
+
+            IsDirty_Columns = new Dictionary<DataGridView, string>
+                {
+                    {Work_dataGridView,  "W_IsDirty"},
+                    {Exp_dataGridView,  "Exp_IsDirty"},
+                    {Education_dataGridView,  "Edu_IsDirty"},
+                    {Course_dataGridView,  "C_IsDirty"},
+                    {PowerSource_dataGridView,  "Power_IsDirty"},
+                    {Materials_dataGridView,  "M_IsDirty"},
+                    {FamilyMember_dataGridView,  "P_IsDirty"},
+                    {Loss_dataGridView,  "L_IsDirty"},
+                    {Illness_dataGridView,  "Ill_IsDirty"},
+                    {Assets_dataGridView,  "Asset_IsDirty"},
+                    {AidSource_dataGridView,  "Aid_IsDirty"},
+                    {HelpSource_dataGridView,  "Help_IsDirty"},
+                    {HomePowerSource_dataGridView,  "HPower_IsDirty"}
+                };
+        }
+
+        private void Initialize_NumericTextBox_KeyPress()
+        {
+            MPID_textBox.KeyPress += InputValidationHelpercs.Integers_NumericTextBox_KeyPress;
+            MP_RequestedAmount_textBox.KeyPress += InputValidationHelpercs.Decimal_NumericTextBox_KeyPress;
+            P_DOB_textBox.KeyPress += InputValidationHelpercs.Integers_NumericTextBox_KeyPress;
+            P_WorkYears_textBox.KeyPress += InputValidationHelpercs.Integers_NumericTextBox_KeyPress;
+            AmperNumber_textBox.KeyPress += InputValidationHelpercs.Decimal_NumericTextBox_KeyPress;
+            P_DebtsAmount_textBox.KeyPress += InputValidationHelpercs.Decimal_NumericTextBox_KeyPress;
+        }
+
+        private void Stop_ComboBox_Scrolling()
+        {
+            //////////////////// handle auto scrolling for all comboBoxes //////////////////////
+            SubCategory_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            Career_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            Type_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            SubType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            P_Sex_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            PersonType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            P_MaritalState_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            P_Parish_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            P_Priest_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            P_Priest2_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            Street_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            P_HomeType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            MP_PlaceType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            PaperApplicationUser_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            ///////////////////////////////////////////////////////////////////////////////////////
+        }
+
+        private void Stop_Highlighting_Combobox()
+        {
+            SubCategory_comboBox.SelectionLength = 0; SubCategory_comboBox.SelectionStart = SubCategory_comboBox.Text.Length;
+            Career_comboBox.SelectionLength = 0; Career_comboBox.SelectionStart = Career_comboBox.Text.Length;
+            Type_comboBox.SelectionLength = 0; Type_comboBox.SelectionStart = Type_comboBox.Text.Length;
+            SubType_comboBox.SelectionLength = 0; SubType_comboBox.SelectionStart = SubType_comboBox.Text.Length;
+            P_Sex_comboBox.SelectionLength = 0; P_Sex_comboBox.SelectionStart = P_Sex_comboBox.Text.Length;
+            PersonType_comboBox.SelectionLength = 0; PersonType_comboBox.SelectionStart = PersonType_comboBox.Text.Length;
+            P_MaritalState_comboBox.SelectionLength = 0; P_MaritalState_comboBox.SelectionStart = P_MaritalState_comboBox.Text.Length;
+            P_Parish_comboBox.SelectionLength = 0; P_Parish_comboBox.SelectionStart = P_Parish_comboBox.Text.Length;
+            P_Priest_comboBox.SelectionLength = 0; P_Priest_comboBox.SelectionStart = P_Priest_comboBox.Text.Length;
+            P_Priest2_comboBox.SelectionLength = 0; P_Priest2_comboBox.SelectionStart = P_Priest2_comboBox.Text.Length;
+            Street_comboBox.SelectionLength = 0; Street_comboBox.SelectionStart = Street_comboBox.Text.Length;
+            P_HomeType_comboBox.SelectionLength = 0; P_HomeType_comboBox.SelectionStart = P_HomeType_comboBox.Text.Length;
+            MP_PlaceType_comboBox.SelectionLength = 0; MP_PlaceType_comboBox.SelectionStart = MP_PlaceType_comboBox.Text.Length;
+            PaperApplicationUser_comboBox.SelectionLength = 0; PaperApplicationUser_comboBox.SelectionStart = PaperApplicationUser_comboBox.Text.Length;
+        }
+
+        private void Stop_AutoGenerateColumns()
+        {
+            Work_dataGridView.AutoGenerateColumns =
+                Exp_dataGridView.AutoGenerateColumns =
+                Education_dataGridView.AutoGenerateColumns =
+                Course_dataGridView.AutoGenerateColumns =
+                PowerSource_dataGridView.AutoGenerateColumns =
+                Materials_dataGridView.AutoGenerateColumns =
+                FamilyMember_dataGridView.AutoGenerateColumns =
+                Loss_dataGridView.AutoGenerateColumns =
+                Illness_dataGridView.AutoGenerateColumns =
+                Assets_dataGridView.AutoGenerateColumns =
+                AidSource_dataGridView.AutoGenerateColumns =
+                HelpSource_dataGridView.AutoGenerateColumns =
+                HomePowerSource_dataGridView.AutoGenerateColumns = false;
+        }
+
+        private void Set_DeleteColumn_Width()
+        {
+
+            Work_dataGridView.Columns["W_DeleteRow"].Width =
+               Exp_dataGridView.Columns["Exp_DeleteRow"].Width =
+               Education_dataGridView.Columns["Edu_DeleteRow"].Width =
+               Course_dataGridView.Columns["C_DeleteRow"].Width =
+               PowerSource_dataGridView.Columns["Power_DeleteRow"].Width =
+               Materials_dataGridView.Columns["M_DeleteRow"].Width =
+               FamilyMember_dataGridView.Columns["P_DeleteRow"].Width =
+               Loss_dataGridView.Columns["L_DeleteRow"].Width =
+               Illness_dataGridView.Columns["Ill_DeleteRow"].Width =
+               Assets_dataGridView.Columns["Asset_DeleteRow"].Width =
+               AidSource_dataGridView.Columns["Aid_DeleteRow"].Width =
+               HelpSource_dataGridView.Columns["Help_DeleteRow"].Width =
+               HomePowerSource_dataGridView.Columns["HPower_DeleteRow"].Width = 50;
+        }
+
+        public void Check_Theme()
+        {
+            var newTheme = new NewTheme();
+            if (Settings.Default.theme == "Dark")
+                newTheme.ApplicationNew_ToNight(this);
+            else
+                newTheme.ApplicationNew_ToLight(this);
+        }
+        #endregion
+
+
+
+        #region Clear Data
+        private void Clear_Data()
+        {
+            UserMode = false;
+
+            #region Project
+
+            P_FullName_textBox.Clear();
+            MPID_textBox.Clear();
+            P_MobileReadable_textBox.Clear();
+            SubCategory_comboBox.SelectedIndex = -1;
+            Career_comboBox.SelectedIndex = -1;
+            ApplyDate_bcDateTimePicker.Value = DateTime.Now;
+            Type_comboBox.SelectedIndex = -1;
+            MP_Name_textBox.Clear();
+            ContentUpdated_checkBox.Checked = false;
+            SubType_comboBox.SelectedIndex = -1;
+            Loan_radioButton.Checked = false;
+            Grant_radioButton.Checked = false;
+            MP_RequestedAmount_textBox.Clear();
+
+            #endregion
+
+
+            #region ProjectStory
+
+            P_Loss_textBox.Clear();
+            P_Goal_textBox.Clear();
+            P_GoalHow_textBox.Clear();
+            P_OtherNotes_textBox.Clear();
+
+            //foreach (Control c in FlowLayoutPanel.Controls())
+            //{
+            //    ElectricalDevices_CheckedListBox.SetItemCheckState(i, CheckState.Unchecked);
+            //}
+
+            #endregion
+
+
+            #region Benificiry
+
+            P_FirstName_textBox.Clear();
+            P_LastName_textBox.Clear();
+            P_Sex_comboBox.SelectedIndex = -1;
+            PersonType_comboBox.SelectedIndex = -1;
+            P_FullName_En_textBox.Clear();
+            P_FatherName_textBox.Clear();
+            P_MotherName_textBox.Clear();
+            P_Registration_textBox.Clear();
+            P_NationalNum_textBox.Clear();
+            P_DOB_textBox.Clear();
+            P_MaritalState_comboBox.SelectedIndex = -1;
+            P_Parish_comboBox.SelectedIndex = -1;
+            P_IntermidiaryName_textBox.Clear();
+            P_Priest_comboBox.SelectedIndex = -1;
+            P_Priest2_comboBox.SelectedIndex = -1;
+            P_Mobile_textBox.Clear();
+            P_HomeTel_textBox.Clear();
+            P_Mobile2_textBox.Clear();
+            Street_comboBox.SelectedIndex = -1;
+            P_Address_textBox.Clear();
+            P_HomeType_comboBox.SelectedIndex = -1;
+            P_HomeStateNote_textBox.Clear();
+            MilitarySingle_radioButton.Checked = false;
+            MilitaryFinished_radioButton.Checked = false;
+            MilitaryNow_radioButton.Checked = false;
+            Military_textBox.Clear();
+            Military_Date_checkBox.Checked = false;
+            Military_Date_dateTimePicker.Value = DateTime.Now;
+
+            #endregion
+
+
+            #region Work
+
+            Work_dataGridView.Rows.Clear();
+            Exp_dataGridView.Rows.Clear();
+            P_WorkYears_textBox.Clear();
+
+            #endregion
+
+            #region Edu
+
+            P_HasEducationYes_radioButton.Checked = false;
+            P_HasEducationNo_radioButton.Checked = false;
+            Education_dataGridView.Rows.Clear();
+            P_HasCoursesYes_radioButton.Checked = false;
+            P_HasCoursesNo_radioButton.Checked = false;
+            Course_dataGridView.Rows.Clear();
+
+            #endregion
+
+            #region Projrct_Info
+
+            MP_PlaceType_comboBox.SelectedIndex = -1;
+            MP_PlaceAddress_textBox.Clear();
+            MP_PlaceNote_textBox.Clear();
+            PowerSource_dataGridView.Rows.Clear();
+            AmperNumber_textBox.Clear();
+            radioButton19.Checked = false;
+            radioButton20.Checked = false;
+            Agreement1_Yes_radioButton.Checked = false;
+            Agreement1_No_radioButton.Checked = false;
+            Agreement2_Yes_radioButton.Checked = false;
+            Agreement2_No_radioButton.Checked = false;
+            Agreement3_No_radioButton.Checked = false;
+            Agreement3_Yes_radioButton.Checked = false;
+            Agreement4_Yes_radioButton.Checked = false;
+            Agreement4_No_radioButton.Checked = false;
+            Materials_dataGridView.Rows.Clear();
+
+            #endregion
+
+            #region Family
+
+            FamilyNum_textBox1.Clear();
+            P_LiveWithFamily_radioButton.Checked = false;
+            P_NotLiveWithFamily_radioButton.Checked = false;
+            FamilyMember_dataGridView.Rows.Clear();
+            P_HasLossesYes_radioButton.Checked = false;
+            P_HasLossesNo_radioButton.Checked = false;
+            Loss_dataGridView.Rows.Clear();
+            P_HasIllnessYes_radioButton.Checked = false;
+            P_HasIllnessNo_radioButton.Checked = false;
+            Illness_dataGridView.Rows.Clear();
+            P_HasAssetsYes_radioButton.Checked = false;
+            P_HasAssetsNo_radioButton.Checked = false;
+            Assets_dataGridView.Rows.Clear();
+            P_HasAidSourceYes_radioButton.Checked = false;
+            P_HasAidSourceNo_radioButton.Checked = false;
+            AidSource_dataGridView.Rows.Clear();
+
+            #endregion
+
+            #region AditionalInfo
+
+            MP_OtherDonors_textBox.Clear();
+            P_HasDebtsYes_radioButton.Checked = false;
+            P_HasDebtsNo_radioButton.Checked = false;
+            P_DebtsAmount_textBox.Clear();
+            P_DebtsNote_textBox.Clear();
+            P_HasHelpSourceYes_radioButton.Checked = false;
+            P_HasHelpSourceNo_radioButton.Checked = false;
+            HelpSource_dataGridView.Rows.Clear();
+            HomePowerSource_dataGridView.Rows.Clear();
+            MP_SimpleProfit2_textBox.Clear();
+            PaperApplicationUser_comboBox.SelectedIndex = -1;
+
+            #endregion
+
+            UserMode = true;
+
+        }
+
+        private void Set_Controls()
+        {
+            UserMode = false;
+            t2_tableLayoutPanel.Height = 901; t3_tableLayoutPanel.Height = 823; t5_tableLayoutPanel.Height = 385;
+            t6_tableLayoutPanel.Height = 323; t7_tableLayoutPanel.Height = 74; t8_tableLayoutPanel.Height = 606;
+            t20_tableLayoutPanel.Height = 1188; t21_tableLayoutPanel.Height = 187; t4_tableLayoutPanel.Height = 366;
+            t9_tableLayoutPanel.Height = 962; t10_tableLayoutPanel.Height = 396; t11_tableLayoutPanel.Height = 595;
+            t12_tableLayoutPanel.Height = 406; final_tableLayoutPanel.Height = 265;
+
+            t2_tableLayoutPanel.Visible = t3_tableLayoutPanel.Visible = t5_tableLayoutPanel.Visible =
+            t6_tableLayoutPanel.Visible = t7_tableLayoutPanel.Visible = t8_tableLayoutPanel.Visible =
+            t20_tableLayoutPanel.Visible = t21_tableLayoutPanel.Visible = t4_tableLayoutPanel.Visible =
+            t9_tableLayoutPanel.Visible = t10_tableLayoutPanel.Visible = t11_tableLayoutPanel.Visible =
+            t12_tableLayoutPanel.Visible = final_tableLayoutPanel.Visible = true;
+
+            FundType_label.Visible = FundType_flowLayoutPanel.Visible =
+            MP_RequestedAmount_label.Visible = MP_RequestedAmount_textBox.Visible = true;
+
+            P_FullName_En_label.Visible = P_FullName_En_textBox.Visible =
+            P_Registration_label.Visible = P_Registration_textBox.Visible =
+            P_Priest_tableLayoutPanel.Visible =
+            P_Mobile2_label.Visible = P_Mobile2_textBox.Visible =
+            P_HomeStateNote_label.Visible = P_HomeStateNote_textBox.Visible = true;
+
+            if (ApplicationState == "pre_project")
+            {
+                SubHeader1_label.Text = "حجز المشروع";
+
+                t2_tableLayoutPanel.Height = 0; t3_tableLayoutPanel.Height = 0; t5_tableLayoutPanel.Height = 0;
+                t6_tableLayoutPanel.Height = 0; t7_tableLayoutPanel.Height = 0; t8_tableLayoutPanel.Height = 0;
+                t20_tableLayoutPanel.Height = 0; t21_tableLayoutPanel.Height = 0; t4_tableLayoutPanel.Height = 0;
+                t9_tableLayoutPanel.Height = 0; t10_tableLayoutPanel.Height = 0; t11_tableLayoutPanel.Height = 0;
+                t12_tableLayoutPanel.Height = 0; final_tableLayoutPanel.Height = 0;
+
+                t2_tableLayoutPanel.Visible = t3_tableLayoutPanel.Visible = t5_tableLayoutPanel.Visible =
+                t6_tableLayoutPanel.Visible = t7_tableLayoutPanel.Visible = t8_tableLayoutPanel.Visible =
+                t20_tableLayoutPanel.Visible = t21_tableLayoutPanel.Visible = t4_tableLayoutPanel.Visible =
+                t9_tableLayoutPanel.Visible = t10_tableLayoutPanel.Visible = t11_tableLayoutPanel.Visible =
+                t12_tableLayoutPanel.Visible = final_tableLayoutPanel.Visible = true;
+
+            }
+            else if (ApplicationState == "zero")
+            {
+                SubHeader1_label.Text = "الاستمارة الأولية للمشروع";
+
+                FundType_label.Visible = FundType_flowLayoutPanel.Visible =
+                MP_RequestedAmount_label.Visible = MP_RequestedAmount_textBox.Visible = false;
+
+                P_FullName_En_label.Visible = P_FullName_En_textBox.Visible =
+                P_Registration_label.Visible = P_Registration_textBox.Visible =
+                P_Priest_tableLayoutPanel.Visible =
+                P_Mobile2_label.Visible = P_Mobile2_textBox.Visible =
+                P_HomeStateNote_label.Visible = P_HomeStateNote_textBox.Visible = false;
+
+                t2_tableLayoutPanel.Height = 0; t6_tableLayoutPanel.Height = 0; t8_tableLayoutPanel.Height = 0;
+                t20_tableLayoutPanel.Height = 0; t4_tableLayoutPanel.Height = 0;
+                t9_tableLayoutPanel.Height = 0; t11_tableLayoutPanel.Height = 0;
+
+                t2_tableLayoutPanel.Visible = t6_tableLayoutPanel.Visible = t8_tableLayoutPanel.Visible =
+                t20_tableLayoutPanel.Visible = t4_tableLayoutPanel.Visible =
+                t9_tableLayoutPanel.Visible = t11_tableLayoutPanel.Visible = true;
+
+                //t10_tableLayoutPanel
+                P_Debts_tableLayoutPanel.Visible = false;
+            }
+            else if (ApplicationState == "project")
+            {
+                SubHeader1_label.Text = "استمارة المشروع";
+            }
+
+
+            #region Project
+            Type_comboBox.SelectedIndex = 0; // default MICRO
+            Loan_radioButton.Checked = true;
+
+
+            ContentUpdated_checkBox.Visible = true;
+            if (MicroProject_ID <= 0)
+            {
+                ContentUpdated_checkBox.Visible = false;
+            }
+
+            #endregion
+
+
+            #region ProjectStory
+
+            #endregion
+
+
+            #region Benificiry
+
+            Military_label2.Visible = false;
+            Military_textBox.Visible = false;
+            Military_Date_checkBox.Visible = false;
+            Military_Date_dateTimePicker.Visible = false;
+
+            #endregion
+
+
+            #region Work
+
+            #endregion
+
+
+            #region Edu
+            Education_dataGridView.ReadOnly = true;
+            Course_dataGridView.ReadOnly = true;
+            #endregion
+
+
+            #region Projrct_Info
+            radioButton19.Checked = true;
+            #endregion
+
+
+            #region Family
+            P_NumAtHome_textBox.Text = "0";
+            P_NumOfMembers_textBox.Text = "0";
+
+            FamilyMember_dataGridView.ReadOnly = true;
+            Loss_dataGridView.ReadOnly = true;
+            Illness_dataGridView.ReadOnly = true;
+            Assets_dataGridView.ReadOnly = true;
+            AidSource_dataGridView.ReadOnly = true;
+            #endregion
+
+
+            #region AditionalInfo
+            P_DebtsNote_textBox.Visible = P_DebtsNote_label.Visible = P_DebtsAmount_textBox.Visible = P_DebtsAmount_label.Visible = false;
+            HelpSource_dataGridView.ReadOnly = true;
+            #endregion
+
+
+            AddPartner_button.Visible = Delete_MP_button.Visible = AddExtention_button.Visible = true;
+            if (MicroProject_ID <= 0)
+            {
+                AddPartner_button.Visible = Delete_MP_button.Visible = AddExtention_button.Visible = false;
+            }
+
+            UserMode = true;
+        }
+        #endregion
 
 
 
@@ -281,24 +599,6 @@ namespace MyWorkApplication
             e.DrawFocusRectangle();
         }
 
-        private void Stop_Highlighting_Combobox()
-        {
-            SubCategory_comboBox.SelectionLength = 0; SubCategory_comboBox.SelectionStart = SubCategory_comboBox.Text.Length;
-            Career_comboBox.SelectionLength = 0; Career_comboBox.SelectionStart = Career_comboBox.Text.Length;
-            Type_comboBox.SelectionLength = 0; Type_comboBox.SelectionStart = Type_comboBox.Text.Length;
-            SubType_comboBox.SelectionLength = 0; SubType_comboBox.SelectionStart = SubType_comboBox.Text.Length;
-            P_Sex_comboBox.SelectionLength = 0; P_Sex_comboBox.SelectionStart = P_Sex_comboBox.Text.Length;
-            PersonType_comboBox.SelectionLength = 0; PersonType_comboBox.SelectionStart = PersonType_comboBox.Text.Length;
-            P_MaritalState_comboBox.SelectionLength = 0; P_MaritalState_comboBox.SelectionStart = P_MaritalState_comboBox.Text.Length;
-            P_Parish_comboBox.SelectionLength = 0; P_Parish_comboBox.SelectionStart = P_Parish_comboBox.Text.Length;
-            P_Priest_comboBox.SelectionLength = 0; P_Priest_comboBox.SelectionStart = P_Priest_comboBox.Text.Length;
-            P_Priest2_comboBox.SelectionLength = 0; P_Priest2_comboBox.SelectionStart = P_Priest2_comboBox.Text.Length;
-            Street_comboBox.SelectionLength = 0; Street_comboBox.SelectionStart = Street_comboBox.Text.Length;
-            P_HomeType_comboBox.SelectionLength = 0; P_HomeType_comboBox.SelectionStart = P_HomeType_comboBox.Text.Length;
-            MP_PlaceType_comboBox.SelectionLength = 0; MP_PlaceType_comboBox.SelectionStart = MP_PlaceType_comboBox.Text.Length;
-            PaperApplicationUser_comboBox.SelectionLength = 0; PaperApplicationUser_comboBox.SelectionStart = PaperApplicationUser_comboBox.Text.Length;
-        }
-
         private void comboBox_Leave(object sender, EventArgs e)
         {
             ComboBox cb = (ComboBox)sender;
@@ -318,26 +618,6 @@ namespace MyWorkApplication
         void comboBox_MouseWheel(object sender, MouseEventArgs e)
         {
             ((HandledMouseEventArgs)e).Handled = true;
-        }
-
-        private void Stop_ComboBox_Scrolling()
-        {
-            //////////////////// handle auto scrolling for all comboBoxes //////////////////////
-            SubCategory_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            Career_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            Type_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            SubType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            P_Sex_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            PersonType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            P_MaritalState_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            P_Parish_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            P_Priest_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            P_Priest2_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            Street_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            P_HomeType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            MP_PlaceType_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            PaperApplicationUser_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
-            ///////////////////////////////////////////////////////////////////////////////////////
         }
 
         private void Bind_Data(bool KeepSelection)
@@ -511,8 +791,9 @@ namespace MyWorkApplication
 
 
             //Micro Project ID
-            DataTable dt25 = ds.Tables[25].Copy();//GoalsCheckBoxes
-            Bind_MicroProject_ID(dt25);
+            DataTable dt25 = ds.Tables[25].Copy();
+            if (MicroProject_ID <= 0)
+                Bind_New_MicroProject_ID(dt25);
 
 
             user_mode = true;
@@ -569,7 +850,7 @@ namespace MyWorkApplication
             }
         }
 
-        private void Bind_MicroProject_ID(DataTable dt)
+        private void Bind_New_MicroProject_ID(DataTable dt)
         {
             int MP_ID = 0;
             if (dt.Rows.Count != 0)
@@ -692,43 +973,7 @@ namespace MyWorkApplication
         #region dataGridView common functions
         Dictionary<DataGridView, string> ID_Columns = new Dictionary<DataGridView, string>();
         Dictionary<DataGridView, string> IsDirty_Columns = new Dictionary<DataGridView, string>();
-        private void Bind_Gridview_Dictionaries()
 
-        {
-            ID_Columns = new Dictionary<DataGridView, string>
-                {
-                    {Work_dataGridView,  "WP_ID"},
-                    {Exp_dataGridView,  "ExpP_ID"},
-                    {Education_dataGridView,  "PE_ID"},
-                    {Course_dataGridView,  "CPerosn_ID"},
-                    {PowerSource_dataGridView,  "Power_MP_ID"},
-                    {Materials_dataGridView,  "M_ID"},
-                    {FamilyMember_dataGridView,  "FP_ID"},
-                    {Loss_dataGridView,  "LPerson_ID"},
-                    {Illness_dataGridView,  "Ill_Person_ID"},
-                    {Assets_dataGridView,  "APerson_ID"},
-                    {AidSource_dataGridView,  "AidP_ID"},
-                    {HelpSource_dataGridView,  "HelpP_ID"},
-                    {HomePowerSource_dataGridView,  "HPowerP_ID"}
-                };
-
-            IsDirty_Columns = new Dictionary<DataGridView, string>
-                {
-                    {Work_dataGridView,  "W_IsDirty"},
-                    {Exp_dataGridView,  "Exp_IsDirty"},
-                    {Education_dataGridView,  "Edu_IsDirty"},
-                    {Course_dataGridView,  "C_IsDirty"},
-                    {PowerSource_dataGridView,  "Power_IsDirty"},
-                    {Materials_dataGridView,  "M_IsDirty"},
-                    {FamilyMember_dataGridView,  "P_IsDirty"},
-                    {Loss_dataGridView,  "P_IsDirty"},
-                    {Illness_dataGridView,  "Ill_IsDirty"},
-                    {Assets_dataGridView,  "Asset_IsDirty"},
-                    {AidSource_dataGridView,  "Aid_IsDirty"},
-                    {HelpSource_dataGridView,  "Help_IsDirty"},
-                    {HomePowerSource_dataGridView,  "HPower_IsDirty"}
-                };
-        }
 
         private void Bind_Gridview_ComboBox(DataGridViewComboBoxColumn Combox_Name, DataTable dt)
         {
@@ -985,170 +1230,6 @@ namespace MyWorkApplication
         #endregion
 
 
-        private void Initialize_NumericTextBox_KeyPress()
-        {
-            MPID_textBox.KeyPress += InputValidationHelpercs.Integers_NumericTextBox_KeyPress;
-            MP_RequestedAmount_textBox.KeyPress += InputValidationHelpercs.Decimal_NumericTextBox_KeyPress;
-            P_DOB_textBox.KeyPress += InputValidationHelpercs.Integers_NumericTextBox_KeyPress;
-            P_WorkYears_textBox.KeyPress += InputValidationHelpercs.Integers_NumericTextBox_KeyPress;
-            AmperNumber_textBox.KeyPress += InputValidationHelpercs.Decimal_NumericTextBox_KeyPress;
-            P_DebtsAmount_textBox.KeyPress += InputValidationHelpercs.Decimal_NumericTextBox_KeyPress;
-        }
-
-        private void Clear_Data()
-        {
-            UserMode = false;
-
-            #region Project
-
-            P_FullName_textBox.Clear();
-            MPID_textBox.Clear();
-            P_MobileReadable_textBox.Clear();
-            SubCategory_comboBox.SelectedIndex = -1;
-            Career_comboBox.SelectedIndex = -1;
-            ApplyDate_bcDateTimePicker.Value = DateTime.Now;
-            Type_comboBox.SelectedIndex = -1;
-            MP_Name_textBox.Clear();
-            ContentUpdated_checkBox.Checked = false;
-            SubType_comboBox.SelectedIndex = -1;
-            Loan_radioButton.Checked = false;
-            Grant_radioButton.Checked = false;
-            MP_RequestedAmount_textBox.Clear();
-
-            #endregion
-
-
-            #region ProjectStory
-
-            P_Loss_textBox.Clear();
-            P_Goal_textBox.Clear();
-            P_GoalHow_textBox.Clear();
-            P_OtherNotes_textBox.Clear();
-
-            //foreach (Control c in FlowLayoutPanel.Controls())
-            //{
-            //    ElectricalDevices_CheckedListBox.SetItemCheckState(i, CheckState.Unchecked);
-            //}
-
-            #endregion
-
-
-            #region Benificiry
-
-            P_FirstName_textBox.Clear();
-            P_LastName_textBox.Clear();
-            P_Sex_comboBox.SelectedIndex = -1;
-            PersonType_comboBox.SelectedIndex = -1;
-            P_FullName_En_textBox.Clear();
-            P_FatherName_textBox.Clear();
-            P_MotherName_textBox.Clear();
-            P_Registration_textBox.Clear();
-            P_NationalNum_textBox.Clear();
-            P_DOB_textBox.Clear();
-            P_MaritalState_comboBox.SelectedIndex = -1;
-            P_Parish_comboBox.SelectedIndex = -1;
-            P_IntermidiaryName_textBox.Clear();
-            P_Priest_comboBox.SelectedIndex = -1;
-            P_Priest2_comboBox.SelectedIndex = -1;
-            P_Mobile_textBox.Clear();
-            P_HomeTel_textBox.Clear();
-            P_Mobile2_textBox.Clear();
-            Street_comboBox.SelectedIndex = -1;
-            P_Address_textBox.Clear();
-            P_HomeType_comboBox.SelectedIndex = -1;
-            P_HomeStateNote_textBox.Clear();
-            MilitarySingle_radioButton.Checked = false;
-            MilitaryFinished_radioButton.Checked = false;
-            MilitaryNow_radioButton.Checked = false;
-            Military_textBox.Clear();
-            Military_Date_checkBox.Checked = false;
-            Military_Date_dateTimePicker.Value = DateTime.Now;
-
-            #endregion
-
-
-            #region Work
-
-            Work_dataGridView.Rows.Clear();
-            Exp_dataGridView.Rows.Clear();
-            P_WorkYears_textBox.Clear();
-
-            #endregion
-
-            #region Edu
-
-            P_HasEducationYes_radioButton.Checked = false;
-            P_HasEducationNo_radioButton.Checked = false;
-            Education_dataGridView.Rows.Clear();
-            P_HasCoursesYes_radioButton.Checked = false;
-            P_HasCoursesNo_radioButton.Checked = false;
-            Course_dataGridView.Rows.Clear();
-
-            #endregion
-
-            #region Projrct_Info
-
-            MP_PlaceType_comboBox.SelectedIndex = -1;
-            MP_PlaceAddress_textBox.Clear();
-            MP_PlaceNote_textBox.Clear();
-            PowerSource_dataGridView.Rows.Clear();
-            AmperNumber_textBox.Clear();
-            radioButton19.Checked = false;
-            radioButton20.Checked = false;
-            Agreement1_Yes_radioButton.Checked = false;
-            Agreement1_No_radioButton.Checked = false;
-            Agreement2_Yes_radioButton.Checked = false;
-            Agreement2_No_radioButton.Checked = false;
-            Agreement3_No_radioButton.Checked = false;
-            Agreement3_Yes_radioButton.Checked = false;
-            Agreement4_Yes_radioButton.Checked = false;
-            Agreement4_No_radioButton.Checked = false;
-            Materials_dataGridView.Rows.Clear();
-
-            #endregion
-
-            #region Family
-
-            FamilyNum_textBox1.Clear();
-            P_LiveWithFamily_radioButton.Checked = false;
-            P_NotLiveWithFamily_radioButton.Checked = false;
-            FamilyMember_dataGridView.Rows.Clear();
-            P_HasLossesYes_radioButton.Checked = false;
-            P_HasLossesNo_radioButton.Checked = false;
-            Loss_dataGridView.Rows.Clear();
-            P_HasIllnessYes_radioButton.Checked = false;
-            P_HasIllnessNo_radioButton.Checked = false;
-            Illness_dataGridView.Rows.Clear();
-            P_HasAssetsYes_radioButton.Checked = false;
-            P_HasAssetsNo_radioButton.Checked = false;
-            Assets_dataGridView.Rows.Clear();
-            P_HasAidSourceYes_radioButton.Checked = false;
-            P_HasAidSourceNo_radioButton.Checked = false;
-            AidSource_dataGridView.Rows.Clear();
-
-            #endregion
-
-            #region AditionalInfo
-
-            MP_OtherDonors_textBox.Clear();
-            P_HasDebtsYes_radioButton.Checked = false;
-            P_HasDebtsNo_radioButton.Checked = false;
-            P_DebtsAmount_textBox.Clear();
-            P_DebtsNote_textBox.Clear();
-            P_HasHelpSourceYes_radioButton.Checked = false;
-            P_HasHelpSourceNo_radioButton.Checked = false;
-            HelpSource_dataGridView.Rows.Clear();
-            HomePowerSource_dataGridView.Rows.Clear();
-            MP_SimpleProfit2_textBox.Clear();
-            PaperApplicationUser_comboBox.SelectedIndex = -1;
-
-            #endregion
-
-            UserMode = true;
-
-        }
-
-
 
         #region IsDirty
         Dictionary<DataGridView, bool> IsDirty_DataGrid = new Dictionary<DataGridView, bool>();
@@ -1186,7 +1267,7 @@ namespace MyWorkApplication
                     {"AditionalInfo_ISDirty", false},
                 };
         }
-        #endregion
+
 
         #region Project_ISDirty
         string MP_RequestedAmount_textBox_original, MP_Name_textBox_original, P_MobileReadable_textBox_original, MPID_textBox_original, P_FullName_textBox_original;
@@ -1310,7 +1391,7 @@ namespace MyWorkApplication
             catch (Exception ex)
             {
                 if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
-            }    
+            }
         }
 
         private void MP_RequestedAmount_textBox_Enter(object sender, EventArgs e)
@@ -1939,15 +2020,31 @@ namespace MyWorkApplication
         {
             try
             {
-                if (MilitaryFinished_radioButton.Checked)
+                if (MilitarySingle_radioButton.Checked)
                 {
+                    Military_label2.Visible = false;
+                    Military_textBox.Visible = false;
+                    Military_Date_checkBox.Visible = false;
+                    Military_Date_dateTimePicker.Visible = false;
+                }
+                else if (MilitaryFinished_radioButton.Checked)
+                {
+                    Military_label2.Visible = true;
+                    Military_textBox.Visible = true;
                     Military_Date_checkBox.Visible = true;
 
                     if (Military_Date_checkBox.Checked)
                         Military_Date_dateTimePicker.Visible = true;
+                    else
+                        Military_Date_dateTimePicker.Visible = false;
                 }
-                else
-                    Military_Date_dateTimePicker.Visible = Military_Date_checkBox.Visible = false;
+                else if (MilitaryNow_radioButton.Checked)
+                {
+                    Military_label2.Visible = true;
+                    Military_textBox.Visible = true;
+                    Military_Date_checkBox.Visible = false;
+                    Military_Date_dateTimePicker.Visible = false;
+                }
 
                 if (UserMode)
                     IsDirty_Data["Benificiry_ISDirty"] = true;
@@ -2049,27 +2146,37 @@ namespace MyWorkApplication
                 {
                     if (P_HasEducationNo_radioButton.Checked)
                     {
-                        DialogResult dialogResult = MessageBox.Show("تأكيد الحذف", "Warning", MessageBoxButtons.YesNo);
-                        if (dialogResult == DialogResult.Yes)
+                        if (Education_dataGridView.Rows.Count > 1)
                         {
-
-                            IsDirty_Data["Edu_ISDirty"] = true;
-                            Education_dataGridView.ReadOnly = true;
-
-                            for (int i = 0; i < Education_dataGridView.Rows.Count - 1; i++)
+                            DialogResult dialogResult = MessageBox.Show("سيتم حذف جميع المعلومات المدخة سابقاً .. تأكيد الحذف؟", "Warning", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
                             {
-                                if (Education_dataGridView.Rows[i].Cells[ID_Columns[Education_dataGridView]].Value != null)
+
+                                IsDirty_Data["Edu_ISDirty"] = true;
+                                Education_dataGridView.ReadOnly = true;
+
+                                for (int i = Education_dataGridView.Rows.Count - 2; i >= 0; i--)
                                 {
-                                    Education_dataGridView.Rows[i].Cells[IsDirty_Columns[Education_dataGridView]].Value = "1";
-                                    Education_dataGridView.Rows[i].Visible = false;
-                                    IsDirty_DataGrid[Education_dataGridView] = true;
-                                }
-                                else
-                                {
-                                    Education_dataGridView.Rows.RemoveAt(i);
+                                    if (Education_dataGridView.Rows[i].Cells[ID_Columns[Education_dataGridView]].Value != null)
+                                    {
+                                        Education_dataGridView.Rows[i].Cells[IsDirty_Columns[Education_dataGridView]].Value = "1";
+                                        Education_dataGridView.Rows[i].Visible = false;
+                                        IsDirty_DataGrid[Education_dataGridView] = true;
+
+                                    }
+                                    else
+                                    {
+                                        Education_dataGridView.Rows.RemoveAt(i);
+                                    }
                                 }
                             }
                         }
+                        else
+                        {
+                            IsDirty_Data["Edu_ISDirty"] = true;
+                            Education_dataGridView.ReadOnly = true;
+                        }
+
                     }
                 }
             }
@@ -2105,23 +2212,28 @@ namespace MyWorkApplication
                 {
                     if (P_HasCoursesNo_radioButton.Checked)
                     {
-                        DialogResult dialogResult = MessageBox.Show("تأكيد الحذف", "Warning", MessageBoxButtons.YesNo);
-                        if (dialogResult == DialogResult.Yes)
+                        if (Course_dataGridView.Rows.Count > 1)
                         {
-                            IsDirty_Data["Edu_ISDirty"] = true;
-                            Course_dataGridView.ReadOnly = true;
-
-                            for (int i = 0; i < Course_dataGridView.Rows.Count - 1; i++)
+                            DialogResult dialogResult = MessageBox.Show("سيتم حذف جميع المعلومات المدخة سابقاً .. تأكيد الحذف؟", "Warning", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
                             {
-                                if (Course_dataGridView.Rows[i].Cells[ID_Columns[Course_dataGridView]].Value != null)
+
+                                IsDirty_Data["Edu_ISDirty"] = true;
+                                Course_dataGridView.ReadOnly = true;
+
+                                for (int i = Course_dataGridView.Rows.Count - 2; i >= 0; i--)
                                 {
-                                    Course_dataGridView.Rows[i].Cells[IsDirty_Columns[Course_dataGridView]].Value = "1";
-                                    Course_dataGridView.Rows[i].Visible = false;
-                                    IsDirty_DataGrid[Course_dataGridView] = true;
-                                }
-                                else
-                                {
-                                    Course_dataGridView.Rows.RemoveAt(i);
+                                    if (Course_dataGridView.Rows[i].Cells[ID_Columns[Course_dataGridView]].Value != null)
+                                    {
+                                        Course_dataGridView.Rows[i].Cells[IsDirty_Columns[Course_dataGridView]].Value = "1";
+                                        Course_dataGridView.Rows[i].Visible = false;
+                                        IsDirty_DataGrid[Course_dataGridView] = true;
+
+                                    }
+                                    else
+                                    {
+                                        Course_dataGridView.Rows.RemoveAt(i);
+                                    }
                                 }
                             }
                         }
@@ -2134,7 +2246,6 @@ namespace MyWorkApplication
             }
         }
         #endregion
-
 
         #region Projrct_Info_ISDirty
 
@@ -2240,7 +2351,6 @@ namespace MyWorkApplication
         }
         #endregion
 
-
         #region Family_ISDirty
         string FamilyNum_textBox1_original;
         private void FamilyNum_textBox1_Enter(object sender, EventArgs e)
@@ -2260,13 +2370,19 @@ namespace MyWorkApplication
             {
                 if (FamilyNum_textBox1_original != FamilyNum_textBox1.Text)
                 {
-                    if (!CanAddFamilyMembers)
+                    if (string.IsNullOrEmpty(FamilyNum_textBox1.Text))
+                    {
+                        FamilyMember_dataGridView.ReadOnly = true;
+                        FamilyNum_textBox1.Text = FamilyNum_textBox1_original;
                         throw new InvalidOperationException("لا يمكن ترك رقم دفتر العائلة فارغ !");
-
-                    Check_Family_Num();
-                    IsDirty_Data["Family_ISDirty"] = true;
+                    }
+                    else
+                    {
+                        FamilyMember_dataGridView.ReadOnly = false;
+                        Check_Family_Num();
+                        IsDirty_Data["Family_ISDirty"] = true;
+                    }
                 }
-
             }
             catch (Exception ex)
             {
@@ -2314,26 +2430,34 @@ namespace MyWorkApplication
                 {
                     if (P_HasLossesNo_radioButton.Checked)
                     {
-                        DialogResult dialogResult = MessageBox.Show("تأكيد الحذف", "Warning", MessageBoxButtons.YesNo);
-                        if (dialogResult == DialogResult.Yes)
-                        {
-                            IsDirty_Data["Family_ISDirty"] = true;
-                            Loss_dataGridView.ReadOnly = true;
 
-                            for (int i = 0; i < Loss_dataGridView.Rows.Count - 1; i++)
+                        if (Loss_dataGridView.Rows.Count > 1)
+                        {
+                            DialogResult dialogResult = MessageBox.Show("سيتم حذف جميع المعلومات المدخة سابقاً .. تأكيد الحذف؟", "Warning", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
                             {
-                                if (Loss_dataGridView.Rows[i].Cells[ID_Columns[Loss_dataGridView]].Value != null)
+
+                                IsDirty_Data["Family_ISDirty"] = true;
+                                Loss_dataGridView.ReadOnly = true;
+
+                                for (int i = Loss_dataGridView.Rows.Count - 2; i >= 0; i--)
                                 {
-                                    Loss_dataGridView.Rows[i].Cells[IsDirty_Columns[Loss_dataGridView]].Value = "1";
-                                    Loss_dataGridView.Rows[i].Visible = false;
-                                    IsDirty_DataGrid[Loss_dataGridView] = true;
-                                }
-                                else
-                                {
-                                    Loss_dataGridView.Rows.RemoveAt(i);
+                                    if (Loss_dataGridView.Rows[i].Cells[ID_Columns[Loss_dataGridView]].Value != null)
+                                    {
+                                        Loss_dataGridView.Rows[i].Cells[IsDirty_Columns[Loss_dataGridView]].Value = "1";
+                                        Loss_dataGridView.Rows[i].Visible = false;
+                                        IsDirty_DataGrid[Loss_dataGridView] = true;
+
+                                    }
+                                    else
+                                    {
+                                        Loss_dataGridView.Rows.RemoveAt(i);
+                                    }
                                 }
                             }
                         }
+
+
                     }
                 }
             }
@@ -2369,23 +2493,29 @@ namespace MyWorkApplication
                 {
                     if (P_HasIllnessNo_radioButton.Checked)
                     {
-                        DialogResult dialogResult = MessageBox.Show("تأكيد الحذف", "Warning", MessageBoxButtons.YesNo);
-                        if (dialogResult == DialogResult.Yes)
-                        {
-                            IsDirty_Data["Family_ISDirty"] = true;
-                            Illness_dataGridView.ReadOnly = true;
 
-                            for (int i = 0; i < Illness_dataGridView.Rows.Count - 1; i++)
+                        if (Illness_dataGridView.Rows.Count > 1)
+                        {
+                            DialogResult dialogResult = MessageBox.Show("سيتم حذف جميع المعلومات المدخة سابقاً .. تأكيد الحذف؟", "Warning", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
                             {
-                                if (Illness_dataGridView.Rows[i].Cells[ID_Columns[Illness_dataGridView]].Value != null)
+
+                                IsDirty_Data["Family_ISDirty"] = true;
+                                Illness_dataGridView.ReadOnly = true;
+
+                                for (int i = Illness_dataGridView.Rows.Count - 2; i >= 0; i--)
                                 {
-                                    Illness_dataGridView.Rows[i].Cells[IsDirty_Columns[Illness_dataGridView]].Value = "1";
-                                    Illness_dataGridView.Rows[i].Visible = false;
-                                    IsDirty_DataGrid[Illness_dataGridView] = true;
-                                }
-                                else
-                                {
-                                    Illness_dataGridView.Rows.RemoveAt(i);
+                                    if (Illness_dataGridView.Rows[i].Cells[ID_Columns[Illness_dataGridView]].Value != null)
+                                    {
+                                        Illness_dataGridView.Rows[i].Cells[IsDirty_Columns[Illness_dataGridView]].Value = "1";
+                                        Illness_dataGridView.Rows[i].Visible = false;
+                                        IsDirty_DataGrid[Illness_dataGridView] = true;
+
+                                    }
+                                    else
+                                    {
+                                        Illness_dataGridView.Rows.RemoveAt(i);
+                                    }
                                 }
                             }
                         }
@@ -2424,23 +2554,28 @@ namespace MyWorkApplication
                 {
                     if (P_HasAssetsNo_radioButton.Checked)
                     {
-                        DialogResult dialogResult = MessageBox.Show("تأكيد الحذف", "Warning", MessageBoxButtons.YesNo);
-                        if (dialogResult == DialogResult.Yes)
+                        if (Assets_dataGridView.Rows.Count > 1)
                         {
-                            IsDirty_Data["Family_ISDirty"] = true;
-                            Assets_dataGridView.ReadOnly = true;
-
-                            for (int i = 0; i < Assets_dataGridView.Rows.Count - 1; i++)
+                            DialogResult dialogResult = MessageBox.Show("سيتم حذف جميع المعلومات المدخة سابقاً .. تأكيد الحذف؟", "Warning", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
                             {
-                                if (Assets_dataGridView.Rows[i].Cells[ID_Columns[Assets_dataGridView]].Value != null)
+
+                                IsDirty_Data["Family_ISDirty"] = true;
+                                Assets_dataGridView.ReadOnly = true;
+
+                                for (int i = Assets_dataGridView.Rows.Count - 2; i >= 0; i--)
                                 {
-                                    Assets_dataGridView.Rows[i].Cells[IsDirty_Columns[Assets_dataGridView]].Value = "1";
-                                    Assets_dataGridView.Rows[i].Visible = false;
-                                    IsDirty_DataGrid[Assets_dataGridView] = true;
-                                }
-                                else
-                                {
-                                    Assets_dataGridView.Rows.RemoveAt(i);
+                                    if (Assets_dataGridView.Rows[i].Cells[ID_Columns[Assets_dataGridView]].Value != null)
+                                    {
+                                        Assets_dataGridView.Rows[i].Cells[IsDirty_Columns[Assets_dataGridView]].Value = "1";
+                                        Assets_dataGridView.Rows[i].Visible = false;
+                                        IsDirty_DataGrid[Assets_dataGridView] = true;
+
+                                    }
+                                    else
+                                    {
+                                        Assets_dataGridView.Rows.RemoveAt(i);
+                                    }
                                 }
                             }
                         }
@@ -2480,23 +2615,28 @@ namespace MyWorkApplication
                 {
                     if (P_HasAidSourceNo_radioButton.Checked)
                     {
-                        DialogResult dialogResult = MessageBox.Show("تأكيد الحذف", "Warning", MessageBoxButtons.YesNo);
-                        if (dialogResult == DialogResult.Yes)
+                        if (AidSource_dataGridView.Rows.Count > 1)
                         {
-                            IsDirty_Data["Family_ISDirty"] = true;
-                            AidSource_dataGridView.ReadOnly = true;
-
-                            for (int i = 0; i < AidSource_dataGridView.Rows.Count - 1; i++)
+                            DialogResult dialogResult = MessageBox.Show("سيتم حذف جميع المعلومات المدخة سابقاً .. تأكيد الحذف؟", "Warning", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
                             {
-                                if (AidSource_dataGridView.Rows[i].Cells[ID_Columns[AidSource_dataGridView]].Value != null)
+
+                                IsDirty_Data["Family_ISDirty"] = true;
+                                AidSource_dataGridView.ReadOnly = true;
+
+                                for (int i = AidSource_dataGridView.Rows.Count - 2; i >= 0; i--)
                                 {
-                                    AidSource_dataGridView.Rows[i].Cells[IsDirty_Columns[AidSource_dataGridView]].Value = "1";
-                                    AidSource_dataGridView.Rows[i].Visible = false;
-                                    IsDirty_DataGrid[AidSource_dataGridView] = true;
-                                }
-                                else
-                                {
-                                    AidSource_dataGridView.Rows.RemoveAt(i);
+                                    if (AidSource_dataGridView.Rows[i].Cells[ID_Columns[AidSource_dataGridView]].Value != null)
+                                    {
+                                        AidSource_dataGridView.Rows[i].Cells[IsDirty_Columns[AidSource_dataGridView]].Value = "1";
+                                        AidSource_dataGridView.Rows[i].Visible = false;
+                                        IsDirty_DataGrid[AidSource_dataGridView] = true;
+
+                                    }
+                                    else
+                                    {
+                                        AidSource_dataGridView.Rows.RemoveAt(i);
+                                    }
                                 }
                             }
                         }
@@ -2662,23 +2802,28 @@ namespace MyWorkApplication
                 {
                     if (P_HasHelpSourceNo_radioButton.Checked)
                     {
-                        DialogResult dialogResult = MessageBox.Show("تأكيد الحذف", "Warning", MessageBoxButtons.YesNo);
-                        if (dialogResult == DialogResult.Yes)
+                        if (HelpSource_dataGridView.Rows.Count > 1)
                         {
-                            IsDirty_Data["AditionalInfo_ISDirty"] = true;
-                            HelpSource_dataGridView.ReadOnly = true;
-
-                            for (int i = 0; i < HelpSource_dataGridView.Rows.Count - 1; i++)
+                            DialogResult dialogResult = MessageBox.Show("سيتم حذف جميع المعلومات المدخة سابقاً .. تأكيد الحذف؟", "Warning", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
                             {
-                                if (HelpSource_dataGridView.Rows[i].Cells[ID_Columns[HelpSource_dataGridView]].Value != null)
+
+                                IsDirty_Data["AditionalInfo_ISDirty"] = true;
+                                HelpSource_dataGridView.ReadOnly = true;
+
+                                for (int i = HelpSource_dataGridView.Rows.Count - 2; i >= 0; i--)
                                 {
-                                    HelpSource_dataGridView.Rows[i].Cells[IsDirty_Columns[HelpSource_dataGridView]].Value = "1";
-                                    HelpSource_dataGridView.Rows[i].Visible = false;
-                                    IsDirty_DataGrid[HelpSource_dataGridView] = true;
-                                }
-                                else
-                                {
-                                    HelpSource_dataGridView.Rows.RemoveAt(i);
+                                    if (HelpSource_dataGridView.Rows[i].Cells[ID_Columns[HelpSource_dataGridView]].Value != null)
+                                    {
+                                        HelpSource_dataGridView.Rows[i].Cells[IsDirty_Columns[HelpSource_dataGridView]].Value = "1";
+                                        HelpSource_dataGridView.Rows[i].Visible = false;
+                                        IsDirty_DataGrid[HelpSource_dataGridView] = true;
+
+                                    }
+                                    else
+                                    {
+                                        HelpSource_dataGridView.Rows.RemoveAt(i);
+                                    }
                                 }
                             }
                         }
@@ -2695,6 +2840,9 @@ namespace MyWorkApplication
         {
             try
             {
+                if (P_HasDebtsYes_radioButton.Checked)
+                    P_DebtsNote_textBox.Visible = P_DebtsNote_label.Visible = P_DebtsAmount_textBox.Visible = P_DebtsAmount_label.Visible = true;
+
                 if (UserMode)
                     IsDirty_Data["AditionalInfo_ISDirty"] = true;
             }
@@ -2718,6 +2866,7 @@ namespace MyWorkApplication
         }
         #endregion
 
+        #endregion IsDirty
 
 
 
@@ -2727,14 +2876,7 @@ namespace MyWorkApplication
 
 
 
-        public void Check_Theme()
-        {
-            var newTheme = new NewTheme();
-            if (Settings.Default.theme == "Dark")
-                newTheme.ApplicationNew_ToNight(this);
-            else
-                newTheme.ApplicationNew_ToLight(this);
-        }
+
 
         private bool CheckUserPermission()
         {
@@ -3318,7 +3460,6 @@ namespace MyWorkApplication
         }
         private void Check_Family_Num()
         {
-
             try
             {
                 //clear unused dummy families//
@@ -3486,14 +3627,6 @@ namespace MyWorkApplication
             }
         }
 
-        private void FamilyNum_textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if (FamilyNum_textBox1.Text != "")
-                CanAddFamilyMembers = true;
-            else
-                CanAddFamilyMembers = false;
-        }
-
         private void MPID_textBox_TextChanged(object sender, EventArgs e)
         {
             mainForm.MP_ID_label.Text = MPID_textBox.Text;
@@ -3598,8 +3731,6 @@ namespace MyWorkApplication
         #endregion
 
 
-
-
         //from f2f
         #region //Data
         string
@@ -3638,94 +3769,7 @@ namespace MyWorkApplication
         //from f2f
 
         //from f2f
-        private void Set_Controls()
-        {
-            MP_ID = P_Mobile = MP_ApplyDate = MP_Name = MP_RequestedAmount =
-            P_Loss =
-            P_Goal =         // MP_Description
-            P_GoalHow =      // MP_Marketing
-            P_OtherNotes =   // MP_OtherNotes
-            P_FName = P_FaName = P_LName = P_MoName =
-            P_EngName = P_Registration = P_NationalNum = DOB = P_IntermidiaryName =
-            P_LandLine = P_Mobile2 = P_Address = P_HomeStateNote = P_Military = P_MilitaryDate =
-            FamilyNumber =
-            P_WorkYears =    // s3
-            P_AidSourceNote =  //MP_OtherSources
-            P_DeptAmount = P_DeptNote = P_SourceAssosiation = P_SourceRelative =
-            MP_Address = MP_AddressNote = MP_Notes = "";
 
-            SubCategory_ID = Career_ID = Type_ID = SubType_ID = FundType_ID =
-            Sex_ID = PersonType_ID = P_MaritalState_ID =
-            Parish_ID = Priest1_ID = Priest2_ID = Street_ID = HomeType_ID = Military_ID = MilitaryFinished =
-            NumAtHome = NumAllMembers =
-            Has_Education = Has_Course = Has_Loss = Has_Illness = Has_Asset = Has_AidSource = Has_Dept =
-            Has_Income = MP_PlaceType = MP_AmperNumber = MP_AmperType =
-            MP_Agreement1 = MP_Agreement2 = MP_Agreement3 =
-            EntredBy = EditedBy = -1;
-
-            //NumOfUpdateTry = 0;
-
-            P_Goals_Query = FamilyMembers_Query =
-            Work_Query = Exp_Query = Education_Query = Course_Query =
-            Loss_Query = Illness_Query = Asset_Query = AidSource_Query =
-            HomePowerSource_Query = PowerSource_Query = Material_Query = "";
-
-            Delete_MP_button.Visible
-                //= Save_button.Visible 
-                = AddPartner_button.Visible
-                = AddExtention_button.Visible = false;
-
-            //AddImage_button.Visible = Download_button.Visible = DeleteImage_button.Visible = false;
-
-            foreach (Control c in P_Goals_panel2.Controls)
-            {
-                if (c.GetType() == typeof(CheckBox))
-                {
-                    CheckBox cbox = c as CheckBox;
-                    cbox.Checked = false;
-                }
-            }
-
-            if (!Update_Mode)
-            {
-                Delete_MP_button.Visible
-                    //= Save_button.Visible  
-                    = AddPartner_button.Visible
-                    = AddExtention_button.Visible = false;
-            }
-            else if (Update_Mode)
-            {
-                Delete_MP_button.Visible
-                    //= Save_button.Visible 
-                    = AddPartner_button.Visible
-                    = AddExtention_button.Visible = true;
-
-                if (P_HasAidSourceYes_radioButton.Checked)
-                    AidSource_dataGridView.Enabled = true;
-
-                if (P_HasAssetsYes_radioButton.Checked)
-                    Assets_dataGridView.Enabled = true;
-
-                if (P_HasCoursesYes_radioButton.Checked)
-                    Course_dataGridView.Enabled = true;
-
-                if (P_HasDebtsYes_radioButton.Checked)
-                    P_Debts_tableLayoutPanel.Enabled = true;
-
-                if (P_HasEducationYes_radioButton.Checked)
-                    Education_dataGridView.Enabled = true;
-
-                if (P_HasIllnessYes_radioButton.Checked)
-                    Illness_dataGridView.Enabled = true;
-
-                if (P_HasHelpSourceYes_radioButton.Checked)
-                    P_HasIncomeSource_flowLayoutPanel.Enabled = true;
-
-                if (P_HasLossesYes_radioButton.Checked)
-                    Loss_dataGridView.Enabled = true;
-
-            }
-        }
 
         private void FamilyMember_dataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
@@ -3738,11 +3782,6 @@ namespace MyWorkApplication
             Calculate_NumAtHome();
             FamilyMember_dataGridView.Refresh();
         }
-
-
-
-
-
 
 
         #region delete context menu strip
@@ -3911,9 +3950,6 @@ namespace MyWorkApplication
             }
         }
         #endregion
-
-
-
 
 
         #region mouse hover
