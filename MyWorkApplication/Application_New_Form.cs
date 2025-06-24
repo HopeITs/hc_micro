@@ -90,13 +90,12 @@ namespace MyWorkApplication
                 Check_Theme();
 
                 Bind_Gridview_Dictionaries();
-                Initialize_IsDirty();
                 Initialize_NumericTextBox_KeyPress();
                 Stop_ComboBox_Scrolling();
                 Stop_AutoGenerateColumns();
                 Set_DeleteColumn_Width();
 
-                Clear_Data();
+                Clear_Boxes();
                 Bind_Data(false);
                 Set_Controls();
 
@@ -132,7 +131,10 @@ namespace MyWorkApplication
 
 
 
-        #region One time entri functions 
+        #region One time entry functions 
+        Dictionary<DataGridView, string> ID_Columns = new Dictionary<DataGridView, string>();
+        Dictionary<DataGridView, string> IsDirty_Columns = new Dictionary<DataGridView, string>();
+
         private void Bind_Gridview_Dictionaries()
 
         {
@@ -267,7 +269,7 @@ namespace MyWorkApplication
 
 
         #region Clear Data
-        private void Clear_Data()
+        private void Clear_Boxes()
         {
             UserMode = false;
 
@@ -422,6 +424,8 @@ namespace MyWorkApplication
 
         private void Set_Controls()
         {
+            Initialize_IsDirty();
+
             UserMode = false;
             t2_tableLayoutPanel.Height = 901; t3_tableLayoutPanel.Height = 823; t5_tableLayoutPanel.Height = 385;
             t6_tableLayoutPanel.Height = 323; t7_tableLayoutPanel.Height = 74; t8_tableLayoutPanel.Height = 606;
@@ -492,6 +496,10 @@ namespace MyWorkApplication
 
 
             #region Project
+
+            MP_RequestedAmount_textBox_original = MP_Name_textBox_original = P_MobileReadable_textBox_original = MPID_textBox_original = P_FullName_textBox_original = "";
+
+
             Type_comboBox.SelectedIndex = 0; // default MICRO
             Loan_radioButton.Checked = true;
 
@@ -506,11 +514,16 @@ namespace MyWorkApplication
 
 
             #region ProjectStory
+            P_Loss_textBox_original = P_Goal_textBox_original = P_GoalHow_textBox_original = P_OtherNotes_textBox_original = "";
 
             #endregion
 
 
             #region Benificiry
+            P_FirstName_textBox_original = P_LastName_textBox_original = P_FullName_En_textBox_original = P_FatherName_textBox_original = P_MotherName_textBox_original =
+            P_Registration_textBox_original = P_NationalNum_textBox_original = P_DOB_textBox_original = P_IntermidiaryName_textBox_original = P_Mobile_textBox_original =
+            P_HomeTel_textBox_original = P_Mobile2_textBox_original = P_Address_textBox_original = P_HomeStateNote_textBox_original = Military_textBox_original = "";
+
 
             Military_label2.Visible = false;
             Military_textBox.Visible = false;
@@ -521,7 +534,7 @@ namespace MyWorkApplication
 
 
             #region Work
-
+            P_WorkYears_textBox_original = "";
             #endregion
 
 
@@ -532,11 +545,15 @@ namespace MyWorkApplication
 
 
             #region Projrct_Info
+            AmperNumber_textBox_original = MP_PlaceNote_textBox_original = MP_PlaceAddress_textBox_original = "";
+
             radioButton19.Checked = true;
             #endregion
 
 
             #region Family
+            FamilyNum_textBox1_original = "";
+
             P_NumAtHome_textBox.Text = "0";
             P_NumOfMembers_textBox.Text = "0";
 
@@ -549,6 +566,8 @@ namespace MyWorkApplication
 
 
             #region AditionalInfo
+            MP_OtherDonors_textBox_original = P_DebtsAmount_textBox_original = P_DebtsNote_textBox_original = MP_SimpleProfit2_textBox_original = "";
+
             P_DebtsNote_textBox.Visible = P_DebtsNote_label.Visible = P_DebtsAmount_textBox.Visible = P_DebtsAmount_label.Visible = false;
             HelpSource_dataGridView.ReadOnly = true;
             #endregion
@@ -559,6 +578,11 @@ namespace MyWorkApplication
             {
                 AddPartner_button.Visible = Delete_MP_button.Visible = AddExtention_button.Visible = false;
             }
+            if (Person_ID <= 0)
+            {
+                AddPartner_button.Visible = AddExtention_button.Visible = false;
+            }
+
 
             UserMode = true;
         }
@@ -971,9 +995,6 @@ namespace MyWorkApplication
 
 
         #region dataGridView common functions
-        Dictionary<DataGridView, string> ID_Columns = new Dictionary<DataGridView, string>();
-        Dictionary<DataGridView, string> IsDirty_Columns = new Dictionary<DataGridView, string>();
-
 
         private void Bind_Gridview_ComboBox(DataGridViewComboBoxColumn Combox_Name, DataTable dt)
         {
