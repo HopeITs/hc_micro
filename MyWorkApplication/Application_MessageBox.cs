@@ -6,7 +6,7 @@ namespace MyWorkApplication
     public partial class Application_MessageBox : Form
     {
         private int MicroProject_ID;
-        private readonly string name;
+        private readonly string Case, name;
         private int Person_ID;
 
         public Application_MessageBox()
@@ -14,9 +14,10 @@ namespace MyWorkApplication
             InitializeComponent();
         }
 
-        public Application_MessageBox(int Person_ID, int MicroProject_ID, string name)
+        public Application_MessageBox(string Case, int Person_ID, int MicroProject_ID, string name)
         {
             InitializeComponent();
+            this.Case = Case;
             this.Person_ID = Person_ID;
             this.MicroProject_ID = MicroProject_ID;
             this.name = name;
@@ -26,7 +27,15 @@ namespace MyWorkApplication
         {
             try
             {
-                Name_label.Text = name + " " + " موجود مسبقاً ";
+                if(Case == "National_ID")
+                {
+                    Name_label.Text = name + " " + " موجود مسبقاً ";
+                }
+                else if (Case == "Family_Num")
+                {
+                    Name_label.Text = "رقم دفتر العائلة موجود مسبقاً ! " + Environment.NewLine +
+                    " المستفيد التابع لدفتر العائلة هذا هو: " + name;
+                }
             }
             catch (Exception ex)
             {

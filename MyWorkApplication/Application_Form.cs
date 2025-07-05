@@ -2342,7 +2342,7 @@ namespace MyWorkApplication
                         int MP_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
                         var Name = dt.Rows[0]["Beneficiary Name"].ToString();
 
-                        var _MessageBox = new Application_MessageBox(P_ID, MP_ID, Name);
+                        var _MessageBox = new Application_MessageBox("National_ID",P_ID, MP_ID, Name);
                         var r = _MessageBox.ShowDialog();
                         if (r == DialogResult.Yes)
                         {

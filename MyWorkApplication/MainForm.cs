@@ -1452,7 +1452,7 @@ namespace MyWorkApplication
         {
             try
             {
-                Form Form = new Application_New_Form(this, -1, -1, "zero");
+                Form Form = new Application_New_Form(this, -1, -1, "pre_project");
                 showNewTab(Form, "Zero App", 0);
             }
             catch (Exception ex)

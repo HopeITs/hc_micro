@@ -9,6 +9,8 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Management;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
@@ -41,10 +43,10 @@ namespace MyWorkApplication
         private Thread myTh;
         private bool OldBeneficiary_NewProject;
 
-        private int Family_ID, Priest_ID, Husband_Wife_ID;
+        private int Priest_ID, Husband_Wife_ID;
 
 
-        public int MicroProject_ID, Person_ID; // to be visible in main form //
+        public int MicroProject_ID, Person_ID, Family_ID; // to be visible in main form //
 
         private double sumOfItemsPrice_SYR;
         private int type;
@@ -52,8 +54,11 @@ namespace MyWorkApplication
         private bool MicroProject_Update_Mode, Pereson_Update_Mode, CanAddFamilyMembers;
         bool user_mode;
         DataSet ds;
+        bool MP_ID_Checked, NationalNum_Checked, FamilyNum_Checked;
+        int ContentUpdated_original = -1;
 
-        bool UserMode = false; string ApplicationState;
+
+        bool UserMode = false; string ApplicationState; //pre_project , zero , project
 
         public Application_New_Form(MainForm mainForm, int MicroProject_ID, int Person_ID, string ApplicationState)
         {
@@ -129,8 +134,6 @@ namespace MyWorkApplication
             Stop_Highlighting_Combobox();
         }
 
-
-
         #region One time entry functions 
         Dictionary<DataGridView, string> ID_Columns = new Dictionary<DataGridView, string>();
         Dictionary<DataGridView, string> IsDirty_Columns = new Dictionary<DataGridView, string>();
@@ -145,7 +148,7 @@ namespace MyWorkApplication
                     {Education_dataGridView,  "PE_ID"},
                     {Course_dataGridView,  "CPerosn_ID"},
                     {PowerSource_dataGridView,  "Power_MP_ID"},
-                    {Materials_dataGridView,  "M_ID"},
+                    {Materials_dataGridView,  "MMP_ID"},
                     {FamilyMember_dataGridView,  "FP_ID"},
                     {Loss_dataGridView,  "LPerson_ID"},
                     {Illness_dataGridView,  "Ill_Person_ID"},
@@ -266,8 +269,6 @@ namespace MyWorkApplication
         }
         #endregion
 
-
-
         #region Clear Data
         private void Clear_Boxes()
         {
@@ -291,7 +292,6 @@ namespace MyWorkApplication
 
             #endregion
 
-
             #region ProjectStory
 
             P_Loss_textBox.Clear();
@@ -299,13 +299,15 @@ namespace MyWorkApplication
             P_GoalHow_textBox.Clear();
             P_OtherNotes_textBox.Clear();
 
-            //foreach (Control c in FlowLayoutPanel.Controls())
-            //{
-            //    ElectricalDevices_CheckedListBox.SetItemCheckState(i, CheckState.Unchecked);
-            //}
+            foreach (Control c in P_Goals_panel.Controls)
+            {
+                if (c is CheckBox chk)
+                {
+                    chk.Checked = false;
+                }
+            }
 
             #endregion
-
 
             #region Benificiry
 
@@ -340,7 +342,6 @@ namespace MyWorkApplication
 
             #endregion
 
-
             #region Work
 
             Work_dataGridView.Rows.Clear();
@@ -367,8 +368,8 @@ namespace MyWorkApplication
             MP_PlaceNote_textBox.Clear();
             PowerSource_dataGridView.Rows.Clear();
             AmperNumber_textBox.Clear();
-            radioButton19.Checked = false;
-            radioButton20.Checked = false;
+            IsAmper_radioButton.Checked = false;
+            IsWatt_radioButton.Checked = false;
             Agreement1_Yes_radioButton.Checked = false;
             Agreement1_No_radioButton.Checked = false;
             Agreement2_Yes_radioButton.Checked = false;
@@ -386,6 +387,7 @@ namespace MyWorkApplication
             FamilyNum_textBox1.Clear();
             P_LiveWithFamily_radioButton.Checked = false;
             P_NotLiveWithFamily_radioButton.Checked = false;
+            LiveWithFamily_Note_textBox.Clear();
             FamilyMember_dataGridView.Rows.Clear();
             P_HasLossesYes_radioButton.Checked = false;
             P_HasLossesNo_radioButton.Checked = false;
@@ -399,16 +401,14 @@ namespace MyWorkApplication
             P_HasAidSourceYes_radioButton.Checked = false;
             P_HasAidSourceNo_radioButton.Checked = false;
             AidSource_dataGridView.Rows.Clear();
-
-            #endregion
-
-            #region AditionalInfo
-
             MP_OtherDonors_textBox.Clear();
             P_HasDebtsYes_radioButton.Checked = false;
             P_HasDebtsNo_radioButton.Checked = false;
             P_DebtsAmount_textBox.Clear();
             P_DebtsNote_textBox.Clear();
+            #endregion
+
+            #region AditionalInfo
             P_HasHelpSourceYes_radioButton.Checked = false;
             P_HasHelpSourceNo_radioButton.Checked = false;
             HelpSource_dataGridView.Rows.Clear();
@@ -494,6 +494,7 @@ namespace MyWorkApplication
                 SubHeader1_label.Text = "استمارة المشروع";
             }
 
+            MP_ID_Checked = false; NationalNum_Checked = false; FamilyNum_Checked = false;
 
             #region Project
 
@@ -515,6 +516,7 @@ namespace MyWorkApplication
 
             #region ProjectStory
             P_Loss_textBox_original = P_Goal_textBox_original = P_GoalHow_textBox_original = P_OtherNotes_textBox_original = "";
+
 
             #endregion
 
@@ -547,7 +549,7 @@ namespace MyWorkApplication
             #region Projrct_Info
             AmperNumber_textBox_original = MP_PlaceNote_textBox_original = MP_PlaceAddress_textBox_original = "";
 
-            radioButton19.Checked = true;
+            IsAmper_radioButton.Checked = true;
             #endregion
 
 
@@ -562,13 +564,18 @@ namespace MyWorkApplication
             Illness_dataGridView.ReadOnly = true;
             Assets_dataGridView.ReadOnly = true;
             AidSource_dataGridView.ReadOnly = true;
+
+
+            LiveWithFamily_Note_textBox_original = MP_OtherDonors_textBox_original = P_DebtsAmount_textBox_original = P_DebtsNote_textBox_original = MP_SimpleProfit2_textBox_original = "";
+
+            LiveWithFamily_Note_Label.Visible = LiveWithFamily_Note_textBox.Visible = false;
+
+            P_DebtsNote_textBox.Visible = P_DebtsNote_label.Visible = P_DebtsAmount_textBox.Visible = P_DebtsAmount_label.Visible = false;
+
             #endregion
 
 
             #region AditionalInfo
-            MP_OtherDonors_textBox_original = P_DebtsAmount_textBox_original = P_DebtsNote_textBox_original = MP_SimpleProfit2_textBox_original = "";
-
-            P_DebtsNote_textBox.Visible = P_DebtsNote_label.Visible = P_DebtsAmount_textBox.Visible = P_DebtsAmount_label.Visible = false;
             HelpSource_dataGridView.ReadOnly = true;
             #endregion
 
@@ -587,8 +594,6 @@ namespace MyWorkApplication
             UserMode = true;
         }
         #endregion
-
-
 
         #region combobox functions
         private void ComboBox_DrawItem(object sender, DrawItemEventArgs e)
@@ -659,7 +664,7 @@ namespace MyWorkApplication
             query += "select ID, Name_ar as 'Name' from `parish` order by ID ASC;"; //P_Parish_comboBox
             query += "select Priest_ID as 'ID',Priest_Name as 'Name' from `priest` order by Priest_Name ASC;"; //P_Priest_comboBox, P_Priest2_comboBox
             query += "SELECT ID, Name from `street` order by Name ASC;"; //Street_comboBox
-            query += "select ID, Name from `assettype` order by ID ASC;"; //P_HomeType_comboBox, MP_PlaceType_comboBox
+            query += "select ID, Name from `assettype` order by ID ASC;"; //P_HomeType_comboBox, MP_PlaceType_comboBox, Asset_Type
             query += "select UserID as 'ID', UserName as 'Name' from `user` "
                   + " where IsVisitor = 1 order by UserName ASC;"; //PaperApplicationUser_comboBox
 
@@ -669,7 +674,7 @@ namespace MyWorkApplication
             query += "select ID, Name from `worktype` ORDER BY ID ASC;";  //W_WorkType, Exp_WorkType, P_WorkType
             query += "select education.ID , education.Name, educationtype.ID as 'Educationtype_ID', educationtype.Name as 'Educationtype' "
                 + " from `education` left join educationtype on educationtype.id = education.Type_ID ORDER BY Name ASC;"; //E_Name
-            query += "SELECT ID, Name from `course` ORDER BY Name ASC;"; //C_SubCategory
+            query += "SELECT ID, Name from `subcategory` ORDER BY Name ASC;"; //C_Cource
             query += "select ID ,Name from `powersource` ORDER BY ID ASC;"; //Power_Name, HPower_Name
             query += "select ID, Name from `relation` ORDER BY ID ASC;";  //P_Relation
             query += "select ID, Name, Type from `personstate` ORDER BY ID;";  //P_State
@@ -680,7 +685,9 @@ namespace MyWorkApplication
             query += "select ID, Name from `aid` order by ID ASC;"; //Help_Name
             query += "select ID, Name from `aidperiod` order by ID ASC;"; //Help_Period, Ill_AidPeriod
             query += "select ID ,Name from `aidsource` ORDER BY ID ASC;"; //Aid_Source, Help_Source, Ill_Donor
-
+            query += "select person.P_ID as 'ID', CONCAT(person.P_FirstName,' ',person.P_LastName) as 'Name', person_family.Relation from person"
+                + " left join person_family on person_family.Person_ID = person.P_ID"
+                + " where person_family.Family_ID ='" + Family_ID + "' and person_family.P_Provider_ID = '" + Person_ID + "';";//Ill_PName, Asset_PName, Aid_PName
 
 
             //CheckBoxes
@@ -737,6 +744,9 @@ namespace MyWorkApplication
             DataTable dt81 = ds.Tables[8].Copy(); //MP_PlaceType_comboBox
             Bind_ComboBox(MP_PlaceType_comboBox, dt81, KeepSelection);
 
+            DataTable dt812 = ds.Tables[8].Copy(); //MP_PlaceType_comboBox
+            Bind_Gridview_ComboBox(this.Asset_Type, dt812);
+
             DataTable dt9 = ds.Tables[9].Copy(); //PaperApplicationUser_comboBox
             Bind_ComboBox(PaperApplicationUser_comboBox, dt9, KeepSelection);
 
@@ -764,8 +774,8 @@ namespace MyWorkApplication
             //DataTable dt12 = ds.Tables[12].Copy(); //E_Name
             //Bind_Gridview_ComboBox(this.E_Name, dt12);
 
-            DataTable dt13 = ds.Tables[13].Copy(); //C_SubCategory
-            Bind_Gridview_ComboBox(this.C_SubCategory, dt13);
+            DataTable dt13 = ds.Tables[13].Copy(); //C_Cource
+            Bind_Gridview_ComboBox(this.C_Cource, dt13);
 
             DataTable dt14 = ds.Tables[14].Copy(); //Power_Name
             Bind_Gridview_ComboBox(this.Power_Name, dt14);
@@ -797,8 +807,9 @@ namespace MyWorkApplication
             DataTable dt22 = ds.Tables[22].Copy(); //Help_Period
             Bind_Gridview_ComboBox(this.Help_Period, dt22);
 
-            DataTable dt221 = ds.Tables[22].Copy(); //Ill_AidPeriod
-            Bind_Gridview_ComboBox(this.Ill_AidPeriod, dt221);
+            // Fill on Ill_Aid selection changed
+            //DataTable dt221 = ds.Tables[22].Copy(); //Ill_AidPeriod
+            //Bind_Gridview_ComboBox(this.Ill_AidPeriod, dt221);
 
             DataTable dt23 = ds.Tables[23].Copy(); //Aid_Source
             Bind_Gridview_ComboBox(this.Aid_Source, dt23);
@@ -806,18 +817,31 @@ namespace MyWorkApplication
             DataTable dt231 = ds.Tables[23].Copy(); //Help_Source
             Bind_Gridview_ComboBox(this.Help_Source, dt231);
 
-            DataTable dt232 = ds.Tables[23].Copy(); //Ill_Donor
-            Bind_Gridview_ComboBox(this.Ill_Donor, dt232);
+            // Fill on Ill_Aid selection changed
+            //DataTable dt232 = ds.Tables[23].Copy(); //Ill_Donor
+            //Bind_Gridview_ComboBox(this.Ill_Donor, dt232);
+
+            DataTable dt24 = ds.Tables[24].Copy(); //Ill_PName
+            Bind_Gridview_ComboBox(this.Ill_PName, dt24);
+
+            DataTable dt241 = ds.Tables[24].Copy(); //Asset_PName
+            Bind_Gridview_ComboBox(this.Asset_PName, dt241);
+
+            DataTable dt242 = ds.Tables[24].Copy(); //Aid_PName
+            Bind_Gridview_ComboBox(this.Aid_PName, dt242);
+
 
             //CheckBoxes
-            DataTable dt24 = ds.Tables[24].Copy();//GoalsCheckBoxes
-            Bind_Chickbox_List(P_Goals_panel2, dt24);
+            DataTable dt25 = ds.Tables[25].Copy();//GoalsCheckBoxes
+            Bind_Chickbox_List(P_Goals_panel, dt25, true);
 
+            DataTable dt251 = ds.Tables[25].Copy();//Original_GoalsCheckBoxes
+            Bind_Chickbox_List(Original_P_Goals_panel, dt251, false);
 
             //Micro Project ID
-            DataTable dt25 = ds.Tables[25].Copy();
+            DataTable dt26 = ds.Tables[26].Copy();
             if (MicroProject_ID <= 0)
-                Bind_New_MicroProject_ID(dt25);
+                Bind_New_MicroProject_ID(dt26);
 
 
             user_mode = true;
@@ -842,10 +866,11 @@ namespace MyWorkApplication
 
         }
 
-        private void Bind_Chickbox_List(FlowLayoutPanel FlowLayoutPanel_Name, DataTable dt)
+        private void Bind_Chickbox_List(FlowLayoutPanel FlowLayoutPanel_Name, DataTable dt, bool With_Click_Functions)
         {
-
+            //if (FlowLayoutPanel_Name.Controls != null && FlowLayoutPanel_Name.Controls.Count > 0)
             FlowLayoutPanel_Name.Controls.Clear(); // Clear any old checkboxes
+
             int checkBoxWidth = 225;
             int checkBoxHeight = 30;
             int margin = 16;
@@ -869,8 +894,13 @@ namespace MyWorkApplication
                 };
 
                 FlowLayoutPanel_Name.Controls.Add(chk);
-                chk.CheckedChanged -= P_Goals_checkBox_CheckedChanged;
-                chk.CheckedChanged += P_Goals_checkBox_CheckedChanged;
+
+                if (With_Click_Functions)
+                {
+                    chk.CheckedChanged -= P_Goals_checkBox_CheckedChanged;
+                    chk.CheckedChanged += P_Goals_checkBox_CheckedChanged;
+                }
+
             }
         }
 
@@ -992,12 +1022,11 @@ namespace MyWorkApplication
         }
         #endregion
 
-
-
         #region dataGridView common functions
 
         private void Bind_Gridview_ComboBox(DataGridViewComboBoxColumn Combox_Name, DataTable dt)
         {
+            Combox_Name.DataSource = null;
             Combox_Name.DataSource = dt;
             Combox_Name.DisplayMember = "name";
             Combox_Name.ValueMember = "id";
@@ -1156,7 +1185,6 @@ namespace MyWorkApplication
                         {
                             dataGridView.Rows.RemoveAt(e.RowIndex);
                         }
-
                     }
                 }
             }
@@ -1195,6 +1223,26 @@ namespace MyWorkApplication
                         dataGridView.Rows[e.RowIndex].Cells["P_E_Name"] = Load_Education_ComboBox(Edu_Type);
 
                     }
+                }
+                else if (columnName == "Ill_Aid")
+                {
+                    if (dataGridView.Rows[e.RowIndex].Cells["Ill_Aid"].Value == null || (bool)dataGridView.Rows[e.RowIndex].Cells["Ill_Aid"].Value == false)
+                    {
+                        dataGridView.Rows[e.RowIndex].Cells["Ill_AidPeriod"].Value = null;
+                        dataGridView.Rows[e.RowIndex].Cells["Ill_Donor"].Value = null;
+
+                        dataGridView.Rows[e.RowIndex].Cells["Ill_Donor"] = Load_Ill_Donor_ComboBox(true);
+                        dataGridView.Rows[e.RowIndex].Cells["Ill_AidPeriod"] = Load_Ill_AidPeriod_ComboBox(true);
+                    }
+                    else if ((bool)dataGridView.Rows[e.RowIndex].Cells["Ill_Aid"].Value == true)
+                    {
+                        if (dataGridView.Rows[e.RowIndex].Cells["Ill_Donor"].Value == null || dataGridView.Rows[e.RowIndex].Cells["Ill_Donor"].Value.ToString() == "")
+                            dataGridView.Rows[e.RowIndex].Cells["Ill_Donor"] = Load_Ill_Donor_ComboBox(false);
+
+                        if (dataGridView.Rows[e.RowIndex].Cells["Ill_AidPeriod"].Value == null || dataGridView.Rows[e.RowIndex].Cells["Ill_AidPeriod"].Value.ToString() == "")
+                            dataGridView.Rows[e.RowIndex].Cells["Ill_AidPeriod"] = Load_Ill_AidPeriod_ComboBox(false);
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -1248,14 +1296,52 @@ namespace MyWorkApplication
 
             return cell;
         }
+
+        private DataGridViewComboBoxCell Load_Ill_Donor_ComboBox(bool Empty)
+        {
+            DataGridViewComboBoxCell cell = new DataGridViewComboBoxCell();
+
+            DataTable Ill_Donor_dt = null;
+
+            if (!Empty)
+                Ill_Donor_dt = ds.Tables[23].Copy();
+
+
+            cell.DataSource = Ill_Donor_dt;
+            cell.DisplayMember = "name";
+            cell.ValueMember = "id";
+            cell.FlatStyle = FlatStyle.Flat;
+
+            return cell;
+        }
+
+        private DataGridViewComboBoxCell Load_Ill_AidPeriod_ComboBox(bool Empty)
+        {
+            DataGridViewComboBoxCell cell = new DataGridViewComboBoxCell();
+
+            DataTable Ill_AidPeriod_dt = null;
+
+            if (!Empty)
+                Ill_AidPeriod_dt = ds.Tables[22].Copy();
+
+
+
+            cell.DataSource = Ill_AidPeriod_dt;
+            cell.DisplayMember = "name";
+            cell.ValueMember = "id";
+            cell.FlatStyle = FlatStyle.Flat;
+
+            return cell;
+        }
+
         #endregion
-
-
 
         #region IsDirty
         Dictionary<DataGridView, bool> IsDirty_DataGrid = new Dictionary<DataGridView, bool>();
 
         Dictionary<string, bool> IsDirty_Data = new Dictionary<string, bool>();
+
+        FlowLayoutPanel Original_P_Goals_panel = new FlowLayoutPanel();
 
         private void Initialize_IsDirty()
         {
@@ -1287,6 +1373,14 @@ namespace MyWorkApplication
                     {"Family_ISDirty",  false},
                     {"AditionalInfo_ISDirty", false},
                 };
+
+            foreach (Control c in Original_P_Goals_panel.Controls)
+            {
+                if (c is CheckBox chk)
+                {
+                    chk.Checked = false;
+                }
+            }
         }
 
 
@@ -1383,22 +1477,29 @@ namespace MyWorkApplication
         {
             try
             {
+                MP_ID_Checked = false;
+
                 if (MPID_textBox.Text == "")
-                { MessageBox.Show("لا يمكن ترك خلية رقم المشروع فارغة!"); }
+                {
+                    MessageBox.Show("لا يمكن ترك خلية رقم المشروع فارغة!");
+                    MPID_textBox.Text = MPID_textBox_original;
+                    MPID_textBox.Focus();
+                }
+
                 else if (MPID_textBox_original != MPID_textBox.Text)
                 {
                     var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد تغيير رقم المشروع من: " +
-                        MicroProject_ID.ToString() + " ؟ " + Environment.NewLine +
+                        MPID_textBox_original + " ؟ " + Environment.NewLine +
                         "ليصبح الرقم: " + MPID_textBox.Text, "Edit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.Yes)
                     {
+                        IsDirty_Data["Project_ISDirty"] = true;
                         if (Check_MicroProject_ID(MPID_textBox.Text))
                         {
-                            IsDirty_Data["Project_ISDirty"] = true;
+                            MP_ID_Checked = true;
                         }
                         else
                         {
-                            MessageBox.Show("الرجاء استخدام رقم مشروع آخر لأن هذا الرقم مستخدم من قبل مشروع آخر");
                             MPID_textBox.Text = MPID_textBox_original;
                             MPID_textBox.Focus();
                         }
@@ -1430,15 +1531,8 @@ namespace MyWorkApplication
         {
             try
             {
-                try
-                {
-                    if (MP_RequestedAmount_textBox_original != MP_RequestedAmount_textBox.Text)
-                        IsDirty_Data["Project_ISDirty"] = true;
-                }
-                catch (Exception ex)
-                {
-                    if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
-                }
+                if (MP_RequestedAmount_textBox_original != MP_RequestedAmount_textBox.Text)
+                    IsDirty_Data["Project_ISDirty"] = true;
             }
             catch (Exception ex)
             {
@@ -1786,6 +1880,7 @@ namespace MyWorkApplication
             {
                 if (P_NationalNum_textBox_original != P_NationalNum_textBox.Text)
                 {
+                    NationalNum_Checked = false;
                     IsDirty_Data["Benificiry_ISDirty"] = true;
                     if (!string.IsNullOrWhiteSpace(P_NationalNum_textBox.Text))
                     {
@@ -1793,7 +1888,44 @@ namespace MyWorkApplication
                             MessageBox.Show("انتبه" + Environment.NewLine + Environment.NewLine + "عدد خانات الرقم الوطني لا تساوي 11"
                                 , "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                        Check_National_Number(P_NationalNum_textBox.Text);
+
+                        DataTable dt = Check_National_Number(P_NationalNum_textBox.Text);
+
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+                            int P_ID = int.Parse(dt.Rows[0]["P_ID"].ToString());
+                            int MP_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
+                            var Name = dt.Rows[0]["Beneficiary Name"].ToString();
+
+                            var _MessageBox = new Application_MessageBox("National_ID", P_ID, MP_ID, Name);
+                            var r = _MessageBox.ShowDialog();
+                            if (r == DialogResult.Yes)
+                            {
+                                Form application_Form = new Application_Form(P_ID, MP_ID, mainForm);
+                                mainForm.showNewTab(application_Form, "Application", 1);
+                                NationalNum_Checked = false;
+                            }
+                            else if (r == DialogResult.No)
+                            {
+                                OldBeneficiary_NewProject = true;
+                                Person_ID = int.Parse(dt.Rows[0]["P_ID"].ToString());
+                                MicroProject_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
+                                MessageBox.Show("هون عبي الشخص القديم");
+
+                                MessageBox.Show("انتبه" + Environment.NewLine + Environment.NewLine + "تم جلب المعلومات القديمة للمستفيد، يرجى التأكد منها قبل الحفظ."
+                                       , "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                NationalNum_Checked = true;
+                            }
+                            else
+                            {
+                                P_NationalNum_textBox.Text = "";
+                                NationalNum_Checked = false;
+                            }
+                        }
+                        else
+                        {
+                            NationalNum_Checked = true;
+                        }
                     }
                 }
 
@@ -2041,14 +2173,12 @@ namespace MyWorkApplication
         {
             try
             {
-                if (MilitarySingle_radioButton.Checked)
-                {
-                    Military_label2.Visible = false;
-                    Military_textBox.Visible = false;
-                    Military_Date_checkBox.Visible = false;
-                    Military_Date_dateTimePicker.Visible = false;
-                }
-                else if (MilitaryFinished_radioButton.Checked)
+                Military_label2.Visible = false;
+                Military_textBox.Visible = false;
+                Military_Date_checkBox.Visible = false;
+                Military_Date_dateTimePicker.Visible = false;
+
+                if (MilitaryFinished_radioButton.Checked)
                 {
                     Military_label2.Visible = true;
                     Military_textBox.Visible = true;
@@ -2167,14 +2297,16 @@ namespace MyWorkApplication
                 {
                     if (P_HasEducationNo_radioButton.Checked)
                     {
+                        IsDirty_Data["Edu_ISDirty"] = true;
+                        Education_dataGridView.ReadOnly = true;
+
                         if (Education_dataGridView.Rows.Count > 1)
                         {
                             DialogResult dialogResult = MessageBox.Show("سيتم حذف جميع المعلومات المدخة سابقاً .. تأكيد الحذف؟", "Warning", MessageBoxButtons.YesNo);
                             if (dialogResult == DialogResult.Yes)
                             {
 
-                                IsDirty_Data["Edu_ISDirty"] = true;
-                                Education_dataGridView.ReadOnly = true;
+ 
 
                                 for (int i = Education_dataGridView.Rows.Count - 2; i >= 0; i--)
                                 {
@@ -2233,14 +2365,16 @@ namespace MyWorkApplication
                 {
                     if (P_HasCoursesNo_radioButton.Checked)
                     {
+
+                        IsDirty_Data["Edu_ISDirty"] = true;
+                        Course_dataGridView.ReadOnly = true;
+
                         if (Course_dataGridView.Rows.Count > 1)
                         {
                             DialogResult dialogResult = MessageBox.Show("سيتم حذف جميع المعلومات المدخة سابقاً .. تأكيد الحذف؟", "Warning", MessageBoxButtons.YesNo);
                             if (dialogResult == DialogResult.Yes)
                             {
 
-                                IsDirty_Data["Edu_ISDirty"] = true;
-                                Course_dataGridView.ReadOnly = true;
 
                                 for (int i = Course_dataGridView.Rows.Count - 2; i >= 0; i--)
                                 {
@@ -2373,7 +2507,7 @@ namespace MyWorkApplication
         #endregion
 
         #region Family_ISDirty
-        string FamilyNum_textBox1_original;
+        string FamilyNum_textBox1_original, LiveWithFamily_Note_textBox_original, MP_OtherDonors_textBox_original, P_DebtsAmount_textBox_original, P_DebtsNote_textBox_original;
         private void FamilyNum_textBox1_Enter(object sender, EventArgs e)
         {
             try
@@ -2391,7 +2525,7 @@ namespace MyWorkApplication
             {
                 if (FamilyNum_textBox1_original != FamilyNum_textBox1.Text)
                 {
-                    if (string.IsNullOrEmpty(FamilyNum_textBox1.Text))
+                    if (string.IsNullOrWhiteSpace(FamilyNum_textBox1.Text))
                     {
                         FamilyMember_dataGridView.ReadOnly = true;
                         FamilyNum_textBox1.Text = FamilyNum_textBox1_original;
@@ -2400,8 +2534,43 @@ namespace MyWorkApplication
                     else
                     {
                         FamilyMember_dataGridView.ReadOnly = false;
-                        Check_Family_Num();
                         IsDirty_Data["Family_ISDirty"] = true;
+
+
+                        DataTable dt = Check_Family_Num(FamilyNum_textBox1.Text);
+
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+                            int P_ID = int.Parse(dt.Rows[0]["ID"].ToString());
+                            int MP_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
+                            var Name = dt.Rows[0]["الاسم الثلاثي"].ToString();
+
+                            var _MessageBox = new Application_MessageBox("Family_Num", P_ID, MP_ID, Name);
+                            var r = _MessageBox.ShowDialog();
+                            if (r == DialogResult.Yes)
+                            {
+                                Form application_Form = new Application_Form(P_ID, MP_ID, mainForm);
+                                mainForm.showNewTab(application_Form, "Application", 1);
+                                FamilyNum_Checked = false;
+                            }
+                            else if (r == DialogResult.No)
+                            {
+                                MessageBox.Show("هون عبي العيلة القديم");
+
+                                MessageBox.Show("انتبه" + Environment.NewLine + Environment.NewLine + "تم جلب المعلومات القديمة للمستفيد، يرجى التأكد منها قبل الحفظ."
+                                       , "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                FamilyNum_Checked = true;
+                            }
+                            else
+                            {
+                                FamilyNum_textBox1.Text = "";
+                                FamilyNum_Checked = false;
+                            }
+                        }
+                        else
+                        {
+                            FamilyNum_Checked = true;
+                        }
                     }
                 }
             }
@@ -2416,6 +2585,11 @@ namespace MyWorkApplication
         {
             try
             {
+                LiveWithFamily_Note_Label.Visible = LiveWithFamily_Note_textBox.Visible = false;
+
+                if (P_LiveWithFamily_radioButton.Checked)
+                    LiveWithFamily_Note_Label.Visible = LiveWithFamily_Note_textBox.Visible = true;
+
                 if (UserMode)
                     IsDirty_Data["Family_ISDirty"] = true;
             }
@@ -2451,6 +2625,8 @@ namespace MyWorkApplication
                 {
                     if (P_HasLossesNo_radioButton.Checked)
                     {
+                        IsDirty_Data["Family_ISDirty"] = true;
+                        Loss_dataGridView.ReadOnly = true;
 
                         if (Loss_dataGridView.Rows.Count > 1)
                         {
@@ -2458,8 +2634,7 @@ namespace MyWorkApplication
                             if (dialogResult == DialogResult.Yes)
                             {
 
-                                IsDirty_Data["Family_ISDirty"] = true;
-                                Loss_dataGridView.ReadOnly = true;
+
 
                                 for (int i = Loss_dataGridView.Rows.Count - 2; i >= 0; i--)
                                 {
@@ -2515,14 +2690,15 @@ namespace MyWorkApplication
                     if (P_HasIllnessNo_radioButton.Checked)
                     {
 
+                        IsDirty_Data["Family_ISDirty"] = true;
+                        Illness_dataGridView.ReadOnly = true;
+
                         if (Illness_dataGridView.Rows.Count > 1)
                         {
                             DialogResult dialogResult = MessageBox.Show("سيتم حذف جميع المعلومات المدخة سابقاً .. تأكيد الحذف؟", "Warning", MessageBoxButtons.YesNo);
                             if (dialogResult == DialogResult.Yes)
                             {
 
-                                IsDirty_Data["Family_ISDirty"] = true;
-                                Illness_dataGridView.ReadOnly = true;
 
                                 for (int i = Illness_dataGridView.Rows.Count - 2; i >= 0; i--)
                                 {
@@ -2575,14 +2751,16 @@ namespace MyWorkApplication
                 {
                     if (P_HasAssetsNo_radioButton.Checked)
                     {
+                        IsDirty_Data["Family_ISDirty"] = true;
+                        Assets_dataGridView.ReadOnly = true;
+
+
                         if (Assets_dataGridView.Rows.Count > 1)
                         {
                             DialogResult dialogResult = MessageBox.Show("سيتم حذف جميع المعلومات المدخة سابقاً .. تأكيد الحذف؟", "Warning", MessageBoxButtons.YesNo);
                             if (dialogResult == DialogResult.Yes)
                             {
 
-                                IsDirty_Data["Family_ISDirty"] = true;
-                                Assets_dataGridView.ReadOnly = true;
 
                                 for (int i = Assets_dataGridView.Rows.Count - 2; i >= 0; i--)
                                 {
@@ -2636,14 +2814,16 @@ namespace MyWorkApplication
                 {
                     if (P_HasAidSourceNo_radioButton.Checked)
                     {
+                        IsDirty_Data["Family_ISDirty"] = true;
+                        AidSource_dataGridView.ReadOnly = true;
+
                         if (AidSource_dataGridView.Rows.Count > 1)
                         {
                             DialogResult dialogResult = MessageBox.Show("سيتم حذف جميع المعلومات المدخة سابقاً .. تأكيد الحذف؟", "Warning", MessageBoxButtons.YesNo);
                             if (dialogResult == DialogResult.Yes)
                             {
 
-                                IsDirty_Data["Family_ISDirty"] = true;
-                                AidSource_dataGridView.ReadOnly = true;
+
 
                                 for (int i = AidSource_dataGridView.Rows.Count - 2; i >= 0; i--)
                                 {
@@ -2669,10 +2849,32 @@ namespace MyWorkApplication
                 if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
             }
         }
-        #endregion
 
-        #region AditionalInfo_ISDirty
-        string MP_OtherDonors_textBox_original, P_DebtsAmount_textBox_original, P_DebtsNote_textBox_original, MP_SimpleProfit2_textBox_original;
+        private void LiveWithFamily_Note_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                LiveWithFamily_Note_textBox_original = LiveWithFamily_Note_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void LiveWithFamily_Note_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (LiveWithFamily_Note_textBox_original != LiveWithFamily_Note_textBox.Text)
+                    IsDirty_Data["Family_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
         private void MP_OtherDonors_textBox_Enter(object sender, EventArgs e)
         {
             try
@@ -2688,15 +2890,27 @@ namespace MyWorkApplication
         {
             try
             {
-                try
-                {
-                    if (MP_OtherDonors_textBox_original != MP_OtherDonors_textBox.Text)
-                        IsDirty_Data["AditionalInfo_ISDirty"] = true;
-                }
-                catch (Exception ex)
-                {
-                    if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
-                }
+                if (MP_OtherDonors_textBox_original != MP_OtherDonors_textBox.Text)
+                    IsDirty_Data["Family_ISDirty"] = true;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void HasDebts_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                P_DebtsNote_textBox.Visible = P_DebtsNote_label.Visible = P_DebtsAmount_textBox.Visible = P_DebtsAmount_label.Visible = false;
+
+
+                if (P_HasDebtsYes_radioButton.Checked)
+                    P_DebtsNote_textBox.Visible = P_DebtsNote_label.Visible = P_DebtsAmount_textBox.Visible = P_DebtsAmount_label.Visible = true;
+
+                if (UserMode)
+                    IsDirty_Data["Family_ISDirty"] = true;
             }
             catch (Exception ex)
             {
@@ -2719,15 +2933,8 @@ namespace MyWorkApplication
         {
             try
             {
-                try
-                {
-                    if (P_DebtsAmount_textBox_original != P_DebtsAmount_textBox.Text)
-                        IsDirty_Data["AditionalInfo_ISDirty"] = true;
-                }
-                catch (Exception ex)
-                {
-                    if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
-                }
+                if (P_DebtsAmount_textBox_original != P_DebtsAmount_textBox.Text)
+                    IsDirty_Data["Family_ISDirty"] = true;
             }
             catch (Exception ex)
             {
@@ -2750,21 +2957,18 @@ namespace MyWorkApplication
         {
             try
             {
-                try
-                {
-                    if (P_DebtsNote_textBox_original != P_DebtsNote_textBox.Text)
-                        IsDirty_Data["AditionalInfo_ISDirty"] = true;
-                }
-                catch (Exception ex)
-                {
-                    if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
-                }
+                if (P_DebtsNote_textBox_original != P_DebtsNote_textBox.Text)
+                    IsDirty_Data["Family_ISDirty"] = true;
             }
             catch (Exception ex)
             {
                 if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
             }
         }
+        #endregion
+
+        #region AditionalInfo_ISDirty
+        string MP_SimpleProfit2_textBox_original;
 
         private void MP_SimpleProfit2_textBox_Enter(object sender, EventArgs e)
         {
@@ -2781,15 +2985,8 @@ namespace MyWorkApplication
         {
             try
             {
-                try
-                {
-                    if (MP_SimpleProfit2_textBox_original != MP_SimpleProfit2_textBox.Text)
-                        IsDirty_Data["AditionalInfo_ISDirty"] = true;
-                }
-                catch (Exception ex)
-                {
-                    if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
-                }
+                if (MP_SimpleProfit2_textBox_original != MP_SimpleProfit2_textBox.Text)
+                    IsDirty_Data["AditionalInfo_ISDirty"] = true;
             }
             catch (Exception ex)
             {
@@ -2823,14 +3020,15 @@ namespace MyWorkApplication
                 {
                     if (P_HasHelpSourceNo_radioButton.Checked)
                     {
+                        IsDirty_Data["AditionalInfo_ISDirty"] = true;
+                        HelpSource_dataGridView.ReadOnly = true;
                         if (HelpSource_dataGridView.Rows.Count > 1)
                         {
                             DialogResult dialogResult = MessageBox.Show("سيتم حذف جميع المعلومات المدخة سابقاً .. تأكيد الحذف؟", "Warning", MessageBoxButtons.YesNo);
                             if (dialogResult == DialogResult.Yes)
                             {
 
-                                IsDirty_Data["AditionalInfo_ISDirty"] = true;
-                                HelpSource_dataGridView.ReadOnly = true;
+
 
                                 for (int i = HelpSource_dataGridView.Rows.Count - 2; i >= 0; i--)
                                 {
@@ -2857,22 +3055,6 @@ namespace MyWorkApplication
             }
         }
 
-        private void HasDebts_radioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (P_HasDebtsYes_radioButton.Checked)
-                    P_DebtsNote_textBox.Visible = P_DebtsNote_label.Visible = P_DebtsAmount_textBox.Visible = P_DebtsAmount_label.Visible = true;
-
-                if (UserMode)
-                    IsDirty_Data["AditionalInfo_ISDirty"] = true;
-            }
-            catch (Exception ex)
-            {
-                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
-            }
-        }
-
         private void PaperApplicationUser_comboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
@@ -2888,6 +3070,1773 @@ namespace MyWorkApplication
         #endregion
 
         #endregion IsDirty
+
+        #region Data Saving and Refill
+        private void Save_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ActiveControl = Save_button;
+                Save_MP_ID_button.Enabled = false;
+                Save_button.Enabled = false;
+
+                Save_Application();
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+            finally
+            {
+                Program.MyConn.Close();
+                Save_MP_ID_button.Enabled = true;
+                Save_button.Enabled = true;
+            }
+        }
+
+        private void Save_MP_ID_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ActiveControl = Save_MP_ID_button;
+                Save_MP_ID_button.Enabled = false;
+                Save_button.Enabled = false;
+
+                Save_Application();
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+            finally
+            {
+                Program.MyConn.Close();
+                Save_MP_ID_button.Enabled = true;
+                Save_button.Enabled = true;
+            }
+        }
+
+        private void Save_Application()
+        {
+            bool anyDataGrid_ISDirty = IsDirty_DataGrid.Values.Any(v => v);
+            bool anyData_ISDirty = IsDirty_Data.Values.Any(v => v);
+
+            if (!anyDataGrid_ISDirty && !anyData_ISDirty)
+            {
+                MessageBox.Show("لا يوجد أي تغييرات لحفظها ", "Error");
+                return;
+            }
+
+            string dataGrid_Query = "";
+            Program.buildConnection();
+            MySqlCommand sc = new MySqlCommand();
+
+  
+            #region Project
+            string MP_ID = "", ApplyDate = "", MP_Name = "", RequestedAmount = "";
+            int SubCategory = -1, Career = -1, Type = -1, SubType = -1, LoanType = -1, ContentUpdated = -1;
+
+            if (string.IsNullOrWhiteSpace(MPID_textBox.Text))
+            {
+                MessageBox.Show("لا يمكن ترك رقم المشروع فارغاً", "Error");
+                return;
+            }
+            else if (!MP_ID_Checked)
+            {
+                if (!Check_MicroProject_ID(MPID_textBox.Text))
+                {
+                    return;
+                }
+            }
+
+            if (string.IsNullOrWhiteSpace(SubCategory_comboBox.Text) || SubCategory_comboBox.SelectedIndex < 0 || string.IsNullOrWhiteSpace(Career_comboBox.Text) || Career_comboBox.SelectedIndex < 0)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد المهنة في قسم معومات المشروع", "Error");
+                return;
+            }
+
+            if (ApplyDate_bcDateTimePicker.Value == null)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد تاريخ الطلب في قسم معومات المشروع", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(Type_comboBox.Text) || Type_comboBox.SelectedIndex < 0 || string.IsNullOrWhiteSpace(SubType_comboBox.Text) || SubType_comboBox.SelectedIndex < 0)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد نوع وطبيعة المشورع في قسم معومات المشروع", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(MP_Name_textBox.Text))
+            {
+                MessageBox.Show("لا يمكن ترك وصف المشروع فارغاً في قسم معلومات المشروع", "Error");
+                return;
+            }
+
+            if (!Loan_radioButton.Checked && !Grant_radioButton.Checked)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد نوع التمويل في قسم معومات المشروع", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(MP_RequestedAmount_textBox.Text))
+            {
+                MessageBox.Show("لا يمكن ترك المبلغ فارغاً في قسم معلومات المشروع", "Error");
+                return;
+            }
+
+            if (IsDirty_Data["Project_ISDirty"])
+            {
+                MP_ID = MPID_textBox.Text;
+
+                SubCategory = int.Parse(SubCategory_comboBox.SelectedValue.ToString());
+                Career = int.Parse(Career_comboBox.SelectedValue.ToString());
+
+                ApplyDate = ApplyDate_bcDateTimePicker.Value.ToString("dd/MM/yyyy", new CultureInfo("en-GB"));  //Convert to UK format
+
+                Type = int.Parse(Type_comboBox.SelectedValue.ToString());
+                SubType = int.Parse(SubType_comboBox.SelectedValue.ToString());
+
+                MP_Name = MP_Name_textBox.Text;
+
+                if (Loan_radioButton.Checked)
+                    LoanType = 1;
+                else if (Grant_radioButton.Checked)
+                    LoanType = 2;
+
+                RequestedAmount = MP_RequestedAmount_textBox.Text;
+
+
+                if (ContentUpdated_original == 0 && ContentUpdated_checkBox.Checked)
+                    ContentUpdated = 1;
+                else if (ContentUpdated_original == 1 && !ContentUpdated_checkBox.Checked)
+                    ContentUpdated = 0;
+
+            }
+            #endregion
+
+            #region ProjectStory
+            string P_Loss = "", P_Goal = "", P_GoalHow = "", P_OtherNotes = "";
+            string Goal_Query = "";
+
+            if (string.IsNullOrWhiteSpace(P_Loss_textBox.Text))
+            {
+                MessageBox.Show("لا يمكن ترك قصة المستفيد فارغة في قسم معلومات المشروع", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(P_Goal_textBox.Text))
+            {
+                MessageBox.Show("لا يمكن ترك هدف المستفيد من القرض فارغاً في قسم معلومات المشروع", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(P_GoalHow_textBox.Text))
+            {
+                MessageBox.Show("لا يمكن ترك كيف سيحقق المشروع أهدافك فارغاً في قسم معلومات المشروع", "Error");
+                return;
+            }
+
+            if (IsDirty_Data["ProjectStory_ISDirty"])
+            {
+                P_Loss = P_Loss_textBox.Text;
+
+                P_Goal = P_Goal_textBox.Text;
+
+                P_GoalHow = P_GoalHow_textBox.Text;
+
+                P_OtherNotes = P_OtherNotes_textBox.Text;
+
+
+                var checkBoxMap = P_Goals_panel.Controls
+                    .OfType<CheckBox>()
+                    .Where(cb => cb.Tag != null)
+                    .ToDictionary(cb => Convert.ToInt32(cb.Tag));
+
+                foreach (Control original_ctrl in Original_P_Goals_panel.Controls)
+                {
+                    if (original_ctrl is CheckBox OriginalCheckbox && OriginalCheckbox.Tag != null)
+                    {
+                        int original_ID = Convert.ToInt32(OriginalCheckbox.Tag);
+
+                        if (checkBoxMap.TryGetValue(original_ID, out CheckBox Checkbox))
+                        {
+                            if (OriginalCheckbox.Checked != Checkbox.Checked)
+                            {
+                                if (OriginalCheckbox.Checked)
+                                {
+                                    Goal_Query += "DELETE FROM person_goals WHERE Person_ID = @Person_ID AND Goal_ID = '" + original_ID.ToString() + "';";
+                                }
+                                else
+                                {
+                                    Goal_Query += "INSERT INTO person_goals (Person_ID, Goal_ID) VALUES (@Person_ID, '" + original_ID.ToString() + "');";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            #region Benificiry
+            string P_FirstName = "", P_LastName = "", P_Sex = "", PersonType = "", P_FullName_En = "", P_FatherName = "",
+                P_MotherName = "", P_Registration = "", P_NationalNum = "", P_DOB = "", P_IntermidiaryName = "",
+                 P_Mobile = "", P_HomeTel = "", P_Mobile2 = "", P_Address = "", P_HomeStateNote = "", Military = "",
+                 Military_Note = "", Military_Date = "";
+            int P_MaritalState = -1, P_Parish = -1, P_Priest = -1, P_Priest2 = -1, Street = -1, P_HomeType = -1;
+
+            if (string.IsNullOrWhiteSpace(P_FirstName_textBox.Text))
+            {
+                MessageBox.Show("لا يمكن ترك الاسم فارغاً في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(P_LastName_textBox.Text))
+            {
+                MessageBox.Show("لا يمكن ترك الكنية فارغة في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(P_Sex_comboBox.Text) || P_Sex_comboBox.SelectedIndex < 0)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد الجنس في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(PersonType_comboBox.Text) || PersonType_comboBox.SelectedIndex < 0)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد الصفة في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(P_FatherName_textBox.Text))
+            {
+                MessageBox.Show("لا يمكن ترك اسم الأب فارغاً في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(P_MotherName_textBox.Text))
+            {
+                MessageBox.Show("لا يمكن ترك اسم الأم فارغاً في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(P_NationalNum_textBox.Text))
+            {
+                MessageBox.Show("لا يمكن ترك الرقم الوطني فارغاً في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+            else if (!NationalNum_Checked)
+            {
+                DataTable dt = Check_National_Number(P_NationalNum_textBox.Text);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    int P_ID = int.Parse(dt.Rows[0]["P_ID"].ToString());
+                    int MiP_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
+                    var Name = dt.Rows[0]["Beneficiary Name"].ToString();
+
+                    var _MessageBox = new Application_MessageBox("National_ID", P_ID, MiP_ID, Name);
+                    var r = _MessageBox.ShowDialog();
+                    if (r == DialogResult.Yes)
+                    {
+                        Form application_Form = new Application_Form(P_ID, MiP_ID, mainForm);
+                        mainForm.showNewTab(application_Form, "Application", 1);
+                        return;
+                    }
+                    else if (r == DialogResult.No)
+                    {
+                        OldBeneficiary_NewProject = true;
+                        Person_ID = int.Parse(dt.Rows[0]["P_ID"].ToString());
+                        MicroProject_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
+                        MessageBox.Show("هون عبي الشخص القديم");
+
+                        MessageBox.Show("انتبه" + Environment.NewLine + Environment.NewLine + "تم جلب المعلومات القديمة للمستفيد، يرجى التأكد منها قبل الحفظ."
+                               , "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        P_NationalNum_textBox.Text = P_NationalNum_textBox_original;
+                        return;
+                    }
+                }
+            }
+
+            if (string.IsNullOrWhiteSpace(P_DOB_textBox.Text))
+            {
+                MessageBox.Show("لا يمكن ترك خانة المواليد فارغة في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(P_MaritalState_comboBox.Text) || P_MaritalState_comboBox.SelectedIndex < 0)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد الحالة الاجتماعية في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(P_Parish_comboBox.Text) || P_Parish_comboBox.SelectedIndex < 0)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد الطائفة في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(P_IntermidiaryName_textBox.Text))
+            {
+                MessageBox.Show("لا يمكن ترك الهيئة الوسيطة فارغة في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+
+            if ((string.IsNullOrWhiteSpace(P_Priest_comboBox.Text) || P_Priest_comboBox.SelectedIndex < 0) && (string.IsNullOrWhiteSpace(P_Priest2_comboBox.Text) || P_Priest2_comboBox.SelectedIndex < 0))
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد كاهن واحد على الأقل في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(P_Mobile_textBox.Text) && string.IsNullOrWhiteSpace(P_HomeTel_textBox.Text) && string.IsNullOrWhiteSpace(P_Mobile2_textBox.Text))
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد رقم تواصل واحد على الأقل في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(Street_comboBox.Text) || Street_comboBox.SelectedIndex < 0)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد المنطقة(القرية) في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(P_Address_textBox.Text))
+            {
+                MessageBox.Show("لا يمكن ترك العنوان التفصيلي فارغاً في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(P_HomeType_comboBox.Text) || P_HomeType_comboBox.SelectedIndex < 0)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد ملكية المنزل في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                return;
+            }
+
+            if (IsDirty_Data["Benificiry_ISDirty"])
+            {
+                P_FirstName = P_FirstName_textBox.Text;
+
+                P_LastName = P_LastName_textBox.Text;
+
+                P_Sex = P_Sex_comboBox.SelectedItem.ToString();
+
+                PersonType = PersonType_comboBox.SelectedItem.ToString();
+
+                P_FullName_En = P_FullName_En_textBox.Text;
+
+                P_FatherName = P_FatherName_textBox.Text;
+
+                P_MotherName = P_MotherName_textBox.Text;
+
+                P_Registration = P_Registration_textBox.Text;
+
+                P_NationalNum = P_NationalNum_textBox.Text;
+
+                P_DOB = P_DOB_textBox.Text;
+
+                P_MaritalState = int.Parse(P_MaritalState_comboBox.SelectedValue.ToString());
+
+                P_Parish = int.Parse(P_Parish_comboBox.SelectedValue.ToString());
+
+                P_IntermidiaryName = P_IntermidiaryName_textBox.Text;
+
+                if (!string.IsNullOrWhiteSpace(P_Priest_comboBox.Text) && P_Priest_comboBox.SelectedIndex >= 0)
+                    P_Priest = int.Parse(P_Priest_comboBox.SelectedValue.ToString());
+                if (!string.IsNullOrWhiteSpace(P_Priest2_comboBox.Text) && P_Priest2_comboBox.SelectedIndex >= 0)
+                    P_Priest2 = int.Parse(P_Priest2_comboBox.SelectedValue.ToString());
+
+                P_Mobile = P_Mobile_textBox.Text;
+                P_HomeTel = P_HomeTel_textBox.Text;
+                P_Mobile2 = P_Mobile2_textBox.Text;
+
+                Street = int.Parse(Street_comboBox.SelectedValue.ToString());
+
+                P_Address = P_Address_textBox.Text;
+
+                P_HomeType = int.Parse(P_HomeType_comboBox.SelectedValue.ToString());
+
+                P_HomeStateNote = P_HomeStateNote_textBox.Text;
+
+                if (MilitarySingle_radioButton.Checked)
+                    Military = "وحيد";
+                else if (MilitaryFinished_radioButton.Checked)
+                    Military = "مسرح";
+                else if (MilitaryNow_radioButton.Checked)
+                    Military = "عسكري";
+                else if (MilitaryExempt_radioButton.Checked)
+                    Military = "معفى/بدل";
+                else if (MilitaryDelayed_radioButton.Checked)
+                    Military = "مؤجل";
+                else { Military = ""; }
+
+
+                Military_Note = Military_textBox.Text;
+
+                if (Military_Date_checkBox.Checked)
+                    Military_Date = Military_Date_dateTimePicker.Value.ToString("dd/MM/yyyy", new CultureInfo("en-GB"));
+            }
+            #endregion
+
+            #region Work
+            string P_WorkYears = "";
+
+            for (int i = 0; i <= Work_dataGridView.Rows.Count - 2; i++)
+            {
+                if (Work_dataGridView.Rows[i].Visible)
+                {
+                    if (Work_dataGridView.Rows[i].Cells["W_Name"].Value == null || Work_dataGridView.Rows[i].Cells["W_Name"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال المهنة في جميع الأسطر في قسم الخبرات العملية الحالية", "Error");
+                        return;
+                    }
+                    else if (Work_dataGridView.Rows[i].Cells["W_WorkType"].Value == null || Work_dataGridView.Rows[i].Cells["W_WorkType"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال طبيعة العمل في جميع الأسطر في قسم الخبرات العملية الحالية", "Error");
+                        return;
+                    }
+                    else if (Work_dataGridView.Rows[i].Cells["W_BeginDate"].Value == null || Work_dataGridView.Rows[i].Cells["W_BeginDate"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال تاريخ البداية في جميع الأسطر في قسم الخبرات العملية الحالية", "Error");
+                        return;
+                    }
+                    else if (Work_dataGridView.Rows[i].Cells["W_PlaceState"].Value == null || Work_dataGridView.Rows[i].Cells["W_PlaceState"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال ملكية العقار في جميع الأسطر في قسم الخبرات العملية الحالية", "Error");
+                        return;
+                    }
+                    else if (Work_dataGridView.Rows[i].Cells["W_Place"].Value == null || Work_dataGridView.Rows[i].Cells["W_Place"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال العنوان في جميع الأسطر في قسم الخبرات العملية الحالية", "Error");
+                        return;
+                    }
+                    else if (Work_dataGridView.Rows[i].Cells["W_Salary"].Value == null || Work_dataGridView.Rows[i].Cells["W_Salary"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال الربح/الراتب في جميع الأسطر في قسم الخبرات العملية الحالية", "Error");
+                        return;
+                    }
+
+                }
+            }
+            for (int i = 0; i < Exp_dataGridView.Rows.Count - 2; i++)
+            {
+                if (Exp_dataGridView.Rows[i].Visible)
+                {
+                    if (Exp_dataGridView.Rows[i].Cells["Exp_Name"].Value == null || Exp_dataGridView.Rows[i].Cells["Exp_Name"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال المهنة في جميع الأسطر في قسم الخبرات العملية السابقة", "Error");
+                        return;
+                    }
+                    else if (Exp_dataGridView.Rows[i].Cells["Exp_WorkType"].Value == null || Exp_dataGridView.Rows[i].Cells["Exp_WorkType"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال طبيعة العمل في جميع الأسطر في قسم الخبرات العملية السابقة", "Error");
+                        return;
+                    }
+                    else if (Exp_dataGridView.Rows[i].Cells["Exp_BeginDate"].Value == null || Exp_dataGridView.Rows[i].Cells["Exp_BeginDate"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال تاريخ البداية في جميع الأسطر في قسم الخبرات العملية السابقة", "Error");
+                        return;
+                    }
+                    else if (Exp_dataGridView.Rows[i].Cells["Exp_EndDate"].Value == null || Exp_dataGridView.Rows[i].Cells["Exp_EndDate"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال البيانات تاريخ النهاية في جميع الأسطر في قسم الخبرات العملية السابقة", "Error");
+                        return;
+                    }
+                    if (Exp_dataGridView.Rows[i].Cells["Exp_PlaceState"].Value == null || Exp_dataGridView.Rows[i].Cells["Exp_PlaceState"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال املكية العقار في جميع الأسطر في قسم الخبرات العملية السابقة", "Error");
+                        return;
+                    }
+                    else if (Exp_dataGridView.Rows[i].Cells["Exp_Place"].Value == null || Exp_dataGridView.Rows[i].Cells["Exp_Place"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال العنوان في جميع الأسطر في قسم الخبرات العملية السابقة", "Error");
+                        return;
+                    }
+                    else if (Exp_dataGridView.Rows[i].Cells["Exp_CauseOfLose"].Value == null || Exp_dataGridView.Rows[i].Cells["Exp_CauseOfLose"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال سبب التوقف في جميع الأسطر في قسم الخبرات العملية السابقة", "Error");
+                        return;
+                    }
+                }
+            }
+            if (string.IsNullOrWhiteSpace(P_WorkYears_textBox.Text))
+            {
+                MessageBox.Show("لا يمكن ترك عدد سنوات الخبرة فارغة في قسم الخبرات العملية", "Error");
+                return;
+            }
+
+
+            if (IsDirty_DataGrid[Work_dataGridView])
+            {
+                for (int i = 0; i <= Work_dataGridView.Rows.Count - 2; i++)
+                {
+                    if (Work_dataGridView.Rows[i].Cells[IsDirty_Columns[Work_dataGridView]].Value != null && (string)Work_dataGridView.Rows[i].Cells[IsDirty_Columns[Work_dataGridView]].Value == "1")
+                    {
+                        string W_Name = Work_dataGridView.Rows[i].Cells["W_Name"].Value?.ToString() ?? "";
+                        string W_WorkType = Work_dataGridView.Rows[i].Cells["W_WorkType"].Value?.ToString() ?? "";
+                        string W_BeginDate = Work_dataGridView.Rows[i].Cells["W_BeginDate"].Value?.ToString() ?? "";
+                        string W_ExtraNote = Work_dataGridView.Rows[i].Cells["W_ExtraNote"].Value?.ToString() ?? "";
+                        string W_PlaceState = Work_dataGridView.Rows[i].Cells["W_PlaceState"].Value?.ToString() ?? "";
+                        string W_Place = Work_dataGridView.Rows[i].Cells["W_Place"].Value?.ToString() ?? "";
+                        string W_Contact = Work_dataGridView.Rows[i].Cells["W_Contact"].Value?.ToString() ?? "";
+                        string W_Salary = Work_dataGridView.Rows[i].Cells["W_Salary"].Value?.ToString() ?? "";
+
+                        sc.Parameters.AddWithValue("@W_Name" + i, string.IsNullOrEmpty(W_Name) ? (object)DBNull.Value : W_Name);
+                        sc.Parameters.AddWithValue("@W_WorkType" + i, string.IsNullOrEmpty(W_WorkType) ? (object)DBNull.Value : W_WorkType);
+                        sc.Parameters.AddWithValue("@W_BeginDate" + i, W_BeginDate);
+                        sc.Parameters.AddWithValue("@W_ExtraNote" + i, W_ExtraNote);
+                        sc.Parameters.AddWithValue("@W_PlaceState" + i, W_PlaceState);
+                        sc.Parameters.AddWithValue("@W_Place" + i, W_Place);
+                        sc.Parameters.AddWithValue("@W_Contact" + i, W_Contact);
+                        sc.Parameters.AddWithValue("@W_Salary" + i, W_Salary);
+
+
+                        if (Work_dataGridView.Rows[i].Cells[ID_Columns[Work_dataGridView]].Value != null)
+                        {
+                            string WP_ID = Work_dataGridView.Rows[i].Cells[ID_Columns[Work_dataGridView]].Value.ToString();
+                            sc.Parameters.AddWithValue("@WP_ID" + i, WP_ID);
+
+                            if (Work_dataGridView.Rows[i].Visible == false)
+                                dataGrid_Query += "DELETE FROM person_workexp WHERE PW_ID = @WP_ID" + i + ";";
+                            else
+                            {
+                                dataGrid_Query += "UPDATE person_workexp set Work_ID = @W_Name" + i + "," +
+                              " W_WorkType_ID = @W_WorkType" + i + "," +
+                              " W_BeginDate = @W_BeginDate" + i + "," +
+                              " extra_note = @W_ExtraNote" + i + "," +
+                              " W_PlaceState = @W_PlaceState" + i + "," +
+                              " W_Place = @W_Place" + i + "," +
+                              " W_Contact = @W_Contact" + i + "," +
+                              " W_Salary = @W_Salary" + i + "" +
+                              " where PW_ID = @WP_ID" + i + ";";
+                            }
+
+                        }
+                        else
+                        {
+                            dataGrid_Query += "INSERT INTO person_workexp (Person_ID , Work_ID, W_WorkType_ID, W_BeginDate, extra_note, W_PlaceState, W_Place, W_Contact, W_Salary)" +
+                                " VALUES (@Person_ID, @W_Name" + i + ", @W_WorkType" + i + ", @W_BeginDate" + i + "," +
+                                " @W_ExtraNote" + i + ", @W_PlaceState" + i + ", @W_Place" + i + "," +
+                                " @W_Contact" + i + ", @W_Salary" + i + ");";
+                        }
+                    }
+
+                }
+            }
+            if (IsDirty_DataGrid[Exp_dataGridView])
+            {
+                for (int i = 0; i < Exp_dataGridView.Rows.Count - 2; i++)
+                {
+
+
+                    if (Exp_dataGridView.Rows[i].Cells[IsDirty_Columns[Exp_dataGridView]].Value != null && (string)Exp_dataGridView.Rows[i].Cells[IsDirty_Columns[Exp_dataGridView]].Value == "1")
+                    {
+                        string Exp_Name = Exp_dataGridView.Rows[i].Cells["Exp_Name"].Value?.ToString() ?? "";
+                        string Exp_WorkType = Exp_dataGridView.Rows[i].Cells["Exp_WorkType"].Value?.ToString() ?? "";
+                        string Exp_BeginDate = Exp_dataGridView.Rows[i].Cells["Exp_BeginDate"].Value?.ToString() ?? "";
+                        string Exp_EndDate = Exp_dataGridView.Rows[i].Cells["Exp_EndDate"].Value?.ToString() ?? "";
+                        string Exp_ExtraNote = Exp_dataGridView.Rows[i].Cells["Exp_ExtraNote"].Value?.ToString() ?? "";
+                        string Exp_PlaceState = Exp_dataGridView.Rows[i].Cells["Exp_PlaceState"].Value?.ToString() ?? "";
+                        string Exp_Place = Exp_dataGridView.Rows[i].Cells["Exp_Place"].Value?.ToString() ?? "";
+                        string Exp_Contact = Exp_dataGridView.Rows[i].Cells["Exp_Contact"].Value?.ToString() ?? "";
+                        string Exp_CauseOfLose = Exp_dataGridView.Rows[i].Cells["Exp_CauseOfLose"].Value?.ToString() ?? "";
+
+                        sc.Parameters.AddWithValue("@Exp_Name" + i, string.IsNullOrEmpty(Exp_Name) ? (object)DBNull.Value : Exp_Name);
+                        sc.Parameters.AddWithValue("@Exp_WorkType" + i, string.IsNullOrEmpty(Exp_WorkType) ? (object)DBNull.Value : Exp_WorkType);
+                        sc.Parameters.AddWithValue("@Exp_BeginDate" + i, Exp_BeginDate);
+                        sc.Parameters.AddWithValue("@Exp_EndDate" + i, Exp_EndDate);
+                        sc.Parameters.AddWithValue("@Exp_ExtraNote" + i, Exp_ExtraNote);
+                        sc.Parameters.AddWithValue("@Exp_PlaceState" + i, Exp_PlaceState);
+                        sc.Parameters.AddWithValue("@Exp_Place" + i, Exp_Place);
+                        sc.Parameters.AddWithValue("@Exp_Contact" + i, Exp_Contact);
+                        sc.Parameters.AddWithValue("@Exp_CauseOfLose" + i, Exp_CauseOfLose);
+
+                        if (Exp_dataGridView.Rows[i].Cells[ID_Columns[Exp_dataGridView]].Value != null)
+                        {
+                            string ExpP_ID = Exp_dataGridView.Rows[i].Cells[ID_Columns[Exp_dataGridView]].Value.ToString();
+                            sc.Parameters.AddWithValue("@ExpP_ID" + i, ExpP_ID);
+
+                            if (Exp_dataGridView.Rows[i].Visible == false)
+                                dataGrid_Query += "DELETE FROM person_workexp WHERE PW_ID = @ExpP_ID" + i + ";";
+                            else
+                            {
+                                dataGrid_Query += "UPDATE person_workexp set Work_ID = @Exp_Name" + i + "," +
+                                                               " W_WorkType_ID = @Exp_WorkType" + i + "," +
+                                                               " W_BeginDate = @Exp_BeginDate" + i + "," +
+                                                               " W_EndDate = @Exp_EndDate" + i + "," +
+                                                               " extra_note = @Exp_ExtraNote" + i + "," +
+                                                               " W_PlaceState = @Exp_PlaceState" + i + "," +
+                                                               " W_Place = @Exp_Place" + i + "," +
+                                                               " W_Contact = @Exp_Contact" + i + "," +
+                                                               " W_CauseOfLoseDescription = @Exp_CauseOfLose" + i + "" +
+                                                               " where PW_ID = @ExpP_ID" + i + ";";
+                            }
+                        }
+                        else
+                        {
+                            dataGrid_Query += "INSERT INTO person_workexp (Person_ID , Work_ID, W_WorkType_ID, W_BeginDate, W_EndDate, extra_note, W_PlaceState, W_Place, W_Contact, W_CauseOfLoseDescription)" +
+                                " VALUES (@Person_ID, @Exp_Name" + i + ", @Exp_WorkType" + i + ", @Exp_BeginDate" + i + ", @Exp_EndDate" + i + "," +
+                                " @Exp_ExtraNote" + i + ", @Exp_PlaceState" + i + ", @Exp_Place" + i + "," +
+                                " @Exp_Contact" + i + ", @Exp_CauseOfLose" + i + ");";
+                        }
+                    }
+                }
+            }
+            if (IsDirty_Data["Work_ISDirty"])
+            {
+                P_WorkYears = P_WorkYears_textBox.Text;
+            }
+            #endregion
+
+            #region Edu
+            int HasEducation = -1, HasCourses = -1;
+
+            if (!P_HasEducationYes_radioButton.Checked && !P_HasEducationNo_radioButton.Checked)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد متلعم/غير متعلم في قسم التحصيل العلمي", "Error");
+                return;
+            }
+            if (P_HasEducationYes_radioButton.Checked)
+            {
+                if (Education_dataGridView.Rows.Count <= 1)
+                {
+                    MessageBox.Show("لا يمكن ترك جدول التحصيل العلمي فارغاً في حال مستفيد متعلم", "Error");
+                    return;
+                }
+            }
+            for (int i = 0; i <= Education_dataGridView.Rows.Count - 2; i++)
+            {
+                if (Education_dataGridView.Rows[i].Visible)
+                {
+                    if (Education_dataGridView.Rows[i].Cells["E_Level"].Value == null || Education_dataGridView.Rows[i].Cells["E_Level"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال التحصيل العلمي في جميع الأسطر في قسم التحصيل العلمي", "Error");
+                        return;
+                    }
+                    else if (Education_dataGridView.Rows[i].Cells["E_Type"].Value == null || Education_dataGridView.Rows[i].Cells["E_Type"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال الدرجة العلمية في جميع الأسطر في قسم التحصيل العلمي", "Error");
+                        return;
+                    }
+                    else if (Education_dataGridView.Rows[i].Cells["E_Name"].Value == null || Education_dataGridView.Rows[i].Cells["E_Name"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال الاختصاص في جميع الأسطر في قسم التحصيل العلمي", "Error");
+                        return;
+                    }
+                }
+            }
+
+
+            if (!P_HasCoursesYes_radioButton.Checked && !P_HasCoursesNo_radioButton.Checked)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد يوجد/لا يوجد في قسم الدورات المتبعة", "Error");
+                return;
+            }
+            if (P_HasCoursesYes_radioButton.Checked)
+            {
+                if (Course_dataGridView.Rows.Count <= 1)
+                {
+                    MessageBox.Show("لا يمكن ترك جدول الدورات المتبعة فارغاً في حال يوجد دورات", "Error");
+                    return;
+                }
+            }
+            for (int i = 0; i <= Course_dataGridView.Rows.Count - 2; i++)
+            {
+                if (Course_dataGridView.Rows[i].Visible)
+                {
+                    if (Course_dataGridView.Rows[i].Cells["C_Cource"].Value == null || Course_dataGridView.Rows[i].Cells["C_Cource"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال نوع الدورة في جميع الأسطر في قسم الدورات المتبعة", "Error");
+                        return;
+                    }
+                    else if (Course_dataGridView.Rows[i].Cells["C_Name"].Value == null || Course_dataGridView.Rows[i].Cells["C_Name"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال اسم الدورة في جميع الأسطر في قسم الدورات المتبعة", "Error");
+                        return;
+                    }
+                    else if (Course_dataGridView.Rows[i].Cells["C_Date"].Value == null || Course_dataGridView.Rows[i].Cells["C_Date"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال تاريخ الدورة في جميع الأسطر في قسم الدورات المتبعة", "Error");
+                        return;
+                    }
+                }
+            }
+
+
+            if (IsDirty_Data["Edu_ISDirty"])
+            {
+                if (P_HasEducationYes_radioButton.Checked)
+                {
+                    HasEducation = 1;
+                }
+                else if (P_HasEducationNo_radioButton.Checked)
+                {
+                    HasEducation = 0;
+                }
+                else
+                {
+                    HasEducation = -1;
+                }
+
+                if (P_HasCoursesYes_radioButton.Checked)
+                {
+                    HasCourses = 1;
+                }
+                else if (P_HasCoursesNo_radioButton.Checked)
+                {
+                    HasCourses = 0;
+                }
+                else
+                {
+                    HasCourses = -1;
+                }
+            }
+            if (IsDirty_DataGrid[Education_dataGridView])
+            {
+                for (int i = 0; i <= Education_dataGridView.Rows.Count - 2; i++)
+                {
+                    if (Education_dataGridView.Rows[i].Cells[IsDirty_Columns[Education_dataGridView]].Value != null && (string)Education_dataGridView.Rows[i].Cells[IsDirty_Columns[Education_dataGridView]].Value == "1")
+                    {
+                        string E_Level = Education_dataGridView.Rows[i].Cells["E_Level"].Value?.ToString() ?? "";
+                        string E_Name = Education_dataGridView.Rows[i].Cells["E_Name"].Value?.ToString() ?? "";
+
+                        sc.Parameters.AddWithValue("@E_Level" + i, string.IsNullOrEmpty(E_Level) ? (object)DBNull.Value : E_Level);
+                        sc.Parameters.AddWithValue("@E_Name" + i, string.IsNullOrEmpty(E_Name) ? (object)DBNull.Value : E_Name);
+
+
+                        if (Education_dataGridView.Rows[i].Cells[ID_Columns[Education_dataGridView]].Value != null)
+                        {
+                            string PE_ID = Education_dataGridView.Rows[i].Cells[ID_Columns[Education_dataGridView]].Value.ToString();
+                            sc.Parameters.AddWithValue("@PE_ID" + i, PE_ID);
+
+                            if (Education_dataGridView.Rows[i].Visible == false)
+                                dataGrid_Query += "DELETE FROM person_education WHERE PEdu_ID = @PE_ID" + i + ";";
+                            else
+                            {
+                                dataGrid_Query += "UPDATE person_education set Education_ID = @E_Name" + i + "," +
+                                    " Level_ID = @E_Level" + i + "" +
+                                    " where PEdu_ID = @PE_ID" + i + ";";
+                            }
+                        }
+                        else
+                        {
+                            dataGrid_Query += "INSERT INTO person_education (Person_ID , Education_ID, Level_ID)" +
+                                " VALUES (@Person_ID, @E_Name" + i + ", @E_Level" + i + ");";
+                        }
+                    }
+                }
+            }
+            if (IsDirty_DataGrid[Course_dataGridView])
+            {
+                for (int i = 0; i <= Course_dataGridView.Rows.Count - 2; i++)
+                {
+                    if (Course_dataGridView.Rows[i].Cells[IsDirty_Columns[Course_dataGridView]].Value != null && (string)Course_dataGridView.Rows[i].Cells[IsDirty_Columns[Course_dataGridView]].Value == "1")
+                    {
+                        string C_Cource = Course_dataGridView.Rows[i].Cells["C_Cource"].Value?.ToString() ?? "";
+                        string C_Name = Course_dataGridView.Rows[i].Cells["C_Name"].Value?.ToString() ?? "";
+                        string C_Place = Course_dataGridView.Rows[i].Cells["C_Place"].Value?.ToString() ?? "";
+                        string C_Donor = Course_dataGridView.Rows[i].Cells["C_Donor"].Value?.ToString() ?? "";
+                        string C_Date = Course_dataGridView.Rows[i].Cells["C_Date"].Value?.ToString() ?? "";
+
+                        sc.Parameters.AddWithValue("@C_Cource" + i, string.IsNullOrEmpty(C_Cource) ? (object)DBNull.Value : C_Cource);
+                        sc.Parameters.AddWithValue("@C_Name" + i, C_Name);
+                        sc.Parameters.AddWithValue("@C_Place" + i, C_Place);
+                        sc.Parameters.AddWithValue("@C_Donor" + i, C_Donor);
+                        sc.Parameters.AddWithValue("@C_Date" + i, C_Date);
+
+                        if (Course_dataGridView.Rows[i].Cells[ID_Columns[Course_dataGridView]].Value != null)
+                        {
+                            string CPerosn_ID = Course_dataGridView.Rows[i].Cells[ID_Columns[Course_dataGridView]].Value.ToString();
+                            sc.Parameters.AddWithValue("@CPerosn_ID" + i, CPerosn_ID);
+
+                            if (Course_dataGridView.Rows[i].Visible == false)
+                                dataGrid_Query += "DELETE FROM person_course WHERE ID = @CPerosn_ID" + i + ";";
+                            else
+                            {
+                                dataGrid_Query += "UPDATE person_course set Course_ID = @C_Cource" + i + "," +
+                                              " Name = @C_Name" + i + "," +
+                                              " Place = @C_Place" + i + "," +
+                                              " Donor = @C_Donor" + i + "," +
+                                              " Date = @C_Date" + i + "" +
+                                              " where ID = @CPerosn_ID" + i + ";";
+                            }
+
+                        }
+                        else
+                        {
+                            dataGrid_Query += "INSERT INTO person_course (Person_ID, Course_ID , Name, Place, Donor, Date)" +
+                                " VALUES (@Person_ID, @C_Cource" + i + ", @C_Name" + i + ", @C_Place" + i + ", @C_Donor" + i + ", @C_Date" + i + ");";
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            #region Projrct_Info
+            string MP_PlaceAddress = "", MP_PlaceNote = "", AmperNumber = "";
+            int MP_PlaceType = -1, IsAmper = -1, Agreement1 = -1, Agreement2 = -1, Agreement3 = -1, Agreement4 = -1;
+
+            if (string.IsNullOrWhiteSpace(MP_PlaceType_comboBox.Text) || MP_PlaceType_comboBox.SelectedIndex < 0)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد ملكية عقار المشروع في قسم المعلومات الخاصة بالمشروع", "Error");
+                return;
+            }
+
+            for (int i = 0; i <= PowerSource_dataGridView.Rows.Count - 2; i++)
+            {
+                if (PowerSource_dataGridView.Rows[i].Visible)
+                {
+                    if (PowerSource_dataGridView.Rows[i].Cells["Power_Name"].Value == null || PowerSource_dataGridView.Rows[i].Cells["Power_Name"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال المصدر في جميع الأسطر في قسم مصادر الطاقة في المشروع", "Error");
+                        return;
+                    }
+                }
+            }
+
+            if ((!Agreement1_Yes_radioButton.Checked && !Agreement1_No_radioButton.Checked) ||
+                (!Agreement2_Yes_radioButton.Checked && !Agreement2_No_radioButton.Checked) ||
+                (!Agreement3_Yes_radioButton.Checked && !Agreement3_No_radioButton.Checked) ||
+                (!Agreement4_Yes_radioButton.Checked && !Agreement4_No_radioButton.Checked))
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد نعم/لا في جميع الخيارات في قسم الموافقات", "Error");
+                return;
+            }
+
+            if (Materials_dataGridView.Rows.Count <= 1)
+            {
+                MessageBox.Show("لا يمكن ترك جدول مقترح الميزانية فارغاً", "Error");
+                return;
+            }
+
+            for (int i = 0; i <= Materials_dataGridView.Rows.Count - 2; i++)
+            {
+                if (Materials_dataGridView.Rows[i].Visible)
+                {
+                    if (Materials_dataGridView.Rows[i].Cells["M_Name"].Value == null || Materials_dataGridView.Rows[i].Cells["M_Name"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال اسم المادة في جميع الأسطر في قسم مقترح الميزانية", "Error");
+                        return;
+                    }
+                    else if (Materials_dataGridView.Rows[i].Cells["M_Price"].Value == null || Materials_dataGridView.Rows[i].Cells["M_Price"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال ثمن القطعة في جميع الأسطر في قسم مقترح الميزانية", "Error");
+                        return;
+                    }
+                    else if (Materials_dataGridView.Rows[i].Cells["M_Amount"].Value == null || Materials_dataGridView.Rows[i].Cells["M_Amount"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال الكمية في جميع الأسطر في قسم مقترح الميزانية", "Error");
+                        return;
+                    }
+                }
+            }
+
+            if (IsDirty_Data["Projrct_Info_ISDirty"])
+            {
+                MP_PlaceType = int.Parse(MP_PlaceType_comboBox.SelectedValue.ToString());
+                MP_PlaceAddress = MP_PlaceAddress_textBox.Text;
+                MP_PlaceNote = MP_PlaceNote_textBox.Text;
+                AmperNumber = AmperNumber_textBox.Text;
+
+                if (IsAmper_radioButton.Checked)
+                {
+                    IsAmper = 1;
+                }
+                else if (IsWatt_radioButton.Checked)
+                {
+                    IsAmper = 0;
+                }
+                else
+                {
+                    IsAmper = -1;
+                }
+
+                if (Agreement1_Yes_radioButton.Checked)
+                {
+                    Agreement1 = 1;
+                }
+                else if (Agreement1_No_radioButton.Checked)
+                {
+                    Agreement1 = 0;
+                }
+                else
+                {
+                    Agreement1 = -1;
+                }
+
+                if (Agreement2_Yes_radioButton.Checked)
+                {
+                    Agreement2 = 1;
+                }
+                else if (Agreement2_No_radioButton.Checked)
+                {
+                    Agreement2 = 0;
+                }
+                else
+                {
+                    Agreement2 = -1;
+                }
+
+                if (Agreement3_Yes_radioButton.Checked)
+                {
+                    Agreement3 = 1;
+                }
+                else if (Agreement3_No_radioButton.Checked)
+                {
+                    Agreement3 = 0;
+                }
+                else
+                {
+                    Agreement3 = -1;
+                }
+
+                if (Agreement4_Yes_radioButton.Checked)
+                {
+                    Agreement4 = 1;
+                }
+                else if (Agreement4_No_radioButton.Checked)
+                {
+                    Agreement4 = 0;
+                }
+                else
+                {
+                    Agreement4 = -1;
+                }
+            }
+
+            if (IsDirty_DataGrid[PowerSource_dataGridView])
+            {
+                for (int i = 0; i <= PowerSource_dataGridView.Rows.Count - 2; i++)
+                {
+                    if (PowerSource_dataGridView.Rows[i].Cells[IsDirty_Columns[PowerSource_dataGridView]].Value != null && (string)PowerSource_dataGridView.Rows[i].Cells[IsDirty_Columns[PowerSource_dataGridView]].Value == "1")
+                    {
+                        string Power_Name = PowerSource_dataGridView.Rows[i].Cells["Power_Name"].Value?.ToString() ?? "";
+                        string Power_Note = PowerSource_dataGridView.Rows[i].Cells["Power_Note"].Value?.ToString() ?? "";
+                        string Power_Cost = PowerSource_dataGridView.Rows[i].Cells["Power_Cost"].Value?.ToString() ?? "";
+                        string Power_Responsability = PowerSource_dataGridView.Rows[i].Cells["Power_Responsability"].Value?.ToString() ?? "";
+
+                        sc.Parameters.AddWithValue("@Power_Name" + i, string.IsNullOrEmpty(Power_Name) ? (object)DBNull.Value : Power_Name);
+                        sc.Parameters.AddWithValue("@Power_Note" + i, Power_Note);
+                        sc.Parameters.AddWithValue("@Power_Cost" + i, Power_Cost);
+                        sc.Parameters.AddWithValue("@Power_Responsability" + i, Power_Responsability);
+
+                        if (PowerSource_dataGridView.Rows[i].Cells[ID_Columns[PowerSource_dataGridView]].Value != null)
+                        {
+                            string Power_MP_ID = PowerSource_dataGridView.Rows[i].Cells[ID_Columns[PowerSource_dataGridView]].Value.ToString();
+                            sc.Parameters.AddWithValue("@Power_MP_ID" + i, Power_MP_ID);
+
+                            if (PowerSource_dataGridView.Rows[i].Visible == false)
+                                dataGrid_Query += "DELETE FROM microproject_powersource WHERE ID = @Power_MP_ID" + i + ";";
+                            else
+                            {
+                                dataGrid_Query += "UPDATE microproject_powersource set PowerSource_ID = @Power_Name" + i + "," +
+                                    " Note = @Power_Note" + i + "," +
+                                    " Cost = @Power_Cost" + i + "," +
+                                    " Responsability = @Power_Responsability" + i + "" +
+                                    " where ID = @Power_MP_ID" + i + ";";
+                            }
+                        }
+                        else
+                        {
+                            dataGrid_Query += "INSERT INTO microproject_powersource (MicroProject_ID, PowerSource_ID , Note, Cost, Responsability)" +
+                                " VALUES (@MicroProject_ID, @Power_Name" + i + ", @Power_Note" + i + ", @Power_Cost" + i + ", @Power_Responsability" + i + ");";
+                        }
+                    }
+                }
+            }
+
+            if (IsDirty_DataGrid[Materials_dataGridView])
+            {
+                for (int i = 0; i <= Materials_dataGridView.Rows.Count - 2; i++)
+                {
+                    if (Materials_dataGridView.Rows[i].Cells[IsDirty_Columns[Materials_dataGridView]].Value != null && (string)Materials_dataGridView.Rows[i].Cells[IsDirty_Columns[Materials_dataGridView]].Value == "1")
+                    {
+                        string M_Name = Materials_dataGridView.Rows[i].Cells["M_Name"].Value?.ToString() ?? "";
+                        string M_Comments = Materials_dataGridView.Rows[i].Cells["M_Comments"].Value?.ToString() ?? "";
+                        string M_Price = Materials_dataGridView.Rows[i].Cells["M_Price"].Value?.ToString() ?? "";
+                        string M_Amount = Materials_dataGridView.Rows[i].Cells["M_Amount"].Value?.ToString() ?? "";
+
+                        sc.Parameters.AddWithValue("@M_Name" + i, M_Name);
+                        sc.Parameters.AddWithValue("@M_Comments" + i, M_Comments);
+                        sc.Parameters.AddWithValue("@M_Price" + i, M_Price);
+                        sc.Parameters.AddWithValue("@M_Amount" + i, M_Amount);
+
+                        if (Materials_dataGridView.Rows[i].Cells[ID_Columns[Materials_dataGridView]].Value != null)
+                        {
+                            string MMP_ID = Materials_dataGridView.Rows[i].Cells[ID_Columns[Materials_dataGridView]].Value.ToString();
+                            sc.Parameters.AddWithValue("@MMP_ID" + i, MMP_ID);
+
+                            if (Materials_dataGridView.Rows[i].Visible == false)
+                                dataGrid_Query += "DELETE FROM material WHERE ID = @MMP_ID" + i + ";";
+                            else
+                            {
+                                dataGrid_Query += "UPDATE material set Name = @M_Name" + i + "," +
+                                    " Amount = @M_Amount" + i + "," +
+                                    " Price = @M_Price" + i + "," +
+                                    " Comments = @M_Comments" + i + "" +
+                                    " where ID = @MMP_ID" + i + ";";
+                            }
+                        }
+                        else
+                        {
+                            dataGrid_Query += "INSERT INTO material (MicroProject_ID, Name , Amount, Price, Comments)" +
+                                " VALUES (@MicroProject_ID, @M_Name" + i + ", @M_Amount" + i + ", @M_Price" + i + ", @M_Comments" + i + ");";
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            #region Family
+            string FamilyNum = "", LiveWithFamily_Note = "", MP_OtherDonors = "", P_DebtsAmount = "", P_DebtsNote = "";
+            int LiveWithFamily = -1, HasLosses = -1, HasIllness = -1, HasAsset = -1, HasAidSource = -1, HasDebts = -1;
+
+            if (string.IsNullOrWhiteSpace(FamilyNum_textBox1.Text))
+            {
+                MessageBox.Show("لا يمكن ترك رقم دفتر العائلة فارغاً في قسم معلومات عائلة المستفيد", "Error");
+                return;
+            }
+            else if (!FamilyNum_Checked)
+            {
+                DataTable dt = Check_Family_Num(FamilyNum_textBox1.Text);
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    int P_ID = int.Parse(dt.Rows[0]["ID"].ToString());
+                    int MiP_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
+                    var Name = dt.Rows[0]["الاسم الثلاثي"].ToString();
+
+                    var _MessageBox = new Application_MessageBox("Family_Num", P_ID, MiP_ID, Name);
+                    var r = _MessageBox.ShowDialog();
+                    if (r == DialogResult.Yes)
+                    {
+                        Form application_Form = new Application_Form(P_ID, MiP_ID, mainForm);
+                        mainForm.showNewTab(application_Form, "Application", 1);
+                        return;
+                    }
+                    else if (r == DialogResult.No)
+                    {
+                        MessageBox.Show("هون عبي العيلة القديم");
+
+                        MessageBox.Show("انتبه" + Environment.NewLine + Environment.NewLine + "تم جلب المعلومات القديمة للعائلة، يرجى التأكد منها قبل الحفظ."
+                               , "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        FamilyNum_textBox1.Text = FamilyNum_textBox1_original;
+                        return;
+                    }
+                }
+            }
+
+            if (!P_LiveWithFamily_radioButton.Checked && !P_NotLiveWithFamily_radioButton.Checked)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد هل تقيم مع عائلة أخرى في قسم معلومات عائلة المستفيد", "Error");
+                return;
+            }
+
+            if (!P_HasLossesYes_radioButton.Checked && !P_HasLossesNo_radioButton.Checked)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد يوجد/لا يوجد في قسم الخسارات", "Error");
+                return;
+            }
+            if (P_HasLossesYes_radioButton.Checked)
+            {
+                if (Loss_dataGridView.Rows.Count <= 1)
+                {
+                    MessageBox.Show("لا يمكن ترك جدول الخسارت فارغاً في حال يوجد خسارات", "Error");
+                    return;
+                }
+            }
+            for (int i = 0; i <= Loss_dataGridView.Rows.Count - 2; i++)
+            {
+                if (Loss_dataGridView.Rows[i].Visible)
+                {
+                    if (Loss_dataGridView.Rows[i].Cells["L_Type"].Value == null || Loss_dataGridView.Rows[i].Cells["L_Type"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال نوع الخسارة في جميع الأسطر في قسم الخسارات", "Error");
+                        return;
+                    }
+                    else if (Loss_dataGridView.Rows[i].Cells["L_Year"].Value == null || Loss_dataGridView.Rows[i].Cells["L_Year"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال سنة الواقعة في جميع الأسطر في قسم الخسارات", "Error");
+                        return;
+                    }
+                }
+
+            }
+
+            if (!P_HasIllnessYes_radioButton.Checked && !P_HasIllnessNo_radioButton.Checked)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد يوجد/لا يوجد في قسم الحالات المرضية", "Error");
+                return;
+            }
+            if (P_HasIllnessYes_radioButton.Checked)
+            {
+                if (Illness_dataGridView.Rows.Count <= 1)
+                {
+                    MessageBox.Show("لا يمكن ترك جدول الحالات المرضية فارغاً في حال يوجد حالات مرضية", "Error");
+                    return;
+                }
+            }
+            for (int i = 0; i <= Illness_dataGridView.Rows.Count - 2; i++)
+            {
+                if (Illness_dataGridView.Rows[i].Visible)
+                {
+                    if (Illness_dataGridView.Rows[i].Cells["Ill_PName"].Value == null || Illness_dataGridView.Rows[i].Cells["Ill_PName"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال الاسم في جميع الأسطر في قسم الحالات المرضية", "Error");
+                        return;
+                    }
+                    if (Illness_dataGridView.Rows[i].Cells["Ill_Name"].Value == null || Illness_dataGridView.Rows[i].Cells["Ill_Name"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال الحالة الصحية في جميع الأسطر في قسم الحالات المرضية", "Error");
+                        return;
+                    }
+                    else if ((Illness_dataGridView.Rows[i].Cells["Ill_Aid"].Value != null && (bool)Illness_dataGridView.Rows[i].Cells["Ill_Aid"].Value == true) && (Illness_dataGridView.Rows[i].Cells["Ill_Donor"].Value == null || Illness_dataGridView.Rows[i].Cells["Ill_Donor"].Value.ToString() == ""))
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال الجهة المساعدة في جميع الأسطر التي تستقبل مساعدات طبية في قسم الحالات المرضية", "Error");
+                        return;
+                    }
+                }
+            }
+
+            if (!P_HasAssetsYes_radioButton.Checked && !P_HasAssetsNo_radioButton.Checked)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد يوجد/لا يوجد في قسم أملاك المستفيد", "Error");
+                return;
+            }
+            if (P_HasAssetsYes_radioButton.Checked)
+            {
+                if (Assets_dataGridView.Rows.Count <= 1)
+                {
+                    MessageBox.Show("لا يمكن ترك جدول الممتلكات فارغاً في حال يوجد ممتلكات", "Error");
+                    return;
+                }
+            }
+            for (int i = 0; i <= Assets_dataGridView.Rows.Count - 2; i++)
+            {
+                if (Assets_dataGridView.Rows[i].Visible)
+                {
+                    if (Assets_dataGridView.Rows[i].Cells["Asset_PName"].Value == null || Assets_dataGridView.Rows[i].Cells["Asset_PName"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال الاسم في جميع الأسطر في قسم أملاك المستفيد", "Error");
+                        return;
+                    }
+                    if (Assets_dataGridView.Rows[i].Cells["Asset_Name"].Value == null || Assets_dataGridView.Rows[i].Cells["Asset_Name"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال الملك في جميع الأسطر في قسم أملاك المستفيد", "Error");
+                        return;
+                    }
+                    else if (Assets_dataGridView.Rows[i].Cells["Asset_type"].Value == null || Assets_dataGridView.Rows[i].Cells["Asset_type"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال نوع الملك في جميع الأسطر في قسم أملاك المستفيد", "Error");
+                        return;
+                    }
+                    else if (Assets_dataGridView.Rows[i].Cells["Asset_Year"].Value == null || Assets_dataGridView.Rows[i].Cells["Asset_Year"].Value.ToString() == "")
+                    {
+                        if (Assets_dataGridView.Rows[i].Cells["Asset_type"].Value != null && Assets_dataGridView.Rows[i].Cells["Asset_type"].Value.ToString() != "")
+                        {
+                            int Asset_type_ID = Int32.Parse(Assets_dataGridView.Rows[i].Cells["Asset_type"].Value.ToString());
+
+                            string Asset_type_Name = ds.Tables[8].AsEnumerable()
+                                             .Where(row => row.Field<int>("ID").Equals(Asset_type_ID) == true)
+                                             .Select(row => row.Field<string>("Name"))
+                                             .FirstOrDefault();
+
+                            if (Asset_type_Name == "ملك")
+                            {
+                                MessageBox.Show("الرجاء التأكد من إدخال سنة الشراء في جميع الأسطر التي تحوي ملك في قسم أملاك المستفيد", "Error");
+                                return;
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            if (!P_HasAidSourceYes_radioButton.Checked && !P_HasAidSourceNo_radioButton.Checked)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد يوجد/لا يوجد في قسم الاستفادة من جهات أخرى", "Error");
+                return;
+            }
+            if (P_HasAidSourceYes_radioButton.Checked)
+            {
+                if (AidSource_dataGridView.Rows.Count <= 1)
+                {
+                    MessageBox.Show("لا يمكن ترك جدول الممتلكات الاستفادة من جهات أخرى في حال يوجد استفادة", "Error");
+                    return;
+                }
+            }
+            for (int i = 0; i <= AidSource_dataGridView.Rows.Count - 2; i++)
+            {
+                if (AidSource_dataGridView.Rows[i].Visible)
+                {
+                    if (AidSource_dataGridView.Rows[i].Cells["Aid_PName"].Value == null || AidSource_dataGridView.Rows[i].Cells["Aid_PName"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال الاسم في جميع الأسطر في قسم الاستفادة من جهات أخرى", "Error");
+                        return;
+                    }
+                    if (AidSource_dataGridView.Rows[i].Cells["Aid_Source"].Value == null || AidSource_dataGridView.Rows[i].Cells["Aid_Source"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال الجهة في جميع الأسطر في قسم الاستفادة من جهات أخرى", "Error");
+                        return;
+                    }
+                    else if (AidSource_dataGridView.Rows[i].Cells["Aid_DateYear"].Value == null || AidSource_dataGridView.Rows[i].Cells["Aid_DateYear"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال تاريخ الاستفادة في جميع الأسطر في قسم الاستفادة من جهات أخرى", "Error");
+                        return;
+                    }
+                }
+
+            }
+
+            if (!P_HasDebtsYes_radioButton.Checked && !P_HasDebtsNo_radioButton.Checked)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد نعم/لا في قسم هل لديك ديون", "Error");
+                return;
+            }
+
+            if (IsDirty_Data["Family_ISDirty"])
+            {
+                FamilyNum = FamilyNum_textBox1.Text;
+
+                if (P_LiveWithFamily_radioButton.Checked)
+                {
+                    LiveWithFamily = 1;
+                }
+                else if (P_NotLiveWithFamily_radioButton.Checked)
+                {
+                    LiveWithFamily = 0;
+                }
+                else
+                {
+                    LiveWithFamily = -1;
+                }
+
+                LiveWithFamily_Note = LiveWithFamily_Note_textBox.Text;
+
+                if (P_HasLossesYes_radioButton.Checked)
+                {
+                    HasLosses = 1;
+                }
+                else if (P_HasLossesNo_radioButton.Checked)
+                {
+                    HasLosses = 0;
+                }
+                else
+                {
+                    HasLosses = -1;
+                }
+
+                if (P_HasIllnessYes_radioButton.Checked)
+                {
+                    HasIllness = 1;
+                }
+                else if (P_HasIllnessNo_radioButton.Checked)
+                {
+                    HasIllness = 0;
+                }
+                else
+                {
+                    HasIllness = -1;
+                }
+
+                if (P_HasAssetsYes_radioButton.Checked)
+                {
+                    HasAsset = 1;
+                }
+                else if (P_HasAssetsNo_radioButton.Checked)
+                {
+                    HasAsset = 0;
+                }
+                else
+                {
+                    HasAsset = -1;
+                }
+
+                if (P_HasAidSourceYes_radioButton.Checked)
+                {
+                    HasAidSource = 1;
+                }
+                else if (P_HasAidSourceNo_radioButton.Checked)
+                {
+                    HasAidSource = 0;
+                }
+                else
+                {
+                    HasAidSource = -1;
+                }
+
+                MP_OtherDonors = MP_OtherDonors_textBox.Text;
+
+
+                if (P_HasDebtsYes_radioButton.Checked)
+                {
+                    HasDebts = 1;
+                }
+                else if (P_HasDebtsNo_radioButton.Checked)
+                {
+                    HasDebts = 0;
+                }
+                else
+                {
+                    HasDebts = -1;
+                }
+
+                P_DebtsAmount = P_DebtsAmount_textBox.Text;
+                P_DebtsNote = P_DebtsNote_textBox.Text;
+
+            }
+
+            if (IsDirty_DataGrid[FamilyMember_dataGridView])
+            {
+                // TO DO
+            }
+
+            if (IsDirty_DataGrid[Loss_dataGridView])
+            {
+
+                for (int i = 0; i <= Loss_dataGridView.Rows.Count - 2; i++)
+                {
+                    if (Loss_dataGridView.Rows[i].Cells[IsDirty_Columns[Loss_dataGridView]].Value != null && (string)Loss_dataGridView.Rows[i].Cells[IsDirty_Columns[Loss_dataGridView]].Value == "1")
+                    {
+                        string L_Type = Loss_dataGridView.Rows[i].Cells["L_Type"].Value?.ToString() ?? "";
+                        string L_Year = Loss_dataGridView.Rows[i].Cells["L_Year"].Value?.ToString() ?? "";
+                        string L_Notes = Loss_dataGridView.Rows[i].Cells["L_Notes"].Value?.ToString() ?? "";
+
+                        sc.Parameters.AddWithValue("@L_Type" + i, string.IsNullOrEmpty(L_Type) ? (object)DBNull.Value : L_Type);
+                        sc.Parameters.AddWithValue("@L_Year" + i, L_Year);
+                        sc.Parameters.AddWithValue("@L_Notes" + i, L_Notes);
+
+                        if (Loss_dataGridView.Rows[i].Cells[ID_Columns[Loss_dataGridView]].Value != null)
+                        {
+                            string LPerson_ID = Loss_dataGridView.Rows[i].Cells[ID_Columns[Loss_dataGridView]].Value.ToString();
+                            sc.Parameters.AddWithValue("@LPerson_ID" + i, LPerson_ID);
+
+                            if (Loss_dataGridView.Rows[i].Visible == false)
+                                dataGrid_Query += "DELETE FROM person_loss WHERE ID = @LPerson_ID" + i + ";";
+                            else
+                            {
+                                dataGrid_Query += "UPDATE person_loss set Loss_ID = @L_Type" + i + "," +
+                                    " Year  = @L_Year" + i + "," +
+                                    " Note = @L_Notes" + i + "" +
+                                    " where ID = @LPerson_ID" + i + ";";
+                            }
+                        }
+                        else
+                        {
+                            dataGrid_Query += "INSERT INTO person_loss (Person_ID, Loss_ID, Year , Note)" +
+                                " VALUES (@Person_ID, @L_Type" + i + ", @L_Year" + i + ", @L_Notes" + i + ");";
+                        }
+                    }
+                }
+            }
+
+            if (IsDirty_DataGrid[Illness_dataGridView])
+            {
+
+                for (int i = 0; i <= Illness_dataGridView.Rows.Count - 2; i++)
+                {
+                    if (Illness_dataGridView.Rows[i].Cells[IsDirty_Columns[Illness_dataGridView]].Value != null && (string)Illness_dataGridView.Rows[i].Cells[IsDirty_Columns[Illness_dataGridView]].Value == "1")
+                    {
+                        string Ill_PName = Illness_dataGridView.Rows[i].Cells["Ill_PName"].Value?.ToString() ?? "";
+                        string Ill_Name = Illness_dataGridView.Rows[i].Cells["Ill_Name"].Value?.ToString() ?? "";
+                        string Ill_Note = Illness_dataGridView.Rows[i].Cells["Ill_Note"].Value?.ToString() ?? "";
+                        string Ill_Aid = Illness_dataGridView.Rows[i].Cells["Ill_Aid"].Value?.ToString() ?? "";
+                        string Ill_Donor = Illness_dataGridView.Rows[i].Cells["Ill_Donor"].Value?.ToString() ?? "";
+                        string Ill_AidPeriod = Illness_dataGridView.Rows[i].Cells["Ill_AidPeriod"].Value?.ToString() ?? "";
+                        string Ill_MedicalNeeds = Illness_dataGridView.Rows[i].Cells["Ill_MedicalNeeds"].Value?.ToString() ?? "";
+
+                        sc.Parameters.AddWithValue("@Ill_PName" + i, string.IsNullOrEmpty(Ill_PName) ? (object)DBNull.Value : Ill_PName);
+                        sc.Parameters.AddWithValue("@Ill_Name" + i, string.IsNullOrEmpty(Ill_Name) ? (object)DBNull.Value : Ill_Name);
+                        sc.Parameters.AddWithValue("@Ill_Note" + i, Ill_Note);
+                        sc.Parameters.AddWithValue("@Ill_Aid" + i, Ill_Aid);
+                        sc.Parameters.AddWithValue("@Ill_Donor" + i, string.IsNullOrEmpty(Ill_Donor) ? (object)DBNull.Value : Ill_Donor);
+                        sc.Parameters.AddWithValue("@Ill_AidPeriod" + i, string.IsNullOrEmpty(Ill_AidPeriod) ? (object)DBNull.Value : Ill_AidPeriod);
+                        sc.Parameters.AddWithValue("@Ill_MedicalNeeds" + i, string.IsNullOrEmpty(Ill_MedicalNeeds) ? (object)DBNull.Value : Ill_MedicalNeeds);
+
+
+
+                        if (Illness_dataGridView.Rows[i].Cells[ID_Columns[Illness_dataGridView]].Value != null)
+                        {
+                            string Ill_Person_ID = Illness_dataGridView.Rows[i].Cells[ID_Columns[Illness_dataGridView]].Value.ToString();
+                            sc.Parameters.AddWithValue("@Ill_Person_ID" + i, Ill_Person_ID);
+
+
+                            if (Illness_dataGridView.Rows[i].Visible == false)
+                                dataGrid_Query += "DELETE FROM person_illness WHERE ID = @Ill_Person_ID" + i + ";";
+                            else
+                            {
+                                dataGrid_Query += "UPDATE person_illness set Person_ID = @Ill_PName" + i + "," +
+                                    " Illness_ID  = @Ill_Name" + i + "," +
+                                    " Has_MedicalAid = @Ill_Aid" + i + "," +
+                                    " Donor = @Ill_Donor" + i + "," +
+                                    " Note = @Ill_Note" + i + "," +
+                                    " AidPeriod_ID = @Ill_AidPeriod" + i + "," +
+                                    " MedicalNeeds_ID  = @Ill_MedicalNeeds" + i + "" +
+                                    " where ID = @Ill_Person_ID" + i + ";";
+                            }
+                        }
+                        else
+                        {
+                            dataGrid_Query += "INSERT INTO person_illness (Person_ID, Illness_ID, Has_MedicalAid , Donor, Note, AidPeriod_ID, MedicalNeeds_ID)" +
+                                " VALUES (@Ill_PName" + i + ", @Ill_Name" + i + ", @Ill_Aid" + i + ", @Ill_Donor" + i + ", @Ill_Note" + i + ", @Ill_AidPeriod" + i + ", @Ill_MedicalNeeds" + i + ");";
+                        }
+                    }
+                }
+            }
+
+            if (IsDirty_DataGrid[Assets_dataGridView])
+            {
+                for (int i = 0; i <= Assets_dataGridView.Rows.Count - 2; i++)
+                {
+                    if (Assets_dataGridView.Rows[i].Cells[IsDirty_Columns[Assets_dataGridView]].Value != null && (string)Assets_dataGridView.Rows[i].Cells[IsDirty_Columns[Assets_dataGridView]].Value == "1")
+                    {
+                        string Asset_PName = Assets_dataGridView.Rows[i].Cells["Asset_PName"].Value?.ToString() ?? "";
+                        string Asset_Name = Assets_dataGridView.Rows[i].Cells["Asset_Name"].Value?.ToString() ?? "";
+                        string Asset_type = Assets_dataGridView.Rows[i].Cells["Asset_type"].Value?.ToString() ?? "";
+                        string Asset_Year = Assets_dataGridView.Rows[i].Cells["Asset_Year"].Value?.ToString() ?? "";
+                        string Asset_Desc = Assets_dataGridView.Rows[i].Cells["Asset_Desc"].Value?.ToString() ?? "";
+                        string Asset_Note = Assets_dataGridView.Rows[i].Cells["Asset_Note"].Value?.ToString() ?? "";
+
+                        sc.Parameters.AddWithValue("@Asset_PName" + i, string.IsNullOrEmpty(Asset_PName) ? (object)DBNull.Value : Asset_PName);
+                        sc.Parameters.AddWithValue("@Asset_Name" + i, string.IsNullOrEmpty(Asset_Name) ? (object)DBNull.Value : Asset_Name);
+                        sc.Parameters.AddWithValue("@Asset_type" + i, string.IsNullOrEmpty(Asset_type) ? (object)DBNull.Value : Asset_type);
+                        sc.Parameters.AddWithValue("@Asset_Year" + i, Asset_Year);
+                        sc.Parameters.AddWithValue("@Asset_Desc" + i, Asset_Desc);
+                        sc.Parameters.AddWithValue("@Asset_Note" + i, Asset_Note);
+
+                        if (Assets_dataGridView.Rows[i].Cells[ID_Columns[Assets_dataGridView]].Value != null)
+                        {
+                            string APerson_ID = Assets_dataGridView.Rows[i].Cells[ID_Columns[Assets_dataGridView]].Value.ToString();
+                            sc.Parameters.AddWithValue("@APerson_ID" + i, APerson_ID);
+
+                            if (Assets_dataGridView.Rows[i].Visible == false)
+                                dataGrid_Query += "DELETE FROM person_asset WHERE ID = @APerson_ID" + i + ";";
+                            else
+                            {
+                                dataGrid_Query += "UPDATE person_asset set Person_ID  = @Asset_PName" + i + "," +
+                                    " Asset_ID  = @Asset_Name" + i + "," +
+                                    " type_ID  = @Asset_type" + i + "," +
+                                    " Year  = @Asset_Year" + i + "," +
+                                    " Description = @Asset_Desc" + i + "," +
+                                    " Note = @Asset_Note" + i + "" +
+                                    " where ID = @APerson_ID" + i + ";";
+                            }
+                        }
+                        else
+                        {
+                            dataGrid_Query += "INSERT INTO person_asset (Person_ID, Asset_ID, type_ID, Year , Description, Note)" +
+                                " VALUES (@Asset_PName" + i + ", @Asset_Name" + i + ", @Asset_type" + i + ", @Asset_Year" + i + ", @Asset_Desc" + i + ", @Asset_Note" + i + ");";
+                        }
+                    }
+                }
+            }
+
+            if (IsDirty_DataGrid[AidSource_dataGridView])
+            {
+                for (int i = 0; i <= AidSource_dataGridView.Rows.Count - 2; i++)
+                {
+                    if (AidSource_dataGridView.Rows[i].Cells[IsDirty_Columns[AidSource_dataGridView]].Value != null && (string)AidSource_dataGridView.Rows[i].Cells[IsDirty_Columns[AidSource_dataGridView]].Value == "1")
+                    {
+                        string Aid_PName = AidSource_dataGridView.Rows[i].Cells["Aid_PName"].Value?.ToString() ?? "";
+                        string Aid_Source = AidSource_dataGridView.Rows[i].Cells["Aid_Source"].Value?.ToString() ?? "";
+                        string Aid_DateYear = AidSource_dataGridView.Rows[i].Cells["Aid_DateYear"].Value?.ToString() ?? "";
+                        string Aid_Amount = AidSource_dataGridView.Rows[i].Cells["Aid_Amount"].Value?.ToString() ?? "";
+                        string Aid_ProjectType = AidSource_dataGridView.Rows[i].Cells["Aid_ProjectType"].Value?.ToString() ?? "";
+                        string Aid_Notes = AidSource_dataGridView.Rows[i].Cells["Aid_Notes"].Value?.ToString() ?? "";
+
+                        sc.Parameters.AddWithValue("@Aid_PName" + i, string.IsNullOrEmpty(Aid_PName) ? (object)DBNull.Value : Aid_PName);
+                        sc.Parameters.AddWithValue("@Aid_Source" + i, string.IsNullOrEmpty(Aid_Source) ? (object)DBNull.Value : Aid_Source);
+                        sc.Parameters.AddWithValue("@Aid_DateYear" + i, Aid_DateYear);
+                        sc.Parameters.AddWithValue("@Aid_Amount" + i, Aid_Amount);
+                        sc.Parameters.AddWithValue("@Aid_ProjectType" + i, Aid_ProjectType);
+                        sc.Parameters.AddWithValue("@Aid_Notes" + i, Aid_Notes);
+
+                        if (AidSource_dataGridView.Rows[i].Cells[ID_Columns[AidSource_dataGridView]].Value != null)
+                        {
+                            string AidP_ID = AidSource_dataGridView.Rows[i].Cells[ID_Columns[AidSource_dataGridView]].Value.ToString();
+                            sc.Parameters.AddWithValue("@AidP_ID" + i, AidP_ID);
+
+                            if (AidSource_dataGridView.Rows[i].Visible == false)
+                                dataGrid_Query += "DELETE FROM person_aidsource WHERE ID = @AidP_ID" + i + ";";
+                            else
+                            {
+                                dataGrid_Query += "UPDATE person_aidsource set Person_ID  = @Aid_PName" + i + "," +
+                                    " AidSource_ID  = @Aid_Source" + i + "," +
+                                    " DateYear  = @Aid_DateYear" + i + "," +
+                                    " Amount = @Aid_Amount" + i + "," +
+                                    " ProjectType = @Aid_ProjectType" + i + "," +
+                                    " Notes = @Aid_Notes" + i + "" +
+                                    " where ID = @AidP_ID" + i + ";";
+                            }
+                        }
+                        else
+                        {
+                            dataGrid_Query += "INSERT INTO person_aidsource (Person_ID, AidSource_ID, DateYear , Amount,ProjectType, Notes)" +
+                                " VALUES (@Aid_PName" + i + ", @Aid_Source" + i + ", @Aid_DateYear" + i + ", @Aid_Amount" + i + ", @Aid_ProjectType" + i + ", @Aid_Notes" + i + ");";
+                        }
+                    }
+                }
+            }
+            #endregion
+            
+            #region AditionalInfo
+            string MP_SimpleProfit2 = "";
+            int HasHelpSource = -1, PaperApplicationUser = -1;
+
+            if (!P_HasHelpSourceYes_radioButton.Checked && !P_HasHelpSourceNo_radioButton.Checked)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد يوجد/لا يوجد في قسم مصادر المساعدة", "Error");
+                return;
+            }
+            if (P_HasHelpSourceYes_radioButton.Checked)
+            {
+                if (HelpSource_dataGridView.Rows.Count <= 1)
+                {
+                    MessageBox.Show("لا يمكن ترك جدول مصادر المساعدة فارغاً في حال يوجد مصادر مساعدة", "Error");
+                    return;
+                }
+            }
+            for (int i = 0; i <= HelpSource_dataGridView.Rows.Count - 2; i++)
+            {
+                if (HelpSource_dataGridView.Rows[i].Visible)
+                {
+                    if (HelpSource_dataGridView.Rows[i].Cells["Help_Source"].Value == null || HelpSource_dataGridView.Rows[i].Cells["Help_Source"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال الجهة في جميع الأسطر في قسم مصادر المساعدة", "Error");
+                        return;
+                    }
+                    else if (HelpSource_dataGridView.Rows[i].Cells["Help_Name"].Value == null || HelpSource_dataGridView.Rows[i].Cells["Help_Name"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال نوع المساعدة في جميع الأسطر في قسم مصادر المساعدة", "Error");
+                        return;
+                    }
+                    else if (HelpSource_dataGridView.Rows[i].Cells["Help_Period"].Value == null || HelpSource_dataGridView.Rows[i].Cells["Help_Period"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال مدة المساعدة في جميع الأسطر في قسم مصادر المساعدة", "Error");
+                        return;
+                    }
+                }
+            }
+
+            if (HomePowerSource_dataGridView.Rows.Count <= 1)
+            {
+                MessageBox.Show("لا يمكن ترك جدول مصادر الطاقة في المنزل فارغاً", "Error");
+                return;
+            }
+            for (int i = 0; i <= HomePowerSource_dataGridView.Rows.Count - 2; i++)
+            {
+                if (HomePowerSource_dataGridView.Rows[i].Visible)
+                {
+                    if (HomePowerSource_dataGridView.Rows[i].Cells["HPower_Name"].Value == null || HomePowerSource_dataGridView.Rows[i].Cells["HPower_Name"].Value.ToString() == "")
+                    {
+                        MessageBox.Show("الرجاء التأكد من إدخال مصدر الطاقة في جميع الأسطر في قسم مصادر الطاقة في المنزل", "Error");
+                        return;
+                    }
+                }
+            }
+
+            if (string.IsNullOrWhiteSpace(PaperApplicationUser_comboBox.Text) || PaperApplicationUser_comboBox.SelectedIndex < 0)
+            {
+                MessageBox.Show("الرجاء التأكد من تحديد مسجل الطلب ورقياً", "Error");
+                return;
+            }
+
+            if (IsDirty_Data["AditionalInfo_ISDirty"])
+            {
+                if (P_HasHelpSourceYes_radioButton.Checked)
+                {
+                    HasHelpSource = 1;
+                }
+                else if (P_HasHelpSourceNo_radioButton.Checked)
+                {
+                    HasHelpSource = 0;
+                }
+                else
+                {
+                    HasHelpSource = -1;
+                }
+
+                MP_SimpleProfit2 = MP_SimpleProfit2_textBox.Text;
+
+                PaperApplicationUser = int.Parse(PaperApplicationUser_comboBox.SelectedValue.ToString());
+            }
+
+            if (IsDirty_DataGrid[HelpSource_dataGridView])
+            {
+                for (int i = 0; i <= HelpSource_dataGridView.Rows.Count - 2; i++)
+                {
+                    if (HelpSource_dataGridView.Rows[i].Cells[IsDirty_Columns[HelpSource_dataGridView]].Value != null && (string)HelpSource_dataGridView.Rows[i].Cells[IsDirty_Columns[HelpSource_dataGridView]].Value == "1")
+                    {
+                        string Help_Source = HelpSource_dataGridView.Rows[i].Cells["Help_Source"].Value?.ToString() ?? "";
+                        string Help_Name = HelpSource_dataGridView.Rows[i].Cells["Help_Name"].Value?.ToString() ?? "";
+                        string Help_Period = HelpSource_dataGridView.Rows[i].Cells["Help_Period"].Value?.ToString() ?? "";
+                        string Help_Note = HelpSource_dataGridView.Rows[i].Cells["Help_Note"].Value?.ToString() ?? "";
+
+                        sc.Parameters.AddWithValue("@Help_Source" + i, string.IsNullOrEmpty(Help_Source) ? (object)DBNull.Value : Help_Source);
+                        sc.Parameters.AddWithValue("@Help_Name" + i, string.IsNullOrEmpty(Help_Name) ? (object)DBNull.Value : Help_Name);
+                        sc.Parameters.AddWithValue("@Help_Period" + i, string.IsNullOrEmpty(Help_Period) ? (object)DBNull.Value : Help_Period);
+                        sc.Parameters.AddWithValue("@Help_Note" + i, Help_Note);
+
+                        if (HelpSource_dataGridView.Rows[i].Cells[ID_Columns[HelpSource_dataGridView]].Value != null)
+                        {
+                            string HelpP_ID = HelpSource_dataGridView.Rows[i].Cells[ID_Columns[HelpSource_dataGridView]].Value.ToString();
+                            sc.Parameters.AddWithValue("@HelpP_ID" + i, HelpP_ID);
+
+                            if (HelpSource_dataGridView.Rows[i].Visible == false)
+                                dataGrid_Query += "DELETE FROM person_help WHERE ID = @HelpP_ID" + i + ";";
+                            else
+                            {
+                                dataGrid_Query += "UPDATE person_help set AidSource_ID = @Help_Source" + i + "," +
+                                    " Aid_ID  = @Help_Name" + i + "," +
+                                    " Aidperiod_ID  = @Help_Period" + i + "," +
+                                    " Notes  = @Help_Note" + i + "" +
+                                    " where ID = @HelpP_ID" + i + ";";
+                            }
+                        }
+                        else
+                        {
+                            dataGrid_Query += "INSERT INTO person_help (Person_ID, AidSource_ID, Aid_ID , Aidperiod_ID, Notes)" +
+                                " VALUES (@Person_ID, @Help_Source" + i + ", @Help_Name" + i + ", @Help_Period" + i + ", @Help_Note" + i + ");";
+                        }
+                    }
+                }
+            }
+
+            if (IsDirty_DataGrid[HomePowerSource_dataGridView])
+            {
+                for (int i = 0; i <= HomePowerSource_dataGridView.Rows.Count - 2; i++)
+                {
+                    if (HomePowerSource_dataGridView.Rows[i].Cells[IsDirty_Columns[HomePowerSource_dataGridView]].Value != null && (string)HomePowerSource_dataGridView.Rows[i].Cells[IsDirty_Columns[HomePowerSource_dataGridView]].Value == "1")
+                    {
+                        string HPower_Name = HomePowerSource_dataGridView.Rows[i].Cells["HPower_Name"].Value?.ToString() ?? "";
+                        string HPower_Note = HomePowerSource_dataGridView.Rows[i].Cells["HPower_Note"].Value?.ToString() ?? "";
+                        string HPower_Cost = HomePowerSource_dataGridView.Rows[i].Cells["HPower_Cost"].Value?.ToString() ?? "";
+                        string HPower_Responsability = HomePowerSource_dataGridView.Rows[i].Cells["HPower_Responsability"].Value?.ToString() ?? "";
+
+                        sc.Parameters.AddWithValue("@HPower_Name" + i, string.IsNullOrEmpty(HPower_Name) ? (object)DBNull.Value : HPower_Name);
+                        sc.Parameters.AddWithValue("@HPower_Note" + i, HPower_Note);
+                        sc.Parameters.AddWithValue("@HPower_Cost" + i, HPower_Cost);
+                        sc.Parameters.AddWithValue("@HPower_Responsability" + i, HPower_Responsability);
+
+                        if (HomePowerSource_dataGridView.Rows[i].Cells[ID_Columns[HomePowerSource_dataGridView]].Value != null)
+                        {
+                            string HPowerP_ID = HomePowerSource_dataGridView.Rows[i].Cells[ID_Columns[HomePowerSource_dataGridView]].Value.ToString();
+                            sc.Parameters.AddWithValue("@HPowerP_ID" + i, HPowerP_ID);
+
+                            if (HomePowerSource_dataGridView.Rows[i].Visible == false)
+                                dataGrid_Query += "DELETE FROM person_powersource WHERE ID = @HPowerP_ID" + i + ";";
+                            else
+                            {
+                                dataGrid_Query += "UPDATE person_powersource set PowerSource_ID = @HPower_Name" + i + "," +
+                                    " Note  = @HPower_Note" + i + "," +
+                                    " Cost  = @HPower_Cost" + i + "," +
+                                    " Responsability  = @HPower_Responsability" + i + "" +
+                                    " where ID = @HPowerP_ID" + i + ";";
+                            }
+                        }
+                        else
+                        {
+                            dataGrid_Query += "INSERT INTO person_powersource (Person_ID, PowerSource_ID, Note , Cost, Responsability)" +
+                                " VALUES (@Person_ID, @HPower_Name" + i + ", @HPower_Note" + i + ", @HPower_Cost" + i + ", @HPower_Responsability" + i + ");";
+                        }
+                    }
+                }
+            }
+            #endregion
+
+          
+        }
+        #endregion
+
+        #region Check functions
+        private DataTable Check_National_Number(string PersonNationalNum)
+        {
+            var PersonNationalNum_without_zero = "";
+            var PersonNationalNum_with_zero = "";
+
+            if (PersonNationalNum.ElementAt(0).ToString() == "0")
+            {
+                PersonNationalNum_without_zero = PersonNationalNum.Remove(0, 1);
+                PersonNationalNum_with_zero = PersonNationalNum;
+            }
+            else
+            {
+                PersonNationalNum_without_zero = PersonNationalNum;
+                PersonNationalNum_with_zero = "0" + PersonNationalNum;
+            }
+
+            var query = "select CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ',P_FatherName) as 'Beneficiary Name'"
+                        + ",MP.MP_ID 'MicroProject_ID'"
+                        + ",P.P_ID 'P_ID'"
+                        + " from `microproject` MP inner join person_microproject PMP on PMP.MicroProject_ID = MP.MP_ID "
+                        + " inner join person P on P.P_ID = PMP.Person_ID "
+                        + " where P_NationalNumber like '" + PersonNationalNum_without_zero + "'"
+                        + " or P_NationalNumber like '" + PersonNationalNum_with_zero + "' ";
+
+            Program.buildConnection();
+            var sc = new MySqlCommand(query, Program.MyConn);
+            sc.ExecuteNonQuery();
+            var da = new MySqlDataAdapter(sc);
+            var dt = new DataTable();
+            da.Fill(dt);
+
+            Program.MyConn.Close();
+
+            return dt;
+        }
+
+        private bool Check_MicroProject_ID(string MP_ID)
+        {
+            Program.buildConnection();
+            MySqlCommand sc = new MySqlCommand("select count(MP_ID) from `microproject` where MP_ID = " + MP_ID, Program.MyConn);
+            var check_MP_ID = Convert.ToInt32(sc.ExecuteScalar());
+            Program.MyConn.Close();
+            if (check_MP_ID == 0)
+            {
+                return true; //امورنا بالسليم
+            }
+            else
+            {
+                MessageBox.Show("الرجاء استخدام رقم مشروع آخر لأن هذا الرقم مستخدم من قبل مشروع آخر");
+                return false; //في حدا تاني بهالرقم
+            }
+        }
+
+        private DataTable Check_Family_Num(string FamilyNum)
+        {
+            var query =
+                @"select CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ', P_FatherName) as 'الاسم الثلاثي'
+                                ,PMP.Person_ID as 'ID' , PMP.MicroProject_ID as 'MicroProject_ID' 
+                                From `person` p right outer join `person_family` pf on p.P_ID = pf.Person_ID 
+                                left outer join `family` f on f.F_ID = pf.Family_ID 
+                                left outer join `person_microproject` PMP on PMP.Person_ID = p.P_ID 
+                                where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'مستفيد'";
+
+            Program.buildConnection();
+            var sc = new MySqlCommand(query, Program.MyConn);
+            sc.ExecuteNonQuery();
+            var da = new MySqlDataAdapter(sc);
+            var dt = new DataTable();
+            da.Fill(dt);
+            Program.MyConn.Close();
+
+            return dt;
+        }
+        #endregion
+
+
+
+
+
+
+
 
 
 
@@ -2958,423 +4907,6 @@ namespace MyWorkApplication
             return false;
         }
 
-        private void Save_button_Click(object sender, EventArgs e)
-        {
-            //Save_btn.IsEnabled = false;
-            //try
-            //{
-            //    string inserted_value = "";
-            //    double amount = 0;
-            //    string ActionDate = "";
-            //    string Notes = "";
-            //    string E_Notes = "";
-            //    string ObserveTill_Type = "";
-            //    int DestinationTill_ID = -1;
-            //    int ExchangeAcc_ID = -1;
-            //    int Donor_ID = -1;
-            //    int MicroProject_ID = -1;
-            //    int budget_line_ID = -1;
-            //    int CashAccount_ID = -1;
-            //    int ObserveCashAccount_ID = -1;
-            //    int ExchangeCash_ID = -1;
-            //    int IsReceipt = -1;
-            //    int OriginalRate_ID = -1;
-            //    string ReceiptNum = "";
-            //    int Employee_Salary_ID = -1;
-            //    bool WithExAcc = false;
-            //    bool WithExchangeRate = false;
-
-            //    double rate = 0;
-
-            //    #region Check and get data
-
-            //    if (Type_comboBox.Text == "")
-            //    {
-            //        MessageBox.Show("Please select the operation type.", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //        return;
-            //    }
-            //    else
-            //    {
-            //        if (Type_comboBox.SelectedItem.ToString().Contains("Income"))
-            //        {
-            //            inserted_value = "I";
-            //        }
-            //        else if (Type_comboBox.SelectedItem.ToString().Contains("Adv. Payment"))
-            //        {
-            //            inserted_value = "O";
-            //        }
-            //        else if (Type_comboBox.SelectedItem.ToString().Contains("Returned"))
-            //        {
-            //            inserted_value = "R";
-            //        }
-            //        else if (Type_comboBox.SelectedItem.ToString().Contains("Expenses"))
-            //        {
-            //            inserted_value = "E";
-            //        }
-            //        else if (Type_comboBox.SelectedItem.ToString().Contains("Exchange"))
-            //        {
-            //            inserted_value = "Ex";
-            //            if (Account_Type == "Project")
-            //            {
-            //                if (!Check_AvgRate())
-            //                {
-            //                    MessageBox.Show("Please ensure that there is at least one AvgRate that matches the conversion currency and extends for a period that includes the transaction date.", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //                    return;
-            //                }
-            //            }
-            //        }
-            //        else if (Type_comboBox.SelectedItem.ToString().Contains("Move"))
-            //        {
-            //            inserted_value = "M";
-            //        }
-            //    }
-
-            //    if (Amount_txtBox.Text == "")
-            //    {
-            //        MessageBox.Show("Please make sure to enter the amount.", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //        return;
-
-            //    }
-            //    else
-            //    {
-
-            //        Double.TryParse(Amount_txtBox.Text, out amount);
-            //    }
-
-            //    if (ActionDate_datepicker.SelectedDate == null)
-            //    {
-            //        MessageBox.Show("Please make sure to select the operation date.", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //        return;
-
-            //    }
-            //    else
-            //    {
-            //        ActionDate = ((DateTime)ActionDate_datepicker.SelectedDate).ToString("yyyy/MM/dd");
-            //    }
-
-            //    if (DestinationTill_comboBox.Visibility == Visibility.Visible)
-            //    {
-
-            //        if (Type_comboBox.SelectedItem.ToString().Contains("Exchange"))
-            //        {
-            //            if (DestinationTill_comboBox.SelectedIndex == -1)
-            //            {
-            //                MessageBox.Show("Please make sure to select the Corresponding till.", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //                return;
-
-
-            //            }
-            //            else
-            //            {
-            //                DestinationTill_ID = Convert.ToInt32(DestinationTill_comboBox.SelectedValue);
-
-            //                DataRow[] row = t_dt.Select("ID=" + Convert.ToInt32(DestinationTill_ID));
-
-            //                ObserveTill_Type = row[0]["Type"].ToString();
-
-            //                if (Account_Type == "Project" && ExchangeAcc_comboBox.SelectedIndex != -1)
-            //                    WithExAcc = true;
-
-            //                if (Account_Type == "Exchange")
-            //                    WithExchangeRate = true;
-            //            }
-            //        }
-            //        else if (Type_comboBox.SelectedItem.ToString().Contains("Move"))
-            //        {
-            //            if (DestinationTill_comboBox.SelectedIndex == -1)
-            //            {
-            //                MessageBox.Show("Please make sure to select the Corresponding account.", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //                return;
-
-            //            }
-            //            else
-            //            {
-            //                if (DestinationTill_comboBox.SelectedIndex != -1)
-            //                    DestinationTill_ID = Convert.ToInt32(DestinationTill_comboBox.SelectedValue);
-
-            //                ObserveTill_Type = TillType;
-            //            }
-            //        }
-
-            //    }
-
-            //    if (ExchangeAcc_comboBox.Visibility == Visibility.Visible)
-            //    {
-            //        if (ExchangeAcc_comboBox.SelectedIndex == -1)
-            //        {
-
-            //        }
-            //        else
-            //        {
-            //            ExchangeAcc_ID = Convert.ToInt32(ExchangeAcc_comboBox.SelectedValue);
-
-            //            if (ExchangeCash_comboBox.Visibility == Visibility.Visible)
-            //            {
-            //                if (ExchangeCash_comboBox.SelectedIndex == -1)
-            //                {
-            //                    MessageBox.Show("Please make sure to select the Exchange cash till.", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //                    return;
-
-            //                }
-            //                else
-            //                {
-            //                    ExchangeCash_ID = Convert.ToInt32(ExchangeCash_comboBox.SelectedValue);
-            //                }
-            //            }
-            //        }
-            //    }
-
-            //    if (MircoProject_ID_autoSuggestionUserControl.Visibility == Visibility.Visible)
-            //    {
-            //        if (MircoProject_ID_autoSuggestionUserControl.autoTextBox.Text != "" && BeneficiaryName_txtBox.autoTextBox.Text != "")
-            //            int.TryParse(MircoProject_ID_autoSuggestionUserControl.autoTextBox.Text, out MicroProject_ID);
-            //        else MicroProject_ID = -1;
-
-            //        if (MicroProject_ID == -1)
-            //        {
-            //            MessageBox.Show("Please make sure to select the micro project.", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //            return;
-
-            //        }
-            //    }
-
-            //    if (Donor_comboBox.Visibility == Visibility.Visible)
-            //    {
-            //        if (Donor_comboBox.SelectedIndex == -1)
-            //        {
-            //            MessageBox.Show("Please make sure to select the donor", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //            return;
-            //        }
-            //        else
-            //            Donor_ID = Convert.ToInt32(Donor_comboBox.SelectedValue);
-            //    }
-
-            //    if (CashAccount_comboBox.Visibility == Visibility.Visible)
-            //    {
-            //        if (CashAccount_comboBox.SelectedIndex == -1)
-            //        {
-            //            MessageBox.Show("Please make sure to select the cash till.", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //            return;
-            //        }
-            //        else
-            //            CashAccount_ID = Convert.ToInt32(CashAccount_comboBox.SelectedValue);
-            //    }
-
-            //    if (ObserveCashAccount_comboBox.Visibility == Visibility.Visible)
-            //    {
-            //        if (ObserveCashAccount_comboBox.SelectedIndex == -1)
-            //        {
-            //            MessageBox.Show("Please make sure to select the corresponding cash till.", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //            return;
-            //        }
-            //        else
-            //            ObserveCashAccount_ID = Convert.ToInt32(ObserveCashAccount_comboBox.SelectedValue);
-            //    }
-
-            //    if (Budget_comboBox.Visibility == Visibility.Visible)
-            //    {
-            //        if (Line_comboBox.SelectedIndex == -1)
-            //        {
-            //            MessageBox.Show("Please make sure to select the budget, category and budget line.", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //            return;
-            //        }
-            //        else
-            //            budget_line_ID = Convert.ToInt32(Line_comboBox.SelectedValue);
-            //    }
-
-
-
-            //    if (IsReceipt_comboBox.Visibility == Visibility.Visible)
-            //    {
-            //        if (IsReceipt_comboBox.SelectedIndex == -1 && Account_Type != "Personal")
-            //        {
-            //            MessageBox.Show("Please make sure to select the documet type and to specify its date", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //            return;
-            //        }
-            //        else
-            //        {
-            //            if (IsReceipt_comboBox.SelectedIndex != -1)
-            //            {
-            //                if (IsReceipt_comboBox.SelectedItem.ToString().Contains("invoice"))
-            //                {
-            //                    IsReceipt = 1;
-            //                }
-            //                else if (IsReceipt_comboBox.SelectedItem.ToString().Contains("receipt"))
-            //                {
-            //                    IsReceipt = 0;
-            //                }
-            //                else if (IsReceipt_comboBox.SelectedItem.ToString().Contains("payslip"))
-            //                {
-            //                    IsReceipt = 2;
-            //                }
-            //            }
-            //        }
-            //    }
-
-            //    if (ReceiptNum_txtBox.Visibility == Visibility.Visible)
-            //    {
-            //        if (ReceiptNum_txtBox.Text == "" && Account_Type != "Personal")
-            //        {
-            //            MessageBox.Show("Please make sure to enter the document number", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //            return;
-
-            //        }
-            //        else
-            //            ReceiptNum = ReceiptNum_txtBox.Text;
-            //    }
-
-            //    if (Original_AvgRate_comboBox.Visibility == Visibility.Visible)
-            //    {
-            //        if (Original_AvgRate_comboBox.SelectedIndex == -1)
-            //        {
-            //            if (Account_Type == "Project" && TillType.ToLower() == "syr")
-            //            {
-            //                MessageBox.Show("Please make sure to select the origin Avg rate", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //                return;
-
-            //            }
-            //        }
-            //        else
-            //            OriginalRate_ID = Convert.ToInt32(Original_AvgRate_comboBox.SelectedValue);
-            //    }
-
-            //    if (Rate_txtBox.Visibility == Visibility.Visible)
-            //    {
-            //        if (Rate_txtBox.Text == "")
-            //        {
-            //            MessageBox.Show("Please make sure to enter the rate", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //            return;
-            //        }
-            //        else
-            //            Double.TryParse(Rate_txtBox.Text, out rate);
-            //    }
-
-            //    if (Employee_comboBox.Visibility == Visibility.Visible)
-            //    {
-            //        if (Employee_comboBox.SelectedIndex == -1)
-            //        {
-            //            MessageBox.Show("Please make sure to select the Volunteer.", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //            return;
-            //        }
-            //        else
-            //        {
-            //            Employee_Salary_ID = Convert.ToInt32(Employee_comboBox.SelectedValue);
-            //        }
-            //    }
-
-            //    Notes = Notes_txtBox.Text;
-            //    E_Notes = E_Notes_txtBox.Text;
-            //    #endregion
-
-            //    if (Login.BuildConnection())
-            //    {
-            //        if (Action_ID != -1)//Edit
-            //        {
-            //            if (Approved_Action)
-            //            {
-            //                if (inserted_value == "Ex" || inserted_value == "M")
-            //                {
-            //                    a.Update(Action_ID, inserted_value, Till_ID, TillType, DestinationTill_ID, ObserveTill_Type, Donor_ID, ExchangeAcc_ID, true, WithExAcc, WithExchangeRate, amount, rate
-            //                        , ActionDate, Notes, E_Notes, IsReceipt, ReceiptNum, Employee_Salary_ID
-            //                        , OriginalRate_ID, MicroProject_ID, budget_line_ID, -1, CashAccount_ID, ObserveCashAccount_ID, ExchangeCash_ID, Account_ID, "AddAction_Window");
-            //                }
-            //                else
-            //                {
-            //                    a.Update(Action_ID, inserted_value, Till_ID, TillType, DestinationTill_ID, ObserveTill_Type, Donor_ID, ExchangeAcc_ID, false, false, false, amount, rate
-            //                    , ActionDate, Notes, E_Notes, IsReceipt, ReceiptNum, Employee_Salary_ID
-            //                        , OriginalRate_ID, MicroProject_ID, budget_line_ID, -1, CashAccount_ID, ObserveCashAccount_ID, ExchangeCash_ID, -1, "AddAction_Window"); ;
-            //                }
-            //            }
-            //            else
-            //            {
-            //                if (inserted_value == "Ex" || inserted_value == "M")
-            //                {
-            //                    a.Update_Not_Approved(Action_ID, inserted_value, Till_ID, TillType, DestinationTill_ID, ObserveTill_Type, Donor_ID, ExchangeAcc_ID, true, WithExAcc, WithExchangeRate, amount, rate
-            //                        , ActionDate, Notes, E_Notes, IsReceipt, ReceiptNum, Employee_Salary_ID
-            //                        , OriginalRate_ID, MicroProject_ID, budget_line_ID, -1, CashAccount_ID, ObserveCashAccount_ID, ExchangeCash_ID, Account_ID, "AddAction_Window");
-            //                }
-            //                else
-            //                {
-            //                    a.Update_Not_Approved(Action_ID, inserted_value, Till_ID, TillType, DestinationTill_ID, ObserveTill_Type, Donor_ID, ExchangeAcc_ID, false, false, false, amount, rate
-            //                    , ActionDate, Notes, E_Notes, IsReceipt, ReceiptNum, Employee_Salary_ID
-            //                        , OriginalRate_ID, MicroProject_ID, budget_line_ID, -1, CashAccount_ID, ObserveCashAccount_ID, ExchangeCash_ID, -1, "AddAction_Window"); ;
-            //                }
-            //            }
-            //            int success = 0;
-            //            if (FullAttachNames != null && FullAttachNames.Length > 0)
-            //            {
-            //                foreach (var FullAttachName in FullAttachNames)
-            //                {
-            //                    if (Save_Attachments(FullAttachName, Action_ID)) success++;
-            //                }
-            //            }
-
-            //            if (FullAttachNames != null && FullAttachNames.Length > 0)
-            //                MessageBox.Show("Saved successfully." + Environment.NewLine + "Attachments: Succeeded" + FullAttachNames.Length.ToString() + "/" + success.ToString(), "Confirmation", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //            else
-            //                MessageBox.Show("Saved successfully.", "Confirmation", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-
-            //            this.Close();
-            //        }
-            //        else//Add new
-            //        {
-            //            int A_id = -1;
-            //            if (inserted_value == "Ex" || inserted_value == "M")
-            //            {
-            //                A_id = a.Insert(Till_ID, TillType, DestinationTill_ID, ObserveTill_Type, Donor_ID, ExchangeAcc_ID, true, WithExAcc, WithExchangeRate, inserted_value, amount, rate, ActionDate
-            //                , Notes, E_Notes, IsReceipt, ReceiptNum, Employee_Salary_ID
-            //               , OriginalRate_ID, MicroProject_ID, budget_line_ID, -1, CashAccount_ID, ObserveCashAccount_ID, ExchangeCash_ID, Account_ID, "AddAction_Window");
-            //            }
-            //            else
-            //            {
-            //                A_id = a.Insert(Till_ID, TillType, DestinationTill_ID, ObserveTill_Type, Donor_ID, -1, false, false, false, inserted_value, amount, rate, ActionDate
-            //                , Notes, E_Notes, IsReceipt, ReceiptNum, Employee_Salary_ID
-            //                , OriginalRate_ID, MicroProject_ID, budget_line_ID, -1, CashAccount_ID, ObserveCashAccount_ID, ExchangeCash_ID, -1, "AddAction_Window");
-            //            }
-            //            int success = 0;
-            //            if (FullAttachNames != null && FullAttachNames.Length > 0)
-            //            {
-            //                foreach (var FullAttachName in FullAttachNames)
-            //                {
-            //                    if (Save_Attachments(FullAttachName, A_id)) success++;
-            //                }
-            //            }
-
-            //            if (FullAttachNames != null && FullAttachNames.Length > 0)
-            //                MessageBox.Show("Saved successfully." + Environment.NewLine + "Attachments: Succeeded" + FullAttachNames.Length.ToString() + "/" + success.ToString(), "Confirmation", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //            else
-            //                MessageBox.Show("Saved successfully.", "Confirmation", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
-            //            UserMode = false;
-            //            Clear_Boxes();
-            //            UserMode = true;
-            //        }
-
-            //        if (TW != null)
-            //            TW.Load_Data();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    if (Login.MyConn != null && Login.MyConn.State == ConnectionState.Open)
-            //    {
-            //        Login.MyConn.Close();
-            //    }
-            //    if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL"))
-            //    { MessageBox.Show("please check your network and try again", "Error"); }
-            //    else if (ex.Message.Contains("host"))
-            //    { MessageBox.Show("please check the server or your network connection and try again", "Error"); }
-            //    else if (ex.Message.Contains("Duplicate entry"))
-            //    { MessageBox.Show("Error … There are duplicate values.", "Error", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign); }
-            //    else { MessageBox.Show(ex.Message, "Error"); }
-            //}
-            //finally
-            //{
-            //    Save_btn.IsEnabled = true;
-            //}
-        }
-
-
-
         #region sql queries 
         //TODO
         // edit queries type
@@ -3389,153 +4921,9 @@ namespace MyWorkApplication
         #endregion
 
         #region functions
-        private bool Check_MicroProject_ID(string MP_ID)
-        {
-            Program.buildConnection();
-            MySqlCommand sc = new MySqlCommand("select count(MP_ID) from `microproject` where MP_ID = " + MP_ID, Program.MyConn);
-            var check_MP_ID = Convert.ToInt32(sc.ExecuteScalar());
-            Program.MyConn.Close();
-            if (check_MP_ID == 0)
-            {
-                return true; //امورنا بالسليم
-            }
-            else
-            {
-                return false; //في حدا تاني بهالرقم
-            }
-        }
-        private void Check_National_Number(string PersonNationalNum)
-        {
-            var PersonNationalNum_without_zero = "";
-            if (PersonNationalNum.ElementAt(0).ToString() == "0")
-                PersonNationalNum_without_zero = PersonNationalNum.Remove(0, 1);
-            else
-                PersonNationalNum_without_zero = PersonNationalNum;
 
-            Program.buildConnection();
-            string q = "select count(P_NationalNumber) from `person` " +
-                " where P_NationalNumber like '" + PersonNationalNum_without_zero + "'" +
-                " or P_NationalNumber like '" + PersonNationalNum + "' ";
-            MySS.sc = new MySqlCommand(q, Program.MyConn);
-            var check_NationalID = Convert.ToInt32(MySS.sc.ExecuteScalar());
-            Program.MyConn.Close();
-            if (check_NationalID != 0)
-            {
-                // Get ID 
-                var query = "select CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ',P_FatherName) as 'Beneficiary Name'"
-                            + ",MP.MP_ID 'MicroProject_ID'"
-                            + ",P.P_ID 'P_ID'"
-                            + " from `microproject` MP inner join person_microproject PMP on PMP.MicroProject_ID = MP.MP_ID "
-                            + " inner join person P on P.P_ID = PMP.Person_ID "
-                            + " where P_NationalNumber like '" + PersonNationalNum_without_zero + "'"
-                            + " or P_NationalNumber like '" + PersonNationalNum + "' ";
-                Program.buildConnection();
-                var sc = new MySqlCommand(query, Program.MyConn);
-                sc.ExecuteNonQuery();
-                var da = new MySqlDataAdapter(sc);
-                var dt = new DataTable();
-                da.Fill(dt);
 
-                Program.MyConn.Close();
-                if (dt != null)
-                {
-                    if (dt.Rows.Count > 0)
-                    {
-                        int P_ID = int.Parse(dt.Rows[0]["P_ID"].ToString());
-                        int MP_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
-                        var Name = dt.Rows[0]["Beneficiary Name"].ToString();
 
-                        var _MessageBox = new Application_MessageBox(P_ID, MP_ID, Name);
-                        var r = _MessageBox.ShowDialog();
-                        if (r == DialogResult.Yes)
-                        {
-                            //////open Old Application in new tab 
-                            Form application_Form = new Application_Form(P_ID, MP_ID, mainForm);
-                            mainForm.showNewTab(application_Form, "Application", 1);
-                        }
-                        else if (r == DialogResult.No)
-                        {
-                            OldBeneficiary_NewProject = true;
-                            Person_ID = int.Parse(dt.Rows[0]["P_ID"].ToString());
-                            MicroProject_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
-
-                            //TODO
-                            //Fill_Person();
-                            //Fill_PersonDetails();
-                            //Fill_FamilyMembers(0); 
-                            //clear_Project_boxes();
-                        }
-                        else
-                        {
-                            //تراجع
-                            //Nothing to do// 
-                        }
-                    }
-                }
-                else
-                {
-                    throw new InvalidOperationException(
-                        "حدث مشكلة أثناء حفظ البيانات ! الرجاء التأكد من البيانات والمحاولة مرة ثانية.");
-                }
-            }
-        }
-        private void Check_Family_Num()
-        {
-            try
-            {
-                //clear unused dummy families//
-                string q = "DELETE from family WHERE family.F_ID not in (SELECT person_family.Family_ID from person_family);";
-                //check if family is already inserted// 
-                q += "select count(F_Number) from `family` where F_Number like '" + FamilyNum_textBox1.Text + "';";
-
-                Program.buildConnection();
-                MySS.sc = new MySqlCommand(q, Program.MyConn);
-                var FamilyBookID = Convert.ToInt32(MySS.sc.ExecuteScalar());
-                Program.MyConn.Close();
-                if (FamilyBookID != 0)
-                {
-                    // get beneficiary names of this family
-
-                    var query =
-                        @"select CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ', P_FatherName) as 'الاسم الثلاثي'
-                                ,PMP.Person_ID as 'ID' , PMP.MicroProject_ID as 'MicroProject_ID' 
-                                From `person` p right outer join `person_family` pf on p.P_ID = pf.Person_ID 
-                                left outer join `family` f on f.F_ID = pf.Family_ID 
-                                left outer join `person_microproject` PMP on PMP.Person_ID = p.P_ID 
-                                where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'مستفيد'";
-                    Program.buildConnection();
-                    MySS.sc = new MySqlCommand(query, Program.MyConn);
-                    var name = MySS.sc.ExecuteScalar().ToString();
-                    Program.MyConn.Close();
-
-                    //Beneficiary_In_Existing_Family = true;
-
-                    var r = MessageBox.Show(
-                        "رقم دفتر العائلة موجود مسبقاً ! " + Environment.NewLine +
-                        " المستفيد التابع لدفتر العائلة هذا هو: " + name, "Dublicate", MessageBoxButtons.OK);
-                    if (r == DialogResult.OK)
-                    {
-                        //int P_ID = Int32.Parse(dt.Rows[0]["P_ID"].ToString());
-                        //int MP_ID = Int32.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
-
-                        ////////open new tab 
-                        //Form application_Form = new Application_Form(Person_ID, MicroProject_ID, mainForm);
-                        //mainForm.showNewTab(application_Form, "Application");
-
-                        //Fill_FamilyMembers(1);
-                        //FamilyMember_dataGridView.Refresh();
-                    }
-                }
-                else
-                {
-                    Calculate_NumAtHome();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
         private void Calculate_NumAtHome()
         {
             try
@@ -3674,8 +5062,6 @@ namespace MyWorkApplication
         #region downloan image
         bool success = false;
 
-
-
         private void SaveDialog()
         {
             success = false;
@@ -3717,7 +5103,6 @@ namespace MyWorkApplication
             else
                 return;
         }
-
         private void download_toolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
             Download_button_Click(sender, e);
@@ -3750,46 +5135,6 @@ namespace MyWorkApplication
             }
         }
         #endregion
-
-
-        //from f2f
-        #region //Data
-        string
-            MP_ID, P_Mobile, MP_ApplyDate, MP_Name, MP_RequestedAmount,
-            P_Loss,
-            P_Goal,         // MP_Description
-            P_GoalHow,      // MP_Marketing
-            P_OtherNotes,   // MP_OtherNotes
-            P_FName, P_FaName, P_LName, P_MoName,
-            P_EngName, P_Registration, P_NationalNum, DOB, P_IntermidiaryName,
-            P_LandLine, P_Mobile2, P_Address, P_HomeStateNote, P_Military, P_MilitaryDate,
-            FamilyNumber,
-            P_WorkYears,    // s3
-            P_AidSourceNote,  //MP_OtherSources
-            P_DeptAmount, P_DeptNote, P_SourceAssosiation, P_SourceRelative,
-            MP_Address, MP_AddressNote, MP_Notes;
-
-
-        int SubCategory_ID, Career_ID, Type_ID, SubType_ID, FundType_ID,
-            Sex_ID, PersonType_ID, P_MaritalState_ID,
-            Parish_ID, Priest1_ID, Priest2_ID, Street_ID, HomeType_ID, Military_ID, MilitaryFinished,
-            NumAtHome, NumAllMembers,
-            Has_Education, Has_Course, Has_Loss, Has_Illness, Has_Asset, Has_AidSource, Has_Dept,
-            Has_Income, MP_PlaceType, MP_AmperNumber, MP_AmperType,
-            MP_Agreement1, MP_Agreement2, MP_Agreement3,
-            EntredBy, EditedBy;
-
-
-
-        string P_Goals_Query, FamilyMembers_Query,
-            Work_Query, Exp_Query, Education_Query, Course_Query,
-            Loss_Query, Illness_Query, Asset_Query, AidSource_Query,
-            HomePowerSource_Query, PowerSource_Query, Material_Query;
-
-        #endregion
-        //from f2f
-
-        //from f2f
 
 
         private void FamilyMember_dataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
