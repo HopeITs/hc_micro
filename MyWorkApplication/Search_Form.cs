@@ -1066,14 +1066,15 @@ namespace MyWorkApplication
  
   , (SELECT CONCAT(p.P_FirstName, ' ', p.P_FatherName, ' ', p.P_LastName) 
       From `person` p 
-      left join `person_family` pf on p.P_ID = pf.Person_ID  
-      WHERE pf.Relation like N'زوج/ة' 
+      left join `person_family` pf on p.P_ID = pf.Person_ID 
+left join relation on relation.id = pf.Relation_ID
+      WHERE relation.Name like N'زوج/ة' 
       and pf.P_Provider_ID = person.P_ID limit 1) as 'الزوج / الزوجة' 
 
   , MP_Name as 'اسم المشروع'   
 
   , P_FullName_en as 'Beneficiary Name'
-  , MP_Name_en as 'Project Name'  
+  
 
  , C.Name 'Category' 
  , sub.Name as 'Sub Category'
@@ -1110,7 +1111,7 @@ namespace MyWorkApplication
  , P_NationalNumber as 'الرقم الوطني' 
  , P_Mobile as 'الموبايل' 
 
- , IsProvider as 'المعيل الوحيد' 
+
 
   , (SELECT count(*) 
     From `person` p 
@@ -1130,7 +1131,8 @@ namespace MyWorkApplication
     From `person` p 
     left join `person_family` pf on p.P_ID = pf.Person_ID  
     left join `personstate` on personstate.ID = p.P_State_ID
-    WHERE pf.Relation like N'ابن/ة' 
+left join relation on relation.id = pf.Relation_ID
+    WHERE relation.Name like N'ابن/ة' 
     AND lower(personstate.Type) like 'active'
     and pf.P_Provider_ID = person.P_ID limit 1) as 'عدد الأبناء في المنزل' 
 
@@ -1138,7 +1140,8 @@ namespace MyWorkApplication
     From `person` p 
     left join `person_family` pf on p.P_ID = pf.Person_ID  
     left join `personstate` on personstate.ID = p.P_State_ID
-    WHERE pf.Relation like N'ابن/ة'
+left join relation on relation.id = pf.Relation_ID
+    WHERE relation.Name like N'ابن/ة'
     AND lower(personstate.Type) like 'active'    
  	and TIMESTAMPDIFF(YEAR, p.P_DOB, MP_DateOfRequest) < 18
     and pf.P_Provider_ID = person.P_ID limit 1 ) as 'عدد الأبناء تحت 18'
@@ -1162,7 +1165,7 @@ namespace MyWorkApplication
  , person_microproject.PersonType as 'صفة مقدم الطلب' 
   
  , PMP_ID as 'ID' 
- , P_ID as 'رقم المستفيد'  ";
+ , P_ID as 'رقم المستفيد' , microproject.ApplicationState ";
 
                 if (show_images) query1 += @" ,(Select image.image_NewPath 
  from image left join imagetype on image.ImageType_ID = imagetype.ID
@@ -2788,6 +2791,7 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                 if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
                     if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
                     {
+                        string ApplicationState = "";
                         SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
                         if (SelectedDataRow != null)
                         {
@@ -2800,10 +2804,18 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                                 SelectedDataRow["رقم المستفيد"] == DBNull.Value)
                                 Person_ID = -1;
                             else Person_ID = int.Parse(SelectedDataRow["رقم المستفيد"].ToString());
+
+                            if (SelectedDataRow["ApplicationState"] == null ||
+                              SelectedDataRow["ApplicationState"] == DBNull.Value)
+                                ApplicationState = "";
+                            else ApplicationState = SelectedDataRow["ApplicationState"].ToString();
                         }
 
-                        Form application_Form = new Application_Form(Person_ID, MicroProject_ID, main_form);
-                        main_form.showNewTab(application_Form, "Application", 0);
+                        Form Appplication_New_Form = new Application_New_Form(main_form, MicroProject_ID, Person_ID, ApplicationState);
+                        main_form.showNewTab(Appplication_New_Form, "Application", 0);
+
+                        //Form application_Form = new Application_Form(Person_ID, MicroProject_ID, main_form);
+                        //main_form.showNewTab(application_Form, "Application", 0);
                     }
 
                 // families //

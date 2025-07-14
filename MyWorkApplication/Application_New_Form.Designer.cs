@@ -70,6 +70,9 @@ namespace MyWorkApplication
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Application_New_Form));
             this.label2 = new System.Windows.Forms.Label();
             this.P_MobileReadable_textBox = new System.Windows.Forms.TextBox();
@@ -86,6 +89,7 @@ namespace MyWorkApplication
             this.Type_lable = new System.Windows.Forms.Label();
             this.Type_comboBox = new System.Windows.Forms.ComboBox();
             this.label74 = new System.Windows.Forms.Label();
+            this.ApplyDate_bcDateTimePicker = new MyWorkApplication.Classes.BCDateTimePicker();
             this.label79 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.SubType_comboBox = new System.Windows.Forms.ComboBox();
@@ -190,8 +194,8 @@ namespace MyWorkApplication
             this.P_Mobile_textBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.FamilyMember_dataGridView = new System.Windows.Forms.DataGridView();
-            this.FP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.F_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PF_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FPerson_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P_FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P_LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P_FatherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -199,14 +203,10 @@ namespace MyWorkApplication
             this.P_NationalNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P_DOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P_State = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.FP_Edu_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_HasWork = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.P_EducationLevel = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.P_EducationType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.P_E_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.FP_W_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_WorkName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_WorkType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.P_Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.P_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -222,12 +222,22 @@ namespace MyWorkApplication
             this.label45 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
             this.P_WorkYears_textBox = new System.Windows.Forms.TextBox();
             this.P_DebtsAmount_label = new System.Windows.Forms.Label();
             this.AidSource_dataGridView = new System.Windows.Forms.DataGridView();
+            this.AidP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aid_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aid_PName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Aid_Relation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aid_Source = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Aid_DateYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aid_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aid_ProjectType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aid_Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aid_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Aid_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aid_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aid_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.Main_panel = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -247,7 +257,7 @@ namespace MyWorkApplication
             this.AddPartner_button = new System.Windows.Forms.Button();
             this.AddExtention_button = new System.Windows.Forms.Button();
             this.Delete_MP_button = new System.Windows.Forms.Button();
-            this.Update_button = new System.Windows.Forms.Button();
+            this.FullApp_button = new System.Windows.Forms.Button();
             this.PaperApplicationUser_comboBox = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.t12_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -259,8 +269,28 @@ namespace MyWorkApplication
             this.P_HasHelpSourceNo_radioButton = new System.Windows.Forms.RadioButton();
             this.P_HasHelpSourceYes_radioButton = new System.Windows.Forms.RadioButton();
             this.HelpSource_dataGridView = new System.Windows.Forms.DataGridView();
+            this.HelpP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Help_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Help_Source = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Help_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Help_Period = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Help_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Help_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Help_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Help_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Help_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubHeader11_label = new System.Windows.Forms.Label();
             this.HomePowerSource_dataGridView = new System.Windows.Forms.DataGridView();
+            this.HPowerP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HPower_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HPower_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HPower_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HPower_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HPower_Responsability = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HPower_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.HPower_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HPower_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HPower_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
             this.label89 = new System.Windows.Forms.Label();
             this.label90 = new System.Windows.Forms.Label();
@@ -277,27 +307,54 @@ namespace MyWorkApplication
             this.P_HasDebtsYes_radioButton = new System.Windows.Forms.RadioButton();
             this.P_HasDebtsNo_radioButton = new System.Windows.Forms.RadioButton();
             this.label55 = new System.Windows.Forms.Label();
-            this.MP_OtherDonors_textBox = new System.Windows.Forms.TextBox();
+            this.P_AidSourceNote_textBox = new System.Windows.Forms.TextBox();
             this.t9_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.P_HasLosses_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.P_HasLossesNo_radioButton = new System.Windows.Forms.RadioButton();
-            this.P_HasLossesYes_radioButton = new System.Windows.Forms.RadioButton();
             this.Loss_dataGridView = new System.Windows.Forms.DataGridView();
+            this.LPerson_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.L_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.L_Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.L_Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.L_Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.L_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.L_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.L_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.L_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel21 = new System.Windows.Forms.FlowLayoutPanel();
             this.label60 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
-            this.SubHeader7_label = new System.Windows.Forms.Label();
+            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
             this.SubHeader6_label = new System.Windows.Forms.Label();
             this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.Illness_dataGridView = new System.Windows.Forms.DataGridView();
+            this.Ill_Person_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ill_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ill_PName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Ill_Relation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ill_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Ill_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ill_Aid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Ill_Donor = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Ill_AidPeriod = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Ill_MedicalNeeds = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Ill_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Ill_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ill_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ill_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
             this.label68 = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
-            this.Assets_dataGridView = new System.Windows.Forms.DataGridView();
+            this.P_HasIllness_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.P_HasIllnessNo_radioButton = new System.Windows.Forms.RadioButton();
+            this.P_HasIllnessYes_radioButton = new System.Windows.Forms.RadioButton();
+            this.P_HasAssets_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.P_HasAssetsNo_radioButton = new System.Windows.Forms.RadioButton();
+            this.P_HasAssetsYes_radioButton = new System.Windows.Forms.RadioButton();
             this.flowLayoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
             this.label83 = new System.Windows.Forms.Label();
             this.label84 = new System.Windows.Forms.Label();
@@ -305,13 +362,35 @@ namespace MyWorkApplication
             this.label86 = new System.Windows.Forms.Label();
             this.label101 = new System.Windows.Forms.Label();
             this.label103 = new System.Windows.Forms.Label();
-            this.P_HasIllness_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.P_HasIllnessNo_radioButton = new System.Windows.Forms.RadioButton();
-            this.P_HasIllnessYes_radioButton = new System.Windows.Forms.RadioButton();
+            this.Assets_dataGridView = new System.Windows.Forms.DataGridView();
+            this.APerson_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asset_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asset_PName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Asset_Relation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asset_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Asset_Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Asset_Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asset_Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asset_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asset_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Asset_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asset_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asset_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label70 = new System.Windows.Forms.Label();
+            this.FP_Exp_dataGridView = new System.Windows.Forms.DataGridView();
+            this.FP_Exp_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FP_Exp_PName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.FP_Exp_Relation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FP_Exp_WorkName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FP_Exp_WorkType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.FP_Exp_Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.FP_Exp_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubHeader7_label = new System.Windows.Forms.Label();
             this.SubHeader8_label = new System.Windows.Forms.Label();
-            this.P_HasAssets_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.P_HasAssetsNo_radioButton = new System.Windows.Forms.RadioButton();
-            this.P_HasAssetsYes_radioButton = new System.Windows.Forms.RadioButton();
+            this.flowLayoutPanel22 = new System.Windows.Forms.FlowLayoutPanel();
+            this.P_HasLossesNo_radioButton = new System.Windows.Forms.RadioButton();
+            this.P_HasLossesYes_radioButton = new System.Windows.Forms.RadioButton();
             this.t4_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.t21_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
@@ -330,6 +409,15 @@ namespace MyWorkApplication
             this.MainHeader3_label = new System.Windows.Forms.Label();
             this.t20_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Materials_dataGridView = new System.Windows.Forms.DataGridView();
+            this.MMP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.M_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.M_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.M_Comments = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.M_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.M_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.M_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.M_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.M_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel27 = new System.Windows.Forms.FlowLayoutPanel();
             this.label110 = new System.Windows.Forms.Label();
             this.label111 = new System.Windows.Forms.Label();
@@ -345,6 +433,16 @@ namespace MyWorkApplication
             this.MainHeader4_label = new System.Windows.Forms.Label();
             this.SubHeader12_label = new System.Windows.Forms.Label();
             this.PowerSource_dataGridView = new System.Windows.Forms.DataGridView();
+            this.Power_MP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Power_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Power_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Power_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Power_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Power_Responsability = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Power_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Power_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Power_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Power_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel20 = new System.Windows.Forms.FlowLayoutPanel();
             this.label93 = new System.Windows.Forms.Label();
             this.label94 = new System.Windows.Forms.Label();
@@ -375,11 +473,33 @@ namespace MyWorkApplication
             this.P_HasEducationNo_radioButton = new System.Windows.Forms.RadioButton();
             this.P_HasEducationYes_radioButton = new System.Windows.Forms.RadioButton();
             this.Course_dataGridView = new System.Windows.Forms.DataGridView();
+            this.CPerosn_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Course_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_SubCategory_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_Cource = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.C_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_Donor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.C_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
             this.label67 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
             this.SubHeader4_label = new System.Windows.Forms.Label();
             this.Education_dataGridView = new System.Windows.Forms.DataGridView();
+            this.PE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.E_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.E_Level = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.E_Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.E_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Edu_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Edu_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edu_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edu_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
             this.label58 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
@@ -400,9 +520,9 @@ namespace MyWorkApplication
             this.Exp_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Exp_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Exp_WorkType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Exp_Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Exp_BeginDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Exp_EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Exp_ExtraNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Exp_PlaceState = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Exp_Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Exp_Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -414,6 +534,20 @@ namespace MyWorkApplication
             this.t5_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.MainHeader2_label = new System.Windows.Forms.Label();
             this.Work_dataGridView = new System.Windows.Forms.DataGridView();
+            this.WP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.W_WorkType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.W_Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_BeginDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_PlaceState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.W_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubHeader2_label = new System.Windows.Forms.Label();
             this.t2_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.P_Loss_textBox = new System.Windows.Forms.TextBox();
@@ -433,131 +567,6 @@ namespace MyWorkApplication
             this.delete_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.delete_person_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.delete_project_person_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ApplyDate_bcDateTimePicker = new MyWorkApplication.Classes.BCDateTimePicker();
-            this.WP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.W_WorkType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.W_BeginDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_ExtraNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_PlaceState = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.W_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.W_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.E_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.E_Level = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.E_Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.E_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Edu_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Edu_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edu_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edu_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPerosn_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Course_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_SubCategory_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_Cource = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.C_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_Donor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.C_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Power_MP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Power_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Power_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Power_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Power_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Power_Responsability = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Power_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Power_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Power_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Power_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MMP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.M_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.M_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.M_Comments = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.M_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.M_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.M_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.M_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.M_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LPerson_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.L_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.L_Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.L_Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.L_Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.L_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.L_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.L_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.L_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ill_Person_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ill_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ill_PName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Ill_Relation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ill_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Ill_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ill_Aid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Ill_Donor = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Ill_AidPeriod = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Ill_MedicalNeeds = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Ill_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Ill_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ill_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ill_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.APerson_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Asset_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Asset_PName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Asset_Relation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Asset_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Asset_Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Asset_Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Asset_Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Asset_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Asset_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Asset_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Asset_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Asset_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AidP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aid_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aid_PName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Aid_Relation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aid_Source = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Aid_DateYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aid_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aid_ProjectType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aid_Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aid_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Aid_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aid_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aid_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HelpP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Help_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Help_Source = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Help_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Help_Period = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Help_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Help_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Help_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Help_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Help_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HPowerP_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HPower_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HPower_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.HPower_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HPower_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HPower_Responsability = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HPower_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.HPower_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HPower_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HPower_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.First_tableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -580,7 +589,6 @@ namespace MyWorkApplication
             this.flowLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel8.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
-            this.flowLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AidSource_dataGridView)).BeginInit();
             this.Main_panel.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -598,16 +606,18 @@ namespace MyWorkApplication
             this.P_Debts_tableLayoutPanel.SuspendLayout();
             this.P_HasDebts_flowLayoutPanel.SuspendLayout();
             this.t9_tableLayoutPanel.SuspendLayout();
-            this.P_HasLosses_flowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Loss_dataGridView)).BeginInit();
             this.flowLayoutPanel21.SuspendLayout();
+            this.flowLayoutPanel9.SuspendLayout();
             this.flowLayoutPanel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Illness_dataGridView)).BeginInit();
             this.flowLayoutPanel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Assets_dataGridView)).BeginInit();
-            this.flowLayoutPanel16.SuspendLayout();
             this.P_HasIllness_flowLayoutPanel.SuspendLayout();
             this.P_HasAssets_flowLayoutPanel.SuspendLayout();
+            this.flowLayoutPanel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Assets_dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FP_Exp_dataGridView)).BeginInit();
+            this.flowLayoutPanel22.SuspendLayout();
             this.t4_tableLayoutPanel.SuspendLayout();
             this.t21_tableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
@@ -668,8 +678,6 @@ namespace MyWorkApplication
             this.P_MobileReadable_textBox.Size = new System.Drawing.Size(245, 29);
             this.P_MobileReadable_textBox.TabIndex = 526;
             this.P_MobileReadable_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.P_MobileReadable_textBox.Enter += new System.EventHandler(this.P_MobileReadable_textBox_Enter);
-            this.P_MobileReadable_textBox.Leave += new System.EventHandler(this.P_MobileReadable_textBox_Leave);
             // 
             // label3
             // 
@@ -905,6 +913,23 @@ namespace MyWorkApplication
             this.label74.TabIndex = 258;
             this.label74.Text = "تاريخ الطلب:";
             this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ApplyDate_bcDateTimePicker
+            // 
+            this.ApplyDate_bcDateTimePicker.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.ApplyDate_bcDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ApplyDate_bcDateTimePicker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ApplyDate_bcDateTimePicker.CustomFormat = "yyyy/MM/dd";
+            this.ApplyDate_bcDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.ApplyDate_bcDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(533, 178);
+            this.ApplyDate_bcDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ApplyDate_bcDateTimePicker.Name = "ApplyDate_bcDateTimePicker";
+            this.ApplyDate_bcDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
+            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(245, 29);
+            this.ApplyDate_bcDateTimePicker.TabIndex = 6;
+            this.ApplyDate_bcDateTimePicker.ValueChanged += new System.EventHandler(this.ApplyDate_bcDateTimePicker_ValueChanged);
             // 
             // label79
             // 
@@ -1241,6 +1266,7 @@ namespace MyWorkApplication
             this.AddImage_button.TabIndex = 3;
             this.AddImage_button.TabStop = false;
             this.AddImage_button.UseVisualStyleBackColor = false;
+            this.AddImage_button.Click += new System.EventHandler(this.AddImage_button_Click);
             this.AddImage_button.MouseEnter += new System.EventHandler(this.AddImage_button_MouseEnter);
             this.AddImage_button.MouseLeave += new System.EventHandler(this.AddImage_button_MouseLeave);
             // 
@@ -1264,6 +1290,7 @@ namespace MyWorkApplication
             this.DeleteImage_button.TabIndex = 1;
             this.DeleteImage_button.TabStop = false;
             this.DeleteImage_button.UseVisualStyleBackColor = false;
+            this.DeleteImage_button.Click += new System.EventHandler(this.DeleteImage_button_Click);
             this.DeleteImage_button.MouseEnter += new System.EventHandler(this.DeleteImage_button_MouseEnter);
             this.DeleteImage_button.MouseLeave += new System.EventHandler(this.DeleteImage_button_MouseLeave);
             // 
@@ -1334,8 +1361,6 @@ namespace MyWorkApplication
             this.P_FullName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_FullName_textBox.Size = new System.Drawing.Size(245, 29);
             this.P_FullName_textBox.TabIndex = 564;
-            this.P_FullName_textBox.Enter += new System.EventHandler(this.P_FullName_textBox_Enter);
-            this.P_FullName_textBox.Leave += new System.EventHandler(this.P_FullName_textBox_Leave);
             // 
             // FundType_label
             // 
@@ -2479,7 +2504,6 @@ namespace MyWorkApplication
             this.PersonType_comboBox.TabIndex = 565;
             this.PersonType_comboBox.TabStop = false;
             this.PersonType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
-            this.PersonType_comboBox.SelectedIndexChanged += new System.EventHandler(this.PersonType_comboBox_SelectedIndexChanged);
             this.PersonType_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.PersonType_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
@@ -2593,8 +2617,8 @@ namespace MyWorkApplication
             this.FamilyMember_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.FamilyMember_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FamilyMember_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FP_ID,
-            this.F_ID,
+            this.PF_ID,
+            this.FPerson_ID,
             this.P_FirstName,
             this.P_LastName,
             this.P_FatherName,
@@ -2602,14 +2626,10 @@ namespace MyWorkApplication
             this.P_NationalNumber,
             this.P_DOB,
             this.P_State,
-            this.FP_Edu_ID,
+            this.P_HasWork,
             this.P_EducationLevel,
             this.P_EducationType,
             this.P_E_Name,
-            this.FP_W_ID,
-            this.P_WorkName,
-            this.P_WorkType,
-            this.P_Salary,
             this.P_DeleteRow,
             this.P_InDataBase,
             this.P_RowID,
@@ -2641,7 +2661,7 @@ namespace MyWorkApplication
             this.FamilyMember_dataGridView.RowTemplate.DividerHeight = 1;
             this.FamilyMember_dataGridView.RowTemplate.Height = 35;
             this.FamilyMember_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.FamilyMember_dataGridView.Size = new System.Drawing.Size(1085, 237);
+            this.FamilyMember_dataGridView.Size = new System.Drawing.Size(1085, 286);
             this.FamilyMember_dataGridView.TabIndex = 560;
             this.FamilyMember_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.FamilyMember_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -2651,21 +2671,20 @@ namespace MyWorkApplication
             this.FamilyMember_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.FamilyMember_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             this.FamilyMember_dataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.FamilyMember_dataGridView_RowsAdded);
-            this.FamilyMember_dataGridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.FamilyMember_dataGridView_RowsRemoved);
             // 
-            // FP_ID
+            // PF_ID
             // 
-            this.FP_ID.HeaderText = "FP_ID";
-            this.FP_ID.MinimumWidth = 6;
-            this.FP_ID.Name = "FP_ID";
-            this.FP_ID.Visible = false;
+            this.PF_ID.HeaderText = "FP_ID";
+            this.PF_ID.MinimumWidth = 6;
+            this.PF_ID.Name = "PF_ID";
+            this.PF_ID.Visible = false;
             // 
-            // F_ID
+            // FPerson_ID
             // 
-            this.F_ID.HeaderText = "F_ID";
-            this.F_ID.MinimumWidth = 6;
-            this.F_ID.Name = "F_ID";
-            this.F_ID.Visible = false;
+            this.FPerson_ID.HeaderText = "FPerson_ID";
+            this.FPerson_ID.MinimumWidth = 6;
+            this.FPerson_ID.Name = "FPerson_ID";
+            this.FPerson_ID.Visible = false;
             // 
             // P_FirstName
             // 
@@ -2750,12 +2769,13 @@ namespace MyWorkApplication
             this.P_State.MinimumWidth = 6;
             this.P_State.Name = "P_State";
             // 
-            // FP_Edu_ID
+            // P_HasWork
             // 
-            this.FP_Edu_ID.HeaderText = "FP_Edu_ID";
-            this.FP_Edu_ID.MinimumWidth = 6;
-            this.FP_Edu_ID.Name = "FP_Edu_ID";
-            this.FP_Edu_ID.Visible = false;
+            this.P_HasWork.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_HasWork.FillWeight = 8F;
+            this.P_HasWork.HeaderText = "لديه عمل";
+            this.P_HasWork.MinimumWidth = 6;
+            this.P_HasWork.Name = "P_HasWork";
             // 
             // P_EducationLevel
             // 
@@ -2763,9 +2783,6 @@ namespace MyWorkApplication
             this.P_EducationLevel.FillWeight = 6.942435F;
             this.P_EducationLevel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_EducationLevel.HeaderText = "التحصيل العلمي";
-            this.P_EducationLevel.Items.AddRange(new object[] {
-            "طالب",
-            "متخرج"});
             this.P_EducationLevel.MinimumWidth = 6;
             this.P_EducationLevel.Name = "P_EducationLevel";
             // 
@@ -2793,41 +2810,6 @@ namespace MyWorkApplication
             this.P_E_Name.HeaderText = "الاختصاص";
             this.P_E_Name.MinimumWidth = 6;
             this.P_E_Name.Name = "P_E_Name";
-            // 
-            // FP_W_ID
-            // 
-            this.FP_W_ID.HeaderText = "FP_W_ID";
-            this.FP_W_ID.MinimumWidth = 6;
-            this.FP_W_ID.Name = "FP_W_ID";
-            this.FP_W_ID.Visible = false;
-            // 
-            // P_WorkName
-            // 
-            this.P_WorkName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_WorkName.FillWeight = 6.942435F;
-            this.P_WorkName.HeaderText = "العمل";
-            this.P_WorkName.MinimumWidth = 6;
-            this.P_WorkName.Name = "P_WorkName";
-            this.P_WorkName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // P_WorkType
-            // 
-            this.P_WorkType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_WorkType.FillWeight = 6.942435F;
-            this.P_WorkType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.P_WorkType.HeaderText = "طبيعة العمل";
-            this.P_WorkType.MinimumWidth = 6;
-            this.P_WorkType.Name = "P_WorkType";
-            this.P_WorkType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.P_WorkType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // P_Salary
-            // 
-            this.P_Salary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_Salary.FillWeight = 6.942435F;
-            this.P_Salary.HeaderText = "الدخل";
-            this.P_Salary.MinimumWidth = 6;
-            this.P_Salary.Name = "P_Salary";
             // 
             // P_DeleteRow
             // 
@@ -2867,18 +2849,18 @@ namespace MyWorkApplication
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel7, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel8, 0, 1);
-            this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel6, 0, 3);
-            this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel9, 0, 2);
+            this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel6, 0, 2);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 248);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 297);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 4;
+            this.tableLayoutPanel8.RowCount = 5;
             this.t4_tableLayoutPanel.SetRowSpan(this.tableLayoutPanel8, 3);
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1085, 99);
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1085, 120);
             this.tableLayoutPanel8.TabIndex = 564;
             // 
             // flowLayoutPanel7
@@ -2891,7 +2873,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(1079, 18);
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(1079, 19);
             this.flowLayoutPanel7.TabIndex = 541;
             // 
             // label30
@@ -2932,9 +2914,9 @@ namespace MyWorkApplication
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel8.Controls.Add(this.label46);
             this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 27);
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 28);
             this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(1079, 18);
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(1079, 19);
             this.flowLayoutPanel8.TabIndex = 564;
             // 
             // label46
@@ -2963,9 +2945,9 @@ namespace MyWorkApplication
             this.flowLayoutPanel6.Controls.Add(this.label49);
             this.flowLayoutPanel6.Controls.Add(this.label59);
             this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 75);
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 53);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(1079, 21);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(1079, 19);
             this.flowLayoutPanel6.TabIndex = 563;
             // 
             // label40
@@ -3027,50 +3009,6 @@ namespace MyWorkApplication
             this.label59.TabIndex = 270;
             this.label59.Text = "تعليم أساسي- معهد -إجازة جامعية – دبلوم – ماجستير -دكتوراه";
             this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel9
-            // 
-            this.flowLayoutPanel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel9.Controls.Add(this.label48);
-            this.flowLayoutPanel9.Controls.Add(this.label47);
-            this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 51);
-            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(1079, 18);
-            this.flowLayoutPanel9.TabIndex = 565;
-            // 
-            // label48
-            // 
-            this.label48.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label48.Location = new System.Drawing.Point(979, 0);
-            this.label48.Margin = new System.Windows.Forms.Padding(0);
-            this.label48.Name = "label48";
-            this.label48.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label48.Size = new System.Drawing.Size(100, 23);
-            this.label48.TabIndex = 271;
-            this.label48.Text = "*طبيعة العمل:";
-            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label47
-            // 
-            this.label47.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Rubik", 9F);
-            this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label47.Location = new System.Drawing.Point(348, 0);
-            this.label47.Margin = new System.Windows.Forms.Padding(0);
-            this.label47.Name = "label47";
-            this.label47.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label47.Size = new System.Drawing.Size(631, 23);
-            this.label47.TabIndex = 270;
-            this.label47.Text = "حسب ملف الحاجة (صاحب العمل - شريك - صانع - موظّّف قطّّاع عام - موظّّفف قطّّاع خاص" +
-    " - لا يعمل)";
-            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // P_WorkYears_textBox
             // 
@@ -3160,6 +3098,105 @@ namespace MyWorkApplication
             this.AidSource_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.AidSource_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.AidSource_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
+            // 
+            // AidP_ID
+            // 
+            this.AidP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AidP_ID.HeaderText = "AidP_ID";
+            this.AidP_ID.MinimumWidth = 6;
+            this.AidP_ID.Name = "AidP_ID";
+            this.AidP_ID.Visible = false;
+            // 
+            // Aid_ID
+            // 
+            this.Aid_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Aid_ID.HeaderText = "Aid_ID";
+            this.Aid_ID.MinimumWidth = 6;
+            this.Aid_ID.Name = "Aid_ID";
+            this.Aid_ID.Visible = false;
+            // 
+            // Aid_PName
+            // 
+            this.Aid_PName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Aid_PName.HeaderText = "الاسم";
+            this.Aid_PName.MinimumWidth = 6;
+            this.Aid_PName.Name = "Aid_PName";
+            // 
+            // Aid_Relation
+            // 
+            this.Aid_Relation.HeaderText = "الصفة";
+            this.Aid_Relation.MinimumWidth = 6;
+            this.Aid_Relation.Name = "Aid_Relation";
+            this.Aid_Relation.ReadOnly = true;
+            this.Aid_Relation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Aid_Relation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Aid_Source
+            // 
+            this.Aid_Source.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Aid_Source.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Aid_Source.HeaderText = "الجهة";
+            this.Aid_Source.MinimumWidth = 6;
+            this.Aid_Source.Name = "Aid_Source";
+            this.Aid_Source.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Aid_DateYear
+            // 
+            this.Aid_DateYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Aid_DateYear.HeaderText = "تاريخ الاستفادة";
+            this.Aid_DateYear.MinimumWidth = 6;
+            this.Aid_DateYear.Name = "Aid_DateYear";
+            // 
+            // Aid_Amount
+            // 
+            this.Aid_Amount.HeaderText = "المبلغ";
+            this.Aid_Amount.MinimumWidth = 6;
+            this.Aid_Amount.Name = "Aid_Amount";
+            // 
+            // Aid_ProjectType
+            // 
+            this.Aid_ProjectType.HeaderText = "نوع المشروع";
+            this.Aid_ProjectType.MinimumWidth = 6;
+            this.Aid_ProjectType.Name = "Aid_ProjectType";
+            // 
+            // Aid_Notes
+            // 
+            this.Aid_Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Aid_Notes.HeaderText = "المواد";
+            this.Aid_Notes.MinimumWidth = 6;
+            this.Aid_Notes.Name = "Aid_Notes";
+            // 
+            // Aid_DeleteRow
+            // 
+            this.Aid_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Aid_DeleteRow.FillWeight = 40F;
+            this.Aid_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Aid_DeleteRow.HeaderText = " ";
+            this.Aid_DeleteRow.MinimumWidth = 50;
+            this.Aid_DeleteRow.Name = "Aid_DeleteRow";
+            this.Aid_DeleteRow.Width = 50;
+            // 
+            // Aid_InDataBase
+            // 
+            this.Aid_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Aid_InDataBase.HeaderText = "Aid_InDataBase";
+            this.Aid_InDataBase.MinimumWidth = 6;
+            this.Aid_InDataBase.Name = "Aid_InDataBase";
+            this.Aid_InDataBase.Visible = false;
+            // 
+            // Aid_RowID
+            // 
+            this.Aid_RowID.HeaderText = "Aid_RowID";
+            this.Aid_RowID.MinimumWidth = 6;
+            this.Aid_RowID.Name = "Aid_RowID";
+            this.Aid_RowID.Visible = false;
+            // 
+            // Aid_IsDirty
+            // 
+            this.Aid_IsDirty.HeaderText = "Aid_IsDirty";
+            this.Aid_IsDirty.MinimumWidth = 6;
+            this.Aid_IsDirty.Name = "Aid_IsDirty";
+            this.Aid_IsDirty.Visible = false;
             // 
             // label6
             // 
@@ -3265,7 +3302,7 @@ namespace MyWorkApplication
             this.final_tableLayoutPanel.Controls.Add(this.PaperApplicationUser_comboBox, 3, 0);
             this.final_tableLayoutPanel.Controls.Add(this.label27, 4, 0);
             this.final_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.final_tableLayoutPanel.Location = new System.Drawing.Point(75, 7582);
+            this.final_tableLayoutPanel.Location = new System.Drawing.Point(75, 7987);
             this.final_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.final_tableLayoutPanel.Name = "final_tableLayoutPanel";
             this.final_tableLayoutPanel.RowCount = 5;
@@ -3365,7 +3402,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel4.Controls.Add(this.AddPartner_button, 5, 0);
             this.tableLayoutPanel4.Controls.Add(this.AddExtention_button, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.Delete_MP_button, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.Update_button, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.FullApp_button, 3, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 110);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -3421,6 +3458,7 @@ namespace MyWorkApplication
             this.AddPartner_button.Size = new System.Drawing.Size(125, 40);
             this.AddPartner_button.TabIndex = 111;
             this.AddPartner_button.UseVisualStyleBackColor = false;
+            this.AddPartner_button.Click += new System.EventHandler(this.AddPartner_button_Click);
             this.AddPartner_button.MouseEnter += new System.EventHandler(this.AddPartner_button_MouseEnter);
             this.AddPartner_button.MouseLeave += new System.EventHandler(this.AddPartner_button_MouseLeave);
             // 
@@ -3471,26 +3509,30 @@ namespace MyWorkApplication
             this.Delete_MP_button.MouseEnter += new System.EventHandler(this.Delete_MP_button_MouseEnter);
             this.Delete_MP_button.MouseLeave += new System.EventHandler(this.Delete_MP_button_MouseLeave);
             // 
-            // Update_button
+            // FullApp_button
             // 
-            this.Update_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Update_button.BackColor = System.Drawing.Color.DarkGray;
-            this.Update_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Update_button.FlatAppearance.BorderSize = 0;
-            this.Update_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Update_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Update_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Update_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Update_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Update_button.Location = new System.Drawing.Point(480, 4);
-            this.Update_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Update_button.MaximumSize = new System.Drawing.Size(125, 40);
-            this.Update_button.MinimumSize = new System.Drawing.Size(125, 40);
-            this.Update_button.Name = "Update_button";
-            this.Update_button.Size = new System.Drawing.Size(125, 40);
-            this.Update_button.TabIndex = 114;
-            this.Update_button.Text = "Update";
-            this.Update_button.UseVisualStyleBackColor = false;
+            this.FullApp_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.FullApp_button.BackColor = System.Drawing.Color.DarkGray;
+            this.FullApp_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.BtnBackground_D;
+            this.FullApp_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.FullApp_button.FlatAppearance.BorderSize = 0;
+            this.FullApp_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.FullApp_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.FullApp_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.FullApp_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FullApp_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.FullApp_button.Location = new System.Drawing.Point(480, 4);
+            this.FullApp_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FullApp_button.MaximumSize = new System.Drawing.Size(125, 40);
+            this.FullApp_button.MinimumSize = new System.Drawing.Size(125, 40);
+            this.FullApp_button.Name = "FullApp_button";
+            this.FullApp_button.Size = new System.Drawing.Size(125, 40);
+            this.FullApp_button.TabIndex = 114;
+            this.FullApp_button.Text = "Full App";
+            this.FullApp_button.UseVisualStyleBackColor = false;
+            this.FullApp_button.Click += new System.EventHandler(this.FullApp_button_Click);
+            this.FullApp_button.MouseEnter += new System.EventHandler(this.FullApp_button_MouseEnter);
+            this.FullApp_button.MouseLeave += new System.EventHandler(this.FullApp_button_MouseLeave);
             // 
             // PaperApplicationUser_comboBox
             // 
@@ -3534,7 +3576,7 @@ namespace MyWorkApplication
             this.t12_tableLayoutPanel.Controls.Add(this.MP_SimpleProfit2_textBox, 0, 2);
             this.t12_tableLayoutPanel.Controls.Add(this.label100, 0, 1);
             this.t12_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.t12_tableLayoutPanel.Location = new System.Drawing.Point(75, 7176);
+            this.t12_tableLayoutPanel.Location = new System.Drawing.Point(75, 7581);
             this.t12_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.t12_tableLayoutPanel.Name = "t12_tableLayoutPanel";
             this.t12_tableLayoutPanel.RowCount = 5;
@@ -3595,7 +3637,7 @@ namespace MyWorkApplication
             this.t11_tableLayoutPanel.Controls.Add(this.flowLayoutPanel18, 0, 14);
             this.t11_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.t11_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.t11_tableLayoutPanel.Location = new System.Drawing.Point(75, 6581);
+            this.t11_tableLayoutPanel.Location = new System.Drawing.Point(75, 6986);
             this.t11_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.t11_tableLayoutPanel.Name = "t11_tableLayoutPanel";
             this.t11_tableLayoutPanel.RowCount = 16;
@@ -3735,6 +3777,87 @@ namespace MyWorkApplication
             this.HelpSource_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.HelpSource_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
+            // HelpP_ID
+            // 
+            this.HelpP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.HelpP_ID.HeaderText = "HelpP_ID";
+            this.HelpP_ID.MinimumWidth = 6;
+            this.HelpP_ID.Name = "HelpP_ID";
+            this.HelpP_ID.Visible = false;
+            // 
+            // Help_ID
+            // 
+            this.Help_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Help_ID.HeaderText = "Help_ID";
+            this.Help_ID.MinimumWidth = 6;
+            this.Help_ID.Name = "Help_ID";
+            this.Help_ID.Visible = false;
+            // 
+            // Help_Source
+            // 
+            this.Help_Source.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Help_Source.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Help_Source.HeaderText = "الجهة";
+            this.Help_Source.MinimumWidth = 6;
+            this.Help_Source.Name = "Help_Source";
+            this.Help_Source.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Help_Name
+            // 
+            this.Help_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Help_Name.HeaderText = "نوع المساعدة";
+            this.Help_Name.MinimumWidth = 6;
+            this.Help_Name.Name = "Help_Name";
+            this.Help_Name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Help_Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Help_Period
+            // 
+            this.Help_Period.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Help_Period.HeaderText = "مدة المساعدة";
+            this.Help_Period.MinimumWidth = 6;
+            this.Help_Period.Name = "Help_Period";
+            this.Help_Period.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Help_Period.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Help_Note
+            // 
+            this.Help_Note.HeaderText = "ملاحظات";
+            this.Help_Note.MinimumWidth = 6;
+            this.Help_Note.Name = "Help_Note";
+            // 
+            // Help_DeleteRow
+            // 
+            this.Help_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Help_DeleteRow.FillWeight = 40F;
+            this.Help_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Help_DeleteRow.HeaderText = " ";
+            this.Help_DeleteRow.MinimumWidth = 50;
+            this.Help_DeleteRow.Name = "Help_DeleteRow";
+            this.Help_DeleteRow.Width = 50;
+            // 
+            // Help_InDataBase
+            // 
+            this.Help_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Help_InDataBase.HeaderText = "Help_InDataBase";
+            this.Help_InDataBase.MinimumWidth = 6;
+            this.Help_InDataBase.Name = "Help_InDataBase";
+            this.Help_InDataBase.Visible = false;
+            // 
+            // Help_RowID
+            // 
+            this.Help_RowID.HeaderText = "Help_RowID";
+            this.Help_RowID.MinimumWidth = 6;
+            this.Help_RowID.Name = "Help_RowID";
+            this.Help_RowID.Visible = false;
+            // 
+            // Help_IsDirty
+            // 
+            this.Help_IsDirty.HeaderText = "Help_IsDirty";
+            this.Help_IsDirty.MinimumWidth = 6;
+            this.Help_IsDirty.Name = "Help_IsDirty";
+            this.Help_IsDirty.Visible = false;
+            // 
             // SubHeader11_label
             // 
             this.SubHeader11_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -3808,6 +3931,83 @@ namespace MyWorkApplication
             this.HomePowerSource_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.HomePowerSource_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
+            // HPowerP_ID
+            // 
+            this.HPowerP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.HPowerP_ID.HeaderText = "HPowerP_ID";
+            this.HPowerP_ID.MinimumWidth = 6;
+            this.HPowerP_ID.Name = "HPowerP_ID";
+            this.HPowerP_ID.Visible = false;
+            // 
+            // HPower_ID
+            // 
+            this.HPower_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.HPower_ID.HeaderText = "HPower_ID";
+            this.HPower_ID.MinimumWidth = 6;
+            this.HPower_ID.Name = "HPower_ID";
+            this.HPower_ID.Visible = false;
+            // 
+            // HPower_Name
+            // 
+            this.HPower_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.HPower_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HPower_Name.HeaderText = "مصادر الطاقة";
+            this.HPower_Name.MinimumWidth = 6;
+            this.HPower_Name.Name = "HPower_Name";
+            this.HPower_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // HPower_Note
+            // 
+            this.HPower_Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.HPower_Note.HeaderText = "شرح المنظومة";
+            this.HPower_Note.MinimumWidth = 6;
+            this.HPower_Note.Name = "HPower_Note";
+            // 
+            // HPower_Cost
+            // 
+            this.HPower_Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.HPower_Cost.HeaderText = "القيمة المدفوعة (شهرياً)";
+            this.HPower_Cost.MinimumWidth = 6;
+            this.HPower_Cost.Name = "HPower_Cost";
+            // 
+            // HPower_Responsability
+            // 
+            this.HPower_Responsability.HeaderText = "الجهة المنفّذة";
+            this.HPower_Responsability.MinimumWidth = 6;
+            this.HPower_Responsability.Name = "HPower_Responsability";
+            // 
+            // HPower_DeleteRow
+            // 
+            this.HPower_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.HPower_DeleteRow.FillWeight = 40F;
+            this.HPower_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HPower_DeleteRow.HeaderText = " ";
+            this.HPower_DeleteRow.MinimumWidth = 50;
+            this.HPower_DeleteRow.Name = "HPower_DeleteRow";
+            this.HPower_DeleteRow.Width = 50;
+            // 
+            // HPower_InDataBase
+            // 
+            this.HPower_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.HPower_InDataBase.HeaderText = "HPower_InDataBase";
+            this.HPower_InDataBase.MinimumWidth = 6;
+            this.HPower_InDataBase.Name = "HPower_InDataBase";
+            this.HPower_InDataBase.Visible = false;
+            // 
+            // HPower_RowID
+            // 
+            this.HPower_RowID.HeaderText = "HPower_RowID";
+            this.HPower_RowID.MinimumWidth = 6;
+            this.HPower_RowID.Name = "HPower_RowID";
+            this.HPower_RowID.Visible = false;
+            // 
+            // HPower_IsDirty
+            // 
+            this.HPower_IsDirty.HeaderText = "HPower_IsDirty";
+            this.HPower_IsDirty.MinimumWidth = 6;
+            this.HPower_IsDirty.Name = "HPower_IsDirty";
+            this.HPower_IsDirty.Visible = false;
+            // 
             // flowLayoutPanel18
             // 
             this.flowLayoutPanel18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -3864,10 +4064,10 @@ namespace MyWorkApplication
             this.t10_tableLayoutPanel.Controls.Add(this.P_HasAidSource_flowLayoutPanel, 0, 1);
             this.t10_tableLayoutPanel.Controls.Add(this.P_Debts_tableLayoutPanel, 0, 8);
             this.t10_tableLayoutPanel.Controls.Add(this.label55, 2, 7);
-            this.t10_tableLayoutPanel.Controls.Add(this.MP_OtherDonors_textBox, 0, 7);
+            this.t10_tableLayoutPanel.Controls.Add(this.P_AidSourceNote_textBox, 0, 7);
             this.t10_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.t10_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.t10_tableLayoutPanel.Location = new System.Drawing.Point(75, 6185);
+            this.t10_tableLayoutPanel.Location = new System.Drawing.Point(75, 6590);
             this.t10_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.t10_tableLayoutPanel.Name = "t10_tableLayoutPanel";
             this.t10_tableLayoutPanel.RowCount = 9;
@@ -4073,19 +4273,19 @@ namespace MyWorkApplication
             this.label55.Text = "ملاحظات:";
             this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // MP_OtherDonors_textBox
+            // P_AidSourceNote_textBox
             // 
-            this.MP_OtherDonors_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.MP_OtherDonors_textBox.BackColor = System.Drawing.Color.White;
-            this.t10_tableLayoutPanel.SetColumnSpan(this.MP_OtherDonors_textBox, 2);
-            this.MP_OtherDonors_textBox.Location = new System.Drawing.Point(0, 311);
-            this.MP_OtherDonors_textBox.Margin = new System.Windows.Forms.Padding(0);
-            this.MP_OtherDonors_textBox.Name = "MP_OtherDonors_textBox";
-            this.MP_OtherDonors_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MP_OtherDonors_textBox.Size = new System.Drawing.Size(872, 29);
-            this.MP_OtherDonors_textBox.TabIndex = 587;
-            this.MP_OtherDonors_textBox.Enter += new System.EventHandler(this.MP_OtherDonors_textBox_Enter);
-            this.MP_OtherDonors_textBox.Leave += new System.EventHandler(this.MP_OtherDonors_textBox_Leave);
+            this.P_AidSourceNote_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_AidSourceNote_textBox.BackColor = System.Drawing.Color.White;
+            this.t10_tableLayoutPanel.SetColumnSpan(this.P_AidSourceNote_textBox, 2);
+            this.P_AidSourceNote_textBox.Location = new System.Drawing.Point(0, 311);
+            this.P_AidSourceNote_textBox.Margin = new System.Windows.Forms.Padding(0);
+            this.P_AidSourceNote_textBox.Name = "P_AidSourceNote_textBox";
+            this.P_AidSourceNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_AidSourceNote_textBox.Size = new System.Drawing.Size(872, 29);
+            this.P_AidSourceNote_textBox.TabIndex = 587;
+            this.P_AidSourceNote_textBox.Enter += new System.EventHandler(this.MP_OtherDonors_textBox_Enter);
+            this.P_AidSourceNote_textBox.Leave += new System.EventHandler(this.MP_OtherDonors_textBox_Leave);
             // 
             // t9_tableLayoutPanel
             // 
@@ -4094,97 +4294,62 @@ namespace MyWorkApplication
             this.t9_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.t9_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.t9_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.t9_tableLayoutPanel.Controls.Add(this.P_HasLosses_flowLayoutPanel, 0, 1);
-            this.t9_tableLayoutPanel.Controls.Add(this.Loss_dataGridView, 0, 3);
-            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel21, 0, 15);
-            this.t9_tableLayoutPanel.Controls.Add(this.SubHeader7_label, 1, 8);
-            this.t9_tableLayoutPanel.Controls.Add(this.SubHeader6_label, 1, 1);
-            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel14, 0, 6);
-            this.t9_tableLayoutPanel.Controls.Add(this.Illness_dataGridView, 0, 10);
-            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel15, 0, 14);
-            this.t9_tableLayoutPanel.Controls.Add(this.Assets_dataGridView, 1, 18);
-            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel16, 0, 23);
-            this.t9_tableLayoutPanel.Controls.Add(this.P_HasIllness_flowLayoutPanel, 0, 8);
-            this.t9_tableLayoutPanel.Controls.Add(this.SubHeader8_label, 1, 17);
-            this.t9_tableLayoutPanel.Controls.Add(this.P_HasAssets_flowLayoutPanel, 0, 17);
+            this.t9_tableLayoutPanel.Controls.Add(this.Loss_dataGridView, 0, 10);
+            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel21, 0, 20);
+            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel9, 0, 7);
+            this.t9_tableLayoutPanel.Controls.Add(this.SubHeader6_label, 1, 9);
+            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel14, 0, 12);
+            this.t9_tableLayoutPanel.Controls.Add(this.Illness_dataGridView, 0, 18);
+            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel15, 0, 19);
+            this.t9_tableLayoutPanel.Controls.Add(this.P_HasIllness_flowLayoutPanel, 0, 16);
+            this.t9_tableLayoutPanel.Controls.Add(this.P_HasAssets_flowLayoutPanel, 0, 25);
+            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel16, 0, 31);
+            this.t9_tableLayoutPanel.Controls.Add(this.Assets_dataGridView, 0, 27);
+            this.t9_tableLayoutPanel.Controls.Add(this.label70, 1, 1);
+            this.t9_tableLayoutPanel.Controls.Add(this.FP_Exp_dataGridView, 0, 3);
+            this.t9_tableLayoutPanel.Controls.Add(this.SubHeader7_label, 1, 16);
+            this.t9_tableLayoutPanel.Controls.Add(this.SubHeader8_label, 1, 25);
+            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel22, 0, 9);
             this.t9_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.t9_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.t9_tableLayoutPanel.Location = new System.Drawing.Point(75, 5223);
+            this.t9_tableLayoutPanel.Location = new System.Drawing.Point(75, 5285);
             this.t9_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.t9_tableLayoutPanel.Name = "t9_tableLayoutPanel";
-            this.t9_tableLayoutPanel.RowCount = 24;
+            this.t9_tableLayoutPanel.RowCount = 32;
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
-            this.t9_tableLayoutPanel.Size = new System.Drawing.Size(1091, 962);
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
+            this.t9_tableLayoutPanel.Size = new System.Drawing.Size(1091, 1305);
             this.t9_tableLayoutPanel.TabIndex = 541;
-            // 
-            // P_HasLosses_flowLayoutPanel
-            // 
-            this.P_HasLosses_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_HasLosses_flowLayoutPanel.Controls.Add(this.P_HasLossesNo_radioButton);
-            this.P_HasLosses_flowLayoutPanel.Controls.Add(this.P_HasLossesYes_radioButton);
-            this.P_HasLosses_flowLayoutPanel.Location = new System.Drawing.Point(3, 23);
-            this.P_HasLosses_flowLayoutPanel.Name = "P_HasLosses_flowLayoutPanel";
-            this.P_HasLosses_flowLayoutPanel.Size = new System.Drawing.Size(212, 41);
-            this.P_HasLosses_flowLayoutPanel.TabIndex = 586;
-            // 
-            // P_HasLossesNo_radioButton
-            // 
-            this.P_HasLossesNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasLossesNo_radioButton.AutoSize = true;
-            this.P_HasLossesNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasLossesNo_radioButton.Location = new System.Drawing.Point(5, 5);
-            this.P_HasLossesNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
-            this.P_HasLossesNo_radioButton.Name = "P_HasLossesNo_radioButton";
-            this.P_HasLossesNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasLossesNo_radioButton.Size = new System.Drawing.Size(90, 33);
-            this.P_HasLossesNo_radioButton.TabIndex = 4;
-            this.P_HasLossesNo_radioButton.TabStop = true;
-            this.P_HasLossesNo_radioButton.Text = "لا يوجد";
-            this.P_HasLossesNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasLossesNo_radioButton.UseVisualStyleBackColor = true;
-            this.P_HasLossesNo_radioButton.CheckedChanged += new System.EventHandler(this.P_HasLossesNo_radioButton_CheckedChanged);
-            // 
-            // P_HasLossesYes_radioButton
-            // 
-            this.P_HasLossesYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasLossesYes_radioButton.AutoSize = true;
-            this.P_HasLossesYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasLossesYes_radioButton.Location = new System.Drawing.Point(115, 5);
-            this.P_HasLossesYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.P_HasLossesYes_radioButton.Name = "P_HasLossesYes_radioButton";
-            this.P_HasLossesYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasLossesYes_radioButton.Size = new System.Drawing.Size(73, 33);
-            this.P_HasLossesYes_radioButton.TabIndex = 3;
-            this.P_HasLossesYes_radioButton.TabStop = true;
-            this.P_HasLossesYes_radioButton.Text = "يوجد";
-            this.P_HasLossesYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasLossesYes_radioButton.UseVisualStyleBackColor = true;
-            this.P_HasLossesYes_radioButton.CheckedChanged += new System.EventHandler(this.P_HasLossesYes_radioButton_CheckedChanged);
             // 
             // Loss_dataGridView
             // 
@@ -4227,7 +4392,7 @@ namespace MyWorkApplication
             this.Loss_dataGridView.DefaultCellStyle = dataGridViewCellStyle14;
             this.Loss_dataGridView.EnableHeadersVisualStyles = false;
             this.Loss_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.Loss_dataGridView.Location = new System.Drawing.Point(3, 91);
+            this.Loss_dataGridView.Location = new System.Drawing.Point(3, 388);
             this.Loss_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Loss_dataGridView.MultiSelect = false;
             this.Loss_dataGridView.Name = "Loss_dataGridView";
@@ -4237,11 +4402,11 @@ namespace MyWorkApplication
             this.Loss_dataGridView.RowHeadersVisible = false;
             this.Loss_dataGridView.RowHeadersWidth = 51;
             this.Loss_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.t9_tableLayoutPanel.SetRowSpan(this.Loss_dataGridView, 3);
+            this.t9_tableLayoutPanel.SetRowSpan(this.Loss_dataGridView, 4);
             this.Loss_dataGridView.RowTemplate.Height = 35;
             this.Loss_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Loss_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Loss_dataGridView.Size = new System.Drawing.Size(1085, 133);
+            this.Loss_dataGridView.Size = new System.Drawing.Size(1085, 188);
             this.Loss_dataGridView.TabIndex = 573;
             this.Loss_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Loss_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -4249,6 +4414,89 @@ namespace MyWorkApplication
             this.Loss_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.Loss_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.Loss_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
+            // 
+            // LPerson_ID
+            // 
+            this.LPerson_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.LPerson_ID.HeaderText = "LPerson_ID";
+            this.LPerson_ID.MinimumWidth = 6;
+            this.LPerson_ID.Name = "LPerson_ID";
+            this.LPerson_ID.Visible = false;
+            // 
+            // L_ID
+            // 
+            this.L_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.L_ID.HeaderText = "L_ID";
+            this.L_ID.MinimumWidth = 6;
+            this.L_ID.Name = "L_ID";
+            this.L_ID.Visible = false;
+            // 
+            // L_Type
+            // 
+            this.L_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.L_Type.FillWeight = 41.40383F;
+            this.L_Type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.L_Type.HeaderText = "نوع الخسارة";
+            this.L_Type.Items.AddRange(new object[] {
+            "إجازة جامعية",
+            "تعليم أساسي",
+            "دبلوم",
+            "دكتوراه",
+            "ماجستير",
+            "معهد"});
+            this.L_Type.MinimumWidth = 6;
+            this.L_Type.Name = "L_Type";
+            // 
+            // L_Year
+            // 
+            this.L_Year.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.L_Year.FillWeight = 41F;
+            this.L_Year.HeaderText = "سنة الواقعة";
+            this.L_Year.MinimumWidth = 6;
+            this.L_Year.Name = "L_Year";
+            // 
+            // L_Notes
+            // 
+            this.L_Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.L_Notes.FillWeight = 60F;
+            this.L_Notes.HeaderText = "ملاحظات";
+            this.L_Notes.MinimumWidth = 6;
+            this.L_Notes.Name = "L_Notes";
+            // 
+            // L_DeleteRow
+            // 
+            this.L_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.L_DeleteRow.FillWeight = 10F;
+            this.L_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.L_DeleteRow.HeaderText = " ";
+            this.L_DeleteRow.MinimumWidth = 50;
+            this.L_DeleteRow.Name = "L_DeleteRow";
+            this.L_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.L_DeleteRow.Text = "Delete";
+            this.L_DeleteRow.UseColumnTextForButtonValue = true;
+            this.L_DeleteRow.Width = 50;
+            // 
+            // L_InDataBase
+            // 
+            this.L_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.L_InDataBase.HeaderText = "L_InDataBase";
+            this.L_InDataBase.MinimumWidth = 6;
+            this.L_InDataBase.Name = "L_InDataBase";
+            this.L_InDataBase.Visible = false;
+            // 
+            // L_RowID
+            // 
+            this.L_RowID.HeaderText = "L_RowID";
+            this.L_RowID.MinimumWidth = 6;
+            this.L_RowID.Name = "L_RowID";
+            this.L_RowID.Visible = false;
+            // 
+            // L_IsDirty
+            // 
+            this.L_IsDirty.HeaderText = "L_IsDirty";
+            this.L_IsDirty.MinimumWidth = 6;
+            this.L_IsDirty.Name = "L_IsDirty";
+            this.L_IsDirty.Visible = false;
             // 
             // flowLayoutPanel21
             // 
@@ -4261,7 +4509,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel21.Controls.Add(this.label64);
             this.flowLayoutPanel21.Controls.Add(this.label65);
             this.flowLayoutPanel21.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel21.Location = new System.Drawing.Point(3, 610);
+            this.flowLayoutPanel21.Location = new System.Drawing.Point(3, 928);
             this.flowLayoutPanel21.Name = "flowLayoutPanel21";
             this.flowLayoutPanel21.Size = new System.Drawing.Size(1085, 24);
             this.flowLayoutPanel21.TabIndex = 542;
@@ -4326,19 +4574,50 @@ namespace MyWorkApplication
             this.label65.Text = "كرسي متحرك -سماعات اذن -جهاز رزاز -فرشة طبية – سرير ";
             this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // SubHeader7_label
+            // flowLayoutPanel9
             // 
-            this.SubHeader7_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.SubHeader7_label.AutoSize = true;
-            this.SubHeader7_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.SubHeader7_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader7_label.Location = new System.Drawing.Point(221, 327);
-            this.SubHeader7_label.Name = "SubHeader7_label";
-            this.SubHeader7_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader7_label.Size = new System.Drawing.Size(648, 37);
-            this.SubHeader7_label.TabIndex = 568;
-            this.SubHeader7_label.Text = "الحالات المرضيّّة للمستفيد أو أحّّد أفراد عائلته";
-            this.SubHeader7_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.flowLayoutPanel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.t9_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel9, 3);
+            this.flowLayoutPanel9.Controls.Add(this.label48);
+            this.flowLayoutPanel9.Controls.Add(this.label47);
+            this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 288);
+            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(1085, 24);
+            this.flowLayoutPanel9.TabIndex = 565;
+            // 
+            // label48
+            // 
+            this.label48.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label48.Location = new System.Drawing.Point(985, 0);
+            this.label48.Margin = new System.Windows.Forms.Padding(0);
+            this.label48.Name = "label48";
+            this.label48.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label48.Size = new System.Drawing.Size(100, 23);
+            this.label48.TabIndex = 271;
+            this.label48.Text = "*طبيعة العمل:";
+            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label47
+            // 
+            this.label47.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label47.Location = new System.Drawing.Point(354, 0);
+            this.label47.Margin = new System.Windows.Forms.Padding(0);
+            this.label47.Name = "label47";
+            this.label47.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label47.Size = new System.Drawing.Size(631, 23);
+            this.label47.TabIndex = 270;
+            this.label47.Text = "حسب ملف الحاجة (صاحب العمل - شريك - صانع - موظّّف قطّّاع عام - موظّّفف قطّّاع خاص" +
+    " - لا يعمل)";
+            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SubHeader6_label
             // 
@@ -4346,7 +4625,7 @@ namespace MyWorkApplication
             this.SubHeader6_label.AutoSize = true;
             this.SubHeader6_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader6_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader6_label.Location = new System.Drawing.Point(221, 25);
+            this.SubHeader6_label.Location = new System.Drawing.Point(221, 341);
             this.SubHeader6_label.Name = "SubHeader6_label";
             this.SubHeader6_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SubHeader6_label.Size = new System.Drawing.Size(648, 37);
@@ -4363,9 +4642,9 @@ namespace MyWorkApplication
             this.flowLayoutPanel14.Controls.Add(this.label23);
             this.flowLayoutPanel14.Controls.Add(this.label24);
             this.flowLayoutPanel14.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel14.Location = new System.Drawing.Point(3, 231);
+            this.flowLayoutPanel14.Location = new System.Drawing.Point(3, 583);
             this.flowLayoutPanel14.Name = "flowLayoutPanel14";
-            this.flowLayoutPanel14.Size = new System.Drawing.Size(1085, 41);
+            this.flowLayoutPanel14.Size = new System.Drawing.Size(1085, 24);
             this.flowLayoutPanel14.TabIndex = 567;
             // 
             // label23
@@ -4444,7 +4723,7 @@ namespace MyWorkApplication
             this.Illness_dataGridView.DefaultCellStyle = dataGridViewCellStyle17;
             this.Illness_dataGridView.EnableHeadersVisualStyles = false;
             this.Illness_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.Illness_dataGridView.Location = new System.Drawing.Point(3, 393);
+            this.Illness_dataGridView.Location = new System.Drawing.Point(3, 703);
             this.Illness_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Illness_dataGridView.MultiSelect = false;
             this.Illness_dataGridView.Name = "Illness_dataGridView";
@@ -4458,7 +4737,7 @@ namespace MyWorkApplication
             this.Illness_dataGridView.RowTemplate.Height = 35;
             this.Illness_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Illness_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Illness_dataGridView.Size = new System.Drawing.Size(1085, 180);
+            this.Illness_dataGridView.Size = new System.Drawing.Size(1085, 188);
             this.Illness_dataGridView.TabIndex = 575;
             this.Illness_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Illness_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -4467,6 +4746,133 @@ namespace MyWorkApplication
             this.Illness_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.Illness_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.Illness_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
+            // 
+            // Ill_Person_ID
+            // 
+            this.Ill_Person_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_Person_ID.HeaderText = "Ill_Person_ID";
+            this.Ill_Person_ID.MinimumWidth = 6;
+            this.Ill_Person_ID.Name = "Ill_Person_ID";
+            this.Ill_Person_ID.Visible = false;
+            // 
+            // Ill_ID
+            // 
+            this.Ill_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_ID.HeaderText = "Ill_ID";
+            this.Ill_ID.MinimumWidth = 6;
+            this.Ill_ID.Name = "Ill_ID";
+            this.Ill_ID.Visible = false;
+            // 
+            // Ill_PName
+            // 
+            this.Ill_PName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_PName.FillWeight = 22F;
+            this.Ill_PName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ill_PName.HeaderText = "الاسم";
+            this.Ill_PName.MinimumWidth = 6;
+            this.Ill_PName.Name = "Ill_PName";
+            // 
+            // Ill_Relation
+            // 
+            this.Ill_Relation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_Relation.FillWeight = 22F;
+            this.Ill_Relation.HeaderText = "الصفة";
+            this.Ill_Relation.MinimumWidth = 6;
+            this.Ill_Relation.Name = "Ill_Relation";
+            this.Ill_Relation.ReadOnly = true;
+            this.Ill_Relation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Ill_Name
+            // 
+            this.Ill_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_Name.FillWeight = 22F;
+            this.Ill_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ill_Name.HeaderText = "الحالة الصحيّة";
+            this.Ill_Name.MinimumWidth = 6;
+            this.Ill_Name.Name = "Ill_Name";
+            // 
+            // Ill_Note
+            // 
+            this.Ill_Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_Note.FillWeight = 22F;
+            this.Ill_Note.HeaderText = "ملاحظات";
+            this.Ill_Note.MinimumWidth = 6;
+            this.Ill_Note.Name = "Ill_Note";
+            this.Ill_Note.ReadOnly = true;
+            // 
+            // Ill_Aid
+            // 
+            this.Ill_Aid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_Aid.FillWeight = 22F;
+            this.Ill_Aid.HeaderText = "مساعدات طبيّة";
+            this.Ill_Aid.MinimumWidth = 6;
+            this.Ill_Aid.Name = "Ill_Aid";
+            // 
+            // Ill_Donor
+            // 
+            this.Ill_Donor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_Donor.FillWeight = 22F;
+            this.Ill_Donor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ill_Donor.HeaderText = "الجهة المساعدة";
+            this.Ill_Donor.MinimumWidth = 6;
+            this.Ill_Donor.Name = "Ill_Donor";
+            this.Ill_Donor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Ill_Donor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Ill_AidPeriod
+            // 
+            this.Ill_AidPeriod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_AidPeriod.FillWeight = 22F;
+            this.Ill_AidPeriod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ill_AidPeriod.HeaderText = "مدة المساعدة";
+            this.Ill_AidPeriod.MinimumWidth = 6;
+            this.Ill_AidPeriod.Name = "Ill_AidPeriod";
+            this.Ill_AidPeriod.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Ill_AidPeriod.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Ill_MedicalNeeds
+            // 
+            this.Ill_MedicalNeeds.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_MedicalNeeds.FillWeight = 22F;
+            this.Ill_MedicalNeeds.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ill_MedicalNeeds.HeaderText = "احتياجات طبية";
+            this.Ill_MedicalNeeds.MinimumWidth = 6;
+            this.Ill_MedicalNeeds.Name = "Ill_MedicalNeeds";
+            // 
+            // Ill_DeleteRow
+            // 
+            this.Ill_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Ill_DeleteRow.FillWeight = 10F;
+            this.Ill_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ill_DeleteRow.HeaderText = " ";
+            this.Ill_DeleteRow.MinimumWidth = 50;
+            this.Ill_DeleteRow.Name = "Ill_DeleteRow";
+            this.Ill_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Ill_DeleteRow.Text = "Delete";
+            this.Ill_DeleteRow.UseColumnTextForButtonValue = true;
+            this.Ill_DeleteRow.Width = 50;
+            // 
+            // Ill_InDataBase
+            // 
+            this.Ill_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ill_InDataBase.HeaderText = "Ill_InDataBase";
+            this.Ill_InDataBase.MinimumWidth = 6;
+            this.Ill_InDataBase.Name = "Ill_InDataBase";
+            this.Ill_InDataBase.Visible = false;
+            // 
+            // Ill_RowID
+            // 
+            this.Ill_RowID.HeaderText = "Ill_RowID";
+            this.Ill_RowID.MinimumWidth = 6;
+            this.Ill_RowID.Name = "Ill_RowID";
+            this.Ill_RowID.Visible = false;
+            // 
+            // Ill_IsDirty
+            // 
+            this.Ill_IsDirty.HeaderText = "Ill_IsDirty";
+            this.Ill_IsDirty.MinimumWidth = 6;
+            this.Ill_IsDirty.Name = "Ill_IsDirty";
+            this.Ill_IsDirty.Visible = false;
             // 
             // flowLayoutPanel15
             // 
@@ -4477,7 +4883,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel15.Controls.Add(this.label68);
             this.flowLayoutPanel15.Controls.Add(this.label69);
             this.flowLayoutPanel15.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel15.Location = new System.Drawing.Point(3, 580);
+            this.flowLayoutPanel15.Location = new System.Drawing.Point(3, 898);
             this.flowLayoutPanel15.Name = "flowLayoutPanel15";
             this.flowLayoutPanel15.Size = new System.Drawing.Size(1085, 24);
             this.flowLayoutPanel15.TabIndex = 569;
@@ -4513,74 +4919,94 @@ namespace MyWorkApplication
     "ّة / عقليّّة.";
             this.label69.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Assets_dataGridView
+            // P_HasIllness_flowLayoutPanel
             // 
-            this.Assets_dataGridView.AllowUserToResizeRows = false;
-            this.Assets_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.P_HasIllness_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Assets_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Assets_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.Assets_dataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.Assets_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Assets_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Assets_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            this.Assets_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Assets_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.APerson_ID,
-            this.Asset_ID,
-            this.Asset_PName,
-            this.Asset_Relation,
-            this.Asset_Name,
-            this.Asset_Type,
-            this.Asset_Year,
-            this.Asset_Desc,
-            this.Asset_Note,
-            this.Asset_DeleteRow,
-            this.Asset_InDataBase,
-            this.Asset_RowID,
-            this.Asset_IsDirty});
-            this.t9_tableLayoutPanel.SetColumnSpan(this.Assets_dataGridView, 3);
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Assets_dataGridView.DefaultCellStyle = dataGridViewCellStyle20;
-            this.Assets_dataGridView.EnableHeadersVisualStyles = false;
-            this.Assets_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.Assets_dataGridView.Location = new System.Drawing.Point(3, 728);
-            this.Assets_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Assets_dataGridView.MultiSelect = false;
-            this.Assets_dataGridView.Name = "Assets_dataGridView";
-            this.Assets_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Assets_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
-            this.Assets_dataGridView.RowHeadersVisible = false;
-            this.Assets_dataGridView.RowHeadersWidth = 51;
-            this.Assets_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.t9_tableLayoutPanel.SetRowSpan(this.Assets_dataGridView, 4);
-            this.Assets_dataGridView.RowTemplate.Height = 35;
-            this.Assets_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Assets_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Assets_dataGridView.Size = new System.Drawing.Size(1085, 180);
-            this.Assets_dataGridView.TabIndex = 576;
-            this.Assets_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
-            this.Assets_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
-            this.Assets_dataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEnter);
-            this.Assets_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
-            this.Assets_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
-            this.Assets_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
-            this.Assets_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
+            this.P_HasIllness_flowLayoutPanel.Controls.Add(this.P_HasIllnessNo_radioButton);
+            this.P_HasIllness_flowLayoutPanel.Controls.Add(this.P_HasIllnessYes_radioButton);
+            this.P_HasIllness_flowLayoutPanel.Location = new System.Drawing.Point(3, 633);
+            this.P_HasIllness_flowLayoutPanel.Name = "P_HasIllness_flowLayoutPanel";
+            this.P_HasIllness_flowLayoutPanel.Size = new System.Drawing.Size(212, 43);
+            this.P_HasIllness_flowLayoutPanel.TabIndex = 586;
+            // 
+            // P_HasIllnessNo_radioButton
+            // 
+            this.P_HasIllnessNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasIllnessNo_radioButton.AutoSize = true;
+            this.P_HasIllnessNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasIllnessNo_radioButton.Location = new System.Drawing.Point(5, 5);
+            this.P_HasIllnessNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
+            this.P_HasIllnessNo_radioButton.Name = "P_HasIllnessNo_radioButton";
+            this.P_HasIllnessNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasIllnessNo_radioButton.Size = new System.Drawing.Size(90, 33);
+            this.P_HasIllnessNo_radioButton.TabIndex = 4;
+            this.P_HasIllnessNo_radioButton.TabStop = true;
+            this.P_HasIllnessNo_radioButton.Text = "لا يوجد";
+            this.P_HasIllnessNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasIllnessNo_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasIllnessNo_radioButton.CheckedChanged += new System.EventHandler(this.P_HasIllnessNo_radioButton_CheckedChanged);
+            // 
+            // P_HasIllnessYes_radioButton
+            // 
+            this.P_HasIllnessYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasIllnessYes_radioButton.AutoSize = true;
+            this.P_HasIllnessYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasIllnessYes_radioButton.Location = new System.Drawing.Point(115, 5);
+            this.P_HasIllnessYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.P_HasIllnessYes_radioButton.Name = "P_HasIllnessYes_radioButton";
+            this.P_HasIllnessYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasIllnessYes_radioButton.Size = new System.Drawing.Size(73, 33);
+            this.P_HasIllnessYes_radioButton.TabIndex = 3;
+            this.P_HasIllnessYes_radioButton.TabStop = true;
+            this.P_HasIllnessYes_radioButton.Text = "يوجد";
+            this.P_HasIllnessYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasIllnessYes_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasIllnessYes_radioButton.CheckedChanged += new System.EventHandler(this.P_HasIllnessYes_radioButton_CheckedChanged);
+            // 
+            // P_HasAssets_flowLayoutPanel
+            // 
+            this.P_HasAssets_flowLayoutPanel.Controls.Add(this.P_HasAssetsNo_radioButton);
+            this.P_HasAssets_flowLayoutPanel.Controls.Add(this.P_HasAssetsYes_radioButton);
+            this.P_HasAssets_flowLayoutPanel.Location = new System.Drawing.Point(3, 978);
+            this.P_HasAssets_flowLayoutPanel.Name = "P_HasAssets_flowLayoutPanel";
+            this.P_HasAssets_flowLayoutPanel.Size = new System.Drawing.Size(212, 39);
+            this.P_HasAssets_flowLayoutPanel.TabIndex = 586;
+            // 
+            // P_HasAssetsNo_radioButton
+            // 
+            this.P_HasAssetsNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasAssetsNo_radioButton.AutoSize = true;
+            this.P_HasAssetsNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasAssetsNo_radioButton.Location = new System.Drawing.Point(5, 5);
+            this.P_HasAssetsNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
+            this.P_HasAssetsNo_radioButton.Name = "P_HasAssetsNo_radioButton";
+            this.P_HasAssetsNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasAssetsNo_radioButton.Size = new System.Drawing.Size(90, 33);
+            this.P_HasAssetsNo_radioButton.TabIndex = 4;
+            this.P_HasAssetsNo_radioButton.TabStop = true;
+            this.P_HasAssetsNo_radioButton.Text = "لا يوجد";
+            this.P_HasAssetsNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasAssetsNo_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasAssetsNo_radioButton.CheckedChanged += new System.EventHandler(this.P_HasAssetsNo_radioButton_CheckedChanged);
+            // 
+            // P_HasAssetsYes_radioButton
+            // 
+            this.P_HasAssetsYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasAssetsYes_radioButton.AutoSize = true;
+            this.P_HasAssetsYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasAssetsYes_radioButton.Location = new System.Drawing.Point(115, 5);
+            this.P_HasAssetsYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.P_HasAssetsYes_radioButton.Name = "P_HasAssetsYes_radioButton";
+            this.P_HasAssetsYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasAssetsYes_radioButton.Size = new System.Drawing.Size(73, 33);
+            this.P_HasAssetsYes_radioButton.TabIndex = 3;
+            this.P_HasAssetsYes_radioButton.TabStop = true;
+            this.P_HasAssetsYes_radioButton.Text = "يوجد";
+            this.P_HasAssetsYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasAssetsYes_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasAssetsYes_radioButton.CheckedChanged += new System.EventHandler(this.P_HasAssetsYes_radioButton_CheckedChanged);
             // 
             // flowLayoutPanel16
             // 
@@ -4595,9 +5021,9 @@ namespace MyWorkApplication
             this.flowLayoutPanel16.Controls.Add(this.label101);
             this.flowLayoutPanel16.Controls.Add(this.label103);
             this.flowLayoutPanel16.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel16.Location = new System.Drawing.Point(3, 915);
+            this.flowLayoutPanel16.Location = new System.Drawing.Point(3, 1243);
             this.flowLayoutPanel16.Name = "flowLayoutPanel16";
-            this.flowLayoutPanel16.Size = new System.Drawing.Size(1085, 44);
+            this.flowLayoutPanel16.Size = new System.Drawing.Size(1085, 59);
             this.flowLayoutPanel16.TabIndex = 571;
             // 
             // label83
@@ -4691,51 +5117,349 @@ namespace MyWorkApplication
             this.label103.Text = "(لايتم تسجيل منزله الذي يسكنه ومكان عمله هنا)";
             this.label103.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // P_HasIllness_flowLayoutPanel
+            // Assets_dataGridView
             // 
-            this.P_HasIllness_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Assets_dataGridView.AllowUserToResizeRows = false;
+            this.Assets_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_HasIllness_flowLayoutPanel.Controls.Add(this.P_HasIllnessNo_radioButton);
-            this.P_HasIllness_flowLayoutPanel.Controls.Add(this.P_HasIllnessYes_radioButton);
-            this.P_HasIllness_flowLayoutPanel.Location = new System.Drawing.Point(3, 325);
-            this.P_HasIllness_flowLayoutPanel.Name = "P_HasIllness_flowLayoutPanel";
-            this.P_HasIllness_flowLayoutPanel.Size = new System.Drawing.Size(212, 41);
-            this.P_HasIllness_flowLayoutPanel.TabIndex = 586;
+            this.Assets_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Assets_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.Assets_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.Assets_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Assets_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Assets_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.Assets_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Assets_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.APerson_ID,
+            this.Asset_ID,
+            this.Asset_PName,
+            this.Asset_Relation,
+            this.Asset_Name,
+            this.Asset_Type,
+            this.Asset_Year,
+            this.Asset_Desc,
+            this.Asset_Note,
+            this.Asset_DeleteRow,
+            this.Asset_InDataBase,
+            this.Asset_RowID,
+            this.Asset_IsDirty});
+            this.t9_tableLayoutPanel.SetColumnSpan(this.Assets_dataGridView, 3);
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Assets_dataGridView.DefaultCellStyle = dataGridViewCellStyle20;
+            this.Assets_dataGridView.EnableHeadersVisualStyles = false;
+            this.Assets_dataGridView.GridColor = System.Drawing.Color.DarkGray;
+            this.Assets_dataGridView.Location = new System.Drawing.Point(3, 1048);
+            this.Assets_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Assets_dataGridView.MultiSelect = false;
+            this.Assets_dataGridView.Name = "Assets_dataGridView";
+            this.Assets_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Assets_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.Assets_dataGridView.RowHeadersVisible = false;
+            this.Assets_dataGridView.RowHeadersWidth = 51;
+            this.Assets_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.t9_tableLayoutPanel.SetRowSpan(this.Assets_dataGridView, 4);
+            this.Assets_dataGridView.RowTemplate.Height = 35;
+            this.Assets_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Assets_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.Assets_dataGridView.Size = new System.Drawing.Size(1085, 188);
+            this.Assets_dataGridView.TabIndex = 576;
+            this.Assets_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.Assets_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
+            this.Assets_dataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEnter);
+            this.Assets_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
+            this.Assets_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            this.Assets_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
+            this.Assets_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
-            // P_HasIllnessNo_radioButton
+            // APerson_ID
             // 
-            this.P_HasIllnessNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasIllnessNo_radioButton.AutoSize = true;
-            this.P_HasIllnessNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasIllnessNo_radioButton.Location = new System.Drawing.Point(5, 5);
-            this.P_HasIllnessNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
-            this.P_HasIllnessNo_radioButton.Name = "P_HasIllnessNo_radioButton";
-            this.P_HasIllnessNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasIllnessNo_radioButton.Size = new System.Drawing.Size(90, 33);
-            this.P_HasIllnessNo_radioButton.TabIndex = 4;
-            this.P_HasIllnessNo_radioButton.TabStop = true;
-            this.P_HasIllnessNo_radioButton.Text = "لا يوجد";
-            this.P_HasIllnessNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasIllnessNo_radioButton.UseVisualStyleBackColor = true;
-            this.P_HasIllnessNo_radioButton.CheckedChanged += new System.EventHandler(this.P_HasIllnessNo_radioButton_CheckedChanged);
+            this.APerson_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.APerson_ID.HeaderText = "APerson_ID";
+            this.APerson_ID.MinimumWidth = 6;
+            this.APerson_ID.Name = "APerson_ID";
+            this.APerson_ID.ReadOnly = true;
+            this.APerson_ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.APerson_ID.Visible = false;
             // 
-            // P_HasIllnessYes_radioButton
+            // Asset_ID
             // 
-            this.P_HasIllnessYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasIllnessYes_radioButton.AutoSize = true;
-            this.P_HasIllnessYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasIllnessYes_radioButton.Location = new System.Drawing.Point(115, 5);
-            this.P_HasIllnessYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.P_HasIllnessYes_radioButton.Name = "P_HasIllnessYes_radioButton";
-            this.P_HasIllnessYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasIllnessYes_radioButton.Size = new System.Drawing.Size(73, 33);
-            this.P_HasIllnessYes_radioButton.TabIndex = 3;
-            this.P_HasIllnessYes_radioButton.TabStop = true;
-            this.P_HasIllnessYes_radioButton.Text = "يوجد";
-            this.P_HasIllnessYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasIllnessYes_radioButton.UseVisualStyleBackColor = true;
-            this.P_HasIllnessYes_radioButton.CheckedChanged += new System.EventHandler(this.P_HasIllnessYes_radioButton_CheckedChanged);
+            this.Asset_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Asset_ID.HeaderText = "Asset_ID";
+            this.Asset_ID.MinimumWidth = 6;
+            this.Asset_ID.Name = "Asset_ID";
+            this.Asset_ID.Visible = false;
+            // 
+            // Asset_PName
+            // 
+            this.Asset_PName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Asset_PName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Asset_PName.HeaderText = "الاسم";
+            this.Asset_PName.MinimumWidth = 6;
+            this.Asset_PName.Name = "Asset_PName";
+            this.Asset_PName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Asset_PName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Asset_Relation
+            // 
+            this.Asset_Relation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Asset_Relation.HeaderText = "الصفة";
+            this.Asset_Relation.MinimumWidth = 6;
+            this.Asset_Relation.Name = "Asset_Relation";
+            this.Asset_Relation.ReadOnly = true;
+            this.Asset_Relation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Asset_Name
+            // 
+            this.Asset_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Asset_Name.FillWeight = 41.40383F;
+            this.Asset_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Asset_Name.HeaderText = "الملك";
+            this.Asset_Name.Items.AddRange(new object[] {
+            "إجازة جامعية",
+            "تعليم أساسي",
+            "دبلوم",
+            "دكتوراه",
+            "ماجستير",
+            "معهد"});
+            this.Asset_Name.MinimumWidth = 6;
+            this.Asset_Name.Name = "Asset_Name";
+            // 
+            // Asset_Type
+            // 
+            this.Asset_Type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Asset_Type.HeaderText = "نوع الملك";
+            this.Asset_Type.MinimumWidth = 6;
+            this.Asset_Type.Name = "Asset_Type";
+            // 
+            // Asset_Year
+            // 
+            this.Asset_Year.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Asset_Year.HeaderText = "سنة الشراء";
+            this.Asset_Year.MinimumWidth = 6;
+            this.Asset_Year.Name = "Asset_Year";
+            // 
+            // Asset_Desc
+            // 
+            this.Asset_Desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Asset_Desc.HeaderText = "وصف الملك";
+            this.Asset_Desc.MinimumWidth = 6;
+            this.Asset_Desc.Name = "Asset_Desc";
+            // 
+            // Asset_Note
+            // 
+            this.Asset_Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Asset_Note.HeaderText = "مدى الاستفادة منه";
+            this.Asset_Note.MinimumWidth = 6;
+            this.Asset_Note.Name = "Asset_Note";
+            // 
+            // Asset_DeleteRow
+            // 
+            this.Asset_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Asset_DeleteRow.FillWeight = 10F;
+            this.Asset_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Asset_DeleteRow.HeaderText = " ";
+            this.Asset_DeleteRow.MinimumWidth = 50;
+            this.Asset_DeleteRow.Name = "Asset_DeleteRow";
+            this.Asset_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Asset_DeleteRow.Text = "Delete";
+            this.Asset_DeleteRow.UseColumnTextForButtonValue = true;
+            this.Asset_DeleteRow.Width = 50;
+            // 
+            // Asset_InDataBase
+            // 
+            this.Asset_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Asset_InDataBase.HeaderText = "Asset_InDataBase";
+            this.Asset_InDataBase.MinimumWidth = 6;
+            this.Asset_InDataBase.Name = "Asset_InDataBase";
+            this.Asset_InDataBase.Visible = false;
+            // 
+            // Asset_RowID
+            // 
+            this.Asset_RowID.HeaderText = "Asset_RowID";
+            this.Asset_RowID.MinimumWidth = 6;
+            this.Asset_RowID.Name = "Asset_RowID";
+            this.Asset_RowID.Visible = false;
+            // 
+            // Asset_IsDirty
+            // 
+            this.Asset_IsDirty.HeaderText = "Asset_IsDirty";
+            this.Asset_IsDirty.MinimumWidth = 6;
+            this.Asset_IsDirty.Name = "Asset_IsDirty";
+            this.Asset_IsDirty.Visible = false;
+            // 
+            // label70
+            // 
+            this.label70.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label70.AutoSize = true;
+            this.label70.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.label70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.label70.Location = new System.Drawing.Point(221, 26);
+            this.label70.Name = "label70";
+            this.label70.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label70.Size = new System.Drawing.Size(648, 37);
+            this.label70.TabIndex = 587;
+            this.label70.Text = "عمل أفراد العائلة";
+            this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // FP_Exp_dataGridView
+            // 
+            this.FP_Exp_dataGridView.AllowUserToResizeRows = false;
+            this.FP_Exp_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FP_Exp_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.FP_Exp_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.FP_Exp_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.FP_Exp_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.FP_Exp_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FP_Exp_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            this.FP_Exp_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.FP_Exp_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FP_Exp_ID,
+            this.FP_Exp_PName,
+            this.FP_Exp_Relation,
+            this.FP_Exp_WorkName,
+            this.FP_Exp_WorkType,
+            this.FP_Exp_Salary,
+            this.dataGridViewButtonColumn1,
+            this.FP_Exp_IsDirty});
+            this.t9_tableLayoutPanel.SetColumnSpan(this.FP_Exp_dataGridView, 3);
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FP_Exp_dataGridView.DefaultCellStyle = dataGridViewCellStyle23;
+            this.FP_Exp_dataGridView.EnableHeadersVisualStyles = false;
+            this.FP_Exp_dataGridView.GridColor = System.Drawing.Color.DarkGray;
+            this.FP_Exp_dataGridView.Location = new System.Drawing.Point(3, 93);
+            this.FP_Exp_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FP_Exp_dataGridView.MultiSelect = false;
+            this.FP_Exp_dataGridView.Name = "FP_Exp_dataGridView";
+            this.FP_Exp_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Rubik", 11F);
+            this.FP_Exp_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            this.FP_Exp_dataGridView.RowHeadersVisible = false;
+            this.FP_Exp_dataGridView.RowHeadersWidth = 51;
+            this.FP_Exp_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.t9_tableLayoutPanel.SetRowSpan(this.FP_Exp_dataGridView, 4);
+            this.FP_Exp_dataGridView.RowTemplate.Height = 35;
+            this.FP_Exp_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.FP_Exp_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.FP_Exp_dataGridView.Size = new System.Drawing.Size(1085, 188);
+            this.FP_Exp_dataGridView.TabIndex = 588;
+            // 
+            // FP_Exp_ID
+            // 
+            this.FP_Exp_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FP_Exp_ID.HeaderText = "APerson_ID";
+            this.FP_Exp_ID.MinimumWidth = 6;
+            this.FP_Exp_ID.Name = "FP_Exp_ID";
+            this.FP_Exp_ID.ReadOnly = true;
+            this.FP_Exp_ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.FP_Exp_ID.Visible = false;
+            // 
+            // FP_Exp_PName
+            // 
+            this.FP_Exp_PName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FP_Exp_PName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FP_Exp_PName.HeaderText = "الاسم";
+            this.FP_Exp_PName.MinimumWidth = 6;
+            this.FP_Exp_PName.Name = "FP_Exp_PName";
+            this.FP_Exp_PName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FP_Exp_PName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // FP_Exp_Relation
+            // 
+            this.FP_Exp_Relation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FP_Exp_Relation.HeaderText = "الصفة";
+            this.FP_Exp_Relation.MinimumWidth = 6;
+            this.FP_Exp_Relation.Name = "FP_Exp_Relation";
+            this.FP_Exp_Relation.ReadOnly = true;
+            this.FP_Exp_Relation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // FP_Exp_WorkName
+            // 
+            this.FP_Exp_WorkName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FP_Exp_WorkName.FillWeight = 41.40383F;
+            this.FP_Exp_WorkName.HeaderText = "المهنة";
+            this.FP_Exp_WorkName.MinimumWidth = 6;
+            this.FP_Exp_WorkName.Name = "FP_Exp_WorkName";
+            this.FP_Exp_WorkName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FP_Exp_WorkName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // FP_Exp_WorkType
+            // 
+            this.FP_Exp_WorkType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FP_Exp_WorkType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FP_Exp_WorkType.HeaderText = "طبيعة العمل";
+            this.FP_Exp_WorkType.MinimumWidth = 6;
+            this.FP_Exp_WorkType.Name = "FP_Exp_WorkType";
+            // 
+            // FP_Exp_Salary
+            // 
+            this.FP_Exp_Salary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FP_Exp_Salary.HeaderText = "الربح";
+            this.FP_Exp_Salary.MinimumWidth = 6;
+            this.FP_Exp_Salary.Name = "FP_Exp_Salary";
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            this.dataGridViewButtonColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewButtonColumn1.FillWeight = 10F;
+            this.dataGridViewButtonColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dataGridViewButtonColumn1.HeaderText = " ";
+            this.dataGridViewButtonColumn1.MinimumWidth = 50;
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            this.dataGridViewButtonColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewButtonColumn1.Text = "Delete";
+            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
+            this.dataGridViewButtonColumn1.Width = 50;
+            // 
+            // FP_Exp_IsDirty
+            // 
+            this.FP_Exp_IsDirty.HeaderText = "Asset_IsDirty";
+            this.FP_Exp_IsDirty.MinimumWidth = 6;
+            this.FP_Exp_IsDirty.Name = "FP_Exp_IsDirty";
+            this.FP_Exp_IsDirty.Visible = false;
+            // 
+            // SubHeader7_label
+            // 
+            this.SubHeader7_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubHeader7_label.AutoSize = true;
+            this.SubHeader7_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.SubHeader7_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader7_label.Location = new System.Drawing.Point(221, 636);
+            this.SubHeader7_label.Name = "SubHeader7_label";
+            this.SubHeader7_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SubHeader7_label.Size = new System.Drawing.Size(648, 37);
+            this.SubHeader7_label.TabIndex = 568;
+            this.SubHeader7_label.Text = "الحالات المرضيّّة للمستفيد أو أحّّد أفراد عائلته";
+            this.SubHeader7_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SubHeader8_label
             // 
@@ -4743,7 +5467,7 @@ namespace MyWorkApplication
             this.SubHeader8_label.AutoSize = true;
             this.SubHeader8_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader8_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader8_label.Location = new System.Drawing.Point(221, 662);
+            this.SubHeader8_label.Location = new System.Drawing.Point(221, 981);
             this.SubHeader8_label.Name = "SubHeader8_label";
             this.SubHeader8_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SubHeader8_label.Size = new System.Drawing.Size(648, 37);
@@ -4751,51 +5475,51 @@ namespace MyWorkApplication
             this.SubHeader8_label.Text = "أملاك المستفيد وعائلته";
             this.SubHeader8_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // P_HasAssets_flowLayoutPanel
+            // flowLayoutPanel22
             // 
-            this.P_HasAssets_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.flowLayoutPanel22.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.P_HasAssets_flowLayoutPanel.Controls.Add(this.P_HasAssetsNo_radioButton);
-            this.P_HasAssets_flowLayoutPanel.Controls.Add(this.P_HasAssetsYes_radioButton);
-            this.P_HasAssets_flowLayoutPanel.Location = new System.Drawing.Point(3, 660);
-            this.P_HasAssets_flowLayoutPanel.Name = "P_HasAssets_flowLayoutPanel";
-            this.P_HasAssets_flowLayoutPanel.Size = new System.Drawing.Size(212, 41);
-            this.P_HasAssets_flowLayoutPanel.TabIndex = 586;
+            this.flowLayoutPanel22.Controls.Add(this.P_HasLossesNo_radioButton);
+            this.flowLayoutPanel22.Controls.Add(this.P_HasLossesYes_radioButton);
+            this.flowLayoutPanel22.Location = new System.Drawing.Point(3, 338);
+            this.flowLayoutPanel22.Name = "flowLayoutPanel22";
+            this.flowLayoutPanel22.Size = new System.Drawing.Size(212, 43);
+            this.flowLayoutPanel22.TabIndex = 589;
             // 
-            // P_HasAssetsNo_radioButton
+            // P_HasLossesNo_radioButton
             // 
-            this.P_HasAssetsNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasAssetsNo_radioButton.AutoSize = true;
-            this.P_HasAssetsNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasAssetsNo_radioButton.Location = new System.Drawing.Point(5, 5);
-            this.P_HasAssetsNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
-            this.P_HasAssetsNo_radioButton.Name = "P_HasAssetsNo_radioButton";
-            this.P_HasAssetsNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasAssetsNo_radioButton.Size = new System.Drawing.Size(90, 33);
-            this.P_HasAssetsNo_radioButton.TabIndex = 4;
-            this.P_HasAssetsNo_radioButton.TabStop = true;
-            this.P_HasAssetsNo_radioButton.Text = "لا يوجد";
-            this.P_HasAssetsNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasAssetsNo_radioButton.UseVisualStyleBackColor = true;
-            this.P_HasAssetsNo_radioButton.CheckedChanged += new System.EventHandler(this.P_HasAssetsNo_radioButton_CheckedChanged);
+            this.P_HasLossesNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasLossesNo_radioButton.AutoSize = true;
+            this.P_HasLossesNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasLossesNo_radioButton.Location = new System.Drawing.Point(5, 5);
+            this.P_HasLossesNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
+            this.P_HasLossesNo_radioButton.Name = "P_HasLossesNo_radioButton";
+            this.P_HasLossesNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasLossesNo_radioButton.Size = new System.Drawing.Size(90, 33);
+            this.P_HasLossesNo_radioButton.TabIndex = 4;
+            this.P_HasLossesNo_radioButton.TabStop = true;
+            this.P_HasLossesNo_radioButton.Text = "لا يوجد";
+            this.P_HasLossesNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasLossesNo_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasLossesNo_radioButton.CheckedChanged += new System.EventHandler(this.P_HasLossesNo_radioButton_CheckedChanged);
             // 
-            // P_HasAssetsYes_radioButton
+            // P_HasLossesYes_radioButton
             // 
-            this.P_HasAssetsYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.P_HasAssetsYes_radioButton.AutoSize = true;
-            this.P_HasAssetsYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasAssetsYes_radioButton.Location = new System.Drawing.Point(115, 5);
-            this.P_HasAssetsYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.P_HasAssetsYes_radioButton.Name = "P_HasAssetsYes_radioButton";
-            this.P_HasAssetsYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasAssetsYes_radioButton.Size = new System.Drawing.Size(73, 33);
-            this.P_HasAssetsYes_radioButton.TabIndex = 3;
-            this.P_HasAssetsYes_radioButton.TabStop = true;
-            this.P_HasAssetsYes_radioButton.Text = "يوجد";
-            this.P_HasAssetsYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.P_HasAssetsYes_radioButton.UseVisualStyleBackColor = true;
-            this.P_HasAssetsYes_radioButton.CheckedChanged += new System.EventHandler(this.P_HasAssetsYes_radioButton_CheckedChanged);
+            this.P_HasLossesYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasLossesYes_radioButton.AutoSize = true;
+            this.P_HasLossesYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.P_HasLossesYes_radioButton.Location = new System.Drawing.Point(115, 5);
+            this.P_HasLossesYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.P_HasLossesYes_radioButton.Name = "P_HasLossesYes_radioButton";
+            this.P_HasLossesYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasLossesYes_radioButton.Size = new System.Drawing.Size(73, 33);
+            this.P_HasLossesYes_radioButton.TabIndex = 3;
+            this.P_HasLossesYes_radioButton.TabStop = true;
+            this.P_HasLossesYes_radioButton.Text = "يوجد";
+            this.P_HasLossesYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P_HasLossesYes_radioButton.UseVisualStyleBackColor = true;
+            this.P_HasLossesYes_radioButton.CheckedChanged += new System.EventHandler(this.P_HasLossesYes_radioButton_CheckedChanged);
             // 
             // t4_tableLayoutPanel
             // 
@@ -4822,7 +5546,7 @@ namespace MyWorkApplication
             this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.t4_tableLayoutPanel.Size = new System.Drawing.Size(1091, 366);
+            this.t4_tableLayoutPanel.Size = new System.Drawing.Size(1091, 428);
             this.t4_tableLayoutPanel.TabIndex = 546;
             this.t4_tableLayoutPanel.TabStop = true;
             // 
@@ -4942,6 +5666,7 @@ namespace MyWorkApplication
             this.FamilyNum_textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.FamilyNum_textBox1.Size = new System.Drawing.Size(147, 29);
             this.FamilyNum_textBox1.TabIndex = 552;
+            this.FamilyNum_textBox1.TextChanged += new System.EventHandler(this.FamilyNum_textBox1_TextChanged);
             this.FamilyNum_textBox1.Enter += new System.EventHandler(this.FamilyNum_textBox1_Enter);
             this.FamilyNum_textBox1.Leave += new System.EventHandler(this.FamilyNum_textBox1_Leave);
             // 
@@ -5038,11 +5763,11 @@ namespace MyWorkApplication
             // 
             this.LiveWithFamily_Note_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LiveWithFamily_Note_textBox.BackColor = System.Drawing.Color.White;
-            this.LiveWithFamily_Note_textBox.Location = new System.Drawing.Point(52, 5);
+            this.LiveWithFamily_Note_textBox.Location = new System.Drawing.Point(3, 5);
             this.LiveWithFamily_Note_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.LiveWithFamily_Note_textBox.Name = "LiveWithFamily_Note_textBox";
             this.LiveWithFamily_Note_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LiveWithFamily_Note_textBox.Size = new System.Drawing.Size(550, 29);
+            this.LiveWithFamily_Note_textBox.Size = new System.Drawing.Size(599, 29);
             this.LiveWithFamily_Note_textBox.TabIndex = 583;
             this.LiveWithFamily_Note_textBox.Enter += new System.EventHandler(this.LiveWithFamily_Note_textBox_Enter);
             this.LiveWithFamily_Note_textBox.Leave += new System.EventHandler(this.LiveWithFamily_Note_textBox_Leave);
@@ -5145,10 +5870,10 @@ namespace MyWorkApplication
             this.Materials_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Materials_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Materials_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Materials_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Materials_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.Materials_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Materials_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MMP_ID,
@@ -5161,14 +5886,14 @@ namespace MyWorkApplication
             this.M_InDataBase,
             this.M_IsDirty});
             this.t20_tableLayoutPanel.SetColumnSpan(this.Materials_dataGridView, 3);
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Materials_dataGridView.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Materials_dataGridView.DefaultCellStyle = dataGridViewCellStyle26;
             this.Materials_dataGridView.EnableHeadersVisualStyles = false;
             this.Materials_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.Materials_dataGridView.Location = new System.Drawing.Point(3, 924);
@@ -5177,8 +5902,8 @@ namespace MyWorkApplication
             this.Materials_dataGridView.Name = "Materials_dataGridView";
             this.Materials_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Materials_dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Materials_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Materials_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.Materials_dataGridView.RowHeadersVisible = false;
             this.Materials_dataGridView.RowHeadersWidth = 51;
             this.t20_tableLayoutPanel.SetRowSpan(this.Materials_dataGridView, 5);
@@ -5194,6 +5919,76 @@ namespace MyWorkApplication
             this.Materials_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.Materials_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.Materials_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
+            // 
+            // MMP_ID
+            // 
+            this.MMP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MMP_ID.HeaderText = "MMP_ID";
+            this.MMP_ID.MinimumWidth = 6;
+            this.MMP_ID.Name = "MMP_ID";
+            this.MMP_ID.Visible = false;
+            // 
+            // M_ID
+            // 
+            this.M_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.M_ID.HeaderText = "M_ID";
+            this.M_ID.MinimumWidth = 6;
+            this.M_ID.Name = "M_ID";
+            this.M_ID.Visible = false;
+            // 
+            // M_Name
+            // 
+            this.M_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.M_Name.HeaderText = "اسم المادة";
+            this.M_Name.MinimumWidth = 6;
+            this.M_Name.Name = "M_Name";
+            // 
+            // M_Comments
+            // 
+            this.M_Comments.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.M_Comments.HeaderText = "النوع";
+            this.M_Comments.MinimumWidth = 6;
+            this.M_Comments.Name = "M_Comments";
+            // 
+            // M_Price
+            // 
+            this.M_Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.M_Price.DataPropertyName = "0";
+            this.M_Price.HeaderText = "ثمن القطعة";
+            this.M_Price.MinimumWidth = 6;
+            this.M_Price.Name = "M_Price";
+            // 
+            // M_Amount
+            // 
+            this.M_Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.M_Amount.DataPropertyName = "1";
+            this.M_Amount.HeaderText = "الكمية";
+            this.M_Amount.MinimumWidth = 6;
+            this.M_Amount.Name = "M_Amount";
+            // 
+            // M_DeleteRow
+            // 
+            this.M_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.M_DeleteRow.FillWeight = 40F;
+            this.M_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.M_DeleteRow.HeaderText = " ";
+            this.M_DeleteRow.MinimumWidth = 50;
+            this.M_DeleteRow.Name = "M_DeleteRow";
+            this.M_DeleteRow.Width = 50;
+            // 
+            // M_InDataBase
+            // 
+            this.M_InDataBase.HeaderText = "M_InDataBase";
+            this.M_InDataBase.MinimumWidth = 6;
+            this.M_InDataBase.Name = "M_InDataBase";
+            this.M_InDataBase.Visible = false;
+            // 
+            // M_IsDirty
+            // 
+            this.M_IsDirty.HeaderText = "M_IsDirty";
+            this.M_IsDirty.MinimumWidth = 6;
+            this.M_IsDirty.Name = "M_IsDirty";
+            this.M_IsDirty.Visible = false;
             // 
             // flowLayoutPanel27
             // 
@@ -5429,10 +6224,10 @@ namespace MyWorkApplication
             this.PowerSource_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.PowerSource_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PowerSource_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PowerSource_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PowerSource_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
             this.PowerSource_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PowerSource_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Power_MP_ID,
@@ -5446,14 +6241,14 @@ namespace MyWorkApplication
             this.Power_RowID,
             this.Power_IsDirty});
             this.t20_tableLayoutPanel.SetColumnSpan(this.PowerSource_dataGridView, 3);
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PowerSource_dataGridView.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PowerSource_dataGridView.DefaultCellStyle = dataGridViewCellStyle29;
             this.PowerSource_dataGridView.EnableHeadersVisualStyles = false;
             this.PowerSource_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.PowerSource_dataGridView.Location = new System.Drawing.Point(3, 308);
@@ -5461,8 +6256,8 @@ namespace MyWorkApplication
             this.PowerSource_dataGridView.MultiSelect = false;
             this.PowerSource_dataGridView.Name = "PowerSource_dataGridView";
             this.PowerSource_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Rubik", 11F);
-            this.PowerSource_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Rubik", 11F);
+            this.PowerSource_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.PowerSource_dataGridView.RowHeadersVisible = false;
             this.PowerSource_dataGridView.RowHeadersWidth = 51;
             this.t20_tableLayoutPanel.SetRowSpan(this.PowerSource_dataGridView, 3);
@@ -5479,6 +6274,84 @@ namespace MyWorkApplication
             this.PowerSource_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.PowerSource_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.PowerSource_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
+            // 
+            // Power_MP_ID
+            // 
+            this.Power_MP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Power_MP_ID.HeaderText = "Power_MP_ID";
+            this.Power_MP_ID.MinimumWidth = 6;
+            this.Power_MP_ID.Name = "Power_MP_ID";
+            this.Power_MP_ID.Visible = false;
+            // 
+            // Power_ID
+            // 
+            this.Power_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Power_ID.HeaderText = "Power_ID";
+            this.Power_ID.MinimumWidth = 6;
+            this.Power_ID.Name = "Power_ID";
+            this.Power_ID.Visible = false;
+            // 
+            // Power_Name
+            // 
+            this.Power_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Power_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Power_Name.HeaderText = "المصدر";
+            this.Power_Name.MinimumWidth = 6;
+            this.Power_Name.Name = "Power_Name";
+            this.Power_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Power_Note
+            // 
+            this.Power_Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Power_Note.HeaderText = "شرح المنظومة";
+            this.Power_Note.MinimumWidth = 6;
+            this.Power_Note.Name = "Power_Note";
+            // 
+            // Power_Cost
+            // 
+            this.Power_Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Power_Cost.HeaderText = "القيمة المدفوعة (شهرياً)";
+            this.Power_Cost.MinimumWidth = 6;
+            this.Power_Cost.Name = "Power_Cost";
+            // 
+            // Power_Responsability
+            // 
+            this.Power_Responsability.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Power_Responsability.HeaderText = "الجهة المنفّذة";
+            this.Power_Responsability.MinimumWidth = 6;
+            this.Power_Responsability.Name = "Power_Responsability";
+            // 
+            // Power_DeleteRow
+            // 
+            this.Power_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Power_DeleteRow.FillWeight = 40F;
+            this.Power_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Power_DeleteRow.HeaderText = " ";
+            this.Power_DeleteRow.MinimumWidth = 50;
+            this.Power_DeleteRow.Name = "Power_DeleteRow";
+            this.Power_DeleteRow.Width = 50;
+            // 
+            // Power_InDataBase
+            // 
+            this.Power_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Power_InDataBase.HeaderText = "Power_InDataBase";
+            this.Power_InDataBase.MinimumWidth = 6;
+            this.Power_InDataBase.Name = "Power_InDataBase";
+            this.Power_InDataBase.Visible = false;
+            // 
+            // Power_RowID
+            // 
+            this.Power_RowID.HeaderText = "Power_RowID";
+            this.Power_RowID.MinimumWidth = 6;
+            this.Power_RowID.Name = "Power_RowID";
+            this.Power_RowID.Visible = false;
+            // 
+            // Power_IsDirty
+            // 
+            this.Power_IsDirty.HeaderText = "Power_IsDirty";
+            this.Power_IsDirty.MinimumWidth = 6;
+            this.Power_IsDirty.Name = "Power_IsDirty";
+            this.Power_IsDirty.Visible = false;
             // 
             // flowLayoutPanel20
             // 
@@ -5956,14 +6829,14 @@ namespace MyWorkApplication
             this.Course_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Course_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Course_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Course_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Course_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.Course_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Course_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CPerosn_ID,
@@ -5979,14 +6852,14 @@ namespace MyWorkApplication
             this.C_RowID,
             this.C_IsDirty});
             this.t8_tableLayoutPanel.SetColumnSpan(this.Course_dataGridView, 3);
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Course_dataGridView.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Course_dataGridView.DefaultCellStyle = dataGridViewCellStyle32;
             this.Course_dataGridView.EnableHeadersVisualStyles = false;
             this.Course_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.Course_dataGridView.Location = new System.Drawing.Point(3, 364);
@@ -5994,8 +6867,8 @@ namespace MyWorkApplication
             this.Course_dataGridView.MultiSelect = false;
             this.Course_dataGridView.Name = "Course_dataGridView";
             this.Course_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Course_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Course_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.Course_dataGridView.RowHeadersVisible = false;
             this.Course_dataGridView.RowHeadersWidth = 51;
             this.Course_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -6011,6 +6884,107 @@ namespace MyWorkApplication
             this.Course_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.Course_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.Course_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
+            // 
+            // CPerosn_ID
+            // 
+            this.CPerosn_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CPerosn_ID.HeaderText = "CPerosn_ID";
+            this.CPerosn_ID.MinimumWidth = 6;
+            this.CPerosn_ID.Name = "CPerosn_ID";
+            this.CPerosn_ID.Visible = false;
+            // 
+            // Course_ID
+            // 
+            this.Course_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Course_ID.HeaderText = "Course_ID";
+            this.Course_ID.MinimumWidth = 6;
+            this.Course_ID.Name = "Course_ID";
+            this.Course_ID.Visible = false;
+            // 
+            // C_SubCategory_ID
+            // 
+            this.C_SubCategory_ID.HeaderText = "C_SubCategory_ID";
+            this.C_SubCategory_ID.MinimumWidth = 6;
+            this.C_SubCategory_ID.Name = "C_SubCategory_ID";
+            this.C_SubCategory_ID.Visible = false;
+            // 
+            // C_Cource
+            // 
+            this.C_Cource.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.C_Cource.FillWeight = 41.40383F;
+            this.C_Cource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.C_Cource.HeaderText = "نوع الدورة";
+            this.C_Cource.MinimumWidth = 6;
+            this.C_Cource.Name = "C_Cource";
+            // 
+            // C_Name
+            // 
+            this.C_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.C_Name.FillWeight = 41.40383F;
+            this.C_Name.HeaderText = "اسم الدورة";
+            this.C_Name.MinimumWidth = 6;
+            this.C_Name.Name = "C_Name";
+            this.C_Name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.C_Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // C_Place
+            // 
+            this.C_Place.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.C_Place.FillWeight = 40F;
+            this.C_Place.HeaderText = "اسم المعهد";
+            this.C_Place.MinimumWidth = 6;
+            this.C_Place.Name = "C_Place";
+            // 
+            // C_Donor
+            // 
+            this.C_Donor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.C_Donor.FillWeight = 40F;
+            this.C_Donor.HeaderText = "الجهة المموّلة";
+            this.C_Donor.MinimumWidth = 6;
+            this.C_Donor.Name = "C_Donor";
+            // 
+            // C_Date
+            // 
+            this.C_Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.C_Date.FillWeight = 40F;
+            this.C_Date.HeaderText = "تاريخ الدورة";
+            this.C_Date.MinimumWidth = 6;
+            this.C_Date.Name = "C_Date";
+            // 
+            // C_DeleteRow
+            // 
+            this.C_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.C_DeleteRow.FillWeight = 10F;
+            this.C_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.C_DeleteRow.HeaderText = " ";
+            this.C_DeleteRow.MinimumWidth = 50;
+            this.C_DeleteRow.Name = "C_DeleteRow";
+            this.C_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.C_DeleteRow.Text = "Delete";
+            this.C_DeleteRow.UseColumnTextForButtonValue = true;
+            this.C_DeleteRow.Width = 50;
+            // 
+            // C_InDataBase
+            // 
+            this.C_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.C_InDataBase.HeaderText = "C_InDataBase";
+            this.C_InDataBase.MinimumWidth = 6;
+            this.C_InDataBase.Name = "C_InDataBase";
+            this.C_InDataBase.Visible = false;
+            // 
+            // C_RowID
+            // 
+            this.C_RowID.HeaderText = "C_RowID";
+            this.C_RowID.MinimumWidth = 6;
+            this.C_RowID.Name = "C_RowID";
+            this.C_RowID.Visible = false;
+            // 
+            // C_IsDirty
+            // 
+            this.C_IsDirty.HeaderText = "C_IsDirty";
+            this.C_IsDirty.MinimumWidth = 6;
+            this.C_IsDirty.Name = "C_IsDirty";
+            this.C_IsDirty.Visible = false;
             // 
             // flowLayoutPanel12
             // 
@@ -6081,14 +7055,14 @@ namespace MyWorkApplication
             this.Education_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Education_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Education_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Education_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Education_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
             this.Education_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Education_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PE_ID,
@@ -6102,14 +7076,14 @@ namespace MyWorkApplication
             this.Edu_RowID,
             this.Edu_IsDirty});
             this.t8_tableLayoutPanel.SetColumnSpan(this.Education_dataGridView, 3);
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Education_dataGridView.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Education_dataGridView.DefaultCellStyle = dataGridViewCellStyle35;
             this.Education_dataGridView.EnableHeadersVisualStyles = false;
             this.Education_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.Education_dataGridView.Location = new System.Drawing.Point(3, 64);
@@ -6117,8 +7091,8 @@ namespace MyWorkApplication
             this.Education_dataGridView.MultiSelect = false;
             this.Education_dataGridView.Name = "Education_dataGridView";
             this.Education_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Education_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Education_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.Education_dataGridView.RowHeadersVisible = false;
             this.Education_dataGridView.RowHeadersWidth = 51;
             this.Education_dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -6135,6 +7109,99 @@ namespace MyWorkApplication
             this.Education_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.Education_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.Education_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
+            // 
+            // PE_ID
+            // 
+            this.PE_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PE_ID.HeaderText = "PE_ID";
+            this.PE_ID.MinimumWidth = 6;
+            this.PE_ID.Name = "PE_ID";
+            this.PE_ID.Visible = false;
+            // 
+            // E_ID
+            // 
+            this.E_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_ID.HeaderText = "E_ID";
+            this.E_ID.MinimumWidth = 6;
+            this.E_ID.Name = "E_ID";
+            this.E_ID.Visible = false;
+            // 
+            // P_ID
+            // 
+            this.P_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.P_ID.HeaderText = "P_ID";
+            this.P_ID.MinimumWidth = 6;
+            this.P_ID.Name = "P_ID";
+            this.P_ID.Visible = false;
+            // 
+            // E_Level
+            // 
+            this.E_Level.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_Level.FillWeight = 33F;
+            this.E_Level.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E_Level.HeaderText = "التحصيل العلمي";
+            this.E_Level.MinimumWidth = 6;
+            this.E_Level.Name = "E_Level";
+            // 
+            // E_Type
+            // 
+            this.E_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_Type.FillWeight = 33F;
+            this.E_Type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E_Type.HeaderText = "الدرجة العلمية";
+            this.E_Type.Items.AddRange(new object[] {
+            "تعليم أساسي",
+            "إجازة جامعية",
+            "معهد",
+            "دبلوم",
+            "ماجستير",
+            "دكتوراه"});
+            this.E_Type.MinimumWidth = 6;
+            this.E_Type.Name = "E_Type";
+            // 
+            // E_Name
+            // 
+            this.E_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.E_Name.FillWeight = 33F;
+            this.E_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.E_Name.HeaderText = "الاختصاص";
+            this.E_Name.MinimumWidth = 6;
+            this.E_Name.Name = "E_Name";
+            // 
+            // Edu_DeleteRow
+            // 
+            this.Edu_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Edu_DeleteRow.FillWeight = 10F;
+            this.Edu_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Edu_DeleteRow.HeaderText = " ";
+            this.Edu_DeleteRow.MinimumWidth = 50;
+            this.Edu_DeleteRow.Name = "Edu_DeleteRow";
+            this.Edu_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Edu_DeleteRow.Text = "Delete";
+            this.Edu_DeleteRow.UseColumnTextForButtonValue = true;
+            this.Edu_DeleteRow.Width = 50;
+            // 
+            // Edu_InDataBase
+            // 
+            this.Edu_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Edu_InDataBase.HeaderText = "Edu_InDataBase";
+            this.Edu_InDataBase.MinimumWidth = 6;
+            this.Edu_InDataBase.Name = "Edu_InDataBase";
+            this.Edu_InDataBase.Visible = false;
+            // 
+            // Edu_RowID
+            // 
+            this.Edu_RowID.HeaderText = "Edu_RowID";
+            this.Edu_RowID.MinimumWidth = 6;
+            this.Edu_RowID.Name = "Edu_RowID";
+            this.Edu_RowID.Visible = false;
+            // 
+            // Edu_IsDirty
+            // 
+            this.Edu_IsDirty.HeaderText = "Edu_IsDirty";
+            this.Edu_IsDirty.MinimumWidth = 6;
+            this.Edu_IsDirty.Name = "Edu_IsDirty";
+            this.Edu_IsDirty.Visible = false;
             // 
             // flowLayoutPanel11
             // 
@@ -6391,19 +7458,19 @@ namespace MyWorkApplication
             this.Exp_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Exp_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Exp_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Exp_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Exp_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             this.Exp_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Exp_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ExpP_ID,
             this.Exp_ID,
             this.Exp_Name,
             this.Exp_WorkType,
+            this.Exp_Description,
             this.Exp_BeginDate,
             this.Exp_EndDate,
-            this.Exp_ExtraNote,
             this.Exp_PlaceState,
             this.Exp_Place,
             this.Exp_Contact,
@@ -6413,14 +7480,14 @@ namespace MyWorkApplication
             this.Exp_RowID,
             this.Exp_IsDirty});
             this.t6_tableLayoutPanel.SetColumnSpan(this.Exp_dataGridView, 3);
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Exp_dataGridView.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Exp_dataGridView.DefaultCellStyle = dataGridViewCellStyle38;
             this.Exp_dataGridView.EnableHeadersVisualStyles = false;
             this.Exp_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.Exp_dataGridView.Location = new System.Drawing.Point(3, 61);
@@ -6428,8 +7495,8 @@ namespace MyWorkApplication
             this.Exp_dataGridView.MultiSelect = false;
             this.Exp_dataGridView.Name = "Exp_dataGridView";
             this.Exp_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Exp_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Exp_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
             this.Exp_dataGridView.RowHeadersVisible = false;
             this.Exp_dataGridView.RowHeadersWidth = 51;
             this.t6_tableLayoutPanel.SetRowSpan(this.Exp_dataGridView, 6);
@@ -6479,6 +7546,12 @@ namespace MyWorkApplication
             this.Exp_WorkType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Exp_WorkType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // Exp_Description
+            // 
+            this.Exp_Description.HeaderText = "وصف العمل";
+            this.Exp_Description.MinimumWidth = 6;
+            this.Exp_Description.Name = "Exp_Description";
+            // 
             // Exp_BeginDate
             // 
             this.Exp_BeginDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -6492,12 +7565,6 @@ namespace MyWorkApplication
             this.Exp_EndDate.HeaderText = "تاريخ النهاية";
             this.Exp_EndDate.MinimumWidth = 6;
             this.Exp_EndDate.Name = "Exp_EndDate";
-            // 
-            // Exp_ExtraNote
-            // 
-            this.Exp_ExtraNote.HeaderText = "ملاحظات";
-            this.Exp_ExtraNote.MinimumWidth = 6;
-            this.Exp_ExtraNote.Name = "Exp_ExtraNote";
             // 
             // Exp_PlaceState
             // 
@@ -6617,18 +7684,18 @@ namespace MyWorkApplication
             this.Work_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Work_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Work_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Work_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Work_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
             this.Work_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Work_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.WP_ID,
             this.W_ID,
             this.W_Name,
             this.W_WorkType,
+            this.W_Description,
             this.W_BeginDate,
-            this.W_ExtraNote,
             this.W_PlaceState,
             this.W_Place,
             this.W_Contact,
@@ -6638,14 +7705,14 @@ namespace MyWorkApplication
             this.W_RowID,
             this.W_IsDirty});
             this.t5_tableLayoutPanel.SetColumnSpan(this.Work_dataGridView, 3);
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Rubik", 11F);
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Work_dataGridView.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Rubik", 11F);
+            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Work_dataGridView.DefaultCellStyle = dataGridViewCellStyle41;
             this.Work_dataGridView.EnableHeadersVisualStyles = false;
             this.Work_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.Work_dataGridView.Location = new System.Drawing.Point(3, 173);
@@ -6653,8 +7720,8 @@ namespace MyWorkApplication
             this.Work_dataGridView.MultiSelect = false;
             this.Work_dataGridView.Name = "Work_dataGridView";
             this.Work_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Rubik", 11F);
-            this.Work_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Rubik", 11F);
+            this.Work_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
             this.Work_dataGridView.RowHeadersVisible = false;
             this.Work_dataGridView.RowHeadersWidth = 51;
             this.t5_tableLayoutPanel.SetRowSpan(this.Work_dataGridView, 5);
@@ -6671,6 +7738,114 @@ namespace MyWorkApplication
             this.Work_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.Work_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.Work_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
+            // 
+            // WP_ID
+            // 
+            this.WP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.WP_ID.HeaderText = "WP_ID";
+            this.WP_ID.MinimumWidth = 6;
+            this.WP_ID.Name = "WP_ID";
+            this.WP_ID.Visible = false;
+            // 
+            // W_ID
+            // 
+            this.W_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_ID.HeaderText = "W_ID";
+            this.W_ID.MinimumWidth = 6;
+            this.W_ID.Name = "W_ID";
+            this.W_ID.Visible = false;
+            // 
+            // W_Name
+            // 
+            this.W_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.W_Name.HeaderText = "المهنة";
+            this.W_Name.MinimumWidth = 6;
+            this.W_Name.Name = "W_Name";
+            this.W_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // W_WorkType
+            // 
+            this.W_WorkType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_WorkType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.W_WorkType.HeaderText = "طبيعة العمل";
+            this.W_WorkType.MinimumWidth = 6;
+            this.W_WorkType.Name = "W_WorkType";
+            this.W_WorkType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.W_WorkType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // W_Description
+            // 
+            this.W_Description.HeaderText = "وصف العمل";
+            this.W_Description.MinimumWidth = 6;
+            this.W_Description.Name = "W_Description";
+            // 
+            // W_BeginDate
+            // 
+            this.W_BeginDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_BeginDate.HeaderText = "تاريخ البداية";
+            this.W_BeginDate.MinimumWidth = 6;
+            this.W_BeginDate.Name = "W_BeginDate";
+            // 
+            // W_PlaceState
+            // 
+            this.W_PlaceState.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_PlaceState.HeaderText = "ملكية العقار";
+            this.W_PlaceState.MinimumWidth = 6;
+            this.W_PlaceState.Name = "W_PlaceState";
+            // 
+            // W_Place
+            // 
+            this.W_Place.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_Place.HeaderText = "العنوان";
+            this.W_Place.MinimumWidth = 6;
+            this.W_Place.Name = "W_Place";
+            // 
+            // W_Contact
+            // 
+            this.W_Contact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_Contact.HeaderText = "اسم ورقم صاحب العمل";
+            this.W_Contact.MinimumWidth = 6;
+            this.W_Contact.Name = "W_Contact";
+            // 
+            // W_Salary
+            // 
+            this.W_Salary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_Salary.HeaderText = "الربح";
+            this.W_Salary.MinimumWidth = 6;
+            this.W_Salary.Name = "W_Salary";
+            // 
+            // W_DeleteRow
+            // 
+            this.W_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.W_DeleteRow.FillWeight = 40F;
+            this.W_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.W_DeleteRow.HeaderText = " ";
+            this.W_DeleteRow.MinimumWidth = 50;
+            this.W_DeleteRow.Name = "W_DeleteRow";
+            this.W_DeleteRow.Width = 50;
+            // 
+            // W_InDataBase
+            // 
+            this.W_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.W_InDataBase.HeaderText = "W_InDataBase";
+            this.W_InDataBase.MinimumWidth = 6;
+            this.W_InDataBase.Name = "W_InDataBase";
+            this.W_InDataBase.Visible = false;
+            // 
+            // W_RowID
+            // 
+            this.W_RowID.HeaderText = "W_RowID";
+            this.W_RowID.MinimumWidth = 6;
+            this.W_RowID.Name = "W_RowID";
+            this.W_RowID.Visible = false;
+            // 
+            // W_IsDirty
+            // 
+            this.W_IsDirty.HeaderText = "W_IsDirty";
+            this.W_IsDirty.MinimumWidth = 6;
+            this.W_IsDirty.Name = "W_IsDirty";
+            this.W_IsDirty.Visible = false;
             // 
             // SubHeader2_label
             // 
@@ -6973,1059 +8148,6 @@ namespace MyWorkApplication
             this.delete_project_person_ToolStripMenuItem.Text = "حذف الاستمارة بشكل كامل";
             this.delete_project_person_ToolStripMenuItem.Click += new System.EventHandler(this.delete_all_project_ToolStripMenuItem_Click);
             // 
-            // ApplyDate_bcDateTimePicker
-            // 
-            this.ApplyDate_bcDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ApplyDate_bcDateTimePicker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ApplyDate_bcDateTimePicker.CustomFormat = "yyyy/MM/dd";
-            this.ApplyDate_bcDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.ApplyDate_bcDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(533, 178);
-            this.ApplyDate_bcDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ApplyDate_bcDateTimePicker.Name = "ApplyDate_bcDateTimePicker";
-            this.ApplyDate_bcDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
-            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(245, 29);
-            this.ApplyDate_bcDateTimePicker.TabIndex = 6;
-            this.ApplyDate_bcDateTimePicker.ValueChanged += new System.EventHandler(this.ApplyDate_bcDateTimePicker_ValueChanged);
-            // 
-            // WP_ID
-            // 
-            this.WP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.WP_ID.HeaderText = "WP_ID";
-            this.WP_ID.MinimumWidth = 6;
-            this.WP_ID.Name = "WP_ID";
-            this.WP_ID.Visible = false;
-            // 
-            // W_ID
-            // 
-            this.W_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_ID.HeaderText = "W_ID";
-            this.W_ID.MinimumWidth = 6;
-            this.W_ID.Name = "W_ID";
-            this.W_ID.Visible = false;
-            // 
-            // W_Name
-            // 
-            this.W_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.W_Name.HeaderText = "المهنة";
-            this.W_Name.MinimumWidth = 6;
-            this.W_Name.Name = "W_Name";
-            this.W_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // W_WorkType
-            // 
-            this.W_WorkType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_WorkType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.W_WorkType.HeaderText = "طبيعة العمل";
-            this.W_WorkType.MinimumWidth = 6;
-            this.W_WorkType.Name = "W_WorkType";
-            this.W_WorkType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.W_WorkType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // W_BeginDate
-            // 
-            this.W_BeginDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_BeginDate.HeaderText = "تاريخ البداية";
-            this.W_BeginDate.MinimumWidth = 6;
-            this.W_BeginDate.Name = "W_BeginDate";
-            // 
-            // W_ExtraNote
-            // 
-            this.W_ExtraNote.HeaderText = "ملاحظات";
-            this.W_ExtraNote.MinimumWidth = 6;
-            this.W_ExtraNote.Name = "W_ExtraNote";
-            // 
-            // W_PlaceState
-            // 
-            this.W_PlaceState.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_PlaceState.HeaderText = "ملكية العقار";
-            this.W_PlaceState.MinimumWidth = 6;
-            this.W_PlaceState.Name = "W_PlaceState";
-            // 
-            // W_Place
-            // 
-            this.W_Place.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_Place.HeaderText = "العنوان";
-            this.W_Place.MinimumWidth = 6;
-            this.W_Place.Name = "W_Place";
-            // 
-            // W_Contact
-            // 
-            this.W_Contact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_Contact.HeaderText = "اسم ورقم صاحب العمل";
-            this.W_Contact.MinimumWidth = 6;
-            this.W_Contact.Name = "W_Contact";
-            // 
-            // W_Salary
-            // 
-            this.W_Salary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_Salary.HeaderText = "الربح";
-            this.W_Salary.MinimumWidth = 6;
-            this.W_Salary.Name = "W_Salary";
-            // 
-            // W_DeleteRow
-            // 
-            this.W_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.W_DeleteRow.FillWeight = 40F;
-            this.W_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.W_DeleteRow.HeaderText = " ";
-            this.W_DeleteRow.MinimumWidth = 50;
-            this.W_DeleteRow.Name = "W_DeleteRow";
-            this.W_DeleteRow.Width = 50;
-            // 
-            // W_InDataBase
-            // 
-            this.W_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_InDataBase.HeaderText = "W_InDataBase";
-            this.W_InDataBase.MinimumWidth = 6;
-            this.W_InDataBase.Name = "W_InDataBase";
-            this.W_InDataBase.Visible = false;
-            // 
-            // W_RowID
-            // 
-            this.W_RowID.HeaderText = "W_RowID";
-            this.W_RowID.MinimumWidth = 6;
-            this.W_RowID.Name = "W_RowID";
-            this.W_RowID.Visible = false;
-            // 
-            // W_IsDirty
-            // 
-            this.W_IsDirty.HeaderText = "W_IsDirty";
-            this.W_IsDirty.MinimumWidth = 6;
-            this.W_IsDirty.Name = "W_IsDirty";
-            this.W_IsDirty.Visible = false;
-            // 
-            // PE_ID
-            // 
-            this.PE_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PE_ID.HeaderText = "PE_ID";
-            this.PE_ID.MinimumWidth = 6;
-            this.PE_ID.Name = "PE_ID";
-            this.PE_ID.Visible = false;
-            // 
-            // E_ID
-            // 
-            this.E_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_ID.HeaderText = "E_ID";
-            this.E_ID.MinimumWidth = 6;
-            this.E_ID.Name = "E_ID";
-            this.E_ID.Visible = false;
-            // 
-            // P_ID
-            // 
-            this.P_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.P_ID.HeaderText = "P_ID";
-            this.P_ID.MinimumWidth = 6;
-            this.P_ID.Name = "P_ID";
-            this.P_ID.Visible = false;
-            // 
-            // E_Level
-            // 
-            this.E_Level.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_Level.FillWeight = 33F;
-            this.E_Level.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.E_Level.HeaderText = "التحصيل العلمي";
-            this.E_Level.Items.AddRange(new object[] {
-            "طالب",
-            "متوقف",
-            "متخرج"});
-            this.E_Level.MinimumWidth = 6;
-            this.E_Level.Name = "E_Level";
-            // 
-            // E_Type
-            // 
-            this.E_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_Type.FillWeight = 33F;
-            this.E_Type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.E_Type.HeaderText = "الدرجة العلمية";
-            this.E_Type.Items.AddRange(new object[] {
-            "تعليم أساسي",
-            "إجازة جامعية",
-            "معهد",
-            "دبلوم",
-            "ماجستير",
-            "دكتوراه"});
-            this.E_Type.MinimumWidth = 6;
-            this.E_Type.Name = "E_Type";
-            // 
-            // E_Name
-            // 
-            this.E_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.E_Name.FillWeight = 33F;
-            this.E_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.E_Name.HeaderText = "الاختصاص";
-            this.E_Name.MinimumWidth = 6;
-            this.E_Name.Name = "E_Name";
-            // 
-            // Edu_DeleteRow
-            // 
-            this.Edu_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Edu_DeleteRow.FillWeight = 10F;
-            this.Edu_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Edu_DeleteRow.HeaderText = " ";
-            this.Edu_DeleteRow.MinimumWidth = 50;
-            this.Edu_DeleteRow.Name = "Edu_DeleteRow";
-            this.Edu_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Edu_DeleteRow.Text = "Delete";
-            this.Edu_DeleteRow.UseColumnTextForButtonValue = true;
-            this.Edu_DeleteRow.Width = 50;
-            // 
-            // Edu_InDataBase
-            // 
-            this.Edu_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Edu_InDataBase.HeaderText = "Edu_InDataBase";
-            this.Edu_InDataBase.MinimumWidth = 6;
-            this.Edu_InDataBase.Name = "Edu_InDataBase";
-            this.Edu_InDataBase.Visible = false;
-            // 
-            // Edu_RowID
-            // 
-            this.Edu_RowID.HeaderText = "Edu_RowID";
-            this.Edu_RowID.MinimumWidth = 6;
-            this.Edu_RowID.Name = "Edu_RowID";
-            this.Edu_RowID.Visible = false;
-            // 
-            // Edu_IsDirty
-            // 
-            this.Edu_IsDirty.HeaderText = "Edu_IsDirty";
-            this.Edu_IsDirty.MinimumWidth = 6;
-            this.Edu_IsDirty.Name = "Edu_IsDirty";
-            this.Edu_IsDirty.Visible = false;
-            // 
-            // CPerosn_ID
-            // 
-            this.CPerosn_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CPerosn_ID.HeaderText = "CPerosn_ID";
-            this.CPerosn_ID.MinimumWidth = 6;
-            this.CPerosn_ID.Name = "CPerosn_ID";
-            this.CPerosn_ID.Visible = false;
-            // 
-            // Course_ID
-            // 
-            this.Course_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Course_ID.HeaderText = "Course_ID";
-            this.Course_ID.MinimumWidth = 6;
-            this.Course_ID.Name = "Course_ID";
-            this.Course_ID.Visible = false;
-            // 
-            // C_SubCategory_ID
-            // 
-            this.C_SubCategory_ID.HeaderText = "C_SubCategory_ID";
-            this.C_SubCategory_ID.MinimumWidth = 6;
-            this.C_SubCategory_ID.Name = "C_SubCategory_ID";
-            this.C_SubCategory_ID.Visible = false;
-            // 
-            // C_Cource
-            // 
-            this.C_Cource.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.C_Cource.FillWeight = 41.40383F;
-            this.C_Cource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.C_Cource.HeaderText = "نوع الدورة";
-            this.C_Cource.MinimumWidth = 6;
-            this.C_Cource.Name = "C_Cource";
-            // 
-            // C_Name
-            // 
-            this.C_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.C_Name.FillWeight = 41.40383F;
-            this.C_Name.HeaderText = "اسم الدورة";
-            this.C_Name.MinimumWidth = 6;
-            this.C_Name.Name = "C_Name";
-            this.C_Name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.C_Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // C_Place
-            // 
-            this.C_Place.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.C_Place.FillWeight = 40F;
-            this.C_Place.HeaderText = "اسم المعهد";
-            this.C_Place.MinimumWidth = 6;
-            this.C_Place.Name = "C_Place";
-            // 
-            // C_Donor
-            // 
-            this.C_Donor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.C_Donor.FillWeight = 40F;
-            this.C_Donor.HeaderText = "الجهة المموّلة";
-            this.C_Donor.MinimumWidth = 6;
-            this.C_Donor.Name = "C_Donor";
-            // 
-            // C_Date
-            // 
-            this.C_Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.C_Date.FillWeight = 40F;
-            this.C_Date.HeaderText = "تاريخ الدورة";
-            this.C_Date.MinimumWidth = 6;
-            this.C_Date.Name = "C_Date";
-            // 
-            // C_DeleteRow
-            // 
-            this.C_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.C_DeleteRow.FillWeight = 10F;
-            this.C_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.C_DeleteRow.HeaderText = " ";
-            this.C_DeleteRow.MinimumWidth = 50;
-            this.C_DeleteRow.Name = "C_DeleteRow";
-            this.C_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.C_DeleteRow.Text = "Delete";
-            this.C_DeleteRow.UseColumnTextForButtonValue = true;
-            this.C_DeleteRow.Width = 50;
-            // 
-            // C_InDataBase
-            // 
-            this.C_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.C_InDataBase.HeaderText = "C_InDataBase";
-            this.C_InDataBase.MinimumWidth = 6;
-            this.C_InDataBase.Name = "C_InDataBase";
-            this.C_InDataBase.Visible = false;
-            // 
-            // C_RowID
-            // 
-            this.C_RowID.HeaderText = "C_RowID";
-            this.C_RowID.MinimumWidth = 6;
-            this.C_RowID.Name = "C_RowID";
-            this.C_RowID.Visible = false;
-            // 
-            // C_IsDirty
-            // 
-            this.C_IsDirty.HeaderText = "C_IsDirty";
-            this.C_IsDirty.MinimumWidth = 6;
-            this.C_IsDirty.Name = "C_IsDirty";
-            this.C_IsDirty.Visible = false;
-            // 
-            // Power_MP_ID
-            // 
-            this.Power_MP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Power_MP_ID.HeaderText = "Power_MP_ID";
-            this.Power_MP_ID.MinimumWidth = 6;
-            this.Power_MP_ID.Name = "Power_MP_ID";
-            this.Power_MP_ID.Visible = false;
-            // 
-            // Power_ID
-            // 
-            this.Power_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Power_ID.HeaderText = "Power_ID";
-            this.Power_ID.MinimumWidth = 6;
-            this.Power_ID.Name = "Power_ID";
-            this.Power_ID.Visible = false;
-            // 
-            // Power_Name
-            // 
-            this.Power_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Power_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Power_Name.HeaderText = "المصدر";
-            this.Power_Name.MinimumWidth = 6;
-            this.Power_Name.Name = "Power_Name";
-            this.Power_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Power_Note
-            // 
-            this.Power_Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Power_Note.HeaderText = "شرح المنظومة";
-            this.Power_Note.MinimumWidth = 6;
-            this.Power_Note.Name = "Power_Note";
-            // 
-            // Power_Cost
-            // 
-            this.Power_Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Power_Cost.HeaderText = "القيمة المدفوعة (شهرياً)";
-            this.Power_Cost.MinimumWidth = 6;
-            this.Power_Cost.Name = "Power_Cost";
-            // 
-            // Power_Responsability
-            // 
-            this.Power_Responsability.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Power_Responsability.HeaderText = "الجهة المنفّذة";
-            this.Power_Responsability.MinimumWidth = 6;
-            this.Power_Responsability.Name = "Power_Responsability";
-            // 
-            // Power_DeleteRow
-            // 
-            this.Power_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Power_DeleteRow.FillWeight = 40F;
-            this.Power_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Power_DeleteRow.HeaderText = " ";
-            this.Power_DeleteRow.MinimumWidth = 50;
-            this.Power_DeleteRow.Name = "Power_DeleteRow";
-            this.Power_DeleteRow.Width = 50;
-            // 
-            // Power_InDataBase
-            // 
-            this.Power_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Power_InDataBase.HeaderText = "Power_InDataBase";
-            this.Power_InDataBase.MinimumWidth = 6;
-            this.Power_InDataBase.Name = "Power_InDataBase";
-            this.Power_InDataBase.Visible = false;
-            // 
-            // Power_RowID
-            // 
-            this.Power_RowID.HeaderText = "Power_RowID";
-            this.Power_RowID.MinimumWidth = 6;
-            this.Power_RowID.Name = "Power_RowID";
-            this.Power_RowID.Visible = false;
-            // 
-            // Power_IsDirty
-            // 
-            this.Power_IsDirty.HeaderText = "Power_IsDirty";
-            this.Power_IsDirty.MinimumWidth = 6;
-            this.Power_IsDirty.Name = "Power_IsDirty";
-            this.Power_IsDirty.Visible = false;
-            // 
-            // MMP_ID
-            // 
-            this.MMP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MMP_ID.HeaderText = "MMP_ID";
-            this.MMP_ID.MinimumWidth = 6;
-            this.MMP_ID.Name = "MMP_ID";
-            this.MMP_ID.Visible = false;
-            // 
-            // M_ID
-            // 
-            this.M_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.M_ID.HeaderText = "M_ID";
-            this.M_ID.MinimumWidth = 6;
-            this.M_ID.Name = "M_ID";
-            this.M_ID.Visible = false;
-            // 
-            // M_Name
-            // 
-            this.M_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.M_Name.HeaderText = "اسم المادة";
-            this.M_Name.MinimumWidth = 6;
-            this.M_Name.Name = "M_Name";
-            // 
-            // M_Comments
-            // 
-            this.M_Comments.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.M_Comments.HeaderText = "النوع";
-            this.M_Comments.MinimumWidth = 6;
-            this.M_Comments.Name = "M_Comments";
-            // 
-            // M_Price
-            // 
-            this.M_Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.M_Price.DataPropertyName = "0";
-            this.M_Price.HeaderText = "ثمن القطعة";
-            this.M_Price.MinimumWidth = 6;
-            this.M_Price.Name = "M_Price";
-            // 
-            // M_Amount
-            // 
-            this.M_Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.M_Amount.DataPropertyName = "1";
-            this.M_Amount.HeaderText = "الكمية";
-            this.M_Amount.MinimumWidth = 6;
-            this.M_Amount.Name = "M_Amount";
-            // 
-            // M_DeleteRow
-            // 
-            this.M_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.M_DeleteRow.FillWeight = 40F;
-            this.M_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.M_DeleteRow.HeaderText = " ";
-            this.M_DeleteRow.MinimumWidth = 50;
-            this.M_DeleteRow.Name = "M_DeleteRow";
-            this.M_DeleteRow.Width = 50;
-            // 
-            // M_InDataBase
-            // 
-            this.M_InDataBase.HeaderText = "M_InDataBase";
-            this.M_InDataBase.MinimumWidth = 6;
-            this.M_InDataBase.Name = "M_InDataBase";
-            this.M_InDataBase.Visible = false;
-            // 
-            // M_IsDirty
-            // 
-            this.M_IsDirty.HeaderText = "M_IsDirty";
-            this.M_IsDirty.MinimumWidth = 6;
-            this.M_IsDirty.Name = "M_IsDirty";
-            this.M_IsDirty.Visible = false;
-            // 
-            // LPerson_ID
-            // 
-            this.LPerson_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.LPerson_ID.HeaderText = "LPerson_ID";
-            this.LPerson_ID.MinimumWidth = 6;
-            this.LPerson_ID.Name = "LPerson_ID";
-            this.LPerson_ID.Visible = false;
-            // 
-            // L_ID
-            // 
-            this.L_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.L_ID.HeaderText = "L_ID";
-            this.L_ID.MinimumWidth = 6;
-            this.L_ID.Name = "L_ID";
-            this.L_ID.Visible = false;
-            // 
-            // L_Type
-            // 
-            this.L_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.L_Type.FillWeight = 41.40383F;
-            this.L_Type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.L_Type.HeaderText = "نوع الخسارة";
-            this.L_Type.Items.AddRange(new object[] {
-            "إجازة جامعية",
-            "تعليم أساسي",
-            "دبلوم",
-            "دكتوراه",
-            "ماجستير",
-            "معهد"});
-            this.L_Type.MinimumWidth = 6;
-            this.L_Type.Name = "L_Type";
-            // 
-            // L_Year
-            // 
-            this.L_Year.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.L_Year.FillWeight = 41F;
-            this.L_Year.HeaderText = "سنة الواقعة";
-            this.L_Year.MinimumWidth = 6;
-            this.L_Year.Name = "L_Year";
-            // 
-            // L_Notes
-            // 
-            this.L_Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.L_Notes.FillWeight = 60F;
-            this.L_Notes.HeaderText = "ملاحظات";
-            this.L_Notes.MinimumWidth = 6;
-            this.L_Notes.Name = "L_Notes";
-            // 
-            // L_DeleteRow
-            // 
-            this.L_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.L_DeleteRow.FillWeight = 10F;
-            this.L_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.L_DeleteRow.HeaderText = " ";
-            this.L_DeleteRow.MinimumWidth = 50;
-            this.L_DeleteRow.Name = "L_DeleteRow";
-            this.L_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.L_DeleteRow.Text = "Delete";
-            this.L_DeleteRow.UseColumnTextForButtonValue = true;
-            this.L_DeleteRow.Width = 50;
-            // 
-            // L_InDataBase
-            // 
-            this.L_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.L_InDataBase.HeaderText = "L_InDataBase";
-            this.L_InDataBase.MinimumWidth = 6;
-            this.L_InDataBase.Name = "L_InDataBase";
-            this.L_InDataBase.Visible = false;
-            // 
-            // L_RowID
-            // 
-            this.L_RowID.HeaderText = "L_RowID";
-            this.L_RowID.MinimumWidth = 6;
-            this.L_RowID.Name = "L_RowID";
-            this.L_RowID.Visible = false;
-            // 
-            // L_IsDirty
-            // 
-            this.L_IsDirty.HeaderText = "L_IsDirty";
-            this.L_IsDirty.MinimumWidth = 6;
-            this.L_IsDirty.Name = "L_IsDirty";
-            this.L_IsDirty.Visible = false;
-            // 
-            // Ill_Person_ID
-            // 
-            this.Ill_Person_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ill_Person_ID.HeaderText = "Ill_Person_ID";
-            this.Ill_Person_ID.MinimumWidth = 6;
-            this.Ill_Person_ID.Name = "Ill_Person_ID";
-            this.Ill_Person_ID.Visible = false;
-            // 
-            // Ill_ID
-            // 
-            this.Ill_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ill_ID.HeaderText = "Ill_ID";
-            this.Ill_ID.MinimumWidth = 6;
-            this.Ill_ID.Name = "Ill_ID";
-            this.Ill_ID.Visible = false;
-            // 
-            // Ill_PName
-            // 
-            this.Ill_PName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ill_PName.FillWeight = 22F;
-            this.Ill_PName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Ill_PName.HeaderText = "الاسم";
-            this.Ill_PName.MinimumWidth = 6;
-            this.Ill_PName.Name = "Ill_PName";
-            // 
-            // Ill_Relation
-            // 
-            this.Ill_Relation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ill_Relation.FillWeight = 22F;
-            this.Ill_Relation.HeaderText = "الصفة";
-            this.Ill_Relation.MinimumWidth = 6;
-            this.Ill_Relation.Name = "Ill_Relation";
-            this.Ill_Relation.ReadOnly = true;
-            this.Ill_Relation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Ill_Name
-            // 
-            this.Ill_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ill_Name.FillWeight = 22F;
-            this.Ill_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Ill_Name.HeaderText = "الحالة الصحيّة";
-            this.Ill_Name.MinimumWidth = 6;
-            this.Ill_Name.Name = "Ill_Name";
-            // 
-            // Ill_Note
-            // 
-            this.Ill_Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ill_Note.FillWeight = 22F;
-            this.Ill_Note.HeaderText = "ملاحظات";
-            this.Ill_Note.MinimumWidth = 6;
-            this.Ill_Note.Name = "Ill_Note";
-            this.Ill_Note.ReadOnly = true;
-            // 
-            // Ill_Aid
-            // 
-            this.Ill_Aid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ill_Aid.FillWeight = 22F;
-            this.Ill_Aid.HeaderText = "مساعدات طبيّة";
-            this.Ill_Aid.MinimumWidth = 6;
-            this.Ill_Aid.Name = "Ill_Aid";
-            // 
-            // Ill_Donor
-            // 
-            this.Ill_Donor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ill_Donor.FillWeight = 22F;
-            this.Ill_Donor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Ill_Donor.HeaderText = "الجهة المساعدة";
-            this.Ill_Donor.MinimumWidth = 6;
-            this.Ill_Donor.Name = "Ill_Donor";
-            this.Ill_Donor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Ill_Donor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Ill_AidPeriod
-            // 
-            this.Ill_AidPeriod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ill_AidPeriod.FillWeight = 22F;
-            this.Ill_AidPeriod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Ill_AidPeriod.HeaderText = "مدة المساعدة";
-            this.Ill_AidPeriod.MinimumWidth = 6;
-            this.Ill_AidPeriod.Name = "Ill_AidPeriod";
-            this.Ill_AidPeriod.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Ill_AidPeriod.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Ill_MedicalNeeds
-            // 
-            this.Ill_MedicalNeeds.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ill_MedicalNeeds.FillWeight = 22F;
-            this.Ill_MedicalNeeds.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Ill_MedicalNeeds.HeaderText = "احتياجات طبية";
-            this.Ill_MedicalNeeds.MinimumWidth = 6;
-            this.Ill_MedicalNeeds.Name = "Ill_MedicalNeeds";
-            // 
-            // Ill_DeleteRow
-            // 
-            this.Ill_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Ill_DeleteRow.FillWeight = 10F;
-            this.Ill_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Ill_DeleteRow.HeaderText = " ";
-            this.Ill_DeleteRow.MinimumWidth = 50;
-            this.Ill_DeleteRow.Name = "Ill_DeleteRow";
-            this.Ill_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Ill_DeleteRow.Text = "Delete";
-            this.Ill_DeleteRow.UseColumnTextForButtonValue = true;
-            this.Ill_DeleteRow.Width = 50;
-            // 
-            // Ill_InDataBase
-            // 
-            this.Ill_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ill_InDataBase.HeaderText = "Ill_InDataBase";
-            this.Ill_InDataBase.MinimumWidth = 6;
-            this.Ill_InDataBase.Name = "Ill_InDataBase";
-            this.Ill_InDataBase.Visible = false;
-            // 
-            // Ill_RowID
-            // 
-            this.Ill_RowID.HeaderText = "Ill_RowID";
-            this.Ill_RowID.MinimumWidth = 6;
-            this.Ill_RowID.Name = "Ill_RowID";
-            this.Ill_RowID.Visible = false;
-            // 
-            // Ill_IsDirty
-            // 
-            this.Ill_IsDirty.HeaderText = "Ill_IsDirty";
-            this.Ill_IsDirty.MinimumWidth = 6;
-            this.Ill_IsDirty.Name = "Ill_IsDirty";
-            this.Ill_IsDirty.Visible = false;
-            // 
-            // APerson_ID
-            // 
-            this.APerson_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.APerson_ID.HeaderText = "APerson_ID";
-            this.APerson_ID.MinimumWidth = 6;
-            this.APerson_ID.Name = "APerson_ID";
-            this.APerson_ID.ReadOnly = true;
-            this.APerson_ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.APerson_ID.Visible = false;
-            // 
-            // Asset_ID
-            // 
-            this.Asset_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Asset_ID.HeaderText = "Asset_ID";
-            this.Asset_ID.MinimumWidth = 6;
-            this.Asset_ID.Name = "Asset_ID";
-            this.Asset_ID.Visible = false;
-            // 
-            // Asset_PName
-            // 
-            this.Asset_PName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Asset_PName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Asset_PName.HeaderText = "الاسم";
-            this.Asset_PName.MinimumWidth = 6;
-            this.Asset_PName.Name = "Asset_PName";
-            this.Asset_PName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Asset_PName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Asset_Relation
-            // 
-            this.Asset_Relation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Asset_Relation.HeaderText = "الصفة";
-            this.Asset_Relation.MinimumWidth = 6;
-            this.Asset_Relation.Name = "Asset_Relation";
-            this.Asset_Relation.ReadOnly = true;
-            this.Asset_Relation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Asset_Name
-            // 
-            this.Asset_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Asset_Name.FillWeight = 41.40383F;
-            this.Asset_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Asset_Name.HeaderText = "الملك";
-            this.Asset_Name.Items.AddRange(new object[] {
-            "إجازة جامعية",
-            "تعليم أساسي",
-            "دبلوم",
-            "دكتوراه",
-            "ماجستير",
-            "معهد"});
-            this.Asset_Name.MinimumWidth = 6;
-            this.Asset_Name.Name = "Asset_Name";
-            // 
-            // Asset_Type
-            // 
-            this.Asset_Type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Asset_Type.HeaderText = "نوع الملك";
-            this.Asset_Type.MinimumWidth = 6;
-            this.Asset_Type.Name = "Asset_Type";
-            // 
-            // Asset_Year
-            // 
-            this.Asset_Year.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Asset_Year.HeaderText = "سنة الشراء";
-            this.Asset_Year.MinimumWidth = 6;
-            this.Asset_Year.Name = "Asset_Year";
-            // 
-            // Asset_Desc
-            // 
-            this.Asset_Desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Asset_Desc.HeaderText = "وصف الملك";
-            this.Asset_Desc.MinimumWidth = 6;
-            this.Asset_Desc.Name = "Asset_Desc";
-            // 
-            // Asset_Note
-            // 
-            this.Asset_Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Asset_Note.HeaderText = "مدى الاستفادة منه";
-            this.Asset_Note.MinimumWidth = 6;
-            this.Asset_Note.Name = "Asset_Note";
-            // 
-            // Asset_DeleteRow
-            // 
-            this.Asset_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Asset_DeleteRow.FillWeight = 10F;
-            this.Asset_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Asset_DeleteRow.HeaderText = " ";
-            this.Asset_DeleteRow.MinimumWidth = 50;
-            this.Asset_DeleteRow.Name = "Asset_DeleteRow";
-            this.Asset_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Asset_DeleteRow.Text = "Delete";
-            this.Asset_DeleteRow.UseColumnTextForButtonValue = true;
-            this.Asset_DeleteRow.Width = 50;
-            // 
-            // Asset_InDataBase
-            // 
-            this.Asset_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Asset_InDataBase.HeaderText = "Asset_InDataBase";
-            this.Asset_InDataBase.MinimumWidth = 6;
-            this.Asset_InDataBase.Name = "Asset_InDataBase";
-            this.Asset_InDataBase.Visible = false;
-            // 
-            // Asset_RowID
-            // 
-            this.Asset_RowID.HeaderText = "Asset_RowID";
-            this.Asset_RowID.MinimumWidth = 6;
-            this.Asset_RowID.Name = "Asset_RowID";
-            this.Asset_RowID.Visible = false;
-            // 
-            // Asset_IsDirty
-            // 
-            this.Asset_IsDirty.HeaderText = "Asset_IsDirty";
-            this.Asset_IsDirty.MinimumWidth = 6;
-            this.Asset_IsDirty.Name = "Asset_IsDirty";
-            this.Asset_IsDirty.Visible = false;
-            // 
-            // AidP_ID
-            // 
-            this.AidP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AidP_ID.HeaderText = "AidP_ID";
-            this.AidP_ID.MinimumWidth = 6;
-            this.AidP_ID.Name = "AidP_ID";
-            this.AidP_ID.Visible = false;
-            // 
-            // Aid_ID
-            // 
-            this.Aid_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Aid_ID.HeaderText = "Aid_ID";
-            this.Aid_ID.MinimumWidth = 6;
-            this.Aid_ID.Name = "Aid_ID";
-            this.Aid_ID.Visible = false;
-            // 
-            // Aid_PName
-            // 
-            this.Aid_PName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Aid_PName.HeaderText = "الاسم";
-            this.Aid_PName.MinimumWidth = 6;
-            this.Aid_PName.Name = "Aid_PName";
-            // 
-            // Aid_Relation
-            // 
-            this.Aid_Relation.HeaderText = "الصفة";
-            this.Aid_Relation.MinimumWidth = 6;
-            this.Aid_Relation.Name = "Aid_Relation";
-            this.Aid_Relation.ReadOnly = true;
-            this.Aid_Relation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Aid_Relation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Aid_Source
-            // 
-            this.Aid_Source.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Aid_Source.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Aid_Source.HeaderText = "الجهة";
-            this.Aid_Source.MinimumWidth = 6;
-            this.Aid_Source.Name = "Aid_Source";
-            this.Aid_Source.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Aid_DateYear
-            // 
-            this.Aid_DateYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Aid_DateYear.HeaderText = "تاريخ الاستفادة";
-            this.Aid_DateYear.MinimumWidth = 6;
-            this.Aid_DateYear.Name = "Aid_DateYear";
-            // 
-            // Aid_Amount
-            // 
-            this.Aid_Amount.HeaderText = "المبلغ";
-            this.Aid_Amount.MinimumWidth = 6;
-            this.Aid_Amount.Name = "Aid_Amount";
-            // 
-            // Aid_ProjectType
-            // 
-            this.Aid_ProjectType.HeaderText = "نوع المشروع";
-            this.Aid_ProjectType.MinimumWidth = 6;
-            this.Aid_ProjectType.Name = "Aid_ProjectType";
-            // 
-            // Aid_Notes
-            // 
-            this.Aid_Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Aid_Notes.HeaderText = "المواد";
-            this.Aid_Notes.MinimumWidth = 6;
-            this.Aid_Notes.Name = "Aid_Notes";
-            // 
-            // Aid_DeleteRow
-            // 
-            this.Aid_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Aid_DeleteRow.FillWeight = 40F;
-            this.Aid_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Aid_DeleteRow.HeaderText = " ";
-            this.Aid_DeleteRow.MinimumWidth = 50;
-            this.Aid_DeleteRow.Name = "Aid_DeleteRow";
-            this.Aid_DeleteRow.Width = 50;
-            // 
-            // Aid_InDataBase
-            // 
-            this.Aid_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Aid_InDataBase.HeaderText = "Aid_InDataBase";
-            this.Aid_InDataBase.MinimumWidth = 6;
-            this.Aid_InDataBase.Name = "Aid_InDataBase";
-            this.Aid_InDataBase.Visible = false;
-            // 
-            // Aid_RowID
-            // 
-            this.Aid_RowID.HeaderText = "Aid_RowID";
-            this.Aid_RowID.MinimumWidth = 6;
-            this.Aid_RowID.Name = "Aid_RowID";
-            this.Aid_RowID.Visible = false;
-            // 
-            // Aid_IsDirty
-            // 
-            this.Aid_IsDirty.HeaderText = "Aid_IsDirty";
-            this.Aid_IsDirty.MinimumWidth = 6;
-            this.Aid_IsDirty.Name = "Aid_IsDirty";
-            this.Aid_IsDirty.Visible = false;
-            // 
-            // HelpP_ID
-            // 
-            this.HelpP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.HelpP_ID.HeaderText = "HelpP_ID";
-            this.HelpP_ID.MinimumWidth = 6;
-            this.HelpP_ID.Name = "HelpP_ID";
-            this.HelpP_ID.Visible = false;
-            // 
-            // Help_ID
-            // 
-            this.Help_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Help_ID.HeaderText = "Help_ID";
-            this.Help_ID.MinimumWidth = 6;
-            this.Help_ID.Name = "Help_ID";
-            this.Help_ID.Visible = false;
-            // 
-            // Help_Source
-            // 
-            this.Help_Source.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Help_Source.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Help_Source.HeaderText = "الجهة";
-            this.Help_Source.MinimumWidth = 6;
-            this.Help_Source.Name = "Help_Source";
-            this.Help_Source.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Help_Name
-            // 
-            this.Help_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Help_Name.HeaderText = "نوع المساعدة";
-            this.Help_Name.MinimumWidth = 6;
-            this.Help_Name.Name = "Help_Name";
-            this.Help_Name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Help_Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Help_Period
-            // 
-            this.Help_Period.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Help_Period.HeaderText = "مدة المساعدة";
-            this.Help_Period.MinimumWidth = 6;
-            this.Help_Period.Name = "Help_Period";
-            this.Help_Period.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Help_Period.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Help_Note
-            // 
-            this.Help_Note.HeaderText = "ملاحظات";
-            this.Help_Note.MinimumWidth = 6;
-            this.Help_Note.Name = "Help_Note";
-            // 
-            // Help_DeleteRow
-            // 
-            this.Help_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Help_DeleteRow.FillWeight = 40F;
-            this.Help_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Help_DeleteRow.HeaderText = " ";
-            this.Help_DeleteRow.MinimumWidth = 50;
-            this.Help_DeleteRow.Name = "Help_DeleteRow";
-            this.Help_DeleteRow.Width = 50;
-            // 
-            // Help_InDataBase
-            // 
-            this.Help_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Help_InDataBase.HeaderText = "Help_InDataBase";
-            this.Help_InDataBase.MinimumWidth = 6;
-            this.Help_InDataBase.Name = "Help_InDataBase";
-            this.Help_InDataBase.Visible = false;
-            // 
-            // Help_RowID
-            // 
-            this.Help_RowID.HeaderText = "Help_RowID";
-            this.Help_RowID.MinimumWidth = 6;
-            this.Help_RowID.Name = "Help_RowID";
-            this.Help_RowID.Visible = false;
-            // 
-            // Help_IsDirty
-            // 
-            this.Help_IsDirty.HeaderText = "Help_IsDirty";
-            this.Help_IsDirty.MinimumWidth = 6;
-            this.Help_IsDirty.Name = "Help_IsDirty";
-            this.Help_IsDirty.Visible = false;
-            // 
-            // HPowerP_ID
-            // 
-            this.HPowerP_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.HPowerP_ID.HeaderText = "HPowerP_ID";
-            this.HPowerP_ID.MinimumWidth = 6;
-            this.HPowerP_ID.Name = "HPowerP_ID";
-            this.HPowerP_ID.Visible = false;
-            // 
-            // HPower_ID
-            // 
-            this.HPower_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.HPower_ID.HeaderText = "HPower_ID";
-            this.HPower_ID.MinimumWidth = 6;
-            this.HPower_ID.Name = "HPower_ID";
-            this.HPower_ID.Visible = false;
-            // 
-            // HPower_Name
-            // 
-            this.HPower_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.HPower_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HPower_Name.HeaderText = "مصادر الطاقة";
-            this.HPower_Name.MinimumWidth = 6;
-            this.HPower_Name.Name = "HPower_Name";
-            this.HPower_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // HPower_Note
-            // 
-            this.HPower_Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.HPower_Note.HeaderText = "شرح المنظومة";
-            this.HPower_Note.MinimumWidth = 6;
-            this.HPower_Note.Name = "HPower_Note";
-            // 
-            // HPower_Cost
-            // 
-            this.HPower_Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.HPower_Cost.HeaderText = "القيمة المدفوعة (شهرياً)";
-            this.HPower_Cost.MinimumWidth = 6;
-            this.HPower_Cost.Name = "HPower_Cost";
-            // 
-            // HPower_Responsability
-            // 
-            this.HPower_Responsability.HeaderText = "الجهة المنفّذة";
-            this.HPower_Responsability.MinimumWidth = 6;
-            this.HPower_Responsability.Name = "HPower_Responsability";
-            // 
-            // HPower_DeleteRow
-            // 
-            this.HPower_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.HPower_DeleteRow.FillWeight = 40F;
-            this.HPower_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HPower_DeleteRow.HeaderText = " ";
-            this.HPower_DeleteRow.MinimumWidth = 50;
-            this.HPower_DeleteRow.Name = "HPower_DeleteRow";
-            this.HPower_DeleteRow.Width = 50;
-            // 
-            // HPower_InDataBase
-            // 
-            this.HPower_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.HPower_InDataBase.HeaderText = "HPower_InDataBase";
-            this.HPower_InDataBase.MinimumWidth = 6;
-            this.HPower_InDataBase.Name = "HPower_InDataBase";
-            this.HPower_InDataBase.Visible = false;
-            // 
-            // HPower_RowID
-            // 
-            this.HPower_RowID.HeaderText = "HPower_RowID";
-            this.HPower_RowID.MinimumWidth = 6;
-            this.HPower_RowID.Name = "HPower_RowID";
-            this.HPower_RowID.Visible = false;
-            // 
-            // HPower_IsDirty
-            // 
-            this.HPower_IsDirty.HeaderText = "HPower_IsDirty";
-            this.HPower_IsDirty.MinimumWidth = 6;
-            this.HPower_IsDirty.Name = "HPower_IsDirty";
-            this.HPower_IsDirty.Visible = false;
-            // 
             // Application_New_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 27F);
@@ -8039,6 +8161,7 @@ namespace MyWorkApplication
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Application_New_Form";
             this.Text = "Application_New_Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Application_New_Form_FormClosing);
             this.Load += new System.EventHandler(this.Application_New_Form_Load);
             this.Shown += new System.EventHandler(this.Application_Form_Shown);
             this.First_tableLayoutPanel.ResumeLayout(false);
@@ -8078,8 +8201,6 @@ namespace MyWorkApplication
             this.flowLayoutPanel8.PerformLayout();
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel6.PerformLayout();
-            this.flowLayoutPanel9.ResumeLayout(false);
-            this.flowLayoutPanel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AidSource_dataGridView)).EndInit();
             this.Main_panel.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
@@ -8108,23 +8229,26 @@ namespace MyWorkApplication
             this.P_HasDebts_flowLayoutPanel.PerformLayout();
             this.t9_tableLayoutPanel.ResumeLayout(false);
             this.t9_tableLayoutPanel.PerformLayout();
-            this.P_HasLosses_flowLayoutPanel.ResumeLayout(false);
-            this.P_HasLosses_flowLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Loss_dataGridView)).EndInit();
             this.flowLayoutPanel21.ResumeLayout(false);
             this.flowLayoutPanel21.PerformLayout();
+            this.flowLayoutPanel9.ResumeLayout(false);
+            this.flowLayoutPanel9.PerformLayout();
             this.flowLayoutPanel14.ResumeLayout(false);
             this.flowLayoutPanel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Illness_dataGridView)).EndInit();
             this.flowLayoutPanel15.ResumeLayout(false);
             this.flowLayoutPanel15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Assets_dataGridView)).EndInit();
-            this.flowLayoutPanel16.ResumeLayout(false);
-            this.flowLayoutPanel16.PerformLayout();
             this.P_HasIllness_flowLayoutPanel.ResumeLayout(false);
             this.P_HasIllness_flowLayoutPanel.PerformLayout();
             this.P_HasAssets_flowLayoutPanel.ResumeLayout(false);
             this.P_HasAssets_flowLayoutPanel.PerformLayout();
+            this.flowLayoutPanel16.ResumeLayout(false);
+            this.flowLayoutPanel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Assets_dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FP_Exp_dataGridView)).EndInit();
+            this.flowLayoutPanel22.ResumeLayout(false);
+            this.flowLayoutPanel22.PerformLayout();
             this.t4_tableLayoutPanel.ResumeLayout(false);
             this.t21_tableLayoutPanel.ResumeLayout(false);
             this.t21_tableLayoutPanel.PerformLayout();
@@ -8302,9 +8426,7 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label MainHeader2_label;
         private System.Windows.Forms.Label SubHeader3_label;
         private System.Windows.Forms.DataGridView Exp_dataGridView;
@@ -8331,7 +8453,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel10;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel11;
@@ -8378,9 +8499,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.FlowLayoutPanel P_HasAidSource_flowLayoutPanel;
         private System.Windows.Forms.RadioButton P_HasAidSourceNo_radioButton;
         private System.Windows.Forms.RadioButton P_HasAidSourceYes_radioButton;
-        private System.Windows.Forms.FlowLayoutPanel P_HasLosses_flowLayoutPanel;
-        private System.Windows.Forms.RadioButton P_HasLossesNo_radioButton;
-        private System.Windows.Forms.RadioButton P_HasLossesYes_radioButton;
         private System.Windows.Forms.FlowLayoutPanel P_HasIllness_flowLayoutPanel;
         private System.Windows.Forms.RadioButton P_HasIllnessNo_radioButton;
         private System.Windows.Forms.RadioButton P_HasIllnessYes_radioButton;
@@ -8397,7 +8515,7 @@ namespace MyWorkApplication
         private System.Windows.Forms.ComboBox P_Priest2_comboBox;
         private System.Windows.Forms.TableLayoutPanel P_Priest_tableLayoutPanel;
         private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.TextBox MP_OtherDonors_textBox;
+        private System.Windows.Forms.TextBox P_AidSourceNote_textBox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Visits_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem payments_toolStripMenuItem;
@@ -8502,68 +8620,18 @@ namespace MyWorkApplication
         private System.Windows.Forms.ToolStripMenuItem delete_person_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem delete_project_person_ToolStripMenuItem;
         private System.Windows.Forms.DataGridView HelpSource_dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ExpP_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Exp_Name;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Exp_WorkType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_BeginDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_EndDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_ExtraNote;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_PlaceState;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_Place;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_Contact;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_CauseOfLose;
-        private System.Windows.Forms.DataGridViewButtonColumn Exp_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_IsDirty;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button Save_button;
         private System.Windows.Forms.Button AddPartner_button;
         private System.Windows.Forms.Button AddExtention_button;
         private System.Windows.Forms.Button Delete_MP_button;
-        private System.Windows.Forms.Button Update_button;
+        private System.Windows.Forms.Button FullApp_button;
         private System.Windows.Forms.TableLayoutPanel final_tableLayoutPanel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FP_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn F_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn P_FirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn P_LastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn P_FatherName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn P_Relation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn P_NationalNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn P_DOB;
-        private System.Windows.Forms.DataGridViewComboBoxColumn P_State;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Edu_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn P_EducationLevel;
-        private System.Windows.Forms.DataGridViewComboBoxColumn P_EducationType;
-        private System.Windows.Forms.DataGridViewComboBoxColumn P_E_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FP_W_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn P_WorkName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn P_WorkType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn P_Salary;
-        private System.Windows.Forms.DataGridViewButtonColumn P_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn P_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn P_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn P_IsDirty;
         private System.Windows.Forms.Label LiveWithFamily_Note_Label;
         private System.Windows.Forms.TextBox LiveWithFamily_Note_textBox;
         private System.Windows.Forms.RadioButton MilitaryExempt_radioButton;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.RadioButton MilitaryDelayed_radioButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WP_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn W_Name;
-        private System.Windows.Forms.DataGridViewComboBoxColumn W_WorkType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_BeginDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_ExtraNote;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_PlaceState;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_Place;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_Contact;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_Salary;
-        private System.Windows.Forms.DataGridViewButtonColumn W_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_IsDirty;
         private System.Windows.Forms.DataGridViewTextBoxColumn AidP_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Aid_ID;
         private System.Windows.Forms.DataGridViewComboBoxColumn Aid_PName;
@@ -8606,20 +8674,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.DataGridViewTextBoxColumn L_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn L_RowID;
         private System.Windows.Forms.DataGridViewTextBoxColumn L_IsDirty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Person_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_PName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Relation;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Note;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Ill_Aid;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_Donor;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_AidPeriod;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_MedicalNeeds;
-        private System.Windows.Forms.DataGridViewButtonColumn Ill_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_IsDirty;
         private System.Windows.Forms.DataGridViewTextBoxColumn APerson_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Asset_ID;
         private System.Windows.Forms.DataGridViewComboBoxColumn Asset_PName;
@@ -8664,6 +8718,22 @@ namespace MyWorkApplication
         private System.Windows.Forms.DataGridViewTextBoxColumn C_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_RowID;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_IsDirty;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.DataGridView FP_Exp_dataGridView;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel22;
+        private System.Windows.Forms.RadioButton P_HasLossesNo_radioButton;
+        private System.Windows.Forms.RadioButton P_HasLossesYes_radioButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Exp_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn FP_Exp_PName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Exp_Relation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Exp_WorkName;
+        private System.Windows.Forms.DataGridViewComboBoxColumn FP_Exp_WorkType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Exp_Salary;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Exp_IsDirty;
         private System.Windows.Forms.DataGridViewTextBoxColumn PE_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn E_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_ID;
@@ -8674,5 +8744,65 @@ namespace MyWorkApplication
         private System.Windows.Forms.DataGridViewTextBoxColumn Edu_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn Edu_RowID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Edu_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Person_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_PName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Relation;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Note;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Ill_Aid;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_Donor;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_AidPeriod;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Ill_MedicalNeeds;
+        private System.Windows.Forms.DataGridViewButtonColumn Ill_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ill_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PF_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FPerson_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_FatherName;
+        private System.Windows.Forms.DataGridViewComboBoxColumn P_Relation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_NationalNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_DOB;
+        private System.Windows.Forms.DataGridViewComboBoxColumn P_State;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn P_HasWork;
+        private System.Windows.Forms.DataGridViewComboBoxColumn P_EducationLevel;
+        private System.Windows.Forms.DataGridViewComboBoxColumn P_EducationType;
+        private System.Windows.Forms.DataGridViewComboBoxColumn P_E_Name;
+        private System.Windows.Forms.DataGridViewButtonColumn P_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpP_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Exp_Name;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Exp_WorkType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_BeginDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_EndDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_PlaceState;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_Place;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_Contact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_CauseOfLose;
+        private System.Windows.Forms.DataGridViewButtonColumn Exp_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WP_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn W_Name;
+        private System.Windows.Forms.DataGridViewComboBoxColumn W_WorkType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_BeginDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_PlaceState;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_Place;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_Contact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_Salary;
+        private System.Windows.Forms.DataGridViewButtonColumn W_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_IsDirty;
     }
 }

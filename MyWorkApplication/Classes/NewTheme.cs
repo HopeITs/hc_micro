@@ -906,6 +906,18 @@ namespace MyWorkApplication.Classes
                                                 bb.BackgroundImage = Resources.Plus_Sq_L;
                                             else if (bb.Name == "DeleteImage_button")
                                                 bb.BackgroundImage = Resources.Trash_L;
+                                            else if(bb.Name == "AddPartner_button")
+                                                bb.BackgroundImage = Resources.AddPartner_L;
+                                            else if (bb.Name == "Save_button")
+                                                bb.BackgroundImage = Resources.Save2_L;
+                                            else if (bb.Name == "AddExtention_button")
+                                                bb.BackgroundImage = Resources.AddExtention_L;
+                                            else if (bb.Name == "FullApp_button")
+                                            {
+                                                bb.ForeColor = dark_grey2;
+                                                bb.BackgroundImage = Resources.BtnBackground_L;
+                                            }
+                                                
                                         }
                                         else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                         {
@@ -1081,6 +1093,18 @@ namespace MyWorkApplication.Classes
                                                 bb.BackgroundImage = Resources.Plus_Sq_D;
                                             else if (bb.Name == "DeleteImage_button")
                                                 bb.BackgroundImage = Resources.Trash_D;
+                                            else if (bb.Name == "AddPartner_button")
+                                                bb.BackgroundImage = Resources.AddPartner_D;
+                                            else if (bb.Name == "Save_button")
+                                                bb.BackgroundImage = Resources.Save2_D;
+                                            else if (bb.Name == "AddExtention_button")
+                                                bb.BackgroundImage = Resources.AddExtention_D;
+                                            else if (bb.Name == "FullApp_button")
+                                            {
+                                                bb.ForeColor = light_grey11;
+                                                bb.BackgroundImage = Resources.BtnBackground_D;
+                                            }
+
                                         }
                                         else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                         {
