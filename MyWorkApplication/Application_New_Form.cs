@@ -1,4 +1,6 @@
 ﻿//using Chilkat;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
+using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
@@ -58,10 +60,11 @@ namespace MyWorkApplication
         DataSet ds;
 
         bool Deleted = false;
-        bool MP_ID_Checked, NationalNum_Checked, FamilyNum_Checked;
+        bool NationalNum_Checked, FamilyNum_Checked;
         int ContentUpdated_original = -1;
         ToolTip manualToolTip = new ToolTip();
         bool Delete_Permitions = false;
+        string P_Num = "", F_Num = "";
 
         bool UserMode = false; string ApplicationState; //pre_project , zero , project
 
@@ -161,7 +164,7 @@ namespace MyWorkApplication
                         }
                         else
                         {
-                            // continue closing;
+                            manualToolTip.Hide(Save_MP_ID_button);
                         }
                     }
                 }
@@ -582,7 +585,7 @@ namespace MyWorkApplication
                 SubHeader1_label.Text = "استمارة المشروع";
             }
 
-            MP_ID_Checked = false; NationalNum_Checked = false; FamilyNum_Checked = false;
+            NationalNum_Checked = false; FamilyNum_Checked = false;
 
             #region Project
 
@@ -1609,41 +1612,66 @@ namespace MyWorkApplication
             {
                 if (UserMode)
                 {
-                    MP_ID_Checked = false;
-
-                    if (MPID_textBox.Text == "")
+                    if (MPID_textBox_original != MPID_textBox.Text)
                     {
-                        MessageBox.Show("لا يمكن ترك خلية رقم المشروع فارغة!");
-                        MPID_textBox.Text = MPID_textBox_original;
-                        MPID_textBox.Focus();
-                    }
+                        bool ID_TobeChanged = false;
 
-                    else if (MPID_textBox_original != MPID_textBox.Text)
-                    {
-                        var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد تغيير رقم المشروع من: " +
-                            MPID_textBox_original + " ؟ " + Environment.NewLine +
-                            "ليصبح الرقم: " + MPID_textBox.Text, "Edit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (dialogResult == DialogResult.Yes)
+                        if (MPID_textBox.Text == "")
                         {
-                            IsDirty_Data["Project_ISDirty"] = true;
-                            MP_ID_IsDirty = true;
-                            if (Check_MicroProject_ID(MPID_textBox.Text))
-                            {
-                                MP_ID_Checked = true;
-                            }
-                            else
-                            {
-                                MPID_textBox.Text = MPID_textBox_original;
-                                MPID_textBox.Focus();
-                            }
+                            MessageBox.Show("لا يمكن ترك خلية رقم المشروع فارغة!");
                         }
                         else
                         {
-                            MPID_textBox.Text = MPID_textBox_original;
+                            var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد تغيير رقم المشروع من: " +
+                                    MPID_textBox_original + " ؟ " + Environment.NewLine +
+                                    "ليصبح الرقم: " + MPID_textBox.Text, "Edit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                if (MicroProject_ID == Convert.ToInt32(MPID_textBox.Text))
+                                {
+
+                                }
+                                else if (Check_MicroProject_ID(MPID_textBox.Text))
+                                {
+                                    ID_TobeChanged = true;
+                                }
+                            }
+                        }
+
+
+                        if (ID_TobeChanged)
+                        {
+                            IsDirty_Data["Project_ISDirty"] = true;
+                            MP_ID_IsDirty = true;
+                            mainForm.MP_ID_label.Text = MPID_textBox.Text;
+
+                            Save_MP_ID_button.BackgroundImage = Properties.Resources.Unchecked;
+                            manualToolTip.Show("لم يتم حجز الرقم بعد", Save_MP_ID_button, Save_MP_ID_button.Width / 2, -Convert.ToInt32(Save_MP_ID_button.Height / 1.5), 60000 * 60 * 24);
+                        }
+                        else
+                        {
+                            MP_ID_IsDirty = false;
+
+                            if (MicroProject_ID > 0)
+                            {
+                                MPID_textBox.Text = MicroProject_ID.ToString();
+
+                                MPID_textBox.Focus();
+                                Save_MP_ID_button.BackgroundImage = Properties.Resources.Cheked;
+                                manualToolTip.Hide(Save_MP_ID_button);
+                            }
+                            else
+                            {
+                                DataTable dt27 = ds.Tables[27].Copy();
+                                Bind_New_MicroProject_ID(dt27);
+
+                                MPID_textBox.Focus();
+                                Save_MP_ID_button.BackgroundImage = Properties.Resources.Unchecked;
+                                manualToolTip.Show("لم يتم حجز الرقم بعد", Save_MP_ID_button, Save_MP_ID_button.Width / 2, -Convert.ToInt32(Save_MP_ID_button.Height / 1.5), 60000 * 60 * 24);
+                            }
                         }
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -2055,46 +2083,46 @@ namespace MyWorkApplication
             {
                 if (UserMode)
                 {
+                    UserMode = false;
                     if (P_NationalNum_textBox_original != P_NationalNum_textBox.Text)
                     {
                         NationalNum_Checked = false;
                         IsDirty_Data["Benificiry_ISDirty"] = true;
                         NationalNum_ISDirty = true;
-                        if (!string.IsNullOrWhiteSpace(P_NationalNum_textBox.Text))
+
+                        if (P_NationalNum_textBox.Text.Length != 11)
+                            MessageBox.Show("انتبه" + Environment.NewLine + Environment.NewLine + "عدد خانات الرقم الوطني لا تساوي 11"
+                                , "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        DataTable dt = Check_National_Number(P_NationalNum_textBox.Text);
+
+                        if (dt != null)
                         {
-                            if (P_NationalNum_textBox.Text.Length != 11)
-                                MessageBox.Show("انتبه" + Environment.NewLine + Environment.NewLine + "عدد خانات الرقم الوطني لا تساوي 11"
-                                    , "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-
-                            DataTable dt = Check_National_Number(P_NationalNum_textBox.Text);
-
-                            if (dt != null && dt.Rows.Count > 0)
+                            if(dt.Rows.Count > 0)
                             {
-                                int P_ID = int.Parse(dt.Rows[0]["P_ID"].ToString());
-                                int MP_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
-                                var Name = dt.Rows[0]["Beneficiary Name"].ToString();
+                                int Old_P_ID = int.Parse(dt.Rows[0]["P_ID"].ToString());
+                                int Old_MP_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
+                                var Old_Name = dt.Rows[0]["Beneficiary Name"].ToString();
+                                string Old_ApplicationState = dt.Rows[0]["ApplicationState"].ToString();
 
-                                var _MessageBox = new Application_MessageBox("National_ID", P_ID, MP_ID, Name);
+                                var _MessageBox = new Application_MessageBox("National_ID", Old_P_ID, Old_MP_ID, Old_Name);
                                 var r = _MessageBox.ShowDialog();
                                 if (r == DialogResult.Yes)
                                 {
-                                    Form application_Form = new Application_Form(P_ID, MP_ID, mainForm);
-                                    mainForm.showNewTab(application_Form, "Application", 1);
-                                    NationalNum_Checked = false;
+                                    Form Appplication_New_Form = new Application_New_Form(mainForm, Old_MP_ID, Old_P_ID, Old_ApplicationState);
+                                    mainForm.showNewTab(Appplication_New_Form, "Application", 0);
+                                    P_NationalNum_textBox.Focus();
                                 }
                                 else if (r == DialogResult.No)
                                 {
-                                    MessageBox.Show("هون عبي الشخص القديم");
-
-                                    MessageBox.Show("انتبه" + Environment.NewLine + Environment.NewLine + "تم جلب المعلومات القديمة للمستفيد، يرجى التأكد منها قبل الحفظ."
-                                           , "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     NationalNum_Checked = true;
                                 }
                                 else
                                 {
-                                    P_NationalNum_textBox.Text = "";
-                                    NationalNum_Checked = false;
+                                    P_NationalNum_textBox.Text = P_Num;
+                                    P_NationalNum_textBox.Focus();
+                                    NationalNum_ISDirty = false;
+                                    NationalNum_Checked = true;
                                 }
                             }
                             else
@@ -2102,10 +2130,16 @@ namespace MyWorkApplication
                                 NationalNum_Checked = true;
                             }
                         }
+                        else
+                        {
+                            P_NationalNum_textBox.Text = P_Num;
+                            P_NationalNum_textBox.Focus();
+                            NationalNum_ISDirty = false;
+                            NationalNum_Checked = true;
+                        }
                     }
+                    UserMode = true;
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -2787,34 +2821,31 @@ namespace MyWorkApplication
             {
                 if (UserMode)
                 {
+                    UserMode = false;
                     if (FamilyNum_textBox1_original != FamilyNum_textBox1.Text)
                     {
+                        FamilyNum_Checked = false;
+                        IsDirty_Data["Family_ISDirty"] = true;
                         FamilyNum_ISDirty = true;
 
-                        if (string.IsNullOrWhiteSpace(FamilyNum_textBox1.Text))
-                        {
-                            FamilyNum_textBox1.Text = FamilyNum_textBox1_original;
-                            throw new InvalidOperationException("لا يمكن ترك رقم دفتر العائلة فارغ !");
-                        }
-                        else
-                        {
-                            IsDirty_Data["Family_ISDirty"] = true;
+                        DataTable dt = Check_Family_Num(FamilyNum_textBox1.Text);
 
-                            DataTable dt = Check_Family_Num(FamilyNum_textBox1.Text);
-
-                            if (dt != null && dt.Rows.Count > 0)
+                        if (dt != null)
+                        {
+                            if (dt.Rows.Count > 0)
                             {
-                                int P_ID = int.Parse(dt.Rows[0]["ID"].ToString());
-                                int MP_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
-                                var Name = dt.Rows[0]["الاسم الثلاثي"].ToString();
+                                int Old_P_ID = int.Parse(dt.Rows[0]["ID"].ToString());
+                                int Old_MP_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
+                                var Old_Name = dt.Rows[0]["الاسم الثلاثي"].ToString();
+                                string Old_ApplicationState = dt.Rows[0]["ApplicationState"].ToString();
 
-                                var _MessageBox = new Application_MessageBox("Family_Num", P_ID, MP_ID, Name);
+                                var _MessageBox = new Application_MessageBox("Family_Num", Old_P_ID, Old_MP_ID, Old_Name);
                                 var r = _MessageBox.ShowDialog();
                                 if (r == DialogResult.Yes)
                                 {
-                                    Form application_Form = new Application_Form(P_ID, MP_ID, mainForm);
-                                    mainForm.showNewTab(application_Form, "Application", 1);
-                                    FamilyNum_Checked = false;
+                                    Form Appplication_New_Form = new Application_New_Form(mainForm, Old_MP_ID, Old_P_ID, Old_ApplicationState);
+                                    mainForm.showNewTab(Appplication_New_Form, "Application", 0);
+                                    FamilyNum_textBox1.Focus();
                                 }
                                 else if (r == DialogResult.No)
                                 {
@@ -2823,8 +2854,10 @@ namespace MyWorkApplication
                                 }
                                 else
                                 {
-                                    FamilyNum_textBox1.Text = "";
-                                    FamilyNum_Checked = false;
+                                    FamilyNum_textBox1.Text = F_Num;
+                                    FamilyNum_textBox1.Focus();
+                                    FamilyNum_ISDirty = false;
+                                    FamilyNum_Checked = true;
                                 }
                             }
                             else
@@ -2832,9 +2865,16 @@ namespace MyWorkApplication
                                 FamilyNum_Checked = true;
                             }
                         }
+                        else
+                        {
+                            FamilyNum_textBox1.Text = F_Num;
+                            FamilyNum_textBox1.Focus();
+                            FamilyNum_ISDirty = false;
+                            FamilyNum_Checked = true;
+                        }
                     }
+                    UserMode = true;
                 }
-
             }
             catch (Exception ex)
             {
@@ -3425,7 +3465,7 @@ namespace MyWorkApplication
         {
             try
             {
-                if (MicroProject_ID > 0)
+                if (MicroProject_ID > 0 && MicroProject_ID == Convert.ToInt32(MPID_textBox.Text))
                 {
                     MessageBox.Show("تم حجز المشروع مسبقاً");
                     return;
@@ -3496,7 +3536,10 @@ namespace MyWorkApplication
 
             if (MicroProject_ID > 0)
             {
-                sc.Parameters.AddWithValue("@MicroProject_ID", MicroProject_ID);
+                if (!MP_ID_IsDirty)
+                    sc.Parameters.AddWithValue("@MicroProject_ID", MicroProject_ID);
+                else
+                    sc.Parameters.AddWithValue("@Old_MicroProject_ID", MicroProject_ID);
             }
 
             if (Person_ID > 0)
@@ -3509,10 +3552,10 @@ namespace MyWorkApplication
                 sc.Parameters.AddWithValue("@Family_ID", Family_ID);
             }
 
-            if (Existed_Family_ID > 0)
-            {
-                sc.Parameters.AddWithValue("@Existed_Family_ID", Existed_Family_ID);
-            }
+            //if (Existed_Family_ID > 0)
+            //{
+            //    sc.Parameters.AddWithValue("@Existed_Family_ID", Existed_Family_ID);
+            //}
 
             sc.Parameters.AddWithValue("@ProgramUser_ID", Program.userID);
 
@@ -3527,23 +3570,21 @@ namespace MyWorkApplication
                 MessageBox.Show("لا يمكن ترك رقم المشروع فارغاً", "Error");
                 return;
             }
-            else if (!MP_ID_Checked)
+
+            if (MicroProject_ID <= 0)
             {
-                if (MicroProject_ID <= 0)
+                if (!Check_MicroProject_ID(MPID_textBox.Text))
                 {
+                    return;
+                }
+            }
+            else
+            {
+                if (MP_ID_IsDirty)
                     if (!Check_MicroProject_ID(MPID_textBox.Text))
                     {
                         return;
                     }
-                }
-                else
-                {
-                    if (MP_ID_IsDirty)
-                        if (!Check_MicroProject_ID(MPID_textBox.Text))
-                        {
-                            return;
-                        }
-                }
             }
 
             if (string.IsNullOrWhiteSpace(SubCategory_comboBox.Text) || SubCategory_comboBox.SelectedIndex < 0 || string.IsNullOrWhiteSpace(Career_comboBox.Text) || Career_comboBox.SelectedIndex < 0)
@@ -3627,7 +3668,13 @@ namespace MyWorkApplication
                 }
                 else
                 {
-                    Query += "update microproject set MP_ID = @MP_ID, MP_DateOfRequest = @ApplyDate, MP_Name = @MP_Name" +
+                    if (MP_ID_IsDirty)
+                    {
+                        Query += " update microproject set MP_ID = @MP_ID where MP_ID = @Old_MicroProject_ID;";
+                        Query += " SET @MicroProject_ID = @MP_ID;";
+                    }
+
+                    Query += "update microproject set MP_DateOfRequest = @ApplyDate, MP_Name = @MP_Name" +
                         ",MP_RequestedAmount = @RequestedAmount, MP_FundType_ID = @LoanType, MP_Type_ID = @Type," +
                         " MP_SubType_ID = @SubType, Category_ID = (select Category_ID from subcategory where subcategory.id = @SubCategory)," +
                         " SubCategory_ID = @SubCategory, Career_ID = @Career, ApplicationState =@ApplicationState where MP_ID = @MicroProject_ID;";
@@ -3783,35 +3830,40 @@ namespace MyWorkApplication
 
                     if (CheckID)
                     {
+                        UserMode = false;
+
                         DataTable dt = Check_National_Number(P_NationalNum_textBox.Text);
 
                         if (dt != null && dt.Rows.Count > 0)
                         {
-                            int P_ID = int.Parse(dt.Rows[0]["P_ID"].ToString());
-                            int MiP_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
-                            var Name = dt.Rows[0]["Beneficiary Name"].ToString();
+                            int Old_P_ID = int.Parse(dt.Rows[0]["P_ID"].ToString());
+                            int Old_MP_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
+                            var Old_Name = dt.Rows[0]["Beneficiary Name"].ToString();
+                            string Old_ApplicationState = dt.Rows[0]["ApplicationState"].ToString();
 
-                            var _MessageBox = new Application_MessageBox("National_ID", P_ID, MiP_ID, Name);
+                            var _MessageBox = new Application_MessageBox("National_ID", Old_P_ID, Old_MP_ID, Old_Name);
                             var r = _MessageBox.ShowDialog();
                             if (r == DialogResult.Yes)
                             {
-                                Form application_Form = new Application_Form(P_ID, MiP_ID, mainForm);
-                                mainForm.showNewTab(application_Form, "Application", 1);
+                                Form Appplication_New_Form = new Application_New_Form(mainForm, Old_MP_ID, Old_P_ID, Old_ApplicationState);
+                                mainForm.showNewTab(Appplication_New_Form, "Application", 0);
+                                P_NationalNum_textBox.Focus();
                                 return;
                             }
                             else if (r == DialogResult.No)
                             {
-                                MessageBox.Show("هون عبي الشخص القديم");
 
-                                MessageBox.Show("انتبه" + Environment.NewLine + Environment.NewLine + "تم جلب المعلومات القديمة للمستفيد، يرجى التأكد منها قبل الحفظ."
-                                       , "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                return;
                             }
                             else
                             {
-                                P_NationalNum_textBox.Text = P_NationalNum_textBox_original;
+                                P_NationalNum_textBox.Text = P_Num;
+                                P_NationalNum_textBox.Focus();
                                 return;
                             }
+                        }
+                        else
+                        {
+
                         }
                     }
 
@@ -3997,16 +4049,22 @@ namespace MyWorkApplication
                     sc.Parameters.AddWithValue("@P_HomeType", P_HomeType == -1 ? (object)DBNull.Value : P_HomeType);
                     sc.Parameters.AddWithValue("@P_HomeStateNote", P_HomeStateNote);
                     sc.Parameters.AddWithValue("@Military", Military);
-                    if (Military_Date_checkBox.Visible && Military_Date_checkBox.Checked)
+                    if (Military_textBox.Visible)
                     {
                         sc.Parameters.AddWithValue("@Military_Note", Military_Note);
 
-                        sc.Parameters.AddWithValue("@Military_Date", Military_Date);
                     }
                     else
                     {
                         sc.Parameters.AddWithValue("@Military_Note", "");
 
+                    }
+                    if (Military_Date_checkBox.Visible && Military_Date_checkBox.Checked)
+                    {
+                        sc.Parameters.AddWithValue("@Military_Date", Military_Date);
+                    }
+                    else
+                    {
                         sc.Parameters.AddWithValue("@Military_Date", DBNull.Value);
                     }
                 }
@@ -4671,32 +4729,51 @@ namespace MyWorkApplication
 
                     if (CheckFamilyNum)
                     {
+                        UserMode = false;
                         DataTable dt = Check_Family_Num(FamilyNum_textBox1.Text);
-                        if (dt != null && dt.Rows.Count > 0)
-                        {
-                            int P_ID = int.Parse(dt.Rows[0]["ID"].ToString());
-                            int MiP_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
-                            var Name = dt.Rows[0]["الاسم الثلاثي"].ToString();
 
-                            var _MessageBox = new Application_MessageBox("Family_Num", P_ID, MiP_ID, Name);
-                            var r = _MessageBox.ShowDialog();
-                            if (r == DialogResult.Yes)
+                        if (dt != null)
+                        {
+                            if (dt.Rows.Count > 0)
                             {
-                                Form application_Form = new Application_Form(P_ID, MiP_ID, mainForm);
-                                mainForm.showNewTab(application_Form, "Application", 1);
-                                return;
-                            }
-                            else if (r == DialogResult.No)
-                            {
-                                Existed_Family_ID = int.Parse(dt.Rows[0]["Family_ID"].ToString());
-                                return;
+                                int Old_P_ID = int.Parse(dt.Rows[0]["ID"].ToString());
+                                int Old_MP_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
+                                var Old_Name = dt.Rows[0]["الاسم الثلاثي"].ToString();
+                                string Old_ApplicationState = dt.Rows[0]["ApplicationState"].ToString();
+
+                                var _MessageBox = new Application_MessageBox("Family_Num", Old_P_ID, Old_MP_ID, Old_Name);
+                                var r = _MessageBox.ShowDialog();
+                                if (r == DialogResult.Yes)
+                                {
+                                    Form Appplication_New_Form = new Application_New_Form(mainForm, Old_MP_ID, Old_P_ID, Old_ApplicationState);
+                                    mainForm.showNewTab(Appplication_New_Form, "Application", 0);
+                                    FamilyNum_textBox1.Focus();
+                                    return;
+                                }
+                                else if (r == DialogResult.No)
+                                {
+                                    Existed_Family_ID = int.Parse(dt.Rows[0]["Family_ID"].ToString());
+                                }
+                                else
+                                {
+                                    FamilyNum_textBox1.Text = F_Num;
+                                    FamilyNum_textBox1.Focus();
+                                    return;
+                                }
                             }
                             else
                             {
-                                FamilyNum_textBox1.Text = FamilyNum_textBox1_original;
-                                return;
+                                
                             }
                         }
+                        else
+                        {
+                            FamilyNum_textBox1.Text = F_Num;
+                            FamilyNum_textBox1.Focus();
+                            return;
+                        }
+
+                        UserMode = true;
                     }
                 }
 
@@ -5056,9 +5133,6 @@ namespace MyWorkApplication
 
                     P_AidSourceNote = P_AidSourceNote_textBox.Text;
 
-
-                    //if (ApplicationState == "project")
-                    //{
                     if (P_HasDebtsYes_radioButton.Checked)
                     {
                         HasDebts = 1;
@@ -5074,8 +5148,6 @@ namespace MyWorkApplication
 
                     P_DebtsAmount = P_DebtsAmount_textBox.Text;
                     P_DebtsNote = P_DebtsNote_textBox.Text;
-                    //}
-
 
                     if (Family_ID <= 0)
                     {
@@ -5095,12 +5167,24 @@ namespace MyWorkApplication
                     }
                     else
                     {
-                        Query += "Update family set F_Number = @FamilyNum Where F_ID = @Family_ID;";
+                        if(Existed_Family_ID <= 0)
+                        {
+                            Query += "Update family set F_Number = @FamilyNum Where F_ID = @Family_ID;";
+                        }
+                        else
+                        {
+                            Query += "Update person_family set Family_ID = @Existed_Family_ID where P_Provider_ID = @Person_ID;";
+
+                            Query += "DELETE family FROM family LEFT JOIN person_family ON family.F_ID = person_family.Family_ID WHERE person_family.Family_ID is null;";
+                        }
                     }
 
                     Query += "Update person_microproject set P_HasAidSource = @HasAidSource, P_AidSourceNote = @MP_OtherDonors," +
                         " P_IsLivingWithFamily = @LiveWithFamily, P_LiveWithFamily_Note = @LiveWithFamily_Note, P_AidSourceNote = @AidSourceNote" +
                         " Where Person_ID = @Person_ID and MicroProject_ID = @MicroProject_ID;";
+
+
+                    sc.Parameters.AddWithValue("@Existed_Family_ID", Existed_Family_ID <= 0 ? (object)DBNull.Value : Existed_Family_ID);
 
                     sc.Parameters.AddWithValue("@FamilyNum", string.IsNullOrEmpty(FamilyNum) ? (object)DBNull.Value : FamilyNum);
                     sc.Parameters.AddWithValue("@LiveWithFamily", LiveWithFamily);
@@ -5710,6 +5794,9 @@ namespace MyWorkApplication
                 if (Application_ds.Tables[1] != null && Application_ds.Tables[1].Rows.Count > 0)
                 {
                     Person_ID = Application_ds.Tables[1].Rows[0].Field<int>("P_ID");
+                    P_Num = Application_ds.Tables[1].Rows[0].Field<string>("P_NationalNumber");
+
+
                     P_FullName_textBox.Text = Application_ds.Tables[1].Rows[0].Field<string>("FullName");
                     P_MobileReadable_textBox.Text = Application_ds.Tables[1].Rows[0].Field<string>("P_Mobile");
 
@@ -5934,6 +6021,9 @@ namespace MyWorkApplication
                 if (Application_ds.Tables[4] != null && Application_ds.Tables[4].Rows.Count > 0)
                 {
                     Family_ID = Application_ds.Tables[4].Rows[0].Field<int>("F_ID");
+                    F_Num = Application_ds.Tables[4].Rows[0].Field<string>("F_Number");
+
+
                     FamilyNum_textBox1.Text = Application_ds.Tables[4].Rows[0].Field<string>("F_Number");
 
                     P_NumAtHome_textBox.Text = Application_ds.Tables[4].Rows[0].Field<int>("P_NumAtHome").ToString();
@@ -6007,77 +6097,109 @@ namespace MyWorkApplication
         #region Check functions
         private DataTable Check_National_Number(string PersonNationalNum)
         {
-            var PersonNationalNum_without_zero = "";
-            var PersonNationalNum_with_zero = "";
-
-            if (PersonNationalNum.ElementAt(0).ToString() == "0")
+            try
             {
-                PersonNationalNum_without_zero = PersonNationalNum.Remove(0, 1);
-                PersonNationalNum_with_zero = PersonNationalNum;
+                var PersonNationalNum_without_zero = "";
+                var PersonNationalNum_with_zero = "";
+
+                if (PersonNationalNum.ElementAt(0).ToString() == "0")
+                {
+                    PersonNationalNum_without_zero = PersonNationalNum.Remove(0, 1);
+                    PersonNationalNum_with_zero = PersonNationalNum;
+                }
+                else
+                {
+                    PersonNationalNum_without_zero = PersonNationalNum;
+                    PersonNationalNum_with_zero = "0" + PersonNationalNum;
+                }
+
+                var query = "select CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ',P_FatherName) as 'Beneficiary Name'"
+                            + ",MP.MP_ID 'MicroProject_ID', MP.ApplicationState"
+                            + ",P.P_ID 'P_ID'"
+                            + " from `microproject` MP inner join person_microproject PMP on PMP.MicroProject_ID = MP.MP_ID "
+                            + " inner join person P on P.P_ID = PMP.Person_ID "
+                            + " where (P_NationalNumber like @without_zero "
+                            + " or P_NationalNumber like @with_zero) and P.P_ID <> @Person_ID ";
+
+                Program.buildConnection();
+                var sc = new MySqlCommand(query, Program.MyConn);
+                sc.Parameters.AddWithValue("@without_zero", PersonNationalNum_without_zero);
+                sc.Parameters.AddWithValue("@with_zero", PersonNationalNum_with_zero);
+                sc.Parameters.AddWithValue("@Person_ID", Person_ID);
+
+                sc.ExecuteNonQuery();
+                var da = new MySqlDataAdapter(sc);
+                var dt = new DataTable();
+                da.Fill(dt);
+
+                Program.MyConn.Close();
+
+                return dt;
             }
-            else
+            catch (Exception ex)
             {
-                PersonNationalNum_without_zero = PersonNationalNum;
-                PersonNationalNum_with_zero = "0" + PersonNationalNum;
+                MessageBox.Show("لا يمكن التحقق من الرقم الوطني، الرجاء المحاولة مرة أخرى" + Environment.NewLine + ex.Message);
+                return null;
             }
-
-            var query = "select CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ',P_FatherName) as 'Beneficiary Name'"
-                        + ",MP.MP_ID 'MicroProject_ID'"
-                        + ",P.P_ID 'P_ID'"
-                        + " from `microproject` MP inner join person_microproject PMP on PMP.MicroProject_ID = MP.MP_ID "
-                        + " inner join person P on P.P_ID = PMP.Person_ID "
-                        + " where (P_NationalNumber like '" + PersonNationalNum_without_zero + "'"
-                        + " or P_NationalNumber like '" + PersonNationalNum_with_zero + "') and MP.MP_ID <> '" + MicroProject_ID + "' ";
-
-            Program.buildConnection();
-            var sc = new MySqlCommand(query, Program.MyConn);
-            sc.ExecuteNonQuery();
-            var da = new MySqlDataAdapter(sc);
-            var dt = new DataTable();
-            da.Fill(dt);
-
-            Program.MyConn.Close();
-
-            return dt;
         }
 
         private bool Check_MicroProject_ID(string MP_ID)
         {
-            Program.buildConnection();
-            MySqlCommand sc = new MySqlCommand("select count(MP_ID) from `microproject` where MP_ID = " + MP_ID, Program.MyConn);
-            var check_MP_ID = Convert.ToInt32(sc.ExecuteScalar());
-            Program.MyConn.Close();
-            if (check_MP_ID == 0)
+            try
             {
-                return true; //امورنا بالسليم
+                Program.buildConnection();
+                MySqlCommand sc = new MySqlCommand("select count(MP_ID) from `microproject` where MP_ID = @MP_ID and MP_ID != @MicroProject_ID;", Program.MyConn);
+                sc.Parameters.AddWithValue("@MP_ID", MP_ID);
+                sc.Parameters.AddWithValue("@MicroProject_ID", MicroProject_ID);
+                var check_MP_ID = Convert.ToInt32(sc.ExecuteScalar());
+                Program.MyConn.Close();
+                if (check_MP_ID == 0)
+                {
+                    return true; //امورنا بالسليم
+                }
+                else
+                {
+                    MessageBox.Show("الرجاء استخدام رقم مشروع آخر لأن هذا الرقم مستخدم من قبل مشروع آخر");
+                    return false; //في حدا تاني بهالرقم
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("الرجاء استخدام رقم مشروع آخر لأن هذا الرقم مستخدم من قبل مشروع آخر");
-                return false; //في حدا تاني بهالرقم
+                MessageBox.Show("لا يمكن التحقق من رقم المشروع، الرجاء المحاولة مرة أخرى" + Environment.NewLine + ex.Message);
+                return false; //مشكلة بالتحقق
             }
         }
 
         private DataTable Check_Family_Num(string FamilyNum)
         {
-            var query =
-                @"select CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ', P_FatherName) as 'الاسم الثلاثي'
-                                ,PMP.Person_ID as 'ID' , PMP.MicroProject_ID as 'MicroProject_ID' , f.F_ID as 'Family_ID'
+            try
+            {
+                var query = @"select CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ', P_FatherName) as 'الاسم الثلاثي'
+                                ,PMP.Person_ID as 'ID' , PMP.MicroProject_ID as 'MicroProject_ID' , f.F_ID as 'Family_ID',
+                                (select microproject.ApplicationState from microproject where microproject.MP_ID = PMP.MicroProject_ID) as 'ApplicationState'
                                 From `person` p right outer join `person_family` pf on p.P_ID = pf.Person_ID 
                                 left outer join `family` f on f.F_ID = pf.Family_ID 
                                 left outer join `person_microproject` PMP on PMP.Person_ID = p.P_ID 
                                 left join relation on relation.id = pf.Relation_ID
-                                where f.F_Number like '" + FamilyNum_textBox1.Text + "' and relation.Name like 'مستفيد' and pf.P_Provider_ID <> '" + Person_ID + "'";
+                                where f.F_Number like @FamilyNum and relation.Name like 'مستفيد' and pf.P_Provider_ID <> @Person_ID";
 
-            Program.buildConnection();
-            var sc = new MySqlCommand(query, Program.MyConn);
-            sc.ExecuteNonQuery();
-            var da = new MySqlDataAdapter(sc);
-            var dt = new DataTable();
-            da.Fill(dt);
-            Program.MyConn.Close();
+                Program.buildConnection();
+                var sc = new MySqlCommand(query, Program.MyConn);
+                sc.Parameters.AddWithValue("@FamilyNum", FamilyNum_textBox1.Text);
+                sc.Parameters.AddWithValue("@Person_ID", Person_ID);
+                sc.ExecuteNonQuery();
+                var da = new MySqlDataAdapter(sc);
+                var dt = new DataTable();
+                da.Fill(dt);
+                Program.MyConn.Close();
 
-            return dt;
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("لا يمكن التحقق من رقم دفتر العائلة، الرجاء المحاولة مرة أخرى" + Environment.NewLine + ex.Message);
+                return null;
+            }
         }
 
         #endregion
@@ -6368,11 +6490,6 @@ namespace MyWorkApplication
         #endregion
 
         #region events
-        private void MPID_textBox_TextChanged(object sender, EventArgs e)
-        {
-            mainForm.MP_ID_label.Text = MPID_textBox.Text;
-        }
-
         private void OverallSyrian_label_TextChanged(object sender, EventArgs e)
         {
             try
