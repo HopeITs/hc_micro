@@ -168,18 +168,20 @@ namespace MyWorkApplication
 ,P_HomeAddress as 'العنوان'
 
 ,microprojecttype.Name as 'نوع المشروع' 
-,P.P_OtherCourses as 'ملاحظات المستفيد'
+
 ,MP.MP_Note as 'ملاحظات المشروع'
 ,P.P_MaristesCourse as 'دورة تدريبية' 
+
 ,state.Name_ar as 'حالة المشروع'
-,donor.Name as 'الجهة الممولة' 
 ,statereason.Name as 'سبب الحالة'
 ,mps.Note as 'ملاحظة الحالة'
+
+,donor.Name as 'الجهة الممولة' 
 , (CASE IsContentUpdated WHEN 0 THEN N'لا' ELSE N'نعم' End) as 'تبديل المشروع' 
 
 ,P.P_ID as 'رقم المستفيد' ";
 
-
+                //,P.P_OtherCourses as 'ملاحظات المستفيد'
                 //////  عند إضافة عمود جديد لإظهاره تأكد من تفيير Column[index] عند الحفظ
                 var orderBy = " order by MP.MP_ID DESC ";
                 if (value != "") orderBy = " order by mps.State_ID, PMP.MicroProject_ID DESC ";
@@ -239,6 +241,8 @@ namespace MyWorkApplication
                     MP_dataGridView.Columns["الطائفة"].ReadOnly =
                     MP_dataGridView.Columns["المواليد"].ReadOnly =
                     MP_dataGridView.Columns["نوع المشروع"].ReadOnly = true;
+
+                MP_dataGridView.Columns["رقم المشروع"].Frozen = true;
 
                 addStateButtonToGrid();
 
@@ -526,6 +530,20 @@ namespace MyWorkApplication
             try
             {
                 State = "مؤجل";
+                //FundedBy_comboBox_Leave(sender, e);
+                ApplyFilter_button_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void OnHold_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                State = "تسجيل أولي";
                 //FundedBy_comboBox_Leave(sender, e);
                 ApplyFilter_button_Click(sender, e);
             }
@@ -992,8 +1010,13 @@ namespace MyWorkApplication
                             Cancelled_button.BackColor;
                     MP_dataGridView.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
                 }
-
-
+                else if (MP_dataGridView.Rows[i].Cells["حالة المشروع"].Value.ToString() == "تسجيل أولي")
+                {
+                    MP_dataGridView.Rows[i].DefaultCellStyle.BackColor =
+                        MP_dataGridView.Rows[i].Cells["حالة المشروع"].Style.BackColor =
+                            OnHold_button.BackColor;
+                    MP_dataGridView.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
+                }
             }
 
             MP_dataGridView.Columns["اسم الأم"].Width = MP_dataGridView.Columns["اسم الأب"].Width = 60;
@@ -1165,7 +1188,7 @@ namespace MyWorkApplication
                     var Updated_col_name = "";
 
                     // حالة المشروع
-                    if (e.ColumnIndex == 22) // if we update just the 
+                    if (e.ColumnIndex == 21) // if we update just the 
                     {
                         var state = -1;
                         string edited_column = MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString();
@@ -1236,6 +1259,26 @@ namespace MyWorkApplication
                                 throw new InvalidOperationException("لا يمكن تعديل المشروع المقبول الى حالة ممول من هذه الواجهة، حتى يقوم مسؤول المالية بادخال القرض من واجهة Loans and Payments ");
                             }
                         }
+                        //NEW
+                        if (edited_column == "بالانتظار")
+                        {
+                            // لا نسمح بتبديل الحالة من تسجيل اولي الى انتظار من هذه الواجهة
+                            // بل يجب عليه تعبئة الاستمارة وستتعدل لوحدها
+                            if (pre_data == "تسجيل أولي")
+                            {
+                                MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value = pre_data;
+                                MP_dataGridView.CancelEdit(); // Set cell value back to what it was prior to user's change
+                                throw new InvalidOperationException("لا يمكن تعديل المسجل على الاستمارة الأولية الى حالة انتظار من هذه الواجهة، حتى يتم ادخال استمارة المشروع");
+                            }
+                        }
+                        //NEW
+                        if (edited_column == "تسجيل أولي")
+                        {
+                            //اقفال امكانية اختيار حالة تسجيل اولي   
+                            MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value = pre_data;
+                            MP_dataGridView.CancelEdit(); // Set cell value back to what it was prior to user's change
+                            throw new InvalidOperationException("لا يمكن تعديل حالة المشروع لتصبح تسجيل اولي لانها الحالة الافتراضية التي يتم اخذها اوتوماتيكيا عند تعبئة استمارة اولية    \r\n");
+                        }
 
                         query += " update microproject_state set Current_State = 0 where MicroProject_ID = " + MicroProject_ID + ";"
                             + " INSERT INTO microproject_state (`MicroProject_ID`, `State_ID`, `Date`) Values ("
@@ -1264,8 +1307,28 @@ namespace MyWorkApplication
 
                         Updated_col_name = "Project Name/Requested money";
                     }
+                    // ملاحظات المشروع
+                    else if (e.ColumnIndex == 19)
+                    {
+                        query = "update `microproject` set MP_Note = N'" +
+                                replaceQuotation(MP_dataGridView.Rows[r].Cells["ملاحظات المشروع"].Value.ToString()) + "' "
+                                + " where MP_ID = " + MicroProject_ID + " ";
+
+                        Updated_col_name = "Comments";
+                    }
+                    //دورة تدريبية 
+                    else if (e.ColumnIndex == 20)
+                    {
+                        query = "update `person` set" +
+                                " P_MaristesCourse = N'" + replaceQuotation(MP_dataGridView.Rows[r].Cells["دورة تدريبية"].Value.ToString()) +
+                                //"'," +
+                                //" P_OtherCourses = N'" + replaceQuotation(MP_dataGridView.Rows[r].Cells["ملاحظات المستفيد"].Value.ToString()) +
+                                "' " +
+                                " where P_ID = " + Person_ID + " ";
+                        Updated_col_name = "Maristes Course/Beneficiary State";
+                    }
                     // سبب الحالة - ملاحظة الحالة
-                    else if (e.ColumnIndex == 24 || e.ColumnIndex == 25)
+                    else if (e.ColumnIndex == 22 || e.ColumnIndex == 23)
                     {
                         string edited_column = MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString();
                         query = " update microproject_state set "
@@ -1277,28 +1340,8 @@ namespace MyWorkApplication
                             + " ORDER BY Date DESC LIMIT 1 ";
                         Updated_col_name = "State Reason:" + MP_dataGridView.Rows[r].Cells["سبب الحالة"].Value;
                     }
-                    // ملاحظات المشروع
-                    else if (e.ColumnIndex == 20)
-                    {
-                        query = "update `microproject` set MP_Note = N'" +
-                                replaceQuotation(MP_dataGridView.Rows[r].Cells["ملاحظات المشروع"].Value.ToString()) + "' "
-                                + " where MP_ID = " + MicroProject_ID + " ";
-
-                        Updated_col_name = "Comments";
-                    }
-                    //دورة تدريبية - ملاحظات-المستفيد
-                    else if (e.ColumnIndex == 19 || e.ColumnIndex == 21)
-                    {
-                        query = "update `person` set" +
-                                " P_MaristesCourse = N'" + replaceQuotation(MP_dataGridView.Rows[r].Cells["دورة تدريبية"].Value.ToString()) +
-                                "'," +
-                                " P_OtherCourses = N'" + replaceQuotation(MP_dataGridView.Rows[r].Cells["ملاحظات المستفيد"].Value.ToString()) +
-                                "' " +
-                                " where P_ID = " + Person_ID + " ";
-                        Updated_col_name = "Maristes Course/Beneficiary State";
-                    }
                     // الجهة الممولة
-                    else if (e.ColumnIndex == 23)
+                    else if (e.ColumnIndex == 24)
                     {
                         string edited_column = Program.ReplaceQuotation(
                             MP_dataGridView.Rows[r].Cells["الجهة الممولة"].Value.ToString());
@@ -1348,7 +1391,7 @@ namespace MyWorkApplication
                         Updated_col_name = "Donor:" + edited_column;
                     }
                     // تبديل المشروع
-                    else if (e.ColumnIndex == 26)
+                    else if (e.ColumnIndex == 25)
                     {
                         query = "update `microproject` set" +
                                 " IsContentUpdated = " + (MP_dataGridView.Rows[r].Cells["تبديل المشروع"].Value.ToString() == "نعم" ? 1 : 0) +
@@ -1479,10 +1522,21 @@ namespace MyWorkApplication
                             SelectedDataRow["رقم المستفيد"] == DBNull.Value)
                             Person_ID = -1;
                         else Person_ID = int.Parse(SelectedDataRow["رقم المستفيد"].ToString());
-                    }
 
-                    Form application_Form = new Application_Form(Person_ID, MicroProject_ID, main_form);
-                    main_form.showNewTab(application_Form, "Application", 1);
+                        //NEW
+                        if (SelectedDataRow["حالة المشروع"].ToString() == "تسجيل أولي")
+                        { 
+                            //TODO edit constructor to open zero of this project
+                            Form zeroApplication_form = new Application_New_Form(main_form, true);
+                            main_form.showNewTab(zeroApplication_form, "Zero Application", 2);
+                        }
+                        else
+                        {
+                            //TODO edit constructor to open new application of this project
+                            Form application_Form = new Application_Form(Person_ID, MicroProject_ID, main_form);
+                            main_form.showNewTab(application_Form, "Application", 1);
+                        }
+                    }
                 }
                 else
                 {
@@ -1518,8 +1572,19 @@ namespace MyWorkApplication
                             .ToString());
 
 
-                    Form application_Form = new Application_Form(Person_ID, MicroProject_ID, main_form);
-                    main_form.showNewTab(application_Form, "Application", 1);
+                    //NEW
+                    if (SelectedDataRow["حالة المشروع"].ToString() == "تسجيل أولي")
+                    {
+                        //TODO edit constructor to open zero of this project
+                        Form zeroApplication_form = new Application_New_Form(main_form, true);
+                        main_form.showNewTab(zeroApplication_form, "Zero Application", 2);
+                    }
+                    else
+                    {
+                        //TODO edit constructor to open new application of this project
+                        Form application_Form = new Application_Form(Person_ID, MicroProject_ID, main_form);
+                        main_form.showNewTab(application_Form, "Application", 1);
+                    }
                 }
             }
             catch (Exception ex)
