@@ -138,6 +138,9 @@ namespace MyWorkApplication
  
  LEFT JOIN street w_street on MP.MP_Street_ID = w_street.ID 
  LEFT JOIN street h_street on P.Street_ID = h_street.ID 
+ 
+ LEFT JOIN priest priest1 on priest1.Priest_ID = P.P_Priest_ID
+ LEFT JOIN priest priest2 on priest2.Priest_ID = P.P_Priest2_ID
 
  LEFT JOIN `donor` on donor.ID = MP.MP_Donor 
  LEFT JOIN `donorgroup` on donorgroup.ID = MP.DonorGroup_ID 
@@ -149,35 +152,47 @@ namespace MyWorkApplication
 ,CONCAT(P_FirstName,' ', P_LastName) as 'المستفيد'
 ,P_FatherName as 'اسم الأب'
 ,P_MotherName as 'اسم الأم'
-,( SELECT CONCAT(p.P_FirstName, ' ',p.P_FatherName, ' ',p.P_LastName) From `person` p join `person_family` pf on p.P_ID = pf.Person_ID where pf.Relation like N'زوج/ة' and pf.P_Provider_ID =PMP.Person_ID limit 1) as 'الزوج / الزوجة'
+,( SELECT CONCAT(p.P_FirstName, ' ', p.P_FatherName, ' ', p.P_LastName) 
+    From `person` p 
+    left join `person_family` pf on p.P_ID = pf.Person_ID 
+    left join relation on relation.id = pf.Relation_ID
+    WHERE relation.Name like N'زوج/ة' 
+    and pf.P_Provider_ID = PMP.Person_ID limit 1) as 'الزوج / الزوجة' 
+
 ,P.P_NationalNumber as 'الرقم الوطني'
 ,P.P_RegistrationPlace as 'القيد'
-,( SELECT f.F_Number From `family` f join `person_family` pf on f.F_ID = pf.Family_ID where pf.Relation like N'مستفيد' and pf.P_Provider_ID =PMP.Person_ID limit 1) as 'رقم دفتر العائلة'
 
-, P_DOB as 'المواليد'  
-,P.P_Mobile as 'الموبايل'
-,MP.MP_Name as 'اسم المشروع'
+,( SELECT f.F_Number 
+    From `family` f 
+    left join `person_family` pf on f.F_ID = pf.Family_ID  
+    left join relation on relation.id = pf.Relation_ID
+    WHERE relation.Name like N'مستفيد'  
+    and pf.P_Provider_ID = PMP.Person_ID limit 1) as 'رقم دفتر العائلة'
+
+,P_DOB as 'المواليد'  
+,P.P_Mobile as 'الموبايل' 
+
+,career.Name    as 'المهنة'
+,career.Name_en as 'Career'
+,MP.MP_Name as 'وصف المشروع'  
 ,MP.MP_DateOfRequest as 'تاريخ التقديم'
 ,MP.MP_RequestedAmount as 'المبلغ المطلوب'
 ,l.Loan_Amount as 'مبلغ التمويل'
-,parish.Name_en as 'الطائفة'
 
-
-,(select Priest_Name from priest where Priest_ID = P.P_Priest_ID limit 1) as 'الكاهن'
+,parish.Name_en as 'الطائفة' 
+,priest1.Priest_Name as '1الكاهن'
+,priest2.Priest_Name as '2الكاهن' 
 ,h_street.Name as 'منطقة السكن'
-,P_HomeAddress as 'العنوان'
+,P_HomeAddress as 'العنوان' 
 
-,microprojecttype.Name as 'نوع المشروع' 
-
+,microprojecttype.Name as 'نوع المشروع'  
 ,MP.MP_Note as 'ملاحظات المشروع'
-,P.P_MaristesCourse as 'دورة تدريبية' 
-
+,P.P_MaristesCourse as 'دورة تدريبية'  
 ,state.Name_ar as 'حالة المشروع'
 ,statereason.Name as 'سبب الحالة'
-,mps.Note as 'ملاحظة الحالة'
-
+,mps.Note as 'ملاحظة الحالة' 
 ,donor.Name as 'الجهة الممولة' 
-, (CASE IsContentUpdated WHEN 0 THEN N'لا' ELSE N'نعم' End) as 'تبديل المشروع' 
+,(CASE IsContentUpdated WHEN 0 THEN N'لا' ELSE N'نعم' End) as 'تبديل المشروع' 
 
 ,P.P_ID as 'رقم المستفيد' ";
 
@@ -233,21 +248,25 @@ namespace MyWorkApplication
                     MP_dataGridView.Columns["الرقم الوطني"].ReadOnly =
                     MP_dataGridView.Columns["القيد"].ReadOnly =
                     MP_dataGridView.Columns["رقم دفتر العائلة"].ReadOnly =
-                    MP_dataGridView.Columns["تاريخ التقديم"].ReadOnly =
-                    MP_dataGridView.Columns["مبلغ التمويل"].ReadOnly =
-                    MP_dataGridView.Columns["الكاهن"].ReadOnly =
-                    MP_dataGridView.Columns["منطقة السكن"].ReadOnly =
-                    MP_dataGridView.Columns["العنوان"].ReadOnly =
-                    MP_dataGridView.Columns["الطائفة"].ReadOnly =
                     MP_dataGridView.Columns["المواليد"].ReadOnly =
+                    MP_dataGridView.Columns["المهنة"].ReadOnly =
+                    MP_dataGridView.Columns["Career"].ReadOnly =
+                    MP_dataGridView.Columns["تاريخ التقديم"].ReadOnly = 
+                    MP_dataGridView.Columns["مبلغ التمويل"].ReadOnly =
+                    MP_dataGridView.Columns["الطائفة"].ReadOnly =
+                    MP_dataGridView.Columns["1الكاهن"].ReadOnly =
+                    MP_dataGridView.Columns["2الكاهن"].ReadOnly =
+                    MP_dataGridView.Columns["منطقة السكن"].ReadOnly =
+                    MP_dataGridView.Columns["العنوان"].ReadOnly = 
                     MP_dataGridView.Columns["نوع المشروع"].ReadOnly = true;
 
                 MP_dataGridView.Columns["رقم المشروع"].Frozen = true;
 
-                addStateButtonToGrid();
 
                 ConvertCellToComboBoxAndColor();
                 restore_visible_columns();
+
+                addStateButtonToGrid();
 
                 MP_dataGridView.ColumnHeadersVisible = true;
                 MP_dataGridView.RowHeadersVisible = true;
@@ -283,9 +302,9 @@ namespace MyWorkApplication
             query += "select ID, Name                   from `statereason` ORDER BY Name ASC;"; //10
 
             query += "select ID, Name_en as 'Name'      from `parish` ORDER BY Name_en ASC;"; //11
-            query += @"SELECT ID, Name                  from `street` as h_street order by Name ASC; "; //12 
-            query += @"SELECT ID, Name                  from `street` as w_street order by Name ASC; "; //13 
-            query += "select ID, Name_ar ,Name_en       from `state` ORDER BY Name_ar ASC;"; //14
+            query += "SELECT ID, Name                   from `street` as h_street order by Name ASC; "; //12 
+            query += "SELECT ID, Name                   from `street` as w_street order by Name ASC; "; //13 
+            query += "select ID, Name_ar ,Name_en       from `state` ORDER BY Name_ar ASC;"; //14 
 
             Program.buildConnection();
             MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
@@ -294,20 +313,7 @@ namespace MyWorkApplication
             ds = new DataSet();
             da.Fill(ds);
             Program.MyConn.Close();
-
-            //Set_comboBox_datasource(Category_comboBox       , ds.Tables[0]);
-            //Set_comboBox_datasource(SubCategory_comboBox    , ds.Tables[1]);
-            //Set_comboBox_datasource(Career_comboBox         , ds.Tables[2]);
-            //Set_comboBox_datasource(Donor_comboBox          , ds.Tables[3]);
-            //Set_comboBox_datasource(DonorGroup_comboBox     , ds.Tables[4]);
-            //Set_comboBox_datasource(FundType_comboBox       , ds.Tables[5]);
-            //Set_comboBox_datasource(Type_comboBox           , ds.Tables[6]);
-            //Set_comboBox_datasource(SubType_comboBox        , ds.Tables[7]); 
-            //Set_comboBox_datasource(MaritalStatus_comboBox  , ds.Tables[8]);
-            //Set_comboBox_datasource(Age_comboBox            , ds.Tables[9]);
-            //Set_comboBox_datasource(StateReason_comboBox    , ds.Tables[10]);
-            //Set_comboBox_datasource(P_Parish_comboBox       , ds.Tables[12]);
-
+              
             Set_checkboxcomboBox_datasource(Category_comboBox, ds.Tables[0]);
             Set_checkboxcomboBox_datasource(SubCategory_comboBox, ds.Tables[1]);
             Set_checkboxcomboBox_datasource(Career_comboBox, ds.Tables[2]);
@@ -1146,21 +1152,10 @@ namespace MyWorkApplication
         private void MP_dataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             try
-            {
-                //المواليد- رقم المشروع - - المستفيد -الأب - الأم - الزوج - الرقم الوطني -القيد - رقم العائلة - مبلغ التمويل - الطائفة   
-                // منطقة السكن - العنوان التفصيلي - الكاهن
-                if (e.ColumnIndex == 0 || e.ColumnIndex == 1 || e.ColumnIndex == 2 || e.ColumnIndex == 3
-                    || e.ColumnIndex == 4 || e.ColumnIndex == 5 || e.ColumnIndex == 6 || e.ColumnIndex == 7 || e.ColumnIndex == 8
-                    || e.ColumnIndex == 12 || e.ColumnIndex == 13
-                    || e.ColumnIndex == 14 || e.ColumnIndex == 15 || e.ColumnIndex == 16)
-                {
-                    MP_dataGridView.EndEdit();
-                    throw new InvalidOperationException("لا يمكن التعديل على هذه الخلية.");
-                }
-
+            {  
                 pre_data = "";
                 //3a talab tony // حالة المشروع
-                if (e.ColumnIndex == 22)
+                if (e.ColumnIndex == 26)
                     pre_data = MP_dataGridView.Rows[e.RowIndex].Cells["حالة المشروع"].Value.ToString();
             }
             catch (Exception ex)
@@ -1188,7 +1183,7 @@ namespace MyWorkApplication
                     var Updated_col_name = "";
 
                     // حالة المشروع
-                    if (e.ColumnIndex == 21) // if we update just the 
+                    if (e.ColumnIndex == 24) // if we update just the 
                     {
                         var state = -1;
                         string edited_column = MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString();
@@ -1296,11 +1291,11 @@ namespace MyWorkApplication
                                 " where P_ID = " + Person_ID + " ";
                         Updated_col_name = "Mobile:" + MP_dataGridView.Rows[r].Cells["الموبايل"].Value;
                     }
-                    // اسم المشروع - المبلغ المطلوب
-                    else if (e.ColumnIndex == 10 || e.ColumnIndex == 12)
+                    // وصف المشروع - المبلغ المطلوب
+                    else if (e.ColumnIndex == 12 || e.ColumnIndex == 14)
                     {
                         query = "update `microproject` set" +
-                                " MP_Name = N'" + MP_dataGridView.Rows[r].Cells["اسم المشروع"].Value + "'," +
+                                " MP_Name = N'" + MP_dataGridView.Rows[r].Cells["وصف المشروع"].Value + "'," +
                                 " MP_RequestedAmount = N'" + MP_dataGridView.Rows[r].Cells["المبلغ المطلوب"].Value +
                                 "'" +
                                 " where MP_ID = " + MicroProject_ID + " ";
@@ -1308,7 +1303,7 @@ namespace MyWorkApplication
                         Updated_col_name = "Project Name/Requested money";
                     }
                     // ملاحظات المشروع
-                    else if (e.ColumnIndex == 19)
+                    else if (e.ColumnIndex == 22)
                     {
                         query = "update `microproject` set MP_Note = N'" +
                                 replaceQuotation(MP_dataGridView.Rows[r].Cells["ملاحظات المشروع"].Value.ToString()) + "' "
@@ -1317,18 +1312,15 @@ namespace MyWorkApplication
                         Updated_col_name = "Comments";
                     }
                     //دورة تدريبية 
-                    else if (e.ColumnIndex == 20)
+                    else if (e.ColumnIndex == 23)
                     {
                         query = "update `person` set" +
                                 " P_MaristesCourse = N'" + replaceQuotation(MP_dataGridView.Rows[r].Cells["دورة تدريبية"].Value.ToString()) +
-                                //"'," +
-                                //" P_OtherCourses = N'" + replaceQuotation(MP_dataGridView.Rows[r].Cells["ملاحظات المستفيد"].Value.ToString()) +
-                                "' " +
                                 " where P_ID = " + Person_ID + " ";
-                        Updated_col_name = "Maristes Course/Beneficiary State";
+                        Updated_col_name = "Maristes Course";
                     }
                     // سبب الحالة - ملاحظة الحالة
-                    else if (e.ColumnIndex == 22 || e.ColumnIndex == 23)
+                    else if (e.ColumnIndex == 25 || e.ColumnIndex == 26)
                     {
                         string edited_column = MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString();
                         query = " update microproject_state set "
@@ -1341,7 +1333,7 @@ namespace MyWorkApplication
                         Updated_col_name = "State Reason:" + MP_dataGridView.Rows[r].Cells["سبب الحالة"].Value;
                     }
                     // الجهة الممولة
-                    else if (e.ColumnIndex == 24)
+                    else if (e.ColumnIndex == 27)
                     {
                         string edited_column = Program.ReplaceQuotation(
                             MP_dataGridView.Rows[r].Cells["الجهة الممولة"].Value.ToString());
@@ -1351,8 +1343,9 @@ namespace MyWorkApplication
                             // مشاريع ممولة
                             if (
                                 MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "مقبول" ||
-                                MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "ممول" ||
+                                MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "ممول"  ||
                                 MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "منتهي" ||
+                                MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "مغلق"  ||
                                 MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "ملغى")
                             {
                                 MP_dataGridView.CancelEdit(); // Set cell value back to what it was prior to user's change 
@@ -1371,8 +1364,9 @@ namespace MyWorkApplication
                             // مشاريع ممولة
                             if (
                                 MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "مقبول" ||
-                                MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "ممول" ||
+                                MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "ممول"  ||
                                 MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "منتهي" ||
+                                MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "مغلق"  ||
                                 MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString() == "ملغى")
                             {
                                 query = "update `microproject` " +
@@ -1384,14 +1378,14 @@ namespace MyWorkApplication
                             {
                                 MP_dataGridView.Rows[r].Cells["الجهة الممولة"].Value = "None";
                                 MP_dataGridView.CancelEdit(); // Set cell value back to what it was prior to user's change 
-                                throw new Exception("لا يمكن اختيار جهة ممولة للمشاريع بحالة الانتظار أو الرفض أو الانسحاب");
+                                throw new Exception("لا يمكن اختيار جهة ممولة للمشاريع بحالة التسجيل الأولي أو الانتظار أو قيد الدراسة أو الرفض أو الانسحاب");
                             }
                         }
 
                         Updated_col_name = "Donor:" + edited_column;
                     }
                     // تبديل المشروع
-                    else if (e.ColumnIndex == 25)
+                    else if (e.ColumnIndex == 28)
                     {
                         query = "update `microproject` set" +
                                 " IsContentUpdated = " + (MP_dataGridView.Rows[r].Cells["تبديل المشروع"].Value.ToString() == "نعم" ? 1 : 0) +
@@ -1525,16 +1519,14 @@ namespace MyWorkApplication
 
                         //NEW
                         if (SelectedDataRow["حالة المشروع"].ToString() == "تسجيل أولي")
-                        { 
-                            //TODO edit constructor to open zero of this project
-                            Form zeroApplication_form = new Application_New_Form(main_form, true);
-                            main_form.showNewTab(zeroApplication_form, "Zero Application", 2);
+                        {
+                            Form Appplication_New_Form = new Application_New_Form(main_form, MicroProject_ID, Person_ID, "zero");
+                            main_form.showNewTab(Appplication_New_Form, "Application", 0);
                         }
                         else
                         {
-                            //TODO edit constructor to open new application of this project
-                            Form application_Form = new Application_Form(Person_ID, MicroProject_ID, main_form);
-                            main_form.showNewTab(application_Form, "Application", 1);
+                            Form Appplication_New_Form = new Application_New_Form(main_form, MicroProject_ID, Person_ID, "project");
+                            main_form.showNewTab(Appplication_New_Form, "Application", 0);
                         }
                     }
                 }
@@ -1574,16 +1566,14 @@ namespace MyWorkApplication
 
                     //NEW
                     if (SelectedDataRow["حالة المشروع"].ToString() == "تسجيل أولي")
-                    {
-                        //TODO edit constructor to open zero of this project
-                        Form zeroApplication_form = new Application_New_Form(main_form, true);
-                        main_form.showNewTab(zeroApplication_form, "Zero Application", 2);
+                    { 
+                        Form Appplication_New_Form = new Application_New_Form(main_form, MicroProject_ID, Person_ID, "zero");
+                        main_form.showNewTab(Appplication_New_Form, "Application", 0);
                     }
                     else
                     {
-                        //TODO edit constructor to open new application of this project
-                        Form application_Form = new Application_Form(Person_ID, MicroProject_ID, main_form);
-                        main_form.showNewTab(application_Form, "Application", 1);
+                        Form Appplication_New_Form = new Application_New_Form(main_form, MicroProject_ID, Person_ID, "project");
+                        main_form.showNewTab(Appplication_New_Form, "Application", 0);
                     }
                 }
             }
