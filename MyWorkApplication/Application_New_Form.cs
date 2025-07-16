@@ -50,7 +50,7 @@ namespace MyWorkApplication
         private int Priest_ID, Husband_Wife_ID;
 
 
-        public int MicroProject_ID, Person_ID, Family_ID, Existed_Family_ID; // to be visible in main form //
+        public int MicroProject_ID = -1, Person_ID = -1, Family_ID = -1, Existed_Family_ID = -1;
 
         private double sumOfItemsPrice_SYR;
         private int type;
@@ -151,6 +151,8 @@ namespace MyWorkApplication
             {
                 if (e.CloseReason == CloseReason.UserClosing && !Deleted)
                 {
+                    manualToolTip.Hide(Save_MP_ID_button);
+
                     bool anyDataGrid_ISDirty = IsDirty_DataGrid.Values.Any(v => v);
                     bool anyData_ISDirty = IsDirty_Data.Values.Any(v => v);
 
@@ -161,10 +163,6 @@ namespace MyWorkApplication
                             e.Cancel = true;
                             this.ActiveControl = Save_button;
                             return;
-                        }
-                        else
-                        {
-                            manualToolTip.Hide(Save_MP_ID_button);
                         }
                     }
                 }
@@ -485,7 +483,8 @@ namespace MyWorkApplication
             else
             {
                 Save_MP_ID_button.BackgroundImage = Properties.Resources.Unchecked;
-                manualToolTip.Show("لم يتم حجز الرقم بعد", Save_MP_ID_button, Save_MP_ID_button.Width / 2, -Convert.ToInt32(Save_MP_ID_button.Height / 1.5), 60000 * 60 * 24);
+                manualToolTip.Show("لم يتم حجز الرقم بعد", Save_MP_ID_button, Save_MP_ID_button.Width / 2, -Convert.ToInt32(Save_MP_ID_button.Height / 1.5), 3000);
+                toolTip1.SetToolTip(Save_MP_ID_button, "لم يتم حجز الرقم بعد");
             }
 
 
@@ -645,6 +644,7 @@ namespace MyWorkApplication
 
 
             #region Family
+            Existed_Family_ID = -1;
             FamilyNum_textBox1_original = "";
 
             P_NumAtHome_textBox.Text = "0";
@@ -1646,7 +1646,9 @@ namespace MyWorkApplication
                             mainForm.MP_ID_label.Text = MPID_textBox.Text;
 
                             Save_MP_ID_button.BackgroundImage = Properties.Resources.Unchecked;
-                            manualToolTip.Show("لم يتم حجز الرقم بعد", Save_MP_ID_button, Save_MP_ID_button.Width / 2, -Convert.ToInt32(Save_MP_ID_button.Height / 1.5), 60000 * 60 * 24);
+                            manualToolTip.Show("لم يتم حجز الرقم بعد", Save_MP_ID_button, Save_MP_ID_button.Width / 2, -Convert.ToInt32(Save_MP_ID_button.Height / 1.5), 3000);
+                            toolTip1.SetToolTip(Save_MP_ID_button, "لم يتم حجز الرقم بعد");
+
                         }
                         else
                         {
@@ -1659,6 +1661,8 @@ namespace MyWorkApplication
                                 MPID_textBox.Focus();
                                 Save_MP_ID_button.BackgroundImage = Properties.Resources.Cheked;
                                 manualToolTip.Hide(Save_MP_ID_button);
+                                toolTip1.SetToolTip(Save_MP_ID_button, "تم حجز رقم المشروع");
+
                             }
                             else
                             {
@@ -1667,7 +1671,9 @@ namespace MyWorkApplication
 
                                 MPID_textBox.Focus();
                                 Save_MP_ID_button.BackgroundImage = Properties.Resources.Unchecked;
-                                manualToolTip.Show("لم يتم حجز الرقم بعد", Save_MP_ID_button, Save_MP_ID_button.Width / 2, -Convert.ToInt32(Save_MP_ID_button.Height / 1.5), 60000 * 60 * 24);
+                                manualToolTip.Show("لم يتم حجز الرقم بعد", Save_MP_ID_button, Save_MP_ID_button.Width / 2, -Convert.ToInt32(Save_MP_ID_button.Height / 1.5), 3000);
+                                toolTip1.SetToolTip(Save_MP_ID_button, "لم يتم حجز الرقم بعد");
+
                             }
                         }
                     }
@@ -2098,7 +2104,7 @@ namespace MyWorkApplication
 
                         if (dt != null)
                         {
-                            if(dt.Rows.Count > 0)
+                            if (dt.Rows.Count > 0)
                             {
                                 int Old_P_ID = int.Parse(dt.Rows[0]["P_ID"].ToString());
                                 int Old_MP_ID = int.Parse(dt.Rows[0]["MicroProject_ID"].ToString());
@@ -3541,21 +3547,19 @@ namespace MyWorkApplication
                 else
                     sc.Parameters.AddWithValue("@Old_MicroProject_ID", MicroProject_ID);
             }
+            else
+            {
+                Query += "Set @MicroProject_ID = null;";
+            }
 
             if (Person_ID > 0)
             {
                 sc.Parameters.AddWithValue("@Person_ID", Person_ID);
             }
-
-            if (Family_ID > 0)
+            else
             {
-                sc.Parameters.AddWithValue("@Family_ID", Family_ID);
+                Query += "Set @Person_ID = null;";
             }
-
-            //if (Existed_Family_ID > 0)
-            //{
-            //    sc.Parameters.AddWithValue("@Existed_Family_ID", Existed_Family_ID);
-            //}
 
             sc.Parameters.AddWithValue("@ProgramUser_ID", Program.userID);
 
@@ -3640,8 +3644,7 @@ namespace MyWorkApplication
 
                 MP_Name = MP_Name_textBox.Text;
 
-                //if (ApplicationState == "project")
-                //{
+
                 if (Loan_radioButton.Checked)
                     LoanType = 1;
                 else if (Grant_radioButton.Checked)
@@ -3653,7 +3656,7 @@ namespace MyWorkApplication
                     ContentUpdated = 1;
                 else if (ContentUpdated_original == 1 && !ContentUpdated_checkBox.Checked)
                     ContentUpdated = 0;
-                //}
+
 
                 if (MicroProject_ID <= 0)
                 {
@@ -4052,7 +4055,6 @@ namespace MyWorkApplication
                     if (Military_textBox.Visible)
                     {
                         sc.Parameters.AddWithValue("@Military_Note", Military_Note);
-
                     }
                     else
                     {
@@ -4763,7 +4765,7 @@ namespace MyWorkApplication
                             }
                             else
                             {
-                                
+
                             }
                         }
                         else
@@ -5149,6 +5151,8 @@ namespace MyWorkApplication
                     P_DebtsAmount = P_DebtsAmount_textBox.Text;
                     P_DebtsNote = P_DebtsNote_textBox.Text;
 
+
+
                     if (Family_ID <= 0)
                     {
                         if (Existed_Family_ID <= 0)
@@ -5157,34 +5161,43 @@ namespace MyWorkApplication
 
                             Query += "Set @Family_ID = LAST_INSERT_ID();";
                         }
-                        else
-                        {
-                            Query += "Set @Family_ID = @Existed_Family_ID;";
-                        }
 
                         Query += "Insert into person_family (Family_ID, Person_ID, Relation_ID, P_Provider_ID)" +
                             " Values (@Family_ID, @Person_ID, (select id from relation where name = 'مستفيد'), @Person_ID);";
                     }
                     else
                     {
-                        if(Existed_Family_ID <= 0)
+                        if (FamilyNum_ISDirty)
                         {
-                            Query += "Update family set F_Number = @FamilyNum Where F_ID = @Family_ID;";
-                        }
-                        else
-                        {
-                            Query += "Update person_family set Family_ID = @Existed_Family_ID where P_Provider_ID = @Person_ID;";
+                            if (Existed_Family_ID <= 0)
+                            {
+                                Query += "Insert into family (F_Number) Values (@FamilyNum);";
+
+                                Query += "Set @Family_ID = LAST_INSERT_ID();";
+
+                            }
+                            Query += "Update person_family set Family_ID = @Family_ID where P_Provider_ID = @Person_ID;";
 
                             Query += "DELETE family FROM family LEFT JOIN person_family ON family.F_ID = person_family.Family_ID WHERE person_family.Family_ID is null;";
                         }
                     }
+
 
                     Query += "Update person_microproject set P_HasAidSource = @HasAidSource, P_AidSourceNote = @MP_OtherDonors," +
                         " P_IsLivingWithFamily = @LiveWithFamily, P_LiveWithFamily_Note = @LiveWithFamily_Note, P_AidSourceNote = @AidSourceNote" +
                         " Where Person_ID = @Person_ID and MicroProject_ID = @MicroProject_ID;";
 
 
-                    sc.Parameters.AddWithValue("@Existed_Family_ID", Existed_Family_ID <= 0 ? (object)DBNull.Value : Existed_Family_ID);
+                    if (Existed_Family_ID > 0)
+                        sc.Parameters.AddWithValue("@Family_ID", Existed_Family_ID);
+                    else if (Family_ID > 0 && !FamilyNum_ISDirty)
+                    {
+                        sc.Parameters.AddWithValue("@Family_ID", Family_ID);
+                    }
+                    else
+                    {
+                        Query += "Set @Family_ID = null;";
+                    }
 
                     sc.Parameters.AddWithValue("@FamilyNum", string.IsNullOrEmpty(FamilyNum) ? (object)DBNull.Value : FamilyNum);
                     sc.Parameters.AddWithValue("@LiveWithFamily", LiveWithFamily);
@@ -6735,6 +6748,27 @@ namespace MyWorkApplication
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes)
                 {
+                    if (MicroProject_ID <= 0)
+                    {
+                        MessageBox.Show("لا يمكن حذف المشروع! المشروع غير موجود في قاعدة البيانات بعد.");
+                    }
+                    else
+                    {
+                        var sc = new MySqlCommand();
+
+                        string Query = "START TRANSACTION;";
+                        Query += "Delete from ";
+
+
+                        Query += " COMMIT;";
+
+                        Program.buildConnection();
+                        sc.CommandTimeout = 120;
+                        sc.CommandText = "SET SESSION wait_timeout = @t;" + Query;
+                        sc.Parameters.AddWithValue("@t", 600);
+                        sc.Connection = Program.MyConn;
+
+                    }
                     //if (MicroProject_ID != -1)
                     //{
                     //    Delete_MP(MicroProject_ID);
