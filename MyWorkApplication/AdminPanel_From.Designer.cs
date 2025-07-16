@@ -1483,7 +1483,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.70951F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.59554F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.49871F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 91F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
             this.tableLayoutPanel1.ContextMenuStrip = this.contextMenuStrip1;
             this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.ExportToExcel_button, 1, 0);
@@ -1506,7 +1506,7 @@ namespace MyWorkApplication
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(1051, 4);
+            this.label2.Location = new System.Drawing.Point(1052, 4);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(116, 27);
@@ -1545,11 +1545,11 @@ namespace MyWorkApplication
             this.Count_label.AutoSize = true;
             this.Count_label.BackColor = System.Drawing.Color.Transparent;
             this.Count_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Count_label.Location = new System.Drawing.Point(864, 4);
+            this.Count_label.Location = new System.Drawing.Point(866, 4);
             this.Count_label.Margin = new System.Windows.Forms.Padding(0);
             this.Count_label.Name = "Count_label";
             this.Count_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Count_label.Size = new System.Drawing.Size(184, 27);
+            this.Count_label.Size = new System.Drawing.Size(183, 27);
             this.Count_label.TabIndex = 473;
             this.Count_label.Text = "0000";
             this.Count_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1560,7 +1560,7 @@ namespace MyWorkApplication
             this.Selected_label.AutoSize = true;
             this.Selected_label.BackColor = System.Drawing.Color.Transparent;
             this.Selected_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Selected_label.Location = new System.Drawing.Point(693, 4);
+            this.Selected_label.Location = new System.Drawing.Point(695, 4);
             this.Selected_label.Margin = new System.Windows.Forms.Padding(0);
             this.Selected_label.Name = "Selected_label";
             this.Selected_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

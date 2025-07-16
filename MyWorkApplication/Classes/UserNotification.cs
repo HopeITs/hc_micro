@@ -15,12 +15,15 @@ namespace MyWorkApplication.Classes
             string query = "Insert Into `user_notification`(`Date`, `Body`, `Seen`, `P_Name`, `MicroProject_ID`, `User_ID`, `Sender_ID`,`Pay_ID`) values("
                + "@Date ,@Body, 0 , @P_Name ,@MicroProject_ID ,@User_ID ,@Sender_ID ,@Pay_ID )";
 
+            //save null if no MicroProject_id
+            object MP_ID = (MicroProject_ID == -1) ? (object)DBNull.Value : MicroProject_ID;
+
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.Parameters.AddWithValue("@Date", Date);
                 sc.Parameters.AddWithValue("@Body", Body);
                 sc.Parameters.AddWithValue("@P_Name", P_Name);
-                sc.Parameters.AddWithValue("@MicroProject_ID", MicroProject_ID);
+                sc.Parameters.AddWithValue("@MicroProject_ID", MP_ID);
                 sc.Parameters.AddWithValue("@User_ID", User_ID);
                 sc.Parameters.AddWithValue("@Sender_ID", Sender_ID);
                 sc.Parameters.AddWithValue("@Pay_ID", Pay_ID);
@@ -32,6 +35,8 @@ namespace MyWorkApplication.Classes
         public void Update_MicroUsers_Notification(int MicroProject_ID, string Date, string Body, string P_Name
             , int Pay_ID, string Seen)
         {
+            //save null if no MicroProject_id
+            object MP_ID = (MicroProject_ID == -1) ? (object)DBNull.Value : MicroProject_ID;
 
             Program.buildConnection();
             string condition = " where 1 ";
@@ -50,7 +55,7 @@ namespace MyWorkApplication.Classes
             query += condition;
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
-                sc.Parameters.AddWithValue("@MicroProject_ID", MicroProject_ID);
+                sc.Parameters.AddWithValue("@MicroProject_ID", MP_ID);
                 sc.Parameters.AddWithValue("@Date", Date);
                 sc.Parameters.AddWithValue("@Body", Body);
                 sc.Parameters.AddWithValue("@P_Name", P_Name);

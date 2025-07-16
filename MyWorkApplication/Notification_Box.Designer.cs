@@ -103,7 +103,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label2.Location = new System.Drawing.Point(399, 8);
+            this.label2.Location = new System.Drawing.Point(396, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 27);
             this.label2.TabIndex = 459;
@@ -115,7 +115,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label1.Location = new System.Drawing.Point(217, 8);
+            this.label1.Location = new System.Drawing.Point(214, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 27);
             this.label1.TabIndex = 460;
@@ -128,7 +128,7 @@
             this.Counter_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Counter_textBox.Enabled = false;
             this.Counter_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Counter_textBox.Location = new System.Drawing.Point(442, 10);
+            this.Counter_textBox.Location = new System.Drawing.Point(439, 10);
             this.Counter_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Counter_textBox.MinimumSize = new System.Drawing.Size(110, 18);
             this.Counter_textBox.Name = "Counter_textBox";
@@ -143,7 +143,7 @@
             this.SeenCounter_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SeenCounter_textBox.Enabled = false;
             this.SeenCounter_textBox.ForeColor = System.Drawing.Color.Black;
-            this.SeenCounter_textBox.Location = new System.Drawing.Point(282, 10);
+            this.SeenCounter_textBox.Location = new System.Drawing.Point(279, 10);
             this.SeenCounter_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SeenCounter_textBox.MinimumSize = new System.Drawing.Size(110, 18);
             this.SeenCounter_textBox.Name = "SeenCounter_textBox";
@@ -159,7 +159,7 @@
             this.check_all_seen_checkBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.check_all_seen_checkBox.Name = "check_all_seen_checkBox";
             this.check_all_seen_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.check_all_seen_checkBox.Size = new System.Drawing.Size(113, 31);
+            this.check_all_seen_checkBox.Size = new System.Drawing.Size(112, 31);
             this.check_all_seen_checkBox.TabIndex = 463;
             this.check_all_seen_checkBox.Text = "Check all seen";
             this.check_all_seen_checkBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -176,7 +176,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.49405F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.05357F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.80952F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.Controls.Add(this.Counter_textBox, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.SeenCounter_textBox, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 5, 0);
@@ -246,7 +246,7 @@
             this.Notification_dataGridView.EnableHeadersVisualStyles = false;
             this.Notification_dataGridView.GridColor = System.Drawing.Color.Black;
             this.Notification_dataGridView.Location = new System.Drawing.Point(0, 95);
-            this.Notification_dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Notification_dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.Notification_dataGridView.Name = "Notification_dataGridView";
             this.Notification_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

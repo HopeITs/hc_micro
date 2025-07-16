@@ -89,7 +89,6 @@ namespace MyWorkApplication
                 Bind_All_ComboBoxes();
                 timer1.Start();
 
-
                 // Use of the DataGridViewColumnSelector
                 cs = new DataGridViewColumnSelector(MP_dataGridView);
                 cs.MaxHeight = 100;
