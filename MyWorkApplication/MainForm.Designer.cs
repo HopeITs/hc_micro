@@ -95,7 +95,6 @@
             this.Home_panel = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.applicationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.App_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AdminPanel_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.newStreet_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -832,7 +831,6 @@
             // 
             this.applicationToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.applicationToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.App_toolStripMenuItem,
             this.AdminPanel_toolStripMenuItem,
             this.toolStripMenuItem4,
             this.Checklist_toolStripMenuItem,
@@ -841,13 +839,6 @@
             this.applicationToolStripMenuItem1.ShowShortcutKeys = false;
             this.applicationToolStripMenuItem1.Size = new System.Drawing.Size(114, 29);
             this.applicationToolStripMenuItem1.Text = "&Application";
-            // 
-            // App_toolStripMenuItem
-            // 
-            this.App_toolStripMenuItem.Name = "App_toolStripMenuItem";
-            this.App_toolStripMenuItem.Size = new System.Drawing.Size(281, 30);
-            this.App_toolStripMenuItem.Text = "New Application";
-            this.App_toolStripMenuItem.Click += new System.EventHandler(this.NewApplicationToolStripMenuItem_Click);
             // 
             // AdminPanel_toolStripMenuItem
             // 
@@ -1256,7 +1247,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem applicationToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem App_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AdminPanel_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem newStreet_toolStripMenuItem;
