@@ -92,7 +92,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.15131F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.84868F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.SearchToolBar, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.Search_DataGridView, 1, 2);
@@ -468,7 +468,7 @@
             this.Type_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Type_comboBox.ForeColor = System.Drawing.Color.Black;
             this.Type_comboBox.FormattingEnabled = true;
-            this.Type_comboBox.Location = new System.Drawing.Point(398, 47);
+            this.Type_comboBox.Location = new System.Drawing.Point(398, 53);
             this.Type_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Type_comboBox.Name = "Type_comboBox";
             this.Type_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -500,7 +500,7 @@
             this.visit_statistics_tableLayoutPanel.Controls.Add(this.sumAll_label, 1, 7);
             this.visit_statistics_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.visit_statistics_tableLayoutPanel.Font = new System.Drawing.Font("Rubik", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visit_statistics_tableLayoutPanel.Location = new System.Drawing.Point(28, 124);
+            this.visit_statistics_tableLayoutPanel.Location = new System.Drawing.Point(29, 124);
             this.visit_statistics_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.visit_statistics_tableLayoutPanel.Name = "visit_statistics_tableLayoutPanel";
             this.visit_statistics_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -514,7 +514,7 @@
             this.visit_statistics_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.visit_statistics_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.visit_statistics_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.visit_statistics_tableLayoutPanel.Size = new System.Drawing.Size(282, 366);
+            this.visit_statistics_tableLayoutPanel.Size = new System.Drawing.Size(281, 366);
             this.visit_statistics_tableLayoutPanel.TabIndex = 574;
             // 
             // label5

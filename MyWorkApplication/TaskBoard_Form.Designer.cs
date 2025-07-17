@@ -193,7 +193,7 @@ namespace MyWorkApplication
             this.Top_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
             this.Top_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.Top_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
-            this.Top_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
+            this.Top_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
             this.Top_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.Top_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.Top_tableLayoutPanel.ContextMenuStrip = this.contextMenuStrip1;
@@ -227,11 +227,11 @@ namespace MyWorkApplication
             this.TaskType_comboBox.Items.AddRange(new object[] {
             "مرحلة ماقبل أخذ القرار",
             "مرحلة التمويل"});
-            this.TaskType_comboBox.Location = new System.Drawing.Point(919, 4);
+            this.TaskType_comboBox.Location = new System.Drawing.Point(920, 9);
             this.TaskType_comboBox.Margin = new System.Windows.Forms.Padding(2);
             this.TaskType_comboBox.Name = "TaskType_comboBox";
             this.TaskType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TaskType_comboBox.Size = new System.Drawing.Size(229, 35);
+            this.TaskType_comboBox.Size = new System.Drawing.Size(228, 35);
             this.TaskType_comboBox.TabIndex = 485;
             this.TaskType_comboBox.SelectedIndexChanged += new System.EventHandler(this.TaskType_comboBox_SelectedIndexChanged);
             // 
@@ -241,7 +241,7 @@ namespace MyWorkApplication
             this.Counter_textBox.BackColor = System.Drawing.Color.White;
             this.Counter_textBox.ForeColor = System.Drawing.Color.Black;
             this.Counter_textBox.HideSelection = false;
-            this.Counter_textBox.Location = new System.Drawing.Point(207, 7);
+            this.Counter_textBox.Location = new System.Drawing.Point(209, 7);
             this.Counter_textBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Counter_textBox.Name = "Counter_textBox";
             this.Counter_textBox.ReadOnly = true;
@@ -259,7 +259,7 @@ namespace MyWorkApplication
             this.Refresh_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Refresh_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Refresh_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Refresh_button.Location = new System.Drawing.Point(157, 7);
+            this.Refresh_button.Location = new System.Drawing.Point(159, 7);
             this.Refresh_button.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Refresh_button.MaximumSize = new System.Drawing.Size(44, 29);
             this.Refresh_button.MinimumSize = new System.Drawing.Size(44, 29);
@@ -275,7 +275,7 @@ namespace MyWorkApplication
             // 
             this.ExactSearch_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ExactSearch_checkBox.AutoSize = true;
-            this.ExactSearch_checkBox.Location = new System.Drawing.Point(324, 6);
+            this.ExactSearch_checkBox.Location = new System.Drawing.Point(326, 6);
             this.ExactSearch_checkBox.Margin = new System.Windows.Forms.Padding(4);
             this.ExactSearch_checkBox.Name = "ExactSearch_checkBox";
             this.ExactSearch_checkBox.Size = new System.Drawing.Size(107, 31);
@@ -294,7 +294,7 @@ namespace MyWorkApplication
             this.ShowHide_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShowHide_button.Location = new System.Drawing.Point(49, 8);
+            this.ShowHide_button.Location = new System.Drawing.Point(51, 8);
             this.ShowHide_button.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.ShowHide_button.MaximumSize = new System.Drawing.Size(42, 27);
             this.ShowHide_button.MinimumSize = new System.Drawing.Size(42, 27);
@@ -317,7 +317,7 @@ namespace MyWorkApplication
             this.ExportToExcel_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ExportToExcel_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExportToExcel_button.ForeColor = System.Drawing.Color.White;
-            this.ExportToExcel_button.Location = new System.Drawing.Point(101, 7);
+            this.ExportToExcel_button.Location = new System.Drawing.Point(103, 7);
             this.ExportToExcel_button.Margin = new System.Windows.Forms.Padding(6, 2, 6, 2);
             this.ExportToExcel_button.MaximumSize = new System.Drawing.Size(44, 29);
             this.ExportToExcel_button.MinimumSize = new System.Drawing.Size(44, 29);
@@ -334,11 +334,11 @@ namespace MyWorkApplication
             this.Search_TxtBox.BackColor = System.Drawing.Color.White;
             this.Search_TxtBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Search_TxtBox.ForeColor = System.Drawing.Color.Black;
-            this.Search_TxtBox.Location = new System.Drawing.Point(442, 5);
+            this.Search_TxtBox.Location = new System.Drawing.Point(444, 5);
             this.Search_TxtBox.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
             this.Search_TxtBox.Multiline = true;
             this.Search_TxtBox.Name = "Search_TxtBox";
-            this.Search_TxtBox.Size = new System.Drawing.Size(468, 33);
+            this.Search_TxtBox.Size = new System.Drawing.Size(467, 33);
             this.Search_TxtBox.TabIndex = 1;
             this.Search_TxtBox.TextChanged += new System.EventHandler(this.MP_idTxtBox_TextChanged);
             // 
@@ -569,7 +569,7 @@ namespace MyWorkApplication
             this.f06_Type_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.f06_Type_comboBox.ForeColor = System.Drawing.Color.Black;
             this.f06_Type_comboBox.FormattingEnabled = true;
-            this.f06_Type_comboBox.Location = new System.Drawing.Point(1836, 60);
+            this.f06_Type_comboBox.Location = new System.Drawing.Point(1836, 65);
             this.f06_Type_comboBox.Margin = new System.Windows.Forms.Padding(2);
             this.f06_Type_comboBox.Name = "f06_Type_comboBox";
             this.f06_Type_comboBox.Size = new System.Drawing.Size(96, 35);
@@ -598,7 +598,7 @@ namespace MyWorkApplication
             "منتهي",
             "ملغى",
             "مغلق"});
-            this.f04_State_comboBox.Location = new System.Drawing.Point(2012, 60);
+            this.f04_State_comboBox.Location = new System.Drawing.Point(2012, 65);
             this.f04_State_comboBox.Margin = new System.Windows.Forms.Padding(2);
             this.f04_State_comboBox.Name = "f04_State_comboBox";
             this.f04_State_comboBox.Size = new System.Drawing.Size(72, 35);
@@ -615,7 +615,7 @@ namespace MyWorkApplication
             this.f05_Donor_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.f05_Donor_comboBox.ForeColor = System.Drawing.Color.Black;
             this.f05_Donor_comboBox.FormattingEnabled = true;
-            this.f05_Donor_comboBox.Location = new System.Drawing.Point(1936, 60);
+            this.f05_Donor_comboBox.Location = new System.Drawing.Point(1936, 65);
             this.f05_Donor_comboBox.Margin = new System.Windows.Forms.Padding(2);
             this.f05_Donor_comboBox.Name = "f05_Donor_comboBox";
             this.f05_Donor_comboBox.Size = new System.Drawing.Size(72, 35);

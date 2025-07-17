@@ -1,4 +1,5 @@
 ﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Vml.Office;
 using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
@@ -125,7 +126,7 @@ namespace MyWorkApplication
                 searchBy_list.Add("Families");
                 searchBy_list.Add("Loans and Payments");
                 searchBy_list.Add("Attachments");
-                searchBy_list.Add("Executive Files");
+              //  searchBy_list.Add("Executive Files");
                 searchBy_list.Add("M&E Visits");
                 searchBy_list.Add("Monitoring Visits(1 to 5)");
                 searchBy_list.Add("Check Lists");
@@ -326,47 +327,47 @@ namespace MyWorkApplication
 
                 showHideProfileImagesToolStripMenuItem.Visible = true;
             }
-            //Executive Files //
-            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
-            {
-                FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
-                    MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
-                    Category_comboBox.Visible = SubCategory_comboBox.Visible = Career_comboBox.Visible =
-                    FundDate_comboBox.Visible = ApplyDate_comboBox.Visible
-                    = true;
-                P_Parish_comboBox.Visible = Age_comboBox.Visible
-                    = Gender_comboBox.Visible = MaritalStatus_comboBox.Visible
-                    = HomeStreet_comboBox.Visible = ProjectStreet_comboBox.Visible
-                    = false;
+            ////Executive Files //
+            //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
+            //{
+            //    FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
+            //        MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
+            //        Category_comboBox.Visible = SubCategory_comboBox.Visible = Career_comboBox.Visible =
+            //        FundDate_comboBox.Visible = ApplyDate_comboBox.Visible
+            //        = true;
+            //    P_Parish_comboBox.Visible = Age_comboBox.Visible
+            //        = Gender_comboBox.Visible = MaritalStatus_comboBox.Visible
+            //        = HomeStreet_comboBox.Visible = ProjectStreet_comboBox.Visible
+            //        = false;
 
-                FundType_label.Visible = Type_label.Visible = SubType_label.Visible = Partnership_label.Visible
-                    = MP_Status_label.Visible = Donor_label.Visible = DonorGroup_label.Visible
-                    = Category_label.Visible = SubCategory_label.Visible = Career_label.Visible
-                    = FundedDateFrom_label.Visible = ApplyDateFrom_label.Visible
-                    = true;
+            //    FundType_label.Visible = Type_label.Visible = SubType_label.Visible = Partnership_label.Visible
+            //        = MP_Status_label.Visible = Donor_label.Visible = DonorGroup_label.Visible
+            //        = Category_label.Visible = SubCategory_label.Visible = Career_label.Visible
+            //        = FundedDateFrom_label.Visible = ApplyDateFrom_label.Visible
+            //        = true;
 
-                P_Parish_label.Visible = Age_label.Visible
-                    = Gender_label.Visible = MaritalStatus_label.Visible
-                    = HomeStreet_label.Visible = ProjectStreet_label.Visible
-                    = false;
+            //    P_Parish_label.Visible = Age_label.Visible
+            //        = Gender_label.Visible = MaritalStatus_label.Visible
+            //        = HomeStreet_label.Visible = ProjectStreet_label.Visible
+            //        = false;
 
-                RequestedFrom_textBox.Visible = RequestedTo_textBox.Visible =
-                    RequestedFrom_label.Visible =
-                    FundedFrom_textBox.Visible = FundedTo_textBox.Visible =
-                    FundedFrom_label.Visible =
-                    from_label1.Visible = to_label1.Visible = year_label1.Visible =
-                    from_label2.Visible = to_label2.Visible = year_label2.Visible =
-                    ApplyDateFrom_label.Visible = FundedDateFrom_label.Visible =
-                    ApplyDateFrom_dateTimePicker.Visible = ApplyDateTo_DateTimePicker.Visible =
-                    FundedDateFrom_DateTimePicker.Visible = FundedDateTo_DateTimePicker.Visible =
-                    ApplyDate_checkBox.Visible = FundedDate_checkBox.Visible = true;
-                //Requested_checkBox.Visible = Funded_checkBox.Visible = 
+            //    RequestedFrom_textBox.Visible = RequestedTo_textBox.Visible =
+            //        RequestedFrom_label.Visible =
+            //        FundedFrom_textBox.Visible = FundedTo_textBox.Visible =
+            //        FundedFrom_label.Visible =
+            //        from_label1.Visible = to_label1.Visible = year_label1.Visible =
+            //        from_label2.Visible = to_label2.Visible = year_label2.Visible =
+            //        ApplyDateFrom_label.Visible = FundedDateFrom_label.Visible =
+            //        ApplyDateFrom_dateTimePicker.Visible = ApplyDateTo_DateTimePicker.Visible =
+            //        FundedDateFrom_DateTimePicker.Visible = FundedDateTo_DateTimePicker.Visible =
+            //        ApplyDate_checkBox.Visible = FundedDate_checkBox.Visible = true;
+            //    //Requested_checkBox.Visible = Funded_checkBox.Visible = 
 
-                Export_dolar_label.Visible = Export_val_label.Visible = false;
-                Remaining_val_label.Visible = Import_val_label.Visible = false;
-            }
+            //    Export_dolar_label.Visible = Export_val_label.Visible = false;
+            //    Remaining_val_label.Visible = Import_val_label.Visible = false;
+            //}
             // Visits //
-            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(5))
+            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
             {
                 //statistics table
                 visit_statistics_tableLayoutPanel.Visible = true;
@@ -406,7 +407,7 @@ namespace MyWorkApplication
                     FundedFrom_label.Visible = false;
             }
             // New Visit Forms //
-            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(6))
+            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(5))
             {
                 FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
                     MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
@@ -439,7 +440,7 @@ namespace MyWorkApplication
                 //Requested_checkBox.Visible = Funded_checkBox.Visible =  
             }
             // Checklists //
-            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(7))
+            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(6))
             {
                 FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
                     MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
@@ -468,7 +469,7 @@ namespace MyWorkApplication
                 //Requested_checkBox.Visible = Funded_checkBox.Visible = 
             }
             // Special Cases //
-            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
+            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(7))
             {
                 FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
                 MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
@@ -501,7 +502,7 @@ namespace MyWorkApplication
                 //Requested_checkBox.Visible = Funded_checkBox.Visible = 
             }
             // Aid Sources //
-            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
+            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
             {
                 FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
                 MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
@@ -588,46 +589,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-
-        ///////////////////////////////////////////////////////////////////////////
-        //private void Requested_checkBox_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (Requested_checkBox.Checked)
-        //    {
-        //        RequestedFrom_label.Enabled = RequestedFrom_textBox.Enabled
-        //            //= RequestedTo_label.Enabled 
-        //            = RequestedTo_textBox.Enabled = true;
-        //        RequestedFrom_textBox_Leave(sender, e);
-        //    }
-        //    else
-        //    {
-        //        RequestedAmount_condition = "";
-        //        RequestedFrom_label.Enabled = RequestedFrom_textBox.Enabled
-        //            //= RequestedTo_label.Enabled 
-        //            = RequestedTo_textBox.Enabled = false;
-        //        SearchBy_comboBox_SelectedIndexChanged(sender, e);
-        //    }
-        //}
-
-        //private void Funded_checkBox_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (Funded_checkBox.Checked)
-        //    {
-        //        FundedFrom_label.Enabled = FundedFrom_textBox.Enabled
-        //            //= FundedTo_label.Enabled 
-        //            = FundedTo_textBox.Enabled = true;
-        //        FundedFrom_textBox_Leave(sender, e);
-        //    }
-        //    else
-        //    {
-        //        FundedAmount_condition = "";
-        //        FundedFrom_label.Enabled = FundedFrom_textBox.Enabled
-        //            //= FundedTo_label.Enabled 
-        //            = FundedTo_textBox.Enabled = false;
-        //        SearchBy_comboBox_SelectedIndexChanged(sender, e);
-        //    }
-        //}
-
+         
         private void RequestedFrom_textBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -903,7 +865,7 @@ namespace MyWorkApplication
             if (Partnership_comboBox.Text != "" && Partnership_comboBox.Visible)
             {
                 if (Partnership_comboBox.Text.Contains("شراكة"))
-                    condition += " and Partnership = 2 ";
+                    condition += " and Partnership > 1 ";
 
                 if (Partnership_comboBox.Text.Contains("فردي"))
                     condition += " and Partnership = 1 ";
@@ -911,10 +873,7 @@ namespace MyWorkApplication
 
             //MP Status
             if (MP_Status_comboBox.Text != "" && MP_Status_comboBox.Visible)
-            {
-                //if (State == "ممول+منتهي+ملغى+مغلق")
-                //     condition += " and state.ID in (4,5,7,8) ";
-                //else condition += " and state.Name_Ar like N'" + State + "' ";
+            { 
                 condition += " and state.Name_Ar in ("
                     + Program.getSelectedItems_CheckboxComboBox(MP_Status_comboBox, true) + ")";
             }
@@ -1067,18 +1026,17 @@ namespace MyWorkApplication
   , (SELECT CONCAT(p.P_FirstName, ' ', p.P_FatherName, ' ', p.P_LastName) 
       From `person` p 
       left join `person_family` pf on p.P_ID = pf.Person_ID 
-left join relation on relation.id = pf.Relation_ID
+      left join relation on relation.id = pf.Relation_ID
       WHERE relation.Name like N'زوج/ة' 
       and pf.P_Provider_ID = person.P_ID limit 1) as 'الزوج / الزوجة' 
-
-  , MP_Name as 'اسم المشروع'   
-
-  , P_FullName_en as 'Beneficiary Name'
-  
+ 
+ , P_FullName_en as 'Beneficiary Name' 
+ , career.Name_en as 'Career'
+ , career.Name as 'المهنة'
+ , MP_Name as 'وصف المشروع'   
 
  , C.Name 'Category' 
  , sub.Name as 'Sub Category'
- , career.Name as 'Career'
 
  , microprojecttype.Name as 'نوع المشروع'
  , microprojectsubtype.Name as 'تفصيل نوع المشروع' 
@@ -1131,7 +1089,7 @@ left join relation on relation.id = pf.Relation_ID
     From `person` p 
     left join `person_family` pf on p.P_ID = pf.Person_ID  
     left join `personstate` on personstate.ID = p.P_State_ID
-left join relation on relation.id = pf.Relation_ID
+    left join relation on relation.id = pf.Relation_ID
     WHERE relation.Name like N'ابن/ة' 
     AND lower(personstate.Type) like 'active'
     and pf.P_Provider_ID = person.P_ID limit 1) as 'عدد الأبناء في المنزل' 
@@ -1140,7 +1098,7 @@ left join relation on relation.id = pf.Relation_ID
     From `person` p 
     left join `person_family` pf on p.P_ID = pf.Person_ID  
     left join `personstate` on personstate.ID = p.P_State_ID
-left join relation on relation.id = pf.Relation_ID
+    left join relation on relation.id = pf.Relation_ID
     WHERE relation.Name like N'ابن/ة'
     AND lower(personstate.Type) like 'active'    
  	and TIMESTAMPDIFF(YEAR, p.P_DOB, MP_DateOfRequest) < 18
@@ -1284,13 +1242,13 @@ left join relation on relation.id = pf.Relation_ID
                          + ",CONCAT(P_FirstName, ' ' , P_LastName , ' ابن/ة ', P_FatherName) as 'المستفيد'"
                          + ",P_MotherName as 'اسم الأم'"
                          + ",maritalstatus.Name as 'الحالة الاجتماعية'"
-                         + ",pf.Relation as 'العلاقة مغ المستفيد'"
+                         + ",relation.Name as 'الصفة'"
                          + ",personstate.Name as 'الحالة'"
                          + ",pf.Work_Name as 'العمل'"
                          + ",p.P_DOB as 'تاريخ الولادة'"
                          + ",PMP.MicroProject_ID as 'رقم المشروع'"
-
-                         + ",MP_Name as 'اسم المشروع'"
+                         + ",career.Name as 'المهنة'"
+                         + ",career.Name_en as 'Career'"
 
                          + @",(select state.Name_Ar from state 
  left join microproject_state mps on state.ID = mps.State_ID
@@ -1309,7 +1267,9 @@ left join relation on relation.id = pf.Relation_ID
     left join `person_microproject` PMP on PMP.Person_ID = p.P_ID 
     left join `maritalstatus` on maritalstatus.ID = p.P_MaritalStatus_ID  
     left join `personstate` on personstate.ID = p.P_State_ID 
-    left join `microproject` on PMP.MicroProject_ID = microproject.MP_ID  ";
+    left join `microproject` on PMP.MicroProject_ID = microproject.MP_ID
+    left join `relation` on relation.ID = pf.Relation_ID 
+    left join `career` on career.ID = microproject.Career_ID ";
 
             var i_cond = " where 1 ";
             //if (family_ID != "") 
@@ -1349,14 +1309,14 @@ left join relation on relation.id = pf.Relation_ID
 
             MP_dataGridView.Columns["رقم العائلة"].Width = 60;
             MP_dataGridView.Columns["رقم دفتر العائلة"].Width = MP_dataGridView.Columns["اسم الأم"].Width =
-                MP_dataGridView.Columns["العلاقة مغ المستفيد"].Width = MP_dataGridView.Columns["الحالة الاجتماعية"].Width = 100;
+                MP_dataGridView.Columns["الصفة"].Width = MP_dataGridView.Columns["الحالة الاجتماعية"].Width = 100;
 
             MP_dataGridView.Columns["رقم العائلة"].DefaultCellStyle.Alignment =
             MP_dataGridView.Columns["الحالة"].DefaultCellStyle.Alignment =
                 MP_dataGridView.Columns["رقم دفتر العائلة"].DefaultCellStyle.Alignment =
                     MP_dataGridView.Columns["تاريخ الولادة"].DefaultCellStyle.Alignment =
                         MP_dataGridView.Columns["الحالة الاجتماعية"].DefaultCellStyle.Alignment =
-                            MP_dataGridView.Columns["العلاقة مغ المستفيد"].DefaultCellStyle.Alignment =
+                            MP_dataGridView.Columns["الصفة"].DefaultCellStyle.Alignment =
                                     DataGridViewContentAlignment.MiddleCenter;
 
             MP_dataGridView.ColumnHeadersVisible = true;
@@ -1443,9 +1403,9 @@ left join relation on relation.id = pf.Relation_ID
             string query = @"SELECT Image_ID as 'ID' 
  , image.MicroProject_ID as 'رقم المشروع' 
  , CONCAT(P_FirstName, ' ' , P_LastName , ' ابن/ة ', P_FatherName) as 'المستفيد'
- , MP_Name as 'اسم المشروع'
  , P_FullName_en as 'Beneficiary Name'
- , MP_Name_en as 'Project Name'  
+ , career.Name as 'المهنة' 
+ , career.Name_en as 'Career'  
  , Image_NewPath as 'الصورة' 
  , imagetype.Name as 'النوع'
  , imagetype.Name_en as 'Image Type' ";
@@ -1528,92 +1488,92 @@ left join relation on relation.id = pf.Relation_ID
             MP_dataGridView.RowHeadersVisible = true;
         }
 
-        private void bind_ExeFile()
-        {
-            var from = @" from `exefile` 
- left OUTER join `microproject` MP on exefile.MicroProject_ID = MP.MP_ID  
- LEFT OUTER join `person_microproject` PMP on PMP.MicroProject_ID = MP.MP_ID  
- LEFT OUTER join `person` P on P.P_ID = PMP.Person_ID  
- LEFT OUTER join `category` C on MP.Category_ID = C.ID  
- LEFT OUTER join `subcategory` sub on MP.SubCategory_ID = sub.ID  
- LEFT OUTER join `career` on MP.Career_ID = career.ID
- Left OUTER join `donor` on donor.ID = MP.MP_Donor 
- LEFT OUTER JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
- LEFT OUTER JOIN `state` on state.ID = mps.State_ID 
- LEFT OUTER join `loan` L on L.MicroProject_ID = MP.MP_ID
- LEFT OUTER join `donorgroup` on donorgroup.ID = MP.DonorGroup_ID
- LEFT OUTER JOIN `fundtype` on fundtype.ID = MP.MP_FundType_ID 
- LEFT OUTER JOIN `microprojecttype` on microprojecttype.ID = MP.MP_Type_ID
- LEFT OUTER JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID  ";
+ //       private void bind_ExeFile()
+ //       {
+ //           var from = @" from `exefile` 
+ //left OUTER join `microproject` MP on exefile.MicroProject_ID = MP.MP_ID  
+ //LEFT OUTER join `person_microproject` PMP on PMP.MicroProject_ID = MP.MP_ID  
+ //LEFT OUTER join `person` P on P.P_ID = PMP.Person_ID  
+ //LEFT OUTER join `category` C on MP.Category_ID = C.ID  
+ //LEFT OUTER join `subcategory` sub on MP.SubCategory_ID = sub.ID  
+ //LEFT OUTER join `career` on MP.Career_ID = career.ID
+ //Left OUTER join `donor` on donor.ID = MP.MP_Donor 
+ //LEFT OUTER JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
+ //LEFT OUTER JOIN `state` on state.ID = mps.State_ID 
+ //LEFT OUTER join `loan` L on L.MicroProject_ID = MP.MP_ID
+ //LEFT OUTER join `donorgroup` on donorgroup.ID = MP.DonorGroup_ID
+ //LEFT OUTER JOIN `fundtype` on fundtype.ID = MP.MP_FundType_ID 
+ //LEFT OUTER JOIN `microprojecttype` on microprojecttype.ID = MP.MP_Type_ID
+ //LEFT OUTER JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID  ";
 
-            string query = " select PMP.MicroProject_ID as 'رقم المشروع'"
-                         + ", CONCAT(P_FirstName,' ', P_LastName) as 'المستفيد'"
-                         + ", P.P_FatherName as 'اسم الأب'"
-                         + ", ExeF_No as 'رقم الملف'"
-                         + ", ExeF_BeginDate as 'تاريخ البداية'"
-                         + ", ExeF_CurrentDate as 'التاريخ الحالي'"
-                         + ", ExeF_NumOfMonths as 'عدد الأشهر'"
-                         + ", DATE_ADD(ExeF_CurrentDate, INTERVAL ExeF_NumOfMonths Month) as 'تاريخ الاستحقاق'"
-                         + ", ExeF_ImpoundDate as 'تاريخ الحجز'"
-                         + ", ExeF_ImpoundType as 'نوع الحجز' "
-                         + ", ExeF_ID as 'ID'" + from;
+ //           string query = " select PMP.MicroProject_ID as 'رقم المشروع'"
+ //                        + ", CONCAT(P_FirstName,' ', P_LastName) as 'المستفيد'"
+ //                        + ", P.P_FatherName as 'اسم الأب'"
+ //                        + ", ExeF_No as 'رقم الملف'"
+ //                        + ", ExeF_BeginDate as 'تاريخ البداية'"
+ //                        + ", ExeF_CurrentDate as 'التاريخ الحالي'"
+ //                        + ", ExeF_NumOfMonths as 'عدد الأشهر'"
+ //                        + ", DATE_ADD(ExeF_CurrentDate, INTERVAL ExeF_NumOfMonths Month) as 'تاريخ الاستحقاق'"
+ //                        + ", ExeF_ImpoundDate as 'تاريخ الحجز'"
+ //                        + ", ExeF_ImpoundType as 'نوع الحجز' "
+ //                        + ", ExeF_ID as 'ID'" + from;
 
-            var i_cond = " where Current_State = 1 ";
-            Check_Conditions(i_cond);
+ //           var i_cond = " where Current_State = 1 ";
+ //           Check_Conditions(i_cond);
 
-            query += condition;
+ //           query += condition;
 
-            Program.buildConnection();
-            MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-            sc.ExecuteNonQuery();
-            MySqlDataAdapter da = new MySqlDataAdapter(sc);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            Program.MyConn.Close();
+ //           Program.buildConnection();
+ //           MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
+ //           sc.ExecuteNonQuery();
+ //           MySqlDataAdapter da = new MySqlDataAdapter(sc);
+ //           DataSet ds = new DataSet();
+ //           da.Fill(ds);
+ //           Program.MyConn.Close();
 
-            MP_dataGridView.DataSource = null;
-            MP_dataGridView.Columns.Clear();
-            MP_dataGridView.Rows.Clear();
-            MP_dataGridView.ColumnHeadersVisible = false;
-            MP_dataGridView.RowHeadersVisible = false;
+ //           MP_dataGridView.DataSource = null;
+ //           MP_dataGridView.Columns.Clear();
+ //           MP_dataGridView.Rows.Clear();
+ //           MP_dataGridView.ColumnHeadersVisible = false;
+ //           MP_dataGridView.RowHeadersVisible = false;
 
-            bs.DataSource = ds.Tables[0];
-            MP_dataGridView.DataSource = bs;
+ //           bs.DataSource = ds.Tables[0];
+ //           MP_dataGridView.DataSource = bs;
 
-            MP_dataGridView.Columns["تاريخ البداية"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            MP_dataGridView.Columns["تاريخ الاستحقاق"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            MP_dataGridView.Columns["تاريخ الحجز"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            MP_dataGridView.Columns["التاريخ الحالي"].DefaultCellStyle.Format = "dd/MM/yyyy";
+ //           MP_dataGridView.Columns["تاريخ البداية"].DefaultCellStyle.Format = "dd/MM/yyyy";
+ //           MP_dataGridView.Columns["تاريخ الاستحقاق"].DefaultCellStyle.Format = "dd/MM/yyyy";
+ //           MP_dataGridView.Columns["تاريخ الحجز"].DefaultCellStyle.Format = "dd/MM/yyyy";
+ //           MP_dataGridView.Columns["التاريخ الحالي"].DefaultCellStyle.Format = "dd/MM/yyyy";
 
-            var dgc1 = MP_dataGridView.Columns["ID"];
-            dgc1.Visible = false;
+ //           var dgc1 = MP_dataGridView.Columns["ID"];
+ //           dgc1.Visible = false;
 
 
-            Program.buildConnection();
-            //count rows
-            var sel = "select count(DISTINCT MP_ID) " + from + condition;
-            MySS.sc = new MySqlCommand(sel, Program.MyConn);
-            decimal count = Convert.ToDecimal(MySS.sc.ExecuteScalar());
-            Count_label.Text = "All:" + count.ToString("#,##0");
-            Program.MyConn.Close();
+ //           Program.buildConnection();
+ //           //count rows
+ //           var sel = "select count(DISTINCT MP_ID) " + from + condition;
+ //           MySS.sc = new MySqlCommand(sel, Program.MyConn);
+ //           decimal count = Convert.ToDecimal(MySS.sc.ExecuteScalar());
+ //           Count_label.Text = "All:" + count.ToString("#,##0");
+ //           Program.MyConn.Close();
 
-            MP_dataGridView.Columns["رقم المشروع"].Width
-                = MP_dataGridView.Columns["نوع الحجز"].Width
-                = MP_dataGridView.Columns["رقم الملف"].Width = 80;
+ //           MP_dataGridView.Columns["رقم المشروع"].Width
+ //               = MP_dataGridView.Columns["نوع الحجز"].Width
+ //               = MP_dataGridView.Columns["رقم الملف"].Width = 80;
 
-            MP_dataGridView.Columns["رقم المشروع"].DefaultCellStyle.Alignment
-                = MP_dataGridView.Columns["تاريخ البداية"].DefaultCellStyle.Alignment
-                = MP_dataGridView.Columns["التاريخ الحالي"].DefaultCellStyle.Alignment
-                = MP_dataGridView.Columns["تاريخ الاستحقاق"].DefaultCellStyle.Alignment
-                = MP_dataGridView.Columns["رقم الملف"].DefaultCellStyle.Alignment
-                = MP_dataGridView.Columns["عدد الأشهر"].DefaultCellStyle.Alignment
-                = MP_dataGridView.Columns["تاريخ الحجز"].DefaultCellStyle.Alignment
-                = MP_dataGridView.Columns["نوع الحجز"].DefaultCellStyle.Alignment
-                = DataGridViewContentAlignment.MiddleCenter;
+ //           MP_dataGridView.Columns["رقم المشروع"].DefaultCellStyle.Alignment
+ //               = MP_dataGridView.Columns["تاريخ البداية"].DefaultCellStyle.Alignment
+ //               = MP_dataGridView.Columns["التاريخ الحالي"].DefaultCellStyle.Alignment
+ //               = MP_dataGridView.Columns["تاريخ الاستحقاق"].DefaultCellStyle.Alignment
+ //               = MP_dataGridView.Columns["رقم الملف"].DefaultCellStyle.Alignment
+ //               = MP_dataGridView.Columns["عدد الأشهر"].DefaultCellStyle.Alignment
+ //               = MP_dataGridView.Columns["تاريخ الحجز"].DefaultCellStyle.Alignment
+ //               = MP_dataGridView.Columns["نوع الحجز"].DefaultCellStyle.Alignment
+ //               = DataGridViewContentAlignment.MiddleCenter;
 
-            MP_dataGridView.ColumnHeadersVisible = true;
-            MP_dataGridView.RowHeadersVisible = true;
-        }
+ //           MP_dataGridView.ColumnHeadersVisible = true;
+ //           MP_dataGridView.RowHeadersVisible = true;
+ //       }
 
         private void bind_Visits()
         {
@@ -1640,13 +1600,13 @@ left join relation on relation.id = pf.Relation_ID
 
                 string query = @"SELECT  MP.MP_ID as 'رقم المشروع'
 , Group_Concat(CONCAT(P_FirstName, ' ' , P_LastName , ' ابن/ة ', P_FatherName)) as 'المستفيد'
-, MP_Name as 'اسم المشروع'  
-
 , P_FullName_en as 'Beneficiary Name'
-, MP_Name_en as 'Project Name'     
+, career.Name as 'المهنة' 
+, career.Name_en as 'Career'  
 
-, C.Name 'الصنف' 
-, sub.Name as 'المهنة' 
+, C.Name 'Category' 
+, sub.Name as 'Sub Category' 
+
 , (select Date from visit where visit.MicroProject_ID = PMP.MicroProject_ID and Kind like '%op' " + visitDate_condition + " limit 1) as 'Opening'"
 + ", (select Date from mevisit where mevisit.Person_ID = PMP.Person_ID and Number like '1' " + mevisitDate_condition + " limit 1) as 'M1'"
 + ", (select Date from mevisit where mevisit.Person_ID = PMP.Person_ID and Number like '2' " + mevisitDate_condition + " limit 1) as 'M2'"
@@ -1802,10 +1762,9 @@ left join relation on relation.id = pf.Relation_ID
                 string query = @"SELECT mevisit.`ID` as 'V_ID'
 , MP.MP_ID as 'رقم المشروع'
 , CONCAT(P_FirstName, ' ' , P_LastName , ' ابن/ة ', P_FatherName) as 'المستفيد'
-, MP_Name as 'اسم المشروع'
-
 , P_FullName_en as 'Beneficiary Name'
-, MP_Name_en as 'Project Name'   
+, career.Name as 'المهنة' 
+, career.Name_en as 'Career'  
    
 , mevisit.`Date` as 'تاريخ الزيارة'
 , `Number` as 'رقم الزيارة'
@@ -1926,14 +1885,12 @@ left join relation on relation.id = pf.Relation_ID
                 string query = @"SELECT MP_ID as 'رقم المشروع'
  , GROUP_CONCAT(CONCAT(P_FirstName, ' ', P_LastName)) as 'المستفيد' 
  , P.P_FatherName as 'اسم الأب' 
- , MP.MP_Name as 'اسم المشروع' 
-
  , P_FullName_en as 'Beneficiary Name'
- , MP_Name_en as 'Project Name'  
+ , career.Name as 'المهنة' 
+ , career.Name_en as 'Career'  
 
  , C.Name as 'Category'
- , sub.Name as 'Sub Category'
- , career.Name as 'Career'
+ , sub.Name as 'Sub Category' 
  
  ,(SELECT COUNT(ID) 
  FROM `microproject_checklist` 
@@ -2075,12 +2032,12 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                 string query = @"SELECT MP_ID as 'رقم المشروع'
  , CONCAT(P_FirstName, ' ', P_LastName) as 'المستفيد' 
  , P.P_FatherName as 'اسم الأب' 
- , MP.MP_Name as 'اسم المشروع'  
  , P_FullName_en as 'Beneficiary Name'
- , MP_Name_en as 'Project Name'   
+ , career.Name as 'المهنة' 
+ , career.Name_en as 'Career'  
+
  , C.Name as 'Category'
- , sub.Name as 'Sub Category'
- , career.Name as 'Career'
+ , sub.Name as 'Sub Category' 
 
  , sc.`Date` as 'تاريخ المراجعة'
  , user.UserName as 'مسجّل المراجعة'
@@ -2165,13 +2122,14 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
 
                 string query = @"SELECT MP_ID as 'رقم المشروع'
          , CONCAT(P_FirstName, ' ', P_LastName) as 'المستفيد' 
-         , P.P_FatherName as 'اسم الأب' 
-         , MP.MP_Name as 'اسم المشروع'  
+         , P.P_FatherName as 'اسم الأب'  
          , P_FullName_en as 'Beneficiary Name'
-         , MP_Name_en as 'Project Name'   
+        
+         , career.Name as 'المهنة' 
+         , career.Name_en as 'Project Name'  
+
          , C.Name as 'Category'
-         , sub.Name as 'Sub Category'
-         , career.Name as 'Career'
+         , sub.Name as 'Sub Category' 
 
          , aidsource.Name as 'الجهة الممولة'
          , person_aidsource.`DateYear` as 'سنة التمويل' 
@@ -2486,33 +2444,33 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                 {
                     bind_Images();
                 }
-                //Executive Files //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
-                {
-                    bind_ExeFile();
-                }
+                ////Executive Files //
+                //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
+                //{
+                //    bind_ExeFile();
+                //}
                 // Visits //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(5))
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
                 {
                     bind_Visits();
                 }
                 // New Visit Forms //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(6))
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(5))
                 {
                     bind_NewVisits();
                 }
                 // Check Lists //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(7))
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(6))
                 {
                     bind_CheckList();
                 }
                 // Special Cases //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(7))
                 {
                     bind_SpecialCases();
                 }
                 // Aid Sources //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
                 {
                     bind_AidSources();
                 }
@@ -2536,20 +2494,7 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                 timer1.Stop();
             }
         }
-        private void ProjectStatus_comboBox_Leave(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    if (user_mode)
-            //    { 
-            //        SearchBy_comboBox_SelectedIndexChanged(sender, e);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-        }
+
         private void Category_comboBox_Leave(object sender, EventArgs e)
         {
             try
@@ -2861,28 +2806,28 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                     }
 
                 //Executive Files
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
-                    if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
-                    {
-                        SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
-                        if (SelectedDataRow != null)
-                        {
-                            if (SelectedDataRow["رقم المشروع"] == null ||
-                                SelectedDataRow["رقم المشروع"] == DBNull.Value)
-                                MicroProject_ID = -1;
-                            else MicroProject_ID = int.Parse(SelectedDataRow["رقم المشروع"].ToString());
+                //if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
+                //    if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
+                //    {
+                //        SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
+                //        if (SelectedDataRow != null)
+                //        {
+                //            if (SelectedDataRow["رقم المشروع"] == null ||
+                //                SelectedDataRow["رقم المشروع"] == DBNull.Value)
+                //                MicroProject_ID = -1;
+                //            else MicroProject_ID = int.Parse(SelectedDataRow["رقم المشروع"].ToString());
 
-                            if (SelectedDataRow["ID"] == null || SelectedDataRow["ID"] == DBNull.Value)
-                                ExeFile_ID = -1;
-                            else ExeFile_ID = int.Parse(SelectedDataRow["ID"].ToString());
-                        }
+                //            if (SelectedDataRow["ID"] == null || SelectedDataRow["ID"] == DBNull.Value)
+                //                ExeFile_ID = -1;
+                //            else ExeFile_ID = int.Parse(SelectedDataRow["ID"].ToString());
+                //        }
 
-                        Form ExecutiveFiles_Form = new ExecutiveFiles_Form(ExeFile_ID, main_form);
-                        main_form.showNewTab(ExecutiveFiles_Form, "Executive File", 0);
-                    }
+                //        Form ExecutiveFiles_Form = new ExecutiveFiles_Form(ExeFile_ID, main_form);
+                //        main_form.showNewTab(ExecutiveFiles_Form, "Executive File", 0);
+                //    }
 
                 // Visits //
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(5))
+                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
                     if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
                     {
                         SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
@@ -2900,7 +2845,7 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                     }
 
                 //New visit forms
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(6))
+                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(5))
                 {
                     SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
                     if (SelectedDataRow != null)
@@ -2930,7 +2875,7 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                 }
 
                 // Checklists //
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(7))
+                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(6))
                     if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
                     {
                         SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
@@ -2947,7 +2892,7 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                     }
 
                 // SpecialCase //
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
+                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(7))
                     if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
                     {
                         int SC_ID = -1;
@@ -3654,7 +3599,7 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
             else if (index == 6) Settings.Default.Search6_Visible_arr = value_str;
             else if (index == 7) Settings.Default.Search7_Visible_arr = value_str;
             else if (index == 8) Settings.Default.Search8_Visible_arr = value_str;
-            else if (index == 9) Settings.Default.Search9_Visible_arr = value_str;
+            //else if (index == 9) Settings.Default.Search9_Visible_arr = value_str;
 
             Settings.Default.Save();
         }
@@ -3682,8 +3627,8 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                     arr_str = (Settings.Default.Search7_Visible_arr == "" ? null : Settings.Default.Search7_Visible_arr.Split(','));
                 else if (index == 8)
                     arr_str = (Settings.Default.Search8_Visible_arr == "" ? null : Settings.Default.Search8_Visible_arr.Split(','));
-                else if (index == 9)
-                    arr_str = (Settings.Default.Search9_Visible_arr == "" ? null : Settings.Default.Search9_Visible_arr.Split(','));
+                //else if (index == 9)
+                //    arr_str = (Settings.Default.Search9_Visible_arr == "" ? null : Settings.Default.Search9_Visible_arr.Split(','));
 
                 if (arr_str == null) //using LINQ
                     MP_dataGridView.Columns.OfType<DataGridViewColumn>().ToList().ForEach(col => col.Visible = true);

@@ -87,7 +87,7 @@ namespace MyWorkApplication
                 Show_MenuItem.DropDown.Closing += Show_MenuItem_Closing;
 
                 Bind_All_ComboBoxes();
-                timer1.Start();
+                
 
                 // Use of the DataGridViewColumnSelector
                 cs = new DataGridViewColumnSelector(MP_dataGridView);
@@ -95,6 +95,7 @@ namespace MyWorkApplication
                 cs.Width = 110;
 
                 Check_Theme();
+                timer1.Start(); 
             }
             catch (Exception ex)
             {
@@ -194,9 +195,7 @@ namespace MyWorkApplication
 ,(CASE IsContentUpdated WHEN 0 THEN N'لا' ELSE N'نعم' End) as 'تبديل المشروع' 
 
 ,P.P_ID as 'رقم المستفيد' ";
-
-                //,P.P_OtherCourses as 'ملاحظات المستفيد'
-                //////  عند إضافة عمود جديد لإظهاره تأكد من تفيير Column[index] عند الحفظ
+                 
                 var orderBy = " order by MP.MP_ID DESC ";
                 if (value != "") orderBy = " order by mps.State_ID, PMP.MicroProject_ID DESC ";
 
@@ -217,6 +216,8 @@ namespace MyWorkApplication
                 DataSet main_ds = new DataSet();
                 da.Fill(main_ds);
                 Program.MyConn.Close();
+                 
+                MP_dataGridView.SuspendLayout();
 
                 MP_dataGridView.DataSource = null;
                 MP_dataGridView.Columns.Clear();
@@ -226,6 +227,8 @@ namespace MyWorkApplication
 
                 bs.DataSource = main_ds.Tables[0];
                 MP_dataGridView.DataSource = bs;
+
+                MP_dataGridView.ResumeLayout();
 
                 total_bind_count = 0;
 
@@ -270,6 +273,7 @@ namespace MyWorkApplication
                 MP_dataGridView.ColumnHeadersVisible = true;
                 MP_dataGridView.RowHeadersVisible = true;
                 MP_dataGridView.ClearSelection();
+
 
                 SearchToolBar.SetColumns(MP_dataGridView.Columns);
                 Bind_Show_Hide_ToolStrip();
@@ -340,14 +344,14 @@ namespace MyWorkApplication
             user_mode = true;
         }
 
-        private void Set_comboBox_datasource(ComboBox cBox, DataTable c_dt)
-        {
-            cBox.DataSource = null;
-            cBox.DisplayMember = "Name";
-            cBox.ValueMember = "ID";
-            cBox.DataSource = c_dt;
-            cBox.SelectedIndex = -1;
-        }
+        //private void Set_comboBox_datasource(ComboBox cBox, DataTable c_dt)
+        //{
+        //    cBox.DataSource = null;
+        //    cBox.DisplayMember = "Name";
+        //    cBox.ValueMember = "ID";
+        //    cBox.DataSource = c_dt;
+        //    cBox.SelectedIndex = -1;
+        //}
         private void Set_checkboxcomboBox_datasource(CheckBoxComboBox cBox, DataTable c_dt)
         {
             cBox.DataSource = null;
@@ -876,14 +880,8 @@ namespace MyWorkApplication
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (tick == 0)
-            {
-
-                bind("");
-
-                //, FundType_comboBox.Text, Type_comboBox.Text, SubType_comboBox.Text, State, replaceQuotation(Donor_comboBox.Text), replaceQuotation(Donor_comboBox.Text), Category_comboBox.Text
-                //    , SubCategory_comboBox.Text, Career_comboBox.Text, ApplyDate_comboBox.Text, FundDate_comboBox.Text, StateReason_comboBox.Text
-                //    , P_Parish_comboBox.Text, Age_comboBox.Text, Gender_comboBox.Text, MaritalStatus_comboBox.Text, Partnership_comboBox.Text
-
+            { 
+                bind(""); 
                 tick++;
             }
             else
@@ -1071,12 +1069,7 @@ namespace MyWorkApplication
 
             State = "";
 
-            bind("");
-            //, FundType_comboBox.Text, Type_comboBox.Text, SubType_comboBox.Text, State, replaceQuotation(Donor_comboBox.Text), replaceQuotation(DonorGroup_comboBox.Text), Category_comboBox.Text
-            //    , SubCategory_comboBox.Text, Career_comboBox.Text, ApplyDate_comboBox.Text, FundDate_comboBox.Text, StateReason_comboBox.Text
-            //    , P_Parish_comboBox.Text, Age_comboBox.Text, Gender_comboBox.Text, MaritalStatus_comboBox.Text, Partnership_comboBox.Text
-
-
+            bind("");  
         }
         private void ExportToExcel_button_Click(object sender, EventArgs e)
         {
@@ -1846,7 +1839,7 @@ namespace MyWorkApplication
             if (Partnership_comboBox.Text != "" && Partnership_comboBox.Visible)
             {
                 if (Partnership_comboBox.Text.Contains("شراكة"))
-                    condition += " and Partnership = 2 ";
+                    condition += " and Partnership > 1 ";
 
                 if (Partnership_comboBox.Text.Contains("فردي"))
                     condition += " and Partnership = 1 ";
