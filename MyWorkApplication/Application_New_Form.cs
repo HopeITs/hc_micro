@@ -66,6 +66,7 @@ namespace MyWorkApplication
         ToolTip manualToolTip = new ToolTip();
         bool Delete_Permitions = false;
         string P_Num = "", F_Num = "";
+        bool Zero_TO_Project = false;
 
         bool UserMode = false; string ApplicationState; //pre_project , zero , project
 
@@ -3567,15 +3568,15 @@ namespace MyWorkApplication
                 Query += "Set @Person_ID = null;";
             }
 
-            if(Family_ID > 0)
+            if (Family_ID > 0)
             {
-                if(!FamilyNum_ISDirty)
+                if (!FamilyNum_ISDirty)
                 {
                     sc.Parameters.AddWithValue("@Family_ID", Family_ID);
-                }                   
+                }
                 else
                 {
-                    if(Existed_Family_ID > 0)
+                    if (Existed_Family_ID > 0)
                     {
                         sc.Parameters.AddWithValue("@Family_ID", Existed_Family_ID);
                     }
@@ -3600,6 +3601,10 @@ namespace MyWorkApplication
 
 
             sc.Parameters.AddWithValue("@ProgramUser_ID", Program.userID);
+
+
+            sc.Parameters.AddWithValue("@Log_User", Program.UserName);
+            sc.Parameters.AddWithValue("@Log_Date", DateTime.Now);
 
 
             #region Project
@@ -3703,6 +3708,9 @@ namespace MyWorkApplication
 
                     Query += " SET @MicroProject_ID = @MP_ID;";
 
+                    Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                        " Values (Concat('Insert zero application for the project:',@MicroProject_ID), 'Micro Project', @Log_User, @Log_Date, '0');";
+
                     Query += " insert into microproject_state (MicroProject_ID, State_ID, Date, Current_State)" +
                         "Values (@MicroProject_ID, (select state.id from state where state.Name_en = 'On Hold'), NOW(),1);";
 
@@ -3713,6 +3721,10 @@ namespace MyWorkApplication
                     {
                         Query += " update microproject set MP_ID = @MP_ID where MP_ID = @Old_MicroProject_ID;";
                         Query += " SET @MicroProject_ID = @MP_ID;";
+
+                        Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                            " Values (Concat('Change micro project number - from:',@Old_MicroProject_ID, ' to:', @MicroProject_ID), 'Micro Project', @Log_User, @Log_Date, '0');";
+
                     }
 
                     Query += "update microproject set MP_DateOfRequest = @ApplyDate, MP_Name = @MP_Name" +
@@ -3736,6 +3748,20 @@ namespace MyWorkApplication
 
             if (ApplicationState == "project" || ApplicationState == "zero")
             {
+                if (ApplicationState == "zero")
+                {
+                    if (!Zero_TO_Project)
+                        Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                            " Values (Concat('Update zero appliction for the project:',@MicroProject_ID), '', @Log_User, @Log_Date, '0');";
+                    else
+                        Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                            " Values (Concat('Insert full appliction for the project:',@MicroProject_ID), '', @Log_User, @Log_Date, '0');";
+                }
+                else if(ApplicationState == "project")
+                {
+                    Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                        " Values (Concat('Update full appliction for the project:',@MicroProject_ID), '', @Log_User, @Log_Date, '0');";
+                }
                 #region ProjectStory
                 string P_Loss = "", P_Goal = "", P_GoalHow = "", P_OtherNotes = "";
                 string Goal_Query = "";
@@ -4052,6 +4078,9 @@ namespace MyWorkApplication
                             "Values (@Person_ID, @MicroProject_ID, @PersonType);";
 
                         Query += "update microproject set Partnership = (SELECT COUNT(person_microproject.Person_ID) FROM person_microproject where person_microproject.MicroProject_ID = MP_ID) where MP_ID = @MicroProject_ID;";
+
+                        Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                            " Values (Concat('Insert and link the Beneficiary:',@P_FirstName, ' ', @P_LastName, ' ', 'with the project:', @MicroProject_ID), 'Person', @Log_User, @Log_Date, '0');";
                     }
                     else
                     {
@@ -4065,6 +4094,9 @@ namespace MyWorkApplication
                             " MicroProject_ID = @MicroProject_ID," +
                             " PersonType = @PersonType" +
                             " where MicroProject_ID = @MicroProject_ID and Person_ID = @Person_ID;";
+
+                        Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                            " Values (Concat('Update Beneficiary:',@P_FirstName, ' ', @P_LastName, ' ', 'in the project:', @MicroProject_ID), 'Person', @Log_User, @Log_Date, '0');";
                     }
 
                     sc.Parameters.AddWithValue("@P_FirstName", P_FirstName);
@@ -5196,10 +5228,17 @@ namespace MyWorkApplication
                             Query += "Insert into family (F_Number) Values (@FamilyNum);";
 
                             Query += "Set @Family_ID = LAST_INSERT_ID();";
+
+                            Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                                " Values (Concat('Insert the family:',@FamilyNum), 'Family', @Log_User, @Log_Date, '0');";
                         }
 
                         Query += "Insert into person_family (Family_ID, Person_ID, Relation_ID, P_Provider_ID)" +
                             " Values (@Family_ID, @Person_ID, (select id from relation where name = 'مستفيد'), @Person_ID);";
+
+                        Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                            " Values (Concat('insert the person:',@Person_ID, ' to the family:', @Family_ID), 'family', @Log_User, @Log_Date, '0');";
+
                     }
                     else
                     {
@@ -5210,6 +5249,9 @@ namespace MyWorkApplication
                                 Query += "Insert into family (F_Number) Values (@FamilyNum);";
 
                                 Query += "Set @Family_ID = LAST_INSERT_ID();";
+
+                                Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                                    " Values (Concat('Insert the family:',@FamilyNum), 'Family', @Log_User, @Log_Date, '0');";
                             }
 
                             Query += "Update person_family set Family_ID = @Family_ID where P_Provider_ID = @Person_ID;";
@@ -5288,6 +5330,9 @@ namespace MyWorkApplication
                                 if (FamilyMember_dataGridView.Rows[i].Visible == false)
                                 {
                                     Query += "DELETE FROM person WHERE P_ID = @FPerson_ID" + i + ";";
+
+                                    Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                                        " Values (Concat('Delete the person:',@FPerson_ID" + i + ", ' from the family:', @Family_ID), 'Person Family', @Log_User, @Log_Date, '0');";
                                 }
                                 else
                                 {
@@ -5308,6 +5353,9 @@ namespace MyWorkApplication
 
                                 Query += "INSERT INTO person_family (Family_ID, Person_ID, Relation_ID, P_Provider_ID, EducationLevel_ID, Education_ID, HasWork)" +
                                     " VALUES (@Family_ID, @FPerson_ID" + i + ", @FP_Relation" + i + ", @Person_ID,@FP_EducationLevel" + i + ", @FP_E_Name" + i + ", @FP_HasWork" + i + ");";
+
+                                Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                                    " Values (Concat('insert the person:',@FPerson_ID" + i + ", ' from the family:', @Family_ID), 'Person Family', @Log_User, @Log_Date, '0');";
                             }
                         }
                     }
@@ -6741,12 +6789,17 @@ namespace MyWorkApplication
                         Query += "DELETE family FROM family LEFT JOIN person_family ON family.F_ID = person_family.Family_ID WHERE person_family.Family_ID is null;";
                         Query += "update microproject set Partnership = (SELECT COUNT(person_microproject.Person_ID) FROM person_microproject where person_microproject.MicroProject_ID = MP_ID) where MP_ID = @MicroProject_ID;";
 
+                        Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                            " Values (Concat('Delete the person:',@Person_ID, ' from the project:', @MicroProject_ID), 'Person', @Log_User, @Log_Date, '0');";
+
                         Query += " COMMIT;";
 
 
                         Program.buildConnection();
                         sc.Parameters.AddWithValue("@Person_ID", Person_ID);
                         sc.Parameters.AddWithValue("@MicroProject_ID", MicroProject_ID);
+                        sc.Parameters.AddWithValue("@Log_User", Program.UserName);
+                        sc.Parameters.AddWithValue("@Log_Date", DateTime.Now);
 
                         sc.CommandTimeout = 120;
                         sc.CommandText = "SET SESSION wait_timeout = @t;" + Query;
@@ -6793,11 +6846,18 @@ namespace MyWorkApplication
 
                         Query += "DELETE family FROM family LEFT JOIN person_family ON family.F_ID = person_family.Family_ID WHERE person_family.Family_ID is null;";
 
+                        Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                            " Values (Concat('Delete the project:',@MicroProject_ID), 'Micro Project', @Log_User, @Log_Date, '0');";
+
+
                         Query += " COMMIT;";
 
 
                         Program.buildConnection();
                         sc.Parameters.AddWithValue("@MicroProject_ID", MicroProject_ID);
+                        sc.Parameters.AddWithValue("@Log_User", Program.UserName);
+                        sc.Parameters.AddWithValue("@Log_Date", DateTime.Now);
+
                         sc.CommandTimeout = 120;
                         sc.CommandText = "SET SESSION wait_timeout = @t;" + Query;
                         sc.Parameters.AddWithValue("@t", 600);

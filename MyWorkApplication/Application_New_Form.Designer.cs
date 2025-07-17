@@ -82,6 +82,11 @@ namespace MyWorkApplication
             this.P_FullName_En_textBox = new System.Windows.Forms.TextBox();
             this.label62 = new System.Windows.Forms.Label();
             this.First_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.ContentUpdated_checkBox = new System.Windows.Forms.CheckBox();
             this.MP_Name_textBox = new System.Windows.Forms.TextBox();
@@ -89,15 +94,11 @@ namespace MyWorkApplication
             this.Type_lable = new System.Windows.Forms.Label();
             this.Type_comboBox = new System.Windows.Forms.ComboBox();
             this.label74 = new System.Windows.Forms.Label();
+            this.ApplyDate_bcDateTimePicker = new MyWorkApplication.Classes.BCDateTimePicker();
             this.label79 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.SubType_comboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
-            this.label78 = new System.Windows.Forms.Label();
-            this.label82 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -566,11 +567,10 @@ namespace MyWorkApplication
             this.delete_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.delete_person_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.delete_project_person_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ApplyDate_bcDateTimePicker = new MyWorkApplication.Classes.BCDateTimePicker();
             this.First_tableLayoutPanel.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
@@ -804,6 +804,82 @@ namespace MyWorkApplication
             this.First_tableLayoutPanel.TabIndex = 1;
             this.First_tableLayoutPanel.TabStop = true;
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.First_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel2, 5);
+            this.flowLayoutPanel2.Controls.Add(this.label71);
+            this.flowLayoutPanel2.Controls.Add(this.label72);
+            this.flowLayoutPanel2.Controls.Add(this.label78);
+            this.flowLayoutPanel2.Controls.Add(this.label82);
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(64, 342);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(855, 25);
+            this.flowLayoutPanel2.TabIndex = 563;
+            // 
+            // label71
+            // 
+            this.label71.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label71.AutoSize = true;
+            this.label71.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label71.Location = new System.Drawing.Point(755, 0);
+            this.label71.Margin = new System.Windows.Forms.Padding(0);
+            this.label71.Name = "label71";
+            this.label71.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label71.Size = new System.Drawing.Size(100, 23);
+            this.label71.TabIndex = 267;
+            this.label71.Text = "*نوع المشروع:";
+            this.label71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label72
+            // 
+            this.label72.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label72.AutoSize = true;
+            this.label72.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label72.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label72.Location = new System.Drawing.Point(429, 0);
+            this.label72.Margin = new System.Windows.Forms.Padding(0);
+            this.label72.Name = "label72";
+            this.label72.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label72.Size = new System.Drawing.Size(326, 23);
+            this.label72.TabIndex = 268;
+            this.label72.Text = "مشروع صغير - مشروع زراعي - طاقة شمسية - ترميم";
+            this.label72.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label78
+            // 
+            this.label78.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label78.AutoSize = true;
+            this.label78.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label78.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label78.Location = new System.Drawing.Point(313, 0);
+            this.label78.Margin = new System.Windows.Forms.Padding(0);
+            this.label78.Name = "label78";
+            this.label78.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label78.Size = new System.Drawing.Size(116, 23);
+            this.label78.TabIndex = 269;
+            this.label78.Text = "*طبيعة المشروع:";
+            this.label78.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label82
+            // 
+            this.label82.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label82.AutoSize = true;
+            this.label82.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label82.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label82.Location = new System.Drawing.Point(139, 0);
+            this.label82.Margin = new System.Windows.Forms.Padding(0);
+            this.label82.Name = "label82";
+            this.label82.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label82.Size = new System.Drawing.Size(174, 23);
+            this.label82.TabIndex = 270;
+            this.label82.Text = "مشروع جديد - مشروع قائم";
+            this.label82.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -889,7 +965,7 @@ namespace MyWorkApplication
             this.Type_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Type_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Type_comboBox.FormattingEnabled = true;
-            this.Type_comboBox.Location = new System.Drawing.Point(64, 177);
+            this.Type_comboBox.Location = new System.Drawing.Point(64, 180);
             this.Type_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Type_comboBox.Name = "Type_comboBox";
             this.Type_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -913,6 +989,23 @@ namespace MyWorkApplication
             this.label74.TabIndex = 258;
             this.label74.Text = "تاريخ الطلب:";
             this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ApplyDate_bcDateTimePicker
+            // 
+            this.ApplyDate_bcDateTimePicker.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.ApplyDate_bcDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ApplyDate_bcDateTimePicker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ApplyDate_bcDateTimePicker.CustomFormat = "yyyy/MM/dd";
+            this.ApplyDate_bcDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.ApplyDate_bcDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(533, 178);
+            this.ApplyDate_bcDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ApplyDate_bcDateTimePicker.Name = "ApplyDate_bcDateTimePicker";
+            this.ApplyDate_bcDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
+            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(245, 29);
+            this.ApplyDate_bcDateTimePicker.TabIndex = 6;
+            this.ApplyDate_bcDateTimePicker.ValueChanged += new System.EventHandler(this.ApplyDate_bcDateTimePicker_ValueChanged);
             // 
             // label79
             // 
@@ -950,7 +1043,7 @@ namespace MyWorkApplication
             this.SubType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.SubType_comboBox.FormattingEnabled = true;
-            this.SubType_comboBox.Location = new System.Drawing.Point(64, 216);
+            this.SubType_comboBox.Location = new System.Drawing.Point(64, 219);
             this.SubType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubType_comboBox.Name = "SubType_comboBox";
             this.SubType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -974,82 +1067,6 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(855, 43);
             this.tableLayoutPanel1.TabIndex = 563;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.First_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel2, 5);
-            this.flowLayoutPanel2.Controls.Add(this.label71);
-            this.flowLayoutPanel2.Controls.Add(this.label72);
-            this.flowLayoutPanel2.Controls.Add(this.label78);
-            this.flowLayoutPanel2.Controls.Add(this.label82);
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(64, 342);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(855, 25);
-            this.flowLayoutPanel2.TabIndex = 563;
-            // 
-            // label71
-            // 
-            this.label71.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label71.AutoSize = true;
-            this.label71.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.label71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label71.Location = new System.Drawing.Point(755, 0);
-            this.label71.Margin = new System.Windows.Forms.Padding(0);
-            this.label71.Name = "label71";
-            this.label71.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label71.Size = new System.Drawing.Size(100, 23);
-            this.label71.TabIndex = 267;
-            this.label71.Text = "*نوع المشروع:";
-            this.label71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label72
-            // 
-            this.label72.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label72.AutoSize = true;
-            this.label72.Font = new System.Drawing.Font("Rubik", 9F);
-            this.label72.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label72.Location = new System.Drawing.Point(429, 0);
-            this.label72.Margin = new System.Windows.Forms.Padding(0);
-            this.label72.Name = "label72";
-            this.label72.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label72.Size = new System.Drawing.Size(326, 23);
-            this.label72.TabIndex = 268;
-            this.label72.Text = "مشروع صغير - مشروع زراعي - طاقة شمسية - ترميم";
-            this.label72.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label78
-            // 
-            this.label78.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label78.AutoSize = true;
-            this.label78.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.label78.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label78.Location = new System.Drawing.Point(313, 0);
-            this.label78.Margin = new System.Windows.Forms.Padding(0);
-            this.label78.Name = "label78";
-            this.label78.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label78.Size = new System.Drawing.Size(116, 23);
-            this.label78.TabIndex = 269;
-            this.label78.Text = "*طبيعة المشروع:";
-            this.label78.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label82
-            // 
-            this.label82.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label82.AutoSize = true;
-            this.label82.Font = new System.Drawing.Font("Rubik", 9F);
-            this.label82.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label82.Location = new System.Drawing.Point(139, 0);
-            this.label82.Margin = new System.Windows.Forms.Padding(0);
-            this.label82.Name = "label82";
-            this.label82.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label82.Size = new System.Drawing.Size(174, 23);
-            this.label82.TabIndex = 270;
-            this.label82.Text = "مشروع جديد - مشروع قائم";
-            this.label82.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel1
             // 
@@ -1157,7 +1174,7 @@ namespace MyWorkApplication
             this.SubCategory_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubCategory_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.SubCategory_comboBox.FormattingEnabled = true;
-            this.SubCategory_comboBox.Location = new System.Drawing.Point(132, 4);
+            this.SubCategory_comboBox.Location = new System.Drawing.Point(132, 6);
             this.SubCategory_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubCategory_comboBox.Name = "SubCategory_comboBox";
             this.SubCategory_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1179,7 +1196,7 @@ namespace MyWorkApplication
             this.Career_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Career_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Career_comboBox.FormattingEnabled = true;
-            this.Career_comboBox.Location = new System.Drawing.Point(3, 4);
+            this.Career_comboBox.Location = new System.Drawing.Point(3, 6);
             this.Career_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Career_comboBox.Name = "Career_comboBox";
             this.Career_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1838,7 +1855,7 @@ namespace MyWorkApplication
             this.P_Sex_comboBox.Items.AddRange(new object[] {
             "ذكر",
             "أنثى"});
-            this.P_Sex_comboBox.Location = new System.Drawing.Point(3, 105);
+            this.P_Sex_comboBox.Location = new System.Drawing.Point(3, 107);
             this.P_Sex_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_Sex_comboBox.Name = "P_Sex_comboBox";
             this.P_Sex_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2006,7 +2023,7 @@ namespace MyWorkApplication
             this.P_MaritalState_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.P_MaritalState_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_MaritalState_comboBox.FormattingEnabled = true;
-            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(3, 265);
+            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(3, 267);
             this.P_MaritalState_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_MaritalState_comboBox.Name = "P_MaritalState_comboBox";
             this.P_MaritalState_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2117,7 +2134,7 @@ namespace MyWorkApplication
             this.Street_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Street_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Street_comboBox.FormattingEnabled = true;
-            this.Street_comboBox.Location = new System.Drawing.Point(758, 545);
+            this.Street_comboBox.Location = new System.Drawing.Point(758, 547);
             this.Street_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.Street_comboBox.Name = "Street_comboBox";
             this.Street_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2137,7 +2154,7 @@ namespace MyWorkApplication
             this.P_HomeType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_HomeType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_HomeType_comboBox.FormattingEnabled = true;
-            this.P_HomeType_comboBox.Location = new System.Drawing.Point(758, 585);
+            this.P_HomeType_comboBox.Location = new System.Drawing.Point(758, 587);
             this.P_HomeType_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_HomeType_comboBox.Name = "P_HomeType_comboBox";
             this.P_HomeType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2364,7 +2381,7 @@ namespace MyWorkApplication
             this.P_Priest2_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Priest2_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Priest2_comboBox.FormattingEnabled = true;
-            this.P_Priest2_comboBox.Location = new System.Drawing.Point(3, 4);
+            this.P_Priest2_comboBox.Location = new System.Drawing.Point(3, 6);
             this.P_Priest2_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Priest2_comboBox.Name = "P_Priest2_comboBox";
             this.P_Priest2_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2384,7 +2401,7 @@ namespace MyWorkApplication
             this.P_Priest_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Priest_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Priest_comboBox.FormattingEnabled = true;
-            this.P_Priest_comboBox.Location = new System.Drawing.Point(113, 4);
+            this.P_Priest_comboBox.Location = new System.Drawing.Point(113, 6);
             this.P_Priest_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Priest_comboBox.Name = "P_Priest_comboBox";
             this.P_Priest_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2430,7 +2447,7 @@ namespace MyWorkApplication
             this.P_Parish_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Parish_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Parish_comboBox.FormattingEnabled = true;
-            this.P_Parish_comboBox.Location = new System.Drawing.Point(758, 345);
+            this.P_Parish_comboBox.Location = new System.Drawing.Point(758, 347);
             this.P_Parish_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Parish_comboBox.Name = "P_Parish_comboBox";
             this.P_Parish_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2480,7 +2497,7 @@ namespace MyWorkApplication
             this.PersonType_comboBox.Items.AddRange(new object[] {
             "مستفيد",
             "شريك"});
-            this.PersonType_comboBox.Location = new System.Drawing.Point(758, 145);
+            this.PersonType_comboBox.Location = new System.Drawing.Point(758, 147);
             this.PersonType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PersonType_comboBox.Name = "PersonType_comboBox";
             this.PersonType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3527,7 +3544,7 @@ namespace MyWorkApplication
             this.PaperApplicationUser_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.PaperApplicationUser_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaperApplicationUser_comboBox.FormattingEnabled = true;
-            this.PaperApplicationUser_comboBox.Location = new System.Drawing.Point(657, 11);
+            this.PaperApplicationUser_comboBox.Location = new System.Drawing.Point(657, 14);
             this.PaperApplicationUser_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PaperApplicationUser_comboBox.Name = "PaperApplicationUser_comboBox";
             this.PaperApplicationUser_comboBox.Size = new System.Drawing.Size(212, 30);
@@ -6098,7 +6115,7 @@ namespace MyWorkApplication
             this.MP_PlaceType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MP_PlaceType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.MP_PlaceType_comboBox.FormattingEnabled = true;
-            this.MP_PlaceType_comboBox.Location = new System.Drawing.Point(727, 49);
+            this.MP_PlaceType_comboBox.Location = new System.Drawing.Point(727, 51);
             this.MP_PlaceType_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.MP_PlaceType_comboBox.Name = "MP_PlaceType_comboBox";
             this.MP_PlaceType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -8132,23 +8149,6 @@ namespace MyWorkApplication
             this.delete_project_person_ToolStripMenuItem.Text = "حذف الاستمارة بشكل كامل";
             this.delete_project_person_ToolStripMenuItem.Click += new System.EventHandler(this.delete_all_project_ToolStripMenuItem_Click);
             // 
-            // ApplyDate_bcDateTimePicker
-            // 
-            this.ApplyDate_bcDateTimePicker.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
-            this.ApplyDate_bcDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ApplyDate_bcDateTimePicker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ApplyDate_bcDateTimePicker.CustomFormat = "yyyy/MM/dd";
-            this.ApplyDate_bcDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.ApplyDate_bcDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(533, 178);
-            this.ApplyDate_bcDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ApplyDate_bcDateTimePicker.Name = "ApplyDate_bcDateTimePicker";
-            this.ApplyDate_bcDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
-            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(245, 29);
-            this.ApplyDate_bcDateTimePicker.TabIndex = 6;
-            this.ApplyDate_bcDateTimePicker.ValueChanged += new System.EventHandler(this.ApplyDate_bcDateTimePicker_ValueChanged);
-            // 
             // Application_New_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 27F);
@@ -8167,11 +8167,11 @@ namespace MyWorkApplication
             this.Shown += new System.EventHandler(this.Application_Form_Shown);
             this.First_tableLayoutPanel.ResumeLayout(false);
             this.First_tableLayoutPanel.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
