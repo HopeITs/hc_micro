@@ -17,6 +17,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Ink;
 using MessageBox = System.Windows.Forms.MessageBox;
 using Point = System.Drawing.Point;
 
@@ -520,6 +521,8 @@ namespace MyWorkApplication
             P_Priest_tableLayoutPanel.Visible =
             P_Mobile2_label.Visible = P_Mobile2_textBox.Visible = true;
 
+            Military_flowLayoutPanel.Visible = true;
+            flowLayoutPanel6.Visible = true;
             if (ApplicationState == "pre_project")
             {
                 SubHeader1_label.Text = "حجز المشروع";
@@ -567,6 +570,9 @@ namespace MyWorkApplication
                 t20_tableLayoutPanel.Visible =
                 t9_tableLayoutPanel.Visible = t11_tableLayoutPanel.Visible = true;
 
+                Military_flowLayoutPanel.Visible = false;
+
+                flowLayoutPanel6.Visible = false;
 
                 FamilyMember_dataGridView.Columns["P_NationalNumber"].Visible = false;
                 FamilyMember_dataGridView.Columns["P_EducationLevel"].Visible = false;
@@ -3561,6 +3567,38 @@ namespace MyWorkApplication
                 Query += "Set @Person_ID = null;";
             }
 
+            if(Family_ID > 0)
+            {
+                if(!FamilyNum_ISDirty)
+                {
+                    sc.Parameters.AddWithValue("@Family_ID", Family_ID);
+                }                   
+                else
+                {
+                    if(Existed_Family_ID > 0)
+                    {
+                        sc.Parameters.AddWithValue("@Family_ID", Existed_Family_ID);
+                    }
+                    else
+                    {
+                        Query += "Set @Family_ID = null;";
+                    }
+                }
+            }
+            else
+            {
+                if (Existed_Family_ID > 0)
+                {
+                    sc.Parameters.AddWithValue("@Family_ID", Existed_Family_ID);
+                }
+                else
+                {
+                    Query += "Set @Family_ID = null;";
+                }
+            }
+
+
+
             sc.Parameters.AddWithValue("@ProgramUser_ID", Program.userID);
 
 
@@ -4013,7 +4051,7 @@ namespace MyWorkApplication
                         Query += "insert into person_microproject (Person_ID, MicroProject_ID, PersonType)" +
                             "Values (@Person_ID, @MicroProject_ID, @PersonType);";
 
-                        Query += "update microproject set Partnership = Partnership +1 where MP_ID = @MicroProject_ID;";
+                        Query += "update microproject set Partnership = (SELECT COUNT(person_microproject.Person_ID) FROM person_microproject where person_microproject.MicroProject_ID = MP_ID) where MP_ID = @MicroProject_ID;";
                     }
                     else
                     {
@@ -5151,8 +5189,6 @@ namespace MyWorkApplication
                     P_DebtsAmount = P_DebtsAmount_textBox.Text;
                     P_DebtsNote = P_DebtsNote_textBox.Text;
 
-
-
                     if (Family_ID <= 0)
                     {
                         if (Existed_Family_ID <= 0)
@@ -5174,8 +5210,8 @@ namespace MyWorkApplication
                                 Query += "Insert into family (F_Number) Values (@FamilyNum);";
 
                                 Query += "Set @Family_ID = LAST_INSERT_ID();";
-
                             }
+
                             Query += "Update person_family set Family_ID = @Family_ID where P_Provider_ID = @Person_ID;";
 
                             Query += "DELETE family FROM family LEFT JOIN person_family ON family.F_ID = person_family.Family_ID WHERE person_family.Family_ID is null;";
@@ -5187,17 +5223,6 @@ namespace MyWorkApplication
                         " P_IsLivingWithFamily = @LiveWithFamily, P_LiveWithFamily_Note = @LiveWithFamily_Note, P_AidSourceNote = @AidSourceNote" +
                         " Where Person_ID = @Person_ID and MicroProject_ID = @MicroProject_ID;";
 
-
-                    if (Existed_Family_ID > 0)
-                        sc.Parameters.AddWithValue("@Family_ID", Existed_Family_ID);
-                    else if (Family_ID > 0 && !FamilyNum_ISDirty)
-                    {
-                        sc.Parameters.AddWithValue("@Family_ID", Family_ID);
-                    }
-                    else
-                    {
-                        Query += "Set @Family_ID = null;";
-                    }
 
                     sc.Parameters.AddWithValue("@FamilyNum", string.IsNullOrEmpty(FamilyNum) ? (object)DBNull.Value : FamilyNum);
                     sc.Parameters.AddWithValue("@LiveWithFamily", LiveWithFamily);
@@ -6685,16 +6710,6 @@ namespace MyWorkApplication
         }
         #endregion
 
-
-
-
-
-
-
-
-
-
-
         #region delete context menu strip
         private void Delete_MP_button_Click(object sender, EventArgs e)
         {
@@ -6707,32 +6722,44 @@ namespace MyWorkApplication
                 //TODO
                 var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد حذف بيانات المستفيد مع المحافظة على شركاء (إن وجد) والمحافظة على رقم المشروع؟", "Delete",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                //if (dialogResult == DialogResult.Yes)
-                //{
-                //    if (Person_ID != -1)
-                //    {
-                //        Delete_Person(Person_ID);
-                //        l.Insert_Log("Delete " + P_FirstName_textBox.Text + " " + P_LastName_textBox.Text, " Benefeciary ",
-                //            Program.UserName, DateTime.Now);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (Person_ID <= 0)
+                    {
+                        MessageBox.Show("لا يمكن حذف المستفيد! المستفيد غير موجود في قاعدة البيانات بعد.");
+                    }
+                    else
+                    {
+                        var sc = new MySqlCommand();
 
-                //        clear_Person_boxes();
-                //        Person_ID = -1;
-                //        Save_MP_ID_button.Visible = true;
+                        string Query = "START TRANSACTION;";
+                        Query += "DELETE person " +
+                            " FROM person" +
+                            " LEFT JOIN person_family on person.P_ID = person_family.P_Provider_ID" +
+                            " WHERE person.P_ID = @Person_ID;";
 
-                //        //hide delete-partner-extention buttons on Create
-                //        AddExtention_button.Visible = AddPartner_button.Visible = Delete_MP_button.Visible = false;
+                        Query += "DELETE family FROM family LEFT JOIN person_family ON family.F_ID = person_family.Family_ID WHERE person_family.Family_ID is null;";
+                        Query += "update microproject set Partnership = (SELECT COUNT(person_microproject.Person_ID) FROM person_microproject where person_microproject.MicroProject_ID = MP_ID) where MP_ID = @MicroProject_ID;";
 
-                //        //update mode is on because we didn't delete the project
-                //        Update_Mode = true;
+                        Query += " COMMIT;";
 
-                //        MessageBox.Show("تم حذف المستفيد مع كل بياناته الشخصية والعائلية بنجاح");
-                //    }
-                //}
-                //else
-                //{
-                //    MessageBox.Show(
-                //            "لا يمكن حذف المستفيد! الرجاء اختيار استمارة من قائمة البحث أولاً ثم المحاولة مرة ثانية.");
-                //}
+
+                        Program.buildConnection();
+                        sc.Parameters.AddWithValue("@Person_ID", Person_ID);
+                        sc.Parameters.AddWithValue("@MicroProject_ID", MicroProject_ID);
+
+                        sc.CommandTimeout = 120;
+                        sc.CommandText = "SET SESSION wait_timeout = @t;" + Query;
+                        sc.Parameters.AddWithValue("@t", 600);
+                        sc.Connection = Program.MyConn;
+                        sc.ExecuteNonQuery();
+
+                        MessageBox.Show("تم حذف المستفيد بنجاح");
+
+                        Deleted = true;
+                        this.Close();
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -6743,7 +6770,6 @@ namespace MyWorkApplication
         {
             try
             {
-                //TODO
                 var dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد حذف الاستمارة بشكل كامل مع كل بيانات المشروع والمستفيدين والشركاء؟", "Delete",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes)
@@ -6757,53 +6783,32 @@ namespace MyWorkApplication
                         var sc = new MySqlCommand();
 
                         string Query = "START TRANSACTION;";
-                        Query += "Delete from ";
 
+                        Query += "DELETE person FROM" +
+                            " person LEFT JOIN person_family on person.P_ID = person_family.Person_ID" +
+                            " WHERE person_family.P_Provider_ID in" +
+                            " (SELECT person_microproject.Person_ID FROM person_microproject WHERE person_microproject.MicroProject_ID = @MicroProject_ID);";
+
+                        Query += "DELETE from microproject where microproject.MP_ID = @MicroProject_ID;";
+
+                        Query += "DELETE family FROM family LEFT JOIN person_family ON family.F_ID = person_family.Family_ID WHERE person_family.Family_ID is null;";
 
                         Query += " COMMIT;";
 
+
                         Program.buildConnection();
+                        sc.Parameters.AddWithValue("@MicroProject_ID", MicroProject_ID);
                         sc.CommandTimeout = 120;
                         sc.CommandText = "SET SESSION wait_timeout = @t;" + Query;
                         sc.Parameters.AddWithValue("@t", 600);
                         sc.Connection = Program.MyConn;
+                        sc.ExecuteNonQuery();
 
+                        MessageBox.Show("تم حذف المشروع كاملاً بنجاح");
+
+                        Deleted = true;
+                        this.Close();
                     }
-                    //if (MicroProject_ID != -1)
-                    //{
-                    //    Delete_MP(MicroProject_ID);
-                    //    l.Insert_Log("Delete the project " + MicroProject_ID, "Micro Project", Program.UserName, DateTime.Now);
-
-                    //    if (Person_ID != -1)
-                    //    {
-                    //        Delete_Person(Person_ID);
-                    //        l.Insert_Log("Delete " + P_FirstName_textBox.Text + " " + P_LastName_textBox.Text, " Benefeciary ",
-                    //            Program.UserName, DateTime.Now);
-                    //    }
-
-                    //    clear_Person_boxes();
-                    //    clear_Project_boxes();
-                    //    Person_ID = -1;
-                    //    MicroProject_ID = -1;
-
-                    //    Save_MP_ID_button.Visible = true;
-                    //    Save_MP_ID_button.BackgroundImage = Properties.Resources.Unchecked;
-                    //    toolTip1.SetToolTip(Save_MP_ID_button, "لم يتم حجز الرقم بعد");
-
-                    //    //hide delete-partner-extention buttons on Create
-                    //    AddExtention_button.Visible = AddPartner_button.Visible = Delete_MP_button.Visible = false;
-
-                    //    Update_Mode = false;
-                    //    mainForm.TabName_label.Text = "Application";
-                    //    mainForm.MP_ID_label.Text = MPID_textBox.Text;
-
-                    //    MessageBox.Show("تم حذف الاستمارة بنجاح");
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show(
-                    //            "لا يمكن حذف المشروع! الرجاء اختيار مشروع من قائمة البحث أولاً ثم المحاولة مرة ثانية.");
-                    //}
                 }
             }
             catch (Exception ex)

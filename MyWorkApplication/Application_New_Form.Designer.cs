@@ -759,6 +759,7 @@ namespace MyWorkApplication
             this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.06299F));
             this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.9557F));
             this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.21906F));
+            this.First_tableLayoutPanel.Controls.Add(this.flowLayoutPanel2, 1, 9);
             this.First_tableLayoutPanel.Controls.Add(this.tableLayoutPanel6, 4, 6);
             this.First_tableLayoutPanel.Controls.Add(this.P_MobileReadable_textBox, 4, 4);
             this.First_tableLayoutPanel.Controls.Add(this.label3, 2, 4);
@@ -964,7 +965,6 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.ColumnCount = 1;
             this.First_tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel1, 5);
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(64, 293);
@@ -980,14 +980,15 @@ namespace MyWorkApplication
             this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.First_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel2, 5);
             this.flowLayoutPanel2.Controls.Add(this.label71);
             this.flowLayoutPanel2.Controls.Add(this.label72);
             this.flowLayoutPanel2.Controls.Add(this.label78);
             this.flowLayoutPanel2.Controls.Add(this.label82);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 24);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(64, 342);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(849, 16);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(855, 25);
             this.flowLayoutPanel2.TabIndex = 563;
             // 
             // label71
@@ -996,7 +997,7 @@ namespace MyWorkApplication
             this.label71.AutoSize = true;
             this.label71.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.label71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label71.Location = new System.Drawing.Point(749, 0);
+            this.label71.Location = new System.Drawing.Point(755, 0);
             this.label71.Margin = new System.Windows.Forms.Padding(0);
             this.label71.Name = "label71";
             this.label71.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1011,7 +1012,7 @@ namespace MyWorkApplication
             this.label72.AutoSize = true;
             this.label72.Font = new System.Drawing.Font("Rubik", 9F);
             this.label72.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label72.Location = new System.Drawing.Point(423, 0);
+            this.label72.Location = new System.Drawing.Point(429, 0);
             this.label72.Margin = new System.Windows.Forms.Padding(0);
             this.label72.Name = "label72";
             this.label72.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1026,7 +1027,7 @@ namespace MyWorkApplication
             this.label78.AutoSize = true;
             this.label78.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.label78.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label78.Location = new System.Drawing.Point(307, 0);
+            this.label78.Location = new System.Drawing.Point(313, 0);
             this.label78.Margin = new System.Windows.Forms.Padding(0);
             this.label78.Name = "label78";
             this.label78.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1041,7 +1042,7 @@ namespace MyWorkApplication
             this.label82.AutoSize = true;
             this.label82.Font = new System.Drawing.Font("Rubik", 9F);
             this.label82.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label82.Location = new System.Drawing.Point(133, 0);
+            this.label82.Location = new System.Drawing.Point(139, 0);
             this.label82.Margin = new System.Windows.Forms.Padding(0);
             this.label82.Name = "label82";
             this.label82.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1062,7 +1063,8 @@ namespace MyWorkApplication
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(849, 15);
+            this.tableLayoutPanel1.SetRowSpan(this.flowLayoutPanel1, 2);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(849, 37);
             this.flowLayoutPanel1.TabIndex = 541;
             // 
             // label7
@@ -2476,8 +2478,8 @@ namespace MyWorkApplication
             this.PersonType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PersonType_comboBox.FormattingEnabled = true;
             this.PersonType_comboBox.Items.AddRange(new object[] {
-            "المستفيد",
-            "الشريك"});
+            "مستفيد",
+            "شريك"});
             this.PersonType_comboBox.Location = new System.Drawing.Point(758, 145);
             this.PersonType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PersonType_comboBox.Name = "PersonType_comboBox";
@@ -5733,12 +5735,12 @@ namespace MyWorkApplication
             this.LiveWithFamily_Note_Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.LiveWithFamily_Note_Label.AutoSize = true;
             this.LiveWithFamily_Note_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.LiveWithFamily_Note_Label.Location = new System.Drawing.Point(608, 5);
+            this.LiveWithFamily_Note_Label.Location = new System.Drawing.Point(627, 5);
             this.LiveWithFamily_Note_Label.Name = "LiveWithFamily_Note_Label";
             this.LiveWithFamily_Note_Label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LiveWithFamily_Note_Label.Size = new System.Drawing.Size(92, 29);
+            this.LiveWithFamily_Note_Label.Size = new System.Drawing.Size(73, 29);
             this.LiveWithFamily_Note_Label.TabIndex = 582;
-            this.LiveWithFamily_Note_Label.Text = "ملاحظات:";
+            this.LiveWithFamily_Note_Label.Text = "من هي:";
             this.LiveWithFamily_Note_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LiveWithFamily_Note_textBox
@@ -5749,7 +5751,7 @@ namespace MyWorkApplication
             this.LiveWithFamily_Note_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.LiveWithFamily_Note_textBox.Name = "LiveWithFamily_Note_textBox";
             this.LiveWithFamily_Note_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LiveWithFamily_Note_textBox.Size = new System.Drawing.Size(599, 29);
+            this.LiveWithFamily_Note_textBox.Size = new System.Drawing.Size(618, 29);
             this.LiveWithFamily_Note_textBox.TabIndex = 583;
             this.LiveWithFamily_Note_textBox.Enter += new System.EventHandler(this.LiveWithFamily_Note_textBox_Enter);
             this.LiveWithFamily_Note_textBox.Leave += new System.EventHandler(this.LiveWithFamily_Note_textBox_Leave);
