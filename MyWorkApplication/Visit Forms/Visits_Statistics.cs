@@ -49,6 +49,8 @@ namespace MyWorkApplication.Visit_Forms
 
                 Type_comboBox.SelectedIndex = -1;
 
+                DateFrom_dateTimePicker.Value = DateTo_dateTimePicker.Value.AddYears(-1);
+                
                 user_mode = true;
 
                 DateFrom_dateTimePicker_ValueChanged(sender, e);

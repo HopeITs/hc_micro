@@ -553,14 +553,12 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
                 var query = @"select L.Loan_ID as 'ID'
     ,L.MicroProject_ID as 'رقم المشروع' 
     , Group_Concat(CONCAT(P_FirstName, ' ' , P_LastName , ' ابن/ة ', P_FatherName)) as 'المستفيد' 
-    , MP_Name as 'اسم المشروع'
-
+    , career.Name as 'المهنة' 
     , P_FullName_en as 'Beneficiary Name'
-    , MP_Name_en as 'Project Name'  
+    , career.Name_en as 'Career'  
 
     , C.Name as 'Category'
-    , sub.Name as 'Sub Category'
-    , career.Name as 'Career'
+    , sub.Name as 'Sub Category' 
 
     , state.Name_Ar as 'حالة المشروع'
     , P_Mobile as 'الموبايل' 
@@ -705,8 +703,8 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
             Program.buildConnection();
 
             var query = "select MP.MP_ID as 'MicroProject_ID'"
-                + ", MP_Name as 'Project Name'"
-                + ", MP_Name_en as 'Project Name En'"
+                + ", MP_Name as 'Project Name'" 
+                 
                 + ", MP_RequestedAmount as 'Requested Amount'"
                 + ", MP_PeriodOfExecution as 'Requested Time'"
                 + ", MP_DateOfRequest as 'Application Date'"

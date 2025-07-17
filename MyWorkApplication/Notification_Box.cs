@@ -280,13 +280,16 @@ namespace MyWorkApplication
                         else
                         {
                             var N_Date = row.Cells["Date"].Value.ToString();
-                            var N_MicroProject_ID = row.Cells["ID"].Value.ToString();
+                            var N_MicroProject_ID = -1;
+                            if (row.Cells["ID"].Value == DBNull.Value) N_MicroProject_ID = -1;
+                            else N_MicroProject_ID = int.Parse(row.Cells["ID"].Value.ToString()); 
+                            //var N_MicroProject_ID = row.Cells["ID"].Value.ToString();
                             var N_Pay_ID = row.Cells["Details"].Value.ToString();
 
                             var oDate = Convert.ToDateTime(N_Date);
 
                             // clear this notification from other micro users //
-                            userNotification.Update_MicroUsers_Notification(int.Parse(N_MicroProject_ID), oDate.ToString("yyyy/MM/dd"), N_Body, P_Name, int.Parse(N_Pay_ID), "1");
+                            userNotification.Update_MicroUsers_Notification(N_MicroProject_ID, oDate.ToString("yyyy/MM/dd"), N_Body, P_Name, int.Parse(N_Pay_ID), "1");
                         }
                         makeSeens = true;
                         l.Insert_Log("The Notification[" + N_ID + "]:" + P_Name + "-" + N_Body + ")",

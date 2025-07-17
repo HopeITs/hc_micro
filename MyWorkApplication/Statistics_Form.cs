@@ -95,7 +95,7 @@ namespace MyWorkApplication
                 X_Axis_list.Add("Sub Categories");
                 X_Axis_list.Add("Donors");
                 X_Axis_list.Add("Partnership");
-                X_Axis_list.Add("Experience VS Project");
+                //X_Axis_list.Add("Experience VS Project");
                 X_Axis_list.Add("Parishes");
                 X_Axis_list.Add("Gender");
                 X_Axis_list.Add("Marital Status");
@@ -196,10 +196,10 @@ namespace MyWorkApplication
 
                         //build
                         Build_ChartArea(0);
-                        if (X_Axis_comboBox.SelectedIndex != 12
+                        if (   X_Axis_comboBox.SelectedIndex != 11
+                            && X_Axis_comboBox.SelectedIndex != 12
                             && X_Axis_comboBox.SelectedIndex != 13
-                            && X_Axis_comboBox.SelectedIndex != 14
-                            && X_Axis_comboBox.SelectedIndex != 15) //profit rate - success rate - me results
+                            && X_Axis_comboBox.SelectedIndex != 14) //profit rate - success rate - me results
                         {
                             withFunded_checkBox.Visible = true;
                             user_mode = true;
@@ -270,22 +270,22 @@ namespace MyWorkApplication
                         }
 
                         // experience //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(7))
-                        {
-                            Project_Experience_BindChart();
+                        //else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(7))
+                        //{
+                        //    Project_Experience_BindChart();
 
-                            Fill_ChartArea("Experience");
-                        }
+                        //    Fill_ChartArea("Experience");
+                        //}
 
                         // Parishes //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(8))
+                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(7))
                         {
                             Project_Parish_BindChart();
 
                             Fill_ChartArea("Parishes");
                         }
                         // Gender //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(9))
+                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(8))
                         {
                             Project_Gender_BindChart();
 
@@ -293,7 +293,7 @@ namespace MyWorkApplication
                         }
 
                         // Marital status //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(10))
+                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(9))
                         {
                             Project_MaritalStatus_BindChart();
 
@@ -301,7 +301,7 @@ namespace MyWorkApplication
                         }
 
                         //   age  //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(11))
+                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(10))
                         {
                             Project_Age_BindChart();
 
@@ -309,7 +309,7 @@ namespace MyWorkApplication
                         }
 
                         // profit rate //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(12))
+                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(11))
                         {
                             condition += mevisitDate_condition;
                             Project_LastProfitRate_BindChart();
@@ -318,7 +318,7 @@ namespace MyWorkApplication
                         }
 
                         // success rate //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(13))
+                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(12))
                         {
                             condition += mevisitDate_condition;
                             Project_LastMEResults_BindChart();
@@ -327,7 +327,7 @@ namespace MyWorkApplication
                         }
 
                         // Fund Year //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(14))
+                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(13))
                         {
                             Project_FundYear_BindChart();
 
@@ -335,7 +335,7 @@ namespace MyWorkApplication
                         }
 
                         // Fund Year //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(15))
+                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(14))
                         {
                             Project_FundAmount_BindChart();
 
@@ -470,7 +470,7 @@ namespace MyWorkApplication
             if (Partnership_comboBox.Text != "")
             {
                 if (Partnership_comboBox.Text.Contains("شراكة"))
-                    condition += " and Partnership = 2 ";
+                    condition += " and Partnership > 1 ";
 
                 if (Partnership_comboBox.Text.Contains("فردي"))
                     condition += " and Partnership = 1 ";
@@ -479,9 +479,6 @@ namespace MyWorkApplication
             //MP Status
             if (MP_Status_comboBox.Text != "")
             {
-                //if (State == "ممول+منتهي+ملغى+مغلق")
-                //     condition += " and state.ID in (4,5,7,8) ";
-                //else condition += " and state.Name_Ar like N'" + State + "' ";
                 condition += " and state.Name_Ar in ("
                     + Program.getSelectedItems_CheckboxComboBox(MP_Status_comboBox, true) + ")";
             }
@@ -580,9 +577,9 @@ namespace MyWorkApplication
             //Apply Date
             if (ApplyDate_condition != "")
             {
-                if (X_Axis_comboBox.SelectedIndex != 12
-                 && X_Axis_comboBox.SelectedIndex != 13
-                 && X_Axis_comboBox.SelectedIndex != 14) //profit rate - success rate - me results
+                if (X_Axis_comboBox.SelectedIndex != 11
+                 && X_Axis_comboBox.SelectedIndex != 12
+                 && X_Axis_comboBox.SelectedIndex != 13) //profit rate - success rate - me results
                     condition += ApplyDate_condition;
             }
 
@@ -931,31 +928,32 @@ namespace MyWorkApplication
         }
         private void Project_Experience_BindChart()
         {
-            try
-            {
-                condition += " and Score_ID = 3 ";
+            //try
+            //{
 
-                var from3 = " left join microproject_score ms on MP.MP_ID = ms.MicroProject_ID ";
-                var inner_from3 = " left join microproject_score on microproject.MP_ID = microproject_score.MicroProject_ID ";
+//                condition += " and Score_ID = 3 ";
 
-                string query = @"SELECT case ms.value when 1 then 'Yes' when 0 then 'No' else 'N/A' end as 'Experience'
-, count(DISTINCT MP_ID) as numOfProjects 
-, (select count(DISTINCT microproject.MP_ID) " +
-        inner_from + inner_from3 + condition +
-                             " and State_ID in (4,5,7,8) " +
-                             " and Current_State = 1 " +
-        " and ms.value = microproject_score.value ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
+//                var from3 = " left join microproject_score ms on MP.MP_ID = ms.MicroProject_ID ";
+//                var inner_from3 = " left join microproject_score on microproject.MP_ID = microproject_score.MicroProject_ID ";
 
-                var GroupBycondition = "  group by ms.value ";
+//                string query = @"SELECT case ms.value when 1 then 'Yes' when 0 then 'No' else 'N/A' end as 'Experience'
+//, count(DISTINCT MP_ID) as numOfProjects 
+//, (select count(DISTINCT microproject.MP_ID) " +
+//        inner_from + inner_from3 + condition +
+//                             " and State_ID in (4,5,7,8) " +
+//                             " and Current_State = 1 " +
+//        " and ms.value = microproject_score.value ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
 
-                query += from + from3 + condition + GroupBycondition + ";";
+//                var GroupBycondition = "  group by ms.value ";
 
-                executeQuery_countAll(query);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                //query += from + from3 + condition + GroupBycondition + ";";
+
+                //executeQuery_countAll(query);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         #endregion
@@ -1702,10 +1700,10 @@ namespace MyWorkApplication
         {
             Build_Series("all projects - " + Name);
 
-            if (X_Axis_comboBox.SelectedIndex != 12
+            if (   X_Axis_comboBox.SelectedIndex != 11
+                && X_Axis_comboBox.SelectedIndex != 12
                 && X_Axis_comboBox.SelectedIndex != 13
-                && X_Axis_comboBox.SelectedIndex != 14
-                && X_Axis_comboBox.SelectedIndex != 15) //not profit rate , success rate , me results
+                && X_Axis_comboBox.SelectedIndex != 14) //not profit rate , success rate , me results
                 Build_Series("funded projects - " + Name);
 
             if (Chart_type == SeriesChartType.Doughnut)
@@ -1736,10 +1734,10 @@ namespace MyWorkApplication
                 chart1.Series["all projects - " + Name].Points.AddXY(
                     results_dataGridView.Rows[i].Cells[0].Value.ToString(), Convert.ToInt32(results_dataGridView.Rows[i].Cells[1].Value.ToString()));
 
-                if (X_Axis_comboBox.SelectedIndex != 12
+                if (   X_Axis_comboBox.SelectedIndex != 11
+                    && X_Axis_comboBox.SelectedIndex != 12
                     && X_Axis_comboBox.SelectedIndex != 13
-                    && X_Axis_comboBox.SelectedIndex != 14
-                    && X_Axis_comboBox.SelectedIndex != 15) //not profit rate ,success rate, me results
+                    && X_Axis_comboBox.SelectedIndex != 14) //not profit rate ,success rate, me results
                     chart1.Series["funded projects - " + Name].Points.AddXY(
                         results_dataGridView.Rows[i].Cells[0].Value.ToString(), Convert.ToInt32(results_dataGridView.Rows[i].Cells[2].Value.ToString()));
 

@@ -250,7 +250,7 @@
             // 
             this.Users_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Users_comboBox.FormattingEnabled = true;
-            this.Users_comboBox.Location = new System.Drawing.Point(205, 40);
+            this.Users_comboBox.Location = new System.Drawing.Point(205, 46);
             this.Users_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Users_comboBox.Name = "Users_comboBox";
             this.Users_comboBox.Size = new System.Drawing.Size(323, 35);

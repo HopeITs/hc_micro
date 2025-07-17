@@ -262,11 +262,11 @@ namespace MyWorkApplication
             this.SearchBy_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchBy_comboBox.ForeColor = System.Drawing.Color.Black;
             this.SearchBy_comboBox.FormattingEnabled = true;
-            this.SearchBy_comboBox.Location = new System.Drawing.Point(716, 4);
+            this.SearchBy_comboBox.Location = new System.Drawing.Point(719, 4);
             this.SearchBy_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SearchBy_comboBox.Name = "SearchBy_comboBox";
             this.SearchBy_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SearchBy_comboBox.Size = new System.Drawing.Size(372, 35);
+            this.SearchBy_comboBox.Size = new System.Drawing.Size(370, 35);
             this.SearchBy_comboBox.TabIndex = 1;
             this.SearchBy_comboBox.SelectedIndexChanged += new System.EventHandler(this.SearchBy_comboBox_SelectedIndexChanged);
             // 
@@ -275,7 +275,7 @@ namespace MyWorkApplication
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label16.Location = new System.Drawing.Point(1091, 11);
+            this.label16.Location = new System.Drawing.Point(1092, 11);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
             this.label16.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -294,7 +294,7 @@ namespace MyWorkApplication
             this.ShowHide_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShowHide_button.Location = new System.Drawing.Point(86, 4);
+            this.ShowHide_button.Location = new System.Drawing.Point(91, 4);
             this.ShowHide_button.Margin = new System.Windows.Forms.Padding(0);
             this.ShowHide_button.MaximumSize = new System.Drawing.Size(150, 40);
             this.ShowHide_button.MinimumSize = new System.Drawing.Size(150, 40);
@@ -849,7 +849,6 @@ namespace MyWorkApplication
             this.FundType_comboBox.Name = "FundType_comboBox";
             this.FundType_comboBox.Size = new System.Drawing.Size(139, 35);
             this.FundType_comboBox.TabIndex = 598;
-            this.FundType_comboBox.Leave += new System.EventHandler(this.ProjectStatus_comboBox_Leave);
             // 
             // Type_comboBox
             // 
@@ -883,7 +882,6 @@ namespace MyWorkApplication
             this.SubType_comboBox.Name = "SubType_comboBox";
             this.SubType_comboBox.Size = new System.Drawing.Size(139, 35);
             this.SubType_comboBox.TabIndex = 600;
-            this.SubType_comboBox.Leave += new System.EventHandler(this.ProjectStatus_comboBox_Leave);
             // 
             // Partnership_comboBox
             // 
@@ -903,7 +901,6 @@ namespace MyWorkApplication
             this.Partnership_comboBox.Name = "Partnership_comboBox";
             this.Partnership_comboBox.Size = new System.Drawing.Size(139, 35);
             this.Partnership_comboBox.TabIndex = 601;
-            this.Partnership_comboBox.Leave += new System.EventHandler(this.ProjectStatus_comboBox_Leave);
             // 
             // MP_Status_comboBox
             // 
@@ -920,7 +917,6 @@ namespace MyWorkApplication
             this.MP_Status_comboBox.Name = "MP_Status_comboBox";
             this.MP_Status_comboBox.Size = new System.Drawing.Size(139, 35);
             this.MP_Status_comboBox.TabIndex = 602;
-            this.MP_Status_comboBox.Leave += new System.EventHandler(this.ProjectStatus_comboBox_Leave);
             // 
             // Donor_comboBox
             // 
@@ -954,7 +950,6 @@ namespace MyWorkApplication
             this.DonorGroup_comboBox.Name = "DonorGroup_comboBox";
             this.DonorGroup_comboBox.Size = new System.Drawing.Size(139, 35);
             this.DonorGroup_comboBox.TabIndex = 604;
-            this.DonorGroup_comboBox.Leave += new System.EventHandler(this.ProjectStatus_comboBox_Leave);
             // 
             // P_Parish_comboBox
             // 
@@ -971,7 +966,6 @@ namespace MyWorkApplication
             this.P_Parish_comboBox.Name = "P_Parish_comboBox";
             this.P_Parish_comboBox.Size = new System.Drawing.Size(139, 35);
             this.P_Parish_comboBox.TabIndex = 605;
-            this.P_Parish_comboBox.Leave += new System.EventHandler(this.ProjectStatus_comboBox_Leave);
             // 
             // Category_comboBox
             // 
@@ -1022,7 +1016,6 @@ namespace MyWorkApplication
             this.Career_comboBox.Name = "Career_comboBox";
             this.Career_comboBox.Size = new System.Drawing.Size(139, 35);
             this.Career_comboBox.TabIndex = 608;
-            this.Career_comboBox.Leave += new System.EventHandler(this.ProjectStatus_comboBox_Leave);
             // 
             // MaritalStatus_comboBox
             // 
@@ -1039,7 +1032,6 @@ namespace MyWorkApplication
             this.MaritalStatus_comboBox.Name = "MaritalStatus_comboBox";
             this.MaritalStatus_comboBox.Size = new System.Drawing.Size(139, 35);
             this.MaritalStatus_comboBox.TabIndex = 609;
-            this.MaritalStatus_comboBox.Leave += new System.EventHandler(this.ProjectStatus_comboBox_Leave);
             // 
             // Age_comboBox
             // 
@@ -1056,7 +1048,6 @@ namespace MyWorkApplication
             this.Age_comboBox.Name = "Age_comboBox";
             this.Age_comboBox.Size = new System.Drawing.Size(139, 35);
             this.Age_comboBox.TabIndex = 612;
-            this.Age_comboBox.Leave += new System.EventHandler(this.ProjectStatus_comboBox_Leave);
             // 
             // Gender_comboBox
             // 
@@ -1069,11 +1060,13 @@ namespace MyWorkApplication
             this.Gender_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Gender_comboBox.ForeColor = System.Drawing.Color.White;
             this.Gender_comboBox.FormattingEnabled = true;
+            this.Gender_comboBox.Items.AddRange(new object[] {
+            "ذكر",
+            "أنثى"});
             this.Gender_comboBox.Location = new System.Drawing.Point(30, 110);
             this.Gender_comboBox.Name = "Gender_comboBox";
             this.Gender_comboBox.Size = new System.Drawing.Size(139, 35);
             this.Gender_comboBox.TabIndex = 613;
-            this.Gender_comboBox.Leave += new System.EventHandler(this.ProjectStatus_comboBox_Leave);
             // 
             // ApplyDateFrom_label
             // 
@@ -1117,7 +1110,6 @@ namespace MyWorkApplication
             this.HomeStreet_comboBox.Name = "HomeStreet_comboBox";
             this.HomeStreet_comboBox.Size = new System.Drawing.Size(139, 35);
             this.HomeStreet_comboBox.TabIndex = 614;
-            this.HomeStreet_comboBox.Leave += new System.EventHandler(this.ProjectStatus_comboBox_Leave);
             // 
             // ProjectStreet_label
             // 
@@ -1149,7 +1141,6 @@ namespace MyWorkApplication
             this.ProjectStreet_comboBox.Name = "ProjectStreet_comboBox";
             this.ProjectStreet_comboBox.Size = new System.Drawing.Size(139, 35);
             this.ProjectStreet_comboBox.TabIndex = 615;
-            this.ProjectStreet_comboBox.Leave += new System.EventHandler(this.ProjectStatus_comboBox_Leave);
             // 
             // FundedDateFrom_label
             // 
@@ -1241,7 +1232,6 @@ namespace MyWorkApplication
             this.ApplyDate_comboBox.Name = "ApplyDate_comboBox";
             this.ApplyDate_comboBox.Size = new System.Drawing.Size(139, 35);
             this.ApplyDate_comboBox.TabIndex = 610;
-            this.ApplyDate_comboBox.Leave += new System.EventHandler(this.ProjectStatus_comboBox_Leave);
             // 
             // ApplyDate_checkBox
             // 
@@ -1408,7 +1398,6 @@ namespace MyWorkApplication
             this.FundDate_comboBox.Name = "FundDate_comboBox";
             this.FundDate_comboBox.Size = new System.Drawing.Size(139, 35);
             this.FundDate_comboBox.TabIndex = 611;
-            this.FundDate_comboBox.Leave += new System.EventHandler(this.ProjectStatus_comboBox_Leave);
             // 
             // FundedFrom_textBox
             // 
@@ -1481,7 +1470,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.16274F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
             this.tableLayoutPanel1.ContextMenuStrip = this.contextMenuStrip1;
             this.tableLayoutPanel1.Controls.Add(this.ShowHide_button, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.LastVisit_checkBox, 4, 0);
@@ -1503,7 +1492,7 @@ namespace MyWorkApplication
             // 
             this.LastVisit_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.LastVisit_checkBox.AutoSize = true;
-            this.LastVisit_checkBox.Location = new System.Drawing.Point(364, 9);
+            this.LastVisit_checkBox.Location = new System.Drawing.Point(369, 9);
             this.LastVisit_checkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LastVisit_checkBox.Name = "LastVisit_checkBox";
             this.LastVisit_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1525,7 +1514,7 @@ namespace MyWorkApplication
             this.ApplyFilter_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ApplyFilter_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ApplyFilter_button.ForeColor = System.Drawing.Color.LightGray;
-            this.ApplyFilter_button.Location = new System.Drawing.Point(246, 7);
+            this.ApplyFilter_button.Location = new System.Drawing.Point(251, 7);
             this.ApplyFilter_button.Margin = new System.Windows.Forms.Padding(0);
             this.ApplyFilter_button.MaximumSize = new System.Drawing.Size(110, 34);
             this.ApplyFilter_button.MinimumSize = new System.Drawing.Size(110, 34);
