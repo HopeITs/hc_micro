@@ -117,6 +117,7 @@ namespace MyWorkApplication
 
                 Stop_Highlighting_Combobox();
 
+                PersonType_comboBox.SelectedIndex = 0; //default مستفيد
 
                 if (MicroProject_ID > 0)
                 {
@@ -3490,6 +3491,7 @@ namespace MyWorkApplication
                     Save_button.Enabled = false;
 
                     Save_Application();
+                    P_FirstName_textBox.Focus();
                 }
             }
             catch (Exception ex)
@@ -3536,7 +3538,7 @@ namespace MyWorkApplication
             bool anyDataGrid_ISDirty = IsDirty_DataGrid.Values.Any(v => v);
             bool anyData_ISDirty = IsDirty_Data.Values.Any(v => v);
 
-            if (!anyDataGrid_ISDirty && !anyData_ISDirty)
+            if (!anyDataGrid_ISDirty && !anyData_ISDirty && ApplicationState != "pre_project")
             {
                 MessageBox.Show("لا يوجد أي تغييرات لحفظها ", "Error");
                 return;
@@ -6648,20 +6650,40 @@ namespace MyWorkApplication
         private void Save_button_MouseEnter(object sender, EventArgs e)
         {
             Image image = null;
+            Color co = new Color();
             if (Settings.Default.theme == "Light")
-                image = Resources.Save2_L;
-            else image = Resources.Save2_D;
+            {
+                image = Resources.BtnBackground_L;
+                co = NewTheme.dark_grey2;
+            }
+            else
+            {
+                image = Resources.BtnBackground_D;
+                co = NewTheme.light_grey11;
+            }
 
             Save_button.BackgroundImage = image;
+            Save_button.ForeColor = co;
         }
         private void Save_button_MouseLeave(object sender, EventArgs e)
         {
             Image image = null;
+            Color co = new Color();
             if (Settings.Default.theme == "Light")
-                image = Resources.Save2_D;
-            else image = Resources.Save2_L;
+            {
+                image = Resources.BtnBackground_D;
+                co = NewTheme.light_grey11;
+            }
+            else
+            {
+                image = Resources.BtnBackground_L;
+                co = NewTheme.dark_grey2;
+            }
+            //    image = Resources.Save2_D;
+            //else image = Resources.Save2_L;
 
             Save_button.BackgroundImage = image;
+            Save_button.ForeColor = co;
         }
 
         private void Delete_MP_button_MouseEnter(object sender, EventArgs e)
@@ -6686,39 +6708,84 @@ namespace MyWorkApplication
         private void AddPartner_button_MouseEnter(object sender, EventArgs e)
         {
             Image image = null;
+            Color co = new Color();
             if (Settings.Default.theme == "Light")
-                image = Resources.AddPartner_L;
-            else image = Resources.AddPartner_D;
+            {
+                image = Resources.BtnBackground_L;
+                co = NewTheme.dark_grey2;
+            }
+            else
+            {
+                image = Resources.BtnBackground_D;
+                co = NewTheme.light_grey11;
+            }
+            //    image = Resources.AddPartner_L;
+            //else image = Resources.AddPartner_D;
 
             AddPartner_button.BackgroundImage = image;
+            AddPartner_button.ForeColor = co;
         }
         private void AddPartner_button_MouseLeave(object sender, EventArgs e)
         {
             Image image = null;
+            Color co = new Color();
             if (Settings.Default.theme == "Light")
-                image = Resources.AddPartner_D;
-            else image = Resources.AddPartner_L;
+            {
+                image = Resources.BtnBackground_D;
+                co = NewTheme.light_grey11;
+            }
+            else
+            {
+                image = Resources.BtnBackground_L;
+                co = NewTheme.dark_grey2;
+            }
+            //    image = Resources.AddPartner_D;
+            //else image = Resources.AddPartner_L;
 
             AddPartner_button.BackgroundImage = image;
+            AddPartner_button.ForeColor = co;
         }
 
         private void Extention_button_MouseEnter(object sender, EventArgs e)
         {
             Image image = null;
+            Color co = new Color();
             if (Settings.Default.theme == "Light")
-                image = Resources.AddExtention_L;
-            else image = Resources.AddExtention_D;
+            {
+                image = Resources.BtnBackground_L;
+                co = NewTheme.dark_grey2;
+            }
+            else
+            {
+                image = Resources.BtnBackground_D;
+                co = NewTheme.light_grey11;
+            }
+            //if (Settings.Default.theme == "Light") 
+            //    image = Resources.AddExtention_L;
+            //else image = Resources.AddExtention_D;
 
             AddExtention_button.BackgroundImage = image;
+            AddExtention_button.ForeColor = co;
         }
         private void Extention_button_MouseLeave(object sender, EventArgs e)
         {
             Image image = null;
+            Color co = new Color();
             if (Settings.Default.theme == "Light")
-                image = Resources.AddExtention_D;
-            else image = Resources.AddExtention_L;
+            {
+                image = Resources.BtnBackground_D;
+                co = NewTheme.light_grey11;
+            }
+            else
+            {
+                image = Resources.BtnBackground_L;
+                co = NewTheme.dark_grey2;
+            }
+            //    image = Resources.AddExtention_D;
+            //else image = Resources.AddExtention_L;
 
             AddExtention_button.BackgroundImage = image;
+            AddExtention_button.ForeColor = co;
         }
 
         private void FullApp_button_MouseEnter(object sender, EventArgs e)

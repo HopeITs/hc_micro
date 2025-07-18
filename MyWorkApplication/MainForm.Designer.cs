@@ -831,10 +831,10 @@
             // 
             this.applicationToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.applicationToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.zeroToolStripMenuItem,
             this.AdminPanel_toolStripMenuItem,
             this.toolStripMenuItem4,
-            this.Checklist_toolStripMenuItem,
-            this.zeroToolStripMenuItem});
+            this.Checklist_toolStripMenuItem});
             this.applicationToolStripMenuItem1.Name = "applicationToolStripMenuItem1";
             this.applicationToolStripMenuItem1.ShowShortcutKeys = false;
             this.applicationToolStripMenuItem1.Size = new System.Drawing.Size(114, 29);
@@ -843,7 +843,7 @@
             // AdminPanel_toolStripMenuItem
             // 
             this.AdminPanel_toolStripMenuItem.Name = "AdminPanel_toolStripMenuItem";
-            this.AdminPanel_toolStripMenuItem.Size = new System.Drawing.Size(281, 30);
+            this.AdminPanel_toolStripMenuItem.Size = new System.Drawing.Size(321, 30);
             this.AdminPanel_toolStripMenuItem.Text = "ADMIN Panel";
             this.AdminPanel_toolStripMenuItem.Click += new System.EventHandler(this.adminPageToolStripMenuItem_Click);
             // 
@@ -857,7 +857,7 @@
             this.newAid_toolStripMenuItem,
             this.newPriest_ToolStripMenuItem});
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(281, 30);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(321, 30);
             this.toolStripMenuItem4.Text = "ADMIN Tools";
             // 
             // newStreet_toolStripMenuItem
@@ -905,7 +905,7 @@
             // Checklist_toolStripMenuItem
             // 
             this.Checklist_toolStripMenuItem.Name = "Checklist_toolStripMenuItem";
-            this.Checklist_toolStripMenuItem.Size = new System.Drawing.Size(281, 30);
+            this.Checklist_toolStripMenuItem.Size = new System.Drawing.Size(321, 30);
             this.Checklist_toolStripMenuItem.Text = "Check List";
             this.Checklist_toolStripMenuItem.Click += new System.EventHandler(this.newCheckListToolStripMenuItem_Click);
             // 
@@ -913,8 +913,8 @@
             // 
             this.zeroToolStripMenuItem.Name = "zeroToolStripMenuItem";
             this.zeroToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Z)));
-            this.zeroToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
-            this.zeroToolStripMenuItem.Text = "Zero Application";
+            this.zeroToolStripMenuItem.Size = new System.Drawing.Size(321, 30);
+            this.zeroToolStripMenuItem.Text = "New Zero Application";
             this.zeroToolStripMenuItem.Click += new System.EventHandler(this.zeroToolStripMenuItem_Click);
             // 
             // financialToolStripMenuItem1

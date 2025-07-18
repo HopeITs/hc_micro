@@ -891,28 +891,22 @@ namespace MyWorkApplication.Classes
                                         {
                                             bb.ForeColor = light_white;
                                             bb.BackColor = light_transparent;
-                                            //if (bb.Name == "Save_Beneficiary_Update_button" ||
-                                            //    bb.Name == "Save_MP_Update_button")
-                                            //    bb.BackgroundImage = Resources.Save2_L;
+
                                             if (bb.Name == "Delete_MP_button" ||
                                                      bb.Name == "Delete_Beneficiary_button")
-                                                bb.BackgroundImage = Resources.Delete2_L;
-                                            //else if (bb.Name == "AddPriest_button" ||
-                                            //         bb.Name == "NewEducation_button" ||
-                                            //         bb.Name == "NewLanguage_button" || bb.Name == "NewSkill_button" ||
-                                            //         bb.Name == "NewWork_button")
-                                            //    bb.BackgroundImage = Resources.Plus_Sq_L_24;
+                                                bb.BackgroundImage = Resources.Delete2_L; 
                                             else if (bb.Name == "AddImage_button")
                                                 bb.BackgroundImage = Resources.Plus_Sq_L;
                                             else if (bb.Name == "DeleteImage_button")
                                                 bb.BackgroundImage = Resources.Trash_L;
-                                            else if(bb.Name == "AddPartner_button")
-                                                bb.BackgroundImage = Resources.AddPartner_L;
-                                            else if (bb.Name == "Save_button")
-                                                bb.BackgroundImage = Resources.Save2_L;
-                                            else if (bb.Name == "AddExtention_button")
-                                                bb.BackgroundImage = Resources.AddExtention_L;
-                                            else if (bb.Name == "FullApp_button")
+                                            //else if(bb.Name == "AddPartner_button")
+                                            //    bb.BackgroundImage = Resources.AddPartner_L;
+                                            //else if (bb.Name == "Save_button")
+                                            //    bb.BackgroundImage = Resources.Save2_L;
+                                            //else if (bb.Name == "AddExtention_button")
+                                            //    bb.BackgroundImage = Resources.AddExtention_L;
+                                            else if (bb.Name == "FullApp_button" || bb.Name == "AddPartner_button"
+                                                || bb.Name == "Save_button" || bb.Name == "AddExtention_button")
                                             {
                                                 bb.ForeColor = dark_grey2;
                                                 bb.BackgroundImage = Resources.BtnBackground_L;
@@ -1093,14 +1087,15 @@ namespace MyWorkApplication.Classes
                                                 bb.BackgroundImage = Resources.Plus_Sq_D;
                                             else if (bb.Name == "DeleteImage_button")
                                                 bb.BackgroundImage = Resources.Trash_D;
-                                            else if (bb.Name == "AddPartner_button")
-                                                bb.BackgroundImage = Resources.AddPartner_D;
-                                            else if (bb.Name == "Save_button")
-                                                bb.BackgroundImage = Resources.Save2_D;
-                                            else if (bb.Name == "AddExtention_button")
-                                                bb.BackgroundImage = Resources.AddExtention_D;
-                                            else if (bb.Name == "FullApp_button")
-                                            {
+                                            //else if (bb.Name == "AddPartner_button")
+                                            //    bb.BackgroundImage = Resources.AddPartner_D;
+                                            //else if (bb.Name == "Save_button")
+                                            //    bb.BackgroundImage = Resources.Save2_D;
+                                            //else if (bb.Name == "AddExtention_button")
+                                            //    bb.BackgroundImage = Resources.AddExtention_D;
+                                            else if (bb.Name == "FullApp_button" || bb.Name == "AddPartner_button"
+                                               || bb.Name == "Save_button" || bb.Name == "AddExtention_button")
+                                            { 
                                                 bb.ForeColor = light_grey11;
                                                 bb.BackgroundImage = Resources.BtnBackground_D;
                                             }

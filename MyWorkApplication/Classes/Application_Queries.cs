@@ -34,8 +34,7 @@ namespace MyWorkApplication.Classes
                 + ",(select user.UserName from user where UserID = microproject.MP_EditedByUser_ID) as 'EditedByUser'"
                 + " from microproject "
                 + " where microproject.MP_ID = @MicroProject_ID;";
-
-
+             
             query += "select person.P_ID, person.P_FirstName, person.P_LastName,CONCAT(P_FirstName, ' ',person.P_FatherName ,' ', person.P_LastName) as 'FullName', person.P_Sex, person_microproject.PersonType, person.P_FullName_en, person.P_FatherName, person.P_MotherName," +
                 " person.P_RegistrationPlace, person.P_NationalNumber, person.P_DOB, person.P_MaritalStatus_ID, person.P_Parish_ID, person.P_IntermidiarySide," +
                 " person.P_Priest_ID, person.P_Priest2_ID, person.P_Mobile, person.P_HomeTel, person.P_Mobile2, person.Street_ID, person.P_HomeAddress, person.P_HomeType_ID," +
@@ -211,8 +210,7 @@ namespace MyWorkApplication.Classes
 
         #endregion
 
-
-
+         
 
     }
 }

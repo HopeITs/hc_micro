@@ -994,29 +994,52 @@ namespace MyWorkApplication
         //    , string Parish, string Age, string Sex, string MaritalStatus
         //    , string ApplyYear, string FundYear, bool showImages
 
+        
+ ////// , (SELECT count(*)
+ //////   From `person` p
+ //////   left join `person_family` pf on p.P_ID = pf.Person_ID
+ //////   where pf.P_Provider_ID = PMP.Person_ID
+ //////   limit 1) as 'عدد الأفراد الكلي' 
+
+ //////, (SELECT count(*)
+ //////   From `person` p
+ //////   left join `person_family` pf on p.P_ID = pf.Person_ID
+ //////   left join `personstate` on personstate.ID = p.P_State_ID
+ //////   where pf.P_Provider_ID = PMP.Person_ID
+ //////   AND lower(personstate.Type) like 'active'
+ //////   limit 1) as 'عدد الأفراد في المنزل' 
+
+
+
         private void bind_Applications()
         {
             try
             {
-                string from = @" From microproject 
-  LEFT OUTER JOIN person_microproject on microproject.MP_ID = person_microproject.MicroProject_ID 
-  LEFT OUTER JOIN person on person.P_ID = person_microproject.Person_ID  
-  LEFT OUTER JOIN priest on person.P_Priest_ID = priest.Priest_ID 
-  left OUTER JOIN parish on person.P_Parish_ID = parish.ID 
-  LEFT OUTER JOIN maritalstatus on person.P_MaritalStatus_ID = maritalstatus.ID 
-  LEFT OUTER JOIN category C on microproject.Category_ID = C.ID 
-  LEFT OUTER JOIN subcategory sub on microproject.SubCategory_ID = sub.ID  
-  LEFT OUTER JOIN career on microproject.Career_ID = career.ID   
-  LEFT OUTER JOIN microproject_state mps on mps.MicroProject_ID = microproject.MP_ID
-  LEFT OUTER JOIN state on state.ID = mps.State_ID  
-  LEFT OUTER JOIN donor on microproject.MP_Donor = donor.ID 
-  LEFT OUTER JOIN street w_street on microproject.MP_Street_ID = w_street.ID 
-  LEFT OUTER JOIN street h_street on person.Street_ID = h_street.ID 
-  LEFT OUTER JOIN loan on microproject.MP_ID = loan.MicroProject_ID 
-  LEFT OUTER JOIN donorgroup on microproject.DonorGroup_ID = donorgroup.ID  
-  LEFT OUTER JOIN fundtype on microproject.MP_FundType_ID = fundtype.ID 
-  LEFT OUTER JOIN microprojecttype on microproject.MP_Type_ID = microprojecttype.ID 
-  LEFT OUTER JOIN microprojectsubtype on microproject.MP_SubType_ID = microprojectsubtype.ID ";
+                string from = @" From `microproject` 
+    LEFT JOIN `person_microproject` PMP on microproject.MP_ID = PMP.MicroProject_ID 
+    LEFT JOIN `person` on person.P_ID = PMP.Person_ID  
+    
+    LEFT JOIN `maritalstatus` on person.P_MaritalStatus_ID = maritalstatus.ID 
+    LEFT JOIN `parish` on person.P_Parish_ID = parish.ID 
+    LEFT JOIN `category` C on microproject.Category_ID = C.ID 
+    LEFT JOIN `subcategory` sub on microproject.SubCategory_ID = sub.ID  
+    LEFT JOIN `career` on microproject.Career_ID = career.ID   
+    LEFT JOIN `microproject_state` mps on mps.MicroProject_ID = microproject.MP_ID
+    LEFT JOIN `state` on state.ID = mps.State_ID  
+    
+    LEFT JOIN `street` w_street on microproject.MP_Street_ID = w_street.ID 
+    LEFT JOIN `street` h_street on person.Street_ID = h_street.ID 
+  
+    LEFT JOIN `priest` priest1 on priest1.Priest_ID = person.P_Priest_ID
+    LEFT JOIN `priest` priest2 on priest2.Priest_ID = person.P_Priest2_ID
+
+    LEFT JOIN `loan` on loan.MicroProject_ID = microproject.MP_ID
+    LEFT JOIN `donor` on donor.ID = microproject.MP_Donor 
+    LEFT JOIN `donorgroup` on donorgroup.ID = microproject.DonorGroup_ID 
+    
+    LEFT JOIN `fundtype` on microproject.MP_FundType_ID = fundtype.ID 
+    LEFT JOIN `microprojecttype` on microproject.MP_Type_ID = microprojecttype.ID 
+    LEFT JOIN `microprojectsubtype` on microproject.MP_SubType_ID = microprojectsubtype.ID ";
 
                 string query1 = @" Select MP_ID as 'رقم المشروع'  
   , CONCAT(P_FirstName, ' ', P_LastName) as 'المستفيد'  
@@ -1028,11 +1051,11 @@ namespace MyWorkApplication
       left join `person_family` pf on p.P_ID = pf.Person_ID 
       left join relation on relation.id = pf.Relation_ID
       WHERE relation.Name like N'زوج/ة' 
-      and pf.P_Provider_ID = person.P_ID limit 1) as 'الزوج / الزوجة' 
+      and pf.P_Provider_ID = PMP.Person_ID limit 1) as 'الزوج / الزوجة' 
  
  , P_FullName_en as 'Beneficiary Name' 
  , career.Name_en as 'Career'
- , career.Name as 'المهنة'
+ , career.Name    as 'المهنة'
  , MP_Name as 'وصف المشروع'   
 
  , C.Name 'Category' 
@@ -1041,14 +1064,19 @@ namespace MyWorkApplication
  , microprojecttype.Name as 'نوع المشروع'
  , microprojectsubtype.Name as 'تفصيل نوع المشروع' 
 
- , (select visit.VehicleNumber from visit where visit.Kind like 'V-op' and visit.MicroProject_ID = MP_ID limit 1) as 'رقم لوحة المركبة'
+ , (select visit.VehicleNumber 
+        from visit 
+        where visit.Kind like 'V-op' 
+        and visit.MicroProject_ID = MP_ID limit 1) as 'رقم لوحة المركبة'
 
  , fundtype.Name as 'نوع التمويل' 
  , MP_DateOfRequest as 'تاريخ التقديم'  
  
  , state.Name_Ar as 'حالة المشروع' 
  , mps.Date as 'تاريخ الحالة'  
- , (select count(*) from microproject_state where microproject_state.MicroProject_ID = MP_ID) as 'عدد الحالات'
+ , (select count(*) 
+        from microproject_state 
+        where microproject_state.MicroProject_ID = MP_ID) as 'عدد الحالات'
  
  , IFNULL(Loan_Amount,0) as 'مبلغ التمويل'
  , Loan_DateTaken as 'تاريخ التمويل' 
@@ -1062,29 +1090,18 @@ namespace MyWorkApplication
 
  , parish.Name_en as 'الطائفة'
 
- , IFNULL(Priest_Name,'') as 'الكاهن'
+ , IFNULL(priest1.Priest_Name,'') as '1الكاهن'
+ , IFNULL(priest2.Priest_Name,'') as '2الكاهن'
+ 
  , h_street.Name as 'منطقة السكن' 
  , P_HomeAddress as 'العنوان' 
  , P_RegistrationPlace as 'القيد' 
  , P_NationalNumber as 'الرقم الوطني' 
  , P_Mobile as 'الموبايل' 
-
-
-
-  , (SELECT count(*) 
-    From `person` p 
-    left join `person_family` pf on p.P_ID = pf.Person_ID   
-    where pf.P_Provider_ID = person.P_ID   
-    limit 1) as 'عدد الأفراد الكلي' 
-
- , (SELECT count(*) 
-    From `person` p 
-    left join `person_family` pf on p.P_ID = pf.Person_ID   
-    left join `personstate` on personstate.ID = p.P_State_ID
-    where pf.P_Provider_ID = person.P_ID   
-    AND lower(personstate.Type) like 'active'
-    limit 1) as 'عدد الأفراد في المنزل' 
  
+ , P_NumAtHome as 'عدد الأفراد الكلي'
+ , P_NumOfMembers as 'عدد الأفراد في المنزل'
+
   , (SELECT count(*) 
     From `person` p 
     left join `person_family` pf on p.P_ID = pf.Person_ID  
@@ -1092,7 +1109,7 @@ namespace MyWorkApplication
     left join relation on relation.id = pf.Relation_ID
     WHERE relation.Name like N'ابن/ة' 
     AND lower(personstate.Type) like 'active'
-    and pf.P_Provider_ID = person.P_ID limit 1) as 'عدد الأبناء في المنزل' 
+    and pf.P_Provider_ID = PMP.Person_ID limit 1) as 'عدد الأبناء في المنزل' 
 
   , ( SELECT count(*) 
     From `person` p 
@@ -1120,10 +1137,11 @@ namespace MyWorkApplication
 
  , (CASE MP_Message WHEN 1 THEN N'تم الإرسال' ELSE 'لا يوجد' End) as 'رسالة الرفض' 
 
- , person_microproject.PersonType as 'صفة مقدم الطلب' 
+ , PMP.PersonType as 'صفة مقدم الطلب' 
   
  , PMP_ID as 'ID' 
- , P_ID as 'رقم المستفيد' , microproject.ApplicationState ";
+ , P_ID as 'رقم المستفيد' 
+ , microproject.ApplicationState as 'نوع الاستمارة'";
 
                 if (show_images) query1 += @" ,(Select image.image_NewPath 
  from image left join imagetype on image.ImageType_ID = imagetype.ID
@@ -1156,6 +1174,8 @@ namespace MyWorkApplication
                 da.Fill(ds);
                 Program.MyConn.Close();
 
+                MP_dataGridView.SuspendLayout();
+
                 MP_dataGridView.DataSource = null;
                 MP_dataGridView.Columns.Clear();
                 MP_dataGridView.Rows.Clear();
@@ -1164,6 +1184,8 @@ namespace MyWorkApplication
 
                 bs.DataSource = ds.Tables[0];
                 MP_dataGridView.DataSource = bs;
+
+                MP_dataGridView.ResumeLayout();
 
                 //////calculate sum of projects// 
                 total_bind_count = 0;
@@ -1175,17 +1197,10 @@ namespace MyWorkApplication
                 sumObject = Convert.ToDecimal(ds.Tables[1].Rows[0][1].ToString());
                 Sum_FamilyMembers_label.Text = "مجموع الأفراد: " + sumObject.ToString("#,##0");
 
-                MP_dataGridView.Columns["تاريخ التقديم"].DefaultCellStyle.Format
-                    = MP_dataGridView.Columns["تاريخ الحالة"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                MP_dataGridView.Columns["تاريخ التقديم"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                MP_dataGridView.Columns["تاريخ الحالة"].DefaultCellStyle.Format = "dd/MM/yyyy";
                 MP_dataGridView.Columns["مبلغ التمويل"].DefaultCellStyle.Format = "#,##0";
-                DataGridViewColumn dgC1;
-                if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
-                {
-                    dgC1 = MP_dataGridView.Columns["رقم المستفيد"];
-                    dgC1.Visible = false;
-                    dgC1 = MP_dataGridView.Columns["ID"];
-                    dgC1.Visible = false;
-                }
+                 
                 MP_dataGridView.Columns["رقم المشروع"].Width = 70;
                 MP_dataGridView.Columns["عدد الحالات"].Width = 50;
 
@@ -1207,6 +1222,12 @@ namespace MyWorkApplication
                     DataGridViewContentAlignment.MiddleCenter;
 
                 MP_dataGridView.Columns["رقم المشروع"].Frozen = true;
+
+                var dgC1 = MP_dataGridView.Columns["رقم المستفيد"];
+                dgC1.Visible = false;
+                var dgC2 = MP_dataGridView.Columns["ID"];
+                dgC2.Visible = false;
+
                 // Add State History Button //
                 var colCB = new DataGridViewButtonColumn();
                 colCB.Name = "StateHistory";
@@ -1214,9 +1235,9 @@ namespace MyWorkApplication
                 colCB.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 colCB.FlatStyle = FlatStyle.Flat;
                 MP_dataGridView.Columns.Insert(17, colCB); // add after state
-
                 MP_dataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 MP_dataGridView.Columns["StateHistory"].Width = 80;
+
                 // /////////////////////////////////////////////////// 
                 //if (show_images)
                 //{
@@ -1233,7 +1254,7 @@ namespace MyWorkApplication
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
-
+         
         private void FamilyMember_bind()
         {
             string query = " select p.P_ID as 'رقم الفرد'"
@@ -2421,7 +2442,6 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                 Cursor.Current = Cursors.WaitCursor;
                 bs.Filter = bs.Sort = Original_Filter_String = "";
                 bs.DataSource = null;
-                tick++;
                 user_mode = true;
 
                 // applications //
@@ -2475,6 +2495,7 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                     bind_AidSources();
                 }
 
+                tick++;
                 // Use of the DataGridViewColumnSelector
                 cs = new DataGridViewColumnSelector(MP_dataGridView);
                 cs.MaxHeight = 100;
@@ -3293,9 +3314,8 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                     string export_cond = this.condition;
                     if (bs.Filter != "")
                         export_cond += mp_cond;
-
-
-                    DataTable ex_dt = s.Application_Details_Procedure(export_cond);
+                     
+                    DataTable ex_dt = s.ZeroApplication_Details_Procedure(export_cond);
 
                     wb.Worksheets.Add(ex_dt, "Exported from App");
 

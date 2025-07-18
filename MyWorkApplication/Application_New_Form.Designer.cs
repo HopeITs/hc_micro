@@ -87,9 +87,6 @@ namespace MyWorkApplication
             this.label72 = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
             this.label82 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.ContentUpdated_checkBox = new System.Windows.Forms.CheckBox();
-            this.MP_Name_textBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Type_lable = new System.Windows.Forms.Label();
             this.Type_comboBox = new System.Windows.Forms.ComboBox();
@@ -122,14 +119,13 @@ namespace MyWorkApplication
             this.Grant_radioButton = new System.Windows.Forms.RadioButton();
             this.MP_RequestedAmount_label = new System.Windows.Forms.Label();
             this.MP_RequestedAmount_textBox = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.Save_MP_ID_button = new System.Windows.Forms.Button();
             this.ImageLocation_textBox = new System.Windows.Forms.TextBox();
+            this.Save_MP_ID_button = new System.Windows.Forms.Button();
+            this.MP_Name_textBox = new System.Windows.Forms.TextBox();
+            this.ContentUpdated_checkBox = new System.Windows.Forms.CheckBox();
             this.label76 = new System.Windows.Forms.Label();
             this.label73 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.MainHeader1_label = new System.Windows.Forms.Label();
             this.t3_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.P_HomeStateNote_label = new System.Windows.Forms.Label();
@@ -171,9 +167,8 @@ namespace MyWorkApplication
             this.Military_label = new System.Windows.Forms.Label();
             this.MilitarySingle_radioButton = new System.Windows.Forms.RadioButton();
             this.MilitaryFinished_radioButton = new System.Windows.Forms.RadioButton();
-            this.MilitaryNow_radioButton = new System.Windows.Forms.RadioButton();
-            this.label26 = new System.Windows.Forms.Label();
             this.MilitaryExempt_radioButton = new System.Windows.Forms.RadioButton();
+            this.MilitaryNow_radioButton = new System.Windows.Forms.RadioButton();
             this.MilitaryDelayed_radioButton = new System.Windows.Forms.RadioButton();
             this.P_IntermidiaryName_label = new System.Windows.Forms.Label();
             this.P_IntermidiaryName_textBox = new System.Windows.Forms.TextBox();
@@ -184,7 +179,11 @@ namespace MyWorkApplication
             this.label77 = new System.Windows.Forms.Label();
             this.P_Parish_comboBox = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
             this.PersonType_comboBox = new System.Windows.Forms.ComboBox();
             this.PersonType_label = new System.Windows.Forms.Label();
             this.P_FullName_En_label = new System.Windows.Forms.Label();
@@ -376,7 +375,7 @@ namespace MyWorkApplication
             this.Asset_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Asset_RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Asset_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label70 = new System.Windows.Forms.Label();
+            this.SubHeader15_label = new System.Windows.Forms.Label();
             this.FP_Exp_dataGridView = new System.Windows.Forms.DataGridView();
             this.FP_Exp_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FP_Exp_PName = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -569,7 +568,6 @@ namespace MyWorkApplication
             this.delete_project_person_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.First_tableLayoutPanel.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -577,7 +575,6 @@ namespace MyWorkApplication
             ((System.ComponentModel.ISupportInitialize)(this.PersonPicture_pictureBox)).BeginInit();
             this.img_contextMenuStrip.SuspendLayout();
             this.FundType_flowLayoutPanel.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             this.t3_tableLayoutPanel.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.Military_flowLayoutPanel.SuspendLayout();
@@ -658,10 +655,10 @@ namespace MyWorkApplication
             this.label2.AutoSize = true;
             this.t7_tableLayoutPanel.SetColumnSpan(this.label2, 2);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label2.Location = new System.Drawing.Point(719, 4);
+            this.label2.Location = new System.Drawing.Point(783, 0);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(369, 29);
+            this.label2.Size = new System.Drawing.Size(305, 37);
             this.label2.TabIndex = 505;
             this.label2.Text = "عدد سنوات الخبرة في مجال المشروع المقدّّم:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -670,13 +667,14 @@ namespace MyWorkApplication
             // 
             this.P_MobileReadable_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_MobileReadable_textBox.BackColor = System.Drawing.Color.White;
-            this.P_MobileReadable_textBox.Location = new System.Drawing.Point(533, 139);
+            this.P_MobileReadable_textBox.Location = new System.Drawing.Point(579, 139);
             this.P_MobileReadable_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_MobileReadable_textBox.Name = "P_MobileReadable_textBox";
             this.P_MobileReadable_textBox.ReadOnly = true;
             this.P_MobileReadable_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.P_MobileReadable_textBox.Size = new System.Drawing.Size(245, 29);
+            this.P_MobileReadable_textBox.Size = new System.Drawing.Size(224, 29);
             this.P_MobileReadable_textBox.TabIndex = 526;
+            this.P_MobileReadable_textBox.TabStop = false;
             this.P_MobileReadable_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
@@ -684,7 +682,7 @@ namespace MyWorkApplication
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label3.Location = new System.Drawing.Point(393, 139);
+            this.label3.Location = new System.Drawing.Point(400, 139);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label3.Size = new System.Drawing.Size(65, 29);
@@ -697,7 +695,7 @@ namespace MyWorkApplication
             this.label80.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label80.AutoSize = true;
             this.label80.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label80.Location = new System.Drawing.Point(815, 139);
+            this.label80.Location = new System.Drawing.Point(828, 139);
             this.label80.Name = "label80";
             this.label80.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label80.Size = new System.Drawing.Size(104, 29);
@@ -711,12 +709,12 @@ namespace MyWorkApplication
             this.MPID_textBox.BackColor = System.Drawing.Color.White;
             this.MPID_textBox.Font = new System.Drawing.Font("Rubik", 11F, System.Drawing.FontStyle.Bold);
             this.MPID_textBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.MPID_textBox.Location = new System.Drawing.Point(50, 4);
+            this.MPID_textBox.Location = new System.Drawing.Point(104, 100);
             this.MPID_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MPID_textBox.Name = "MPID_textBox";
             this.MPID_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MPID_textBox.Size = new System.Drawing.Size(205, 29);
-            this.MPID_textBox.TabIndex = 0;
+            this.MPID_textBox.Size = new System.Drawing.Size(236, 29);
+            this.MPID_textBox.TabIndex = 1;
             this.MPID_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.MPID_textBox.Enter += new System.EventHandler(this.MPID_textBox_Enter);
             this.MPID_textBox.Leave += new System.EventHandler(this.MPID_textBox_Leave);
@@ -726,12 +724,12 @@ namespace MyWorkApplication
             this.P_FullName_En_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_FullName_En_textBox.BackColor = System.Drawing.Color.White;
             this.t3_tableLayoutPanel.SetColumnSpan(this.P_FullName_En_textBox, 4);
-            this.P_FullName_En_textBox.Location = new System.Drawing.Point(3, 145);
+            this.P_FullName_En_textBox.Location = new System.Drawing.Point(3, 140);
             this.P_FullName_En_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_FullName_En_textBox.Name = "P_FullName_En_textBox";
             this.P_FullName_En_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_FullName_En_textBox.Size = new System.Drawing.Size(528, 29);
-            this.P_FullName_En_textBox.TabIndex = 3;
+            this.P_FullName_En_textBox.TabIndex = 21;
             this.P_FullName_En_textBox.Enter += new System.EventHandler(this.P_FullName_En_textBox_Enter);
             this.P_FullName_En_textBox.Leave += new System.EventHandler(this.P_FullName_En_textBox_Leave);
             // 
@@ -740,7 +738,7 @@ namespace MyWorkApplication
             this.label62.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label62.AutoSize = true;
             this.label62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label62.Location = new System.Drawing.Point(804, 100);
+            this.label62.Location = new System.Drawing.Point(817, 100);
             this.label62.Name = "label62";
             this.label62.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label62.Size = new System.Drawing.Size(115, 29);
@@ -751,39 +749,43 @@ namespace MyWorkApplication
             // First_tableLayoutPanel
             // 
             this.First_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
-            this.First_tableLayoutPanel.ColumnCount = 7;
-            this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.668455F));
+            this.First_tableLayoutPanel.ColumnCount = 9;
+            this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.668456F));
+            this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.25748F));
             this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.49628F));
             this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.340024F));
+            this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.06299F));
             this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.9557F));
             this.First_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.21906F));
-            this.First_tableLayoutPanel.Controls.Add(this.flowLayoutPanel2, 1, 9);
-            this.First_tableLayoutPanel.Controls.Add(this.tableLayoutPanel6, 4, 6);
-            this.First_tableLayoutPanel.Controls.Add(this.P_MobileReadable_textBox, 4, 4);
-            this.First_tableLayoutPanel.Controls.Add(this.label3, 2, 4);
-            this.First_tableLayoutPanel.Controls.Add(this.label80, 5, 4);
-            this.First_tableLayoutPanel.Controls.Add(this.label62, 5, 3);
-            this.First_tableLayoutPanel.Controls.Add(this.label1, 2, 3);
-            this.First_tableLayoutPanel.Controls.Add(this.Type_lable, 2, 5);
-            this.First_tableLayoutPanel.Controls.Add(this.Type_comboBox, 1, 5);
-            this.First_tableLayoutPanel.Controls.Add(this.label74, 5, 5);
-            this.First_tableLayoutPanel.Controls.Add(this.ApplyDate_bcDateTimePicker, 4, 5);
-            this.First_tableLayoutPanel.Controls.Add(this.label79, 5, 6);
-            this.First_tableLayoutPanel.Controls.Add(this.label4, 2, 6);
-            this.First_tableLayoutPanel.Controls.Add(this.SubType_comboBox, 1, 6);
-            this.First_tableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 1, 8);
-            this.First_tableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 1, 4);
-            this.First_tableLayoutPanel.Controls.Add(this.SubHeader1_label, 1, 1);
-            this.First_tableLayoutPanel.Controls.Add(this.tableLayoutPanel11, 6, 3);
-            this.First_tableLayoutPanel.Controls.Add(this.P_FullName_textBox, 4, 3);
-            this.First_tableLayoutPanel.Controls.Add(this.FundType_label, 5, 7);
-            this.First_tableLayoutPanel.Controls.Add(this.FundType_flowLayoutPanel, 4, 7);
-            this.First_tableLayoutPanel.Controls.Add(this.MP_RequestedAmount_label, 2, 7);
-            this.First_tableLayoutPanel.Controls.Add(this.MP_RequestedAmount_textBox, 1, 7);
-            this.First_tableLayoutPanel.Controls.Add(this.tableLayoutPanel5, 1, 3);
-            this.First_tableLayoutPanel.Controls.Add(this.ImageLocation_textBox, 6, 9);
+            this.First_tableLayoutPanel.Controls.Add(this.flowLayoutPanel2, 2, 9);
+            this.First_tableLayoutPanel.Controls.Add(this.P_MobileReadable_textBox, 6, 4);
+            this.First_tableLayoutPanel.Controls.Add(this.label3, 3, 4);
+            this.First_tableLayoutPanel.Controls.Add(this.label80, 7, 4);
+            this.First_tableLayoutPanel.Controls.Add(this.label62, 7, 3);
+            this.First_tableLayoutPanel.Controls.Add(this.label1, 3, 3);
+            this.First_tableLayoutPanel.Controls.Add(this.Type_lable, 3, 5);
+            this.First_tableLayoutPanel.Controls.Add(this.Type_comboBox, 2, 5);
+            this.First_tableLayoutPanel.Controls.Add(this.label74, 7, 5);
+            this.First_tableLayoutPanel.Controls.Add(this.ApplyDate_bcDateTimePicker, 6, 5);
+            this.First_tableLayoutPanel.Controls.Add(this.label79, 7, 6);
+            this.First_tableLayoutPanel.Controls.Add(this.label4, 3, 6);
+            this.First_tableLayoutPanel.Controls.Add(this.SubType_comboBox, 2, 6);
+            this.First_tableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 2, 8);
+            this.First_tableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 2, 4);
+            this.First_tableLayoutPanel.Controls.Add(this.SubHeader1_label, 2, 1);
+            this.First_tableLayoutPanel.Controls.Add(this.tableLayoutPanel11, 8, 3);
+            this.First_tableLayoutPanel.Controls.Add(this.P_FullName_textBox, 6, 3);
+            this.First_tableLayoutPanel.Controls.Add(this.FundType_label, 7, 7);
+            this.First_tableLayoutPanel.Controls.Add(this.FundType_flowLayoutPanel, 6, 7);
+            this.First_tableLayoutPanel.Controls.Add(this.MP_RequestedAmount_label, 3, 7);
+            this.First_tableLayoutPanel.Controls.Add(this.MP_RequestedAmount_textBox, 2, 7);
+            this.First_tableLayoutPanel.Controls.Add(this.ImageLocation_textBox, 8, 9);
+            this.First_tableLayoutPanel.Controls.Add(this.MPID_textBox, 2, 3);
+            this.First_tableLayoutPanel.Controls.Add(this.Save_MP_ID_button, 1, 3);
+            this.First_tableLayoutPanel.Controls.Add(this.MP_Name_textBox, 6, 6);
+            this.First_tableLayoutPanel.Controls.Add(this.ContentUpdated_checkBox, 5, 6);
             this.First_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.First_tableLayoutPanel.Location = new System.Drawing.Point(75, 0);
             this.First_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
@@ -791,15 +793,15 @@ namespace MyWorkApplication
             this.First_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.First_tableLayoutPanel.RowCount = 10;
             this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
-            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
-            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
-            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
-            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
-            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
-            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
-            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.21495F));
-            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.01869F));
-            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.476635F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.08552F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.08552F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.08552F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.08552F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.08552F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.08552F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.08552F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.64064F));
+            this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.76071F));
             this.First_tableLayoutPanel.Size = new System.Drawing.Size(1091, 370);
             this.First_tableLayoutPanel.TabIndex = 1;
             this.First_tableLayoutPanel.TabStop = true;
@@ -809,15 +811,15 @@ namespace MyWorkApplication
             this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.First_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel2, 5);
+            this.First_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel2, 6);
             this.flowLayoutPanel2.Controls.Add(this.label71);
             this.flowLayoutPanel2.Controls.Add(this.label72);
             this.flowLayoutPanel2.Controls.Add(this.label78);
             this.flowLayoutPanel2.Controls.Add(this.label82);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(64, 342);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(104, 330);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(855, 25);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(828, 37);
             this.flowLayoutPanel2.TabIndex = 563;
             // 
             // label71
@@ -826,7 +828,7 @@ namespace MyWorkApplication
             this.label71.AutoSize = true;
             this.label71.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.label71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label71.Location = new System.Drawing.Point(755, 0);
+            this.label71.Location = new System.Drawing.Point(728, 0);
             this.label71.Margin = new System.Windows.Forms.Padding(0);
             this.label71.Name = "label71";
             this.label71.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -841,7 +843,7 @@ namespace MyWorkApplication
             this.label72.AutoSize = true;
             this.label72.Font = new System.Drawing.Font("Rubik", 9F);
             this.label72.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label72.Location = new System.Drawing.Point(429, 0);
+            this.label72.Location = new System.Drawing.Point(402, 0);
             this.label72.Margin = new System.Windows.Forms.Padding(0);
             this.label72.Name = "label72";
             this.label72.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -856,7 +858,7 @@ namespace MyWorkApplication
             this.label78.AutoSize = true;
             this.label78.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.label78.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label78.Location = new System.Drawing.Point(313, 0);
+            this.label78.Location = new System.Drawing.Point(286, 0);
             this.label78.Margin = new System.Windows.Forms.Padding(0);
             this.label78.Name = "label78";
             this.label78.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -871,7 +873,7 @@ namespace MyWorkApplication
             this.label82.AutoSize = true;
             this.label82.Font = new System.Drawing.Font("Rubik", 9F);
             this.label82.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label82.Location = new System.Drawing.Point(139, 0);
+            this.label82.Location = new System.Drawing.Point(112, 0);
             this.label82.Margin = new System.Windows.Forms.Padding(0);
             this.label82.Name = "label82";
             this.label82.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -880,61 +882,12 @@ namespace MyWorkApplication
             this.label82.Text = "مشروع جديد - مشروع قائم";
             this.label82.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel6.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Controls.Add(this.ContentUpdated_checkBox, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.MP_Name_textBox, 1, 0);
-            this.tableLayoutPanel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(533, 213);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(245, 37);
-            this.tableLayoutPanel6.TabIndex = 574;
-            // 
-            // ContentUpdated_checkBox
-            // 
-            this.ContentUpdated_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.ContentUpdated_checkBox.AutoSize = true;
-            this.ContentUpdated_checkBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ContentUpdated_checkBox.Location = new System.Drawing.Point(9, 10);
-            this.ContentUpdated_checkBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.ContentUpdated_checkBox.Name = "ContentUpdated_checkBox";
-            this.ContentUpdated_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ContentUpdated_checkBox.Size = new System.Drawing.Size(18, 17);
-            this.ContentUpdated_checkBox.TabIndex = 573;
-            this.ContentUpdated_checkBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.ContentUpdated_checkBox, "هل تم تبديل المشروع؟");
-            this.ContentUpdated_checkBox.UseVisualStyleBackColor = true;
-            this.ContentUpdated_checkBox.CheckedChanged += new System.EventHandler(this.UpdateContent_checkBox_CheckedChanged);
-            // 
-            // MP_Name_textBox
-            // 
-            this.MP_Name_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.MP_Name_textBox.BackColor = System.Drawing.Color.White;
-            this.MP_Name_textBox.Location = new System.Drawing.Point(32, 4);
-            this.MP_Name_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MP_Name_textBox.Name = "MP_Name_textBox";
-            this.MP_Name_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MP_Name_textBox.Size = new System.Drawing.Size(210, 29);
-            this.MP_Name_textBox.TabIndex = 4;
-            this.MP_Name_textBox.Enter += new System.EventHandler(this.MP_Name_textBox_Enter);
-            this.MP_Name_textBox.Leave += new System.EventHandler(this.MP_Name_textBox_Leave);
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label1.Location = new System.Drawing.Point(343, 100);
+            this.label1.Location = new System.Drawing.Point(350, 100);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(115, 29);
@@ -947,7 +900,7 @@ namespace MyWorkApplication
             this.Type_lable.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Type_lable.AutoSize = true;
             this.Type_lable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Type_lable.Location = new System.Drawing.Point(345, 178);
+            this.Type_lable.Location = new System.Drawing.Point(352, 178);
             this.Type_lable.Name = "Type_lable";
             this.Type_lable.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Type_lable.Size = new System.Drawing.Size(113, 29);
@@ -965,12 +918,12 @@ namespace MyWorkApplication
             this.Type_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Type_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Type_comboBox.FormattingEnabled = true;
-            this.Type_comboBox.Location = new System.Drawing.Point(64, 180);
+            this.Type_comboBox.Location = new System.Drawing.Point(104, 181);
             this.Type_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Type_comboBox.Name = "Type_comboBox";
             this.Type_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Type_comboBox.Size = new System.Drawing.Size(258, 30);
-            this.Type_comboBox.TabIndex = 3;
+            this.Type_comboBox.Size = new System.Drawing.Size(236, 30);
+            this.Type_comboBox.TabIndex = 5;
             this.Type_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.Type_comboBox.SelectionChangeCommitted += new System.EventHandler(this.ProjectArea_Combobox_SelectionChangeCommitted);
             this.Type_comboBox.SelectedValueChanged += new System.EventHandler(this.Type_comboBox_SelectedValueChanged);
@@ -982,7 +935,7 @@ namespace MyWorkApplication
             this.label74.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label74.AutoSize = true;
             this.label74.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label74.Location = new System.Drawing.Point(812, 178);
+            this.label74.Location = new System.Drawing.Point(825, 178);
             this.label74.Name = "label74";
             this.label74.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label74.Size = new System.Drawing.Size(107, 29);
@@ -998,13 +951,13 @@ namespace MyWorkApplication
             this.ApplyDate_bcDateTimePicker.CustomFormat = "yyyy/MM/dd";
             this.ApplyDate_bcDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ApplyDate_bcDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(533, 178);
+            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(579, 178);
             this.ApplyDate_bcDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ApplyDate_bcDateTimePicker.Name = "ApplyDate_bcDateTimePicker";
             this.ApplyDate_bcDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
-            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(245, 29);
-            this.ApplyDate_bcDateTimePicker.TabIndex = 6;
+            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(224, 29);
+            this.ApplyDate_bcDateTimePicker.TabIndex = 4;
             this.ApplyDate_bcDateTimePicker.ValueChanged += new System.EventHandler(this.ApplyDate_bcDateTimePicker_ValueChanged);
             // 
             // label79
@@ -1012,10 +965,10 @@ namespace MyWorkApplication
             this.label79.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label79.AutoSize = true;
             this.label79.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label79.Location = new System.Drawing.Point(785, 217);
+            this.label79.Location = new System.Drawing.Point(849, 212);
             this.label79.Name = "label79";
             this.label79.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label79.Size = new System.Drawing.Size(134, 29);
+            this.label79.Size = new System.Drawing.Size(83, 39);
             this.label79.TabIndex = 262;
             this.label79.Text = "وصف المشروع:";
             this.label79.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1025,7 +978,7 @@ namespace MyWorkApplication
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label4.Location = new System.Drawing.Point(375, 212);
+            this.label4.Location = new System.Drawing.Point(382, 212);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(83, 39);
@@ -1043,12 +996,12 @@ namespace MyWorkApplication
             this.SubType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.SubType_comboBox.FormattingEnabled = true;
-            this.SubType_comboBox.Location = new System.Drawing.Point(64, 219);
+            this.SubType_comboBox.Location = new System.Drawing.Point(104, 220);
             this.SubType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubType_comboBox.Name = "SubType_comboBox";
             this.SubType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubType_comboBox.Size = new System.Drawing.Size(258, 30);
-            this.SubType_comboBox.TabIndex = 4;
+            this.SubType_comboBox.Size = new System.Drawing.Size(236, 30);
+            this.SubType_comboBox.TabIndex = 7;
             this.SubType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.SubType_comboBox.SelectionChangeCommitted += new System.EventHandler(this.ProjectArea_Combobox_SelectionChangeCommitted);
             this.SubType_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
@@ -1056,16 +1009,16 @@ namespace MyWorkApplication
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.First_tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel1, 5);
+            this.First_tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel1, 6);
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(64, 293);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(104, 293);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(855, 43);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(828, 31);
             this.tableLayoutPanel1.TabIndex = 563;
             // 
             // flowLayoutPanel1
@@ -1081,7 +1034,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.tableLayoutPanel1.SetRowSpan(this.flowLayoutPanel1, 2);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(849, 37);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(822, 25);
             this.flowLayoutPanel1.TabIndex = 541;
             // 
             // label7
@@ -1090,7 +1043,7 @@ namespace MyWorkApplication
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label7.Location = new System.Drawing.Point(733, 0);
+            this.label7.Location = new System.Drawing.Point(706, 0);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1105,7 +1058,7 @@ namespace MyWorkApplication
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Rubik", 9F);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label11.Location = new System.Drawing.Point(321, 0);
+            this.label11.Location = new System.Drawing.Point(294, 0);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
             this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1120,7 +1073,7 @@ namespace MyWorkApplication
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label16.Location = new System.Drawing.Point(229, 0);
+            this.label16.Location = new System.Drawing.Point(202, 0);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
             this.label16.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1135,7 +1088,7 @@ namespace MyWorkApplication
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Rubik", 9F);
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label17.Location = new System.Drawing.Point(545, 23);
+            this.label17.Location = new System.Drawing.Point(518, 23);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
             this.label17.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1156,13 +1109,13 @@ namespace MyWorkApplication
             this.tableLayoutPanel2.Controls.Add(this.SubCategory_comboBox, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.Career_comboBox, 0, 0);
             this.tableLayoutPanel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(64, 135);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(104, 135);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(258, 37);
-            this.tableLayoutPanel2.TabIndex = 537;
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(236, 37);
+            this.tableLayoutPanel2.TabIndex = 2;
             // 
             // SubCategory_comboBox
             // 
@@ -1174,12 +1127,12 @@ namespace MyWorkApplication
             this.SubCategory_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubCategory_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.SubCategory_comboBox.FormattingEnabled = true;
-            this.SubCategory_comboBox.Location = new System.Drawing.Point(132, 6);
+            this.SubCategory_comboBox.Location = new System.Drawing.Point(121, 7);
             this.SubCategory_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubCategory_comboBox.Name = "SubCategory_comboBox";
             this.SubCategory_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubCategory_comboBox.Size = new System.Drawing.Size(123, 30);
-            this.SubCategory_comboBox.TabIndex = 5;
+            this.SubCategory_comboBox.Size = new System.Drawing.Size(112, 30);
+            this.SubCategory_comboBox.TabIndex = 2;
             this.SubCategory_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.SubCategory_comboBox.SelectionChangeCommitted += new System.EventHandler(this.ProjectArea_Combobox_SelectionChangeCommitted);
             this.SubCategory_comboBox.SelectedValueChanged += new System.EventHandler(this.SubCategory_comboBox_SelectedValueChanged);
@@ -1196,12 +1149,12 @@ namespace MyWorkApplication
             this.Career_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Career_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Career_comboBox.FormattingEnabled = true;
-            this.Career_comboBox.Location = new System.Drawing.Point(3, 6);
+            this.Career_comboBox.Location = new System.Drawing.Point(3, 7);
             this.Career_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Career_comboBox.Name = "Career_comboBox";
             this.Career_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Career_comboBox.Size = new System.Drawing.Size(123, 30);
-            this.Career_comboBox.TabIndex = 6;
+            this.Career_comboBox.Size = new System.Drawing.Size(112, 30);
+            this.Career_comboBox.TabIndex = 3;
             this.Career_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.Career_comboBox.SelectionChangeCommitted += new System.EventHandler(this.ProjectArea_Combobox_SelectionChangeCommitted);
             this.Career_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
@@ -1211,15 +1164,15 @@ namespace MyWorkApplication
             this.SubHeader1_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SubHeader1_label.AutoSize = true;
-            this.First_tableLayoutPanel.SetColumnSpan(this.SubHeader1_label, 6);
+            this.First_tableLayoutPanel.SetColumnSpan(this.SubHeader1_label, 7);
             this.SubHeader1_label.Font = new System.Drawing.Font("Rubik", 18F, System.Drawing.FontStyle.Bold);
             this.SubHeader1_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader1_label.Location = new System.Drawing.Point(64, 34);
+            this.SubHeader1_label.Location = new System.Drawing.Point(104, 34);
             this.SubHeader1_label.Name = "SubHeader1_label";
             this.SubHeader1_label.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.SubHeader1_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.First_tableLayoutPanel.SetRowSpan(this.SubHeader1_label, 2);
-            this.SubHeader1_label.Size = new System.Drawing.Size(1024, 61);
+            this.SubHeader1_label.Size = new System.Drawing.Size(984, 61);
             this.SubHeader1_label.TabIndex = 538;
             this.SubHeader1_label.Text = "استمارة المشروع";
             this.SubHeader1_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1236,14 +1189,14 @@ namespace MyWorkApplication
             this.tableLayoutPanel11.Controls.Add(this.Download_button, 1, 1);
             this.tableLayoutPanel11.Controls.Add(this.PersonPicture_pictureBox, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(925, 96);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(938, 96);
             this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 2;
             this.First_tableLayoutPanel.SetRowSpan(this.tableLayoutPanel11, 6);
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.16832F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.83168F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(163, 242);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(150, 230);
             this.tableLayoutPanel11.TabIndex = 540;
             // 
             // AddImage_button
@@ -1259,7 +1212,7 @@ namespace MyWorkApplication
             this.AddImage_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.AddImage_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddImage_button.ForeColor = System.Drawing.Color.White;
-            this.AddImage_button.Location = new System.Drawing.Point(34, 204);
+            this.AddImage_button.Location = new System.Drawing.Point(28, 194);
             this.AddImage_button.MaximumSize = new System.Drawing.Size(27, 27);
             this.AddImage_button.MinimumSize = new System.Drawing.Size(27, 27);
             this.AddImage_button.Name = "AddImage_button";
@@ -1283,7 +1236,7 @@ namespace MyWorkApplication
             this.DeleteImage_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.DeleteImage_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteImage_button.ForeColor = System.Drawing.Color.White;
-            this.DeleteImage_button.Location = new System.Drawing.Point(100, 204);
+            this.DeleteImage_button.Location = new System.Drawing.Point(94, 194);
             this.DeleteImage_button.MaximumSize = new System.Drawing.Size(27, 27);
             this.DeleteImage_button.MinimumSize = new System.Drawing.Size(27, 27);
             this.DeleteImage_button.Name = "DeleteImage_button";
@@ -1308,7 +1261,7 @@ namespace MyWorkApplication
             this.Download_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Download_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Download_button.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.Download_button.Location = new System.Drawing.Point(67, 204);
+            this.Download_button.Location = new System.Drawing.Point(61, 194);
             this.Download_button.MaximumSize = new System.Drawing.Size(27, 27);
             this.Download_button.MinimumSize = new System.Drawing.Size(27, 27);
             this.Download_button.Name = "Download_button";
@@ -1331,7 +1284,7 @@ namespace MyWorkApplication
             this.PersonPicture_pictureBox.Image = global::MyWorkApplication.Properties.Resources.User;
             this.PersonPicture_pictureBox.Location = new System.Drawing.Point(3, 3);
             this.PersonPicture_pictureBox.Name = "PersonPicture_pictureBox";
-            this.PersonPicture_pictureBox.Size = new System.Drawing.Size(157, 195);
+            this.PersonPicture_pictureBox.Size = new System.Drawing.Size(144, 185);
             this.PersonPicture_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PersonPicture_pictureBox.TabIndex = 539;
             this.PersonPicture_pictureBox.TabStop = false;
@@ -1355,20 +1308,21 @@ namespace MyWorkApplication
             // 
             this.P_FullName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_FullName_textBox.BackColor = System.Drawing.Color.White;
-            this.P_FullName_textBox.Location = new System.Drawing.Point(533, 100);
+            this.P_FullName_textBox.Location = new System.Drawing.Point(579, 100);
             this.P_FullName_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_FullName_textBox.Name = "P_FullName_textBox";
             this.P_FullName_textBox.ReadOnly = true;
             this.P_FullName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_FullName_textBox.Size = new System.Drawing.Size(245, 29);
+            this.P_FullName_textBox.Size = new System.Drawing.Size(224, 29);
             this.P_FullName_textBox.TabIndex = 564;
+            this.P_FullName_textBox.TabStop = false;
             // 
             // FundType_label
             // 
             this.FundType_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.FundType_label.AutoSize = true;
             this.FundType_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.FundType_label.Location = new System.Drawing.Point(814, 256);
+            this.FundType_label.Location = new System.Drawing.Point(827, 256);
             this.FundType_label.Name = "FundType_label";
             this.FundType_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.FundType_label.Size = new System.Drawing.Size(105, 29);
@@ -1384,21 +1338,21 @@ namespace MyWorkApplication
             this.FundType_flowLayoutPanel.Controls.Add(this.Loan_radioButton);
             this.FundType_flowLayoutPanel.Controls.Add(this.Grant_radioButton);
             this.FundType_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FundType_flowLayoutPanel.Location = new System.Drawing.Point(533, 254);
+            this.FundType_flowLayoutPanel.Location = new System.Drawing.Point(579, 254);
             this.FundType_flowLayoutPanel.Name = "FundType_flowLayoutPanel";
-            this.FundType_flowLayoutPanel.Size = new System.Drawing.Size(245, 33);
-            this.FundType_flowLayoutPanel.TabIndex = 568;
+            this.FundType_flowLayoutPanel.Size = new System.Drawing.Size(224, 33);
+            this.FundType_flowLayoutPanel.TabIndex = 8;
             // 
             // Loan_radioButton
             // 
             this.Loan_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Loan_radioButton.AutoSize = true;
-            this.Loan_radioButton.Location = new System.Drawing.Point(167, 4);
+            this.Loan_radioButton.Location = new System.Drawing.Point(146, 4);
             this.Loan_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Loan_radioButton.Name = "Loan_radioButton";
             this.Loan_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Loan_radioButton.Size = new System.Drawing.Size(75, 33);
-            this.Loan_radioButton.TabIndex = 566;
+            this.Loan_radioButton.TabIndex = 8;
             this.Loan_radioButton.TabStop = true;
             this.Loan_radioButton.Text = "قرض";
             this.Loan_radioButton.UseVisualStyleBackColor = true;
@@ -1408,12 +1362,12 @@ namespace MyWorkApplication
             // 
             this.Grant_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Grant_radioButton.AutoSize = true;
-            this.Grant_radioButton.Location = new System.Drawing.Point(86, 4);
+            this.Grant_radioButton.Location = new System.Drawing.Point(65, 4);
             this.Grant_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Grant_radioButton.Name = "Grant_radioButton";
             this.Grant_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Grant_radioButton.Size = new System.Drawing.Size(75, 33);
-            this.Grant_radioButton.TabIndex = 567;
+            this.Grant_radioButton.TabIndex = 9;
             this.Grant_radioButton.TabStop = true;
             this.Grant_radioButton.Text = "منحة";
             this.Grant_radioButton.UseVisualStyleBackColor = true;
@@ -1424,7 +1378,7 @@ namespace MyWorkApplication
             this.MP_RequestedAmount_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.MP_RequestedAmount_label.AutoSize = true;
             this.MP_RequestedAmount_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.MP_RequestedAmount_label.Location = new System.Drawing.Point(370, 251);
+            this.MP_RequestedAmount_label.Location = new System.Drawing.Point(377, 251);
             this.MP_RequestedAmount_label.Name = "MP_RequestedAmount_label";
             this.MP_RequestedAmount_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_RequestedAmount_label.Size = new System.Drawing.Size(88, 39);
@@ -1436,34 +1390,27 @@ namespace MyWorkApplication
             // 
             this.MP_RequestedAmount_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.MP_RequestedAmount_textBox.BackColor = System.Drawing.Color.White;
-            this.MP_RequestedAmount_textBox.Location = new System.Drawing.Point(64, 256);
+            this.MP_RequestedAmount_textBox.Location = new System.Drawing.Point(104, 256);
             this.MP_RequestedAmount_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MP_RequestedAmount_textBox.Name = "MP_RequestedAmount_textBox";
             this.MP_RequestedAmount_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MP_RequestedAmount_textBox.Size = new System.Drawing.Size(258, 29);
-            this.MP_RequestedAmount_textBox.TabIndex = 570;
+            this.MP_RequestedAmount_textBox.Size = new System.Drawing.Size(236, 29);
+            this.MP_RequestedAmount_textBox.TabIndex = 10;
             this.MP_RequestedAmount_textBox.Enter += new System.EventHandler(this.MP_RequestedAmount_textBox_Enter);
             this.MP_RequestedAmount_textBox.Leave += new System.EventHandler(this.MP_RequestedAmount_textBox_Leave);
             // 
-            // tableLayoutPanel5
+            // ImageLocation_textBox
             // 
-            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel5.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.MPID_textBox, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.Save_MP_ID_button, 0, 0);
-            this.tableLayoutPanel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(64, 96);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(258, 37);
-            this.tableLayoutPanel5.TabIndex = 571;
+            this.ImageLocation_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ImageLocation_textBox.BackColor = System.Drawing.Color.White;
+            this.ImageLocation_textBox.Location = new System.Drawing.Point(938, 334);
+            this.ImageLocation_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ImageLocation_textBox.Name = "ImageLocation_textBox";
+            this.ImageLocation_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ImageLocation_textBox.Size = new System.Drawing.Size(150, 29);
+            this.ImageLocation_textBox.TabIndex = 572;
+            this.ImageLocation_textBox.TabStop = false;
+            this.ImageLocation_textBox.Visible = false;
             // 
             // Save_MP_ID_button
             // 
@@ -1478,28 +1425,44 @@ namespace MyWorkApplication
             this.Save_MP_ID_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Save_MP_ID_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save_MP_ID_button.ForeColor = System.Drawing.Color.White;
-            this.Save_MP_ID_button.Location = new System.Drawing.Point(11, 1);
+            this.Save_MP_ID_button.Location = new System.Drawing.Point(65, 97);
             this.Save_MP_ID_button.Margin = new System.Windows.Forms.Padding(1);
             this.Save_MP_ID_button.MaximumSize = new System.Drawing.Size(35, 35);
             this.Save_MP_ID_button.MinimumSize = new System.Drawing.Size(35, 35);
             this.Save_MP_ID_button.Name = "Save_MP_ID_button";
             this.Save_MP_ID_button.Size = new System.Drawing.Size(35, 35);
-            this.Save_MP_ID_button.TabIndex = 518;
-            this.Save_MP_ID_button.TabStop = false;
+            this.Save_MP_ID_button.TabIndex = 11;
             this.Save_MP_ID_button.UseVisualStyleBackColor = false;
             this.Save_MP_ID_button.Click += new System.EventHandler(this.Save_MP_ID_button_Click);
             // 
-            // ImageLocation_textBox
+            // MP_Name_textBox
             // 
-            this.ImageLocation_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ImageLocation_textBox.BackColor = System.Drawing.Color.White;
-            this.ImageLocation_textBox.Location = new System.Drawing.Point(925, 343);
-            this.ImageLocation_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ImageLocation_textBox.Name = "ImageLocation_textBox";
-            this.ImageLocation_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ImageLocation_textBox.Size = new System.Drawing.Size(163, 29);
-            this.ImageLocation_textBox.TabIndex = 572;
-            this.ImageLocation_textBox.Visible = false;
+            this.MP_Name_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.MP_Name_textBox.BackColor = System.Drawing.Color.White;
+            this.MP_Name_textBox.Location = new System.Drawing.Point(579, 217);
+            this.MP_Name_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MP_Name_textBox.Name = "MP_Name_textBox";
+            this.MP_Name_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MP_Name_textBox.Size = new System.Drawing.Size(224, 29);
+            this.MP_Name_textBox.TabIndex = 6;
+            this.MP_Name_textBox.Enter += new System.EventHandler(this.MP_Name_textBox_Enter);
+            this.MP_Name_textBox.Leave += new System.EventHandler(this.MP_Name_textBox_Leave);
+            // 
+            // ContentUpdated_checkBox
+            // 
+            this.ContentUpdated_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ContentUpdated_checkBox.AutoSize = true;
+            this.ContentUpdated_checkBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ContentUpdated_checkBox.Location = new System.Drawing.Point(556, 223);
+            this.ContentUpdated_checkBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ContentUpdated_checkBox.Name = "ContentUpdated_checkBox";
+            this.ContentUpdated_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ContentUpdated_checkBox.Size = new System.Drawing.Size(18, 17);
+            this.ContentUpdated_checkBox.TabIndex = 6;
+            this.ContentUpdated_checkBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.ContentUpdated_checkBox, "هل تم تبديل المشروع؟");
+            this.ContentUpdated_checkBox.UseVisualStyleBackColor = true;
+            this.ContentUpdated_checkBox.CheckedChanged += new System.EventHandler(this.UpdateContent_checkBox_CheckedChanged);
             // 
             // label76
             // 
@@ -1532,48 +1495,18 @@ namespace MyWorkApplication
             this.label73.Text = "*الحالة الاجتماعية:";
             this.label73.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label15
-            // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label15.Location = new System.Drawing.Point(1015, 0);
-            this.label15.Margin = new System.Windows.Forms.Padding(0);
-            this.label15.Name = "label15";
-            this.label15.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label15.Size = new System.Drawing.Size(70, 23);
-            this.label15.TabIndex = 263;
-            this.label15.Text = "*ملاحظة:";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label18
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label18.Location = new System.Drawing.Point(947, 545);
+            this.label18.Location = new System.Drawing.Point(947, 502);
             this.label18.Name = "label18";
             this.label18.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label18.Size = new System.Drawing.Size(141, 29);
             this.label18.TabIndex = 531;
             this.label18.Text = "المنطقة (القرية):";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Rubik", 9F);
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label12.Location = new System.Drawing.Point(603, 0);
-            this.label12.Margin = new System.Windows.Forms.Padding(0);
-            this.label12.Name = "label12";
-            this.label12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label12.Size = new System.Drawing.Size(412, 23);
-            this.label12.TabIndex = 264;
-            this.label12.Text = "إمكانية إضافة أكثر من اسم كاهن ,أكثر من هيئة وسيطة على البرنامج";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainHeader1_label
             // 
@@ -1588,7 +1521,7 @@ namespace MyWorkApplication
             this.MainHeader1_label.Name = "MainHeader1_label";
             this.MainHeader1_label.Padding = new System.Windows.Forms.Padding(3);
             this.MainHeader1_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MainHeader1_label.Size = new System.Drawing.Size(1085, 40);
+            this.MainHeader1_label.Size = new System.Drawing.Size(1085, 38);
             this.MainHeader1_label.TabIndex = 498;
             this.MainHeader1_label.Text = "المعلومات الشخصية لمقدّم الطلب:";
             this.MainHeader1_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1639,12 +1572,12 @@ namespace MyWorkApplication
             this.t3_tableLayoutPanel.Controls.Add(this.P_Mobile2_textBox, 0, 13);
             this.t3_tableLayoutPanel.Controls.Add(this.Military_Date_dateTimePicker, 0, 18);
             this.t3_tableLayoutPanel.Controls.Add(this.Military_flowLayoutPanel, 5, 18);
-            this.t3_tableLayoutPanel.Controls.Add(this.P_IntermidiaryName_label, 4, 9);
-            this.t3_tableLayoutPanel.Controls.Add(this.P_IntermidiaryName_textBox, 3, 9);
-            this.t3_tableLayoutPanel.Controls.Add(this.P_Priest_tableLayoutPanel, 0, 9);
-            this.t3_tableLayoutPanel.Controls.Add(this.label77, 7, 9);
-            this.t3_tableLayoutPanel.Controls.Add(this.P_Parish_comboBox, 6, 9);
-            this.t3_tableLayoutPanel.Controls.Add(this.flowLayoutPanel3, 0, 10);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_IntermidiaryName_label, 4, 10);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_IntermidiaryName_textBox, 3, 10);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_Priest_tableLayoutPanel, 0, 10);
+            this.t3_tableLayoutPanel.Controls.Add(this.label77, 7, 10);
+            this.t3_tableLayoutPanel.Controls.Add(this.P_Parish_comboBox, 6, 10);
+            this.t3_tableLayoutPanel.Controls.Add(this.flowLayoutPanel3, 0, 11);
             this.t3_tableLayoutPanel.Controls.Add(this.flowLayoutPanel4, 0, 8);
             this.t3_tableLayoutPanel.Controls.Add(this.PersonType_comboBox, 6, 4);
             this.t3_tableLayoutPanel.Controls.Add(this.PersonType_label, 7, 4);
@@ -1662,35 +1595,35 @@ namespace MyWorkApplication
             this.t3_tableLayoutPanel.Name = "t3_tableLayoutPanel";
             this.t3_tableLayoutPanel.RowCount = 21;
             this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
             this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263159F));
-            this.t3_tableLayoutPanel.Size = new System.Drawing.Size(1091, 823);
-            this.t3_tableLayoutPanel.TabIndex = 537;
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
+            this.t3_tableLayoutPanel.Size = new System.Drawing.Size(1091, 775);
+            this.t3_tableLayoutPanel.TabIndex = 17;
             // 
             // P_HomeStateNote_label
             // 
             this.P_HomeStateNote_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.P_HomeStateNote_label.AutoSize = true;
             this.P_HomeStateNote_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_HomeStateNote_label.Location = new System.Drawing.Point(610, 585);
+            this.P_HomeStateNote_label.Location = new System.Drawing.Point(610, 540);
             this.P_HomeStateNote_label.Name = "P_HomeStateNote_label";
             this.P_HomeStateNote_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_HomeStateNote_label.Size = new System.Drawing.Size(92, 29);
@@ -1703,7 +1636,7 @@ namespace MyWorkApplication
             this.label81.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label81.AutoSize = true;
             this.label81.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label81.Location = new System.Drawing.Point(972, 585);
+            this.label81.Location = new System.Drawing.Point(972, 540);
             this.label81.Name = "label81";
             this.label81.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label81.Size = new System.Drawing.Size(116, 29);
@@ -1716,7 +1649,7 @@ namespace MyWorkApplication
             this.Military_label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Military_label2.AutoSize = true;
             this.Military_label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Military_label2.Location = new System.Drawing.Point(591, 705);
+            this.Military_label2.Location = new System.Drawing.Point(591, 654);
             this.Military_label2.Name = "Military_label2";
             this.Military_label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Military_label2.Size = new System.Drawing.Size(111, 29);
@@ -1728,12 +1661,12 @@ namespace MyWorkApplication
             // 
             this.Military_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Military_textBox.BackColor = System.Drawing.Color.White;
-            this.Military_textBox.Location = new System.Drawing.Point(383, 705);
+            this.Military_textBox.Location = new System.Drawing.Point(383, 654);
             this.Military_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.Military_textBox.Name = "Military_textBox";
             this.Military_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Military_textBox.Size = new System.Drawing.Size(148, 29);
-            this.Military_textBox.TabIndex = 17;
+            this.Military_textBox.TabIndex = 44;
             this.Military_textBox.Enter += new System.EventHandler(this.Military_textBox_Enter);
             this.Military_textBox.Leave += new System.EventHandler(this.Military_textBox_Leave);
             // 
@@ -1742,11 +1675,11 @@ namespace MyWorkApplication
             this.Military_Date_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Military_Date_checkBox.AutoSize = true;
             this.Military_Date_checkBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Military_Date_checkBox.Location = new System.Drawing.Point(189, 703);
+            this.Military_Date_checkBox.Location = new System.Drawing.Point(189, 652);
             this.Military_Date_checkBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Military_Date_checkBox.Name = "Military_Date_checkBox";
             this.Military_Date_checkBox.Size = new System.Drawing.Size(139, 33);
-            this.Military_Date_checkBox.TabIndex = 533;
+            this.Military_Date_checkBox.TabIndex = 45;
             this.Military_Date_checkBox.Text = ":تاريخ التسريح";
             this.Military_Date_checkBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Military_Date_checkBox.UseVisualStyleBackColor = true;
@@ -1757,7 +1690,7 @@ namespace MyWorkApplication
             this.label32.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label32.AutoSize = true;
             this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label32.Location = new System.Drawing.Point(983, 105);
+            this.label32.Location = new System.Drawing.Point(983, 102);
             this.label32.Name = "label32";
             this.label32.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label32.Size = new System.Drawing.Size(105, 29);
@@ -1769,12 +1702,12 @@ namespace MyWorkApplication
             // 
             this.P_FirstName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_FirstName_textBox.BackColor = System.Drawing.Color.White;
-            this.P_FirstName_textBox.Location = new System.Drawing.Point(758, 105);
+            this.P_FirstName_textBox.Location = new System.Drawing.Point(758, 102);
             this.P_FirstName_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_FirstName_textBox.Name = "P_FirstName_textBox";
             this.P_FirstName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_FirstName_textBox.Size = new System.Drawing.Size(171, 29);
-            this.P_FirstName_textBox.TabIndex = 1;
+            this.P_FirstName_textBox.TabIndex = 17;
             this.P_FirstName_textBox.Enter += new System.EventHandler(this.P_FirstName_textBox_Enter);
             this.P_FirstName_textBox.Leave += new System.EventHandler(this.P_FirstName_textBox_Leave);
             // 
@@ -1783,7 +1716,7 @@ namespace MyWorkApplication
             this.label52.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label52.AutoSize = true;
             this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label52.Location = new System.Drawing.Point(554, 545);
+            this.label52.Location = new System.Drawing.Point(554, 502);
             this.label52.Name = "label52";
             this.label52.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label52.Size = new System.Drawing.Size(148, 29);
@@ -1796,7 +1729,7 @@ namespace MyWorkApplication
             this.label34.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label34.AutoSize = true;
             this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label34.Location = new System.Drawing.Point(599, 105);
+            this.label34.Location = new System.Drawing.Point(599, 102);
             this.label34.Name = "label34";
             this.label34.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label34.Size = new System.Drawing.Size(103, 29);
@@ -1808,12 +1741,12 @@ namespace MyWorkApplication
             // 
             this.P_FatherName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_FatherName_textBox.BackColor = System.Drawing.Color.White;
-            this.P_FatherName_textBox.Location = new System.Drawing.Point(758, 185);
+            this.P_FatherName_textBox.Location = new System.Drawing.Point(758, 178);
             this.P_FatherName_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_FatherName_textBox.Name = "P_FatherName_textBox";
             this.P_FatherName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_FatherName_textBox.Size = new System.Drawing.Size(171, 29);
-            this.P_FatherName_textBox.TabIndex = 3;
+            this.P_FatherName_textBox.TabIndex = 22;
             this.P_FatherName_textBox.Enter += new System.EventHandler(this.P_FatherName_textBox_Enter);
             this.P_FatherName_textBox.Leave += new System.EventHandler(this.P_FatherName_textBox_Leave);
             // 
@@ -1822,7 +1755,7 @@ namespace MyWorkApplication
             this.label35.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label35.AutoSize = true;
             this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label35.Location = new System.Drawing.Point(254, 105);
+            this.label35.Location = new System.Drawing.Point(254, 102);
             this.label35.Name = "label35";
             this.label35.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label35.Size = new System.Drawing.Size(73, 29);
@@ -1834,12 +1767,12 @@ namespace MyWorkApplication
             // 
             this.P_LastName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_LastName_textBox.BackColor = System.Drawing.Color.White;
-            this.P_LastName_textBox.Location = new System.Drawing.Point(383, 105);
+            this.P_LastName_textBox.Location = new System.Drawing.Point(383, 102);
             this.P_LastName_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_LastName_textBox.Name = "P_LastName_textBox";
             this.P_LastName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_LastName_textBox.Size = new System.Drawing.Size(148, 29);
-            this.P_LastName_textBox.TabIndex = 2;
+            this.P_LastName_textBox.TabIndex = 18;
             this.P_LastName_textBox.Enter += new System.EventHandler(this.P_LastName_textBox_Enter);
             this.P_LastName_textBox.Leave += new System.EventHandler(this.P_LastName_textBox_Leave);
             // 
@@ -1855,12 +1788,12 @@ namespace MyWorkApplication
             this.P_Sex_comboBox.Items.AddRange(new object[] {
             "ذكر",
             "أنثى"});
-            this.P_Sex_comboBox.Location = new System.Drawing.Point(3, 107);
+            this.P_Sex_comboBox.Location = new System.Drawing.Point(3, 105);
             this.P_Sex_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_Sex_comboBox.Name = "P_Sex_comboBox";
             this.P_Sex_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_Sex_comboBox.Size = new System.Drawing.Size(167, 30);
-            this.P_Sex_comboBox.TabIndex = 5;
+            this.P_Sex_comboBox.TabIndex = 19;
             this.P_Sex_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.P_Sex_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.P_Sex_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
@@ -1870,7 +1803,7 @@ namespace MyWorkApplication
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label13.Location = new System.Drawing.Point(997, 185);
+            this.label13.Location = new System.Drawing.Point(997, 178);
             this.label13.Name = "label13";
             this.label13.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label13.Size = new System.Drawing.Size(91, 29);
@@ -1883,7 +1816,7 @@ namespace MyWorkApplication
             this.label41.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label41.AutoSize = true;
             this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label41.Location = new System.Drawing.Point(618, 185);
+            this.label41.Location = new System.Drawing.Point(618, 178);
             this.label41.Name = "label41";
             this.label41.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label41.Size = new System.Drawing.Size(84, 29);
@@ -1896,12 +1829,12 @@ namespace MyWorkApplication
             this.P_Address_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_Address_textBox.BackColor = System.Drawing.Color.White;
             this.t3_tableLayoutPanel.SetColumnSpan(this.P_Address_textBox, 4);
-            this.P_Address_textBox.Location = new System.Drawing.Point(3, 545);
+            this.P_Address_textBox.Location = new System.Drawing.Point(3, 502);
             this.P_Address_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Address_textBox.Name = "P_Address_textBox";
             this.P_Address_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_Address_textBox.Size = new System.Drawing.Size(528, 29);
-            this.P_Address_textBox.TabIndex = 22;
+            this.P_Address_textBox.TabIndex = 35;
             this.P_Address_textBox.Enter += new System.EventHandler(this.P_Address_textBox_Enter);
             this.P_Address_textBox.Leave += new System.EventHandler(this.P_Address_textBox_Leave);
             // 
@@ -1910,12 +1843,12 @@ namespace MyWorkApplication
             this.P_MotherName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_MotherName_textBox.BackColor = System.Drawing.Color.White;
             this.t3_tableLayoutPanel.SetColumnSpan(this.P_MotherName_textBox, 4);
-            this.P_MotherName_textBox.Location = new System.Drawing.Point(3, 185);
+            this.P_MotherName_textBox.Location = new System.Drawing.Point(3, 178);
             this.P_MotherName_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_MotherName_textBox.Name = "P_MotherName_textBox";
             this.P_MotherName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_MotherName_textBox.Size = new System.Drawing.Size(528, 29);
-            this.P_MotherName_textBox.TabIndex = 4;
+            this.P_MotherName_textBox.TabIndex = 23;
             this.P_MotherName_textBox.Enter += new System.EventHandler(this.P_MotherName_textBox_Enter);
             this.P_MotherName_textBox.Leave += new System.EventHandler(this.P_MotherName_textBox_Leave);
             // 
@@ -1924,7 +1857,7 @@ namespace MyWorkApplication
             this.P_Registration_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.P_Registration_label.AutoSize = true;
             this.P_Registration_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_Registration_label.Location = new System.Drawing.Point(974, 225);
+            this.P_Registration_label.Location = new System.Drawing.Point(974, 216);
             this.P_Registration_label.Name = "P_Registration_label";
             this.P_Registration_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_Registration_label.Size = new System.Drawing.Size(114, 29);
@@ -1936,12 +1869,12 @@ namespace MyWorkApplication
             // 
             this.P_Registration_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_Registration_textBox.BackColor = System.Drawing.Color.White;
-            this.P_Registration_textBox.Location = new System.Drawing.Point(758, 225);
+            this.P_Registration_textBox.Location = new System.Drawing.Point(758, 216);
             this.P_Registration_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Registration_textBox.Name = "P_Registration_textBox";
             this.P_Registration_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_Registration_textBox.Size = new System.Drawing.Size(171, 29);
-            this.P_Registration_textBox.TabIndex = 553;
+            this.P_Registration_textBox.TabIndex = 24;
             this.P_Registration_textBox.Enter += new System.EventHandler(this.P_Registration_textBox_Enter);
             this.P_Registration_textBox.Leave += new System.EventHandler(this.P_Registration_textBox_Leave);
             // 
@@ -1950,7 +1883,7 @@ namespace MyWorkApplication
             this.label42.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label42.AutoSize = true;
             this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label42.Location = new System.Drawing.Point(586, 225);
+            this.label42.Location = new System.Drawing.Point(586, 216);
             this.label42.Name = "label42";
             this.label42.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label42.Size = new System.Drawing.Size(116, 29);
@@ -1963,12 +1896,12 @@ namespace MyWorkApplication
             this.P_NationalNum_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_NationalNum_textBox.BackColor = System.Drawing.Color.White;
             this.t3_tableLayoutPanel.SetColumnSpan(this.P_NationalNum_textBox, 4);
-            this.P_NationalNum_textBox.Location = new System.Drawing.Point(3, 225);
+            this.P_NationalNum_textBox.Location = new System.Drawing.Point(3, 216);
             this.P_NationalNum_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_NationalNum_textBox.Name = "P_NationalNum_textBox";
             this.P_NationalNum_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_NationalNum_textBox.Size = new System.Drawing.Size(528, 29);
-            this.P_NationalNum_textBox.TabIndex = 8;
+            this.P_NationalNum_textBox.TabIndex = 25;
             this.P_NationalNum_textBox.Enter += new System.EventHandler(this.P_NationalNum_textBox_Enter);
             this.P_NationalNum_textBox.Leave += new System.EventHandler(this.P_NationalNum_textBox_Leave);
             // 
@@ -1977,7 +1910,7 @@ namespace MyWorkApplication
             this.label54.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label54.AutoSize = true;
             this.label54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label54.Location = new System.Drawing.Point(1010, 265);
+            this.label54.Location = new System.Drawing.Point(1010, 254);
             this.label54.Name = "label54";
             this.label54.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label54.Size = new System.Drawing.Size(78, 29);
@@ -1989,13 +1922,13 @@ namespace MyWorkApplication
             // 
             this.P_DOB_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_DOB_textBox.BackColor = System.Drawing.Color.White;
-            this.P_DOB_textBox.Location = new System.Drawing.Point(758, 265);
+            this.P_DOB_textBox.Location = new System.Drawing.Point(758, 254);
             this.P_DOB_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_DOB_textBox.MaxLength = 4;
             this.P_DOB_textBox.Name = "P_DOB_textBox";
             this.P_DOB_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_DOB_textBox.Size = new System.Drawing.Size(171, 29);
-            this.P_DOB_textBox.TabIndex = 9;
+            this.P_DOB_textBox.TabIndex = 26;
             this.P_DOB_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.P_DOB_textBox.Enter += new System.EventHandler(this.P_DOB_textBox_Enter);
             this.P_DOB_textBox.Leave += new System.EventHandler(this.PersonDOB_textBox_Leave);
@@ -2005,7 +1938,7 @@ namespace MyWorkApplication
             this.label63.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label63.AutoSize = true;
             this.label63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label63.Location = new System.Drawing.Point(553, 265);
+            this.label63.Location = new System.Drawing.Point(553, 254);
             this.label63.Name = "label63";
             this.label63.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label63.Size = new System.Drawing.Size(149, 29);
@@ -2023,12 +1956,12 @@ namespace MyWorkApplication
             this.P_MaritalState_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.P_MaritalState_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_MaritalState_comboBox.FormattingEnabled = true;
-            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(3, 267);
+            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(3, 257);
             this.P_MaritalState_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_MaritalState_comboBox.Name = "P_MaritalState_comboBox";
             this.P_MaritalState_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_MaritalState_comboBox.Size = new System.Drawing.Size(528, 30);
-            this.P_MaritalState_comboBox.TabIndex = 6;
+            this.P_MaritalState_comboBox.TabIndex = 27;
             this.P_MaritalState_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.P_MaritalState_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.P_MaritalState_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
@@ -2038,12 +1971,12 @@ namespace MyWorkApplication
             this.P_HomeStateNote_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_HomeStateNote_textBox.BackColor = System.Drawing.Color.White;
             this.t3_tableLayoutPanel.SetColumnSpan(this.P_HomeStateNote_textBox, 4);
-            this.P_HomeStateNote_textBox.Location = new System.Drawing.Point(3, 585);
+            this.P_HomeStateNote_textBox.Location = new System.Drawing.Point(3, 540);
             this.P_HomeStateNote_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_HomeStateNote_textBox.Name = "P_HomeStateNote_textBox";
             this.P_HomeStateNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_HomeStateNote_textBox.Size = new System.Drawing.Size(528, 29);
-            this.P_HomeStateNote_textBox.TabIndex = 528;
+            this.P_HomeStateNote_textBox.TabIndex = 37;
             this.P_HomeStateNote_textBox.Enter += new System.EventHandler(this.P_HomeStateNote_textBox_Enter);
             this.P_HomeStateNote_textBox.Leave += new System.EventHandler(this.P_HomeStateNote_textBox_Leave);
             // 
@@ -2058,9 +1991,9 @@ namespace MyWorkApplication
             this.flowLayoutPanel5.Controls.Add(this.label43);
             this.flowLayoutPanel5.Controls.Add(this.label44);
             this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 623);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 577);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(1085, 34);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(1085, 32);
             this.flowLayoutPanel5.TabIndex = 563;
             // 
             // label37
@@ -2134,12 +2067,12 @@ namespace MyWorkApplication
             this.Street_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Street_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Street_comboBox.FormattingEnabled = true;
-            this.Street_comboBox.Location = new System.Drawing.Point(758, 547);
+            this.Street_comboBox.Location = new System.Drawing.Point(758, 505);
             this.Street_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.Street_comboBox.Name = "Street_comboBox";
             this.Street_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Street_comboBox.Size = new System.Drawing.Size(171, 30);
-            this.Street_comboBox.TabIndex = 21;
+            this.Street_comboBox.TabIndex = 34;
             this.Street_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.Street_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.Street_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
@@ -2154,12 +2087,12 @@ namespace MyWorkApplication
             this.P_HomeType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_HomeType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_HomeType_comboBox.FormattingEnabled = true;
-            this.P_HomeType_comboBox.Location = new System.Drawing.Point(758, 587);
+            this.P_HomeType_comboBox.Location = new System.Drawing.Point(758, 543);
             this.P_HomeType_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_HomeType_comboBox.Name = "P_HomeType_comboBox";
             this.P_HomeType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_HomeType_comboBox.Size = new System.Drawing.Size(171, 30);
-            this.P_HomeType_comboBox.TabIndex = 21;
+            this.P_HomeType_comboBox.TabIndex = 36;
             this.P_HomeType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.P_HomeType_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.P_HomeType_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
@@ -2168,12 +2101,12 @@ namespace MyWorkApplication
             // 
             this.P_Mobile2_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_Mobile2_textBox.BackColor = System.Drawing.Color.White;
-            this.P_Mobile2_textBox.Location = new System.Drawing.Point(3, 505);
+            this.P_Mobile2_textBox.Location = new System.Drawing.Point(3, 464);
             this.P_Mobile2_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Mobile2_textBox.Name = "P_Mobile2_textBox";
             this.P_Mobile2_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_Mobile2_textBox.Size = new System.Drawing.Size(167, 29);
-            this.P_Mobile2_textBox.TabIndex = 558;
+            this.P_Mobile2_textBox.TabIndex = 33;
             this.P_Mobile2_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.P_Mobile2_textBox.Enter += new System.EventHandler(this.P_Mobile2_textBox_Enter);
             this.P_Mobile2_textBox.Leave += new System.EventHandler(this.P_Mobile2_textBox_Leave);
@@ -2183,11 +2116,11 @@ namespace MyWorkApplication
             this.Military_Date_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Military_Date_dateTimePicker.CustomFormat = "dd/MM/yyyy";
             this.Military_Date_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Military_Date_dateTimePicker.Location = new System.Drawing.Point(3, 705);
+            this.Military_Date_dateTimePicker.Location = new System.Drawing.Point(3, 654);
             this.Military_Date_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Military_Date_dateTimePicker.Name = "Military_Date_dateTimePicker";
             this.Military_Date_dateTimePicker.Size = new System.Drawing.Size(167, 29);
-            this.Military_Date_dateTimePicker.TabIndex = 16;
+            this.Military_Date_dateTimePicker.TabIndex = 46;
             this.Military_Date_dateTimePicker.Visible = false;
             this.Military_Date_dateTimePicker.ValueChanged += new System.EventHandler(this.Military_Date_dateTimePicker_ValueChanged);
             // 
@@ -2200,16 +2133,16 @@ namespace MyWorkApplication
             this.Military_flowLayoutPanel.Controls.Add(this.Military_label);
             this.Military_flowLayoutPanel.Controls.Add(this.MilitarySingle_radioButton);
             this.Military_flowLayoutPanel.Controls.Add(this.MilitaryFinished_radioButton);
-            this.Military_flowLayoutPanel.Controls.Add(this.MilitaryNow_radioButton);
-            this.Military_flowLayoutPanel.Controls.Add(this.label26);
             this.Military_flowLayoutPanel.Controls.Add(this.MilitaryExempt_radioButton);
+            this.Military_flowLayoutPanel.Controls.Add(this.MilitaryNow_radioButton);
             this.Military_flowLayoutPanel.Controls.Add(this.MilitaryDelayed_radioButton);
             this.Military_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.Military_flowLayoutPanel.Location = new System.Drawing.Point(708, 703);
+            this.Military_flowLayoutPanel.Location = new System.Drawing.Point(708, 653);
             this.Military_flowLayoutPanel.Name = "Military_flowLayoutPanel";
             this.t3_tableLayoutPanel.SetRowSpan(this.Military_flowLayoutPanel, 2);
-            this.Military_flowLayoutPanel.Size = new System.Drawing.Size(380, 74);
-            this.Military_flowLayoutPanel.TabIndex = 564;
+            this.Military_flowLayoutPanel.Size = new System.Drawing.Size(380, 70);
+            this.Military_flowLayoutPanel.TabIndex = 38;
+            this.Military_flowLayoutPanel.TabStop = true;
             // 
             // Military_label
             // 
@@ -2235,7 +2168,7 @@ namespace MyWorkApplication
             this.MilitarySingle_radioButton.Name = "MilitarySingle_radioButton";
             this.MilitarySingle_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MilitarySingle_radioButton.Size = new System.Drawing.Size(73, 33);
-            this.MilitarySingle_radioButton.TabIndex = 12;
+            this.MilitarySingle_radioButton.TabIndex = 39;
             this.MilitarySingle_radioButton.TabStop = true;
             this.MilitarySingle_radioButton.Text = "وحيد";
             this.MilitarySingle_radioButton.UseVisualStyleBackColor = false;
@@ -2252,41 +2185,11 @@ namespace MyWorkApplication
             this.MilitaryFinished_radioButton.Name = "MilitaryFinished_radioButton";
             this.MilitaryFinished_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MilitaryFinished_radioButton.Size = new System.Drawing.Size(81, 33);
-            this.MilitaryFinished_radioButton.TabIndex = 15;
+            this.MilitaryFinished_radioButton.TabIndex = 40;
             this.MilitaryFinished_radioButton.TabStop = true;
             this.MilitaryFinished_radioButton.Text = "مسرّح";
             this.MilitaryFinished_radioButton.UseVisualStyleBackColor = false;
             this.MilitaryFinished_radioButton.CheckedChanged += new System.EventHandler(this.Military_radioButton_CheckedChanged);
-            // 
-            // MilitaryNow_radioButton
-            // 
-            this.MilitaryNow_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.MilitaryNow_radioButton.AutoSize = true;
-            this.MilitaryNow_radioButton.BackColor = System.Drawing.Color.Transparent;
-            this.MilitaryNow_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.MilitaryNow_radioButton.Location = new System.Drawing.Point(4, 4);
-            this.MilitaryNow_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MilitaryNow_radioButton.Name = "MilitaryNow_radioButton";
-            this.MilitaryNow_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MilitaryNow_radioButton.Size = new System.Drawing.Size(93, 33);
-            this.MilitaryNow_radioButton.TabIndex = 11;
-            this.MilitaryNow_radioButton.TabStop = true;
-            this.MilitaryNow_radioButton.Text = "عسكري";
-            this.MilitaryNow_radioButton.UseVisualStyleBackColor = false;
-            this.MilitaryNow_radioButton.CheckedChanged += new System.EventHandler(this.Military_radioButton_CheckedChanged);
-            // 
-            // label26
-            // 
-            this.label26.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label26.AutoSize = true;
-            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label26.Location = new System.Drawing.Point(274, 47);
-            this.label26.Name = "label26";
-            this.label26.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label26.Size = new System.Drawing.Size(103, 29);
-            this.label26.TabIndex = 495;
-            this.label26.Text = "                  ";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MilitaryExempt_radioButton
             // 
@@ -2294,16 +2197,33 @@ namespace MyWorkApplication
             this.MilitaryExempt_radioButton.AutoSize = true;
             this.MilitaryExempt_radioButton.BackColor = System.Drawing.Color.Transparent;
             this.MilitaryExempt_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.MilitaryExempt_radioButton.Location = new System.Drawing.Point(150, 45);
+            this.MilitaryExempt_radioButton.Location = new System.Drawing.Point(259, 45);
             this.MilitaryExempt_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MilitaryExempt_radioButton.Name = "MilitaryExempt_radioButton";
             this.MilitaryExempt_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MilitaryExempt_radioButton.Size = new System.Drawing.Size(118, 33);
-            this.MilitaryExempt_radioButton.TabIndex = 493;
+            this.MilitaryExempt_radioButton.TabIndex = 41;
             this.MilitaryExempt_radioButton.TabStop = true;
             this.MilitaryExempt_radioButton.Text = "معفى/بدل";
             this.MilitaryExempt_radioButton.UseVisualStyleBackColor = false;
             this.MilitaryExempt_radioButton.CheckedChanged += new System.EventHandler(this.Military_radioButton_CheckedChanged);
+            // 
+            // MilitaryNow_radioButton
+            // 
+            this.MilitaryNow_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.MilitaryNow_radioButton.AutoSize = true;
+            this.MilitaryNow_radioButton.BackColor = System.Drawing.Color.Transparent;
+            this.MilitaryNow_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.MilitaryNow_radioButton.Location = new System.Drawing.Point(160, 45);
+            this.MilitaryNow_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MilitaryNow_radioButton.Name = "MilitaryNow_radioButton";
+            this.MilitaryNow_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MilitaryNow_radioButton.Size = new System.Drawing.Size(93, 33);
+            this.MilitaryNow_radioButton.TabIndex = 42;
+            this.MilitaryNow_radioButton.TabStop = true;
+            this.MilitaryNow_radioButton.Text = "عسكري";
+            this.MilitaryNow_radioButton.UseVisualStyleBackColor = false;
+            this.MilitaryNow_radioButton.CheckedChanged += new System.EventHandler(this.Military_radioButton_CheckedChanged);
             // 
             // MilitaryDelayed_radioButton
             // 
@@ -2311,12 +2231,12 @@ namespace MyWorkApplication
             this.MilitaryDelayed_radioButton.AutoSize = true;
             this.MilitaryDelayed_radioButton.BackColor = System.Drawing.Color.Transparent;
             this.MilitaryDelayed_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.MilitaryDelayed_radioButton.Location = new System.Drawing.Point(62, 45);
+            this.MilitaryDelayed_radioButton.Location = new System.Drawing.Point(72, 45);
             this.MilitaryDelayed_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MilitaryDelayed_radioButton.Name = "MilitaryDelayed_radioButton";
             this.MilitaryDelayed_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MilitaryDelayed_radioButton.Size = new System.Drawing.Size(82, 33);
-            this.MilitaryDelayed_radioButton.TabIndex = 494;
+            this.MilitaryDelayed_radioButton.TabIndex = 43;
             this.MilitaryDelayed_radioButton.TabStop = true;
             this.MilitaryDelayed_radioButton.Text = "مؤجّل";
             this.MilitaryDelayed_radioButton.UseVisualStyleBackColor = false;
@@ -2327,7 +2247,7 @@ namespace MyWorkApplication
             this.P_IntermidiaryName_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.P_IntermidiaryName_label.AutoSize = true;
             this.P_IntermidiaryName_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_IntermidiaryName_label.Location = new System.Drawing.Point(570, 345);
+            this.P_IntermidiaryName_label.Location = new System.Drawing.Point(570, 350);
             this.P_IntermidiaryName_label.Name = "P_IntermidiaryName_label";
             this.P_IntermidiaryName_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_IntermidiaryName_label.Size = new System.Drawing.Size(132, 29);
@@ -2339,12 +2259,12 @@ namespace MyWorkApplication
             // 
             this.P_IntermidiaryName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_IntermidiaryName_textBox.BackColor = System.Drawing.Color.White;
-            this.P_IntermidiaryName_textBox.Location = new System.Drawing.Point(383, 345);
+            this.P_IntermidiaryName_textBox.Location = new System.Drawing.Point(383, 350);
             this.P_IntermidiaryName_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_IntermidiaryName_textBox.Name = "P_IntermidiaryName_textBox";
             this.P_IntermidiaryName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_IntermidiaryName_textBox.Size = new System.Drawing.Size(148, 29);
-            this.P_IntermidiaryName_textBox.TabIndex = 15;
+            this.P_IntermidiaryName_textBox.TabIndex = 29;
             this.P_IntermidiaryName_textBox.Enter += new System.EventHandler(this.P_IntermidiaryName_textBox_Enter);
             this.P_IntermidiaryName_textBox.Leave += new System.EventHandler(this.P_IntermidiaryName_textBox_Leave);
             // 
@@ -2362,13 +2282,13 @@ namespace MyWorkApplication
             this.P_Priest_tableLayoutPanel.Controls.Add(this.P_Priest2_comboBox, 0, 0);
             this.P_Priest_tableLayoutPanel.Controls.Add(this.P_Priest_comboBox, 1, 0);
             this.P_Priest_tableLayoutPanel.Controls.Add(this.P_Priest_label, 2, 0);
-            this.P_Priest_tableLayoutPanel.Location = new System.Drawing.Point(3, 341);
+            this.P_Priest_tableLayoutPanel.Location = new System.Drawing.Point(3, 347);
             this.P_Priest_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Priest_tableLayoutPanel.Name = "P_Priest_tableLayoutPanel";
             this.P_Priest_tableLayoutPanel.RowCount = 1;
             this.P_Priest_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.P_Priest_tableLayoutPanel.Size = new System.Drawing.Size(324, 38);
-            this.P_Priest_tableLayoutPanel.TabIndex = 270;
+            this.P_Priest_tableLayoutPanel.Size = new System.Drawing.Size(324, 36);
+            this.P_Priest_tableLayoutPanel.TabIndex = 29;
             this.P_Priest_tableLayoutPanel.TabStop = true;
             // 
             // P_Priest2_comboBox
@@ -2386,7 +2306,7 @@ namespace MyWorkApplication
             this.P_Priest2_comboBox.Name = "P_Priest2_comboBox";
             this.P_Priest2_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_Priest2_comboBox.Size = new System.Drawing.Size(104, 30);
-            this.P_Priest2_comboBox.TabIndex = 265;
+            this.P_Priest2_comboBox.TabIndex = 30;
             this.P_Priest2_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.P_Priest2_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.P_Priest2_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
@@ -2406,7 +2326,7 @@ namespace MyWorkApplication
             this.P_Priest_comboBox.Name = "P_Priest_comboBox";
             this.P_Priest_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_Priest_comboBox.Size = new System.Drawing.Size(104, 30);
-            this.P_Priest_comboBox.TabIndex = 17;
+            this.P_Priest_comboBox.TabIndex = 29;
             this.P_Priest_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.P_Priest_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.P_Priest_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
@@ -2416,7 +2336,7 @@ namespace MyWorkApplication
             this.P_Priest_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.P_Priest_label.AutoSize = true;
             this.P_Priest_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_Priest_label.Location = new System.Drawing.Point(250, 4);
+            this.P_Priest_label.Location = new System.Drawing.Point(250, 3);
             this.P_Priest_label.Name = "P_Priest_label";
             this.P_Priest_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_Priest_label.Size = new System.Drawing.Size(71, 29);
@@ -2429,7 +2349,7 @@ namespace MyWorkApplication
             this.label77.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label77.AutoSize = true;
             this.label77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label77.Location = new System.Drawing.Point(1008, 345);
+            this.label77.Location = new System.Drawing.Point(1008, 350);
             this.label77.Name = "label77";
             this.label77.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label77.Size = new System.Drawing.Size(80, 29);
@@ -2447,12 +2367,12 @@ namespace MyWorkApplication
             this.P_Parish_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Parish_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Parish_comboBox.FormattingEnabled = true;
-            this.P_Parish_comboBox.Location = new System.Drawing.Point(758, 347);
+            this.P_Parish_comboBox.Location = new System.Drawing.Point(758, 353);
             this.P_Parish_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Parish_comboBox.Name = "P_Parish_comboBox";
             this.P_Parish_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_Parish_comboBox.Size = new System.Drawing.Size(171, 30);
-            this.P_Parish_comboBox.TabIndex = 16;
+            this.P_Parish_comboBox.TabIndex = 28;
             this.P_Parish_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.P_Parish_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.P_Parish_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
@@ -2466,10 +2386,40 @@ namespace MyWorkApplication
             this.flowLayoutPanel3.Controls.Add(this.label15);
             this.flowLayoutPanel3.Controls.Add(this.label12);
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 383);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 387);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1085, 34);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1085, 32);
             this.flowLayoutPanel3.TabIndex = 562;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label15.Location = new System.Drawing.Point(1015, 0);
+            this.label15.Margin = new System.Windows.Forms.Padding(0);
+            this.label15.Name = "label15";
+            this.label15.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label15.Size = new System.Drawing.Size(70, 23);
+            this.label15.TabIndex = 263;
+            this.label15.Text = "*ملاحظة:";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label12.Location = new System.Drawing.Point(603, 0);
+            this.label12.Margin = new System.Windows.Forms.Padding(0);
+            this.label12.Name = "label12";
+            this.label12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label12.Size = new System.Drawing.Size(412, 23);
+            this.label12.TabIndex = 264;
+            this.label12.Text = "إمكانية إضافة أكثر من اسم كاهن ,أكثر من هيئة وسيطة على البرنامج";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel4
             // 
@@ -2479,11 +2429,44 @@ namespace MyWorkApplication
             this.t3_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel4, 8);
             this.flowLayoutPanel4.Controls.Add(this.label73);
             this.flowLayoutPanel4.Controls.Add(this.label76);
+            this.flowLayoutPanel4.Controls.Add(this.label26);
+            this.flowLayoutPanel4.Controls.Add(this.label70);
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 303);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 291);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(1085, 34);
+            this.t3_tableLayoutPanel.SetRowSpan(this.flowLayoutPanel4, 2);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(1085, 52);
             this.flowLayoutPanel4.TabIndex = 541;
+            // 
+            // label26
+            // 
+            this.label26.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Rubik SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label26.Location = new System.Drawing.Point(2, 0);
+            this.label26.Margin = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.label26.Name = "label26";
+            this.label26.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label26.Size = new System.Drawing.Size(61, 23);
+            this.label26.TabIndex = 265;
+            this.label26.Text = "*الصفة:";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label70
+            // 
+            this.label70.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label70.AutoSize = true;
+            this.label70.Font = new System.Drawing.Font("Rubik", 9F);
+            this.label70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label70.Location = new System.Drawing.Point(981, 23);
+            this.label70.Margin = new System.Windows.Forms.Padding(0);
+            this.label70.Name = "label70";
+            this.label70.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label70.Size = new System.Drawing.Size(104, 23);
+            this.label70.TabIndex = 266;
+            this.label70.Text = "مستفيد- شريك";
+            this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PersonType_comboBox
             // 
@@ -2497,13 +2480,12 @@ namespace MyWorkApplication
             this.PersonType_comboBox.Items.AddRange(new object[] {
             "مستفيد",
             "شريك"});
-            this.PersonType_comboBox.Location = new System.Drawing.Point(758, 147);
+            this.PersonType_comboBox.Location = new System.Drawing.Point(758, 143);
             this.PersonType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PersonType_comboBox.Name = "PersonType_comboBox";
             this.PersonType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.PersonType_comboBox.Size = new System.Drawing.Size(171, 30);
-            this.PersonType_comboBox.TabIndex = 565;
-            this.PersonType_comboBox.TabStop = false;
+            this.PersonType_comboBox.TabIndex = 20;
             this.PersonType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.PersonType_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.PersonType_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
@@ -2513,7 +2495,7 @@ namespace MyWorkApplication
             this.PersonType_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.PersonType_label.AutoSize = true;
             this.PersonType_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.PersonType_label.Location = new System.Drawing.Point(1022, 145);
+            this.PersonType_label.Location = new System.Drawing.Point(1022, 140);
             this.PersonType_label.Name = "PersonType_label";
             this.PersonType_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.PersonType_label.Size = new System.Drawing.Size(66, 29);
@@ -2526,7 +2508,7 @@ namespace MyWorkApplication
             this.P_FullName_En_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.P_FullName_En_label.AutoSize = true;
             this.P_FullName_En_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_FullName_En_label.Location = new System.Drawing.Point(540, 145);
+            this.P_FullName_En_label.Location = new System.Drawing.Point(540, 140);
             this.P_FullName_En_label.Name = "P_FullName_En_label";
             this.P_FullName_En_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_FullName_En_label.Size = new System.Drawing.Size(162, 29);
@@ -2539,10 +2521,10 @@ namespace MyWorkApplication
             this.P_Mobile2_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.P_Mobile2_label.AutoSize = true;
             this.P_Mobile2_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_Mobile2_label.Location = new System.Drawing.Point(190, 500);
+            this.P_Mobile2_label.Location = new System.Drawing.Point(190, 460);
             this.P_Mobile2_label.Name = "P_Mobile2_label";
             this.P_Mobile2_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Mobile2_label.Size = new System.Drawing.Size(137, 40);
+            this.P_Mobile2_label.Size = new System.Drawing.Size(137, 38);
             this.P_Mobile2_label.TabIndex = 557;
             this.P_Mobile2_label.Text = "جوّّال أ حد أفراد العائلة:";
             this.P_Mobile2_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2552,7 +2534,7 @@ namespace MyWorkApplication
             this.label29.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label29.AutoSize = true;
             this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label29.Location = new System.Drawing.Point(600, 505);
+            this.label29.Location = new System.Drawing.Point(600, 464);
             this.label29.Name = "label29";
             this.label29.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label29.Size = new System.Drawing.Size(102, 29);
@@ -2564,12 +2546,12 @@ namespace MyWorkApplication
             // 
             this.P_HomeTel_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_HomeTel_textBox.BackColor = System.Drawing.Color.White;
-            this.P_HomeTel_textBox.Location = new System.Drawing.Point(383, 505);
+            this.P_HomeTel_textBox.Location = new System.Drawing.Point(383, 464);
             this.P_HomeTel_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_HomeTel_textBox.Name = "P_HomeTel_textBox";
             this.P_HomeTel_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_HomeTel_textBox.Size = new System.Drawing.Size(148, 29);
-            this.P_HomeTel_textBox.TabIndex = 19;
+            this.P_HomeTel_textBox.TabIndex = 32;
             this.P_HomeTel_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.P_HomeTel_textBox.Enter += new System.EventHandler(this.P_HomeTel_textBox_Enter);
             this.P_HomeTel_textBox.Leave += new System.EventHandler(this.P_HomeTel_textBox_Leave);
@@ -2578,12 +2560,12 @@ namespace MyWorkApplication
             // 
             this.P_Mobile_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_Mobile_textBox.BackColor = System.Drawing.Color.White;
-            this.P_Mobile_textBox.Location = new System.Drawing.Point(758, 505);
+            this.P_Mobile_textBox.Location = new System.Drawing.Point(758, 464);
             this.P_Mobile_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Mobile_textBox.Name = "P_Mobile_textBox";
             this.P_Mobile_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.P_Mobile_textBox.Size = new System.Drawing.Size(171, 29);
-            this.P_Mobile_textBox.TabIndex = 527;
+            this.P_Mobile_textBox.TabIndex = 31;
             this.P_Mobile_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.P_Mobile_textBox.Enter += new System.EventHandler(this.P_Mobile_textBox_Enter);
             this.P_Mobile_textBox.Leave += new System.EventHandler(this.P_Mobile_textBox_Leave);
@@ -2593,7 +2575,7 @@ namespace MyWorkApplication
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label5.Location = new System.Drawing.Point(984, 505);
+            this.label5.Location = new System.Drawing.Point(984, 464);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label5.Size = new System.Drawing.Size(104, 29);
@@ -2662,8 +2644,8 @@ namespace MyWorkApplication
             this.FamilyMember_dataGridView.RowTemplate.DividerHeight = 1;
             this.FamilyMember_dataGridView.RowTemplate.Height = 35;
             this.FamilyMember_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.FamilyMember_dataGridView.Size = new System.Drawing.Size(1085, 286);
-            this.FamilyMember_dataGridView.TabIndex = 560;
+            this.FamilyMember_dataGridView.Size = new System.Drawing.Size(1085, 314);
+            this.FamilyMember_dataGridView.TabIndex = 78;
             this.FamilyMember_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.FamilyMember_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.FamilyMember_dataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEnter);
@@ -2852,16 +2834,14 @@ namespace MyWorkApplication
             this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel8, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.flowLayoutPanel6, 0, 2);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 297);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 325);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 5;
-            this.t4_tableLayoutPanel.SetRowSpan(this.tableLayoutPanel8, 3);
+            this.tableLayoutPanel8.RowCount = 3;
+            this.t4_tableLayoutPanel.SetRowSpan(this.tableLayoutPanel8, 2);
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1085, 120);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1085, 86);
             this.tableLayoutPanel8.TabIndex = 564;
             // 
             // flowLayoutPanel7
@@ -2874,7 +2854,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(1079, 19);
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(1079, 22);
             this.flowLayoutPanel7.TabIndex = 541;
             // 
             // label30
@@ -2915,9 +2895,9 @@ namespace MyWorkApplication
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel8.Controls.Add(this.label46);
             this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 28);
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 31);
             this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(1079, 19);
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(1079, 22);
             this.flowLayoutPanel8.TabIndex = 564;
             // 
             // label46
@@ -2946,9 +2926,9 @@ namespace MyWorkApplication
             this.flowLayoutPanel6.Controls.Add(this.label49);
             this.flowLayoutPanel6.Controls.Add(this.label59);
             this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 53);
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 59);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(1079, 19);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(1079, 24);
             this.flowLayoutPanel6.TabIndex = 563;
             // 
             // label40
@@ -3019,8 +2999,8 @@ namespace MyWorkApplication
             this.P_WorkYears_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_WorkYears_textBox.Name = "P_WorkYears_textBox";
             this.P_WorkYears_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_WorkYears_textBox.Size = new System.Drawing.Size(706, 29);
-            this.P_WorkYears_textBox.TabIndex = 60;
+            this.P_WorkYears_textBox.Size = new System.Drawing.Size(761, 29);
+            this.P_WorkYears_textBox.TabIndex = 52;
             this.P_WorkYears_textBox.Enter += new System.EventHandler(this.P_WorkYears_textBox_Enter);
             this.P_WorkYears_textBox.Leave += new System.EventHandler(this.P_WorkYears_textBox_Leave);
             // 
@@ -3091,7 +3071,7 @@ namespace MyWorkApplication
             this.AidSource_dataGridView.RowTemplate.Height = 35;
             this.AidSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.AidSource_dataGridView.Size = new System.Drawing.Size(1085, 180);
-            this.AidSource_dataGridView.TabIndex = 499;
+            this.AidSource_dataGridView.TabIndex = 89;
             this.AidSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.AidSource_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.AidSource_dataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEnter);
@@ -3303,7 +3283,7 @@ namespace MyWorkApplication
             this.final_tableLayoutPanel.Controls.Add(this.PaperApplicationUser_comboBox, 3, 0);
             this.final_tableLayoutPanel.Controls.Add(this.label27, 4, 0);
             this.final_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.final_tableLayoutPanel.Location = new System.Drawing.Point(75, 7987);
+            this.final_tableLayoutPanel.Location = new System.Drawing.Point(75, 7731);
             this.final_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.final_tableLayoutPanel.Name = "final_tableLayoutPanel";
             this.final_tableLayoutPanel.RowCount = 5;
@@ -3312,8 +3292,8 @@ namespace MyWorkApplication
             this.final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.final_tableLayoutPanel.Size = new System.Drawing.Size(1091, 265);
-            this.final_tableLayoutPanel.TabIndex = 588;
+            this.final_tableLayoutPanel.Size = new System.Drawing.Size(1091, 220);
+            this.final_tableLayoutPanel.TabIndex = 100;
             this.final_tableLayoutPanel.TabStop = true;
             // 
             // flowLayoutPanel13
@@ -3328,7 +3308,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel13.Controls.Add(this.label33);
             this.flowLayoutPanel13.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel13.Name = "flowLayoutPanel13";
-            this.flowLayoutPanel13.Size = new System.Drawing.Size(648, 47);
+            this.flowLayoutPanel13.Size = new System.Drawing.Size(648, 38);
             this.flowLayoutPanel13.TabIndex = 567;
             // 
             // EditedBy_User_label
@@ -3393,47 +3373,49 @@ namespace MyWorkApplication
             this.tableLayoutPanel4.ColumnCount = 7;
             this.final_tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel4, 5);
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Controls.Add(this.Save_button, 4, 0);
             this.tableLayoutPanel4.Controls.Add(this.AddPartner_button, 5, 0);
             this.tableLayoutPanel4.Controls.Add(this.AddExtention_button, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.Delete_MP_button, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.FullApp_button, 3, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 110);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 92);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tableLayoutPanel4.RowCount = 1;
             this.final_tableLayoutPanel.SetRowSpan(this.tableLayoutPanel4, 2);
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1085, 98);
-            this.tableLayoutPanel4.TabIndex = 566;
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1085, 80);
+            this.tableLayoutPanel4.TabIndex = 102;
             this.tableLayoutPanel4.TabStop = true;
             // 
             // Save_button
             // 
             this.Save_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Save_button.BackColor = System.Drawing.Color.Transparent;
-            this.Save_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.Save2_D;
+            this.Save_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.BtnBackground_D;
             this.Save_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Save_button.FlatAppearance.BorderSize = 0;
             this.Save_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.Save_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Save_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Save_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Save_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Save_button.Location = new System.Drawing.Point(613, 4);
+            this.Save_button.Font = new System.Drawing.Font("Rubik Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Save_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Save_button.Location = new System.Drawing.Point(615, 4);
             this.Save_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Save_button.MaximumSize = new System.Drawing.Size(125, 40);
             this.Save_button.MinimumSize = new System.Drawing.Size(125, 40);
             this.Save_button.Name = "Save_button";
             this.Save_button.Size = new System.Drawing.Size(125, 40);
-            this.Save_button.TabIndex = 100;
+            this.Save_button.TabIndex = 1;
+            this.Save_button.Text = " Save";
             this.Save_button.UseVisualStyleBackColor = false;
             this.Save_button.Click += new System.EventHandler(this.Save_button_Click);
             this.Save_button.MouseEnter += new System.EventHandler(this.Save_button_MouseEnter);
@@ -3443,21 +3425,23 @@ namespace MyWorkApplication
             // 
             this.AddPartner_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.AddPartner_button.BackColor = System.Drawing.Color.Transparent;
-            this.AddPartner_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.AddPartner_D;
+            this.AddPartner_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.BtnBackground_D;
             this.AddPartner_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.AddPartner_button.FlatAppearance.BorderSize = 0;
             this.AddPartner_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.AddPartner_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.AddPartner_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.AddPartner_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddPartner_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.AddPartner_button.Location = new System.Drawing.Point(746, 4);
+            this.AddPartner_button.Font = new System.Drawing.Font("Rubik", 10F);
+            this.AddPartner_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.AddPartner_button.Location = new System.Drawing.Point(750, 4);
             this.AddPartner_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddPartner_button.MaximumSize = new System.Drawing.Size(125, 40);
             this.AddPartner_button.MinimumSize = new System.Drawing.Size(125, 40);
             this.AddPartner_button.Name = "AddPartner_button";
             this.AddPartner_button.Size = new System.Drawing.Size(125, 40);
-            this.AddPartner_button.TabIndex = 111;
+            this.AddPartner_button.TabIndex = 3;
+            this.AddPartner_button.Text = " Add Partner";
             this.AddPartner_button.UseVisualStyleBackColor = false;
             this.AddPartner_button.Click += new System.EventHandler(this.AddPartner_button_Click);
             this.AddPartner_button.MouseEnter += new System.EventHandler(this.AddPartner_button_MouseEnter);
@@ -3467,21 +3451,23 @@ namespace MyWorkApplication
             // 
             this.AddExtention_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.AddExtention_button.BackColor = System.Drawing.Color.Transparent;
-            this.AddExtention_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.AddExtention_D;
+            this.AddExtention_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.BtnBackground_D;
             this.AddExtention_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.AddExtention_button.FlatAppearance.BorderSize = 0;
             this.AddExtention_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.AddExtention_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.AddExtention_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.AddExtention_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddExtention_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.AddExtention_button.Location = new System.Drawing.Point(214, 4);
+            this.AddExtention_button.Font = new System.Drawing.Font("Rubik", 10F);
+            this.AddExtention_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.AddExtention_button.Location = new System.Drawing.Point(210, 4);
             this.AddExtention_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddExtention_button.MaximumSize = new System.Drawing.Size(125, 40);
             this.AddExtention_button.MinimumSize = new System.Drawing.Size(125, 40);
             this.AddExtention_button.Name = "AddExtention_button";
             this.AddExtention_button.Size = new System.Drawing.Size(125, 40);
-            this.AddExtention_button.TabIndex = 112;
+            this.AddExtention_button.TabIndex = 4;
+            this.AddExtention_button.Text = "Extention";
             this.AddExtention_button.UseVisualStyleBackColor = false;
             this.AddExtention_button.MouseEnter += new System.EventHandler(this.Extention_button_MouseEnter);
             this.AddExtention_button.MouseLeave += new System.EventHandler(this.Extention_button_MouseLeave);
@@ -3498,13 +3484,13 @@ namespace MyWorkApplication
             this.Delete_MP_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Delete_MP_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete_MP_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Delete_MP_button.Location = new System.Drawing.Point(347, 4);
+            this.Delete_MP_button.Location = new System.Drawing.Point(345, 4);
             this.Delete_MP_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Delete_MP_button.MaximumSize = new System.Drawing.Size(125, 40);
             this.Delete_MP_button.MinimumSize = new System.Drawing.Size(125, 40);
             this.Delete_MP_button.Name = "Delete_MP_button";
             this.Delete_MP_button.Size = new System.Drawing.Size(125, 40);
-            this.Delete_MP_button.TabIndex = 113;
+            this.Delete_MP_button.TabIndex = 5;
             this.Delete_MP_button.UseVisualStyleBackColor = false;
             this.Delete_MP_button.Click += new System.EventHandler(this.Delete_MP_button_Click);
             this.Delete_MP_button.MouseEnter += new System.EventHandler(this.Delete_MP_button_MouseEnter);
@@ -3513,7 +3499,7 @@ namespace MyWorkApplication
             // FullApp_button
             // 
             this.FullApp_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.FullApp_button.BackColor = System.Drawing.Color.DarkGray;
+            this.FullApp_button.BackColor = System.Drawing.Color.Transparent;
             this.FullApp_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.BtnBackground_D;
             this.FullApp_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.FullApp_button.FlatAppearance.BorderSize = 0;
@@ -3521,15 +3507,15 @@ namespace MyWorkApplication
             this.FullApp_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.FullApp_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.FullApp_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FullApp_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.FullApp_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FullApp_button.Location = new System.Drawing.Point(480, 4);
             this.FullApp_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FullApp_button.MaximumSize = new System.Drawing.Size(125, 40);
             this.FullApp_button.MinimumSize = new System.Drawing.Size(125, 40);
             this.FullApp_button.Name = "FullApp_button";
             this.FullApp_button.Size = new System.Drawing.Size(125, 40);
-            this.FullApp_button.TabIndex = 114;
-            this.FullApp_button.Text = "Full App";
+            this.FullApp_button.TabIndex = 2;
+            this.FullApp_button.Text = " Full App";
             this.FullApp_button.UseVisualStyleBackColor = false;
             this.FullApp_button.Click += new System.EventHandler(this.FullApp_button_Click);
             this.FullApp_button.MouseEnter += new System.EventHandler(this.FullApp_button_MouseEnter);
@@ -3544,11 +3530,11 @@ namespace MyWorkApplication
             this.PaperApplicationUser_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.PaperApplicationUser_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaperApplicationUser_comboBox.FormattingEnabled = true;
-            this.PaperApplicationUser_comboBox.Location = new System.Drawing.Point(657, 14);
+            this.PaperApplicationUser_comboBox.Location = new System.Drawing.Point(657, 10);
             this.PaperApplicationUser_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PaperApplicationUser_comboBox.Name = "PaperApplicationUser_comboBox";
             this.PaperApplicationUser_comboBox.Size = new System.Drawing.Size(212, 30);
-            this.PaperApplicationUser_comboBox.TabIndex = 91;
+            this.PaperApplicationUser_comboBox.TabIndex = 101;
             this.PaperApplicationUser_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.PaperApplicationUser_comboBox.SelectionChangeCommitted += new System.EventHandler(this.PaperApplicationUser_comboBox_SelectionChangeCommitted);
             this.PaperApplicationUser_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
@@ -3558,7 +3544,7 @@ namespace MyWorkApplication
             this.label27.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label27.AutoSize = true;
             this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label27.Location = new System.Drawing.Point(908, 12);
+            this.label27.Location = new System.Drawing.Point(908, 7);
             this.label27.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label27.Name = "label27";
             this.label27.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3577,17 +3563,17 @@ namespace MyWorkApplication
             this.t12_tableLayoutPanel.Controls.Add(this.MP_SimpleProfit2_textBox, 0, 2);
             this.t12_tableLayoutPanel.Controls.Add(this.label100, 0, 1);
             this.t12_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.t12_tableLayoutPanel.Location = new System.Drawing.Point(75, 7581);
+            this.t12_tableLayoutPanel.Location = new System.Drawing.Point(75, 7533);
             this.t12_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.t12_tableLayoutPanel.Name = "t12_tableLayoutPanel";
             this.t12_tableLayoutPanel.RowCount = 5;
-            this.t12_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.t12_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.t12_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.t12_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.t12_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.t12_tableLayoutPanel.Size = new System.Drawing.Size(1091, 406);
-            this.t12_tableLayoutPanel.TabIndex = 542;
+            this.t12_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t12_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.20513F));
+            this.t12_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.46154F));
+            this.t12_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.t12_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t12_tableLayoutPanel.Size = new System.Drawing.Size(1091, 198);
+            this.t12_tableLayoutPanel.TabIndex = 98;
             this.t12_tableLayoutPanel.TabStop = true;
             // 
             // MP_SimpleProfit2_textBox
@@ -3597,14 +3583,14 @@ namespace MyWorkApplication
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MP_SimpleProfit2_textBox.BackColor = System.Drawing.Color.White;
             this.t12_tableLayoutPanel.SetColumnSpan(this.MP_SimpleProfit2_textBox, 5);
-            this.MP_SimpleProfit2_textBox.Location = new System.Drawing.Point(3, 155);
+            this.MP_SimpleProfit2_textBox.Location = new System.Drawing.Point(3, 68);
             this.MP_SimpleProfit2_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MP_SimpleProfit2_textBox.Multiline = true;
             this.MP_SimpleProfit2_textBox.Name = "MP_SimpleProfit2_textBox";
             this.MP_SimpleProfit2_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.t12_tableLayoutPanel.SetRowSpan(this.MP_SimpleProfit2_textBox, 2);
-            this.MP_SimpleProfit2_textBox.Size = new System.Drawing.Size(1085, 194);
-            this.MP_SimpleProfit2_textBox.TabIndex = 587;
+            this.MP_SimpleProfit2_textBox.Size = new System.Drawing.Size(1085, 104);
+            this.MP_SimpleProfit2_textBox.TabIndex = 99;
             this.MP_SimpleProfit2_textBox.Enter += new System.EventHandler(this.MP_SimpleProfit2_textBox_Enter);
             this.MP_SimpleProfit2_textBox.Leave += new System.EventHandler(this.MP_SimpleProfit2_textBox_Leave);
             // 
@@ -3614,7 +3600,7 @@ namespace MyWorkApplication
             this.label100.AutoSize = true;
             this.t12_tableLayoutPanel.SetColumnSpan(this.label100, 5);
             this.label100.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label100.Location = new System.Drawing.Point(940, 86);
+            this.label100.Location = new System.Drawing.Point(940, 27);
             this.label100.Margin = new System.Windows.Forms.Padding(3);
             this.label100.Name = "label100";
             this.label100.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3638,7 +3624,7 @@ namespace MyWorkApplication
             this.t11_tableLayoutPanel.Controls.Add(this.flowLayoutPanel18, 0, 14);
             this.t11_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.t11_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.t11_tableLayoutPanel.Location = new System.Drawing.Point(75, 6986);
+            this.t11_tableLayoutPanel.Location = new System.Drawing.Point(75, 6938);
             this.t11_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.t11_tableLayoutPanel.Name = "t11_tableLayoutPanel";
             this.t11_tableLayoutPanel.RowCount = 16;
@@ -3685,7 +3671,8 @@ namespace MyWorkApplication
             this.P_HasIncomeSource_flowLayoutPanel.Location = new System.Drawing.Point(3, 44);
             this.P_HasIncomeSource_flowLayoutPanel.Name = "P_HasIncomeSource_flowLayoutPanel";
             this.P_HasIncomeSource_flowLayoutPanel.Size = new System.Drawing.Size(227, 35);
-            this.P_HasIncomeSource_flowLayoutPanel.TabIndex = 584;
+            this.P_HasIncomeSource_flowLayoutPanel.TabIndex = 95;
+            this.P_HasIncomeSource_flowLayoutPanel.TabStop = true;
             // 
             // P_HasHelpSourceNo_radioButton
             // 
@@ -3770,7 +3757,7 @@ namespace MyWorkApplication
             this.HelpSource_dataGridView.RowTemplate.Height = 35;
             this.HelpSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.HelpSource_dataGridView.Size = new System.Drawing.Size(1085, 115);
-            this.HelpSource_dataGridView.TabIndex = 500;
+            this.HelpSource_dataGridView.TabIndex = 96;
             this.HelpSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.HelpSource_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.HelpSource_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
@@ -3924,7 +3911,7 @@ namespace MyWorkApplication
             this.HomePowerSource_dataGridView.RowTemplate.Height = 35;
             this.HomePowerSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.HomePowerSource_dataGridView.Size = new System.Drawing.Size(1085, 197);
-            this.HomePowerSource_dataGridView.TabIndex = 593;
+            this.HomePowerSource_dataGridView.TabIndex = 97;
             this.HomePowerSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.HomePowerSource_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.HomePowerSource_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
@@ -4068,7 +4055,7 @@ namespace MyWorkApplication
             this.t10_tableLayoutPanel.Controls.Add(this.P_AidSourceNote_textBox, 0, 7);
             this.t10_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.t10_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.t10_tableLayoutPanel.Location = new System.Drawing.Point(75, 6590);
+            this.t10_tableLayoutPanel.Location = new System.Drawing.Point(75, 6542);
             this.t10_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.t10_tableLayoutPanel.Name = "t10_tableLayoutPanel";
             this.t10_tableLayoutPanel.RowCount = 9;
@@ -4108,7 +4095,8 @@ namespace MyWorkApplication
             this.P_HasAidSource_flowLayoutPanel.Location = new System.Drawing.Point(3, 50);
             this.P_HasAidSource_flowLayoutPanel.Name = "P_HasAidSource_flowLayoutPanel";
             this.P_HasAidSource_flowLayoutPanel.Size = new System.Drawing.Size(212, 41);
-            this.P_HasAidSource_flowLayoutPanel.TabIndex = 585;
+            this.P_HasAidSource_flowLayoutPanel.TabIndex = 88;
+            this.P_HasAidSource_flowLayoutPanel.TabStop = true;
             // 
             // P_HasAidSourceNo_radioButton
             // 
@@ -4170,7 +4158,7 @@ namespace MyWorkApplication
             this.P_Debts_tableLayoutPanel.RowCount = 1;
             this.P_Debts_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.P_Debts_tableLayoutPanel.Size = new System.Drawing.Size(1085, 45);
-            this.P_Debts_tableLayoutPanel.TabIndex = 577;
+            this.P_Debts_tableLayoutPanel.TabIndex = 91;
             this.P_Debts_tableLayoutPanel.TabStop = true;
             // 
             // P_DebtsAmount_textBox
@@ -4182,7 +4170,7 @@ namespace MyWorkApplication
             this.P_DebtsAmount_textBox.Name = "P_DebtsAmount_textBox";
             this.P_DebtsAmount_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_DebtsAmount_textBox.Size = new System.Drawing.Size(177, 29);
-            this.P_DebtsAmount_textBox.TabIndex = 546;
+            this.P_DebtsAmount_textBox.TabIndex = 93;
             this.P_DebtsAmount_textBox.Enter += new System.EventHandler(this.P_DebtsAmount_textBox_Enter);
             this.P_DebtsAmount_textBox.Leave += new System.EventHandler(this.P_DebtsAmount_textBox_Leave);
             // 
@@ -4208,7 +4196,7 @@ namespace MyWorkApplication
             this.P_DebtsNote_textBox.Name = "P_DebtsNote_textBox";
             this.P_DebtsNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_DebtsNote_textBox.Size = new System.Drawing.Size(346, 29);
-            this.P_DebtsNote_textBox.TabIndex = 548;
+            this.P_DebtsNote_textBox.TabIndex = 94;
             this.P_DebtsNote_textBox.Enter += new System.EventHandler(this.P_DebtsNote_textBox_Enter);
             this.P_DebtsNote_textBox.Leave += new System.EventHandler(this.P_DebtsNote_textBox_Leave);
             // 
@@ -4224,7 +4212,8 @@ namespace MyWorkApplication
             this.P_HasDebts_flowLayoutPanel.Location = new System.Drawing.Point(765, 3);
             this.P_HasDebts_flowLayoutPanel.Name = "P_HasDebts_flowLayoutPanel";
             this.P_HasDebts_flowLayoutPanel.Size = new System.Drawing.Size(317, 39);
-            this.P_HasDebts_flowLayoutPanel.TabIndex = 572;
+            this.P_HasDebts_flowLayoutPanel.TabIndex = 92;
+            this.P_HasDebts_flowLayoutPanel.TabStop = true;
             // 
             // P_HasDebtsYes_radioButton
             // 
@@ -4237,7 +4226,7 @@ namespace MyWorkApplication
             this.P_HasDebtsYes_radioButton.Name = "P_HasDebtsYes_radioButton";
             this.P_HasDebtsYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_HasDebtsYes_radioButton.Size = new System.Drawing.Size(62, 33);
-            this.P_HasDebtsYes_radioButton.TabIndex = 539;
+            this.P_HasDebtsYes_radioButton.TabIndex = 1;
             this.P_HasDebtsYes_radioButton.TabStop = true;
             this.P_HasDebtsYes_radioButton.Text = "نعم";
             this.P_HasDebtsYes_radioButton.UseVisualStyleBackColor = false;
@@ -4254,7 +4243,7 @@ namespace MyWorkApplication
             this.P_HasDebtsNo_radioButton.Name = "P_HasDebtsNo_radioButton";
             this.P_HasDebtsNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_HasDebtsNo_radioButton.Size = new System.Drawing.Size(46, 33);
-            this.P_HasDebtsNo_radioButton.TabIndex = 538;
+            this.P_HasDebtsNo_radioButton.TabIndex = 2;
             this.P_HasDebtsNo_radioButton.TabStop = true;
             this.P_HasDebtsNo_radioButton.Text = "لا";
             this.P_HasDebtsNo_radioButton.UseVisualStyleBackColor = false;
@@ -4284,7 +4273,7 @@ namespace MyWorkApplication
             this.P_AidSourceNote_textBox.Name = "P_AidSourceNote_textBox";
             this.P_AidSourceNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_AidSourceNote_textBox.Size = new System.Drawing.Size(872, 29);
-            this.P_AidSourceNote_textBox.TabIndex = 587;
+            this.P_AidSourceNote_textBox.TabIndex = 90;
             this.P_AidSourceNote_textBox.Enter += new System.EventHandler(this.MP_OtherDonors_textBox_Enter);
             this.P_AidSourceNote_textBox.Leave += new System.EventHandler(this.MP_OtherDonors_textBox_Leave);
             // 
@@ -4295,62 +4284,63 @@ namespace MyWorkApplication
             this.t9_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.t9_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.t9_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.t9_tableLayoutPanel.Controls.Add(this.Loss_dataGridView, 0, 10);
-            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel21, 0, 20);
+            this.t9_tableLayoutPanel.Controls.Add(this.Loss_dataGridView, 0, 11);
+            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel21, 0, 21);
             this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel9, 0, 7);
             this.t9_tableLayoutPanel.Controls.Add(this.SubHeader6_label, 1, 9);
-            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel14, 0, 12);
-            this.t9_tableLayoutPanel.Controls.Add(this.Illness_dataGridView, 0, 18);
-            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel15, 0, 19);
-            this.t9_tableLayoutPanel.Controls.Add(this.P_HasIllness_flowLayoutPanel, 0, 16);
-            this.t9_tableLayoutPanel.Controls.Add(this.P_HasAssets_flowLayoutPanel, 0, 25);
-            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel16, 0, 31);
-            this.t9_tableLayoutPanel.Controls.Add(this.Assets_dataGridView, 0, 27);
-            this.t9_tableLayoutPanel.Controls.Add(this.label70, 1, 1);
+            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel14, 0, 13);
+            this.t9_tableLayoutPanel.Controls.Add(this.Illness_dataGridView, 0, 19);
+            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel15, 0, 20);
+            this.t9_tableLayoutPanel.Controls.Add(this.P_HasIllness_flowLayoutPanel, 0, 17);
+            this.t9_tableLayoutPanel.Controls.Add(this.P_HasAssets_flowLayoutPanel, 0, 26);
+            this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel16, 0, 32);
+            this.t9_tableLayoutPanel.Controls.Add(this.Assets_dataGridView, 0, 28);
+            this.t9_tableLayoutPanel.Controls.Add(this.SubHeader15_label, 1, 1);
             this.t9_tableLayoutPanel.Controls.Add(this.FP_Exp_dataGridView, 0, 3);
-            this.t9_tableLayoutPanel.Controls.Add(this.SubHeader7_label, 1, 16);
-            this.t9_tableLayoutPanel.Controls.Add(this.SubHeader8_label, 1, 25);
+            this.t9_tableLayoutPanel.Controls.Add(this.SubHeader7_label, 1, 17);
+            this.t9_tableLayoutPanel.Controls.Add(this.SubHeader8_label, 1, 26);
             this.t9_tableLayoutPanel.Controls.Add(this.flowLayoutPanel22, 0, 9);
             this.t9_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.t9_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.t9_tableLayoutPanel.Location = new System.Drawing.Point(75, 5285);
+            this.t9_tableLayoutPanel.Location = new System.Drawing.Point(75, 5237);
             this.t9_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.t9_tableLayoutPanel.Name = "t9_tableLayoutPanel";
-            this.t9_tableLayoutPanel.RowCount = 32;
+            this.t9_tableLayoutPanel.RowCount = 33;
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761908F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761904F));
-            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761908F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
+            this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761908F));
             this.t9_tableLayoutPanel.Size = new System.Drawing.Size(1091, 1305);
-            this.t9_tableLayoutPanel.TabIndex = 541;
+            this.t9_tableLayoutPanel.TabIndex = 80;
             // 
             // Loss_dataGridView
             // 
@@ -4393,7 +4383,7 @@ namespace MyWorkApplication
             this.Loss_dataGridView.DefaultCellStyle = dataGridViewCellStyle14;
             this.Loss_dataGridView.EnableHeadersVisualStyles = false;
             this.Loss_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.Loss_dataGridView.Location = new System.Drawing.Point(3, 388);
+            this.Loss_dataGridView.Location = new System.Drawing.Point(3, 402);
             this.Loss_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Loss_dataGridView.MultiSelect = false;
             this.Loss_dataGridView.Name = "Loss_dataGridView";
@@ -4407,8 +4397,8 @@ namespace MyWorkApplication
             this.Loss_dataGridView.RowTemplate.Height = 35;
             this.Loss_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Loss_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Loss_dataGridView.Size = new System.Drawing.Size(1085, 188);
-            this.Loss_dataGridView.TabIndex = 573;
+            this.Loss_dataGridView.Size = new System.Drawing.Size(1085, 184);
+            this.Loss_dataGridView.TabIndex = 83;
             this.Loss_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Loss_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Loss_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
@@ -4510,7 +4500,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel21.Controls.Add(this.label64);
             this.flowLayoutPanel21.Controls.Add(this.label65);
             this.flowLayoutPanel21.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel21.Location = new System.Drawing.Point(3, 928);
+            this.flowLayoutPanel21.Location = new System.Drawing.Point(3, 933);
             this.flowLayoutPanel21.Name = "flowLayoutPanel21";
             this.flowLayoutPanel21.Size = new System.Drawing.Size(1085, 24);
             this.flowLayoutPanel21.TabIndex = 542;
@@ -4584,7 +4574,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel9.Controls.Add(this.label48);
             this.flowLayoutPanel9.Controls.Add(this.label47);
             this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 288);
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 283);
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
             this.flowLayoutPanel9.Size = new System.Drawing.Size(1085, 24);
             this.flowLayoutPanel9.TabIndex = 565;
@@ -4626,7 +4616,7 @@ namespace MyWorkApplication
             this.SubHeader6_label.AutoSize = true;
             this.SubHeader6_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader6_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader6_label.Location = new System.Drawing.Point(221, 341);
+            this.SubHeader6_label.Location = new System.Drawing.Point(221, 335);
             this.SubHeader6_label.Name = "SubHeader6_label";
             this.SubHeader6_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SubHeader6_label.Size = new System.Drawing.Size(648, 37);
@@ -4643,7 +4633,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel14.Controls.Add(this.label23);
             this.flowLayoutPanel14.Controls.Add(this.label24);
             this.flowLayoutPanel14.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel14.Location = new System.Drawing.Point(3, 583);
+            this.flowLayoutPanel14.Location = new System.Drawing.Point(3, 593);
             this.flowLayoutPanel14.Name = "flowLayoutPanel14";
             this.flowLayoutPanel14.Size = new System.Drawing.Size(1085, 24);
             this.flowLayoutPanel14.TabIndex = 567;
@@ -4724,7 +4714,7 @@ namespace MyWorkApplication
             this.Illness_dataGridView.DefaultCellStyle = dataGridViewCellStyle17;
             this.Illness_dataGridView.EnableHeadersVisualStyles = false;
             this.Illness_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.Illness_dataGridView.Location = new System.Drawing.Point(3, 703);
+            this.Illness_dataGridView.Location = new System.Drawing.Point(3, 712);
             this.Illness_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Illness_dataGridView.MultiSelect = false;
             this.Illness_dataGridView.Name = "Illness_dataGridView";
@@ -4738,8 +4728,8 @@ namespace MyWorkApplication
             this.Illness_dataGridView.RowTemplate.Height = 35;
             this.Illness_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Illness_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Illness_dataGridView.Size = new System.Drawing.Size(1085, 188);
-            this.Illness_dataGridView.TabIndex = 575;
+            this.Illness_dataGridView.Size = new System.Drawing.Size(1085, 184);
+            this.Illness_dataGridView.TabIndex = 85;
             this.Illness_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Illness_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Illness_dataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEnter);
@@ -4884,7 +4874,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel15.Controls.Add(this.label68);
             this.flowLayoutPanel15.Controls.Add(this.label69);
             this.flowLayoutPanel15.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel15.Location = new System.Drawing.Point(3, 898);
+            this.flowLayoutPanel15.Location = new System.Drawing.Point(3, 903);
             this.flowLayoutPanel15.Name = "flowLayoutPanel15";
             this.flowLayoutPanel15.Size = new System.Drawing.Size(1085, 24);
             this.flowLayoutPanel15.TabIndex = 569;
@@ -4927,10 +4917,11 @@ namespace MyWorkApplication
             | System.Windows.Forms.AnchorStyles.Right)));
             this.P_HasIllness_flowLayoutPanel.Controls.Add(this.P_HasIllnessNo_radioButton);
             this.P_HasIllness_flowLayoutPanel.Controls.Add(this.P_HasIllnessYes_radioButton);
-            this.P_HasIllness_flowLayoutPanel.Location = new System.Drawing.Point(3, 633);
+            this.P_HasIllness_flowLayoutPanel.Location = new System.Drawing.Point(3, 643);
             this.P_HasIllness_flowLayoutPanel.Name = "P_HasIllness_flowLayoutPanel";
-            this.P_HasIllness_flowLayoutPanel.Size = new System.Drawing.Size(212, 43);
-            this.P_HasIllness_flowLayoutPanel.TabIndex = 586;
+            this.P_HasIllness_flowLayoutPanel.Size = new System.Drawing.Size(212, 42);
+            this.P_HasIllness_flowLayoutPanel.TabIndex = 84;
+            this.P_HasIllness_flowLayoutPanel.TabStop = true;
             // 
             // P_HasIllnessNo_radioButton
             // 
@@ -4970,10 +4961,11 @@ namespace MyWorkApplication
             // 
             this.P_HasAssets_flowLayoutPanel.Controls.Add(this.P_HasAssetsNo_radioButton);
             this.P_HasAssets_flowLayoutPanel.Controls.Add(this.P_HasAssetsYes_radioButton);
-            this.P_HasAssets_flowLayoutPanel.Location = new System.Drawing.Point(3, 978);
+            this.P_HasAssets_flowLayoutPanel.Location = new System.Drawing.Point(3, 983);
             this.P_HasAssets_flowLayoutPanel.Name = "P_HasAssets_flowLayoutPanel";
             this.P_HasAssets_flowLayoutPanel.Size = new System.Drawing.Size(212, 39);
-            this.P_HasAssets_flowLayoutPanel.TabIndex = 586;
+            this.P_HasAssets_flowLayoutPanel.TabIndex = 86;
+            this.P_HasAssets_flowLayoutPanel.TabStop = true;
             // 
             // P_HasAssetsNo_radioButton
             // 
@@ -5163,7 +5155,7 @@ namespace MyWorkApplication
             this.Assets_dataGridView.DefaultCellStyle = dataGridViewCellStyle20;
             this.Assets_dataGridView.EnableHeadersVisualStyles = false;
             this.Assets_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.Assets_dataGridView.Location = new System.Drawing.Point(3, 1048);
+            this.Assets_dataGridView.Location = new System.Drawing.Point(3, 1052);
             this.Assets_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Assets_dataGridView.MultiSelect = false;
             this.Assets_dataGridView.Name = "Assets_dataGridView";
@@ -5177,8 +5169,8 @@ namespace MyWorkApplication
             this.Assets_dataGridView.RowTemplate.Height = 35;
             this.Assets_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Assets_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Assets_dataGridView.Size = new System.Drawing.Size(1085, 188);
-            this.Assets_dataGridView.TabIndex = 576;
+            this.Assets_dataGridView.Size = new System.Drawing.Size(1085, 184);
+            this.Assets_dataGridView.TabIndex = 87;
             this.Assets_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Assets_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Assets_dataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEnter);
@@ -5303,19 +5295,19 @@ namespace MyWorkApplication
             this.Asset_IsDirty.Name = "Asset_IsDirty";
             this.Asset_IsDirty.Visible = false;
             // 
-            // label70
+            // SubHeader15_label
             // 
-            this.label70.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label70.AutoSize = true;
-            this.label70.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.label70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.label70.Location = new System.Drawing.Point(221, 26);
-            this.label70.Name = "label70";
-            this.label70.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label70.Size = new System.Drawing.Size(648, 37);
-            this.label70.TabIndex = 587;
-            this.label70.Text = "عمل أفراد العائلة";
-            this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SubHeader15_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubHeader15_label.AutoSize = true;
+            this.SubHeader15_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.SubHeader15_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.SubHeader15_label.Location = new System.Drawing.Point(221, 25);
+            this.SubHeader15_label.Name = "SubHeader15_label";
+            this.SubHeader15_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SubHeader15_label.Size = new System.Drawing.Size(648, 37);
+            this.SubHeader15_label.TabIndex = 587;
+            this.SubHeader15_label.Text = "عمل أفراد العائلة";
+            this.SubHeader15_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FP_Exp_dataGridView
             // 
@@ -5357,7 +5349,7 @@ namespace MyWorkApplication
             this.FP_Exp_dataGridView.DefaultCellStyle = dataGridViewCellStyle23;
             this.FP_Exp_dataGridView.EnableHeadersVisualStyles = false;
             this.FP_Exp_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.FP_Exp_dataGridView.Location = new System.Drawing.Point(3, 93);
+            this.FP_Exp_dataGridView.Location = new System.Drawing.Point(3, 92);
             this.FP_Exp_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FP_Exp_dataGridView.MultiSelect = false;
             this.FP_Exp_dataGridView.Name = "FP_Exp_dataGridView";
@@ -5371,8 +5363,8 @@ namespace MyWorkApplication
             this.FP_Exp_dataGridView.RowTemplate.Height = 35;
             this.FP_Exp_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.FP_Exp_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.FP_Exp_dataGridView.Size = new System.Drawing.Size(1085, 188);
-            this.FP_Exp_dataGridView.TabIndex = 588;
+            this.FP_Exp_dataGridView.Size = new System.Drawing.Size(1085, 184);
+            this.FP_Exp_dataGridView.TabIndex = 81;
             // 
             // FP_Exp_ID
             // 
@@ -5454,7 +5446,7 @@ namespace MyWorkApplication
             this.SubHeader7_label.AutoSize = true;
             this.SubHeader7_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader7_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader7_label.Location = new System.Drawing.Point(221, 636);
+            this.SubHeader7_label.Location = new System.Drawing.Point(221, 645);
             this.SubHeader7_label.Name = "SubHeader7_label";
             this.SubHeader7_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SubHeader7_label.Size = new System.Drawing.Size(648, 37);
@@ -5468,7 +5460,7 @@ namespace MyWorkApplication
             this.SubHeader8_label.AutoSize = true;
             this.SubHeader8_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader8_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader8_label.Location = new System.Drawing.Point(221, 981);
+            this.SubHeader8_label.Location = new System.Drawing.Point(221, 985);
             this.SubHeader8_label.Name = "SubHeader8_label";
             this.SubHeader8_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SubHeader8_label.Size = new System.Drawing.Size(648, 37);
@@ -5483,10 +5475,11 @@ namespace MyWorkApplication
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel22.Controls.Add(this.P_HasLossesNo_radioButton);
             this.flowLayoutPanel22.Controls.Add(this.P_HasLossesYes_radioButton);
-            this.flowLayoutPanel22.Location = new System.Drawing.Point(3, 338);
+            this.flowLayoutPanel22.Location = new System.Drawing.Point(3, 333);
             this.flowLayoutPanel22.Name = "flowLayoutPanel22";
-            this.flowLayoutPanel22.Size = new System.Drawing.Size(212, 43);
-            this.flowLayoutPanel22.TabIndex = 589;
+            this.flowLayoutPanel22.Size = new System.Drawing.Size(212, 42);
+            this.flowLayoutPanel22.TabIndex = 82;
+            this.flowLayoutPanel22.TabStop = true;
             // 
             // P_HasLossesNo_radioButton
             // 
@@ -5526,29 +5519,29 @@ namespace MyWorkApplication
             // 
             this.t4_tableLayoutPanel.BackColor = System.Drawing.Color.RosyBrown;
             this.t4_tableLayoutPanel.ColumnCount = 2;
+            this.t4_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00001F));
             this.t4_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.t4_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.99999F));
             this.t4_tableLayoutPanel.Controls.Add(this.FamilyMember_dataGridView, 0, 0);
             this.t4_tableLayoutPanel.Controls.Add(this.tableLayoutPanel8, 0, 7);
             this.t4_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.t4_tableLayoutPanel.Location = new System.Drawing.Point(75, 4857);
+            this.t4_tableLayoutPanel.Location = new System.Drawing.Point(75, 4809);
             this.t4_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.t4_tableLayoutPanel.Name = "t4_tableLayoutPanel";
             this.t4_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.t4_tableLayoutPanel.RowCount = 11;
-            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.t4_tableLayoutPanel.RowCount = 10;
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.t4_tableLayoutPanel.Size = new System.Drawing.Size(1091, 428);
-            this.t4_tableLayoutPanel.TabIndex = 546;
+            this.t4_tableLayoutPanel.TabIndex = 77;
             this.t4_tableLayoutPanel.TabStop = true;
             // 
             // t21_tableLayoutPanel
@@ -5563,7 +5556,7 @@ namespace MyWorkApplication
             this.t21_tableLayoutPanel.Controls.Add(this.MainHeader3_label, 0, 1);
             this.t21_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.t21_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.t21_tableLayoutPanel.Location = new System.Drawing.Point(75, 4670);
+            this.t21_tableLayoutPanel.Location = new System.Drawing.Point(75, 4622);
             this.t21_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.t21_tableLayoutPanel.Name = "t21_tableLayoutPanel";
             this.t21_tableLayoutPanel.RowCount = 5;
@@ -5573,7 +5566,7 @@ namespace MyWorkApplication
             this.t21_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.t21_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.t21_tableLayoutPanel.Size = new System.Drawing.Size(1091, 187);
-            this.t21_tableLayoutPanel.TabIndex = 550;
+            this.t21_tableLayoutPanel.TabIndex = 74;
             // 
             // tableLayoutPanel9
             // 
@@ -5603,7 +5596,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(1085, 43);
-            this.tableLayoutPanel9.TabIndex = 578;
+            this.tableLayoutPanel9.TabIndex = 75;
             this.tableLayoutPanel9.TabStop = true;
             // 
             // label9
@@ -5629,7 +5622,7 @@ namespace MyWorkApplication
             this.P_NumOfMembers_textBox.ReadOnly = true;
             this.P_NumOfMembers_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_NumOfMembers_textBox.Size = new System.Drawing.Size(139, 29);
-            this.P_NumOfMembers_textBox.TabIndex = 556;
+            this.P_NumOfMembers_textBox.TabIndex = 1;
             // 
             // label21
             // 
@@ -5666,7 +5659,7 @@ namespace MyWorkApplication
             this.FamilyNum_textBox1.Name = "FamilyNum_textBox1";
             this.FamilyNum_textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.FamilyNum_textBox1.Size = new System.Drawing.Size(147, 29);
-            this.FamilyNum_textBox1.TabIndex = 552;
+            this.FamilyNum_textBox1.TabIndex = 3;
             this.FamilyNum_textBox1.TextChanged += new System.EventHandler(this.FamilyNum_textBox1_TextChanged);
             this.FamilyNum_textBox1.Enter += new System.EventHandler(this.FamilyNum_textBox1_Enter);
             this.FamilyNum_textBox1.Leave += new System.EventHandler(this.FamilyNum_textBox1_Leave);
@@ -5681,7 +5674,7 @@ namespace MyWorkApplication
             this.P_NumAtHome_textBox.ReadOnly = true;
             this.P_NumAtHome_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_NumAtHome_textBox.Size = new System.Drawing.Size(155, 29);
-            this.P_NumAtHome_textBox.TabIndex = 551;
+            this.P_NumAtHome_textBox.TabIndex = 2;
             // 
             // flowLayoutPanel17
             // 
@@ -5698,7 +5691,8 @@ namespace MyWorkApplication
             this.flowLayoutPanel17.Location = new System.Drawing.Point(3, 143);
             this.flowLayoutPanel17.Name = "flowLayoutPanel17";
             this.flowLayoutPanel17.Size = new System.Drawing.Size(1085, 41);
-            this.flowLayoutPanel17.TabIndex = 580;
+            this.flowLayoutPanel17.TabIndex = 76;
+            this.flowLayoutPanel17.TabStop = true;
             // 
             // label56
             // 
@@ -5724,7 +5718,7 @@ namespace MyWorkApplication
             this.P_LiveWithFamily_radioButton.Name = "P_LiveWithFamily_radioButton";
             this.P_LiveWithFamily_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_LiveWithFamily_radioButton.Size = new System.Drawing.Size(62, 33);
-            this.P_LiveWithFamily_radioButton.TabIndex = 580;
+            this.P_LiveWithFamily_radioButton.TabIndex = 1;
             this.P_LiveWithFamily_radioButton.TabStop = true;
             this.P_LiveWithFamily_radioButton.Text = "نعم";
             this.P_LiveWithFamily_radioButton.UseVisualStyleBackColor = false;
@@ -5741,7 +5735,7 @@ namespace MyWorkApplication
             this.P_NotLiveWithFamily_radioButton.Name = "P_NotLiveWithFamily_radioButton";
             this.P_NotLiveWithFamily_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_NotLiveWithFamily_radioButton.Size = new System.Drawing.Size(46, 33);
-            this.P_NotLiveWithFamily_radioButton.TabIndex = 581;
+            this.P_NotLiveWithFamily_radioButton.TabIndex = 2;
             this.P_NotLiveWithFamily_radioButton.TabStop = true;
             this.P_NotLiveWithFamily_radioButton.Text = "لا";
             this.P_NotLiveWithFamily_radioButton.UseVisualStyleBackColor = false;
@@ -5769,7 +5763,7 @@ namespace MyWorkApplication
             this.LiveWithFamily_Note_textBox.Name = "LiveWithFamily_Note_textBox";
             this.LiveWithFamily_Note_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LiveWithFamily_Note_textBox.Size = new System.Drawing.Size(618, 29);
-            this.LiveWithFamily_Note_textBox.TabIndex = 583;
+            this.LiveWithFamily_Note_textBox.TabIndex = 3;
             this.LiveWithFamily_Note_textBox.Enter += new System.EventHandler(this.LiveWithFamily_Note_textBox_Enter);
             this.LiveWithFamily_Note_textBox.Leave += new System.EventHandler(this.LiveWithFamily_Note_textBox_Leave);
             // 
@@ -5821,7 +5815,7 @@ namespace MyWorkApplication
             this.t20_tableLayoutPanel.Controls.Add(this.SubHeader13_label, 1, 21);
             this.t20_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.t20_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.t20_tableLayoutPanel.Location = new System.Drawing.Point(75, 3482);
+            this.t20_tableLayoutPanel.Location = new System.Drawing.Point(75, 3434);
             this.t20_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.t20_tableLayoutPanel.Name = "t20_tableLayoutPanel";
             this.t20_tableLayoutPanel.RowCount = 28;
@@ -5857,7 +5851,7 @@ namespace MyWorkApplication
             this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.t20_tableLayoutPanel.Size = new System.Drawing.Size(1091, 1188);
-            this.t20_tableLayoutPanel.TabIndex = 551;
+            this.t20_tableLayoutPanel.TabIndex = 58;
             // 
             // Materials_dataGridView
             // 
@@ -5913,7 +5907,7 @@ namespace MyWorkApplication
             this.Materials_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Materials_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Materials_dataGridView.Size = new System.Drawing.Size(1085, 212);
-            this.Materials_dataGridView.TabIndex = 613;
+            this.Materials_dataGridView.TabIndex = 72;
             this.Materials_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Materials_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Materials_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
@@ -6045,7 +6039,7 @@ namespace MyWorkApplication
             this.OverallSyrian_label.MaximumSize = new System.Drawing.Size(310, 36);
             this.OverallSyrian_label.Name = "OverallSyrian_label";
             this.OverallSyrian_label.Size = new System.Drawing.Size(212, 36);
-            this.OverallSyrian_label.TabIndex = 552;
+            this.OverallSyrian_label.TabIndex = 73;
             this.OverallSyrian_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.OverallSyrian_label.TextChanged += new System.EventHandler(this.OverallSyrian_label_TextChanged);
             // 
@@ -6076,7 +6070,7 @@ namespace MyWorkApplication
             this.s6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.s6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.s6_tableLayoutPanel.Size = new System.Drawing.Size(1085, 86);
-            this.s6_tableLayoutPanel.TabIndex = 595;
+            this.s6_tableLayoutPanel.TabIndex = 59;
             this.s6_tableLayoutPanel.TabStop = true;
             // 
             // MP_PlaceAddress_textBox
@@ -6088,7 +6082,7 @@ namespace MyWorkApplication
             this.MP_PlaceAddress_textBox.Name = "MP_PlaceAddress_textBox";
             this.MP_PlaceAddress_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_PlaceAddress_textBox.Size = new System.Drawing.Size(354, 29);
-            this.MP_PlaceAddress_textBox.TabIndex = 593;
+            this.MP_PlaceAddress_textBox.TabIndex = 61;
             this.MP_PlaceAddress_textBox.Enter += new System.EventHandler(this.MP_PlaceAddress_textBox_Enter);
             this.MP_PlaceAddress_textBox.Leave += new System.EventHandler(this.MP_PlaceAddress_textBox_Leave);
             // 
@@ -6101,7 +6095,7 @@ namespace MyWorkApplication
             this.MP_PlaceNote_textBox.Name = "MP_PlaceNote_textBox";
             this.MP_PlaceNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_PlaceNote_textBox.Size = new System.Drawing.Size(355, 29);
-            this.MP_PlaceNote_textBox.TabIndex = 592;
+            this.MP_PlaceNote_textBox.TabIndex = 62;
             this.MP_PlaceNote_textBox.Enter += new System.EventHandler(this.MP_PlaceNote_textBox_Enter);
             this.MP_PlaceNote_textBox.Leave += new System.EventHandler(this.MP_PlaceNote_textBox_Leave);
             // 
@@ -6115,12 +6109,12 @@ namespace MyWorkApplication
             this.MP_PlaceType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MP_PlaceType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.MP_PlaceType_comboBox.FormattingEnabled = true;
-            this.MP_PlaceType_comboBox.Location = new System.Drawing.Point(727, 51);
+            this.MP_PlaceType_comboBox.Location = new System.Drawing.Point(727, 52);
             this.MP_PlaceType_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.MP_PlaceType_comboBox.Name = "MP_PlaceType_comboBox";
             this.MP_PlaceType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_PlaceType_comboBox.Size = new System.Drawing.Size(354, 30);
-            this.MP_PlaceType_comboBox.TabIndex = 505;
+            this.MP_PlaceType_comboBox.TabIndex = 60;
             this.MP_PlaceType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.MP_PlaceType_comboBox.SelectionChangeCommitted += new System.EventHandler(this.MP_PlaceType_comboBox_SelectionChangeCommitted);
             this.MP_PlaceType_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
@@ -6268,7 +6262,7 @@ namespace MyWorkApplication
             this.PowerSource_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.PowerSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.PowerSource_dataGridView.Size = new System.Drawing.Size(1085, 124);
-            this.PowerSource_dataGridView.TabIndex = 598;
+            this.PowerSource_dataGridView.TabIndex = 63;
             this.PowerSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.PowerSource_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.PowerSource_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
@@ -6422,7 +6416,7 @@ namespace MyWorkApplication
             this.AmperNumber_textBox.Name = "AmperNumber_textBox";
             this.AmperNumber_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AmperNumber_textBox.Size = new System.Drawing.Size(213, 29);
-            this.AmperNumber_textBox.TabIndex = 600;
+            this.AmperNumber_textBox.TabIndex = 64;
             this.AmperNumber_textBox.Text = "0";
             this.AmperNumber_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.AmperNumber_textBox.Enter += new System.EventHandler(this.AmperNumber_textBox_Enter);
@@ -6439,7 +6433,8 @@ namespace MyWorkApplication
             this.flowLayoutPanel19.Location = new System.Drawing.Point(221, 527);
             this.flowLayoutPanel19.Name = "flowLayoutPanel19";
             this.flowLayoutPanel19.Size = new System.Drawing.Size(648, 38);
-            this.flowLayoutPanel19.TabIndex = 602;
+            this.flowLayoutPanel19.TabIndex = 65;
+            this.flowLayoutPanel19.TabStop = true;
             // 
             // IsAmper_radioButton
             // 
@@ -6451,7 +6446,7 @@ namespace MyWorkApplication
             this.IsAmper_radioButton.Name = "IsAmper_radioButton";
             this.IsAmper_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.IsAmper_radioButton.Size = new System.Drawing.Size(70, 33);
-            this.IsAmper_radioButton.TabIndex = 4;
+            this.IsAmper_radioButton.TabIndex = 66;
             this.IsAmper_radioButton.TabStop = true;
             this.IsAmper_radioButton.Text = "أمبير";
             this.IsAmper_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6468,7 +6463,7 @@ namespace MyWorkApplication
             this.IsWatt_radioButton.Name = "IsWatt_radioButton";
             this.IsWatt_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.IsWatt_radioButton.Size = new System.Drawing.Size(62, 33);
-            this.IsWatt_radioButton.TabIndex = 3;
+            this.IsWatt_radioButton.TabIndex = 67;
             this.IsWatt_radioButton.TabStop = true;
             this.IsWatt_radioButton.Text = "واط";
             this.IsWatt_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6545,7 +6540,7 @@ namespace MyWorkApplication
             this.Agreement1_flowLayoutPanel.Location = new System.Drawing.Point(3, 659);
             this.Agreement1_flowLayoutPanel.Name = "Agreement1_flowLayoutPanel";
             this.Agreement1_flowLayoutPanel.Size = new System.Drawing.Size(212, 38);
-            this.Agreement1_flowLayoutPanel.TabIndex = 609;
+            this.Agreement1_flowLayoutPanel.TabIndex = 68;
             // 
             // Agreement1_No_radioButton
             // 
@@ -6591,7 +6586,7 @@ namespace MyWorkApplication
             this.Agreement2_flowLayoutPanel.Location = new System.Drawing.Point(3, 703);
             this.Agreement2_flowLayoutPanel.Name = "Agreement2_flowLayoutPanel";
             this.Agreement2_flowLayoutPanel.Size = new System.Drawing.Size(212, 38);
-            this.Agreement2_flowLayoutPanel.TabIndex = 608;
+            this.Agreement2_flowLayoutPanel.TabIndex = 69;
             // 
             // Agreement2_No_radioButton
             // 
@@ -6637,7 +6632,7 @@ namespace MyWorkApplication
             this.Agreement3_flowLayoutPanel.Location = new System.Drawing.Point(3, 747);
             this.Agreement3_flowLayoutPanel.Name = "Agreement3_flowLayoutPanel";
             this.Agreement3_flowLayoutPanel.Size = new System.Drawing.Size(212, 38);
-            this.Agreement3_flowLayoutPanel.TabIndex = 610;
+            this.Agreement3_flowLayoutPanel.TabIndex = 70;
             // 
             // Agreement3_No_radioButton
             // 
@@ -6683,7 +6678,7 @@ namespace MyWorkApplication
             this.Agreement4_flowLayoutPanel.Location = new System.Drawing.Point(3, 791);
             this.Agreement4_flowLayoutPanel.Name = "Agreement4_flowLayoutPanel";
             this.Agreement4_flowLayoutPanel.Size = new System.Drawing.Size(212, 38);
-            this.Agreement4_flowLayoutPanel.TabIndex = 611;
+            this.Agreement4_flowLayoutPanel.TabIndex = 71;
             // 
             // Agreement4_No_radioButton
             // 
@@ -6750,7 +6745,7 @@ namespace MyWorkApplication
             this.t8_tableLayoutPanel.Controls.Add(this.P_HasCourses_flowLayoutPanel, 0, 8);
             this.t8_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.t8_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.t8_tableLayoutPanel.Location = new System.Drawing.Point(75, 2876);
+            this.t8_tableLayoutPanel.Location = new System.Drawing.Point(75, 2828);
             this.t8_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.t8_tableLayoutPanel.Name = "t8_tableLayoutPanel";
             this.t8_tableLayoutPanel.RowCount = 16;
@@ -6770,6 +6765,43 @@ namespace MyWorkApplication
             this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
             this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
             this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143063F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.t8_tableLayoutPanel.Size = new System.Drawing.Size(1091, 606);
             this.t8_tableLayoutPanel.TabIndex = 540;
             // 
@@ -6783,7 +6815,8 @@ namespace MyWorkApplication
             this.P_HasEducation_flowLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.P_HasEducation_flowLayoutPanel.Name = "P_HasEducation_flowLayoutPanel";
             this.P_HasEducation_flowLayoutPanel.Size = new System.Drawing.Size(229, 34);
-            this.P_HasEducation_flowLayoutPanel.TabIndex = 586;
+            this.P_HasEducation_flowLayoutPanel.TabIndex = 54;
+            this.P_HasEducation_flowLayoutPanel.TabStop = true;
             // 
             // P_HasEducationNo_radioButton
             // 
@@ -6878,7 +6911,7 @@ namespace MyWorkApplication
             this.Course_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Course_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Course_dataGridView.Size = new System.Drawing.Size(1085, 152);
-            this.Course_dataGridView.TabIndex = 553;
+            this.Course_dataGridView.TabIndex = 57;
             this.Course_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Course_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Course_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
@@ -7041,7 +7074,7 @@ namespace MyWorkApplication
             this.SubHeader4_label.Name = "SubHeader4_label";
             this.SubHeader4_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SubHeader4_label.Size = new System.Drawing.Size(631, 37);
-            this.SubHeader4_label.TabIndex = 553;
+            this.SubHeader4_label.TabIndex = 53;
             this.SubHeader4_label.Text = "التحصيل العلمي";
             this.SubHeader4_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -7102,7 +7135,7 @@ namespace MyWorkApplication
             this.Education_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Education_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Education_dataGridView.Size = new System.Drawing.Size(1085, 152);
-            this.Education_dataGridView.TabIndex = 552;
+            this.Education_dataGridView.TabIndex = 55;
             this.Education_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Education_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Education_dataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEnter);
@@ -7304,7 +7337,8 @@ namespace MyWorkApplication
             this.P_HasCourses_flowLayoutPanel.Location = new System.Drawing.Point(3, 303);
             this.P_HasCourses_flowLayoutPanel.Name = "P_HasCourses_flowLayoutPanel";
             this.P_HasCourses_flowLayoutPanel.Size = new System.Drawing.Size(229, 34);
-            this.P_HasCourses_flowLayoutPanel.TabIndex = 585;
+            this.P_HasCourses_flowLayoutPanel.TabIndex = 56;
+            this.P_HasCourses_flowLayoutPanel.TabStop = true;
             // 
             // P_HasCoursesNo_radioButton
             // 
@@ -7344,14 +7378,14 @@ namespace MyWorkApplication
             // 
             this.t7_tableLayoutPanel.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.t7_tableLayoutPanel.ColumnCount = 3;
-            this.t7_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.26123F));
-            this.t7_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.66544F));
+            this.t7_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.30247F));
+            this.t7_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.624198F));
             this.t7_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.t7_tableLayoutPanel.Controls.Add(this.P_WorkYears_textBox, 0, 0);
             this.t7_tableLayoutPanel.Controls.Add(this.label2, 1, 0);
             this.t7_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.t7_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.t7_tableLayoutPanel.Location = new System.Drawing.Point(75, 2802);
+            this.t7_tableLayoutPanel.Location = new System.Drawing.Point(75, 2754);
             this.t7_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.t7_tableLayoutPanel.Name = "t7_tableLayoutPanel";
             this.t7_tableLayoutPanel.RowCount = 2;
@@ -7359,7 +7393,8 @@ namespace MyWorkApplication
             this.t7_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.t7_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.t7_tableLayoutPanel.Size = new System.Drawing.Size(1091, 74);
-            this.t7_tableLayoutPanel.TabIndex = 549;
+            this.t7_tableLayoutPanel.TabIndex = 51;
+            this.t7_tableLayoutPanel.TabStop = true;
             // 
             // t6_tableLayoutPanel
             // 
@@ -7373,7 +7408,7 @@ namespace MyWorkApplication
             this.t6_tableLayoutPanel.Controls.Add(this.Exp_dataGridView, 0, 2);
             this.t6_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.t6_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.t6_tableLayoutPanel.Location = new System.Drawing.Point(75, 2479);
+            this.t6_tableLayoutPanel.Location = new System.Drawing.Point(75, 2431);
             this.t6_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.t6_tableLayoutPanel.Name = "t6_tableLayoutPanel";
             this.t6_tableLayoutPanel.RowCount = 9;
@@ -7387,7 +7422,8 @@ namespace MyWorkApplication
             this.t6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.t6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.t6_tableLayoutPanel.Size = new System.Drawing.Size(1091, 323);
-            this.t6_tableLayoutPanel.TabIndex = 548;
+            this.t6_tableLayoutPanel.TabIndex = 49;
+            this.t6_tableLayoutPanel.TabStop = true;
             // 
             // SubHeader3_label
             // 
@@ -7504,7 +7540,7 @@ namespace MyWorkApplication
             this.Exp_dataGridView.RowTemplate.Height = 35;
             this.Exp_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Exp_dataGridView.Size = new System.Drawing.Size(1085, 214);
-            this.Exp_dataGridView.TabIndex = 508;
+            this.Exp_dataGridView.TabIndex = 50;
             this.Exp_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Exp_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Exp_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
@@ -7638,7 +7674,7 @@ namespace MyWorkApplication
             this.t5_tableLayoutPanel.Controls.Add(this.SubHeader2_label, 0, 3);
             this.t5_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.t5_tableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.t5_tableLayoutPanel.Location = new System.Drawing.Point(75, 2094);
+            this.t5_tableLayoutPanel.Location = new System.Drawing.Point(75, 2046);
             this.t5_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.t5_tableLayoutPanel.Name = "t5_tableLayoutPanel";
             this.t5_tableLayoutPanel.RowCount = 11;
@@ -7654,7 +7690,8 @@ namespace MyWorkApplication
             this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.71988F));
             this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.71988F));
             this.t5_tableLayoutPanel.Size = new System.Drawing.Size(1091, 385);
-            this.t5_tableLayoutPanel.TabIndex = 547;
+            this.t5_tableLayoutPanel.TabIndex = 47;
+            this.t5_tableLayoutPanel.TabStop = true;
             // 
             // MainHeader2_label
             // 
@@ -7732,7 +7769,7 @@ namespace MyWorkApplication
             this.Work_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Work_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Work_dataGridView.Size = new System.Drawing.Size(1085, 167);
-            this.Work_dataGridView.TabIndex = 31;
+            this.Work_dataGridView.TabIndex = 48;
             this.Work_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Work_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Work_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
@@ -7918,7 +7955,8 @@ namespace MyWorkApplication
             this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.t2_tableLayoutPanel.Size = new System.Drawing.Size(1091, 901);
-            this.t2_tableLayoutPanel.TabIndex = 543;
+            this.t2_tableLayoutPanel.TabIndex = 12;
+            this.t2_tableLayoutPanel.TabStop = true;
             // 
             // P_Loss_textBox
             // 
@@ -7934,7 +7972,7 @@ namespace MyWorkApplication
             this.P_Loss_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.t2_tableLayoutPanel.SetRowSpan(this.P_Loss_textBox, 4);
             this.P_Loss_textBox.Size = new System.Drawing.Size(1085, 142);
-            this.P_Loss_textBox.TabIndex = 552;
+            this.P_Loss_textBox.TabIndex = 12;
             this.P_Loss_textBox.Enter += new System.EventHandler(this.P_Loss_textBox_Enter);
             this.P_Loss_textBox.Leave += new System.EventHandler(this.P_Loss_textBox_Leave);
             // 
@@ -7967,7 +8005,7 @@ namespace MyWorkApplication
             this.P_GoalHow_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.t2_tableLayoutPanel.SetRowSpan(this.P_GoalHow_textBox, 3);
             this.P_GoalHow_textBox.Size = new System.Drawing.Size(1085, 103);
-            this.P_GoalHow_textBox.TabIndex = 560;
+            this.P_GoalHow_textBox.TabIndex = 15;
             this.P_GoalHow_textBox.Enter += new System.EventHandler(this.P_GoalHow_textBox_Enter);
             this.P_GoalHow_textBox.Leave += new System.EventHandler(this.P_GoalHow_textBox_Leave);
             // 
@@ -7985,7 +8023,7 @@ namespace MyWorkApplication
             this.P_OtherNotes_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.t2_tableLayoutPanel.SetRowSpan(this.P_OtherNotes_textBox, 3);
             this.P_OtherNotes_textBox.Size = new System.Drawing.Size(1085, 116);
-            this.P_OtherNotes_textBox.TabIndex = 562;
+            this.P_OtherNotes_textBox.TabIndex = 16;
             this.P_OtherNotes_textBox.Enter += new System.EventHandler(this.P_OtherNotes_textBox_Enter);
             this.P_OtherNotes_textBox.Leave += new System.EventHandler(this.P_OtherNotes_textBox_Leave);
             // 
@@ -8107,7 +8145,7 @@ namespace MyWorkApplication
             this.P_Goal_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.t2_tableLayoutPanel.SetRowSpan(this.P_Goal_textBox, 2);
             this.P_Goal_textBox.Size = new System.Drawing.Size(1085, 68);
-            this.P_Goal_textBox.TabIndex = 554;
+            this.P_Goal_textBox.TabIndex = 13;
             this.P_Goal_textBox.Enter += new System.EventHandler(this.P_Goal_textBox_Enter);
             this.P_Goal_textBox.Leave += new System.EventHandler(this.P_Goal_textBox_Leave);
             // 
@@ -8117,14 +8155,15 @@ namespace MyWorkApplication
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.P_Goals_panel.AutoScroll = true;
-            this.P_Goals_panel.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.P_Goals_panel.BackColor = System.Drawing.Color.Honeydew;
             this.t2_tableLayoutPanel.SetColumnSpan(this.P_Goals_panel, 3);
             this.P_Goals_panel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.P_Goals_panel.Location = new System.Drawing.Point(209, 373);
             this.P_Goals_panel.Name = "P_Goals_panel";
             this.t2_tableLayoutPanel.SetRowSpan(this.P_Goals_panel, 4);
             this.P_Goals_panel.Size = new System.Drawing.Size(879, 142);
-            this.P_Goals_panel.TabIndex = 566;
+            this.P_Goals_panel.TabIndex = 14;
+            this.P_Goals_panel.TabStop = true;
             // 
             // delete_contextMenuStrip
             // 
@@ -8169,8 +8208,6 @@ namespace MyWorkApplication
             this.First_tableLayoutPanel.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
@@ -8180,8 +8217,6 @@ namespace MyWorkApplication
             this.img_contextMenuStrip.ResumeLayout(false);
             this.FundType_flowLayoutPanel.ResumeLayout(false);
             this.FundType_flowLayoutPanel.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
             this.t3_tableLayoutPanel.ResumeLayout(false);
             this.t3_tableLayoutPanel.PerformLayout();
             this.flowLayoutPanel5.ResumeLayout(false);
@@ -8340,7 +8375,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label label76;
         private System.Windows.Forms.TableLayoutPanel t3_tableLayoutPanel;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label MainHeader1_label;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label32;
@@ -8431,7 +8465,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label MainHeader2_label;
         private System.Windows.Forms.Label SubHeader3_label;
         private System.Windows.Forms.DataGridView Exp_dataGridView;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.DataGridView Education_dataGridView;
@@ -8449,7 +8482,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label label82;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
@@ -8529,7 +8561,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.TableLayoutPanel t6_tableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel t7_tableLayoutPanel;
         private System.Windows.Forms.FlowLayoutPanel Military_flowLayoutPanel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button Save_MP_ID_button;
         private System.Windows.Forms.ComboBox PersonType_comboBox;
         private System.Windows.Forms.Label PersonType_label;
@@ -8537,7 +8568,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ContextMenuStrip img_contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem download_toolStripMenuItem1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.CheckBox ContentUpdated_checkBox;
         private System.Windows.Forms.TextBox P_Mobile_textBox;
         private System.Windows.Forms.Label label5;
@@ -8549,10 +8579,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.TextBox FamilyNum_textBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel17;
-        private System.Windows.Forms.RadioButton P_LiveWithFamily_radioButton;
-        private System.Windows.Forms.RadioButton P_NotLiveWithFamily_radioButton;
         private System.Windows.Forms.Label MainHeader3_label;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel18;
         private System.Windows.Forms.Label label89;
@@ -8628,10 +8654,7 @@ namespace MyWorkApplication
         private System.Windows.Forms.Button Delete_MP_button;
         private System.Windows.Forms.Button FullApp_button;
         private System.Windows.Forms.TableLayoutPanel final_tableLayoutPanel;
-        private System.Windows.Forms.Label LiveWithFamily_Note_Label;
-        private System.Windows.Forms.TextBox LiveWithFamily_Note_textBox;
         private System.Windows.Forms.RadioButton MilitaryExempt_radioButton;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.RadioButton MilitaryDelayed_radioButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn AidP_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Aid_ID;
@@ -8719,7 +8742,7 @@ namespace MyWorkApplication
         private System.Windows.Forms.DataGridViewTextBoxColumn C_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_RowID;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_IsDirty;
-        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label SubHeader15_label;
         private System.Windows.Forms.DataGridView FP_Exp_dataGridView;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
         private System.Windows.Forms.Label label48;
@@ -8805,5 +8828,16 @@ namespace MyWorkApplication
         private System.Windows.Forms.DataGridViewTextBoxColumn W_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn W_RowID;
         private System.Windows.Forms.DataGridViewTextBoxColumn W_IsDirty;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel17;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.RadioButton P_LiveWithFamily_radioButton;
+        private System.Windows.Forms.RadioButton P_NotLiveWithFamily_radioButton;
+        private System.Windows.Forms.Label LiveWithFamily_Note_Label;
+        private System.Windows.Forms.TextBox LiveWithFamily_Note_textBox;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label70;
     }
 }

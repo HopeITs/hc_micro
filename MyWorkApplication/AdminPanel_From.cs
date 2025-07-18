@@ -116,8 +116,7 @@ namespace MyWorkApplication
             try
             {
                 // Set cursor as hourglass
-                Cursor.Current = Cursors.WaitCursor;
-
+                Cursor.Current = Cursors.WaitCursor; 
                 bs.Filter = bs.Sort = Original_Filter_String = "";
                 bs.DataSource = null;
                 //LEFT JOIN `street` on street.ID = P.Street_ID
@@ -136,14 +135,15 @@ namespace MyWorkApplication
  LEFT JOIN `state` on state.ID = mps.State_ID
  LEFT JOIN `statereason` on statereason.ID = mps.StateReason_ID
  
- LEFT JOIN street w_street on MP.MP_Street_ID = w_street.ID 
- LEFT JOIN street h_street on P.Street_ID = h_street.ID 
+ LEFT JOIN `street` w_street on MP.MP_Street_ID = w_street.ID 
+ LEFT JOIN `street` h_street on P.Street_ID = h_street.ID 
  
- LEFT JOIN priest priest1 on priest1.Priest_ID = P.P_Priest_ID
- LEFT JOIN priest priest2 on priest2.Priest_ID = P.P_Priest2_ID
+ LEFT JOIN `priest` priest1 on priest1.Priest_ID = P.P_Priest_ID
+ LEFT JOIN `priest` priest2 on priest2.Priest_ID = P.P_Priest2_ID
 
  LEFT JOIN `donor` on donor.ID = MP.MP_Donor 
  LEFT JOIN `donorgroup` on donorgroup.ID = MP.DonorGroup_ID 
+
  LEFT JOIN `fundtype` on fundtype.ID = MP.MP_FundType_ID 
  LEFT JOIN `microprojecttype` on microprojecttype.ID = MP.MP_Type_ID
  LEFT JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID ";
@@ -230,18 +230,15 @@ namespace MyWorkApplication
 
                 MP_dataGridView.ResumeLayout();
 
-                total_bind_count = 0;
-
+                //////calculate sum of projects// 
+                total_bind_count = 0; 
                 total_bind_count = Convert.ToInt32(main_ds.Tables[1].Rows[0][0].ToString());
                 Count_label.Text = "All:" + total_bind_count.ToString("#,##0");
 
                 MP_dataGridView.Columns["المبلغ المطلوب"].DefaultCellStyle.Format = "#,##0";
                 MP_dataGridView.Columns["مبلغ التمويل"].DefaultCellStyle.Format = "#,##0";
                 MP_dataGridView.Columns["تاريخ التقديم"].DefaultCellStyle.Format = "yyyy/MM/dd";
-
-                var dgC1 = MP_dataGridView.Columns["رقم المستفيد"];
-                dgC1.Visible = false;
-
+                 
                 MP_dataGridView.Columns["رقم المشروع"].ReadOnly =
                     MP_dataGridView.Columns["المستفيد"].ReadOnly =
                     MP_dataGridView.Columns["اسم الأب"].ReadOnly =
@@ -261,19 +258,20 @@ namespace MyWorkApplication
                     MP_dataGridView.Columns["منطقة السكن"].ReadOnly =
                     MP_dataGridView.Columns["العنوان"].ReadOnly = 
                     MP_dataGridView.Columns["نوع المشروع"].ReadOnly = true;
-
-                MP_dataGridView.Columns["رقم المشروع"].Frozen = true;
-
-
+                 
                 ConvertCellToComboBoxAndColor();
+                 
+                addStateButtonToGrid();
+
                 restore_visible_columns();
 
-                addStateButtonToGrid();
+                MP_dataGridView.Columns["رقم المشروع"].Frozen = true;
+                var dgC1 = MP_dataGridView.Columns["رقم المستفيد"];
+                dgC1.Visible = false;
 
                 MP_dataGridView.ColumnHeadersVisible = true;
                 MP_dataGridView.RowHeadersVisible = true;
                 MP_dataGridView.ClearSelection();
-
 
                 SearchToolBar.SetColumns(MP_dataGridView.Columns);
                 Bind_Show_Hide_ToolStrip();

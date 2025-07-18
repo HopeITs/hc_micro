@@ -198,6 +198,9 @@ namespace MyWorkApplication
                 {
                     if (form.Name == "Application_Form" || form.Name == "CheckList_Form")
                         theme.Application_ToNight(form);
+                    if (form.Name == "Application_New_Form")
+                        theme.ApplicationNew_ToNight(form);
+
                     if (form.Name == "AdminPanel_From") theme.AdminPanel_ToNight(form, false);
 
                     if (form.Name == "VOpening_Other_Form" || form.Name == "VOpening_Taxi_Form" ||
@@ -249,6 +252,9 @@ namespace MyWorkApplication
                 {
                     if (form.Name == "Application_Form" || form.Name == "CheckList_Form")
                         theme.Application_ToLight(form);
+                    if (form.Name == "Application_New_Form")
+                        theme.ApplicationNew_ToLight(form);
+
                     if (form.Name == "AdminPanel_From") theme.AdminPanel_ToLight(form, false);
 
                     if (form.Name == "VOpening_Other_Form" || form.Name == "VOpening_Taxi_Form" ||
@@ -339,11 +345,11 @@ namespace MyWorkApplication
                             //Bind_DataBase_comboBox();
                             //}
 
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[0], Keys.None);//Title
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[1], Keys.Alt | Keys.A);//Application
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[2], Keys.Alt | Keys.Shift | Keys.A);//Admin Panel
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[3], Keys.Alt | Keys.Shift | Keys.T);//Admin Tools 
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[9], Keys.Alt | Keys.C);//checklist
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[0] , Keys.None);//Title
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[1] , Keys.Alt | Keys.Z);//Zero Application
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[2] , Keys.Alt | Keys.Shift | Keys.A);//Admin Panel
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[3] , Keys.Alt | Keys.Shift | Keys.T);//Admin Tools 
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[10], Keys.Alt | Keys.C);//checklist
 
                             // --------------------------------------------------------------------- 
 
@@ -384,10 +390,10 @@ namespace MyWorkApplication
                     case 2: //Data
                         {
                             ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[0], Keys.None);//Title
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[1], Keys.Alt | Keys.A);//Application
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[1], Keys.Alt | Keys.Z);//New Application
                             HideMenuItemWithShortcut((ToolStripMenuItem)applicationItems[2]);//Admin Panel
                             HideMenuItemWithShortcut((ToolStripMenuItem)applicationItems[3]);//Admin Tools   
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[9], Keys.Alt | Keys.C);//checklist
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[10], Keys.Alt | Keys.C);//checklist
 
                             // --------------------------------------------------------------------- 
 
