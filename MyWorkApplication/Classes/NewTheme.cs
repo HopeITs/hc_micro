@@ -870,13 +870,16 @@ namespace MyWorkApplication.Classes
 
                                     for (var i = 0; i < MP_dataGridView.Columns.Count; i++)
                                     {
-                                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor =
-                                            dark_grey2;
+                                        MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = dark_grey2;
                                         MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_white;
+
+                                        //fix black combo lists
+                                        MP_dataGridView.Columns[i].DefaultCellStyle.BackColor = dark_grey2;
+                                        MP_dataGridView.Columns[i].DefaultCellStyle.ForeColor = light_white;
+
                                         for (var j = 0; j < MP_dataGridView.Rows.Count; j++)
                                         {
-                                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor =
-                                                dark_grey2;
+                                            MP_dataGridView.Rows[j].Cells[i].Style.BackColor = dark_grey2;
                                             MP_dataGridView.Rows[j].Cells[i].Style.ForeColor = light_white;
                                         }
                                     }
@@ -1054,6 +1057,11 @@ namespace MyWorkApplication.Classes
                                     {
                                         MP_dataGridView.Columns[i].HeaderCell.Style.BackColor = light_white;
                                         MP_dataGridView.Columns[i].HeaderCell.Style.ForeColor = light_grey4;
+
+                                        //fix black combo lists
+                                        MP_dataGridView.Columns[i].DefaultCellStyle.BackColor = light_white;
+                                        MP_dataGridView.Columns[i].DefaultCellStyle.ForeColor = light_grey4;
+
                                         for (var j = 0; j < MP_dataGridView.Rows.Count; j++)
                                         {
                                             MP_dataGridView.Rows[j].Cells[i].Style.BackColor = light_white;

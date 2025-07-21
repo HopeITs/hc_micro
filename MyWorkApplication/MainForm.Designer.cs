@@ -95,6 +95,7 @@
             this.Home_panel = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.applicationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.zeroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AdminPanel_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.newStreet_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,7 +105,6 @@
             this.newAid_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newPriest_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Checklist_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zeroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financialToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.Loan_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Payments_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -840,6 +840,14 @@
             this.applicationToolStripMenuItem1.Size = new System.Drawing.Size(114, 29);
             this.applicationToolStripMenuItem1.Text = "&Application";
             // 
+            // zeroToolStripMenuItem
+            // 
+            this.zeroToolStripMenuItem.Name = "zeroToolStripMenuItem";
+            this.zeroToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Z)));
+            this.zeroToolStripMenuItem.Size = new System.Drawing.Size(321, 30);
+            this.zeroToolStripMenuItem.Text = "New Zero Application";
+            this.zeroToolStripMenuItem.Click += new System.EventHandler(this.zeroToolStripMenuItem_Click);
+            // 
             // AdminPanel_toolStripMenuItem
             // 
             this.AdminPanel_toolStripMenuItem.Name = "AdminPanel_toolStripMenuItem";
@@ -908,14 +916,6 @@
             this.Checklist_toolStripMenuItem.Size = new System.Drawing.Size(321, 30);
             this.Checklist_toolStripMenuItem.Text = "Check List";
             this.Checklist_toolStripMenuItem.Click += new System.EventHandler(this.newCheckListToolStripMenuItem_Click);
-            // 
-            // zeroToolStripMenuItem
-            // 
-            this.zeroToolStripMenuItem.Name = "zeroToolStripMenuItem";
-            this.zeroToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Z)));
-            this.zeroToolStripMenuItem.Size = new System.Drawing.Size(321, 30);
-            this.zeroToolStripMenuItem.Text = "New Zero Application";
-            this.zeroToolStripMenuItem.Click += new System.EventHandler(this.zeroToolStripMenuItem_Click);
             // 
             // financialToolStripMenuItem1
             // 

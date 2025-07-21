@@ -734,6 +734,7 @@ namespace MyWorkApplication
 
                 // Choose text color based on theme
                 Brush textBrush = (Properties.Settings.Default.theme == "Light") ? Brushes.Black : Brushes.LightGray;
+                Brush backBrush = (Properties.Settings.Default.theme == "Light") ? Brushes.White : Brushes.DarkGray;
 
                 // Set up RTL text alignment
                 StringFormat sf = new StringFormat

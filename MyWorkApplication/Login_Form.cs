@@ -67,22 +67,7 @@ namespace MyWorkApplication
                 ///THEN UNCOMMENT THE "Encryption.FileEncrypt();"
                 ///THEN COPY the "Connections.txt.aes" TO THE "...\\
                 ///DELETE THE "Connections.txt" FROM DEBUGE
-                //Encryption.FileEncrypt(); 
-                //Properties.Settings.Default.profile_picture = "";
-                //Properties.Settings.Default.Admin_Visible_arr = "";
-                //Properties.Settings.Default.Search0_Visible_arr = "";
-                //Properties.Settings.Default.Search1_Visible_arr = "";
-                //Properties.Settings.Default.Search2_Visible_arr = "";
-                //Properties.Settings.Default.Search3_Visible_arr = "";
-                //Properties.Settings.Default.Search4_Visible_arr = "";
-                //Properties.Settings.Default.Search5_Visible_arr = "";
-                //Properties.Settings.Default.Search6_Visible_arr = "";
-                //Properties.Settings.Default.Search7_Visible_arr = "";
-                //Properties.Settings.Default.Search8_Visible_arr = "";
-                //Properties.Settings.Default.Search9_Visible_arr = "";
-                //Properties.Settings.Default.Task_Visible_arr = "";
-                //Properties.Settings.Default.Task1_Visible_arr = "";
-                //Properties.Settings.Default.Save();
+                //Encryption.FileEncrypt();  
 
                 if (Properties.Settings.Default.first_login)
                 {
