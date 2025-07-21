@@ -1099,8 +1099,8 @@ namespace MyWorkApplication
  , P_NationalNumber as 'الرقم الوطني' 
  , P_Mobile as 'الموبايل' 
  
- , P_NumAtHome as 'عدد الأفراد الكلي'
- , P_NumOfMembers as 'عدد الأفراد في المنزل'
+ ,  IFNULL(P_NumAtHome,0) as 'عدد الأفراد الكلي'
+ ,  IFNULL(P_NumOfMembers,0) as 'عدد الأفراد في المنزل'
 
   , (SELECT count(*) 
     From `person` p 
