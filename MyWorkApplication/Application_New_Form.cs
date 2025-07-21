@@ -4198,8 +4198,8 @@ namespace MyWorkApplication
                     Military_Note = Military_textBox.Text;
 
                     if (Military_Date_checkBox.Checked)
-                    {
-                        Military_Date = ApplyDate_bcDateTimePicker.Value;
+                    { 
+                        Military_Date = Military_Date_dateTimePicker.Value;
                     }
 
                     if (Person_ID <= 0)
