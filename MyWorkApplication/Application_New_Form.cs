@@ -1,6 +1,4 @@
 ﻿//using Chilkat;
-using DocumentFormat.OpenXml.Drawing.Diagrams;
-using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
@@ -15,9 +13,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Windows;
 using System.Windows.Forms;
-using System.Windows.Ink;
 using MessageBox = System.Windows.Forms.MessageBox;
 using Point = System.Drawing.Point;
 
@@ -26,37 +22,19 @@ namespace MyWorkApplication
 {
     public partial class Application_New_Form : Form
     {
-        private int Beneficiary_Count;
         private FtpConnector c;
-        private string RequestedAmount, SimpleProfit;
         string FullPicName = "";
-        string FilePicName = "";
         private Document d;
         private Log l;
         private User user;
-        private Street st;
-        private SubCategory sub;
-        private Career career;
-        private Select s;
         private Images img;
         private Application_Queries App_Q;
 
         private readonly MainForm mainForm;
-        private MicroProject mp;
-        private MySqlComponents MySS;
-        private TasksOfProjects TasksOfProjects;
         private Thread myTh;
-        private bool OldBeneficiary_NewProject;
-
-        private int Priest_ID, Husband_Wife_ID;
-
 
         public int MicroProject_ID = -1, Person_ID = -1, Family_ID = -1, Existed_Family_ID = -1;
 
-        private double sumOfItemsPrice_SYR;
-        private int type;
-        private Application_Queries app;
-        private bool MicroProject_Update_Mode, Pereson_Update_Mode, CanAddFamilyMembers;
         bool user_mode;
         DataSet ds;
 
@@ -90,16 +68,9 @@ namespace MyWorkApplication
             try
             {
                 d = new Document();
-                MySS = new MySqlComponents();
                 l = new Log();
-                s = new Select();
-                app = new Application_Queries();
                 user = new User();
                 c = new FtpConnector();
-                mp = new MicroProject();
-                st = new Street();
-                sub = new SubCategory();
-                career = new Career();
                 img = new Images();
                 App_Q = new Application_Queries();
 
@@ -512,8 +483,8 @@ namespace MyWorkApplication
             FamilyMember_dataGridView.Columns["P_EducationType"].Visible = true;
             FamilyMember_dataGridView.Columns["P_E_Name"].Visible = true;
 
-            AidSource_dataGridView.Columns["Aid_PName"].Visible = true;
-            AidSource_dataGridView.Columns["Aid_Relation"].Visible = true;
+            //AidSource_dataGridView.Columns["Aid_PName"].Visible = true;
+            //AidSource_dataGridView.Columns["Aid_Relation"].Visible = true;
 
             FundType_label.Visible = FundType_flowLayoutPanel.Visible =
             MP_RequestedAmount_label.Visible = MP_RequestedAmount_textBox.Visible = true;
@@ -581,8 +552,8 @@ namespace MyWorkApplication
                 FamilyMember_dataGridView.Columns["P_EducationType"].Visible = false;
                 FamilyMember_dataGridView.Columns["P_E_Name"].Visible = false;
 
-                AidSource_dataGridView.Columns["Aid_PName"].Visible = false;
-                AidSource_dataGridView.Columns["Aid_Relation"].Visible = false;
+                //AidSource_dataGridView.Columns["Aid_PName"].Visible = false;
+                //AidSource_dataGridView.Columns["Aid_Relation"].Visible = false;
 
                 //t10_tableLayoutPanel
                 P_Debts_tableLayoutPanel.Visible = false;
@@ -981,6 +952,7 @@ namespace MyWorkApplication
             //DataTable dt232 = ds.Tables[23].Copy(); //Ill_Donor
             //Bind_Gridview_ComboBox(this.Ill_Donor, dt232);
 
+
             DataTable dt24 = ds.Tables[24].Copy(); //Ill_PName
             Bind_Gridview_ComboBox(this.Ill_PName, dt24);
 
@@ -1018,6 +990,38 @@ namespace MyWorkApplication
 
             user_mode = true;
 
+        }
+
+        private void Bind_Persons_Data(bool KeepSelection)
+        {
+            string query = "";
+
+            user_mode = false;
+
+            query += "select person.P_ID as 'ID', CONCAT(person.P_FirstName,' ',person.P_LastName) as 'Name',"
+                 + " relation.name as 'relation' from person"
+                + " left join person_family on person_family.Person_ID = person.P_ID"
+                + " left join relation on relation.id = person_family.Relation_ID"
+                + " where person_family.P_Provider_ID = '" + Person_ID + "';";//Ill_PName, Asset_PName, Aid_PName
+
+            Program.buildConnection();
+            MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
+            sc.ExecuteNonQuery();
+            var da = new MySqlDataAdapter(sc);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            Program.MyConn.Close();
+
+            DataTable dt24 = dt.Copy(); //Ill_PName
+            Bind_Gridview_ComboBox(this.Ill_PName, dt24);
+
+            DataTable dt241 = dt.Copy(); //Asset_PName
+            Bind_Gridview_ComboBox(this.Asset_PName, dt241);
+
+            DataTable dt242 = dt.Copy(); //Aid_PName
+            Bind_Gridview_ComboBox(this.Aid_PName, dt242);
+
+            user_mode = true;
         }
 
         private void Bind_ComboBox(ComboBox Combox_Name, DataTable dt, bool KeepSelection)
@@ -1420,7 +1424,6 @@ namespace MyWorkApplication
                         if (dataGridView.Rows[e.RowIndex].Cells["Ill_AidPeriod"].Value == null || dataGridView.Rows[e.RowIndex].Cells["Ill_AidPeriod"].Value.ToString() == "")
                             dataGridView.Rows[e.RowIndex].Cells["Ill_AidPeriod"] = Load_Ill_AidPeriod_ComboBox(false);
                     }
-
                 }
             }
             catch (Exception ex)
@@ -1429,22 +1432,30 @@ namespace MyWorkApplication
             }
         }
 
-        private void dataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             try
             {
                 var dataGridView = sender as DataGridView;
+                if (dataGridView.Name == "AidSource_dataGridView")
+                {
+                    string columnName = dataGridView.Columns[dataGridView.CurrentCell.ColumnIndex].Name;
+                    if (columnName == "Aid_PName")
+                        AidSource_dataGridView.Rows[e.RowIndex].Cells["Aid_PName"] = Load_Persons_ComboBox();
 
-                string columnName = dataGridView.Columns[dataGridView.CurrentCell.ColumnIndex].Name;
-                if (columnName == "E_Name")
-                {
-                    if (dataGridView.Rows[e.RowIndex].Cells["E_Type"].Value == null || string.IsNullOrWhiteSpace(dataGridView.Rows[e.RowIndex].Cells["E_Type"].Value.ToString()))
-                        throw new Exception("الرجاء قم باختيار الدرجة العلمية أولاً");
                 }
-                else if (columnName == "P_E_Name")
+
+                else if (dataGridView.Name == "FP_Exp_dataGridView")
                 {
-                    if (dataGridView.Rows[e.RowIndex].Cells["P_EducationType"].Value == null || string.IsNullOrWhiteSpace(dataGridView.Rows[e.RowIndex].Cells["P_EducationType"].Value.ToString()))
-                        throw new Exception("الرجاء قم باختيار الدرجة العلمية أولاً");
+                    string columnName = dataGridView.Columns[dataGridView.CurrentCell.ColumnIndex].Name;
+                    if (columnName == "FP_Exp_PName")
+                        FP_Exp_dataGridView.Rows[e.RowIndex].Cells["FP_Exp_PName"] = Load_Persons_ComboBox();
+                }
+                else if (dataGridView.Name == "Illness_dataGridView")
+                {
+                    string columnName = dataGridView.Columns[dataGridView.CurrentCell.ColumnIndex].Name;
+                    if (columnName == "Ill_PName")
+                        Illness_dataGridView.Rows[e.RowIndex].Cells["Ill_PName"] = Load_Persons_ComboBox();
                 }
             }
             catch (Exception ex)
@@ -1452,6 +1463,83 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void dataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                        return;
+
+                    var dataGridView = sender as DataGridView;
+                    if (dataGridView.Name == "AidSource_dataGridView")
+                    {
+                        if (dataGridView.Columns[e.ColumnIndex].Name == "Aid_PName")
+                        {
+                            var selectedCell = dataGridView.Rows[e.RowIndex].Cells["Aid_PName"];
+                            if (selectedCell.Value == null) return;
+
+                            int selectedID = Convert.ToInt32(selectedCell.Value);
+
+                            var match = Members_dt?.Rows
+                                .Cast<DataRow>()
+                                .FirstOrDefault(r => Convert.ToInt32(r["ID"]) == selectedID);
+
+                            if (match != null)
+                            {
+                                dataGridView.Rows[e.RowIndex].Cells["Aid_Relation"].Value = match["Relation"].ToString();
+                            }
+                        }
+                    }
+                    else if (dataGridView.Name == "FP_Exp_dataGridView")
+                    {
+                        if (dataGridView.Columns[e.ColumnIndex].Name == "FP_Exp_PName")
+                        {
+                            var selectedCell = dataGridView.Rows[e.RowIndex].Cells["FP_Exp_PName"];
+                            if (selectedCell.Value == null) return;
+
+                            int selectedID = Convert.ToInt32(selectedCell.Value);
+
+                            var match = Members_dt?.Rows
+                                .Cast<DataRow>()
+                                .FirstOrDefault(r => Convert.ToInt32(r["ID"]) == selectedID);
+
+                            if (match != null)
+                            {
+                                dataGridView.Rows[e.RowIndex].Cells["FP_Exp_Relation"].Value = match["FP_Exp_Relation"].ToString();
+                            }
+                        }
+                    }
+                    else if (dataGridView.Name == "Illness_dataGridView")
+                    {
+                        if (dataGridView.Columns[e.ColumnIndex].Name == "Ill_PName")
+                        {
+                            var selectedCell = dataGridView.Rows[e.RowIndex].Cells["Ill_PName"];
+                            if (selectedCell.Value == null) return;
+
+                            int selectedID = Convert.ToInt32(selectedCell.Value);
+
+                            var match = Members_dt?.Rows
+                                .Cast<DataRow>()
+                                .FirstOrDefault(r => Convert.ToInt32(r["ID"]) == selectedID);
+
+                            if (match != null)
+                            {
+                                dataGridView.Rows[e.RowIndex].Cells["Ill_Relation"].Value = match["Ill_Relation"].ToString();
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
 
         private DataGridViewComboBoxCell Load_Education_ComboBox(string Edu_type)
         {
@@ -1502,9 +1590,57 @@ namespace MyWorkApplication
             if (!Empty)
                 Ill_AidPeriod_dt = ds.Tables[22].Copy();
 
-
-
             cell.DataSource = Ill_AidPeriod_dt;
+            cell.DisplayMember = "name";
+            cell.ValueMember = "id";
+            cell.FlatStyle = FlatStyle.Flat;
+
+            return cell;
+        }
+
+        private DataTable Members_dt;
+        private DataGridViewComboBoxCell Load_Persons_ComboBox()
+        {
+            Members_dt = new DataTable();
+            Members_dt.Columns.Add("ID", typeof(int));
+            Members_dt.Columns.Add("Name", typeof(string));
+            Members_dt.Columns.Add("Relation", typeof(string));
+
+
+            DataTable Relation_dt = ds.Tables[15].Copy();
+
+
+
+            for (int i = 0; i <= FamilyMember_dataGridView.Rows.Count - 2; i++)
+            {
+                var row = FamilyMember_dataGridView.Rows[i];
+
+                int PersonID;
+                if (!string.IsNullOrWhiteSpace(Convert.ToString(row.Cells["FPerson_ID"].Value ?? "")))
+                    PersonID = Convert.ToInt32(row.Cells["FPerson_ID"].Value.ToString());
+                else
+                    PersonID = -i;
+
+                string firstName = Convert.ToString(row.Cells["P_FirstName"].Value ?? "");
+                string lastName = Convert.ToString(row.Cells["P_LastName"].Value ?? "");
+
+
+                string relation = Relation_dt.AsEnumerable()
+                            .Where(dtrow => dtrow.Field<int>("ID") == Convert.ToInt32(row.Cells["P_Relation"].Value))
+                            .Select(dtrow => dtrow.Field<string>("Name"))
+                            .FirstOrDefault();
+
+                //string relation = Convert.ToString(row.Cells["P_Relation"].Value ?? "");
+
+                string fullName = $"{firstName} {lastName}";
+
+                Members_dt.Rows.Add(PersonID, fullName, relation);
+            }
+
+
+            DataGridViewComboBoxCell cell = new DataGridViewComboBoxCell();
+
+            cell.DataSource = Members_dt;
             cell.DisplayMember = "name";
             cell.ValueMember = "id";
             cell.FlatStyle = FlatStyle.Flat;
@@ -1516,6 +1652,7 @@ namespace MyWorkApplication
         {
             FamilyMember_dataGridView["P_State", e.RowIndex].Value = 1;
             FamilyMember_dataGridView.Refresh();
+
         }
 
         #endregion
@@ -3759,11 +3896,12 @@ namespace MyWorkApplication
                         Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
                             " Values (Concat('Insert full appliction for the project:',@MicroProject_ID), '', @Log_User, @Log_Date, '0');";
                 }
-                else if(ApplicationState == "project")
+                else if (ApplicationState == "project")
                 {
                     Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
                         " Values (Concat('Update full appliction for the project:',@MicroProject_ID), '', @Log_User, @Log_Date, '0');";
                 }
+
                 #region ProjectStory
                 string P_Loss = "", P_Goal = "", P_GoalHow = "", P_OtherNotes = "";
                 string Goal_Query = "";
@@ -5100,14 +5238,13 @@ namespace MyWorkApplication
                 {
                     if (AidSource_dataGridView.Rows[i].Visible)
                     {
-                        if (ApplicationState == "project")
+
+                        if (AidSource_dataGridView.Rows[i].Cells["Aid_PName"].Value == null || AidSource_dataGridView.Rows[i].Cells["Aid_PName"].Value.ToString() == "")
                         {
-                            if (AidSource_dataGridView.Rows[i].Cells["Aid_PName"].Value == null || AidSource_dataGridView.Rows[i].Cells["Aid_PName"].Value.ToString() == "")
-                            {
-                                MessageBox.Show("الرجاء التأكد من إدخال الاسم في جميع الأسطر في قسم الاستفادة من جهات أخرى", "Error");
-                                return;
-                            }
+                            MessageBox.Show("الرجاء التأكد من إدخال الاسم في جميع الأسطر في قسم الاستفادة من جهات أخرى", "Error");
+                            return;
                         }
+
                         if (AidSource_dataGridView.Rows[i].Cells["Aid_Source"].Value == null || AidSource_dataGridView.Rows[i].Cells["Aid_Source"].Value.ToString() == "")
                         {
                             MessageBox.Show("الرجاء التأكد من إدخال الجهة في جميع الأسطر في قسم الاستفادة من جهات أخرى", "Error");
@@ -5542,27 +5679,71 @@ namespace MyWorkApplication
                                     Query += "DELETE FROM person_aidsource WHERE ID = @AidP_ID" + i + ";";
                                 else
                                 {
-                                    Query += "UPDATE person_aidsource set Person_ID  = @Aid_PName" + i + "," +
-                                        " AidSource_ID  = @Aid_Source" + i + "," +
-                                        " DateYear  = @Aid_DateYear" + i + "," +
-                                        " Amount = @Aid_Amount" + i + "," +
-                                        " ProjectType = @Aid_ProjectType" + i + "," +
-                                        " Notes = @Aid_Notes" + i + "" +
-                                        " where ID = @AidP_ID" + i + ";";
+                                    if (Convert.ToInt32(Aid_PName) > 0)
+                                    {
+                                        Query += "UPDATE person_aidsource set Person_ID  = @Aid_PName" + i + "," +
+                                            " MicroProject_ID= @MicroProject_ID, " +
+                                           " AidSource_ID  = @Aid_Source" + i + "," +
+                                           " DateYear  = @Aid_DateYear" + i + "," +
+                                           " Amount = @Aid_Amount" + i + "," +
+                                           " ProjectType = @Aid_ProjectType" + i + "," +
+                                           " Notes = @Aid_Notes" + i + "" +
+                                           " where ID = @AidP_ID" + i + ";";
+                                    }
+                                    else
+                                    {
+                                        string PName = Members_dt.AsEnumerable()
+                                                   .Where(dtrow => dtrow.Field<int>("ID") == Convert.ToInt32(Aid_PName))
+                                                   .Select(dtrow => dtrow.Field<string>("Name"))
+                                                   .FirstOrDefault();
+
+                                        sc.Parameters.AddWithValue("@PName" + i, PName);
+
+
+                                        Query += "UPDATE person_aidsource set Person_ID  = (select P_ID from person where CONCAT(P_FirstName,' ',P_LastName) = @PName" + i + ")," +
+                                            " MicroProject_ID= @MicroProject_ID," +
+                                            " AidSource_ID  = @Aid_Source" + i + "," +
+                                            " DateYear  = @Aid_DateYear" + i + "," +
+                                            " Amount = @Aid_Amount" + i + "," +
+                                            " ProjectType = @Aid_ProjectType" + i + "," +
+                                            " Notes = @Aid_Notes" + i + "" +
+                                            " where ID = @AidP_ID" + i + ";";
+
+                                    }
+
                                 }
                             }
                             else
                             {
-                                if (ApplicationState == "project")
+                                if (Convert.ToInt32(Aid_PName) > 0)
                                 {
-                                    Query += "INSERT INTO person_aidsource (Person_ID, AidSource_ID, DateYear , Amount,ProjectType, Notes)" +
-                                        " VALUES (@Aid_PName" + i + ", @Aid_Source" + i + ", @Aid_DateYear" + i + ", @Aid_Amount" + i + ", @Aid_ProjectType" + i + ", @Aid_Notes" + i + ");";
+                                    Query += "INSERT INTO person_aidsource (Person_ID, MicroProject_ID, AidSource_ID, DateYear , Amount,ProjectType, Notes)" +
+                                        " VALUES (@Aid_PName" + i + ", @MicroProject_ID, @Aid_Source" + i + ", @Aid_DateYear" + i + ", @Aid_Amount" + i + ", @Aid_ProjectType" + i + ", @Aid_Notes" + i + ");";
                                 }
                                 else
                                 {
-                                    Query += "INSERT INTO person_aidsource (Person_ID, AidSource_ID, DateYear , Amount,ProjectType, Notes)" +
-                                        " VALUES (@Person_ID, @Aid_Source" + i + ", @Aid_DateYear" + i + ", @Aid_Amount" + i + ", @Aid_ProjectType" + i + ", @Aid_Notes" + i + ");";
+                                    string PName = Members_dt.AsEnumerable()
+                                      .Where(dtrow => dtrow.Field<int>("ID") == Convert.ToInt32(Aid_PName))
+                                      .Select(dtrow => dtrow.Field<string>("Name"))
+                                      .FirstOrDefault();
+
+                                    sc.Parameters.AddWithValue("@PName" + i, PName);
+
+
+                                    Query += "INSERT INTO person_aidsource (Person_ID, MicroProject_ID, AidSource_ID, DateYear , Amount,ProjectType, Notes)" +
+                                        " VALUES ((select P_ID from person where CONCAT(P_FirstName,' ',P_LastName) = @PName" + i + "), @MicroProject_ID, @Aid_Source" + i + ", @Aid_DateYear" + i + ", @Aid_Amount" + i + ", @Aid_ProjectType" + i + ", @Aid_Notes" + i + ");";
+
                                 }
+                                //if (ApplicationState == "project")
+                                //{
+                                //    Query += "INSERT INTO person_aidsource (Person_ID, AidSource_ID, DateYear , Amount,ProjectType, Notes)" +
+                                //        " VALUES (@Aid_PName" + i + ", @Aid_Source" + i + ", @Aid_DateYear" + i + ", @Aid_Amount" + i + ", @Aid_ProjectType" + i + ", @Aid_Notes" + i + ");";
+                                //}
+                                //else
+                                //{
+                                //    Query += "INSERT INTO person_aidsource (Person_ID, AidSource_ID, DateYear , Amount,ProjectType, Notes)" +
+                                //        " VALUES (@Person_ID, @Aid_Source" + i + ", @Aid_DateYear" + i + ", @Aid_Amount" + i + ", @Aid_ProjectType" + i + ", @Aid_Notes" + i + ");";
+                                //}
 
                             }
                         }
@@ -5819,6 +6000,7 @@ namespace MyWorkApplication
 
             Clear_Boxes();
             Set_Controls();
+            Bind_Persons_Data(false);
             Fill_Application_Data();
 
             UserMode = false;
@@ -6041,7 +6223,7 @@ namespace MyWorkApplication
 
                             PersonPicture_pictureBox.Image = Resources.Unknown_User;
                             ImageLocation_textBox.Text = "";
-                            FullPicName = FilePicName = "";
+                            FullPicName =  "";
                             MessageBox.Show("الملف مفقود - تم حذف الاسم من القائمة");
                         }
                     }
@@ -6405,7 +6587,7 @@ namespace MyWorkApplication
 
                         PersonPicture_pictureBox.Image = Resources.Unknown_User;
                         ImageLocation_textBox.Text = "";
-                        FullPicName = FilePicName = "";
+                        FullPicName =  "";
                     }
                 }
             }

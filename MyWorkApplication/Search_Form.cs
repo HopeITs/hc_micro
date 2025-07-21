@@ -2771,10 +2771,10 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                                 Person_ID = -1;
                             else Person_ID = int.Parse(SelectedDataRow["رقم المستفيد"].ToString());
 
-                            if (SelectedDataRow["ApplicationState"] == null ||
-                              SelectedDataRow["ApplicationState"] == DBNull.Value)
+                            if (SelectedDataRow["نوع الاستمارة"] == null ||
+                              SelectedDataRow["نوع الاستمارة"] == DBNull.Value)
                                 ApplicationState = "";
-                            else ApplicationState = SelectedDataRow["ApplicationState"].ToString();
+                            else ApplicationState = SelectedDataRow["نوع الاستمارة"].ToString();
                         }
 
                         Form Appplication_New_Form = new Application_New_Form(main_form, MicroProject_ID, Person_ID, ApplicationState);
