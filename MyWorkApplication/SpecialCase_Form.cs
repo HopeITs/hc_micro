@@ -157,6 +157,8 @@ namespace MyWorkApplication
             ((HandledMouseEventArgs)e).Handled = true;
         }
 
+        string ApplicationState = "";
+
         private void fill_boxes(DataTable dt)
         {
             try
@@ -168,6 +170,7 @@ namespace MyWorkApplication
                     Person_Name_textBox.Text = (string)dt.Rows[0]["Beneficiary Name"];
                     MP_Name_textBox.Text = (string)dt.Rows[0]["Project Name"];
                     Mobile_textBox.Text = (string)dt.Rows[0]["Mobile"];
+                    ApplicationState = (string)dt.Rows[0]["نوع الاستمارة"];
 
                     if (dt.Rows[0]["Address"] != DBNull.Value)
                         WorkAddress_textBox.Text = (string)dt.Rows[0]["Address"];
@@ -511,8 +514,8 @@ namespace MyWorkApplication
 
         private void application_toolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var _Form = new Application_Form(Person_ID, MicroProject_ID, mainForm);
-            mainForm.showNewTab(_Form, "Application", 0);
+            Form Appplication_New_Form = new Application_New_Form(mainForm, MicroProject_ID, Person_ID, ApplicationState);
+            mainForm.showNewTab(Appplication_New_Form, "Application", 0);
         }
 
         private void addNotesToolStripMenuItem_Click(object sender, EventArgs e)

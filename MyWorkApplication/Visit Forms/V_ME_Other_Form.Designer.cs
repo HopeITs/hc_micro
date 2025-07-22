@@ -354,8 +354,8 @@
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel14.Size = new System.Drawing.Size(1153, 45);
             this.tableLayoutPanel14.TabIndex = 564;
             this.tableLayoutPanel14.TabStop = true;
@@ -552,7 +552,7 @@
             "M",
             "C",
             "SC"});
-            this.V2_comboBox.Location = new System.Drawing.Point(3, 241);
+            this.V2_comboBox.Location = new System.Drawing.Point(3, 248);
             this.V2_comboBox.Name = "V2_comboBox";
             this.V2_comboBox.Size = new System.Drawing.Size(361, 35);
             this.V2_comboBox.TabIndex = 20;
@@ -583,7 +583,7 @@
             "M",
             "C",
             "SC"});
-            this.V1_comboBox.Location = new System.Drawing.Point(594, 241);
+            this.V1_comboBox.Location = new System.Drawing.Point(594, 248);
             this.V1_comboBox.Name = "V1_comboBox";
             this.V1_comboBox.Size = new System.Drawing.Size(349, 35);
             this.V1_comboBox.TabIndex = 19;
@@ -677,7 +677,7 @@
             "وسط",
             "جيد",
             "ممتاز"});
-            this.V1_Eval_comboBox.Location = new System.Drawing.Point(594, 285);
+            this.V1_Eval_comboBox.Location = new System.Drawing.Point(594, 292);
             this.V1_Eval_comboBox.Name = "V1_Eval_comboBox";
             this.V1_Eval_comboBox.Size = new System.Drawing.Size(349, 35);
             this.V1_Eval_comboBox.TabIndex = 610;
@@ -693,7 +693,7 @@
             "وسط",
             "جيد",
             "ممتاز"});
-            this.V2_Eval_comboBox.Location = new System.Drawing.Point(3, 285);
+            this.V2_Eval_comboBox.Location = new System.Drawing.Point(3, 292);
             this.V2_Eval_comboBox.Name = "V2_Eval_comboBox";
             this.V2_Eval_comboBox.Size = new System.Drawing.Size(361, 35);
             this.V2_Eval_comboBox.TabIndex = 611;
@@ -762,7 +762,7 @@
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 351F));
             this.tableLayoutPanel19.Controls.Add(this.label17, 0, 0);
             this.tableLayoutPanel19.Controls.Add(this.textBox14, 4, 1);
             this.tableLayoutPanel19.Controls.Add(this.radioButton10, 1, 1);
@@ -845,7 +845,7 @@
             this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 351F));
             this.tableLayoutPanel20.Controls.Add(this.label18, 0, 0);
             this.tableLayoutPanel20.Controls.Add(this.textBox15, 4, 1);
             this.tableLayoutPanel20.Controls.Add(this.radioButton31, 1, 1);
@@ -928,7 +928,7 @@
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 351F));
             this.tableLayoutPanel21.Controls.Add(this.radioButton1, 2, 1);
             this.tableLayoutPanel21.Controls.Add(this.label19, 0, 0);
             this.tableLayoutPanel21.Controls.Add(this.textBox16, 4, 1);
@@ -1023,7 +1023,7 @@
             this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 351F));
             this.tableLayoutPanel22.Controls.Add(this.label28, 3, 1);
             this.tableLayoutPanel22.Controls.Add(this.label20, 0, 0);
             this.tableLayoutPanel22.Controls.Add(this.textBox17, 4, 1);
@@ -1132,7 +1132,7 @@
             this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
+            this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 351F));
             this.tableLayoutPanel24.Controls.Add(this.label22, 0, 0);
             this.tableLayoutPanel24.Controls.Add(this.textBox19, 4, 1);
             this.tableLayoutPanel24.Controls.Add(this.radioButton37, 1, 1);
@@ -1215,7 +1215,7 @@
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 351F));
             this.tableLayoutPanel23.Controls.Add(this.radioButton43, 2, 1);
             this.tableLayoutPanel23.Controls.Add(this.label21, 0, 0);
             this.tableLayoutPanel23.Controls.Add(this.textBox18, 4, 1);
@@ -1310,7 +1310,7 @@
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
+            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 351F));
             this.tableLayoutPanel25.Controls.Add(this.label23, 0, 0);
             this.tableLayoutPanel25.Controls.Add(this.textBox20, 4, 1);
             this.tableLayoutPanel25.Controls.Add(this.radioButton41, 1, 1);
@@ -1433,7 +1433,7 @@
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 354F));
             this.tableLayoutPanel16.Controls.Add(this.label16, 3, 1);
             this.tableLayoutPanel16.Controls.Add(this.label14, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.textBox12, 4, 1);
@@ -1524,7 +1524,7 @@
             this.label_id10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id10.AutoSize = true;
             this.label_id10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id10.Location = new System.Drawing.Point(317, 7);
+            this.label_id10.Location = new System.Drawing.Point(318, 7);
             this.label_id10.Name = "label_id10";
             this.label_id10.Size = new System.Drawing.Size(34, 27);
             this.label_id10.TabIndex = 621;
@@ -1542,7 +1542,7 @@
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 354F));
             this.tableLayoutPanel17.Controls.Add(this.label_id11, 5, 0);
             this.tableLayoutPanel17.Controls.Add(this.label15, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.textBox13, 4, 1);
@@ -1562,7 +1562,7 @@
             this.label_id11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id11.AutoSize = true;
             this.label_id11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id11.Location = new System.Drawing.Point(317, 7);
+            this.label_id11.Location = new System.Drawing.Point(318, 7);
             this.label_id11.Name = "label_id11";
             this.label_id11.Size = new System.Drawing.Size(34, 27);
             this.label_id11.TabIndex = 622;
@@ -1694,7 +1694,7 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 352F));
             this.tableLayoutPanel8.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.textBox6, 4, 1);
             this.tableLayoutPanel8.Controls.Add(this.label_id5, 5, 0);
@@ -1737,7 +1737,7 @@
             this.label_id5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id5.AutoSize = true;
             this.label_id5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id5.Location = new System.Drawing.Point(315, 5);
+            this.label_id5.Location = new System.Drawing.Point(316, 5);
             this.label_id5.Name = "label_id5";
             this.label_id5.Size = new System.Drawing.Size(34, 27);
             this.label_id5.TabIndex = 618;
@@ -1777,7 +1777,7 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 352F));
             this.tableLayoutPanel9.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.textBox7, 4, 1);
             this.tableLayoutPanel9.Controls.Add(this.radioButton15, 2, 1);
@@ -1854,7 +1854,7 @@
             this.label_id6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id6.AutoSize = true;
             this.label_id6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id6.Location = new System.Drawing.Point(315, 5);
+            this.label_id6.Location = new System.Drawing.Point(316, 5);
             this.label_id6.Name = "label_id6";
             this.label_id6.Size = new System.Drawing.Size(34, 27);
             this.label_id6.TabIndex = 619;
@@ -1872,7 +1872,7 @@
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 352F));
             this.tableLayoutPanel10.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this.textBox8, 4, 1);
             this.tableLayoutPanel10.Controls.Add(this.radioButton19, 2, 1);
@@ -1927,7 +1927,7 @@
             this.label_id7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id7.AutoSize = true;
             this.label_id7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id7.Location = new System.Drawing.Point(317, 5);
+            this.label_id7.Location = new System.Drawing.Point(318, 5);
             this.label_id7.Name = "label_id7";
             this.label_id7.Size = new System.Drawing.Size(32, 27);
             this.label_id7.TabIndex = 620;
@@ -1967,7 +1967,7 @@
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 352F));
             this.tableLayoutPanel11.Controls.Add(this.radioButton59, 2, 1);
             this.tableLayoutPanel11.Controls.Add(this.label10, 0, 0);
             this.tableLayoutPanel11.Controls.Add(this.textBox9, 4, 1);
@@ -2022,7 +2022,7 @@
             this.label_id8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id8.AutoSize = true;
             this.label_id8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id8.Location = new System.Drawing.Point(315, 5);
+            this.label_id8.Location = new System.Drawing.Point(316, 5);
             this.label_id8.Name = "label_id8";
             this.label_id8.Size = new System.Drawing.Size(34, 27);
             this.label_id8.TabIndex = 620;
@@ -2109,7 +2109,7 @@
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 352F));
             this.tableLayoutPanel13.Controls.Add(this.label12, 0, 0);
             this.tableLayoutPanel13.Controls.Add(this.textBox11, 4, 1);
             this.tableLayoutPanel13.Controls.Add(this.label_id33, 5, 0);
@@ -2153,7 +2153,7 @@
             this.label_id33.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id33.AutoSize = true;
             this.label_id33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id33.Location = new System.Drawing.Point(315, 5);
+            this.label_id33.Location = new System.Drawing.Point(316, 5);
             this.label_id33.Name = "label_id33";
             this.label_id33.Size = new System.Drawing.Size(34, 27);
             this.label_id33.TabIndex = 620;
@@ -2204,7 +2204,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 352F));
             this.tableLayoutPanel3.Controls.Add(this.label29, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.textBox21, 4, 1);
             this.tableLayoutPanel3.Controls.Add(this.label_id29, 5, 0);
@@ -2226,9 +2226,9 @@
             this.tableLayoutPanel3.SetColumnSpan(this.label29, 5);
             this.label29.Font = new System.Drawing.Font("Rubik", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label29.Location = new System.Drawing.Point(828, 2);
+            this.label29.Location = new System.Drawing.Point(822, 5);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(324, 33);
+            this.label29.Size = new System.Drawing.Size(330, 27);
             this.label29.TabIndex = 0;
             this.label29.Text = "5 –هل يترتب عليك ديون متعلّقة بالمشروع ؟";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2239,10 +2239,10 @@
             this.textBox21.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel3.SetColumnSpan(this.textBox21, 2);
             this.textBox21.Font = new System.Drawing.Font("Rubik", 10.2F);
-            this.textBox21.Location = new System.Drawing.Point(0, 37);
+            this.textBox21.Location = new System.Drawing.Point(0, 41);
             this.textBox21.Margin = new System.Windows.Forms.Padding(0);
             this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(619, 39);
+            this.textBox21.Size = new System.Drawing.Size(619, 28);
             this.textBox21.TabIndex = 608;
             // 
             // label_id29
@@ -2251,9 +2251,9 @@
             this.label_id29.AutoSize = true;
             this.label_id29.Font = new System.Drawing.Font("Rubik", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_id29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id29.Location = new System.Drawing.Point(314, 2);
+            this.label_id29.Location = new System.Drawing.Point(316, 5);
             this.label_id29.Name = "label_id29";
-            this.label_id29.Size = new System.Drawing.Size(35, 33);
+            this.label_id29.Size = new System.Drawing.Size(34, 27);
             this.label_id29.TabIndex = 620;
             this.label_id29.Text = "29";
             this.label_id29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2264,10 +2264,10 @@
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Rubik", 10F);
             this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label33.Location = new System.Drawing.Point(622, 40);
+            this.label33.Location = new System.Drawing.Point(622, 42);
             this.label33.Name = "label33";
             this.label33.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label33.Size = new System.Drawing.Size(120, 31);
+            this.label33.Size = new System.Drawing.Size(116, 26);
             this.label33.TabIndex = 621;
             this.label33.Text = "ما هي/ القيمة :";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2305,7 +2305,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 352F));
             this.tableLayoutPanel4.Controls.Add(this.label34, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.textBox22, 4, 1);
             this.tableLayoutPanel4.Controls.Add(this.radioButton50, 1, 1);
@@ -2371,7 +2371,7 @@
             this.label_id30.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id30.AutoSize = true;
             this.label_id30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id30.Location = new System.Drawing.Point(315, 5);
+            this.label_id30.Location = new System.Drawing.Point(316, 5);
             this.label_id30.Name = "label_id30";
             this.label_id30.Size = new System.Drawing.Size(34, 27);
             this.label_id30.TabIndex = 620;
@@ -2402,7 +2402,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 352F));
             this.tableLayoutPanel5.Controls.Add(this.label37, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.textBox23, 4, 1);
             this.tableLayoutPanel5.Controls.Add(this.radioButton52, 1, 1);
@@ -2467,7 +2467,7 @@
             this.label_id31.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id31.AutoSize = true;
             this.label_id31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id31.Location = new System.Drawing.Point(318, 5);
+            this.label_id31.Location = new System.Drawing.Point(319, 5);
             this.label_id31.Name = "label_id31";
             this.label_id31.Size = new System.Drawing.Size(31, 27);
             this.label_id31.TabIndex = 620;
@@ -2485,7 +2485,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 352F));
             this.tableLayoutPanel7.Controls.Add(this.radioButton60, 2, 1);
             this.tableLayoutPanel7.Controls.Add(this.label40, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.textBox24, 4, 1);
@@ -2551,7 +2551,7 @@
             this.label_id32.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id32.AutoSize = true;
             this.label_id32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id32.Location = new System.Drawing.Point(315, 5);
+            this.label_id32.Location = new System.Drawing.Point(316, 5);
             this.label_id32.Name = "label_id32";
             this.label_id32.Size = new System.Drawing.Size(34, 27);
             this.label_id32.TabIndex = 620;
@@ -2630,7 +2630,7 @@
             this.tableLayoutPanel_1n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel_1n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel_1n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel_1n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tableLayoutPanel_1n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
             this.tableLayoutPanel_1n.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel_1n.Controls.Add(this.textBox1, 4, 1);
             this.tableLayoutPanel_1n.Controls.Add(this.radioButton4, 2, 1);
@@ -2722,7 +2722,7 @@
             this.label_id1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id1.AutoSize = true;
             this.label_id1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id1.Location = new System.Drawing.Point(316, 8);
+            this.label_id1.Location = new System.Drawing.Point(317, 8);
             this.label_id1.Name = "label_id1";
             this.label_id1.Size = new System.Drawing.Size(31, 27);
             this.label_id1.TabIndex = 608;
@@ -2740,7 +2740,7 @@
             this.tableLayoutPanel_2n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel_2n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel_2n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel_2n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tableLayoutPanel_2n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
             this.tableLayoutPanel_2n.Controls.Add(this.radioButton56, 2, 1);
             this.tableLayoutPanel_2n.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel_2n.Controls.Add(this.textBox2, 4, 1);
@@ -2795,7 +2795,7 @@
             this.label_id2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id2.AutoSize = true;
             this.label_id2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id2.Location = new System.Drawing.Point(313, 8);
+            this.label_id2.Location = new System.Drawing.Point(314, 8);
             this.label_id2.Name = "label_id2";
             this.label_id2.Size = new System.Drawing.Size(34, 27);
             this.label_id2.TabIndex = 609;
@@ -2835,7 +2835,7 @@
             this.tableLayoutPanel_3n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel_3n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel_3n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel_3n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tableLayoutPanel_3n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
             this.tableLayoutPanel_3n.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel_3n.Controls.Add(this.label_id3, 5, 0);
             this.tableLayoutPanel_3n.Controls.Add(this.textBox3, 4, 1);
@@ -2868,7 +2868,7 @@
             this.label_id3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id3.AutoSize = true;
             this.label_id3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id3.Location = new System.Drawing.Point(316, 8);
+            this.label_id3.Location = new System.Drawing.Point(317, 8);
             this.label_id3.Name = "label_id3";
             this.label_id3.Size = new System.Drawing.Size(31, 27);
             this.label_id3.TabIndex = 616;
@@ -2932,7 +2932,7 @@
             this.tableLayoutPanel_4n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel_4n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel_4n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel_4n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tableLayoutPanel_4n.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
             this.tableLayoutPanel_4n.Controls.Add(this.label35, 3, 1);
             this.tableLayoutPanel_4n.Controls.Add(this.label_id4, 5, 0);
             this.tableLayoutPanel_4n.Controls.Add(this.label3, 0, 0);
@@ -2966,7 +2966,7 @@
             this.label_id4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id4.AutoSize = true;
             this.label_id4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id4.Location = new System.Drawing.Point(313, 8);
+            this.label_id4.Location = new System.Drawing.Point(314, 8);
             this.label_id4.Name = "label_id4";
             this.label_id4.Size = new System.Drawing.Size(34, 27);
             this.label_id4.TabIndex = 617;
@@ -3091,7 +3091,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
             this.tableLayoutPanel1.Controls.Add(this.label_id23, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.label30, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox5, 4, 1);
@@ -3111,7 +3111,7 @@
             this.label_id23.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id23.AutoSize = true;
             this.label_id23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id23.Location = new System.Drawing.Point(313, 8);
+            this.label_id23.Location = new System.Drawing.Point(314, 8);
             this.label_id23.Name = "label_id23";
             this.label_id23.Size = new System.Drawing.Size(34, 27);
             this.label_id23.TabIndex = 617;
@@ -3186,7 +3186,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.7002F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.1992F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 348F));
             this.tableLayoutPanel2.Controls.Add(this.label_id24, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.label32, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBox10, 4, 1);
@@ -3205,7 +3205,7 @@
             this.label_id24.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_id24.AutoSize = true;
             this.label_id24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label_id24.Location = new System.Drawing.Point(313, 8);
+            this.label_id24.Location = new System.Drawing.Point(314, 8);
             this.label_id24.Name = "label_id24";
             this.label_id24.Size = new System.Drawing.Size(34, 27);
             this.label_id24.TabIndex = 617;
@@ -3525,7 +3525,7 @@
             // Visit_Num_textBox
             // 
             this.Visit_Num_textBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Visit_Num_textBox.Location = new System.Drawing.Point(522, 7);
+            this.Visit_Num_textBox.Location = new System.Drawing.Point(522, 3);
             this.Visit_Num_textBox.MaximumSize = new System.Drawing.Size(99, 39);
             this.Visit_Num_textBox.MinimumSize = new System.Drawing.Size(99, 39);
             this.Visit_Num_textBox.Name = "Visit_Num_textBox";
@@ -3588,6 +3588,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Rubik", 10.8F);
             this.ForeColor = System.Drawing.Color.Black;

@@ -473,8 +473,6 @@
             // 
             this.NewApplicationToolStripMenuItem.Name = "NewApplicationToolStripMenuItem";
             this.NewApplicationToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
-            this.NewApplicationToolStripMenuItem.Text = "New Application";
-            this.NewApplicationToolStripMenuItem.Click += new System.EventHandler(this.NewApplicationToolStripMenuItem_Click);
             // 
             // adminPageToolStripMenuItem
             // 

@@ -583,19 +583,6 @@ namespace MyWorkApplication
             }
         }
 
-        private void NewApplicationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Form Application_Form = new Application_Form(this);
-                showNewTab(Application_Form, "Application", 1);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void newCheckListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try

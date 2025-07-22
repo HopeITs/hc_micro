@@ -999,8 +999,8 @@ namespace MyWorkApplication.Visit_Forms
 
         private void application_toolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var _Form = new Application_Form(Person_ID, MicroProject_ID, mainForm);
-            mainForm.showNewTab(_Form, "Application", 0);
+            Form Appplication_New_Form = new Application_New_Form(mainForm, MicroProject_ID, Person_ID, "project");
+            mainForm.showNewTab(Appplication_New_Form, "Application", 0);
         }
 
         private void addNotesToolStripMenuItem_Click(object sender, EventArgs e)

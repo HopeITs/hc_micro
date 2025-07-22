@@ -193,7 +193,7 @@ namespace MyWorkApplication
             this.Top_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
             this.Top_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.Top_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
-            this.Top_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.Top_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.Top_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.Top_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.Top_tableLayoutPanel.ContextMenuStrip = this.contextMenuStrip1;
@@ -227,7 +227,7 @@ namespace MyWorkApplication
             this.TaskType_comboBox.Items.AddRange(new object[] {
             "مرحلة ماقبل أخذ القرار",
             "مرحلة التمويل"});
-            this.TaskType_comboBox.Location = new System.Drawing.Point(920, 9);
+            this.TaskType_comboBox.Location = new System.Drawing.Point(920, 4);
             this.TaskType_comboBox.Margin = new System.Windows.Forms.Padding(2);
             this.TaskType_comboBox.Name = "TaskType_comboBox";
             this.TaskType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -241,7 +241,7 @@ namespace MyWorkApplication
             this.Counter_textBox.BackColor = System.Drawing.Color.White;
             this.Counter_textBox.ForeColor = System.Drawing.Color.Black;
             this.Counter_textBox.HideSelection = false;
-            this.Counter_textBox.Location = new System.Drawing.Point(209, 7);
+            this.Counter_textBox.Location = new System.Drawing.Point(211, 7);
             this.Counter_textBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Counter_textBox.Name = "Counter_textBox";
             this.Counter_textBox.ReadOnly = true;
@@ -259,7 +259,7 @@ namespace MyWorkApplication
             this.Refresh_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Refresh_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Refresh_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Refresh_button.Location = new System.Drawing.Point(159, 7);
+            this.Refresh_button.Location = new System.Drawing.Point(161, 7);
             this.Refresh_button.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Refresh_button.MaximumSize = new System.Drawing.Size(44, 29);
             this.Refresh_button.MinimumSize = new System.Drawing.Size(44, 29);
@@ -275,7 +275,7 @@ namespace MyWorkApplication
             // 
             this.ExactSearch_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ExactSearch_checkBox.AutoSize = true;
-            this.ExactSearch_checkBox.Location = new System.Drawing.Point(326, 6);
+            this.ExactSearch_checkBox.Location = new System.Drawing.Point(327, 6);
             this.ExactSearch_checkBox.Margin = new System.Windows.Forms.Padding(4);
             this.ExactSearch_checkBox.Name = "ExactSearch_checkBox";
             this.ExactSearch_checkBox.Size = new System.Drawing.Size(107, 31);
@@ -294,7 +294,7 @@ namespace MyWorkApplication
             this.ShowHide_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShowHide_button.Location = new System.Drawing.Point(51, 8);
+            this.ShowHide_button.Location = new System.Drawing.Point(53, 8);
             this.ShowHide_button.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.ShowHide_button.MaximumSize = new System.Drawing.Size(42, 27);
             this.ShowHide_button.MinimumSize = new System.Drawing.Size(42, 27);
@@ -317,7 +317,7 @@ namespace MyWorkApplication
             this.ExportToExcel_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ExportToExcel_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExportToExcel_button.ForeColor = System.Drawing.Color.White;
-            this.ExportToExcel_button.Location = new System.Drawing.Point(103, 7);
+            this.ExportToExcel_button.Location = new System.Drawing.Point(105, 7);
             this.ExportToExcel_button.Margin = new System.Windows.Forms.Padding(6, 2, 6, 2);
             this.ExportToExcel_button.MaximumSize = new System.Drawing.Size(44, 29);
             this.ExportToExcel_button.MinimumSize = new System.Drawing.Size(44, 29);
@@ -334,11 +334,11 @@ namespace MyWorkApplication
             this.Search_TxtBox.BackColor = System.Drawing.Color.White;
             this.Search_TxtBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Search_TxtBox.ForeColor = System.Drawing.Color.Black;
-            this.Search_TxtBox.Location = new System.Drawing.Point(444, 5);
+            this.Search_TxtBox.Location = new System.Drawing.Point(445, 5);
             this.Search_TxtBox.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
             this.Search_TxtBox.Multiline = true;
             this.Search_TxtBox.Name = "Search_TxtBox";
-            this.Search_TxtBox.Size = new System.Drawing.Size(467, 33);
+            this.Search_TxtBox.Size = new System.Drawing.Size(466, 33);
             this.Search_TxtBox.TabIndex = 1;
             this.Search_TxtBox.TextChanged += new System.EventHandler(this.MP_idTxtBox_TextChanged);
             // 
@@ -363,6 +363,7 @@ namespace MyWorkApplication
             // Filters_tableLayoutPanel
             // 
             this.Filters_tableLayoutPanel.AutoScroll = true;
+            this.Filters_tableLayoutPanel.AutoSize = true;
             this.Filters_tableLayoutPanel.ColumnCount = 33;
             this.Filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.Filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
@@ -397,6 +398,8 @@ namespace MyWorkApplication
             this.Filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.Filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.Filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.Filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.Filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.Filters_tableLayoutPanel.Controls.Add(this.f30_label, 31, 0);
             this.Filters_tableLayoutPanel.Controls.Add(this.f29_label, 30, 0);
             this.Filters_tableLayoutPanel.Controls.Add(this.MP_dataGridView, 0, 3);
@@ -455,13 +458,12 @@ namespace MyWorkApplication
             this.Filters_tableLayoutPanel.Location = new System.Drawing.Point(0, 43);
             this.Filters_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.Filters_tableLayoutPanel.Name = "Filters_tableLayoutPanel";
-            this.Filters_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Filters_tableLayoutPanel.RowCount = 4;
-            this.Filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.321153F));
-            this.Filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.022137F));
-            this.Filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.374678F));
-            this.Filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.28204F));
-            this.Filters_tableLayoutPanel.Size = new System.Drawing.Size(1252, 649);
+            this.Filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.Filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.Filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.Filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.Filters_tableLayoutPanel.Size = new System.Drawing.Size(1252, 703);
             this.Filters_tableLayoutPanel.TabIndex = 3;
             // 
             // f30_label
@@ -477,7 +479,7 @@ namespace MyWorkApplication
             this.f30_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f30_label.Name = "f30_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f30_label, 2);
-            this.f30_label.Size = new System.Drawing.Size(68, 54);
+            this.f30_label.Size = new System.Drawing.Size(68, 78);
             this.f30_label.TabIndex = 488;
             this.f30_label.Text = "label2";
             this.f30_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -495,7 +497,7 @@ namespace MyWorkApplication
             this.f29_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f29_label.Name = "f29_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f29_label, 2);
-            this.f29_label.Size = new System.Drawing.Size(68, 54);
+            this.f29_label.Size = new System.Drawing.Size(68, 78);
             this.f29_label.TabIndex = 487;
             this.f29_label.Text = "label1";
             this.f29_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -532,7 +534,7 @@ namespace MyWorkApplication
             this.MP_dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.MP_dataGridView.EnableHeadersVisualStyles = false;
             this.MP_dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.MP_dataGridView.Location = new System.Drawing.Point(4, 105);
+            this.MP_dataGridView.Location = new System.Drawing.Point(4, 121);
             this.MP_dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.MP_dataGridView.Name = "MP_dataGridView";
             this.MP_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -548,7 +550,7 @@ namespace MyWorkApplication
             this.MP_dataGridView.RowTemplate.Height = 33;
             this.MP_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.MP_dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.MP_dataGridView.Size = new System.Drawing.Size(2677, 540);
+            this.MP_dataGridView.Size = new System.Drawing.Size(2677, 557);
             this.MP_dataGridView.TabIndex = 4;
             this.MP_dataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.MP_dataGridView_CellBeginEdit);
             this.MP_dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MP_dataGridView_CellDoubleClick);
@@ -569,7 +571,7 @@ namespace MyWorkApplication
             this.f06_Type_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.f06_Type_comboBox.ForeColor = System.Drawing.Color.Black;
             this.f06_Type_comboBox.FormattingEnabled = true;
-            this.f06_Type_comboBox.Location = new System.Drawing.Point(1836, 65);
+            this.f06_Type_comboBox.Location = new System.Drawing.Point(1836, 80);
             this.f06_Type_comboBox.Margin = new System.Windows.Forms.Padding(2);
             this.f06_Type_comboBox.Name = "f06_Type_comboBox";
             this.f06_Type_comboBox.Size = new System.Drawing.Size(96, 35);
@@ -598,7 +600,7 @@ namespace MyWorkApplication
             "منتهي",
             "ملغى",
             "مغلق"});
-            this.f04_State_comboBox.Location = new System.Drawing.Point(2012, 65);
+            this.f04_State_comboBox.Location = new System.Drawing.Point(2012, 80);
             this.f04_State_comboBox.Margin = new System.Windows.Forms.Padding(2);
             this.f04_State_comboBox.Name = "f04_State_comboBox";
             this.f04_State_comboBox.Size = new System.Drawing.Size(72, 35);
@@ -615,7 +617,7 @@ namespace MyWorkApplication
             this.f05_Donor_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.f05_Donor_comboBox.ForeColor = System.Drawing.Color.Black;
             this.f05_Donor_comboBox.FormattingEnabled = true;
-            this.f05_Donor_comboBox.Location = new System.Drawing.Point(1936, 65);
+            this.f05_Donor_comboBox.Location = new System.Drawing.Point(1936, 80);
             this.f05_Donor_comboBox.Margin = new System.Windows.Forms.Padding(2);
             this.f05_Donor_comboBox.Name = "f05_Donor_comboBox";
             this.f05_Donor_comboBox.Size = new System.Drawing.Size(72, 35);
@@ -635,7 +637,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f07_comboBox.Location = new System.Drawing.Point(1762, 61);
+            this.f07_comboBox.Location = new System.Drawing.Point(1762, 81);
             this.f07_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f07_comboBox.Name = "f07_comboBox";
             this.f07_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -655,7 +657,7 @@ namespace MyWorkApplication
             this.f07_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f07_label.Name = "f07_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f07_label, 2);
-            this.f07_label.Size = new System.Drawing.Size(68, 54);
+            this.f07_label.Size = new System.Drawing.Size(68, 78);
             this.f07_label.TabIndex = 456;
             this.f07_label.Text = "label1";
             this.f07_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -673,7 +675,7 @@ namespace MyWorkApplication
             this.f8_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f8_label.Name = "f8_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f8_label, 2);
-            this.f8_label.Size = new System.Drawing.Size(68, 54);
+            this.f8_label.Size = new System.Drawing.Size(68, 78);
             this.f8_label.TabIndex = 479;
             this.f8_label.Text = "label2";
             this.f8_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -684,7 +686,7 @@ namespace MyWorkApplication
             this.Finished_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(73)))), ((int)(((byte)(106)))));
             this.Finished_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Finished_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Finished_button.Location = new System.Drawing.Point(2648, 66);
+            this.Finished_button.Location = new System.Drawing.Point(2648, 86);
             this.Finished_button.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Finished_button.MaximumSize = new System.Drawing.Size(45, 29);
             this.Finished_button.MinimumSize = new System.Drawing.Size(35, 23);
@@ -700,7 +702,7 @@ namespace MyWorkApplication
             this.Cancelled_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.Cancelled_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Cancelled_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Cancelled_button.Location = new System.Drawing.Point(2595, 66);
+            this.Cancelled_button.Location = new System.Drawing.Point(2595, 86);
             this.Cancelled_button.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Cancelled_button.MaximumSize = new System.Drawing.Size(45, 29);
             this.Cancelled_button.MinimumSize = new System.Drawing.Size(35, 23);
@@ -716,7 +718,7 @@ namespace MyWorkApplication
             this.Closed_button.BackColor = System.Drawing.Color.PeachPuff;
             this.Closed_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Closed_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Closed_button.Location = new System.Drawing.Point(2537, 66);
+            this.Closed_button.Location = new System.Drawing.Point(2537, 86);
             this.Closed_button.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Closed_button.MaximumSize = new System.Drawing.Size(45, 29);
             this.Closed_button.MinimumSize = new System.Drawing.Size(35, 23);
@@ -739,7 +741,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f14_comboBox.Location = new System.Drawing.Point(1230, 61);
+            this.f14_comboBox.Location = new System.Drawing.Point(1230, 81);
             this.f14_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f14_comboBox.Name = "f14_comboBox";
             this.f14_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -759,7 +761,7 @@ namespace MyWorkApplication
             this.f14_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f14_label.Name = "f14_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f14_label, 2);
-            this.f14_label.Size = new System.Drawing.Size(68, 54);
+            this.f14_label.Size = new System.Drawing.Size(68, 78);
             this.f14_label.TabIndex = 463;
             this.f14_label.Text = "label1";
             this.f14_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -777,7 +779,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f13_comboBox.Location = new System.Drawing.Point(1306, 61);
+            this.f13_comboBox.Location = new System.Drawing.Point(1306, 81);
             this.f13_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f13_comboBox.Name = "f13_comboBox";
             this.f13_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -797,7 +799,7 @@ namespace MyWorkApplication
             this.f13_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f13_label.Name = "f13_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f13_label, 2);
-            this.f13_label.Size = new System.Drawing.Size(68, 54);
+            this.f13_label.Size = new System.Drawing.Size(68, 78);
             this.f13_label.TabIndex = 462;
             this.f13_label.Text = "label1";
             this.f13_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -815,7 +817,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f12_comboBox.Location = new System.Drawing.Point(1382, 61);
+            this.f12_comboBox.Location = new System.Drawing.Point(1382, 81);
             this.f12_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f12_comboBox.Name = "f12_comboBox";
             this.f12_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -835,7 +837,7 @@ namespace MyWorkApplication
             this.f12_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f12_label.Name = "f12_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f12_label, 2);
-            this.f12_label.Size = new System.Drawing.Size(68, 54);
+            this.f12_label.Size = new System.Drawing.Size(68, 78);
             this.f12_label.TabIndex = 461;
             this.f12_label.Text = "label1";
             this.f12_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -853,7 +855,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f11_comboBox.Location = new System.Drawing.Point(1458, 61);
+            this.f11_comboBox.Location = new System.Drawing.Point(1458, 81);
             this.f11_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f11_comboBox.Name = "f11_comboBox";
             this.f11_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -873,7 +875,7 @@ namespace MyWorkApplication
             this.f11_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f11_label.Name = "f11_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f11_label, 2);
-            this.f11_label.Size = new System.Drawing.Size(68, 54);
+            this.f11_label.Size = new System.Drawing.Size(68, 78);
             this.f11_label.TabIndex = 460;
             this.f11_label.Text = "label1";
             this.f11_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -891,7 +893,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f10_comboBox.Location = new System.Drawing.Point(1534, 61);
+            this.f10_comboBox.Location = new System.Drawing.Point(1534, 81);
             this.f10_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f10_comboBox.Name = "f10_comboBox";
             this.f10_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -911,7 +913,7 @@ namespace MyWorkApplication
             this.f10_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f10_label.Name = "f10_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f10_label, 2);
-            this.f10_label.Size = new System.Drawing.Size(68, 54);
+            this.f10_label.Size = new System.Drawing.Size(68, 78);
             this.f10_label.TabIndex = 459;
             this.f10_label.Text = "label1";
             this.f10_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -929,7 +931,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f09_comboBox.Location = new System.Drawing.Point(1610, 61);
+            this.f09_comboBox.Location = new System.Drawing.Point(1610, 81);
             this.f09_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f09_comboBox.Name = "f09_comboBox";
             this.f09_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -949,7 +951,7 @@ namespace MyWorkApplication
             this.f09_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f09_label.Name = "f09_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f09_label, 2);
-            this.f09_label.Size = new System.Drawing.Size(68, 54);
+            this.f09_label.Size = new System.Drawing.Size(68, 78);
             this.f09_label.TabIndex = 458;
             this.f09_label.Text = "label1";
             this.f09_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -967,7 +969,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f8_comboBox.Location = new System.Drawing.Point(1686, 61);
+            this.f8_comboBox.Location = new System.Drawing.Point(1686, 81);
             this.f8_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f8_comboBox.Name = "f8_comboBox";
             this.f8_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -987,7 +989,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f28_comboBox.Location = new System.Drawing.Point(166, 61);
+            this.f28_comboBox.Location = new System.Drawing.Point(166, 81);
             this.f28_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f28_comboBox.Name = "f28_comboBox";
             this.f28_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -1007,7 +1009,7 @@ namespace MyWorkApplication
             this.f28_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f28_label.Name = "f28_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f28_label, 2);
-            this.f28_label.Size = new System.Drawing.Size(68, 54);
+            this.f28_label.Size = new System.Drawing.Size(68, 78);
             this.f28_label.TabIndex = 478;
             this.f28_label.Text = "label1";
             this.f28_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1025,7 +1027,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f27_comboBox.Location = new System.Drawing.Point(242, 61);
+            this.f27_comboBox.Location = new System.Drawing.Point(242, 81);
             this.f27_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f27_comboBox.Name = "f27_comboBox";
             this.f27_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -1045,7 +1047,7 @@ namespace MyWorkApplication
             this.f27_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f27_label.Name = "f27_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f27_label, 2);
-            this.f27_label.Size = new System.Drawing.Size(68, 54);
+            this.f27_label.Size = new System.Drawing.Size(68, 78);
             this.f27_label.TabIndex = 477;
             this.f27_label.Text = "label1";
             this.f27_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1063,7 +1065,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f26_comboBox.Location = new System.Drawing.Point(318, 61);
+            this.f26_comboBox.Location = new System.Drawing.Point(318, 81);
             this.f26_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f26_comboBox.Name = "f26_comboBox";
             this.f26_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -1083,7 +1085,7 @@ namespace MyWorkApplication
             this.f26_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f26_label.Name = "f26_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f26_label, 2);
-            this.f26_label.Size = new System.Drawing.Size(68, 54);
+            this.f26_label.Size = new System.Drawing.Size(68, 78);
             this.f26_label.TabIndex = 476;
             this.f26_label.Text = "label1";
             this.f26_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1101,7 +1103,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f25_comboBox.Location = new System.Drawing.Point(394, 61);
+            this.f25_comboBox.Location = new System.Drawing.Point(394, 81);
             this.f25_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f25_comboBox.Name = "f25_comboBox";
             this.f25_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -1121,7 +1123,7 @@ namespace MyWorkApplication
             this.f25_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f25_label.Name = "f25_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f25_label, 2);
-            this.f25_label.Size = new System.Drawing.Size(68, 54);
+            this.f25_label.Size = new System.Drawing.Size(68, 78);
             this.f25_label.TabIndex = 473;
             this.f25_label.Text = "label1";
             this.f25_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1139,7 +1141,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f24_comboBox.Location = new System.Drawing.Point(470, 61);
+            this.f24_comboBox.Location = new System.Drawing.Point(470, 81);
             this.f24_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f24_comboBox.Name = "f24_comboBox";
             this.f24_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -1159,7 +1161,7 @@ namespace MyWorkApplication
             this.f24_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f24_label.Name = "f24_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f24_label, 2);
-            this.f24_label.Size = new System.Drawing.Size(68, 54);
+            this.f24_label.Size = new System.Drawing.Size(68, 78);
             this.f24_label.TabIndex = 472;
             this.f24_label.Text = "label1";
             this.f24_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1177,7 +1179,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f23_comboBox.Location = new System.Drawing.Point(546, 61);
+            this.f23_comboBox.Location = new System.Drawing.Point(546, 81);
             this.f23_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f23_comboBox.Name = "f23_comboBox";
             this.f23_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -1197,7 +1199,7 @@ namespace MyWorkApplication
             this.f23_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f23_label.Name = "f23_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f23_label, 2);
-            this.f23_label.Size = new System.Drawing.Size(68, 54);
+            this.f23_label.Size = new System.Drawing.Size(68, 78);
             this.f23_label.TabIndex = 471;
             this.f23_label.Text = "label1";
             this.f23_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1215,7 +1217,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f22_comboBox.Location = new System.Drawing.Point(622, 61);
+            this.f22_comboBox.Location = new System.Drawing.Point(622, 81);
             this.f22_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f22_comboBox.Name = "f22_comboBox";
             this.f22_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -1235,7 +1237,7 @@ namespace MyWorkApplication
             this.f22_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f22_label.Name = "f22_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f22_label, 2);
-            this.f22_label.Size = new System.Drawing.Size(68, 54);
+            this.f22_label.Size = new System.Drawing.Size(68, 78);
             this.f22_label.TabIndex = 470;
             this.f22_label.Text = "label1";
             this.f22_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1253,7 +1255,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f21_comboBox.Location = new System.Drawing.Point(698, 61);
+            this.f21_comboBox.Location = new System.Drawing.Point(698, 81);
             this.f21_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f21_comboBox.Name = "f21_comboBox";
             this.f21_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -1273,7 +1275,7 @@ namespace MyWorkApplication
             this.f21_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f21_label.Name = "f21_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f21_label, 2);
-            this.f21_label.Size = new System.Drawing.Size(68, 54);
+            this.f21_label.Size = new System.Drawing.Size(68, 78);
             this.f21_label.TabIndex = 469;
             this.f21_label.Text = "label1";
             this.f21_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1291,7 +1293,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f20_comboBox.Location = new System.Drawing.Point(774, 61);
+            this.f20_comboBox.Location = new System.Drawing.Point(774, 81);
             this.f20_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f20_comboBox.Name = "f20_comboBox";
             this.f20_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -1311,7 +1313,7 @@ namespace MyWorkApplication
             this.f20_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f20_label.Name = "f20_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f20_label, 2);
-            this.f20_label.Size = new System.Drawing.Size(68, 54);
+            this.f20_label.Size = new System.Drawing.Size(68, 78);
             this.f20_label.TabIndex = 468;
             this.f20_label.Text = "label1";
             this.f20_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1329,7 +1331,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f19_comboBox.Location = new System.Drawing.Point(850, 61);
+            this.f19_comboBox.Location = new System.Drawing.Point(850, 81);
             this.f19_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f19_comboBox.Name = "f19_comboBox";
             this.f19_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -1349,7 +1351,7 @@ namespace MyWorkApplication
             this.f19_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f19_label.Name = "f19_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f19_label, 2);
-            this.f19_label.Size = new System.Drawing.Size(68, 54);
+            this.f19_label.Size = new System.Drawing.Size(68, 78);
             this.f19_label.TabIndex = 467;
             this.f19_label.Text = "label1";
             this.f19_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1367,7 +1369,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f18_comboBox.Location = new System.Drawing.Point(926, 61);
+            this.f18_comboBox.Location = new System.Drawing.Point(926, 81);
             this.f18_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f18_comboBox.Name = "f18_comboBox";
             this.f18_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -1387,7 +1389,7 @@ namespace MyWorkApplication
             this.f18_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f18_label.Name = "f18_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f18_label, 2);
-            this.f18_label.Size = new System.Drawing.Size(68, 54);
+            this.f18_label.Size = new System.Drawing.Size(68, 78);
             this.f18_label.TabIndex = 466;
             this.f18_label.Text = "label1";
             this.f18_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1405,7 +1407,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f17_comboBox.Location = new System.Drawing.Point(1002, 61);
+            this.f17_comboBox.Location = new System.Drawing.Point(1002, 81);
             this.f17_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f17_comboBox.Name = "f17_comboBox";
             this.f17_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -1425,7 +1427,7 @@ namespace MyWorkApplication
             this.f17_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f17_label.Name = "f17_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f17_label, 2);
-            this.f17_label.Size = new System.Drawing.Size(68, 54);
+            this.f17_label.Size = new System.Drawing.Size(68, 78);
             this.f17_label.TabIndex = 465;
             this.f17_label.Text = "label1 cxvsd sdsd";
             this.f17_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1443,7 +1445,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f29_comboBox.Location = new System.Drawing.Point(90, 61);
+            this.f29_comboBox.Location = new System.Drawing.Point(90, 81);
             this.f29_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f29_comboBox.Name = "f29_comboBox";
             this.f29_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -1462,7 +1464,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f30_comboBox.Location = new System.Drawing.Point(14, 61);
+            this.f30_comboBox.Location = new System.Drawing.Point(14, 81);
             this.f30_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f30_comboBox.Name = "f30_comboBox";
             this.f30_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -1481,7 +1483,7 @@ namespace MyWorkApplication
             "",
             "",
             ""});
-            this.f16_comboBox.Location = new System.Drawing.Point(1078, 61);
+            this.f16_comboBox.Location = new System.Drawing.Point(1078, 81);
             this.f16_comboBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.f16_comboBox.Name = "f16_comboBox";
             this.f16_comboBox.Size = new System.Drawing.Size(68, 33);
@@ -1501,7 +1503,7 @@ namespace MyWorkApplication
             this.f16_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.f16_label.Name = "f16_label";
             this.Filters_tableLayoutPanel.SetRowSpan(this.f16_label, 2);
-            this.f16_label.Size = new System.Drawing.Size(68, 54);
+            this.f16_label.Size = new System.Drawing.Size(68, 78);
             this.f16_label.TabIndex = 464;
             this.f16_label.Text = "hon";
             this.f16_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1518,7 +1520,7 @@ namespace MyWorkApplication
             this.Grid_panel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Grid_panel.Name = "Grid_panel";
             this.Grid_panel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Grid_panel.Size = new System.Drawing.Size(1252, 692);
+            this.Grid_panel.Size = new System.Drawing.Size(1252, 746);
             this.Grid_panel.TabIndex = 454;
             // 
             // TaskBoard_Form
@@ -1526,7 +1528,7 @@ namespace MyWorkApplication
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1252, 692);
+            this.ClientSize = new System.Drawing.Size(1252, 746);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.Grid_panel);
             this.DoubleBuffered = true;
@@ -1548,6 +1550,7 @@ namespace MyWorkApplication
             this.Filters_tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MP_dataGridView)).EndInit();
             this.Grid_panel.ResumeLayout(false);
+            this.Grid_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }

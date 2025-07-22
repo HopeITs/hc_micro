@@ -53,6 +53,8 @@ namespace MyWorkApplication
         private string Original_Filter_String = "";
         BindingSource bs = new BindingSource();
         string condition = "";
+        string ApplicationState = "";
+
         public AdminPanel_From(MainForm main_form)
         {
             InitializeComponent();
@@ -194,6 +196,7 @@ namespace MyWorkApplication
 ,donor.Name as 'الجهة الممولة' 
 ,(CASE IsContentUpdated WHEN 0 THEN N'لا' ELSE N'نعم' End) as 'تبديل المشروع' 
 
+,MP.ApplicationState as 'نوع الاستمارة' 
 ,P.P_ID as 'رقم المستفيد' ";
                  
                 var orderBy = " order by MP.MP_ID DESC ";
@@ -257,8 +260,9 @@ namespace MyWorkApplication
                     MP_dataGridView.Columns["2الكاهن"].ReadOnly =
                     MP_dataGridView.Columns["منطقة السكن"].ReadOnly =
                     MP_dataGridView.Columns["العنوان"].ReadOnly = 
-                    MP_dataGridView.Columns["نوع المشروع"].ReadOnly = true;
-                 
+                    MP_dataGridView.Columns["نوع المشروع"].ReadOnly = 
+                    MP_dataGridView.Columns["نوع الاستمارة"].ReadOnly = true;
+
                 ConvertCellToComboBoxAndColor();
                  
                 addStateButtonToGrid();
@@ -1507,17 +1511,15 @@ namespace MyWorkApplication
                             Person_ID = -1;
                         else Person_ID = int.Parse(SelectedDataRow["رقم المستفيد"].ToString());
 
-                        //NEW
-                        if (SelectedDataRow["حالة المشروع"].ToString() == "تسجيل أولي")
-                        {
-                            Form Appplication_New_Form = new Application_New_Form(main_form, MicroProject_ID, Person_ID, "zero");
-                            main_form.showNewTab(Appplication_New_Form, "Application", 0);
-                        }
-                        else
-                        {
-                            Form Appplication_New_Form = new Application_New_Form(main_form, MicroProject_ID, Person_ID, "project");
-                            main_form.showNewTab(Appplication_New_Form, "Application", 0);
-                        }
+                        if (SelectedDataRow["نوع الاستمارة"] == null ||
+                            SelectedDataRow["نوع الاستمارة"] == DBNull.Value)
+                            ApplicationState = "";
+                        else ApplicationState = SelectedDataRow["نوع الاستمارة"].ToString();
+
+
+                        Form Appplication_New_Form = new Application_New_Form(main_form, MicroProject_ID, Person_ID, ApplicationState);
+                        main_form.showNewTab(Appplication_New_Form, "Application", 0);
+
                     }
                 }
                 else

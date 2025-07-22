@@ -96,7 +96,8 @@ VALUES (@MicroProject_ID, @User_ID , @Type_ID , @Date , @Reason , @Description ,
      else CONCAT(street.Name,' - ',MP_AddressAfterFund) END ) as 'Address'
 
 , MP_AddressAfterFund as 'Short Address' 
-, microprojecttype.Name as 'Type' ";
+, microprojecttype.Name as 'Type'
+, microproject.ApplicationState as 'نوع الاستمارة' ";
 
             if (SC_ID != "")
                 query += @"  , sc.ID as 'ID'

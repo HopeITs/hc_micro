@@ -53,7 +53,7 @@ namespace MyWorkApplication
         private UserNotification u;
         private string taskType = "";
         private bool user_mode;
-
+        private string ApplicationState = "";
         public TaskBoard_Form(MainForm main_form)
         {
             InitializeComponent();
@@ -260,7 +260,6 @@ namespace MyWorkApplication
             var orderBy_column = "";
             var orderBy = "";
 
-            //,( SELECT State From `task_microproject` where MicroProject_ID = PMP.MicroProject_ID and Task_ID = 5 limit 1)AS 'القصة فرنسي'
             if (dt != null)
             {
                 MySS.dt = new DataTable();
@@ -319,16 +318,14 @@ namespace MyWorkApplication
             }
 
             Filters_tableLayoutPanel.Visible = false;
+            
             MP_dataGridView.DataSource = null;
             MP_dataGridView.Columns.Clear();
             MP_dataGridView.Rows.Clear();
             MP_dataGridView.ColumnHeadersVisible = false;
             MP_dataGridView.DataSource = MySS.dt;
             MP_dataGridView.Columns["تاريخ بداية المشروع"].DefaultCellStyle.Format = "dd/MM/yyyy";
-
-            DataGridViewColumn col = MP_dataGridView.Columns["رقم المستفيد"];
-            col.Visible = false;
-
+             
             for (int i = 17; i < Filters_tableLayoutPanel.ColumnCount - 1; i++)
             {
                 Filters_tableLayoutPanel.ColumnStyles[i].Width = 76;
@@ -336,6 +333,11 @@ namespace MyWorkApplication
 
             ConvertCellsToCheckBox_Color();
             restore_visible_columns();
+
+            DataGridViewColumn col = MP_dataGridView.Columns["رقم المستفيد"];
+            col.Visible = false;
+
+            MP_dataGridView.Columns["رقم المشروع"].Frozen = true;
 
             count_by_projects();
             Filters_tableLayoutPanel.Visible = true;
@@ -1171,10 +1173,11 @@ namespace MyWorkApplication
                             SelectedDataRow["رقم المستفيد"] == DBNull.Value)
                             Person_ID = -1;
                         else Person_ID = int.Parse(SelectedDataRow["رقم المستفيد"].ToString());
+
                     }
 
-                    Form application_Form = new Application_Form(Person_ID, MicroProject_ID, main_form);
-                    main_form.showNewTab(application_Form, "Application", 0);
+                    Form Appplication_New_Form = new Application_New_Form(main_form, MicroProject_ID, Person_ID, "project");
+                    main_form.showNewTab(Appplication_New_Form, "Application", 0);
                 }
             }
             catch (Exception ex)

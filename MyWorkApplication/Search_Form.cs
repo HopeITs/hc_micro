@@ -2780,8 +2780,6 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                         Form Appplication_New_Form = new Application_New_Form(main_form, MicroProject_ID, Person_ID, ApplicationState);
                         main_form.showNewTab(Appplication_New_Form, "Application", 0);
 
-                        //Form application_Form = new Application_Form(Person_ID, MicroProject_ID, main_form);
-                        //main_form.showNewTab(application_Form, "Application", 0);
                     }
 
                 // families //

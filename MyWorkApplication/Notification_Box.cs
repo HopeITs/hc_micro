@@ -43,21 +43,23 @@ namespace MyWorkApplication
                              + ",ID as 'N_ID'"
                              + ",user_notification.Pay_ID as 'Details'"
                              + ",user.UserName as 'Sent By'"
+                             + ",(select ApplicationState from microproject where microproject.MP_ID = MicroProject_ID) as 'نوع الاستمارة'"
                              + " from `user_notification` left join user on  user_notification.User_ID = user.UserID "
                              + " where user.UserRoleID = " + Role_ID + " and Seen = 0 and Date <= CURDATE() "
                              + " order by Date desc";
             else
-                MySS.query = "select MicroProject_ID as 'ID'" +
-                             ",P_Name as 'Title'" +
-                             ",Body as 'Body'" +
-                             ",Date as 'Date'" +
-                             ",User_ID as 'User_ID'" +
-                             ",ID as 'N_ID'" +
-                             ",user_notification.Pay_ID as 'Details'" +
-                             ",(select UserName from user where user.UserID = user_notification.Sender_ID)  as 'Sent By'" +
-                             " from `user_notification` " +
-                             " where User_ID = " + User_ID + " and Seen = 0 and Date < CURDATE() + INTERVAL 4 DAY " +
-                             " order by Date desc ";
+                MySS.query = "select MicroProject_ID as 'ID'" 
+                             + ",P_Name as 'Title'" 
+                             + ",Body as 'Body'" 
+                             + ",Date as 'Date'" 
+                             + ",User_ID as 'User_ID'" 
+                             + ",ID as 'N_ID'" 
+                             + ",user_notification.Pay_ID as 'Details'" 
+                             + ",(select UserName from user where user.UserID = user_notification.Sender_ID)  as 'Sent By'" 
+                             + ",(select ApplicationState from microproject where microproject.MP_ID = MicroProject_ID) as 'نوع الاستمارة'"
+                             + " from `user_notification` " 
+                             + " where User_ID = " + User_ID + " and Seen = 0 and Date < CURDATE() + INTERVAL 4 DAY "
+                             +" order by Date desc ";
             //// Date from just 3 Months till NOW-4 days //// Date > CURDATE() + INTERVAL -3 MONTH and 
 
 
@@ -91,6 +93,8 @@ namespace MyWorkApplication
             dgc1.Visible = false;
             var dgc2 = Notification_dataGridView.Columns["User_ID"];
             dgc2.Visible = false;
+            var dgc4 = Notification_dataGridView.Columns["نوع الاستمارة"];
+            dgc4.Visible = false;
 
             //count rows
             Counter_textBox.Text =
@@ -425,8 +429,8 @@ WHERE person_microproject.MicroProject_ID = " + MicroProject_ID;
 
                 if (P_ID != -1 && MicroProject_ID != -1)
                 {
-                    Form application_Form = new Application_Form(P_ID, MicroProject_ID, main_form);
-                    main_form.showNewTab(application_Form, "Application", 0);
+                    Form Appplication_New_Form = new Application_New_Form(main_form, MicroProject_ID, P_ID, "project");
+                    main_form.showNewTab(Appplication_New_Form, "Application", 0);
                 }
                 else
                     MessageBox.Show("لا يمكن استعراض معلومات هذا السطر");
