@@ -173,6 +173,7 @@ namespace MyWorkApplication
 
                 Properties.Settings.Default.Save();
 
+                User_In_Database.Clear();
                 for (int i = 0; i < Centers.Count; i++)
                 {
                     //Properties.Settings.Default.selected_hope = Centers[i].ToString();
@@ -357,27 +358,29 @@ namespace MyWorkApplication
             Properties.Settings.Default.Save();
         }
 
-        private void Select_User_Profile()
-        {
-            PersonPicArr = null;
-            Program.buildConnection();
-            var query = "select ProfilePicture from `user` where UserName like '" + UserName_textBox.Text +
-                        "' and Password like '" + Password_textBox.Text + "' ";
-            MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-            var da = new MySqlDataAdapter(sc);
-            var dt = new DataTable();
-            da.Fill(dt);
-            byte[] query_array = dt.Rows[0].Field<byte[]>(0);
-            if (query_array != null && query_array.Length > 0)
-            {
-                MySqlDataReader reader = sc.ExecuteReader();
-                reader.Read();
-                PersonPicArr = (byte[])reader[0];
+        //private void Select_User_Profile()
+        //{
+        //    PersonPicArr = null;
+        //    //Program.buildConnection();
+        //    //var query = "select ProfilePicture from `user` " 
+        //    //    + " where UserName like '" + Program.UserName + "' " 
+        //    //    + " and UserRoleID = " + Program.role + "; ";
+        //    //MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
+        //    //var da = new MySqlDataAdapter(sc);
+        //    //var dt = new DataTable();
+        //    //da.Fill(dt);
+        //    //byte[] query_array = dt.Rows[0].Field<byte[]>(0);
+        //    PersonPicArr = User_info.Rows[0].Field<byte[]>("#");
+        //    //if (query_array != null && query_array.Length > 0)
+        //    //{
+        //    //    MySqlDataReader reader = sc.ExecuteReader();
+        //    //    reader.Read();
+        //    //    PersonPicArr = (byte[])reader[0];
 
-                reader.Close();
-            }
-            Program.MyConn.Close();
-        }
+        //    //    reader.Close();
+        //    //}
+        //    //Program.MyConn.Close();
+        //}
         private void Set_User_Image()
         {
             FileInfo file;
@@ -387,8 +390,9 @@ namespace MyWorkApplication
             file = new FileInfo(path);
             if (file.Exists.Equals(false))
             {
-                //PersonPicArr = u.Select_ProfilePicture(dt.Rows[0].Field<int>("ID"));
-                Select_User_Profile();
+                PersonPicArr = null;
+                PersonPicArr = User_info.Rows[0].Field<byte[]>("#");
+                //Select_User_Profile();
 
                 if (PersonPicArr != null && PersonPicArr.Length > 0)
                 {
