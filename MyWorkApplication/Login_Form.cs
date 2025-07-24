@@ -207,7 +207,6 @@ namespace MyWorkApplication
                             // Versions are equal - Do nothing
                         }
 
-                        ////BY JUDY -> check hashed password
                         ////dt = Check_User();
                         ////if (dt.Rows.Count >= 1) //user exsist
                         ////{
@@ -215,8 +214,9 @@ namespace MyWorkApplication
                         ////    User_info = dt;
                         ////}
                         ///
-                        MigratePlainTextPasswords();
 
+                        //MigratePlainTextPasswords();
+                        ////BY JUDY -> check hashed password
                         string username = UserName_textBox.Text;
                         string password = Password_textBox.Text;
                         if(Check_User(username,password)) //user exist
@@ -474,60 +474,60 @@ namespace MyWorkApplication
         }
 
         //One time code to change stored passwords to hashed passwords
-        public void MigratePlainTextPasswords()
-        {
-            string selectQuery = "SELECT UserID, Password FROM `user`";
-            string updateQuery = "UPDATE `user` SET Password = @Password WHERE UserID = @UserID";
+        //public void MigratePlainTextPasswords()
+        //{
+        //    string selectQuery = "SELECT UserID, Password FROM `user`";
+        //    string updateQuery = "UPDATE `user` SET Password = @Password WHERE UserID = @UserID";
 
-            //Program.set_ConnectionString();
-            //Program.firstbuildConnection();
-            using (var conn = Program.MyFirstConn)
-            using (var cmd = new MySqlCommand(selectQuery, conn))
-            {
-                if (conn.State != ConnectionState.Open)
-                    conn.Open();
-                // Step 1: Read all users 
-                var reader = cmd.ExecuteReader();
+        //    //Program.set_ConnectionString();
+        //    //Program.firstbuildConnection();
+        //    using (var conn = Program.MyFirstConn)
+        //    using (var cmd = new MySqlCommand(selectQuery, conn))
+        //    {
+        //        if (conn.State != ConnectionState.Open)
+        //            conn.Open();
+        //        // Step 1: Read all users 
+        //        var reader = cmd.ExecuteReader();
 
-                var users = new List<(int Id, string PlainPassword)>();
+        //        var users = new List<(int Id, string PlainPassword)>();
 
-                while (reader.Read())
-                {
-                    int id = reader.GetInt32("UserID");
-                    string plainPassword = reader.GetString("Password");
+        //        while (reader.Read())
+        //        {
+        //            int id = reader.GetInt32("UserID");
+        //            string plainPassword = reader.GetString("Password");
 
-                    // Skip if already hashed (optional safety check)
-                    if (plainPassword.Length < 60) // hashed is typically ~65 chars
-                    {
-                        users.Add((id, plainPassword));
-                    }
-                }
+        //            // Skip if already hashed (optional safety check)
+        //            if (plainPassword.Length < 60) // hashed is typically ~65 chars
+        //            {
+        //                users.Add((id, plainPassword));
+        //            }
+        //        }
 
-                reader.Close();
+        //        reader.Close();
                 
-                // ✅ Exit early if no plain-text passwords found
-                if (users.Count == 0)
-                {
-                    Console.WriteLine("All user passwords are already hashed. Skipping migration.");
-                    return;
-                }
+        //        // ✅ Exit early if no plain-text passwords found
+        //        if (users.Count == 0)
+        //        {
+        //            Console.WriteLine("All user passwords are already hashed. Skipping migration.");
+        //            return;
+        //        }
 
-                // Step 2: Update with hashed passwords
-                foreach (var user in users)
-                {
-                    string hashed = PasswordHelper.HashPassword(user.PlainPassword);
+        //        // Step 2: Update with hashed passwords
+        //        foreach (var user in users)
+        //        {
+        //            string hashed = PasswordHelper.HashPassword(user.PlainPassword);
 
-                    using (var updateCmd = new MySqlCommand(updateQuery, conn))
-                    {
-                        updateCmd.Parameters.AddWithValue("@Password", hashed);
-                        updateCmd.Parameters.AddWithValue("@UserID", user.Id);
-                        updateCmd.ExecuteNonQuery();
-                    }
-                }
+        //            using (var updateCmd = new MySqlCommand(updateQuery, conn))
+        //            {
+        //                updateCmd.Parameters.AddWithValue("@Password", hashed);
+        //                updateCmd.Parameters.AddWithValue("@UserID", user.Id);
+        //                updateCmd.ExecuteNonQuery();
+        //            }
+        //        }
 
-                Console.WriteLine($"Migrated {users.Count} user passwords to hashed form.");
-            }
-        }
+        //        Console.WriteLine($"Migrated {users.Count} user passwords to hashed form.");
+        //    }
+        //}
 
     }
 }
