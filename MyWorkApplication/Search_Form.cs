@@ -3136,6 +3136,7 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
 
         private void Color_Duplicate_Beneficiaries()
         {
+            
             //color duplicate rows//
             var allrows = MP_dataGridView.Rows.OfType<DataGridViewRow>().Reverse().Skip(1);//ignore the last empty line
             var dupRos = allrows.GroupBy(r => r.Cells["المستفيد"].Value.ToString())
@@ -3147,6 +3148,7 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                 if (Settings.Default.theme == "Light") { }
                 else r.Cells["المستفيد"].Style.ForeColor = Color.Black;
             }
+            
         }
 
         #region button clicks 

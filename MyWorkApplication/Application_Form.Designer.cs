@@ -4867,7 +4867,7 @@
             this.PersonType_comboBox.Items.AddRange(new object[] {
             "المستفيد:",
             "الشريك:"});
-            this.PersonType_comboBox.Location = new System.Drawing.Point(1007, 51);
+            this.PersonType_comboBox.Location = new System.Drawing.Point(1007, 48);
             this.PersonType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PersonType_comboBox.Name = "PersonType_comboBox";
             this.PersonType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -4959,7 +4959,7 @@
             this.P_MaritalState_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.P_MaritalState_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_MaritalState_comboBox.FormattingEnabled = true;
-            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(359, 51);
+            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(359, 48);
             this.P_MaritalState_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_MaritalState_comboBox.Name = "P_MaritalState_comboBox";
             this.P_MaritalState_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -4981,7 +4981,7 @@
             this.P_Sex_comboBox.Items.AddRange(new object[] {
             "ذكر",
             "أنثى"});
-            this.P_Sex_comboBox.Location = new System.Drawing.Point(500, 51);
+            this.P_Sex_comboBox.Location = new System.Drawing.Point(500, 48);
             this.P_Sex_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_Sex_comboBox.Name = "P_Sex_comboBox";
             this.P_Sex_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5117,7 +5117,7 @@
             this.P_State_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.P_State_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_State_comboBox.FormattingEnabled = true;
-            this.P_State_comboBox.Location = new System.Drawing.Point(259, 51);
+            this.P_State_comboBox.Location = new System.Drawing.Point(259, 48);
             this.P_State_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_State_comboBox.Name = "P_State_comboBox";
             this.P_State_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5197,7 +5197,7 @@
             this.FPersonSex_comboBox1.Items.AddRange(new object[] {
             "ذكر",
             "أنثى"});
-            this.FPersonSex_comboBox1.Location = new System.Drawing.Point(500, 94);
+            this.FPersonSex_comboBox1.Location = new System.Drawing.Point(500, 91);
             this.FPersonSex_comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FPersonSex_comboBox1.Name = "FPersonSex_comboBox1";
             this.FPersonSex_comboBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5216,7 +5216,7 @@
             this.FPersonMaritalState_comboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.FPersonMaritalState_comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FPersonMaritalState_comboBox1.FormattingEnabled = true;
-            this.FPersonMaritalState_comboBox1.Location = new System.Drawing.Point(359, 94);
+            this.FPersonMaritalState_comboBox1.Location = new System.Drawing.Point(359, 91);
             this.FPersonMaritalState_comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FPersonMaritalState_comboBox1.Name = "FPersonMaritalState_comboBox1";
             this.FPersonMaritalState_comboBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5237,7 +5237,7 @@
             this.FPersonState_comboBox1.Items.AddRange(new object[] {
             "المستفيد:",
             "الشريك:"});
-            this.FPersonState_comboBox1.Location = new System.Drawing.Point(259, 94);
+            this.FPersonState_comboBox1.Location = new System.Drawing.Point(259, 91);
             this.FPersonState_comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FPersonState_comboBox1.Name = "FPersonState_comboBox1";
             this.FPersonState_comboBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5444,7 +5444,7 @@
             this.P_Parish_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Parish_comboBox.ForeColor = System.Drawing.Color.Black;
             this.P_Parish_comboBox.FormattingEnabled = true;
-            this.P_Parish_comboBox.Location = new System.Drawing.Point(362, 11);
+            this.P_Parish_comboBox.Location = new System.Drawing.Point(362, 8);
             this.P_Parish_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Parish_comboBox.Name = "P_Parish_comboBox";
             this.P_Parish_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5518,7 +5518,7 @@
             this.P_Priest_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Priest_comboBox.ForeColor = System.Drawing.Color.Black;
             this.P_Priest_comboBox.FormattingEnabled = true;
-            this.P_Priest_comboBox.Location = new System.Drawing.Point(49, 10);
+            this.P_Priest_comboBox.Location = new System.Drawing.Point(49, 7);
             this.P_Priest_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Priest_comboBox.Name = "P_Priest_comboBox";
             this.P_Priest_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -5841,7 +5841,7 @@
             this.Street_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Street_comboBox.ForeColor = System.Drawing.Color.Black;
             this.Street_comboBox.FormattingEnabled = true;
-            this.Street_comboBox.Location = new System.Drawing.Point(49, 10);
+            this.Street_comboBox.Location = new System.Drawing.Point(49, 7);
             this.Street_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.Street_comboBox.Name = "Street_comboBox";
             this.Street_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6306,7 +6306,7 @@
             this.Career_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Career_comboBox.ForeColor = System.Drawing.Color.Black;
             this.Career_comboBox.FormattingEnabled = true;
-            this.Career_comboBox.Location = new System.Drawing.Point(174, 149);
+            this.Career_comboBox.Location = new System.Drawing.Point(174, 148);
             this.Career_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Career_comboBox.Name = "Career_comboBox";
             this.Career_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6326,7 +6326,7 @@
             this.SubType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubType_comboBox.ForeColor = System.Drawing.Color.Black;
             this.SubType_comboBox.FormattingEnabled = true;
-            this.SubType_comboBox.Location = new System.Drawing.Point(174, 113);
+            this.SubType_comboBox.Location = new System.Drawing.Point(174, 112);
             this.SubType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubType_comboBox.Name = "SubType_comboBox";
             this.SubType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6346,7 +6346,7 @@
             this.Type_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Type_comboBox.ForeColor = System.Drawing.Color.Black;
             this.Type_comboBox.FormattingEnabled = true;
-            this.Type_comboBox.Location = new System.Drawing.Point(310, 113);
+            this.Type_comboBox.Location = new System.Drawing.Point(310, 112);
             this.Type_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Type_comboBox.Name = "Type_comboBox";
             this.Type_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6504,7 +6504,7 @@
             this.SubCategory_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubCategory_comboBox.ForeColor = System.Drawing.Color.Black;
             this.SubCategory_comboBox.FormattingEnabled = true;
-            this.SubCategory_comboBox.Location = new System.Drawing.Point(310, 149);
+            this.SubCategory_comboBox.Location = new System.Drawing.Point(310, 148);
             this.SubCategory_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubCategory_comboBox.Name = "SubCategory_comboBox";
             this.SubCategory_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
