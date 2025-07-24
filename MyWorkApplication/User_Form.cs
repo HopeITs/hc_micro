@@ -179,7 +179,10 @@ namespace MyWorkApplication
                 {
                     ID = int.Parse(SelectedDataRow["ID"].ToString());
                     Username_textBox.Text = SelectedDataRow["Username"].ToString();
-                    Password_textBox.Text = SelectedDataRow["Password"].ToString();
+                    
+                    //because its hashed
+                    //Password_textBox.Text = SelectedDataRow["Password"].ToString();
+                    
                     Email_textBox.Text = SelectedDataRow["Email"].ToString();
                     Role_comboBox1.Text = SelectedDataRow["Role"].ToString();
 
@@ -262,7 +265,7 @@ namespace MyWorkApplication
         {
             try
             {
-                if (Username_textBox.Text == "" || Password_textBox.Text == "" || Role_comboBox1.SelectedIndex == -1)
+                if (Username_textBox.Text == "" || Role_comboBox1.SelectedIndex == -1)
                     throw new InvalidOperationException("You Can't leave empty fields.. Please check and try again!");
 
                 string email = Email_textBox.Text;
@@ -272,15 +275,14 @@ namespace MyWorkApplication
                     throw new FormatException();
 
                 string username = Username_textBox.Text;
-                string password = Password_textBox.Text;
+                //string password = Password_textBox.Text;
+                string password = "";
                 string role = Role_comboBox1.SelectedText;
-
 
                 PicArr = null;
                 //////////////////// Convert_Picture(); ////////////////////
                 PicArr = ImageToByte(ProfilePicture_pictureBox.BackgroundImage);
                 ////////////////////////////////////////////////////////////
-
 
                 var IsVisitor = -1;
                 var IsME = -1;
@@ -303,10 +305,12 @@ namespace MyWorkApplication
                     IsME = 1;
                 else IsME = 0;
 
-
-
                 if (SelectedDataRow != null && ID != -1)
                 {
+                    if (Password_textBox.Text == "")
+                        password = SelectedDataRow["Password"].ToString(); //old passord
+                    else password = PasswordHelper.HashPassword(Password_textBox.Text);
+
                     u.Update_User(ID, username, password, email,
                         Convert.ToInt32(Role_comboBox1.SelectedValue)
                         , IsVisitor, IsME, IsCommunication, IsCashier, PicArr);
@@ -314,6 +318,11 @@ namespace MyWorkApplication
                 }
                 else
                 {
+
+                    if (Password_textBox.Text == "")
+                        throw new InvalidOperationException("You Can't leave password empty when creating the user.. Please check and try again!");
+                    password = PasswordHelper.HashPassword(Password_textBox.Text);
+
                     u.Insert_User(username, password, email,
                         Convert.ToInt32(Role_comboBox1.SelectedValue)
                         , IsVisitor, IsME, IsCommunication, IsCashier, PicArr);

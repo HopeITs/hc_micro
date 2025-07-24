@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MyWorkApplication
 {
@@ -206,12 +207,20 @@ namespace MyWorkApplication
                             // Versions are equal - Do nothing
                         }
 
-                        dt = Check_User();
-                        if (dt.Rows.Count >= 1) //user exsist
-                        {
-                            User_In_Database.Add(Centers[i].ToString());
-                            User_info = dt;
-                        }
+                        ////BY JUDY -> check hashed password
+                        ////dt = Check_User();
+                        ////if (dt.Rows.Count >= 1) //user exsist
+                        ////{
+                        ////    User_In_Database.Add(Centers[i].ToString());
+                        ////    User_info = dt;
+                        ////}
+                        ///
+                        MigratePlainTextPasswords();
+
+                        string username = UserName_textBox.Text;
+                        string password = Password_textBox.Text;
+                        if(Check_User(username,password)) //user exist
+                        { User_In_Database.Add(Centers[i].ToString()); }
                     }
                 }
 
@@ -282,17 +291,36 @@ namespace MyWorkApplication
             }
         }
 
-        private DataTable Check_User()
+        private bool Check_User(string username, string password)
         {
-            string query = "select * from `user` " +
-                " where UserName like '" + UserName_textBox.Text + "' " +
-                " and Password like '" + Password_textBox.Text + "' ";
-            MySqlDataAdapter da = new MySqlDataAdapter(query, Program.MyFirstConn);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            Program.MyFirstConn.Close();
-            return dt;
+            //string query = "select * from `user` " +
+            //    " where UserName like '" + UserName_textBox.Text + "' " +
+            //    " and Password like '" + Password_textBox.Text + "' ";
+            //MySqlDataAdapter da = new MySqlDataAdapter(query, Program.MyFirstConn);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            //Program.MyFirstConn.Close();
+            //return dt;
 
+            string query = "SELECT Password FROM `user` WHERE UserName = @username";
+
+            using (var conn = Program.MyFirstConn)
+            using (var cmd = new MySqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@username", username);
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string storedHash = reader.GetString("Password");
+                        return PasswordHelper.VerifyPassword(password, storedHash);
+                    }
+                } 
+            }
+            return false; // user not found or password incorrect
         }
 
         private void Set_Properties()
@@ -305,7 +333,8 @@ namespace MyWorkApplication
             User_info = u.Select_Users(UserName_textBox.Text, "", "");
             Program.userID = User_info.Rows[0].Field<int>("ID");
             Program.UserName = User_info.Rows[0].Field<string>("Username");
-            Program.Password = User_info.Rows[0].Field<string>("Password");
+            //  Program.Password = User_info.Rows[0].Field<string>("Password");
+            Program.Password = Password_textBox.Text.ToString();
             Program.role = User_info.Rows[0].Field<int>("Role_ID");
 
             if (Remember_checkBox.Checked)
@@ -444,22 +473,61 @@ namespace MyWorkApplication
             }
         }
 
+        //One time code to change stored passwords to hashed passwords
+        public void MigratePlainTextPasswords()
+        {
+            string selectQuery = "SELECT UserID, Password FROM `user`";
+            string updateQuery = "UPDATE `user` SET Password = @Password WHERE UserID = @UserID";
 
-        //private void checkBox1_Paint(object sender, PaintEventArgs e)
-        //{
-        //    Point pt = new Point(e.ClipRectangle.Left + 2, e.ClipRectangle.Top + 4);
-        //    Rectangle rect = new Rectangle(pt, new Size(12, 12));
-        //    if (Remember_checkBox.Checked)
-        //    {
-        //        using (Font wing = new Font("Wingdings", 10f))
-        //            e.Graphics.DrawString("ü", wing, Brushes.White, rect);
-        //    }
-        //    else if (Online_checkBox.Checked)
-        //    {
-        //        using (Font wing = new Font("Wingdings", 10f))
-        //            e.Graphics.DrawString("ü", wing, Brushes.White, rect);
-        //    }
-        //    e.Graphics.DrawRectangle(Pens.Red, rect);
-        //}
+            //Program.set_ConnectionString();
+            //Program.firstbuildConnection();
+            using (var conn = Program.MyFirstConn)
+            using (var cmd = new MySqlCommand(selectQuery, conn))
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+                // Step 1: Read all users 
+                var reader = cmd.ExecuteReader();
+
+                var users = new List<(int Id, string PlainPassword)>();
+
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32("UserID");
+                    string plainPassword = reader.GetString("Password");
+
+                    // Skip if already hashed (optional safety check)
+                    if (plainPassword.Length < 60) // hashed is typically ~65 chars
+                    {
+                        users.Add((id, plainPassword));
+                    }
+                }
+
+                reader.Close();
+                
+                // ✅ Exit early if no plain-text passwords found
+                if (users.Count == 0)
+                {
+                    Console.WriteLine("All user passwords are already hashed. Skipping migration.");
+                    return;
+                }
+
+                // Step 2: Update with hashed passwords
+                foreach (var user in users)
+                {
+                    string hashed = PasswordHelper.HashPassword(user.PlainPassword);
+
+                    using (var updateCmd = new MySqlCommand(updateQuery, conn))
+                    {
+                        updateCmd.Parameters.AddWithValue("@Password", hashed);
+                        updateCmd.Parameters.AddWithValue("@UserID", user.Id);
+                        updateCmd.ExecuteNonQuery();
+                    }
+                }
+
+                Console.WriteLine($"Migrated {users.Count} user passwords to hashed form.");
+            }
+        }
+
     }
 }
