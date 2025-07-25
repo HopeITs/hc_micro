@@ -380,10 +380,10 @@ namespace MyWorkApplication
             this.FP_Exp_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FP_Exp_PName = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.FP_Exp_Relation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FP_Exp_WorkName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FP_Exp_WorkDiscription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FP_Exp_WorkType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.FP_Exp_Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.FP_Exp_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
             this.FP_Exp_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubHeader7_label = new System.Windows.Forms.Label();
             this.SubHeader8_label = new System.Windows.Forms.Label();
@@ -918,7 +918,7 @@ namespace MyWorkApplication
             this.Type_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Type_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Type_comboBox.FormattingEnabled = true;
-            this.Type_comboBox.Location = new System.Drawing.Point(104, 181);
+            this.Type_comboBox.Location = new System.Drawing.Point(104, 180);
             this.Type_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Type_comboBox.Name = "Type_comboBox";
             this.Type_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -996,7 +996,7 @@ namespace MyWorkApplication
             this.SubType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.SubType_comboBox.FormattingEnabled = true;
-            this.SubType_comboBox.Location = new System.Drawing.Point(104, 220);
+            this.SubType_comboBox.Location = new System.Drawing.Point(104, 219);
             this.SubType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubType_comboBox.Name = "SubType_comboBox";
             this.SubType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1127,7 +1127,7 @@ namespace MyWorkApplication
             this.SubCategory_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubCategory_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.SubCategory_comboBox.FormattingEnabled = true;
-            this.SubCategory_comboBox.Location = new System.Drawing.Point(121, 7);
+            this.SubCategory_comboBox.Location = new System.Drawing.Point(121, 6);
             this.SubCategory_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubCategory_comboBox.Name = "SubCategory_comboBox";
             this.SubCategory_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1149,7 +1149,7 @@ namespace MyWorkApplication
             this.Career_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Career_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Career_comboBox.FormattingEnabled = true;
-            this.Career_comboBox.Location = new System.Drawing.Point(3, 7);
+            this.Career_comboBox.Location = new System.Drawing.Point(3, 6);
             this.Career_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Career_comboBox.Name = "Career_comboBox";
             this.Career_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1788,7 +1788,7 @@ namespace MyWorkApplication
             this.P_Sex_comboBox.Items.AddRange(new object[] {
             "ذكر",
             "أنثى"});
-            this.P_Sex_comboBox.Location = new System.Drawing.Point(3, 105);
+            this.P_Sex_comboBox.Location = new System.Drawing.Point(3, 104);
             this.P_Sex_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_Sex_comboBox.Name = "P_Sex_comboBox";
             this.P_Sex_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1956,7 +1956,7 @@ namespace MyWorkApplication
             this.P_MaritalState_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.P_MaritalState_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_MaritalState_comboBox.FormattingEnabled = true;
-            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(3, 257);
+            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(3, 256);
             this.P_MaritalState_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_MaritalState_comboBox.Name = "P_MaritalState_comboBox";
             this.P_MaritalState_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2067,7 +2067,7 @@ namespace MyWorkApplication
             this.Street_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Street_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Street_comboBox.FormattingEnabled = true;
-            this.Street_comboBox.Location = new System.Drawing.Point(758, 505);
+            this.Street_comboBox.Location = new System.Drawing.Point(758, 504);
             this.Street_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.Street_comboBox.Name = "Street_comboBox";
             this.Street_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2087,7 +2087,7 @@ namespace MyWorkApplication
             this.P_HomeType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_HomeType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_HomeType_comboBox.FormattingEnabled = true;
-            this.P_HomeType_comboBox.Location = new System.Drawing.Point(758, 543);
+            this.P_HomeType_comboBox.Location = new System.Drawing.Point(758, 542);
             this.P_HomeType_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_HomeType_comboBox.Name = "P_HomeType_comboBox";
             this.P_HomeType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2301,7 +2301,7 @@ namespace MyWorkApplication
             this.P_Priest2_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Priest2_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Priest2_comboBox.FormattingEnabled = true;
-            this.P_Priest2_comboBox.Location = new System.Drawing.Point(3, 6);
+            this.P_Priest2_comboBox.Location = new System.Drawing.Point(3, 5);
             this.P_Priest2_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Priest2_comboBox.Name = "P_Priest2_comboBox";
             this.P_Priest2_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2321,7 +2321,7 @@ namespace MyWorkApplication
             this.P_Priest_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Priest_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Priest_comboBox.FormattingEnabled = true;
-            this.P_Priest_comboBox.Location = new System.Drawing.Point(113, 6);
+            this.P_Priest_comboBox.Location = new System.Drawing.Point(113, 5);
             this.P_Priest_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Priest_comboBox.Name = "P_Priest_comboBox";
             this.P_Priest_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2367,7 +2367,7 @@ namespace MyWorkApplication
             this.P_Parish_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Parish_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Parish_comboBox.FormattingEnabled = true;
-            this.P_Parish_comboBox.Location = new System.Drawing.Point(758, 353);
+            this.P_Parish_comboBox.Location = new System.Drawing.Point(758, 352);
             this.P_Parish_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Parish_comboBox.Name = "P_Parish_comboBox";
             this.P_Parish_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2480,7 +2480,7 @@ namespace MyWorkApplication
             this.PersonType_comboBox.Items.AddRange(new object[] {
             "مستفيد",
             "شريك"});
-            this.PersonType_comboBox.Location = new System.Drawing.Point(758, 143);
+            this.PersonType_comboBox.Location = new System.Drawing.Point(758, 142);
             this.PersonType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PersonType_comboBox.Name = "PersonType_comboBox";
             this.PersonType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2650,6 +2650,7 @@ namespace MyWorkApplication
             this.FamilyMember_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.FamilyMember_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.FamilyMember_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            this.FamilyMember_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellValueChanged);
             this.FamilyMember_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.FamilyMember_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             this.FamilyMember_dataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.FamilyMember_dataGridView_RowsAdded);
@@ -2774,13 +2775,6 @@ namespace MyWorkApplication
             this.P_EducationType.FillWeight = 6.942435F;
             this.P_EducationType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_EducationType.HeaderText = "الدرجة العلمية";
-            this.P_EducationType.Items.AddRange(new object[] {
-            "تعليم أساسي",
-            "إجازة جامعية",
-            "معهد",
-            "دبلوم",
-            "ماجستير",
-            "دكتوراه"});
             this.P_EducationType.MinimumWidth = 6;
             this.P_EducationType.Name = "P_EducationType";
             // 
@@ -3530,7 +3524,7 @@ namespace MyWorkApplication
             this.PaperApplicationUser_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.PaperApplicationUser_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaperApplicationUser_comboBox.FormattingEnabled = true;
-            this.PaperApplicationUser_comboBox.Location = new System.Drawing.Point(657, 10);
+            this.PaperApplicationUser_comboBox.Location = new System.Drawing.Point(657, 9);
             this.PaperApplicationUser_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PaperApplicationUser_comboBox.Name = "PaperApplicationUser_comboBox";
             this.PaperApplicationUser_comboBox.Size = new System.Drawing.Size(212, 30);
@@ -3762,6 +3756,7 @@ namespace MyWorkApplication
             this.HelpSource_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.HelpSource_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.HelpSource_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            this.HelpSource_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellValueChanged);
             this.HelpSource_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.HelpSource_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
@@ -3916,6 +3911,7 @@ namespace MyWorkApplication
             this.HomePowerSource_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.HomePowerSource_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.HomePowerSource_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            this.HomePowerSource_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellValueChanged);
             this.HomePowerSource_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.HomePowerSource_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
@@ -4403,6 +4399,7 @@ namespace MyWorkApplication
             this.Loss_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Loss_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.Loss_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            this.Loss_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellValueChanged);
             this.Loss_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.Loss_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
@@ -5335,10 +5332,10 @@ namespace MyWorkApplication
             this.FP_Exp_ID,
             this.FP_Exp_PName,
             this.FP_Exp_Relation,
-            this.FP_Exp_WorkName,
+            this.FP_Exp_WorkDiscription,
             this.FP_Exp_WorkType,
             this.FP_Exp_Salary,
-            this.dataGridViewButtonColumn1,
+            this.FP_Exp_DeleteRow,
             this.FP_Exp_IsDirty});
             this.t9_tableLayoutPanel.SetColumnSpan(this.FP_Exp_dataGridView, 3);
             dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -5367,11 +5364,19 @@ namespace MyWorkApplication
             this.FP_Exp_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.FP_Exp_dataGridView.Size = new System.Drawing.Size(1085, 184);
             this.FP_Exp_dataGridView.TabIndex = 81;
+            this.FP_Exp_dataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
+            this.FP_Exp_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.FP_Exp_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
+            this.FP_Exp_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
+            this.FP_Exp_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            this.FP_Exp_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellValueChanged);
+            this.FP_Exp_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
+            this.FP_Exp_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
             // FP_Exp_ID
             // 
             this.FP_Exp_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FP_Exp_ID.HeaderText = "APerson_ID";
+            this.FP_Exp_ID.HeaderText = "FP_Exp_ID";
             this.FP_Exp_ID.MinimumWidth = 6;
             this.FP_Exp_ID.Name = "FP_Exp_ID";
             this.FP_Exp_ID.ReadOnly = true;
@@ -5397,15 +5402,15 @@ namespace MyWorkApplication
             this.FP_Exp_Relation.ReadOnly = true;
             this.FP_Exp_Relation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // FP_Exp_WorkName
+            // FP_Exp_WorkDiscription
             // 
-            this.FP_Exp_WorkName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FP_Exp_WorkName.FillWeight = 41.40383F;
-            this.FP_Exp_WorkName.HeaderText = "المهنة";
-            this.FP_Exp_WorkName.MinimumWidth = 6;
-            this.FP_Exp_WorkName.Name = "FP_Exp_WorkName";
-            this.FP_Exp_WorkName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.FP_Exp_WorkName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.FP_Exp_WorkDiscription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FP_Exp_WorkDiscription.FillWeight = 41.40383F;
+            this.FP_Exp_WorkDiscription.HeaderText = "المهنة";
+            this.FP_Exp_WorkDiscription.MinimumWidth = 6;
+            this.FP_Exp_WorkDiscription.Name = "FP_Exp_WorkDiscription";
+            this.FP_Exp_WorkDiscription.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FP_Exp_WorkDiscription.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // FP_Exp_WorkType
             // 
@@ -5422,22 +5427,22 @@ namespace MyWorkApplication
             this.FP_Exp_Salary.MinimumWidth = 6;
             this.FP_Exp_Salary.Name = "FP_Exp_Salary";
             // 
-            // dataGridViewButtonColumn1
+            // FP_Exp_DeleteRow
             // 
-            this.dataGridViewButtonColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewButtonColumn1.FillWeight = 10F;
-            this.dataGridViewButtonColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dataGridViewButtonColumn1.HeaderText = " ";
-            this.dataGridViewButtonColumn1.MinimumWidth = 50;
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            this.dataGridViewButtonColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewButtonColumn1.Text = "Delete";
-            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
-            this.dataGridViewButtonColumn1.Width = 50;
+            this.FP_Exp_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.FP_Exp_DeleteRow.FillWeight = 10F;
+            this.FP_Exp_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FP_Exp_DeleteRow.HeaderText = " ";
+            this.FP_Exp_DeleteRow.MinimumWidth = 50;
+            this.FP_Exp_DeleteRow.Name = "FP_Exp_DeleteRow";
+            this.FP_Exp_DeleteRow.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.FP_Exp_DeleteRow.Text = "Delete";
+            this.FP_Exp_DeleteRow.UseColumnTextForButtonValue = true;
+            this.FP_Exp_DeleteRow.Width = 50;
             // 
             // FP_Exp_IsDirty
             // 
-            this.FP_Exp_IsDirty.HeaderText = "Asset_IsDirty";
+            this.FP_Exp_IsDirty.HeaderText = "FP_Exp_IsDirty";
             this.FP_Exp_IsDirty.MinimumWidth = 6;
             this.FP_Exp_IsDirty.Name = "FP_Exp_IsDirty";
             this.FP_Exp_IsDirty.Visible = false;
@@ -5914,6 +5919,7 @@ namespace MyWorkApplication
             this.Materials_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Materials_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.Materials_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            this.Materials_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellValueChanged);
             this.Materials_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.Materials_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
@@ -6111,7 +6117,7 @@ namespace MyWorkApplication
             this.MP_PlaceType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MP_PlaceType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.MP_PlaceType_comboBox.FormattingEnabled = true;
-            this.MP_PlaceType_comboBox.Location = new System.Drawing.Point(727, 52);
+            this.MP_PlaceType_comboBox.Location = new System.Drawing.Point(727, 51);
             this.MP_PlaceType_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.MP_PlaceType_comboBox.Name = "MP_PlaceType_comboBox";
             this.MP_PlaceType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -6269,6 +6275,7 @@ namespace MyWorkApplication
             this.PowerSource_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.PowerSource_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.PowerSource_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            this.PowerSource_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellValueChanged);
             this.PowerSource_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.PowerSource_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
@@ -6918,6 +6925,7 @@ namespace MyWorkApplication
             this.Course_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Course_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.Course_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            this.Course_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellValueChanged);
             this.Course_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.Course_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
@@ -7142,6 +7150,7 @@ namespace MyWorkApplication
             this.Education_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Education_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.Education_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            this.Education_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellValueChanged);
             this.Education_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.Education_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
@@ -7184,13 +7193,6 @@ namespace MyWorkApplication
             this.E_Type.FillWeight = 33F;
             this.E_Type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.E_Type.HeaderText = "الدرجة العلمية";
-            this.E_Type.Items.AddRange(new object[] {
-            "تعليم أساسي",
-            "إجازة جامعية",
-            "معهد",
-            "دبلوم",
-            "ماجستير",
-            "دكتوراه"});
             this.E_Type.MinimumWidth = 6;
             this.E_Type.Name = "E_Type";
             // 
@@ -7546,6 +7548,7 @@ namespace MyWorkApplication
             this.Exp_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Exp_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.Exp_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            this.Exp_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellValueChanged);
             this.Exp_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.Exp_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
@@ -7775,6 +7778,7 @@ namespace MyWorkApplication
             this.Work_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.Work_dataGridView.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellLeave);
             this.Work_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            this.Work_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellValueChanged);
             this.Work_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.Work_dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
@@ -7850,7 +7854,7 @@ namespace MyWorkApplication
             // W_Salary
             // 
             this.W_Salary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.W_Salary.HeaderText = "الربح الشهري";
+            this.W_Salary.HeaderText = "الربح";
             this.W_Salary.MinimumWidth = 6;
             this.W_Salary.Name = "W_Salary";
             // 
@@ -8751,24 +8755,6 @@ namespace MyWorkApplication
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel22;
         private System.Windows.Forms.RadioButton P_HasLossesNo_radioButton;
         private System.Windows.Forms.RadioButton P_HasLossesYes_radioButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Exp_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn FP_Exp_PName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Exp_Relation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Exp_WorkName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn FP_Exp_WorkType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Exp_Salary;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Exp_IsDirty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PE_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn E_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn P_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn E_Level;
-        private System.Windows.Forms.DataGridViewComboBoxColumn E_Type;
-        private System.Windows.Forms.DataGridViewComboBoxColumn E_Name;
-        private System.Windows.Forms.DataGridViewButtonColumn Edu_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Edu_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Edu_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Edu_IsDirty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ill_Person_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ill_ID;
         private System.Windows.Forms.DataGridViewComboBoxColumn Ill_PName;
@@ -8783,6 +8769,56 @@ namespace MyWorkApplication
         private System.Windows.Forms.DataGridViewTextBoxColumn Ill_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ill_RowID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ill_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpP_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Exp_Name;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Exp_WorkType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_BeginDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_EndDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_PlaceState;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_Place;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_Contact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_CauseOfLose;
+        private System.Windows.Forms.DataGridViewButtonColumn Exp_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WP_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn W_Name;
+        private System.Windows.Forms.DataGridViewComboBoxColumn W_WorkType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_BeginDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_PlaceState;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_Place;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_Contact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_Salary;
+        private System.Windows.Forms.DataGridViewButtonColumn W_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_IsDirty;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel17;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.RadioButton P_LiveWithFamily_radioButton;
+        private System.Windows.Forms.RadioButton P_NotLiveWithFamily_radioButton;
+        private System.Windows.Forms.Label LiveWithFamily_Note_Label;
+        private System.Windows.Forms.TextBox LiveWithFamily_Note_textBox;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PE_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn E_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn E_Level;
+        private System.Windows.Forms.DataGridViewComboBoxColumn E_Type;
+        private System.Windows.Forms.DataGridViewComboBoxColumn E_Name;
+        private System.Windows.Forms.DataGridViewButtonColumn Edu_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Edu_InDataBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Edu_RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Edu_IsDirty;
         private System.Windows.Forms.DataGridViewTextBoxColumn PF_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FPerson_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_FirstName;
@@ -8800,45 +8836,13 @@ namespace MyWorkApplication
         private System.Windows.Forms.DataGridViewTextBoxColumn P_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_RowID;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_IsDirty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ExpP_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Exp_Name;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Exp_WorkType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_BeginDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_EndDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_PlaceState;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_Place;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_Contact;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_CauseOfLose;
-        private System.Windows.Forms.DataGridViewButtonColumn Exp_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Exp_IsDirty;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel17;
-        private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.RadioButton P_LiveWithFamily_radioButton;
-        private System.Windows.Forms.RadioButton P_NotLiveWithFamily_radioButton;
-        private System.Windows.Forms.Label LiveWithFamily_Note_Label;
-        private System.Windows.Forms.TextBox LiveWithFamily_Note_textBox;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WP_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn W_Name;
-        private System.Windows.Forms.DataGridViewComboBoxColumn W_WorkType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_BeginDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_PlaceState;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_Place;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_Contact;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_Salary;
-        private System.Windows.Forms.DataGridViewButtonColumn W_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_RowID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn W_IsDirty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Exp_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn FP_Exp_PName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Exp_Relation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Exp_WorkDiscription;
+        private System.Windows.Forms.DataGridViewComboBoxColumn FP_Exp_WorkType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Exp_Salary;
+        private System.Windows.Forms.DataGridViewButtonColumn FP_Exp_DeleteRow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FP_Exp_IsDirty;
     }
 }

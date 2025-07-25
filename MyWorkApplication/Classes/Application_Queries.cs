@@ -23,7 +23,7 @@ namespace MyWorkApplication.Classes
                 + ", microproject.MP_DateOfRequest as 'Date Of Request'"
                 + ", microproject.MP_Name as 'Project Name'"
                 + ", microproject.MP_RequestedAmount as 'Requested Amount'"
-                + ", microproject.MP_FundType_ID as 'FundType_ID'"
+                + ", fundtype.name as 'fundtype'"
                 + ", microproject.MP_Type_ID as 'Type_ID'"
                 + ", microproject.MP_SubType_ID as 'SubType_ID'"
                 + ", microproject.SubCategory_ID as 'SubCategory_ID'"
@@ -32,15 +32,28 @@ namespace MyWorkApplication.Classes
                 + ", microproject.MP_PaperUser_ID as 'PaperUser_ID'"
                 + ", (select user.UserName from user where UserID = microproject.MP_ProgramUser_ID) as 'ProgramUser'"
                 + ",(select user.UserName from user where UserID = microproject.MP_EditedByUser_ID) as 'EditedByUser'"
-                + " from microproject "
+                + ", microproject.MP_PlaceType_ID"
+                + ", microproject.MP_PlaceAddress"
+                + ", microproject.MP_PlaceNote"
+                + ", microproject.MP_AmperNumber"
+                + ", microproject.MP_AmperType"
+                + ", microproject.MP_Agreement1"
+                + ", microproject.MP_Agreement2"
+                + ", microproject.MP_Agreement3"
+                + ", microproject.MP_Agreement4"
+                + ", (select SUM(material.Price*material.Amount) from material where material.MicroProject_ID = @MicroProject_ID) AS 'OverallSyrian'"
+                + " from microproject left join fundtype on fundtype.id = microproject.MP_FundType_ID"
                 + " where microproject.MP_ID = @MicroProject_ID;";
-             
+
             query += "select person.P_ID, person.P_FirstName, person.P_LastName,CONCAT(P_FirstName, ' ',person.P_FatherName ,' ', person.P_LastName) as 'FullName', person.P_Sex, person_microproject.PersonType, person.P_FullName_en, person.P_FatherName, person.P_MotherName," +
                 " person.P_RegistrationPlace, person.P_NationalNumber, person.P_DOB, person.P_MaritalStatus_ID, person.P_Parish_ID, person.P_IntermidiarySide," +
                 " person.P_Priest_ID, person.P_Priest2_ID, person.P_Mobile, person.P_HomeTel, person.P_Mobile2, person.Street_ID, person.P_HomeAddress, person.P_HomeType_ID," +
                 " person.P_HomeState_Note, person.P_MilitaryService, person.P_MilitaryService_Note, person.P_MilitaryService_Date, person_microproject.P_WorkYears," +
-                " person_microproject.P_IsLivingWithFamily, person_microproject.P_LiveWithFamily_Note, person_microproject.P_HasAidSource, person_microproject.P_AidSourceNote" +
-                " from person left join person_microproject on person.P_ID = person_microproject.Person_ID where person_microproject.Person_ID = @Person_ID;";
+                " person_microproject.P_IsLivingWithFamily, person_microproject.P_LiveWithFamily_Note, person_microproject.P_HasAidSource, person_microproject.P_AidSourceNote," +
+                " person_microproject.P_Loss, person_microproject.P_Goal, person_microproject.P_GoalHow, person_microproject.P_OtherNotes," +
+                " person_microproject.P_HasCourses, person_microproject.P_HasEducation," +
+                " person_microproject.P_HasLoss, person_microproject.P_HasIllness, person_microproject.P_HasAssets, person_microproject.P_HasDebts, person_microproject.P_DebtsAmount, person_microproject.P_DebtsNote, person_microproject.P_HasHelp" +
+                " from person left join person_microproject on person.P_ID = person_microproject.Person_ID where person_microproject.Person_ID = @Person_ID and person_microproject.MicroProject_ID = @MicroProject_ID;";
 
             query += " select image.Image_ID , image.image_NewPath " +
                 " from image left join imagetype on imagetype.ID = image.ImageType_ID" +
@@ -64,7 +77,57 @@ namespace MyWorkApplication.Classes
                 " left join relation on relation.ID = person_family.Relation_ID" +
                 " where person_family.P_Provider_ID = @Person_ID;";
 
+            query += " select person_goals.Goal_ID , goal.Name as 'Goal_Name'" +
+                " from person_goals left join goal on person_goals.Goal_ID = goal.ID" +
+                " where Person_ID = @Person_ID;";
 
+            query += " select person_education.PEdu_ID, person_education.Level_ID , person_education.Education_ID, educationtype.ID as 'Educationtype_ID'" +
+                " from person_education left join education on person_education.Education_ID = education.ID" +
+                " left join educationtype on educationtype.id = education.Type_ID" +
+                " where Person_ID = @Person_ID;";
+
+            query += " select person_course.ID , person_course.Name, person_course.Place, person_course.Donor, person_course.Date, person_course.SubCategory_ID" +
+             " from person_course" +
+             " where Person_ID = @Person_ID;";
+
+            query += " select microproject_powersource.ID, microproject_powersource.PowerSource_ID , microproject_powersource.Note, microproject_powersource.Cost, microproject_powersource.Responsability" +
+                " from microproject_powersource" +
+                " where microproject_powersource.MicroProject_ID = @MicroProject_ID;";
+
+            query += " select material.ID, material.Name, material.Amount, material.Price, material.Comments" +
+                " from material" +
+                " where material.MicroProject_ID = @MicroProject_ID;";
+
+
+            query += " select person_workexp.PW_ID, person_workexp.Person_ID, person_workexp.W_Description, person_workexp.W_WorkType_ID, person_workexp.W_Salary, relation.Name as 'Relation_Name'" +
+                " from person_workexp left join person on person_workexp.Person_ID = person.P_ID" +
+                " left join person_family on person.P_ID = person_family.Person_ID" +
+                " left join relation on relation.ID = person_family.Relation_ID" +
+                " where person_family.P_Provider_ID = @Person_ID and person.P_ID <> @Person_ID;";
+
+
+            query += " select person_loss.ID, person_loss.Loss_ID, person_loss.Year, person_loss.Note" +
+                " from person_loss where Person_ID = @Person_ID;";
+
+
+            query += " select person_illness.ID, person_illness.Person_ID, person_illness.Illness_ID, person_illness.Has_MedicalAid, person_illness.AidSource_ID, person_illness.Note, person_illness.AidPeriod_ID, person_illness.MedicalNeeds_ID, relation.Name as 'Relation_Name'" +
+                " from person_illness left join person on person_illness.Person_ID = person.P_ID" +
+                " left join person_family on person.P_ID = person_family.Person_ID" +
+                " left join relation on relation.ID = person_family.Relation_ID" +
+                " where person_family.P_Provider_ID = @Person_ID;";
+
+
+            query += " select person_asset.ID, person_asset.Person_ID, person_asset.Asset_ID, person_asset.Asset_Type_ID, person_asset.Year, person_asset.Description, person_asset.Note, relation.Name as 'Relation_Name'" +
+                " from person_asset left join person on person_asset.Person_ID = person.P_ID" +
+                " left join person_family on person.P_ID = person_family.Person_ID" +
+                " left join relation on relation.ID = person_family.Relation_ID" +
+                " where person_family.P_Provider_ID = @Person_ID;";
+
+            query += " select person_help.ID, person_help.AidSource_ID, person_help.Aid_ID, person_help.Aidperiod_ID, person_help.Notes" +
+                " from person_help where person_help.Person_ID = @Person_ID;";
+
+            query += " select person_powersource.ID, person_powersource.PowerSource_ID, person_powersource.Note , person_powersource.Cost, person_powersource.Responsability" +
+                " from person_powersource where person_powersource.Person_ID = @Person_ID;";
 
             var sc = new MySqlCommand();
 
@@ -210,7 +273,7 @@ namespace MyWorkApplication.Classes
 
         #endregion
 
-         
+
 
     }
 }
