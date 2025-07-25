@@ -134,6 +134,47 @@ namespace MyWorkApplication
             UserTasks_listBox.DataSource = li_user;
         }
 
+        private void Fill_User_Boxes(int iD)
+        {
+            Username_textBox.Text = SelectedDataRow["Username"].ToString();
+
+            Email_textBox.Text = SelectedDataRow["Email"].ToString();
+            Role_comboBox1.Text = SelectedDataRow["Role"].ToString();
+
+            var IsVisitor = (int)SelectedDataRow["IsVisitor"];
+            var IsME = (int)SelectedDataRow["IsME"];
+            var IsCommunication = (int)SelectedDataRow["IsCommunication"];
+            var IsCashier = (int)SelectedDataRow["IsCashier"];
+
+            if (IsVisitor == 0) color_checkboxes(No_V_button, Yes_V_button);
+            else color_checkboxes(Yes_V_button, No_V_button);
+            if (IsME == 0) color_checkboxes(No_ME_button, Yes_ME_button);
+            else color_checkboxes(Yes_ME_button, No_ME_button);
+            if (IsCommunication == 0) color_checkboxes(No_Com_button, Yes_Com_button);
+            else color_checkboxes(Yes_Com_button, No_Com_button);
+            if (IsCashier == 0) color_checkboxes(No_Pay_button, Yes_Pay_button);
+            else color_checkboxes(Yes_Pay_button, No_Pay_button);
+
+            if (SelectedDataRow["#"] == DBNull.Value)
+            {
+                ProfilePicture_pictureBox.BackgroundImage = Resources.Unknown_User;
+            }
+            else
+            {
+                //profile picture
+                PicArr = u.Select_ProfilePicture(ID);
+                if (PicArr == null || PicArr.Length == 0)
+                {
+                    ProfilePicture_pictureBox.BackgroundImage = Resources.Unknown_User;
+                }
+                else
+                {
+                    var ms = new MemoryStream(PicArr);
+                    ProfilePicture_pictureBox.BackgroundImage = Image.FromStream(ms);
+                }
+            }
+        }
+
         private void users_dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel = true;
@@ -178,51 +219,7 @@ namespace MyWorkApplication
                 if (SelectedDataRow != null)
                 {
                     ID = int.Parse(SelectedDataRow["ID"].ToString());
-                    Username_textBox.Text = SelectedDataRow["Username"].ToString();
-                    
-                    //because its hashed
-                    //Password_textBox.Text = SelectedDataRow["Password"].ToString();
-                    
-                    Email_textBox.Text = SelectedDataRow["Email"].ToString();
-                    Role_comboBox1.Text = SelectedDataRow["Role"].ToString();
-
-                    var IsVisitor = (int)SelectedDataRow["IsVisitor"];
-                    var IsME = (int)SelectedDataRow["IsME"];
-                    var IsCommunication = (int)SelectedDataRow["IsCommunication"];
-                    var IsCashier = (int)SelectedDataRow["IsCashier"];
-
-                    if (IsVisitor == 0)
-                        No_V_button_Click(sender, e);
-                    else Yes_V_button_Click(sender, e);
-                    if (IsME == 0)
-                        No_ME_button_Click(sender, e);
-                    else Yes_ME_button_Click(sender, e);
-                    if (IsCommunication == 0)
-                        No_Com_button_Click(sender, e);
-                    else Yes_Com_button_Click(sender, e);
-                    if (IsCashier == 0)
-                        No_Pay_button_Click(sender, e);
-                    else Yes_Pay_button_Click(sender, e);
-
-                    if (SelectedDataRow["#"] == DBNull.Value)
-                    {
-                        ProfilePicture_pictureBox.BackgroundImage = Resources.Unknown_User;
-                    }
-                    else
-                    {
-                        //profile picture
-                        PicArr = u.Select_ProfilePicture(ID);
-                        if (PicArr == null || PicArr.Length == 0)
-                        {
-                            ProfilePicture_pictureBox.BackgroundImage = Resources.Unknown_User;
-                        }
-                        else
-                        {
-                            var ms = new MemoryStream(PicArr);
-                            ProfilePicture_pictureBox.BackgroundImage = Image.FromStream(ms);
-                        }
-                    }
-
+                    Fill_User_Boxes(ID);
                     Bind_Tasks(ID);
                 }
             }
@@ -231,7 +228,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-
+         
         private void users_dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             try
@@ -278,7 +275,7 @@ namespace MyWorkApplication
                 //string password = Password_textBox.Text;
                 string password = "";
                 string role = Role_comboBox1.SelectedText;
-
+                  
                 PicArr = null;
                 //////////////////// Convert_Picture(); ////////////////////
                 PicArr = ImageToByte(ProfilePicture_pictureBox.BackgroundImage);
@@ -289,19 +286,23 @@ namespace MyWorkApplication
                 var IsCashier = -1;
                 var IsCommunication = -1;
 
-                if (Yes_V_button.BackColor == Pressed_BackColor)
+                if (Yes_V_button.BackColor == Pressed_BackColor
+                    && (Role_comboBox1.Text.ToLower() != "out of service"))
                     IsVisitor = 1;
                 else IsVisitor = 0;
 
-                if (Yes_Pay_button.BackColor == Pressed_BackColor)
+                if (Yes_Pay_button.BackColor == Pressed_BackColor
+                    && (Role_comboBox1.Text.ToLower() != "out of service"))
                     IsCashier = 1;
                 else IsCashier = 0;
 
-                if (Yes_Com_button.BackColor == Pressed_BackColor)
+                if (Yes_Com_button.BackColor == Pressed_BackColor
+                    && (Role_comboBox1.Text.ToLower() != "out of service"))
                     IsCommunication = 1;
                 else IsCommunication = 0;
 
-                if (Yes_ME_button.BackColor == Pressed_BackColor)
+                if (Yes_ME_button.BackColor == Pressed_BackColor
+                    && (Role_comboBox1.Text.ToLower() != "out of service"))
                     IsME = 1;
                 else IsME = 0;
 
@@ -310,7 +311,7 @@ namespace MyWorkApplication
                     if (Password_textBox.Text == "")
                         password = SelectedDataRow["Password"].ToString(); //old passord
                     else password = PasswordHelper.HashPassword(Password_textBox.Text);
-
+                      
                     u.Update_User(ID, username, password, email,
                         Convert.ToInt32(Role_comboBox1.SelectedValue)
                         , IsVisitor, IsME, IsCommunication, IsCashier, PicArr);
@@ -318,18 +319,25 @@ namespace MyWorkApplication
                 }
                 else
                 {
-
                     if (Password_textBox.Text == "")
                         throw new InvalidOperationException("You Can't leave password empty when creating the user.. Please check and try again!");
                     password = PasswordHelper.HashPassword(Password_textBox.Text);
 
-                    u.Insert_User(username, password, email,
+                    ID = u.Insert_User(username, password, email,
                         Convert.ToInt32(Role_comboBox1.SelectedValue)
                         , IsVisitor, IsME, IsCommunication, IsCashier, PicArr);
                     l.Insert_Log("Insert " + username + "-" + role, "User", Program.UserName, DateTime.Now);
                 }
 
+                if(Role_comboBox1.Text.ToLower() == "out of service")
+                {
+                    //remove all tasks
+                    u.Remove_Task(ID, "all");
+                }
+
                 //Clear_Boxes();
+                //Fill_User_Boxes(ID);
+                Bind_Tasks(ID);
                 Bind_Users("");
             }
 
@@ -568,17 +576,19 @@ namespace MyWorkApplication
 
         private void Yes_V_button_Click(object sender, EventArgs e)
         {
-            No_V_button.BackColor = Color.Transparent;
-            No_V_button.ForeColor = Color.Black;
-            Yes_V_button.BackColor = Pressed_BackColor;
-            Yes_V_button.ForeColor = Pressed_ForeColor;
+            color_checkboxes(Yes_V_button,No_V_button); 
         }
         private void No_V_button_Click(object sender, EventArgs e)
         {
-            No_V_button.BackColor = Pressed_BackColor;
-            No_V_button.ForeColor = Pressed_ForeColor;
-            Yes_V_button.BackColor = Color.Transparent;
-            Yes_V_button.ForeColor = Color.Black;
+            color_checkboxes(No_V_button,Yes_V_button);
+        }
+
+        private void color_checkboxes(Button pressed_btn, Button disabled_btn)
+        {
+            pressed_btn.BackColor = Pressed_BackColor;
+            pressed_btn.ForeColor = Pressed_ForeColor;
+            disabled_btn.BackColor = Color.Transparent;
+            disabled_btn.ForeColor = Color.Black;
         }
 
         #endregion

@@ -36,6 +36,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User_Form));
             this.DeleteImage_button = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.ProfilePicture_pictureBox = new OvalPictureBox();
             this.AddImage_button = new System.Windows.Forms.Button();
             this.Role_comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@
             this.Username_textBox = new System.Windows.Forms.TextBox();
             this.Save_button = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.Header1_label = new System.Windows.Forms.Label();
             this.AllTasks_listBox = new System.Windows.Forms.ListBox();
@@ -74,15 +76,13 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.refreshPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.ProfilePicture_pictureBox = new OvalPictureBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.users_dataGridView)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // DeleteImage_button
@@ -97,7 +97,7 @@
             this.DeleteImage_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.DeleteImage_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteImage_button.ForeColor = System.Drawing.Color.White;
-            this.DeleteImage_button.Location = new System.Drawing.Point(78, 195);
+            this.DeleteImage_button.Location = new System.Drawing.Point(83, 180);
             this.DeleteImage_button.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.DeleteImage_button.MaximumSize = new System.Drawing.Size(28, 34);
             this.DeleteImage_button.MinimumSize = new System.Drawing.Size(28, 34);
@@ -119,16 +119,29 @@
             this.tableLayoutPanel2.Controls.Add(this.ProfilePicture_pictureBox, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.AddImage_button, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.DeleteImage_button, 1, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(26, 7);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(26, 37);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel1.SetRowSpan(this.tableLayoutPanel2, 7);
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.16216F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.83784F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(150, 238);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(162, 220);
             this.tableLayoutPanel2.TabIndex = 478;
+            // 
+            // ProfilePicture_pictureBox
+            // 
+            this.ProfilePicture_pictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.ProfilePicture_pictureBox.BackgroundImage = global::MyWorkApplication.Properties.Resources.Unknown_User;
+            this.ProfilePicture_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tableLayoutPanel2.SetColumnSpan(this.ProfilePicture_pictureBox, 2);
+            this.ProfilePicture_pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProfilePicture_pictureBox.Location = new System.Drawing.Point(3, 4);
+            this.ProfilePicture_pictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ProfilePicture_pictureBox.Name = "ProfilePicture_pictureBox";
+            this.ProfilePicture_pictureBox.Size = new System.Drawing.Size(156, 172);
+            this.ProfilePicture_pictureBox.TabIndex = 426;
+            this.ProfilePicture_pictureBox.TabStop = false;
             // 
             // AddImage_button
             // 
@@ -143,7 +156,7 @@
             this.AddImage_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.AddImage_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddImage_button.ForeColor = System.Drawing.Color.White;
-            this.AddImage_button.Location = new System.Drawing.Point(36, 195);
+            this.AddImage_button.Location = new System.Drawing.Point(41, 180);
             this.AddImage_button.Margin = new System.Windows.Forms.Padding(0, 0, 7, 0);
             this.AddImage_button.MaximumSize = new System.Drawing.Size(28, 34);
             this.AddImage_button.MinimumSize = new System.Drawing.Size(28, 34);
@@ -159,10 +172,10 @@
             this.Role_comboBox1.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.SetColumnSpan(this.Role_comboBox1, 2);
             this.Role_comboBox1.FormattingEnabled = true;
-            this.Role_comboBox1.Location = new System.Drawing.Point(410, 106);
+            this.Role_comboBox1.Location = new System.Drawing.Point(439, 133);
             this.Role_comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.Role_comboBox1.Name = "Role_comboBox1";
-            this.Role_comboBox1.Size = new System.Drawing.Size(233, 35);
+            this.Role_comboBox1.Size = new System.Drawing.Size(251, 35);
             this.Role_comboBox1.TabIndex = 3;
             this.Role_comboBox1.TextChanged += new System.EventHandler(this.Role_comboBox1_TextChanged);
             // 
@@ -172,7 +185,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(351, 109);
+            this.label3.Location = new System.Drawing.Point(380, 131);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 27);
@@ -186,7 +199,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(305, 42);
+            this.label2.Location = new System.Drawing.Point(334, 67);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 27);
@@ -199,11 +212,11 @@
             this.Password_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Password_textBox.BackColor = System.Drawing.Color.White;
             this.Password_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Password_textBox.Location = new System.Drawing.Point(2, 4);
+            this.Password_textBox.Location = new System.Drawing.Point(2, 2);
             this.Password_textBox.Margin = new System.Windows.Forms.Padding(2);
             this.Password_textBox.Name = "Password_textBox";
             this.Password_textBox.PasswordChar = '*';
-            this.Password_textBox.Size = new System.Drawing.Size(204, 29);
+            this.Password_textBox.Size = new System.Drawing.Size(222, 29);
             this.Password_textBox.TabIndex = 2;
             // 
             // label48
@@ -212,7 +225,7 @@
             this.label48.AutoSize = true;
             this.label48.BackColor = System.Drawing.Color.Transparent;
             this.label48.ForeColor = System.Drawing.Color.Black;
-            this.label48.Location = new System.Drawing.Point(301, 5);
+            this.label48.Location = new System.Drawing.Point(330, 33);
             this.label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(103, 27);
@@ -226,10 +239,10 @@
             this.Username_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.SetColumnSpan(this.Username_textBox, 2);
             this.Username_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Username_textBox.Location = new System.Drawing.Point(410, 4);
+            this.Username_textBox.Location = new System.Drawing.Point(439, 32);
             this.Username_textBox.Margin = new System.Windows.Forms.Padding(2);
             this.Username_textBox.Name = "Username_textBox";
-            this.Username_textBox.Size = new System.Drawing.Size(233, 29);
+            this.Username_textBox.Size = new System.Drawing.Size(251, 29);
             this.Username_textBox.TabIndex = 1;
             // 
             // Save_button
@@ -243,11 +256,11 @@
             this.Save_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.Save_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save_button.ForeColor = System.Drawing.Color.White;
-            this.Save_button.Location = new System.Drawing.Point(530, 328);
+            this.Save_button.Location = new System.Drawing.Point(568, 334);
             this.Save_button.Margin = new System.Windows.Forms.Padding(2);
             this.Save_button.MaximumSize = new System.Drawing.Size(146, 39);
             this.Save_button.Name = "Save_button";
-            this.Save_button.Size = new System.Drawing.Size(113, 38);
+            this.Save_button.Size = new System.Drawing.Size(122, 33);
             this.Save_button.TabIndex = 15;
             this.Save_button.Text = "Save";
             this.Save_button.UseVisualStyleBackColor = false;
@@ -264,39 +277,40 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.60798F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.97785F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.27963F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
-            this.tableLayoutPanel1.Controls.Add(this.label8, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel9, 1, 11);
-            this.tableLayoutPanel1.Controls.Add(this.Refresh_button, 3, 9);
-            this.tableLayoutPanel1.Controls.Add(this.label48, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.Username_textBox, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.Role_comboBox1, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.Email_textBox, 3, 4);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.Save_button, 4, 9);
-            this.tableLayoutPanel1.Controls.Add(this.Header3_label, 6, 0);
-            this.tableLayoutPanel1.Controls.Add(this.users_dataGridView, 6, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 2, 6);
-            this.tableLayoutPanel1.Controls.Add(this.Yes_ME_button, 3, 6);
-            this.tableLayoutPanel1.Controls.Add(this.No_ME_button, 4, 6);
-            this.tableLayoutPanel1.Controls.Add(this.No_V_button, 4, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.Yes_V_button, 3, 5);
-            this.tableLayoutPanel1.Controls.Add(this.Yes_Com_button, 3, 7);
-            this.tableLayoutPanel1.Controls.Add(this.No_Com_button, 4, 7);
-            this.tableLayoutPanel1.Controls.Add(this.No_Pay_button, 4, 8);
-            this.tableLayoutPanel1.Controls.Add(this.Yes_Pay_button, 3, 8);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 1, 8);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel1.Controls.Add(this.label8, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel9, 1, 12);
+            this.tableLayoutPanel1.Controls.Add(this.Refresh_button, 3, 10);
+            this.tableLayoutPanel1.Controls.Add(this.label48, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.Username_textBox, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.Role_comboBox1, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.Email_textBox, 3, 5);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.Save_button, 4, 10);
+            this.tableLayoutPanel1.Controls.Add(this.Header3_label, 6, 1);
+            this.tableLayoutPanel1.Controls.Add(this.users_dataGridView, 6, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 2, 7);
+            this.tableLayoutPanel1.Controls.Add(this.Yes_ME_button, 3, 7);
+            this.tableLayoutPanel1.Controls.Add(this.No_ME_button, 4, 7);
+            this.tableLayoutPanel1.Controls.Add(this.No_V_button, 4, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 2, 6);
+            this.tableLayoutPanel1.Controls.Add(this.Yes_V_button, 3, 6);
+            this.tableLayoutPanel1.Controls.Add(this.Yes_Com_button, 3, 8);
+            this.tableLayoutPanel1.Controls.Add(this.No_Com_button, 4, 8);
+            this.tableLayoutPanel1.Controls.Add(this.No_Pay_button, 4, 9);
+            this.tableLayoutPanel1.Controls.Add(this.Yes_Pay_button, 3, 9);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 1, 9);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 12;
+            this.tableLayoutPanel1.RowCount = 14;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.048857F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.048857F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -309,8 +323,25 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.748888F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.646623F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.21363F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1262, 653);
             this.tableLayoutPanel1.TabIndex = 488;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.SetColumnSpan(this.label8, 3);
+            this.label8.Font = new System.Drawing.Font("Rubik", 8F);
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(342, 102);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(346, 22);
+            this.label8.TabIndex = 486;
+            this.label8.Text = "leave the passwoed empty if there isn\'t any changes";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel9
             // 
@@ -326,14 +357,14 @@
             this.tableLayoutPanel9.Controls.Add(this.RemoveTask_button, 1, 2);
             this.tableLayoutPanel9.Controls.Add(this.Header2_label, 2, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(21, 385);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(21, 384);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 3;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(623, 267);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(670, 235);
             this.tableLayoutPanel9.TabIndex = 491;
             // 
             // Header1_label
@@ -347,7 +378,7 @@
             this.Header1_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Header1_label.Name = "Header1_label";
             this.Header1_label.Padding = new System.Windows.Forms.Padding(1);
-            this.Header1_label.Size = new System.Drawing.Size(265, 48);
+            this.Header1_label.Size = new System.Drawing.Size(288, 48);
             this.Header1_label.TabIndex = 496;
             this.Header1_label.Text = "All Tasks";
             this.Header1_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -362,7 +393,7 @@
             this.AllTasks_listBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AllTasks_listBox.Name = "AllTasks_listBox";
             this.tableLayoutPanel9.SetRowSpan(this.AllTasks_listBox, 2);
-            this.AllTasks_listBox.Size = new System.Drawing.Size(267, 211);
+            this.AllTasks_listBox.Size = new System.Drawing.Size(290, 179);
             this.AllTasks_listBox.TabIndex = 0;
             // 
             // UserTasks_listBox
@@ -371,11 +402,11 @@
             this.UserTasks_listBox.ForeColor = System.Drawing.Color.Black;
             this.UserTasks_listBox.FormattingEnabled = true;
             this.UserTasks_listBox.ItemHeight = 27;
-            this.UserTasks_listBox.Location = new System.Drawing.Point(353, 52);
+            this.UserTasks_listBox.Location = new System.Drawing.Point(376, 52);
             this.UserTasks_listBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.UserTasks_listBox.Name = "UserTasks_listBox";
             this.tableLayoutPanel9.SetRowSpan(this.UserTasks_listBox, 2);
-            this.UserTasks_listBox.Size = new System.Drawing.Size(267, 211);
+            this.UserTasks_listBox.Size = new System.Drawing.Size(291, 179);
             this.UserTasks_listBox.TabIndex = 1;
             // 
             // AddTask_button
@@ -390,7 +421,7 @@
             this.AddTask_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.AddTask_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddTask_button.ForeColor = System.Drawing.Color.Black;
-            this.AddTask_button.Location = new System.Drawing.Point(275, 113);
+            this.AddTask_button.Location = new System.Drawing.Point(298, 97);
             this.AddTask_button.Margin = new System.Windows.Forms.Padding(2);
             this.AddTask_button.MinimumSize = new System.Drawing.Size(70, 42);
             this.AddTask_button.Name = "AddTask_button";
@@ -412,7 +443,7 @@
             this.RemoveTask_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.RemoveTask_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RemoveTask_button.ForeColor = System.Drawing.Color.Black;
-            this.RemoveTask_button.Location = new System.Drawing.Point(275, 159);
+            this.RemoveTask_button.Location = new System.Drawing.Point(298, 143);
             this.RemoveTask_button.Margin = new System.Windows.Forms.Padding(2);
             this.RemoveTask_button.MinimumSize = new System.Drawing.Size(70, 42);
             this.RemoveTask_button.Name = "RemoveTask_button";
@@ -429,11 +460,11 @@
             this.Header2_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Header2_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Header2_label.ForeColor = System.Drawing.Color.Black;
-            this.Header2_label.Location = new System.Drawing.Point(354, 0);
+            this.Header2_label.Location = new System.Drawing.Point(377, 0);
             this.Header2_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Header2_label.Name = "Header2_label";
             this.Header2_label.Padding = new System.Windows.Forms.Padding(1);
-            this.Header2_label.Size = new System.Drawing.Size(265, 48);
+            this.Header2_label.Size = new System.Drawing.Size(289, 48);
             this.Header2_label.TabIndex = 497;
             this.Header2_label.Text = "User Tasks";
             this.Header2_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -447,7 +478,7 @@
             this.Refresh_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Refresh_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Refresh_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Refresh_button.Location = new System.Drawing.Point(492, 330);
+            this.Refresh_button.Location = new System.Drawing.Point(530, 336);
             this.Refresh_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Refresh_button.MaximumSize = new System.Drawing.Size(33, 35);
             this.Refresh_button.MinimumSize = new System.Drawing.Size(33, 35);
@@ -465,7 +496,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(342, 146);
+            this.label7.Location = new System.Drawing.Point(371, 165);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 27);
@@ -479,10 +510,10 @@
             this.Email_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.SetColumnSpan(this.Email_textBox, 2);
             this.Email_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Email_textBox.Location = new System.Drawing.Point(410, 145);
+            this.Email_textBox.Location = new System.Drawing.Point(439, 164);
             this.Email_textBox.Margin = new System.Windows.Forms.Padding(2);
             this.Email_textBox.Name = "Email_textBox";
-            this.Email_textBox.Size = new System.Drawing.Size(233, 29);
+            this.Email_textBox.Size = new System.Drawing.Size(251, 29);
             this.Email_textBox.TabIndex = 4;
             // 
             // tableLayoutPanel3
@@ -494,12 +525,12 @@
             this.tableLayoutPanel3.Controls.Add(this.ShowPassword_button, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.Password_textBox, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(408, 37);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(437, 64);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(237, 37);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(255, 34);
             this.tableLayoutPanel3.TabIndex = 2;
             this.tableLayoutPanel3.TabStop = true;
             // 
@@ -512,7 +543,7 @@
             this.ShowPassword_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.ShowPassword_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ShowPassword_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShowPassword_button.Location = new System.Drawing.Point(212, 5);
+            this.ShowPassword_button.Location = new System.Drawing.Point(230, 4);
             this.ShowPassword_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ShowPassword_button.MaximumSize = new System.Drawing.Size(22, 27);
             this.ShowPassword_button.MinimumSize = new System.Drawing.Size(22, 27);
@@ -531,10 +562,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.Header3_label, 2);
             this.Header3_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Header3_label.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.Header3_label.Location = new System.Drawing.Point(687, 0);
+            this.Header3_label.Location = new System.Drawing.Point(737, 30);
             this.Header3_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Header3_label.Name = "Header3_label";
-            this.Header3_label.Size = new System.Drawing.Size(464, 37);
+            this.Header3_label.Size = new System.Drawing.Size(498, 34);
             this.Header3_label.TabIndex = 496;
             this.Header3_label.Text = "ALL USERS";
             this.Header3_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -568,7 +599,7 @@
             this.users_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.users_dataGridView.EnableHeadersVisualStyles = false;
             this.users_dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.users_dataGridView.Location = new System.Drawing.Point(689, 43);
+            this.users_dataGridView.Location = new System.Drawing.Point(739, 70);
             this.users_dataGridView.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.users_dataGridView.Name = "users_dataGridView";
             this.users_dataGridView.ReadOnly = true;
@@ -587,7 +618,7 @@
             this.users_dataGridView.RowTemplate.Height = 33;
             this.users_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.users_dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.users_dataGridView.Size = new System.Drawing.Size(460, 604);
+            this.users_dataGridView.Size = new System.Drawing.Size(494, 544);
             this.users_dataGridView.TabIndex = 497;
             this.users_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.users_dataGridView_CellContentClick);
             this.users_dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.users_dataGridView_CellContentClick);
@@ -601,7 +632,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(203, 220);
+            this.label1.Location = new System.Drawing.Point(232, 233);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(201, 27);
@@ -622,10 +653,10 @@
             this.Yes_ME_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.Yes_ME_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Yes_ME_button.ForeColor = System.Drawing.Color.Black;
-            this.Yes_ME_button.Location = new System.Drawing.Point(410, 217);
+            this.Yes_ME_button.Location = new System.Drawing.Point(439, 232);
             this.Yes_ME_button.Margin = new System.Windows.Forms.Padding(2);
             this.Yes_ME_button.Name = "Yes_ME_button";
-            this.Yes_ME_button.Size = new System.Drawing.Size(116, 33);
+            this.Yes_ME_button.Size = new System.Drawing.Size(125, 30);
             this.Yes_ME_button.TabIndex = 5;
             this.Yes_ME_button.Text = " Yes";
             this.Yes_ME_button.UseVisualStyleBackColor = false;
@@ -644,10 +675,10 @@
             this.No_ME_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.No_ME_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.No_ME_button.ForeColor = System.Drawing.Color.Black;
-            this.No_ME_button.Location = new System.Drawing.Point(530, 217);
+            this.No_ME_button.Location = new System.Drawing.Point(568, 232);
             this.No_ME_button.Margin = new System.Windows.Forms.Padding(2);
             this.No_ME_button.Name = "No_ME_button";
-            this.No_ME_button.Size = new System.Drawing.Size(113, 33);
+            this.No_ME_button.Size = new System.Drawing.Size(122, 30);
             this.No_ME_button.TabIndex = 6;
             this.No_ME_button.Text = "No";
             this.No_ME_button.UseVisualStyleBackColor = false;
@@ -666,10 +697,10 @@
             this.No_V_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.No_V_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.No_V_button.ForeColor = System.Drawing.Color.Black;
-            this.No_V_button.Location = new System.Drawing.Point(530, 180);
+            this.No_V_button.Location = new System.Drawing.Point(568, 198);
             this.No_V_button.Margin = new System.Windows.Forms.Padding(2);
             this.No_V_button.Name = "No_V_button";
-            this.No_V_button.Size = new System.Drawing.Size(113, 33);
+            this.No_V_button.Size = new System.Drawing.Size(122, 30);
             this.No_V_button.TabIndex = 12;
             this.No_V_button.Text = "No";
             this.No_V_button.UseVisualStyleBackColor = false;
@@ -681,7 +712,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(311, 183);
+            this.label5.Location = new System.Drawing.Point(340, 199);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 27);
@@ -702,10 +733,10 @@
             this.Yes_V_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.Yes_V_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Yes_V_button.ForeColor = System.Drawing.Color.Black;
-            this.Yes_V_button.Location = new System.Drawing.Point(410, 180);
+            this.Yes_V_button.Location = new System.Drawing.Point(439, 198);
             this.Yes_V_button.Margin = new System.Windows.Forms.Padding(2);
             this.Yes_V_button.Name = "Yes_V_button";
-            this.Yes_V_button.Size = new System.Drawing.Size(116, 33);
+            this.Yes_V_button.Size = new System.Drawing.Size(125, 30);
             this.Yes_V_button.TabIndex = 11;
             this.Yes_V_button.Text = " Yes";
             this.Yes_V_button.UseVisualStyleBackColor = false;
@@ -724,10 +755,10 @@
             this.Yes_Com_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.Yes_Com_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Yes_Com_button.ForeColor = System.Drawing.Color.Black;
-            this.Yes_Com_button.Location = new System.Drawing.Point(410, 254);
+            this.Yes_Com_button.Location = new System.Drawing.Point(439, 266);
             this.Yes_Com_button.Margin = new System.Windows.Forms.Padding(2);
             this.Yes_Com_button.Name = "Yes_Com_button";
-            this.Yes_Com_button.Size = new System.Drawing.Size(116, 33);
+            this.Yes_Com_button.Size = new System.Drawing.Size(125, 30);
             this.Yes_Com_button.TabIndex = 7;
             this.Yes_Com_button.Text = " Yes";
             this.Yes_Com_button.UseVisualStyleBackColor = false;
@@ -746,10 +777,10 @@
             this.No_Com_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.No_Com_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.No_Com_button.ForeColor = System.Drawing.Color.Black;
-            this.No_Com_button.Location = new System.Drawing.Point(530, 254);
+            this.No_Com_button.Location = new System.Drawing.Point(568, 266);
             this.No_Com_button.Margin = new System.Windows.Forms.Padding(2);
             this.No_Com_button.Name = "No_Com_button";
-            this.No_Com_button.Size = new System.Drawing.Size(113, 33);
+            this.No_Com_button.Size = new System.Drawing.Size(122, 30);
             this.No_Com_button.TabIndex = 8;
             this.No_Com_button.Text = "No";
             this.No_Com_button.UseVisualStyleBackColor = false;
@@ -768,10 +799,10 @@
             this.No_Pay_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.No_Pay_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.No_Pay_button.ForeColor = System.Drawing.Color.Black;
-            this.No_Pay_button.Location = new System.Drawing.Point(530, 291);
+            this.No_Pay_button.Location = new System.Drawing.Point(568, 300);
             this.No_Pay_button.Margin = new System.Windows.Forms.Padding(2);
             this.No_Pay_button.Name = "No_Pay_button";
-            this.No_Pay_button.Size = new System.Drawing.Size(113, 33);
+            this.No_Pay_button.Size = new System.Drawing.Size(122, 30);
             this.No_Pay_button.TabIndex = 10;
             this.No_Pay_button.Text = "No";
             this.No_Pay_button.UseVisualStyleBackColor = false;
@@ -790,10 +821,10 @@
             this.Yes_Pay_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.Yes_Pay_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Yes_Pay_button.ForeColor = System.Drawing.Color.Black;
-            this.Yes_Pay_button.Location = new System.Drawing.Point(410, 291);
+            this.Yes_Pay_button.Location = new System.Drawing.Point(439, 300);
             this.Yes_Pay_button.Margin = new System.Windows.Forms.Padding(2);
             this.Yes_Pay_button.Name = "Yes_Pay_button";
-            this.Yes_Pay_button.Size = new System.Drawing.Size(116, 33);
+            this.Yes_Pay_button.Size = new System.Drawing.Size(125, 30);
             this.Yes_Pay_button.TabIndex = 9;
             this.Yes_Pay_button.Text = " Yes";
             this.Yes_Pay_button.UseVisualStyleBackColor = false;
@@ -806,7 +837,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.SetColumnSpan(this.label4, 2);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(108, 257);
+            this.label4.Location = new System.Drawing.Point(137, 267);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(296, 27);
@@ -821,7 +852,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.SetColumnSpan(this.label6, 2);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(81, 294);
+            this.label6.Location = new System.Drawing.Point(110, 301);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(323, 27);
@@ -844,36 +875,6 @@
             this.refreshPageToolStripMenuItem.Text = "Refresh Page";
             this.refreshPageToolStripMenuItem.Click += new System.EventHandler(this.Refresh_button_Click);
             // 
-            // ProfilePicture_pictureBox
-            // 
-            this.ProfilePicture_pictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.ProfilePicture_pictureBox.BackgroundImage = global::MyWorkApplication.Properties.Resources.Unknown_User;
-            this.ProfilePicture_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tableLayoutPanel2.SetColumnSpan(this.ProfilePicture_pictureBox, 2);
-            this.ProfilePicture_pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProfilePicture_pictureBox.Location = new System.Drawing.Point(3, 4);
-            this.ProfilePicture_pictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ProfilePicture_pictureBox.Name = "ProfilePicture_pictureBox";
-            this.ProfilePicture_pictureBox.Size = new System.Drawing.Size(144, 187);
-            this.ProfilePicture_pictureBox.TabIndex = 426;
-            this.ProfilePicture_pictureBox.TabStop = false;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.SetColumnSpan(this.label8, 3);
-            this.label8.Font = new System.Drawing.Font("Rubik", 8F);
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(295, 78);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(346, 22);
-            this.label8.TabIndex = 486;
-            this.label8.Text = "leave the passwoed empty if there isn\'t any changes";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // User_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 27F);
@@ -891,6 +892,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.User_Form_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel9.ResumeLayout(false);
@@ -899,7 +901,6 @@
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.users_dataGridView)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
