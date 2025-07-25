@@ -3744,41 +3744,41 @@ namespace MyWorkApplication
         {
             try
             {
+                MessageBox.Show("انتظر التحديث القادم");
+                //bool anyDataGrid_ISDirty = IsDirty_DataGrid.Values.Any(v => v);
+                //bool anyData_ISDirty = IsDirty_Data.Values.Any(v => v);
 
-                bool anyDataGrid_ISDirty = IsDirty_DataGrid.Values.Any(v => v);
-                bool anyData_ISDirty = IsDirty_Data.Values.Any(v => v);
-
-                if (anyDataGrid_ISDirty || anyData_ISDirty)
-                {
-                    MessageBox.Show("يوجد بعض التعديلات غير المحوفظة، يرجى حفظ الاستمارة ثم إعادة المحاولة", "Error");
-                }
-                else
-                {
-                    Zero_TO_Project = true;
-                    ApplicationState = "project";
+                //if (anyDataGrid_ISDirty || anyData_ISDirty)
+                //{
+                //    MessageBox.Show("يوجد بعض التعديلات غير المحوفظة، يرجى حفظ الاستمارة ثم إعادة المحاولة", "Error");
+                //}
+                //else
+                //{
+                //    Zero_TO_Project = true;
+                //    ApplicationState = "project";
 
 
-                    // Suspend redraw
-                    SendMessage(this.Handle, WM_SETREDRAW, false, 0);
+                //    // Suspend redraw
+                //    SendMessage(this.Handle, WM_SETREDRAW, false, 0);
 
-                    Clear_Boxes();
-                    Set_Controls();
-                    Fill_Application_Data();
+                //    Clear_Boxes();
+                //    Set_Controls();
+                //    Fill_Application_Data();
 
-                    UserMode = false;
-                    // Resume redraw and refresh everything
-                    SendMessage(this.Handle, WM_SETREDRAW, true, 0);
-                    this.ResumeLayout(true);
-                    this.PerformLayout();
-                    this.Invalidate(true);
-                    this.Update();
+                //    UserMode = false;
+                //    // Resume redraw and refresh everything
+                //    SendMessage(this.Handle, WM_SETREDRAW, true, 0);
+                //    this.ResumeLayout(true);
+                //    this.PerformLayout();
+                //    this.Invalidate(true);
+                //    this.Update();
 
-                    // Optional: Scroll into view or to top
-                    this.ScrollControlIntoView(P_FullName_textBox); // or another key control
-                    P_FullName_textBox.Focus();                     // bring it into view
-                    this.AutoScrollPosition = new Point(0, 0); // scroll to top (if applicable)
-                    UserMode = true;
-                }
+                //    // Optional: Scroll into view or to top
+                //    this.ScrollControlIntoView(P_FullName_textBox); // or another key control
+                //    P_FullName_textBox.Focus();                     // bring it into view
+                //    this.AutoScrollPosition = new Point(0, 0); // scroll to top (if applicable)
+                //    UserMode = true;
+                //}
             }
             catch (Exception ex)
             {
