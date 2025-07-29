@@ -42,6 +42,7 @@ namespace MyWorkApplication.Classes
                 + ", microproject.MP_Agreement3"
                 + ", microproject.MP_Agreement4"
                 + ", (select SUM(material.Price*material.Amount) from material where material.MicroProject_ID = @MicroProject_ID) AS 'OverallSyrian'"
+                + ", microproject.IsContentUpdated"
                 + " from microproject left join fundtype on fundtype.id = microproject.MP_FundType_ID"
                 + " where microproject.MP_ID = @MicroProject_ID;";
 

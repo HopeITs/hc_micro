@@ -1,5 +1,4 @@
 ﻿//using Chilkat;
-using DocumentFormat.OpenXml.Vml.Office;
 using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
@@ -12,7 +11,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
@@ -60,6 +58,7 @@ namespace MyWorkApplication
         public Application_New_Form(MainForm mainForm, int MicroProject_ID, int Person_ID, string ApplicationState)
         {
             InitializeComponent();
+
             this.mainForm = mainForm;
             this.MicroProject_ID = MicroProject_ID;
             this.Person_ID = Person_ID;
@@ -378,8 +377,15 @@ namespace MyWorkApplication
 
             #region Edu
 
+            // Temporarily remove event handler
+            P_HasEducationYes_radioButton.CheckedChanged -= P_HasEducationYes_radioButton_CheckedChanged;
+
             P_HasEducationYes_radioButton.Checked = false;
             P_HasEducationNo_radioButton.Checked = false;
+
+            // Reattach after state is set
+            P_HasEducationYes_radioButton.CheckedChanged += P_HasEducationYes_radioButton_CheckedChanged;
+
             Education_dataGridView.Rows.Clear();
             P_HasCoursesYes_radioButton.Checked = false;
             P_HasCoursesNo_radioButton.Checked = false;
@@ -478,11 +484,11 @@ namespace MyWorkApplication
             t9_tableLayoutPanel.Height = 962; t10_tableLayoutPanel.Height = 396; t11_tableLayoutPanel.Height = 595;
             t12_tableLayoutPanel.Height = 406; final_tableLayoutPanel.Height = 265;
 
-            t2_tableLayoutPanel.Visible = t3_tableLayoutPanel.Visible = t5_tableLayoutPanel.Visible =
-            t6_tableLayoutPanel.Visible = t7_tableLayoutPanel.Visible = t8_tableLayoutPanel.Visible =
-            t20_tableLayoutPanel.Visible = t21_tableLayoutPanel.Visible = t4_tableLayoutPanel.Visible =
-            t9_tableLayoutPanel.Visible = t10_tableLayoutPanel.Visible = t11_tableLayoutPanel.Visible =
-            t12_tableLayoutPanel.Visible = final_tableLayoutPanel.Visible = true;
+            //t2_tableLayoutPanel.Visible = t3_tableLayoutPanel.Visible = t5_tableLayoutPanel.Visible =
+            //t6_tableLayoutPanel.Visible = t7_tableLayoutPanel.Visible = t8_tableLayoutPanel.Visible =
+            //t20_tableLayoutPanel.Visible = t21_tableLayoutPanel.Visible = t4_tableLayoutPanel.Visible =
+            //t9_tableLayoutPanel.Visible = t10_tableLayoutPanel.Visible = t11_tableLayoutPanel.Visible =
+            //t12_tableLayoutPanel.Visible = final_tableLayoutPanel.Visible = true;
 
             tableLayoutPanel11.Visible = true;
 
@@ -504,6 +510,9 @@ namespace MyWorkApplication
 
             Military_flowLayoutPanel.Visible = true;
             flowLayoutPanel6.Visible = true;
+
+            P_Debts_tableLayoutPanel.Visible = true;
+
             if (ApplicationState == "pre_project")
             {
                 SubHeader1_label.Text = "حجز المشروع";
@@ -519,11 +528,11 @@ namespace MyWorkApplication
                 t9_tableLayoutPanel.Height = 0; t10_tableLayoutPanel.Height = 0; t11_tableLayoutPanel.Height = 0;
                 t12_tableLayoutPanel.Height = 0; final_tableLayoutPanel.Height = 0;
 
-                t2_tableLayoutPanel.Visible = t3_tableLayoutPanel.Visible = t5_tableLayoutPanel.Visible =
-                t6_tableLayoutPanel.Visible = t7_tableLayoutPanel.Visible = t8_tableLayoutPanel.Visible =
-                t20_tableLayoutPanel.Visible = t21_tableLayoutPanel.Visible = t4_tableLayoutPanel.Visible =
-                t9_tableLayoutPanel.Visible = t10_tableLayoutPanel.Visible = t11_tableLayoutPanel.Visible =
-                t12_tableLayoutPanel.Visible = final_tableLayoutPanel.Visible = true;
+                //t2_tableLayoutPanel.Visible = t3_tableLayoutPanel.Visible = t5_tableLayoutPanel.Visible =
+                //t6_tableLayoutPanel.Visible = t7_tableLayoutPanel.Visible = t8_tableLayoutPanel.Visible =
+                //t20_tableLayoutPanel.Visible = t21_tableLayoutPanel.Visible = t4_tableLayoutPanel.Visible =
+                //t9_tableLayoutPanel.Visible = t10_tableLayoutPanel.Visible = t11_tableLayoutPanel.Visible =
+                //t12_tableLayoutPanel.Visible = final_tableLayoutPanel.Visible = false;
 
             }
             else if (ApplicationState == "zero")
@@ -547,9 +556,9 @@ namespace MyWorkApplication
                 t20_tableLayoutPanel.Height = 0;
                 t9_tableLayoutPanel.Height = 0; t11_tableLayoutPanel.Height = 0;
 
-                t2_tableLayoutPanel.Visible = t6_tableLayoutPanel.Visible = t8_tableLayoutPanel.Visible =
-                t20_tableLayoutPanel.Visible =
-                t9_tableLayoutPanel.Visible = t11_tableLayoutPanel.Visible = true;
+                //t2_tableLayoutPanel.Visible = t6_tableLayoutPanel.Visible = t8_tableLayoutPanel.Visible =
+                //t20_tableLayoutPanel.Visible =
+                //t9_tableLayoutPanel.Visible = t11_tableLayoutPanel.Visible = false;
 
                 Military_flowLayoutPanel.Visible = false;
 
@@ -3744,7 +3753,6 @@ namespace MyWorkApplication
         {
             try
             {
-
                 bool anyDataGrid_ISDirty = IsDirty_DataGrid.Values.Any(v => v);
                 bool anyData_ISDirty = IsDirty_Data.Values.Any(v => v);
 
@@ -3765,6 +3773,8 @@ namespace MyWorkApplication
                     Set_Controls();
                     Fill_Application_Data();
 
+                    P_HasEducationYes_radioButton.TabStop = false;
+
                     UserMode = false;
                     // Resume redraw and refresh everything
                     SendMessage(this.Handle, WM_SETREDRAW, true, 0);
@@ -3778,6 +3788,8 @@ namespace MyWorkApplication
                     P_FullName_textBox.Focus();                     // bring it into view
                     this.AutoScrollPosition = new Point(0, 0); // scroll to top (if applicable)
                     UserMode = true;
+
+                    P_HasEducationYes_radioButton.TabStop = true;
                 }
             }
             catch (Exception ex)
@@ -3785,6 +3797,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
+
         #endregion
 
         #region Data Save / Fill
@@ -3866,7 +3879,7 @@ namespace MyWorkApplication
 
             #region Project
             string MP_ID = "", MP_Name = "", RequestedAmount = "", LoanType = "";
-            int SubCategory = -1, Career = -1, Type = -1, SubType = -1, ContentUpdated = -1;
+            int SubCategory = -1, Career = -1, Type = -1, SubType = -1;
             DateTime ApplyDate = new DateTime();
 
             if (string.IsNullOrWhiteSpace(MPID_textBox.Text))
@@ -3952,10 +3965,7 @@ namespace MyWorkApplication
 
                 RequestedAmount = MP_RequestedAmount_textBox.Text;
 
-                if (ContentUpdated_original == 0 && ContentUpdated_checkBox.Checked)
-                    ContentUpdated = 1;
-                else if (ContentUpdated_original == 1 && !ContentUpdated_checkBox.Checked)
-                    ContentUpdated = 0;
+
 
 
                 if (MicroProject_ID <= 0)
@@ -3990,6 +4000,28 @@ namespace MyWorkApplication
                 }
 
 
+                if (ContentUpdated_original <= 0 && ContentUpdated_checkBox.Checked)
+                {
+                    Query += "update microproject set IsContentUpdated = 1 where microproject.MP_ID = @MicroProject_ID;";
+
+                    Query += "Insert Into user_notification" +
+                        " (Date, Body, Seen, P_Name, MicroProject_ID, User_ID, Sender_ID, Pay_ID)" +
+                        " SELECT DATE_FORMAT(NOW(),'%Y-%m-%d'), CONCAT('تم تبديل المشروع إلى:', @MP_Name), 0, @FullName, @MicroProject_ID, user.UserID, @ProgramUser_ID, -1000" +
+                        " FROM user left JOIN role on user.UserRoleID = role.Role_ID" +
+                        " WHERE role.Role_Name <> 'Out of Service' and role.Role_Name <> 'Guest';";
+
+                    Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                        " VALUES (CONCAT('Update the project: ', @MicroProject_ID, ' - Project content updated'), 'micro project', @ProgramUser_ID,Now(),0);";
+                }
+                else if (ContentUpdated_original == 1 && !ContentUpdated_checkBox.Checked)
+                {
+                    Query += "update microproject set IsContentUpdated = 0 where microproject.MP_ID = @MicroProject_ID;";
+                    Query += "delete from user_notification where MicroProject_ID = @MicroProject_ID and Body like '%تم تبديل المشروع إلى%';";
+
+                    Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                        " VALUES (CONCAT('Update the project: ', @MicroProject_ID, ' - Project content Is Not updated'), 'micro project', @ProgramUser_ID,Now(),0);";
+                }
+
                 sc.Parameters.AddWithValue("@MP_ID", string.IsNullOrEmpty(MP_ID) ? (object)DBNull.Value : MP_ID);
                 sc.Parameters.AddWithValue("@SubCategory", SubCategory == -1 ? (object)DBNull.Value : SubCategory);
                 sc.Parameters.AddWithValue("@Career", Career == -1 ? (object)DBNull.Value : Career);
@@ -3999,6 +4031,8 @@ namespace MyWorkApplication
                 sc.Parameters.AddWithValue("@MP_Name", MP_Name);
                 sc.Parameters.AddWithValue("@LoanType", LoanType);
                 sc.Parameters.AddWithValue("@RequestedAmount", RequestedAmount);
+                sc.Parameters.AddWithValue("@FullName", P_FullName_textBox.Text);
+
             }
             #endregion
 
@@ -4006,102 +4040,36 @@ namespace MyWorkApplication
             {
                 if (ApplicationState == "zero")
                 {
+                    Query += " Update microproject set MP_EditedByUser_ID = @ProgramUser_ID where MP_ID = @MicroProject_ID;";
+
                     Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
                         " Values (Concat('Update zero appliction for the project:',@MicroProject_ID), '', @Log_User, @Log_Date, '0');";
                 }
                 else if (ApplicationState == "project")
                 {
                     if (Zero_TO_Project)
-                        Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                    {
+                        Query += " Update microproject set MP_ProgramUser_ID = @ProgramUser_ID , MP_EditedByUser_ID = null where MP_ID = @MicroProject_ID;";
+
+                        Query += " Update microproject_state set Current_State = 0 where MicroProject_ID = @MicroProject_ID;";
+
+                        Query += " Insert into microproject_state (MicroProject_ID, State_ID, Date, Current_State)" +
+                            " Values (@MicroProject_ID, (select state.id from state where state.Name_en = 'Waiting'), NOW(),1);";
+
+                        Query += " Insert INTO `task_microproject`" +
+                            " (`MicroProject_ID`, `Task_ID`, `State`, `Date`)" +
+                            " SELECT @MicroProject_ID, task.T_ID, CASE WHEN task.T_ID = 1 THEN 1 else 0 END, DATE_FORMAT(NOW(),'%Y-%m-%d')" +
+                            " FROM task WHERE task.T_Type = 'a';";
+
+                        Query += " Insert INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
                             " Values (Concat('Insert full appliction for the project:',@MicroProject_ID), '', @Log_User, @Log_Date, '0');";
+                    }
                     else
-                        Query += "INSERT INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
+                    {
+                        Query += " Insert INTO log (Log_Type, Log_OnTable, Log_User, Log_Date, Log_Seen)" +
                             " Values (Concat('Update full appliction for the project:',@MicroProject_ID), '', @Log_User, @Log_Date, '0');";
-                }
-
-                #region ProjectStory
-                string P_Loss = "", P_Goal = "", P_GoalHow = "", P_OtherNotes = "";
-                string Goal_Query = "";
-
-                if (ApplicationState == "project")
-                {
-                    if (string.IsNullOrWhiteSpace(P_Loss_textBox.Text))
-                    {
-                        MessageBox.Show("لا يمكن ترك قصة المستفيد فارغة في قسم معلومات المشروع", "Error");
-                        return;
-                    }
-
-                    if (string.IsNullOrWhiteSpace(P_Goal_textBox.Text))
-                    {
-                        MessageBox.Show("لا يمكن ترك هدف المستفيد من القرض فارغاً في قسم معلومات المشروع", "Error");
-                        return;
-                    }
-
-                    if (string.IsNullOrWhiteSpace(P_GoalHow_textBox.Text))
-                    {
-                        MessageBox.Show("لا يمكن ترك كيف سيحقق المشروع أهدافك فارغاً في قسم معلومات المشروع", "Error");
-                        return;
                     }
                 }
-
-                if (IsDirty_Data["ProjectStory_ISDirty"])
-                {
-                    if (ApplicationState == "project")
-                    {
-                        P_Loss = P_Loss_textBox.Text;
-
-                        P_Goal = P_Goal_textBox.Text;
-
-                        P_GoalHow = P_GoalHow_textBox.Text;
-
-                        P_OtherNotes = P_OtherNotes_textBox.Text;
-
-
-                        Query += " Update person_microproject set P_Loss = @P_Loss, P_Goal = @P_Goal, P_GoalHow = @P_GoalHow, P_OtherNotes = @P_OtherNotes" +
-                            " where Person_ID = @Person_ID and MicroProject_ID = @MicroProject_ID;";
-
-                        var checkBoxMap = P_Goals_panel.Controls
-                                .OfType<CheckBox>()
-                                .Where(cb => cb.Tag != null)
-                                .ToDictionary(cb => Convert.ToInt32(cb.Tag));
-
-                        int i = 0;
-                        foreach (Control original_ctrl in Original_P_Goals_panel.Controls)
-                        {
-                            i++;
-                            if (original_ctrl is CheckBox OriginalCheckbox && OriginalCheckbox.Tag != null)
-                            {
-                                int original_ID = Convert.ToInt32(OriginalCheckbox.Tag);
-
-                                if (checkBoxMap.TryGetValue(original_ID, out CheckBox Checkbox))
-                                {
-                                    if (OriginalCheckbox.Checked != Checkbox.Checked)
-                                    {
-                                        if (OriginalCheckbox.Checked)
-                                        {
-                                            Query += "DELETE FROM person_goals WHERE Person_ID = @Person_ID AND Goal_ID = @original_ID" + i + ";";
-                                        }
-                                        else
-                                        {
-                                            Query += "INSERT INTO person_goals (Person_ID, Goal_ID) VALUES (@Person_ID, @original_ID" + i + ");";
-                                        }
-
-                                        sc.Parameters.AddWithValue("@original_ID" + i, string.IsNullOrEmpty(original_ID.ToString()) ? (object)DBNull.Value : original_ID.ToString());
-
-                                    }
-                                }
-                            }
-                        }
-
-                        sc.Parameters.AddWithValue("@P_Loss", P_Loss);
-                        sc.Parameters.AddWithValue("@P_Goal", P_Goal);
-                        sc.Parameters.AddWithValue("@P_GoalHow", P_GoalHow);
-                        sc.Parameters.AddWithValue("@P_OtherNotes", P_OtherNotes);
-
-
-                    }
-                }
-                #endregion
 
                 #region Benificiry
                 string P_FirstName = "", P_LastName = "", P_Sex = "", PersonType = "", P_FullName_En = "", P_FatherName = "",
@@ -4408,6 +4376,90 @@ namespace MyWorkApplication
                     else
                     {
                         sc.Parameters.AddWithValue("@Military_Date", DBNull.Value);
+                    }
+                }
+                #endregion
+
+                #region ProjectStory
+                string P_Loss = "", P_Goal = "", P_GoalHow = "", P_OtherNotes = "";
+                string Goal_Query = "";
+
+                if (ApplicationState == "project")
+                {
+                    if (string.IsNullOrWhiteSpace(P_Loss_textBox.Text))
+                    {
+                        MessageBox.Show("لا يمكن ترك قصة المستفيد فارغة في قسم معلومات المشروع", "Error");
+                        return;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(P_Goal_textBox.Text))
+                    {
+                        MessageBox.Show("لا يمكن ترك هدف المستفيد من القرض فارغاً في قسم معلومات المشروع", "Error");
+                        return;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(P_GoalHow_textBox.Text))
+                    {
+                        MessageBox.Show("لا يمكن ترك كيف سيحقق المشروع أهدافك فارغاً في قسم معلومات المشروع", "Error");
+                        return;
+                    }
+                }
+
+                if (IsDirty_Data["ProjectStory_ISDirty"])
+                {
+                    if (ApplicationState == "project")
+                    {
+                        P_Loss = P_Loss_textBox.Text;
+
+                        P_Goal = P_Goal_textBox.Text;
+
+                        P_GoalHow = P_GoalHow_textBox.Text;
+
+                        P_OtherNotes = P_OtherNotes_textBox.Text;
+
+
+                        Query += " Update person_microproject set P_Loss = @P_Loss, P_Goal = @P_Goal, P_GoalHow = @P_GoalHow, P_OtherNotes = @P_OtherNotes" +
+                            " where Person_ID = @Person_ID and MicroProject_ID = @MicroProject_ID;";
+
+                        var checkBoxMap = P_Goals_panel.Controls
+                                .OfType<CheckBox>()
+                                .Where(cb => cb.Tag != null)
+                                .ToDictionary(cb => Convert.ToInt32(cb.Tag));
+
+                        int i = 0;
+                        foreach (Control original_ctrl in Original_P_Goals_panel.Controls)
+                        {
+                            i++;
+                            if (original_ctrl is CheckBox OriginalCheckbox && OriginalCheckbox.Tag != null)
+                            {
+                                int original_ID = Convert.ToInt32(OriginalCheckbox.Tag);
+
+                                if (checkBoxMap.TryGetValue(original_ID, out CheckBox Checkbox))
+                                {
+                                    if (OriginalCheckbox.Checked != Checkbox.Checked)
+                                    {
+                                        if (OriginalCheckbox.Checked)
+                                        {
+                                            Query += "DELETE FROM person_goals WHERE Person_ID = @Person_ID AND Goal_ID = @original_ID" + i + ";";
+                                        }
+                                        else
+                                        {
+                                            Query += "INSERT INTO person_goals (Person_ID, Goal_ID) VALUES (@Person_ID, @original_ID" + i + ");";
+                                        }
+
+                                        sc.Parameters.AddWithValue("@original_ID" + i, string.IsNullOrEmpty(original_ID.ToString()) ? (object)DBNull.Value : original_ID.ToString());
+
+                                    }
+                                }
+                            }
+                        }
+
+                        sc.Parameters.AddWithValue("@P_Loss", P_Loss);
+                        sc.Parameters.AddWithValue("@P_Goal", P_Goal);
+                        sc.Parameters.AddWithValue("@P_GoalHow", P_GoalHow);
+                        sc.Parameters.AddWithValue("@P_OtherNotes", P_OtherNotes);
+
+
                     }
                 }
                 #endregion
@@ -6290,13 +6342,6 @@ namespace MyWorkApplication
 
                 #endregion
 
-
-                //Query += " update microproject_state set Current_State = 0 where MicroProject_ID = @MicroProject_ID;";
-
-                //Query += " insert into microproject_state (MicroProject_ID, State_ID, Date, Current_State)" +
-                //    " Values (@MicroProject_ID, (select state.id from state where state.Name_en = 'Waiting'), NOW(),1);";
-
-                Query += " Update microproject set MP_EditedByUser_ID = @ProgramUser_ID where MP_ID = @MicroProject_ID;";
             }
 
 
@@ -6310,20 +6355,16 @@ namespace MyWorkApplication
             }
             else if (ApplicationState == "zero")
             {
-                if (Zero_TO_Project)
-                {
-                    Zero_TO_Project = false;
-                    ApplicationState = "project";
-                    sc.Parameters.AddWithValue("@ApplicationState", ApplicationState);
-                }
-                else
-                {
-                    ApplicationState = "zero";
-                    sc.Parameters.AddWithValue("@ApplicationState", ApplicationState);
-                }
+                ApplicationState = "zero";
+                sc.Parameters.AddWithValue("@ApplicationState", ApplicationState);
+
             }
             else if (ApplicationState == "project")
             {
+                if (Zero_TO_Project)
+                {
+                    Zero_TO_Project = false;
+                }
                 ApplicationState = "project";
                 sc.Parameters.AddWithValue("@ApplicationState", ApplicationState);
             }
@@ -6480,6 +6521,25 @@ namespace MyWorkApplication
 
                 OverallSyrian_label.Text = Application_ds.Tables[0].Rows[0].Field<double?>("OverallSyrian").ToString();
 
+
+                if (Application_ds.Tables[0].Rows[0]["IsContentUpdated"] != DBNull.Value)
+                {
+                    if (Application_ds.Tables[0].Rows[0].Field<int?>("IsContentUpdated") == 1)
+                    {
+                        ContentUpdated_original = 1;
+                        ContentUpdated_checkBox.Checked = true;
+                    }
+                    else if (Application_ds.Tables[0].Rows[0].Field<int?>("IsContentUpdated") == 0)
+                    {
+                        ContentUpdated_original = 0;
+                        ContentUpdated_checkBox.Checked = false;
+                    }
+                    else
+                    {
+                        ContentUpdated_checkBox.Checked = false;
+                    }
+                }
+         
             }
 
             if (ApplicationState == "zero" || ApplicationState == "project")
