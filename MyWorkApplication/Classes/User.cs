@@ -18,7 +18,7 @@ namespace MyWorkApplication.Classes
             sc = new MySqlCommand();
         }
 
-        public void Insert_User(string Username, string Password, string Email, int UserRoleID
+        public int Insert_User(string Username, string Password, string Email, int UserRoleID
             , int IsVisitor, int IsME, int IsCommunication, int IsCashier
             , byte[] ProfilePicture)
         {
@@ -40,7 +40,13 @@ namespace MyWorkApplication.Classes
 
                 sc.Parameters.Add(new MySqlParameter("@PicArr", ProfilePicture));
                 sc.ExecuteNonQuery();
-                Program.MyConn.Close();
+
+                // ✅ Get inserted ID 
+                int ID = -1; 
+                int.TryParse(sc.LastInsertedId.ToString(), out ID);
+
+                Program.MyConn.Close(); 
+                return ID;
             }
         }
 
@@ -222,13 +228,17 @@ namespace MyWorkApplication.Classes
 
         public void Remove_Task(int User_ID, string Task)
         {
-            query = @"DELETE from `task_user` where `Task_ID` = (select T_ID from `task` where T_Name like @Task )"
-                    + " and `User_ID` =  @User_ID ";
+            query = @"DELETE from `task_user` 
+where `User_ID` =  @User_ID ";
+
+            if (Task != "all")
+                query += " and `Task_ID` = (select T_ID from `task` where T_Name like @Task )";
 
             Program.buildConnection();
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
-                sc.Parameters.AddWithValue("@Task", Task);
+                if (Task != "all")
+                    sc.Parameters.AddWithValue("@Task", Task);
                 sc.Parameters.AddWithValue("@User_ID", User_ID);
 
                 sc.ExecuteNonQuery();
