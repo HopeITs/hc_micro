@@ -343,7 +343,7 @@ namespace MyWorkApplication
                             ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[1], Keys.Alt | Keys.A);//Application
                             ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[2], Keys.Alt | Keys.Shift | Keys.A);//Admin Panel
                             ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[3], Keys.Alt | Keys.Shift | Keys.T);//Admin Tools 
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[9], Keys.Alt | Keys.C);//checklist
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[10], Keys.Alt | Keys.C);//checklist
 
                             // --------------------------------------------------------------------- 
 
@@ -387,7 +387,7 @@ namespace MyWorkApplication
                             ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[1], Keys.Alt | Keys.A);//Application
                             HideMenuItemWithShortcut((ToolStripMenuItem)applicationItems[2]);//Admin Panel
                             HideMenuItemWithShortcut((ToolStripMenuItem)applicationItems[3]);//Admin Tools   
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[9], Keys.Alt | Keys.C);//checklist
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[10], Keys.Alt | Keys.C);//checklist
 
                             // --------------------------------------------------------------------- 
 
