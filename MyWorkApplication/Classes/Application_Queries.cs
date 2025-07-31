@@ -49,11 +49,11 @@ namespace MyWorkApplication.Classes
             query += "select person.P_ID, person.P_FirstName, person.P_LastName,CONCAT(P_FirstName, ' ',person.P_FatherName ,' ', person.P_LastName) as 'FullName', person.P_Sex, person_microproject.PersonType, person.P_FullName_en, person.P_FatherName, person.P_MotherName," +
                 " person.P_RegistrationPlace, person.P_NationalNumber, person.P_DOB, person.P_MaritalStatus_ID, person.P_Parish_ID, person.P_IntermidiarySide," +
                 " person.P_Priest_ID, person.P_Priest2_ID, person.P_Mobile, person.P_HomeTel, person.P_Mobile2, person.Street_ID, person.P_HomeAddress, person.P_HomeType_ID," +
-                " person.P_HomeState_Note, person.P_MilitaryService, person.P_MilitaryService_Note, person.P_MilitaryService_Date, person_microproject.P_WorkYears," +
+                " person.P_HomeState_Note, person.P_MilitaryService, person.P_MilitaryService_Note, person.P_MilitaryService_Date, person.P_IsMilitaryInWar, person_microproject.P_WorkYears," +
                 " person_microproject.P_IsLivingWithFamily, person_microproject.P_LiveWithFamily_Note, person_microproject.P_HasAidSource, person_microproject.P_AidSourceNote," +
                 " person_microproject.P_Loss, person_microproject.P_Goal, person_microproject.P_GoalHow, person_microproject.P_OtherNotes," +
                 " person_microproject.P_HasCourses, person_microproject.P_HasEducation," +
-                " person_microproject.P_HasLoss, person_microproject.P_HasIllness, person_microproject.P_HasAssets, person_microproject.P_HasDebts, person_microproject.P_DebtsAmount, person_microproject.P_DebtsNote, person_microproject.P_HasHelp" +
+                " person_microproject.P_HasLoss, person_microproject.P_HasIllness, person_microproject.P_HasAssets, person_microproject.P_HasDebts, person_microproject.P_DebtsAmount, person_microproject.P_DebtsNote, person_microproject.P_HasHelp, person_microproject.P_HasWork" +
                 " from person left join person_microproject on person.P_ID = person_microproject.Person_ID where person_microproject.Person_ID = @Person_ID and person_microproject.MicroProject_ID = @MicroProject_ID;";
 
             query += " select image.Image_ID , image.image_NewPath " +
