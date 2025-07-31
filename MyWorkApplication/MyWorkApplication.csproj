@@ -278,12 +278,6 @@
     <Compile Include="AddNewStreet.Designer.cs">
       <DependentUpon>AddNewStreet.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddNewCareer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddNewCareer.Designer.cs">
-      <DependentUpon>AddNewCareer.cs</DependentUpon>
-    </Compile>
     <Compile Include="AdminPanel_From.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -652,10 +646,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddNewStreet.resx">
       <DependentUpon>AddNewStreet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddNewCareer.resx">
-      <DependentUpon>AddNewCareer.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminPanel_From.resx">
       <DependentUpon>AdminPanel_From.cs</DependentUpon>

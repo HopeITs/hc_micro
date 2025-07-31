@@ -7,12 +7,12 @@ namespace MyWorkApplication.Classes
     {
         private string query;
 
-        public void Insert(string name, string name_en)
+        public void Insert(string table, string name, string name_en)
         {
 
             Program.buildConnection();
 
-            query = "INSERT INTO `aidsource`(`Name`, `Name_en`) values (N'" + name + "',N'" + name_en + "')";
+            query = "INSERT INTO `"+ table + "`(`Name`, `Name_en`) values (N'" + name + "',N'" + name_en + "')";
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.ExecuteNonQuery();
@@ -20,11 +20,11 @@ namespace MyWorkApplication.Classes
             }
         }
 
-        public void Update(int ID, string name, string name_en)
+        public void Update(string table, int ID, string name, string name_en)
         {
 
             Program.buildConnection();
-            query = "Update `aidsource` set "
+            query = "Update `"+ table + "` set "
                     + " `Name` = N'" + name + "' "
                     + ",`Name_en` = N'" + name_en + "' "
                     + " where `ID` =" + ID;
@@ -35,11 +35,11 @@ namespace MyWorkApplication.Classes
             }
         }
 
-        public void Delete(int ID)
+        public void Delete(string table, int ID)
         {
 
             Program.buildConnection();
-            query = "delete From `aidsource` where `ID` =" + ID;
+            query = "delete From `"+ table + "` where `ID` =" + ID;
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.ExecuteNonQuery();
@@ -47,10 +47,10 @@ namespace MyWorkApplication.Classes
             }
         }
 
-        public DataTable Select(string Name)
+        public DataTable Select(string table, string Name)
         {
             Program.buildConnection();
-            query = "select `ID`, `Name`, `Name_en` from `aidsource` ";
+            query = "select `ID`, `Name`, `Name_en` from `"+ table + "`";
             var condition = "";
             if (Name != "")
                 condition += " where lower(`Name`) like '%" + Name.ToLower() + "%'";

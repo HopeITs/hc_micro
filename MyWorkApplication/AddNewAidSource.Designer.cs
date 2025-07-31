@@ -36,7 +36,7 @@
             this.Save_button = new System.Windows.Forms.Button();
             this.label48 = new System.Windows.Forms.Label();
             this.Name_textBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.tablename_label = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Close_button = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -103,21 +103,21 @@
             this.Name_textBox.TabIndex = 487;
             this.Name_textBox.TextChanged += new System.EventHandler(this.Name_textBox_TextChanged);
             // 
-            // label2
+            // tablename_label
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(89, 12);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(150, 37);
-            this.label2.TabIndex = 450;
-            this.label2.Text = "جهة مساعدة";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tablename_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tablename_label.AutoSize = true;
+            this.tablename_label.BackColor = System.Drawing.Color.Transparent;
+            this.tablename_label.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.tablename_label.ForeColor = System.Drawing.Color.Black;
+            this.tablename_label.Location = new System.Drawing.Point(89, 12);
+            this.tablename_label.Margin = new System.Windows.Forms.Padding(0);
+            this.tablename_label.Name = "tablename_label";
+            this.tablename_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tablename_label.Size = new System.Drawing.Size(150, 37);
+            this.tablename_label.TabIndex = 450;
+            this.tablename_label.Text = "جهة مساعدة";
+            this.tablename_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
@@ -170,7 +170,7 @@
             this.tableLayoutPanel2.Controls.Add(this.Selected_label, 2, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 564);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel2.RowCount = 2;
@@ -192,7 +192,7 @@
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label3.Size = new System.Drawing.Size(475, 27);
             this.label3.TabIndex = 479;
-            this.label3.Text = "يمكن التعديل على المهنة مباشرة من الجدول...";
+            this.label3.Text = "*يمكن التعديل على القيم مباشرة من الجدول...";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ExportToExcel_button
@@ -306,7 +306,7 @@
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridView.Location = new System.Drawing.Point(13, 199);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -349,8 +349,8 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel4.Controls.Add(this.label2, 2, 0);
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel4.Controls.Add(this.tablename_label, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.label1, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.Close_button, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -404,7 +404,7 @@
         private System.Windows.Forms.Button Save_button;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TextBox Name_textBox;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label tablename_label;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Close_button;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

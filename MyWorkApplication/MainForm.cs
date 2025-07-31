@@ -346,10 +346,12 @@ namespace MyWorkApplication
                             //}
 
                             ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[0] , Keys.None);//Title
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[1] , Keys.Alt | Keys.Z);//Zero Application
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[2] , Keys.Alt | Keys.Shift | Keys.A);//Admin Panel
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[3] , Keys.Alt | Keys.Shift | Keys.T);//Admin Tools 
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[10], Keys.Alt | Keys.C);//checklist
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[1] , Keys.None);//New Application
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[2] , Keys.Alt | Keys.Z);//Zero Application
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[3] , Keys.Alt | Keys.A);//Full Application
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[4] , Keys.Alt | Keys.C);//checklist
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[5] , Keys.Alt | Keys.Shift | Keys.A);//Admin Panel
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[6] , Keys.Alt | Keys.Shift | Keys.T);//Admin Tools 
 
                             // --------------------------------------------------------------------- 
 
@@ -390,10 +392,13 @@ namespace MyWorkApplication
                     case 2: //Data
                         {
                             ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[0], Keys.None);//Title
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[1], Keys.Alt | Keys.Z);//New Application
-                            HideMenuItemWithShortcut((ToolStripMenuItem)applicationItems[2]);//Admin Panel
-                            HideMenuItemWithShortcut((ToolStripMenuItem)applicationItems[3]);//Admin Tools   
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[10], Keys.Alt | Keys.C);//checklist
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[1], Keys.None);//New Application
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[2], Keys.Alt | Keys.Z);//Zero Application
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[3], Keys.Alt | Keys.A);//Full Application
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)applicationItems[4], Keys.Alt | Keys.C);//checklist
+                            HideMenuItemWithShortcut((ToolStripMenuItem)applicationItems[5]);//Admin Panel
+                            HideMenuItemWithShortcut((ToolStripMenuItem)applicationItems[6]);//Admin Tools 
+
 
                             // --------------------------------------------------------------------- 
 
@@ -596,18 +601,6 @@ namespace MyWorkApplication
             }
         }
 
-        private void createProjectSubCategoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Form AddNewSubCategory = new AddNewCareer();
-                AddNewSubCategory.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
 
         private void editProjectStreetNamesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -877,11 +870,23 @@ namespace MyWorkApplication
             }
         }
 
+        private void aidToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddNewAidSource Form = new AddNewAidSource("aid");
+                Form.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
         private void aidSourcesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                AddNewAidSource Form = new AddNewAidSource();
+                AddNewAidSource Form = new AddNewAidSource("aidsource");
                 Form.Show();
             }
             catch (Exception ex)
@@ -1427,8 +1432,22 @@ namespace MyWorkApplication
             Form form = new Check_NationalNumber_Form();
             form.Show();
         }
+ 
 
-        private void newNewApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void zeroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form Form = new Application_New_Form(this, -1, -1, "pre_project");
+                showNewTab(Form, "Zero Application", 0);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void full_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1440,22 +1459,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void zeroToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Form Form = new Application_New_Form(this, -1, -1, "pre_project");
-                showNewTab(Form, "Zero App", 0);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-
-
+         
 
 
         //       private void clickmeToolStripMenuItem_Click(object sender, EventArgs e)

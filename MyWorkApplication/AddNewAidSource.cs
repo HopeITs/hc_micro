@@ -12,14 +12,17 @@ namespace MyWorkApplication
 {
     public partial class AddNewAidSource : Form
     {
-        public AddNewAidSource()
+        public AddNewAidSource(string tablename)
         {
             InitializeComponent();
+
+            this.table = tablename_label.Text = tablename;
         }
 
+        string table = "";
         private int ID;
         private Log l;
-        private AidSource aid;
+        private AidSource aid; 
         System.Data.DataTable dt;
 
         private void AddNewAidSource_Load(object sender, EventArgs e)
@@ -48,7 +51,7 @@ namespace MyWorkApplication
         {
             if (dt.Rows.Count == 0)
             {
-                dt = aid.Select("");
+                dt = aid.Select(table,"");
                 dataGridView.DataSource = null;
                 dataGridView.Columns.Clear();
                 dataGridView.DataSource = dt;
@@ -97,11 +100,11 @@ namespace MyWorkApplication
                 if (Name_textBox.Text == "" || Name_en_textBox.Text == "")
                     throw new InvalidOperationException("لا يمكن ترك بعض الخلايا فارغة!");
 
-                string name = replaceQuotation(Name_textBox.Text);
-                string name_en = replaceQuotation(Name_en_textBox.Text);
+                string name = Program.ReplaceQuotation(Name_textBox.Text);
+                string name_en = Program.ReplaceQuotation(Name_en_textBox.Text);
 
-                aid.Insert(name, name_en);
-                l.Insert_Log("Insert " + name + ":" + name_en, "AidSource", Program.UserName, DateTime.Now);
+                aid.Insert(table, name, name_en);
+                l.Insert_Log("Insert " + name + ":" + name_en, table, Program.UserName, DateTime.Now);
 
                 Name_textBox.Clear();
                 Name_en_textBox.Clear();
@@ -115,12 +118,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-        private string replaceQuotation(string value)
-        {
-            value = value.Replace("'", "''");
-            return value;
-        }
-
+        
         private void Name_textBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -182,18 +180,18 @@ namespace MyWorkApplication
 
                     if (e.ColumnIndex == 1) // name
                     {
-                        string name = replaceQuotation(dataGridView.Rows[r].Cells["Name"].Value.ToString());
-                        string name_en = replaceQuotation(dataGridView.Rows[r].Cells["Name_en"].Value.ToString());
+                        string name = Program.ReplaceQuotation(dataGridView.Rows[r].Cells["Name"].Value.ToString());
+                        string name_en = Program.ReplaceQuotation(dataGridView.Rows[r].Cells["Name_en"].Value.ToString());
 
-                        aid.Update(ID, name, name_en);
+                        aid.Update(table, ID, name, name_en);
                         l.Insert_Log("Update AidSource:" + name, "AidSource", Program.UserName, DateTime.Now);
                     }
                     if (e.ColumnIndex == 2) // name_en
                     {
-                        string name = replaceQuotation(dataGridView.Rows[r].Cells["Name"].Value.ToString());
-                        string name_en = replaceQuotation(dataGridView.Rows[r].Cells["Name_en"].Value.ToString());
+                        string name = Program.ReplaceQuotation(dataGridView.Rows[r].Cells["Name"].Value.ToString());
+                        string name_en = Program.ReplaceQuotation(dataGridView.Rows[r].Cells["Name_en"].Value.ToString());
 
-                        aid.Update(ID, name, name_en);
+                        aid.Update(table, ID, name, name_en);
                         l.Insert_Log("Update AidSource:" + name + ":" + name_en, "AidSource", Program.UserName, DateTime.Now);
                     }
 
@@ -222,10 +220,10 @@ namespace MyWorkApplication
                     if (dialogResult == DialogResult.Yes)
                     {
                         var ID = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells["ID"].Value.ToString());
-                        string name = replaceQuotation(dataGridView.Rows[e.RowIndex].Cells["Name"].Value.ToString());
-                        string name_en = replaceQuotation(dataGridView.Rows[e.RowIndex].Cells["Name_en"].Value.ToString());
+                        string name = Program.ReplaceQuotation(dataGridView.Rows[e.RowIndex].Cells["Name"].Value.ToString());
+                        string name_en = Program.ReplaceQuotation(dataGridView.Rows[e.RowIndex].Cells["Name_en"].Value.ToString());
 
-                        aid.Delete(ID);
+                        aid.Delete(table, ID);
 
                         l.Insert_Log("Delete AidSource: " + name + ":" + name_en, "AidSource", Program.UserName, DateTime.Now);
                         dataGridView.Rows.RemoveAt(e.RowIndex);

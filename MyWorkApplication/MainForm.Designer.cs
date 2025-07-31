@@ -95,7 +95,10 @@
             this.Home_panel = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.applicationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.zeroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newApp_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zero_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.full_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Checklist_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AdminPanel_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.newStreet_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,8 +106,8 @@
             this.newWork_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newDonor_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newAid_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newAidSource_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newPriest_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Checklist_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financialToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.Loan_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Payments_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -472,12 +475,12 @@
             // NewApplicationToolStripMenuItem
             // 
             this.NewApplicationToolStripMenuItem.Name = "NewApplicationToolStripMenuItem";
-            this.NewApplicationToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.NewApplicationToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             // 
             // adminPageToolStripMenuItem
             // 
             this.adminPageToolStripMenuItem.Name = "adminPageToolStripMenuItem";
-            this.adminPageToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.adminPageToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.adminPageToolStripMenuItem.Text = "ADMIN Panel";
             this.adminPageToolStripMenuItem.Click += new System.EventHandler(this.adminPageToolStripMenuItem_Click);
             // 
@@ -490,7 +493,7 @@
             this.donorToolStripMenuItem,
             this.aidSourcesToolStripMenuItem});
             this.aDMINToolsToolStripMenuItem.Name = "aDMINToolsToolStripMenuItem";
-            this.aDMINToolsToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.aDMINToolsToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.aDMINToolsToolStripMenuItem.Text = "ADMIN Tools";
             // 
             // editProjectStreetNamesمناطقالسكنوالعملToolStripMenuItem
@@ -531,21 +534,19 @@
             // newCheckListToolStripMenuItem
             // 
             this.newCheckListToolStripMenuItem.Name = "newCheckListToolStripMenuItem";
-            this.newCheckListToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.newCheckListToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.newCheckListToolStripMenuItem.Text = "Check List";
             this.newCheckListToolStripMenuItem.Click += new System.EventHandler(this.newCheckListToolStripMenuItem_Click);
             // 
             // newZeroApplicationToolStripMenuItem
             // 
             this.newZeroApplicationToolStripMenuItem.Name = "newZeroApplicationToolStripMenuItem";
-            this.newZeroApplicationToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.newZeroApplicationToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             // 
             // newNewApplicationToolStripMenuItem
             // 
             this.newNewApplicationToolStripMenuItem.Name = "newNewApplicationToolStripMenuItem";
-            this.newNewApplicationToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
-            this.newNewApplicationToolStripMenuItem.Text = "New New Application";
-            this.newNewApplicationToolStripMenuItem.Click += new System.EventHandler(this.newNewApplicationToolStripMenuItem_Click);
+            this.newNewApplicationToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             // 
             // financialToolStripMenuItem
             // 
@@ -829,27 +830,49 @@
             // 
             this.applicationToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.applicationToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zeroToolStripMenuItem,
+            this.newApp_ToolStripMenuItem,
+            this.Checklist_toolStripMenuItem,
             this.AdminPanel_toolStripMenuItem,
-            this.toolStripMenuItem4,
-            this.Checklist_toolStripMenuItem});
+            this.toolStripMenuItem4});
             this.applicationToolStripMenuItem1.Name = "applicationToolStripMenuItem1";
             this.applicationToolStripMenuItem1.ShowShortcutKeys = false;
             this.applicationToolStripMenuItem1.Size = new System.Drawing.Size(114, 29);
             this.applicationToolStripMenuItem1.Text = "&Application";
             // 
-            // zeroToolStripMenuItem
+            // newApp_ToolStripMenuItem
             // 
-            this.zeroToolStripMenuItem.Name = "zeroToolStripMenuItem";
-            this.zeroToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Z)));
-            this.zeroToolStripMenuItem.Size = new System.Drawing.Size(321, 30);
-            this.zeroToolStripMenuItem.Text = "New Zero Application";
-            this.zeroToolStripMenuItem.Click += new System.EventHandler(this.zeroToolStripMenuItem_Click);
+            this.newApp_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.zero_ToolStripMenuItem,
+            this.full_ToolStripMenuItem});
+            this.newApp_ToolStripMenuItem.Name = "newApp_ToolStripMenuItem";
+            this.newApp_ToolStripMenuItem.Size = new System.Drawing.Size(226, 30);
+            this.newApp_ToolStripMenuItem.Text = "New Application";
+            // 
+            // zero_ToolStripMenuItem
+            // 
+            this.zero_ToolStripMenuItem.Name = "zero_ToolStripMenuItem";
+            this.zero_ToolStripMenuItem.Size = new System.Drawing.Size(235, 30);
+            this.zero_ToolStripMenuItem.Text = "Zero استمارة أولية";
+            this.zero_ToolStripMenuItem.Click += new System.EventHandler(this.zeroToolStripMenuItem_Click);
+            // 
+            // full_ToolStripMenuItem
+            // 
+            this.full_ToolStripMenuItem.Name = "full_ToolStripMenuItem";
+            this.full_ToolStripMenuItem.Size = new System.Drawing.Size(235, 30);
+            this.full_ToolStripMenuItem.Text = "Full استمارة مشروع";
+            this.full_ToolStripMenuItem.Click += new System.EventHandler(this.full_ToolStripMenuItem_Click);
+            // 
+            // Checklist_toolStripMenuItem
+            // 
+            this.Checklist_toolStripMenuItem.Name = "Checklist_toolStripMenuItem";
+            this.Checklist_toolStripMenuItem.Size = new System.Drawing.Size(226, 30);
+            this.Checklist_toolStripMenuItem.Text = "Check List";
+            this.Checklist_toolStripMenuItem.Click += new System.EventHandler(this.newCheckListToolStripMenuItem_Click);
             // 
             // AdminPanel_toolStripMenuItem
             // 
             this.AdminPanel_toolStripMenuItem.Name = "AdminPanel_toolStripMenuItem";
-            this.AdminPanel_toolStripMenuItem.Size = new System.Drawing.Size(321, 30);
+            this.AdminPanel_toolStripMenuItem.Size = new System.Drawing.Size(226, 30);
             this.AdminPanel_toolStripMenuItem.Text = "ADMIN Panel";
             this.AdminPanel_toolStripMenuItem.Click += new System.EventHandler(this.adminPageToolStripMenuItem_Click);
             // 
@@ -861,9 +884,10 @@
             this.newWork_toolStripMenuItem,
             this.newDonor_toolStripMenuItem,
             this.newAid_toolStripMenuItem,
+            this.newAidSource_toolStripMenuItem,
             this.newPriest_ToolStripMenuItem});
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(321, 30);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(226, 30);
             this.toolStripMenuItem4.Text = "ADMIN Tools";
             // 
             // newStreet_toolStripMenuItem
@@ -898,8 +922,15 @@
             // 
             this.newAid_toolStripMenuItem.Name = "newAid_toolStripMenuItem";
             this.newAid_toolStripMenuItem.Size = new System.Drawing.Size(418, 30);
-            this.newAid_toolStripMenuItem.Text = "(جهات داعمة) Aid Sources";
-            this.newAid_toolStripMenuItem.Click += new System.EventHandler(this.aidSourcesToolStripMenuItem_Click);
+            this.newAid_toolStripMenuItem.Text = "(انواع مساعدات) Aid";
+            this.newAid_toolStripMenuItem.Click += new System.EventHandler(this.aidToolStripMenuItem_Click);
+            // 
+            // newAidSource_toolStripMenuItem
+            // 
+            this.newAidSource_toolStripMenuItem.Name = "newAidSource_toolStripMenuItem";
+            this.newAidSource_toolStripMenuItem.Size = new System.Drawing.Size(418, 30);
+            this.newAidSource_toolStripMenuItem.Text = "(جهات مساعدة) Aid Sources";
+            this.newAidSource_toolStripMenuItem.Click += new System.EventHandler(this.aidSourcesToolStripMenuItem_Click);
             // 
             // newPriest_ToolStripMenuItem
             // 
@@ -907,13 +938,6 @@
             this.newPriest_ToolStripMenuItem.Size = new System.Drawing.Size(418, 30);
             this.newPriest_ToolStripMenuItem.Text = "(كاهن) Priest";
             this.newPriest_ToolStripMenuItem.Click += new System.EventHandler(this.newPriest_ToolStripMenuItem_Click);
-            // 
-            // Checklist_toolStripMenuItem
-            // 
-            this.Checklist_toolStripMenuItem.Name = "Checklist_toolStripMenuItem";
-            this.Checklist_toolStripMenuItem.Size = new System.Drawing.Size(321, 30);
-            this.Checklist_toolStripMenuItem.Text = "Check List";
-            this.Checklist_toolStripMenuItem.Click += new System.EventHandler(this.newCheckListToolStripMenuItem_Click);
             // 
             // financialToolStripMenuItem1
             // 
@@ -1251,7 +1275,7 @@
         private System.Windows.Forms.ToolStripMenuItem newEdu_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newWork_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newDonor_toolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newAid_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newAidSource_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Checklist_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem financialToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem Loan_toolStripMenuItem;
@@ -1281,7 +1305,10 @@
         private System.Windows.Forms.ToolStripMenuItem AboutUs_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FeedBack_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Manual_toolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zeroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newApp_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newPriest_ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newAid_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zero_ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem full_ToolStripMenuItem;
     }
 }
