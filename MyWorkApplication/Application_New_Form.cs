@@ -527,6 +527,10 @@ namespace MyWorkApplication
             P_Mobile2_label.Visible = P_Mobile2_textBox.Visible = true;
 
             Military_flowLayoutPanel.Visible = true;
+            MilitaryNote_textBox.Visible = true;
+            MilitaryNote_label.Visible = true;
+            MilitaryNote_textBox.Visible = true;
+            MilitaryNote_label.Visible = true;
             flowLayoutPanel23.Visible = true;
             flowLayoutPanel6.Visible = true;
 
@@ -580,6 +584,8 @@ namespace MyWorkApplication
                 //t9_tableLayoutPanel.Visible = t11_tableLayoutPanel.Visible = false;
 
                 Military_flowLayoutPanel.Visible = false;
+                MilitaryNote_textBox.Visible = false;
+                MilitaryNote_label.Visible = false;
                 flowLayoutPanel23.Visible = false;
                 flowLayoutPanel6.Visible = false;
 
@@ -629,7 +635,7 @@ namespace MyWorkApplication
             #region Benificiry
             P_FirstName_textBox_original = P_LastName_textBox_original = P_FullName_En_textBox_original = P_FatherName_textBox_original = P_MotherName_textBox_original =
             P_Registration_textBox_original = P_NationalNum_textBox_original = P_DOB_textBox_original = P_IntermidiaryName_textBox_original = P_Mobile_textBox_original =
-            P_HomeTel_textBox_original = P_Mobile2_textBox_original = P_Address_textBox_original = P_HomeStateNote_textBox_original = Military_textBox_original = "";
+            P_HomeTel_textBox_original = P_Mobile2_textBox_original = P_Address_textBox_original = P_HomeStateNote_textBox_original = Military_textBox_original = MilitaryNote_textBox_original = "";
 
 
             Military_label2.Visible = false;
@@ -851,7 +857,7 @@ namespace MyWorkApplication
                 + " where person_family.P_Provider_ID = '" + Person_ID + "';";//Ill_PName, Asset_PName, Aid_PName, FP_Exp_dataGridView
             query += "select ID ,Name from `educationlevel` ORDER BY ID ASC;"; //E_Level, P_EducationLevel
             query += "select ID ,Name from `educationtype` ORDER BY ID ASC;"; //E_Type, P_EducationType
-
+            query += "select ID ,Name from `assetbenefits` ORDER BY ID ASC;"; //Asset_Benefits
 
             //CheckBoxes
             query += "SELECT ID, Name from `goal` order by ID ASC;"; //GoalsCheckBoxes
@@ -907,8 +913,15 @@ namespace MyWorkApplication
             DataTable dt81 = ds.Tables[8].Copy(); //MP_PlaceType_comboBox
             Bind_ComboBox(MP_PlaceType_comboBox, dt81, KeepSelection);
 
-            DataTable dt812 = ds.Tables[8].Copy(); //MP_PlaceType_comboBox
-            Bind_Gridview_ComboBox(this.Asset_Type, dt812);
+            DataTable dt812 = ds.Tables[8].Copy(); //Asset_Type
+            DataTable selectedAssetType_dt = new DataTable();
+            DataRow[] AssetTyperows = dt812.Select("Name <> 'إعارة'");
+            if (AssetTyperows.Length != 0)
+            {
+                selectedAssetType_dt = AssetTyperows.CopyToDataTable();
+                if (selectedAssetType_dt != null && selectedAssetType_dt.Rows.Count > 0)
+                    Bind_Gridview_ComboBox(this.Asset_Type, selectedAssetType_dt);
+            }
 
             DataTable dt9 = ds.Tables[9].Copy(); //PaperApplicationUser_comboBox
             Bind_ComboBox(PaperApplicationUser_comboBox, dt9, KeepSelection);
@@ -1031,17 +1044,20 @@ namespace MyWorkApplication
             //DataTable dt261 = ds.Tables[26].Copy(); //P_EducationType
             //Bind_Gridview_ComboBox(this.P_EducationType, dt261);
 
-            //CheckBoxes
-            DataTable dt27 = ds.Tables[27].Copy();//GoalsCheckBoxes
-            Bind_Chickbox_List(P_Goals_panel, dt27, true);
+            DataTable dt27 = ds.Tables[27].Copy(); //Asset_Benefits
+            Bind_Gridview_ComboBox(this.Asset_Benefits, dt27);
 
-            DataTable dt271 = ds.Tables[27].Copy();//Original_GoalsCheckBoxes
-            Bind_Chickbox_List(Original_P_Goals_panel, dt271, false);
+            //CheckBoxes
+            DataTable dt28 = ds.Tables[28].Copy();//GoalsCheckBoxes
+            Bind_Chickbox_List(P_Goals_panel, dt28, true);
+
+            DataTable dt281 = ds.Tables[27].Copy();//Original_GoalsCheckBoxes
+            Bind_Chickbox_List(Original_P_Goals_panel, dt281, false);
 
             //Micro Project ID
-            DataTable dt28 = ds.Tables[28].Copy();
+            DataTable dt29 = ds.Tables[29].Copy();
             if (MicroProject_ID <= 0)
-                Bind_New_MicroProject_ID(dt28);
+                Bind_New_MicroProject_ID(dt29);
 
 
             UserMode = true;
@@ -2157,7 +2173,7 @@ namespace MyWorkApplication
         #region Benificiry_ISDirty
         string P_FirstName_textBox_original, P_LastName_textBox_original, P_FullName_En_textBox_original, P_FatherName_textBox_original, P_MotherName_textBox_original,
             P_Registration_textBox_original, P_NationalNum_textBox_original, P_DOB_textBox_original, P_IntermidiaryName_textBox_original, P_Mobile_textBox_original,
-            P_HomeTel_textBox_original, P_Mobile2_textBox_original, P_Address_textBox_original, P_HomeStateNote_textBox_original, Military_textBox_original;
+            P_HomeTel_textBox_original, P_Mobile2_textBox_original, P_Address_textBox_original, P_HomeStateNote_textBox_original, Military_textBox_original, MilitaryNote_textBox_original;
 
         private void P_FirstName_textBox_Enter(object sender, EventArgs e)
         {
@@ -2632,6 +2648,35 @@ namespace MyWorkApplication
                 if (UserMode)
                 {
                     if (P_HomeStateNote_textBox_original != P_HomeStateNote_textBox.Text)
+                        IsDirty_Data["Benificiry_ISDirty"] = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void MilitaryNote_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                MilitaryNote_textBox_original = MilitaryNote_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void MilitaryNote_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (MilitaryNote_textBox_original != MilitaryNote_textBox.Text)
                         IsDirty_Data["Benificiry_ISDirty"] = true;
                 }
 
@@ -4176,7 +4221,7 @@ namespace MyWorkApplication
                     P_MotherName = "", P_Registration = "", P_NationalNum = "", P_IntermidiaryName = "",
                      P_Mobile = "", P_HomeTel = "", P_Mobile2 = "", P_Address = "", P_HomeStateNote = "", Military = "",
                      Military_Note = "";
-                int P_MaritalState = -1, P_Parish = -1, P_Priest = -1, P_Priest2 = -1, Street = -1, P_HomeType = -1, MilitaryInWar = -1;
+                int P_MaritalState = -1, P_Parish = -1, P_Priest = -1, P_Priest2 = -1, Street = -1, P_HomeType = -1, MilitaryInWar = -1, MilitaryPeriod = -1;
                 DateTime P_DOB = new DateTime(); DateTime Military_Date = new DateTime();
 
                 if (string.IsNullOrWhiteSpace(P_FirstName_textBox.Text))
@@ -4404,8 +4449,8 @@ namespace MyWorkApplication
                     else { Military = ""; }
 
 
-                    Military_Note = Military_textBox.Text;
-
+                    Military_Note = MilitaryNote_textBox.Text;
+                    MilitaryPeriod = Convert.ToInt32(Military_textBox.Text);
                     if (Military_Date_checkBox.Checked)
                     {
                         Military_Date = Military_Date_dateTimePicker.Value;
@@ -4421,11 +4466,11 @@ namespace MyWorkApplication
                         Query += "insert into person (P_FirstName, P_LastName, P_Sex, P_FullName_en, P_FatherName, P_MotherName," +
                             " P_RegistrationPlace, P_NationalNumber, P_DOB, P_MaritalStatus_ID, P_Parish_ID, P_IntermidiarySide," +
                             " P_Priest_ID, P_Priest2_ID, P_Mobile, P_HomeTel, P_Mobile2, Street_ID, P_HomeAddress, P_HomeType_ID," +
-                            " P_HomeState_Note, P_MilitaryService, P_MilitaryService_Note, P_MilitaryService_Date, IsProjectOwner, P_NumAtHome, P_NumOfMembers, P_State_ID, P_IsMilitaryInWar)" +
+                            " P_HomeState_Note, P_MilitaryService,P_MilitaryPeriod, P_MilitaryService_Note, P_MilitaryService_Date, IsProjectOwner, P_NumAtHome, P_NumOfMembers, P_State_ID, P_IsMilitaryInWar)" +
                             " Values (@P_FirstName, @P_LastName, @P_Sex, @P_FullName_En, @P_FatherName, @P_MotherName," +
                             " @P_Registration, @P_NationalNum, @P_DOB, @P_MaritalState, @P_Parish, @P_IntermidiaryName, " +
                             " @P_Priest, @P_Priest2, @P_Mobile, @P_HomeTel, @P_Mobile2, @Street, @P_Address, @P_HomeType," +
-                            " @P_HomeStateNote, @Military, @Military_Note, @Military_Date, 'Yes', 1, 1, (select id from personstate where Name = 'مقيم/ة'), @MilitaryInWar);";
+                            " @P_HomeStateNote, @Military,@MilitaryPeriod, @Military_Note, @Military_Date, 'Yes', 1, 1, (select id from personstate where Name = 'مقيم/ة'), @MilitaryInWar);";
 
                         Query += " SET @Person_ID = Last_Insert_ID();";
 
@@ -4442,7 +4487,7 @@ namespace MyWorkApplication
                         Query += "Update person set P_FirstName =@P_FirstName, P_LastName =@P_LastName, P_Sex = @P_Sex, P_FullName_en = @P_FullName_En, P_FatherName = @P_FatherName, P_MotherName = @P_MotherName, " +
                             " P_RegistrationPlace = @P_Registration, P_NationalNumber = @P_NationalNum, P_DOB = @P_DOB, P_MaritalStatus_ID = @P_MaritalState, P_Parish_ID = @P_Parish, P_IntermidiarySide = @P_IntermidiaryName," +
                             " P_Priest_ID = @P_Priest, P_Priest2_ID = @P_Priest2, P_Mobile = @P_Mobile, P_HomeTel = @P_HomeTel, P_Mobile2 = @P_Mobile2, Street_ID = @Street, P_HomeAddress = @P_Address, P_HomeType_ID = @P_HomeType," +
-                            " P_HomeState_Note = @P_HomeStateNote, P_MilitaryService = @Military, P_MilitaryService_Note = @Military_Note, P_MilitaryService_Date = @Military_Date, P_IsMilitaryInWar = @MilitaryInWar" +
+                            " P_HomeState_Note = @P_HomeStateNote, P_MilitaryService = @Military, P_MilitaryPeriod = @MilitaryPeriod, P_MilitaryService_Note = @Military_Note, P_MilitaryService_Date = @Military_Date, P_IsMilitaryInWar = @MilitaryInWar" +
                             " Where person.P_ID = @Person_ID;";
 
                         Query += "Update person_microproject set Person_ID = @Person_ID," +
@@ -4477,15 +4522,17 @@ namespace MyWorkApplication
                     sc.Parameters.AddWithValue("@P_HomeType", P_HomeType == -1 ? (object)DBNull.Value : P_HomeType);
                     sc.Parameters.AddWithValue("@P_HomeStateNote", P_HomeStateNote);
                     sc.Parameters.AddWithValue("@Military", Military);
+                    sc.Parameters.AddWithValue("@Military_Note", Military_Note);
+
                     if (Military_textBox.Visible)
                     {
-                        sc.Parameters.AddWithValue("@Military_Note", Military_Note);
+                        sc.Parameters.AddWithValue("@MilitaryPeriod", MilitaryPeriod);
                     }
                     else
                     {
-                        sc.Parameters.AddWithValue("@Military_Note", "");
-
+                        sc.Parameters.AddWithValue("@MilitaryPeriod", DBNull.Value);
                     }
+
                     if (Military_Date_checkBox.Visible && Military_Date_checkBox.Checked)
                     {
                         sc.Parameters.AddWithValue("@Military_Date", Military_Date);
@@ -5638,6 +5685,11 @@ namespace MyWorkApplication
                                     }
                                 }
                             }
+                            else if (Assets_dataGridView.Rows[i].Cells["Asset_Benefits"].Value == null || Assets_dataGridView.Rows[i].Cells["Asset_Benefits"].Value.ToString() == "")
+                            {
+                                MessageBox.Show("الرجاء التأكد من إدخال مدى الاستفادة منه في جميع الأسطر في قسم أملاك المستفيد", "Error");
+                                return;
+                            }
                         }
                     }
                 }
@@ -6176,6 +6228,7 @@ namespace MyWorkApplication
                                 string Asset_type = Assets_dataGridView.Rows[i].Cells["Asset_type"].Value?.ToString() ?? "";
                                 string Asset_Year = Assets_dataGridView.Rows[i].Cells["Asset_Year"].Value?.ToString() ?? "";
                                 string Asset_Desc = Assets_dataGridView.Rows[i].Cells["Asset_Desc"].Value?.ToString() ?? "";
+                                string Asset_Benefits = Assets_dataGridView.Rows[i].Cells["Asset_Benefits"].Value?.ToString() ?? "";
                                 string Asset_Note = Assets_dataGridView.Rows[i].Cells["Asset_Note"].Value?.ToString() ?? "";
 
                                 sc.Parameters.AddWithValue("@Asset_PName" + i, string.IsNullOrEmpty(Asset_PName) ? (object)DBNull.Value : Asset_PName);
@@ -6183,6 +6236,7 @@ namespace MyWorkApplication
                                 sc.Parameters.AddWithValue("@Asset_type" + i, string.IsNullOrEmpty(Asset_type) ? (object)DBNull.Value : Asset_type);
                                 sc.Parameters.AddWithValue("@Asset_Year" + i, Asset_Year);
                                 sc.Parameters.AddWithValue("@Asset_Desc" + i, Asset_Desc);
+                                sc.Parameters.AddWithValue("@Asset_Benefits" + i, string.IsNullOrEmpty(Asset_Benefits) ? (object)DBNull.Value : Asset_Benefits);
                                 sc.Parameters.AddWithValue("@Asset_Note" + i, Asset_Note);
 
                                 if (Assets_dataGridView.Rows[i].Cells[ID_Columns[Assets_dataGridView]].Value != null)
@@ -6197,8 +6251,9 @@ namespace MyWorkApplication
                                         if (Convert.ToInt32(Asset_PName) > 0)
                                         {
                                             Query += "UPDATE person_asset set Person_ID  = @Asset_PName" + i + "," +
-                                                " Asset_ID  = @Asset_Name" + i + "," +
-                                                " Asset_Type_ID  = @Asset_type" + i + "," +
+                                                " Asset_ID = @Asset_Name" + i + "," +
+                                                " Asset_Type_ID = @Asset_type" + i + "," +
+                                                " Asset_Benefits_ID = @Asset_Benefits" + i + "," +
                                                 " Year  = @Asset_Year" + i + "," +
                                                 " Description = @Asset_Desc" + i + "," +
                                                 " Note = @Asset_Note" + i + "" +
@@ -6216,6 +6271,7 @@ namespace MyWorkApplication
                                             Query += "UPDATE person_asset set Person_ID  = (select person.P_ID from person LEFT JOIN person_family ON person.P_ID = person_family.Person_ID where person_family.P_Provider_ID = @Person_ID and CONCAT(P_FirstName,' ',P_LastName) = @Asset_PersonName" + i + ")," +
                                                " Asset_ID  = @Asset_Name" + i + "," +
                                                " Asset_Type_ID  = @Asset_type" + i + "," +
+                                               " Asset_Benefits_ID = @Asset_Benefits" + i + "," +
                                                " Year  = @Asset_Year" + i + "," +
                                                " Description = @Asset_Desc" + i + "," +
                                                " Note = @Asset_Note" + i + "" +
@@ -6227,8 +6283,8 @@ namespace MyWorkApplication
                                 {
                                     if (Convert.ToInt32(Asset_PName) > 0)
                                     {
-                                        Query += "INSERT INTO person_asset (Person_ID, Asset_ID, Asset_Type_ID, Year , Description, Note)" +
-                                            " VALUES (@Asset_PName" + i + ", @Asset_Name" + i + ", @Asset_type" + i + ", @Asset_Year" + i + ", @Asset_Desc" + i + ", @Asset_Note" + i + ");";
+                                        Query += "INSERT INTO person_asset (Person_ID, Asset_ID, Asset_Type_ID, Asset_Benefits_ID, Year , Description, Note)" +
+                                            " VALUES (@Asset_PName" + i + ", @Asset_Name" + i + ", @Asset_type" + i + ",@Asset_Benefits" + i + ", @Asset_Year" + i + ", @Asset_Desc" + i + ", @Asset_Note" + i + ");";
                                     }
                                     else
                                     {
@@ -6239,8 +6295,8 @@ namespace MyWorkApplication
 
                                         sc.Parameters.AddWithValue("@Asset_PersonName" + i, Asset_PersonName);
 
-                                        Query += "INSERT INTO person_asset (Person_ID, Asset_ID, Asset_Type_ID, Year , Description, Note)" +
-                                            " VALUES ((select person.P_ID from person LEFT JOIN person_family ON person.P_ID = person_family.Person_ID where person_family.P_Provider_ID = @Person_ID and CONCAT(P_FirstName,' ',P_LastName) = @Asset_PersonName" + i + "), @Asset_Name" + i + ", @Asset_type" + i + ", @Asset_Year" + i + ", @Asset_Desc" + i + ", @Asset_Note" + i + ");";
+                                        Query += "INSERT INTO person_asset (Person_ID, Asset_ID, Asset_Type_ID, Asset_Benefits_ID, Year , Description, Note)" +
+                                            " VALUES ((select person.P_ID from person LEFT JOIN person_family ON person.P_ID = person_family.Person_ID where person_family.P_Provider_ID = @Person_ID and CONCAT(P_FirstName,' ',P_LastName) = @Asset_PersonName" + i + "), @Asset_Name" + i + ", @Asset_type" + i + ", @Asset_Benefits" + i + ", @Asset_Year" + i + ", @Asset_Desc" + i + ", @Asset_Note" + i + ");";
                                     }
                                 }
                             }
@@ -6806,7 +6862,8 @@ namespace MyWorkApplication
                         }
                     }
 
-                    Military_textBox.Text = Application_ds.Tables[1].Rows[0].Field<string>("P_MilitaryService_Note");
+                    MilitaryNote_textBox.Text = Application_ds.Tables[1].Rows[0].Field<string>("P_MilitaryService_Note");
+                    Military_textBox.Text = Application_ds.Tables[1].Rows[0].Field<int?>("P_MilitaryPeriod").ToString() ?? "";
 
                     if (Application_ds.Tables[1].Rows[0]["P_MilitaryService_Date"] != DBNull.Value)
                     {
@@ -7323,6 +7380,7 @@ namespace MyWorkApplication
                         Assets_dataGridView.Rows[i].Cells["Asset_Relation"].Value = Application_ds.Tables[14].Rows[i].Field<string>("Relation_Name");
                         Assets_dataGridView.Rows[i].Cells["Asset_Name"].Value = Application_ds.Tables[14].Rows[i].Field<int?>("Asset_ID");
                         Assets_dataGridView.Rows[i].Cells["Asset_Type"].Value = Application_ds.Tables[14].Rows[i].Field<int?>("Asset_Type_ID");
+                        Assets_dataGridView.Rows[i].Cells["Asset_Benefits"].Value = Application_ds.Tables[14].Rows[i].Field<int?>("Asset_Benefits_ID");
                         Assets_dataGridView.Rows[i].Cells["Asset_Year"].Value = Application_ds.Tables[14].Rows[i].Field<string>("Year");
                         Assets_dataGridView.Rows[i].Cells["Asset_Desc"].Value = Application_ds.Tables[14].Rows[i].Field<string>("Description");
                         Assets_dataGridView.Rows[i].Cells["Asset_Note"].Value = Application_ds.Tables[14].Rows[i].Field<string>("Note");

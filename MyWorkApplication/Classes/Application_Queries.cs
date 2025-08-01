@@ -49,7 +49,7 @@ namespace MyWorkApplication.Classes
             query += "select person.P_ID, person.P_FirstName, person.P_LastName,CONCAT(P_FirstName, ' ',person.P_FatherName ,' ', person.P_LastName) as 'FullName', person.P_Sex, person_microproject.PersonType, person.P_FullName_en, person.P_FatherName, person.P_MotherName," +
                 " person.P_RegistrationPlace, person.P_NationalNumber, person.P_DOB, person.P_MaritalStatus_ID, person.P_Parish_ID, person.P_IntermidiarySide," +
                 " person.P_Priest_ID, person.P_Priest2_ID, person.P_Mobile, person.P_HomeTel, person.P_Mobile2, person.Street_ID, person.P_HomeAddress, person.P_HomeType_ID," +
-                " person.P_HomeState_Note, person.P_MilitaryService, person.P_MilitaryService_Note, person.P_MilitaryService_Date, person.P_IsMilitaryInWar, person_microproject.P_WorkYears," +
+                " person.P_HomeState_Note, person.P_MilitaryService, person.P_MilitaryService_Note, person.P_MilitaryPeriod, person.P_MilitaryService_Date, person.P_IsMilitaryInWar, person_microproject.P_WorkYears," +
                 " person_microproject.P_IsLivingWithFamily, person_microproject.P_LiveWithFamily_Note, person_microproject.P_HasAidSource, person_microproject.P_AidSourceNote," +
                 " person_microproject.P_Loss, person_microproject.P_Goal, person_microproject.P_GoalHow, person_microproject.P_OtherNotes," +
                 " person_microproject.P_HasCourses, person_microproject.P_HasEducation," +
@@ -118,7 +118,7 @@ namespace MyWorkApplication.Classes
                 " where person_family.P_Provider_ID = @Person_ID;";
 
 
-            query += " select person_asset.ID, person_asset.Person_ID, person_asset.Asset_ID, person_asset.Asset_Type_ID, person_asset.Year, person_asset.Description, person_asset.Note, relation.Name as 'Relation_Name'" +
+            query += " select person_asset.ID, person_asset.Person_ID, person_asset.Asset_ID, person_asset.Asset_Type_ID, person_asset.Asset_Benefits_ID, person_asset.Year, person_asset.Description, person_asset.Note, relation.Name as 'Relation_Name'" +
                 " from person_asset left join person on person_asset.Person_ID = person.P_ID" +
                 " left join person_family on person.P_ID = person_family.Person_ID" +
                 " left join relation on relation.ID = person_family.Relation_ID" +
