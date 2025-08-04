@@ -128,9 +128,9 @@ namespace MyWorkApplication
             string datalocation;
             if (Properties.Settings.Default.Online)
                 datalocation = "online";
-            //else if (Localhost)
-              //  datalocation = "localhost";
-            //else datalocation = "localhost";
+            else if (Localhost)
+                datalocation = "localhost";
+            //else datalocation = "PC-ADMIN";
             else datalocation = "PC-ADMIN";
 
             OnlineRoot = "ftp://hcsyria.org/micro_images2/";
