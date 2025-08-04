@@ -2212,7 +2212,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:v4.6.1       "
+                "FrameworkVersion" = "8:v4.6.1        "
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=671728"
                 }
@@ -7082,15 +7082,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Micro Projects"
-        "ProductCode" = "8:{3092E53B-6307-4DE6-AE09-3C93C98E35AF}"
-        "PackageCode" = "8:{7961166F-BCE9-4C86-AEFE-5FDB4B288A29}"
+        "ProductCode" = "8:{30D426FD-2346-4C2E-8D99-477DB7005678}"
+        "PackageCode" = "8:{CD3A5FF1-6E9B-42A2-8382-9A4D32F580A8}"
         "UpgradeCode" = "8:{1682D02F-9ACB-401D-BF5F-6B2DE072EC05}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:4.0.6"
+        "ProductVersion" = "8:4.0.8"
         "Manufacturer" = "8:Hope Center"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

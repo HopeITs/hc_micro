@@ -985,32 +985,7 @@ namespace MyWorkApplication
                 condition += FundedAmount_condition;
         }
 
-        #region bind queries
-
-        //string FundType, string Type, string SubType
-        //    , string State, string Partners
-        //    , string Donor, string DonorGroup
-        //    , string Category, string SubCategory, string Career
-        //    , string Parish, string Age, string Sex, string MaritalStatus
-        //    , string ApplyYear, string FundYear, bool showImages
-
-        
- ////// , (SELECT count(*)
- //////   From `person` p
- //////   left join `person_family` pf on p.P_ID = pf.Person_ID
- //////   where pf.P_Provider_ID = PMP.Person_ID
- //////   limit 1) as 'عدد الأفراد الكلي' 
-
- //////, (SELECT count(*)
- //////   From `person` p
- //////   left join `person_family` pf on p.P_ID = pf.Person_ID
- //////   left join `personstate` on personstate.ID = p.P_State_ID
- //////   where pf.P_Provider_ID = PMP.Person_ID
- //////   AND lower(personstate.Type) like 'active'
- //////   limit 1) as 'عدد الأفراد في المنزل' 
-
-
-
+        #region bind queries 
         private void bind_Applications()
         {
             try
@@ -1085,8 +1060,8 @@ namespace MyWorkApplication
 
  , (CASE IsContentUpdated WHEN 0 THEN N'لا' ELSE N'نعم' End) as 'تبديل المشروع' 
 
- , P_DOB as 'المواليد'  
- , TIMESTAMPDIFF(YEAR, P_DOB, MP_DateOfRequest) AS 'العمر عند تقديم الطلب'
+ , IFNULL(P_DOB,'1900') as 'المواليد'  
+ , TIMESTAMPDIFF(YEAR, IFNULL(P_DOB,'1900'), MP_DateOfRequest) AS 'العمر عند تقديم الطلب'
 
  , parish.Name_en as 'الطائفة'
 
@@ -1102,7 +1077,7 @@ namespace MyWorkApplication
  ,  IFNULL(P_NumAtHome,0) as 'عدد الأفراد الكلي'
  ,  IFNULL(P_NumOfMembers,0) as 'عدد الأفراد في المنزل'
 
-  , (SELECT count(*) 
+  , (SELECT IFNULL(count(*) ,0)
     From `person` p 
     left join `person_family` pf on p.P_ID = pf.Person_ID  
     left join `personstate` on personstate.ID = p.P_State_ID
@@ -1111,7 +1086,7 @@ namespace MyWorkApplication
     AND lower(personstate.Type) like 'active'
     and pf.P_Provider_ID = PMP.Person_ID limit 1) as 'عدد الأبناء في المنزل' 
 
-  , ( SELECT count(*) 
+  , ( SELECT IFNULL(count(*) ,0)
     From `person` p 
     left join `person_family` pf on p.P_ID = pf.Person_ID  
     left join `personstate` on personstate.ID = p.P_State_ID
@@ -1124,6 +1099,7 @@ namespace MyWorkApplication
  , P_MilitaryService as 'خدمة العلم'
  , P_MilitaryService_Date as 'تاريخ التسريح'
  , P_MilitaryService_Note as 'وصف الحالة العسكرية' 
+ , (case P_IsMilitaryInWar when 0 then 'لا' when 1 then 'نعم' else 'N/A' End) as 'الخدمة خلال الحرب'
 
  , P_Sex as 'الجنس'
  , maritalstatus.Name as 'الحالة الاجتماعية'
