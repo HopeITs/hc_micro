@@ -4375,19 +4375,24 @@ namespace MyWorkApplication
                     MessageBox.Show("الرجاء التأكد من تحديد ملكية المنزل في قسم المعلومات الشخصية لمقدم الطلب", "Error");
                     return;
                 }
-                if(MilitaryFinished_radioButton.Checked || MilitaryNow_radioButton.Checked)
+
+                if (ApplicationState == "project")
                 {
-                    if(string.IsNullOrWhiteSpace(Military_textBox.Text))
+                    if (MilitaryFinished_radioButton.Checked || MilitaryNow_radioButton.Checked)
                     {
-                        MessageBox.Show("الرجاء التأكد من تحديد مدة الخدمة في قسم المعلومات الشخصية لمقدم الطلب", "Error");
-                        return;
-                    }
-                    if(!P_MilitaryInWar_Yes_radioButton.Checked && !P_MilitaryInWar_No_radioButton.Checked)
-                    {
-                        MessageBox.Show("الرجاء التأكد من تحديد اذا كانت الخدمة ضمن الحرب أم لا في قسم المعلومات الشخصية لمقدم الطلب", "Error");
-                        return;
+                        if (string.IsNullOrWhiteSpace(Military_textBox.Text))
+                        {
+                            MessageBox.Show("الرجاء التأكد من تحديد مدة الخدمة في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                            return;
+                        }
+                        if (!P_MilitaryInWar_Yes_radioButton.Checked && !P_MilitaryInWar_No_radioButton.Checked)
+                        {
+                            MessageBox.Show("الرجاء التأكد من تحديد اذا كانت الخدمة ضمن الحرب أم لا في قسم المعلومات الشخصية لمقدم الطلب", "Error");
+                            return;
+                        }
                     }
                 }
+
                 if (IsDirty_Data["Benificiry_ISDirty"])
                 {
                     P_FirstName = P_FirstName_textBox.Text;
@@ -4436,31 +4441,34 @@ namespace MyWorkApplication
 
                     P_HomeStateNote = P_HomeStateNote_textBox.Text;
 
-                    if (MilitarySingle_radioButton.Checked)
-                        Military = "وحيد";
-                    else if (MilitaryFinished_radioButton.Checked)
-                        Military = "مسرح";
-                    else if (MilitaryNow_radioButton.Checked)
-                        Military = "عسكري";
-                    else if (MilitaryExempt_radioButton.Checked)
-                        Military = "معفى/بدل";
-                    else if (MilitaryDelayed_radioButton.Checked)
-                        Military = "مؤجل";
-                    else { Military = ""; }
-
-
-                    Military_Note = MilitaryNote_textBox.Text;
-                    MilitaryPeriod = Convert.ToInt32(Military_textBox.Text);
-                    if (Military_Date_checkBox.Checked)
+                    if (ApplicationState == "project")
                     {
-                        Military_Date = Military_Date_dateTimePicker.Value;
+                        if (MilitarySingle_radioButton.Checked)
+                            Military = "وحيد";
+                        else if (MilitaryFinished_radioButton.Checked)
+                            Military = "مسرح";
+                        else if (MilitaryNow_radioButton.Checked)
+                            Military = "عسكري";
+                        else if (MilitaryExempt_radioButton.Checked)
+                            Military = "معفى/بدل";
+                        else if (MilitaryDelayed_radioButton.Checked)
+                            Military = "مؤجل";
+                        else { Military = ""; }
+
+
+                        Military_Note = MilitaryNote_textBox.Text;
+                        MilitaryPeriod = Convert.ToInt32(Military_textBox.Text);
+                        if (Military_Date_checkBox.Checked)
+                        {
+                            Military_Date = Military_Date_dateTimePicker.Value;
+                        }
+
+                        if (P_MilitaryInWar_Yes_radioButton.Checked)
+                            MilitaryInWar = 1;
+                        else
+                            MilitaryInWar = 0;
                     }
-
-                    if (P_MilitaryInWar_Yes_radioButton.Checked)
-                        MilitaryInWar = 1;
-                    else
-                        MilitaryInWar = 0;
-
+      
                     if (Person_ID <= 0)
                     {
                         Query += "insert into person (P_FirstName, P_LastName, P_Sex, P_FullName_en, P_FatherName, P_MotherName," +
@@ -4542,7 +4550,7 @@ namespace MyWorkApplication
                         sc.Parameters.AddWithValue("@Military_Date", DBNull.Value);
                     }
 
-                    if(flowLayoutPanel13.Visible)
+                    if (flowLayoutPanel13.Visible)
                     {
                         sc.Parameters.AddWithValue("@MilitaryInWar", MilitaryInWar);
                     }
@@ -6880,7 +6888,7 @@ namespace MyWorkApplication
                         if (Application_ds.Tables[1].Rows[0].Field<int?>("P_IsMilitaryInWar") == 0)
                         {
                             P_MilitaryInWar_No_radioButton.Checked = true;
-                        }         
+                        }
                     }
 
                     P_WorkYears_textBox.Text = Application_ds.Tables[1].Rows[0].Field<string>("P_WorkYears");

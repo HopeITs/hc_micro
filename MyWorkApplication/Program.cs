@@ -45,7 +45,7 @@ namespace MyWorkApplication
         public static Tuple<string, string> OfflineserversCredentials = new Tuple<string, string>("Admin", "admin54321");
 
         //SET Localhost = true for using local database;
-        public static bool Localhost = true;
+        public static bool Localhost = false;
 
         public static bool close_app;
 
@@ -131,7 +131,7 @@ namespace MyWorkApplication
             else if (Localhost)
                 datalocation = "localhost";
             //else datalocation = "PC-ADMIN";
-            else datalocation = "localhost";
+            else datalocation = "PC-ADMIN";
 
             OnlineRoot = "ftp://hcsyria.org/micro_images2/";
             OfflineRoot = "ftp://PC-ADMIN/micro_images/";
