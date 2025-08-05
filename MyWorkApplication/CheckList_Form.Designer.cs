@@ -47,6 +47,36 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Main_panel = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.P_HasDebts_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.P_HasDebtsYes_radioButton = new System.Windows.Forms.RadioButton();
+            this.P_HasDebtsNo_radioButton = new System.Windows.Forms.RadioButton();
+            this.P_DebtsNote_label = new System.Windows.Forms.Label();
+            this.P_DebtsNote_textBox = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.Delete_button = new System.Windows.Forms.Button();
             this.Save_button = new System.Windows.Forms.Button();
@@ -73,7 +103,6 @@
             this.CommityDate_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.CommityDate_checkBox = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.Add_C_button = new System.Windows.Forms.Button();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.MainHeader4_label = new System.Windows.Forms.Label();
             this.team_dataGridView = new System.Windows.Forms.DataGridView();
@@ -91,7 +120,6 @@
             this.TeamDate_checkBox = new System.Windows.Forms.CheckBox();
             this.TeamDate_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.VisitDate_label = new System.Windows.Forms.Label();
-            this.Add_T_button = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.MainHeader3_label = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -117,15 +145,13 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.VisitNotes_textBox = new System.Windows.Forms.TextBox();
             this.SubHeader5_label = new System.Windows.Forms.Label();
-            this.visit_dataGridView = new System.Windows.Forms.DataGridView();
-            this.V_Checklist_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.V_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.V_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.V_Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.V_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.V_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.V_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Add_V_button = new System.Windows.Forms.Button();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.SumMarksValue_label = new System.Windows.Forms.Label();
+            this.SumMarks_label = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.Marks_dataGridView = new System.Windows.Forms.DataGridView();
+            this.Add_C_button = new System.Windows.Forms.Button();
+            this.Add_T_button = new System.Windows.Forms.Button();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.MainHeader1_label = new System.Windows.Forms.Label();
             this.Person_Name_label = new System.Windows.Forms.Label();
@@ -143,7 +169,7 @@
             this.K_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.K_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MainHeader2_label = new System.Windows.Forms.Label();
-            this.Person_Name_textBox = new System.Windows.Forms.TextBox();
+            this.Add_V_button = new System.Windows.Forms.Button();
             this.MicroProject_ID_textBox = new System.Windows.Forms.TextBox();
             this.MicroProject_ID_label = new System.Windows.Forms.Label();
             this.Career_textBox = new System.Windows.Forms.TextBox();
@@ -152,6 +178,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.no_label = new System.Windows.Forms.Label();
             this.Add_K_button = new System.Windows.Forms.Button();
+            this.Beneficiary_comboBox = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Visits_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -159,6 +186,10 @@
             this.attachments_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Main_panel.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
+            this.tableLayoutPanel13.SuspendLayout();
+            this.P_HasDebts_flowLayoutPanel.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -170,7 +201,8 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.visit_dataGridView)).BeginInit();
+            this.tableLayoutPanel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Marks_dataGridView)).BeginInit();
             this.tableLayoutPanel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.keyperson_dataGridView)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -180,11 +212,15 @@
             // 
             this.Main_panel.AutoScroll = true;
             this.Main_panel.BackColor = System.Drawing.Color.Transparent;
+            this.Main_panel.Controls.Add(this.tableLayoutPanel11);
             this.Main_panel.Controls.Add(this.tableLayoutPanel6);
             this.Main_panel.Controls.Add(this.tableLayoutPanel9);
             this.Main_panel.Controls.Add(this.tableLayoutPanel3);
             this.Main_panel.Controls.Add(this.tableLayoutPanel7);
             this.Main_panel.Controls.Add(this.tableLayoutPanel5);
+            this.Main_panel.Controls.Add(this.tableLayoutPanel10);
+            this.Main_panel.Controls.Add(this.Add_C_button);
+            this.Main_panel.Controls.Add(this.Add_T_button);
             this.Main_panel.Controls.Add(this.tableLayoutPanel14);
             this.Main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Main_panel.Location = new System.Drawing.Point(0, 0);
@@ -193,6 +229,467 @@
             this.Main_panel.Padding = new System.Windows.Forms.Padding(75, 0, 75, 0);
             this.Main_panel.Size = new System.Drawing.Size(1262, 673);
             this.Main_panel.TabIndex = 415;
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel11.ColumnCount = 7;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.09185F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.38511F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.30404F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.30404F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.3069F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.30404F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.30404F));
+            this.tableLayoutPanel11.Controls.Add(this.dateTimePicker2, 6, 10);
+            this.tableLayoutPanel11.Controls.Add(this.label11, 0, 1);
+            this.tableLayoutPanel11.Controls.Add(this.checkBox5, 0, 8);
+            this.tableLayoutPanel11.Controls.Add(this.textBox8, 5, 8);
+            this.tableLayoutPanel11.Controls.Add(this.comboBox6, 4, 8);
+            this.tableLayoutPanel11.Controls.Add(this.comboBox7, 3, 8);
+            this.tableLayoutPanel11.Controls.Add(this.textBox9, 2, 8);
+            this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel13, 1, 8);
+            this.tableLayoutPanel11.Controls.Add(this.P_HasDebts_flowLayoutPanel, 0, 4);
+            this.tableLayoutPanel11.Controls.Add(this.P_DebtsNote_label, 3, 4);
+            this.tableLayoutPanel11.Controls.Add(this.P_DebtsNote_textBox, 4, 4);
+            this.tableLayoutPanel11.Controls.Add(this.label16, 1, 3);
+            this.tableLayoutPanel11.Controls.Add(this.label13, 3, 3);
+            this.tableLayoutPanel11.Controls.Add(this.checkBox4, 5, 10);
+            this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel12, 6, 11);
+            this.tableLayoutPanel11.Controls.Add(this.textBox6, 5, 9);
+            this.tableLayoutPanel11.Controls.Add(this.comboBox5, 4, 9);
+            this.tableLayoutPanel11.Controls.Add(this.comboBox4, 3, 9);
+            this.tableLayoutPanel11.Controls.Add(this.label17, 0, 6);
+            this.tableLayoutPanel11.Controls.Add(this.label12, 1, 7);
+            this.tableLayoutPanel11.Controls.Add(this.label14, 2, 7);
+            this.tableLayoutPanel11.Controls.Add(this.label15, 3, 7);
+            this.tableLayoutPanel11.Controls.Add(this.label19, 4, 7);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(75, 3172);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tableLayoutPanel11.RowCount = 13;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(1091, 453);
+            this.tableLayoutPanel11.TabIndex = 530;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker2.CustomFormat = "yyyy/MM/dd";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(3, 340);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(151, 29);
+            this.dateTimePicker2.TabIndex = 10;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.tableLayoutPanel11.SetColumnSpan(this.label11, 7);
+            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label11.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(3, 20);
+            this.label11.Name = "label11";
+            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label11.Size = new System.Drawing.Size(1085, 37);
+            this.label11.TabIndex = 525;
+            this.label11.Text = "الخبرة";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.checkBox5.Location = new System.Drawing.Point(973, 265);
+            this.checkBox5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(116, 31);
+            this.checkBox5.TabIndex = 551;
+            this.checkBox5.Text = "زيارة المحل";
+            this.checkBox5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox8.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel11.SetColumnSpan(this.textBox8, 2);
+            this.textBox8.ForeColor = System.Drawing.Color.Black;
+            this.textBox8.Location = new System.Drawing.Point(3, 266);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textBox8.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox8.Size = new System.Drawing.Size(307, 29);
+            this.textBox8.TabIndex = 559;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox6.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox6.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox6.BackColor = System.Drawing.Color.White;
+            this.comboBox6.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(316, 266);
+            this.comboBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(150, 30);
+            this.comboBox6.TabIndex = 558;
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox7.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox7.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox7.BackColor = System.Drawing.Color.White;
+            this.comboBox7.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(472, 266);
+            this.comboBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(150, 30);
+            this.comboBox7.TabIndex = 557;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox9.BackColor = System.Drawing.Color.White;
+            this.textBox9.Location = new System.Drawing.Point(628, 266);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(150, 29);
+            this.textBox9.TabIndex = 555;
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.ColumnCount = 2;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.87292F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.12707F));
+            this.tableLayoutPanel13.Controls.Add(this.dateTimePicker3, 0, 0);
+            this.tableLayoutPanel13.Controls.Add(this.checkBox6, 1, 0);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(781, 262);
+            this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 1;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(189, 37);
+            this.tableLayoutPanel13.TabIndex = 556;
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker3.CustomFormat = "yyyy/MM/dd";
+            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker3.Location = new System.Drawing.Point(36, 4);
+            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(150, 29);
+            this.dateTimePicker3.TabIndex = 10;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(3, 4);
+            this.checkBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(27, 29);
+            this.checkBox6.TabIndex = 9;
+            this.checkBox6.Text = "يحدد لاحقاً";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // P_HasDebts_flowLayoutPanel
+            // 
+            this.P_HasDebts_flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel11.SetColumnSpan(this.P_HasDebts_flowLayoutPanel, 3);
+            this.P_HasDebts_flowLayoutPanel.Controls.Add(this.label18);
+            this.P_HasDebts_flowLayoutPanel.Controls.Add(this.P_HasDebtsYes_radioButton);
+            this.P_HasDebts_flowLayoutPanel.Controls.Add(this.P_HasDebtsNo_radioButton);
+            this.P_HasDebts_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.P_HasDebts_flowLayoutPanel.Location = new System.Drawing.Point(628, 117);
+            this.P_HasDebts_flowLayoutPanel.Name = "P_HasDebts_flowLayoutPanel";
+            this.P_HasDebts_flowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.P_HasDebts_flowLayoutPanel.Size = new System.Drawing.Size(460, 31);
+            this.P_HasDebts_flowLayoutPanel.TabIndex = 92;
+            this.P_HasDebts_flowLayoutPanel.TabStop = true;
+            // 
+            // label18
+            // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label18.Location = new System.Drawing.Point(295, 5);
+            this.label18.Name = "label18";
+            this.label18.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label18.Size = new System.Drawing.Size(162, 27);
+            this.label18.TabIndex = 537;
+            this.label18.Text = "فحص الخبرة المهني:";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // P_HasDebtsYes_radioButton
+            // 
+            this.P_HasDebtsYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasDebtsYes_radioButton.AutoSize = true;
+            this.P_HasDebtsYes_radioButton.BackColor = System.Drawing.Color.Transparent;
+            this.P_HasDebtsYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.P_HasDebtsYes_radioButton.Location = new System.Drawing.Point(198, 3);
+            this.P_HasDebtsYes_radioButton.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
+            this.P_HasDebtsYes_radioButton.Name = "P_HasDebtsYes_radioButton";
+            this.P_HasDebtsYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasDebtsYes_radioButton.Size = new System.Drawing.Size(79, 31);
+            this.P_HasDebtsYes_radioButton.TabIndex = 1;
+            this.P_HasDebtsYes_radioButton.TabStop = true;
+            this.P_HasDebtsYes_radioButton.Text = "بحاجة";
+            this.P_HasDebtsYes_radioButton.UseVisualStyleBackColor = false;
+            // 
+            // P_HasDebtsNo_radioButton
+            // 
+            this.P_HasDebtsNo_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.P_HasDebtsNo_radioButton.AutoSize = true;
+            this.P_HasDebtsNo_radioButton.BackColor = System.Drawing.Color.Transparent;
+            this.P_HasDebtsNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.P_HasDebtsNo_radioButton.Location = new System.Drawing.Point(63, 3);
+            this.P_HasDebtsNo_radioButton.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
+            this.P_HasDebtsNo_radioButton.Name = "P_HasDebtsNo_radioButton";
+            this.P_HasDebtsNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_HasDebtsNo_radioButton.Size = new System.Drawing.Size(117, 31);
+            this.P_HasDebtsNo_radioButton.TabIndex = 2;
+            this.P_HasDebtsNo_radioButton.TabStop = true;
+            this.P_HasDebtsNo_radioButton.Text = "ليس بحاجة";
+            this.P_HasDebtsNo_radioButton.UseVisualStyleBackColor = false;
+            // 
+            // P_DebtsNote_label
+            // 
+            this.P_DebtsNote_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.P_DebtsNote_label.AutoSize = true;
+            this.P_DebtsNote_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.P_DebtsNote_label.Location = new System.Drawing.Point(472, 119);
+            this.P_DebtsNote_label.Name = "P_DebtsNote_label";
+            this.P_DebtsNote_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_DebtsNote_label.Size = new System.Drawing.Size(66, 27);
+            this.P_DebtsNote_label.TabIndex = 547;
+            this.P_DebtsNote_label.Text = "السبب:";
+            this.P_DebtsNote_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // P_DebtsNote_textBox
+            // 
+            this.P_DebtsNote_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.P_DebtsNote_textBox.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel11.SetColumnSpan(this.P_DebtsNote_textBox, 3);
+            this.P_DebtsNote_textBox.Location = new System.Drawing.Point(3, 118);
+            this.P_DebtsNote_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.P_DebtsNote_textBox.Name = "P_DebtsNote_textBox";
+            this.P_DebtsNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.P_DebtsNote_textBox.Size = new System.Drawing.Size(463, 29);
+            this.P_DebtsNote_textBox.TabIndex = 94;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.AutoSize = true;
+            this.tableLayoutPanel11.SetColumnSpan(this.label16, 2);
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label16.Location = new System.Drawing.Point(628, 82);
+            this.label16.Name = "label16";
+            this.label16.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label16.Size = new System.Drawing.Size(339, 27);
+            this.label16.TabIndex = 534;
+            this.label16.Text = "عدد سنوات الخبرة:";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.tableLayoutPanel11.SetColumnSpan(this.label13, 2);
+            this.label13.Font = new System.Drawing.Font("Rubik", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label13.Location = new System.Drawing.Point(316, 80);
+            this.label13.Name = "label13";
+            this.label13.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label13.Size = new System.Drawing.Size(306, 30);
+            this.label13.TabIndex = 561;
+            this.label13.Text = "50";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.checkBox4.Location = new System.Drawing.Point(195, 339);
+            this.checkBox4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(116, 31);
+            this.checkBox4.TabIndex = 7;
+            this.checkBox4.Text = "زيارة المنزل";
+            this.checkBox4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 2;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.87292F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.12707F));
+            this.tableLayoutPanel12.Controls.Add(this.checkBox3, 1, 0);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 373);
+            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 1;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(157, 37);
+            this.tableLayoutPanel12.TabIndex = 535;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(3, 4);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(21, 29);
+            this.checkBox3.TabIndex = 9;
+            this.checkBox3.Text = "يحدد لاحقاً";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox6.BackColor = System.Drawing.Color.White;
+            this.textBox6.Location = new System.Drawing.Point(160, 303);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(150, 29);
+            this.textBox6.TabIndex = 8;
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox5.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox5.BackColor = System.Drawing.Color.White;
+            this.comboBox5.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(316, 303);
+            this.comboBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(150, 30);
+            this.comboBox5.TabIndex = 553;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox4.BackColor = System.Drawing.Color.White;
+            this.comboBox4.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(472, 303);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(150, 30);
+            this.comboBox4.TabIndex = 552;
+            // 
+            // label17
+            // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label17.AutoSize = true;
+            this.tableLayoutPanel11.SetColumnSpan(this.label17, 7);
+            this.label17.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.label17.Location = new System.Drawing.Point(3, 188);
+            this.label17.Name = "label17";
+            this.label17.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label17.Size = new System.Drawing.Size(1085, 37);
+            this.label17.TabIndex = 560;
+            this.label17.Text = "الفحص المهني";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label12.Location = new System.Drawing.Point(784, 230);
+            this.label12.Name = "label12";
+            this.label12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label12.Size = new System.Drawing.Size(183, 27);
+            this.label12.TabIndex = 484;
+            this.label12.Text = "تاريخ الفحص";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label14.Location = new System.Drawing.Point(628, 230);
+            this.label14.Name = "label14";
+            this.label14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label14.Size = new System.Drawing.Size(150, 27);
+            this.label14.TabIndex = 487;
+            this.label14.Text = "الفاحص";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label15.Location = new System.Drawing.Point(472, 230);
+            this.label15.Name = "label15";
+            this.label15.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label15.Size = new System.Drawing.Size(150, 27);
+            this.label15.TabIndex = 562;
+            this.label15.Text = "المراقب";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label19
+            // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label19.Location = new System.Drawing.Point(316, 230);
+            this.label19.Name = "label19";
+            this.label19.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label19.Size = new System.Drawing.Size(150, 27);
+            this.label19.TabIndex = 563;
+            this.label19.Text = "النتيجة";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel6
             // 
@@ -205,7 +702,7 @@
             this.tableLayoutPanel6.Controls.Add(this.Save_button, 2, 0);
             this.tableLayoutPanel6.Controls.Add(this.Print_button, 3, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(75, 2481);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(75, 3073);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
@@ -285,7 +782,7 @@
             this.tableLayoutPanel9.Controls.Add(this.textBox4, 0, 3);
             this.tableLayoutPanel9.Controls.Add(this.textBox5, 0, 7);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(75, 1920);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(75, 2512);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 9;
@@ -378,9 +875,8 @@
             this.tableLayoutPanel3.Controls.Add(this.MainHeader5_label, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.commity_dataGridView, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.Add_C_button, 2, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(75, 1562);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(75, 2154);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 6;
@@ -623,29 +1119,6 @@
             this.label10.Text = "تاريخ الاجتماع:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Add_C_button
-            // 
-            this.Add_C_button.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Add_C_button.BackColor = System.Drawing.Color.Transparent;
-            this.Add_C_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Add_C_button.BackgroundImage")));
-            this.Add_C_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Add_C_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.Add_C_button.FlatAppearance.BorderSize = 0;
-            this.Add_C_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Add_C_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Add_C_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Add_C_button.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Add_C_button.ForeColor = System.Drawing.Color.White;
-            this.Add_C_button.Location = new System.Drawing.Point(767, 90);
-            this.Add_C_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Add_C_button.MaximumSize = new System.Drawing.Size(29, 32);
-            this.Add_C_button.MinimumSize = new System.Drawing.Size(29, 32);
-            this.Add_C_button.Name = "Add_C_button";
-            this.Add_C_button.Size = new System.Drawing.Size(29, 32);
-            this.Add_C_button.TabIndex = 528;
-            this.Add_C_button.UseVisualStyleBackColor = false;
-            this.Add_C_button.Click += new System.EventHandler(this.Add_C_button_Click);
-            // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.BackColor = System.Drawing.Color.Transparent;
@@ -659,9 +1132,8 @@
             this.tableLayoutPanel7.Controls.Add(this.MainHeader4_label, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.team_dataGridView, 0, 4);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel2, 2, 3);
-            this.tableLayoutPanel7.Controls.Add(this.Add_T_button, 1, 3);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(75, 1204);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(75, 1796);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -912,29 +1384,6 @@
             this.VisitDate_label.Text = "تاريخ الاجتماع:";
             this.VisitDate_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Add_T_button
-            // 
-            this.Add_T_button.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Add_T_button.BackColor = System.Drawing.Color.Transparent;
-            this.Add_T_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Add_T_button.BackgroundImage")));
-            this.Add_T_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Add_T_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.Add_T_button.FlatAppearance.BorderSize = 0;
-            this.Add_T_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Add_T_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Add_T_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Add_T_button.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Add_T_button.ForeColor = System.Drawing.Color.White;
-            this.Add_T_button.Location = new System.Drawing.Point(768, 90);
-            this.Add_T_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Add_T_button.MaximumSize = new System.Drawing.Size(29, 32);
-            this.Add_T_button.MinimumSize = new System.Drawing.Size(29, 32);
-            this.Add_T_button.Name = "Add_T_button";
-            this.Add_T_button.Size = new System.Drawing.Size(29, 32);
-            this.Add_T_button.TabIndex = 528;
-            this.Add_T_button.UseVisualStyleBackColor = false;
-            this.Add_T_button.Click += new System.EventHandler(this.Add_T_button_Click);
-            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.BackColor = System.Drawing.Color.Transparent;
@@ -966,10 +1415,8 @@
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel8, 1, 5);
             this.tableLayoutPanel5.Controls.Add(this.VisitNotes_textBox, 0, 8);
             this.tableLayoutPanel5.Controls.Add(this.SubHeader5_label, 1, 7);
-            this.tableLayoutPanel5.Controls.Add(this.visit_dataGridView, 3, 6);
-            this.tableLayoutPanel5.Controls.Add(this.Add_V_button, 5, 6);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(75, 612);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(75, 1204);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1327,33 +1774,101 @@
             this.SubHeader5_label.Text = "تقرير الزيارات";
             this.SubHeader5_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // visit_dataGridView
+            // tableLayoutPanel10
             // 
-            this.visit_dataGridView.AllowUserToOrderColumns = true;
-            this.visit_dataGridView.AllowUserToResizeRows = false;
-            this.visit_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tableLayoutPanel10.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel10.ColumnCount = 4;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.4304F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.45476F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.05742F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.05742F));
+            this.tableLayoutPanel10.Controls.Add(this.SumMarksValue_label, 3, 4);
+            this.tableLayoutPanel10.Controls.Add(this.SumMarks_label, 0, 4);
+            this.tableLayoutPanel10.Controls.Add(this.label8, 0, 1);
+            this.tableLayoutPanel10.Controls.Add(this.Marks_dataGridView, 0, 3);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(75, 612);
+            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tableLayoutPanel10.RowCount = 6;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(1091, 592);
+            this.tableLayoutPanel10.TabIndex = 529;
+            // 
+            // SumMarksValue_label
+            // 
+            this.SumMarksValue_label.AutoSize = true;
+            this.SumMarksValue_label.BackColor = System.Drawing.Color.Transparent;
+            this.SumMarksValue_label.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SumMarksValue_label.Font = new System.Drawing.Font("Rubik", 12F, System.Drawing.FontStyle.Bold);
+            this.SumMarksValue_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SumMarksValue_label.Location = new System.Drawing.Point(3, 527);
+            this.SumMarksValue_label.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SumMarksValue_label.Name = "SumMarksValue_label";
+            this.SumMarksValue_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SumMarksValue_label.Size = new System.Drawing.Size(269, 30);
+            this.SumMarksValue_label.TabIndex = 541;
+            this.SumMarksValue_label.Text = "55";
+            this.SumMarksValue_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // SumMarks_label
+            // 
+            this.SumMarks_label.AutoSize = true;
+            this.SumMarks_label.BackColor = System.Drawing.Color.LightGray;
+            this.tableLayoutPanel10.SetColumnSpan(this.SumMarks_label, 3);
+            this.SumMarks_label.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SumMarks_label.Font = new System.Drawing.Font("Rubik", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SumMarks_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SumMarks_label.Location = new System.Drawing.Point(278, 527);
+            this.SumMarks_label.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SumMarks_label.Name = "SumMarks_label";
+            this.SumMarks_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SumMarks_label.Size = new System.Drawing.Size(810, 30);
+            this.SumMarks_label.TabIndex = 540;
+            this.SumMarks_label.Text = "المجموع:";
+            this.SumMarks_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.tableLayoutPanel10.SetColumnSpan(this.label8, 4);
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(3, 20);
+            this.label8.Name = "label8";
+            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label8.Size = new System.Drawing.Size(1085, 45);
+            this.label8.TabIndex = 525;
+            this.label8.Text = "قياس الحاجة";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Marks_dataGridView
+            // 
+            this.Marks_dataGridView.AllowUserToAddRows = false;
+            this.Marks_dataGridView.AllowUserToDeleteRows = false;
+            this.Marks_dataGridView.AllowUserToOrderColumns = true;
+            this.Marks_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.visit_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.visit_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.visit_dataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.visit_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.visit_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.Marks_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Marks_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.Marks_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.Marks_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Marks_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Rubik", 10.8F);
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.visit_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.visit_dataGridView.ColumnHeadersHeight = 70;
-            this.visit_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.visit_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.V_Checklist_ID,
-            this.V_ID,
-            this.V_Name,
-            this.V_Notes,
-            this.V_DeleteRow,
-            this.V_InDataBase,
-            this.V_IsDirty});
-            this.tableLayoutPanel5.SetColumnSpan(this.visit_dataGridView, 2);
+            this.Marks_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.Marks_dataGridView.ColumnHeadersHeight = 70;
+            this.Marks_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.tableLayoutPanel10.SetColumnSpan(this.Marks_dataGridView, 4);
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Rubik", 10.8F);
@@ -1361,114 +1876,74 @@
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.visit_dataGridView.DefaultCellStyle = dataGridViewCellStyle10;
-            this.visit_dataGridView.EnableHeadersVisualStyles = false;
-            this.visit_dataGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.visit_dataGridView.Location = new System.Drawing.Point(316, 208);
-            this.visit_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.visit_dataGridView.MultiSelect = false;
-            this.visit_dataGridView.Name = "visit_dataGridView";
-            this.visit_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Marks_dataGridView.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Marks_dataGridView.EnableHeadersVisualStyles = false;
+            this.Marks_dataGridView.GridColor = System.Drawing.Color.DarkGray;
+            this.Marks_dataGridView.Location = new System.Drawing.Point(3, 89);
+            this.Marks_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Marks_dataGridView.MultiSelect = false;
+            this.Marks_dataGridView.Name = "Marks_dataGridView";
+            this.Marks_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             dataGridViewCellStyle11.Font = new System.Drawing.Font("Rubik", 10.8F);
-            this.visit_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.visit_dataGridView.RowHeadersVisible = false;
-            this.visit_dataGridView.RowHeadersWidth = 51;
+            this.Marks_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.Marks_dataGridView.RowHeadersVisible = false;
+            this.Marks_dataGridView.RowHeadersWidth = 51;
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.visit_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.visit_dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.visit_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.visit_dataGridView.RowTemplate.DividerHeight = 1;
-            this.visit_dataGridView.RowTemplate.Height = 35;
-            this.visit_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.visit_dataGridView.Size = new System.Drawing.Size(306, 33);
-            this.visit_dataGridView.TabIndex = 16;
-            this.visit_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.visit_dataGridView_CellContentClick);
-            this.visit_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.visit_dataGridView_CellPainting);
-            this.visit_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.keyperson_dataGridView_DataError);
+            this.Marks_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.Marks_dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Marks_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Marks_dataGridView.RowTemplate.DividerHeight = 1;
+            this.Marks_dataGridView.RowTemplate.Height = 35;
+            this.Marks_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.Marks_dataGridView.Size = new System.Drawing.Size(1085, 430);
+            this.Marks_dataGridView.TabIndex = 526;
             // 
-            // V_Checklist_ID
+            // Add_C_button
             // 
-            this.V_Checklist_ID.HeaderText = "V_Checklist_ID";
-            this.V_Checklist_ID.MinimumWidth = 6;
-            this.V_Checklist_ID.Name = "V_Checklist_ID";
-            this.V_Checklist_ID.Visible = false;
+            this.Add_C_button.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Add_C_button.BackColor = System.Drawing.Color.Transparent;
+            this.Add_C_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Add_C_button.BackgroundImage")));
+            this.Add_C_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Add_C_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Add_C_button.FlatAppearance.BorderSize = 0;
+            this.Add_C_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Add_C_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Add_C_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Add_C_button.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Add_C_button.ForeColor = System.Drawing.Color.White;
+            this.Add_C_button.Location = new System.Drawing.Point(40, 2164);
+            this.Add_C_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Add_C_button.MaximumSize = new System.Drawing.Size(29, 32);
+            this.Add_C_button.MinimumSize = new System.Drawing.Size(29, 32);
+            this.Add_C_button.Name = "Add_C_button";
+            this.Add_C_button.Size = new System.Drawing.Size(29, 32);
+            this.Add_C_button.TabIndex = 528;
+            this.Add_C_button.UseVisualStyleBackColor = false;
+            this.Add_C_button.Click += new System.EventHandler(this.Add_C_button_Click);
             // 
-            // V_ID
+            // Add_T_button
             // 
-            this.V_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.V_ID.HeaderText = "V_ID";
-            this.V_ID.MinimumWidth = 6;
-            this.V_ID.Name = "V_ID";
-            this.V_ID.Visible = false;
-            // 
-            // V_Name
-            // 
-            this.V_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.V_Name.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.V_Name.FillWeight = 30F;
-            this.V_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.V_Name.HeaderText = "الاسم";
-            this.V_Name.MinimumWidth = 6;
-            this.V_Name.Name = "V_Name";
-            this.V_Name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.V_Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // V_Notes
-            // 
-            this.V_Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.V_Notes.FillWeight = 78.35025F;
-            this.V_Notes.HeaderText = "ملاحظات";
-            this.V_Notes.MinimumWidth = 6;
-            this.V_Notes.Name = "V_Notes";
-            // 
-            // V_DeleteRow
-            // 
-            this.V_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.V_DeleteRow.FillWeight = 213.198F;
-            this.V_DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.V_DeleteRow.HeaderText = " ";
-            this.V_DeleteRow.MinimumWidth = 50;
-            this.V_DeleteRow.Name = "V_DeleteRow";
-            this.V_DeleteRow.Width = 50;
-            // 
-            // V_InDataBase
-            // 
-            this.V_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.V_InDataBase.HeaderText = "V_InDataBase";
-            this.V_InDataBase.MinimumWidth = 6;
-            this.V_InDataBase.Name = "V_InDataBase";
-            this.V_InDataBase.Visible = false;
-            // 
-            // V_IsDirty
-            // 
-            this.V_IsDirty.HeaderText = "V_IsDirty";
-            this.V_IsDirty.MinimumWidth = 6;
-            this.V_IsDirty.Name = "V_IsDirty";
-            this.V_IsDirty.Visible = false;
-            // 
-            // Add_V_button
-            // 
-            this.Add_V_button.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Add_V_button.BackColor = System.Drawing.Color.Transparent;
-            this.Add_V_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Add_V_button.BackgroundImage")));
-            this.Add_V_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Add_V_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.Add_V_button.FlatAppearance.BorderSize = 0;
-            this.Add_V_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Add_V_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Add_V_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Add_V_button.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Add_V_button.ForeColor = System.Drawing.Color.White;
-            this.Add_V_button.Location = new System.Drawing.Point(281, 208);
-            this.Add_V_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Add_V_button.MaximumSize = new System.Drawing.Size(29, 32);
-            this.Add_V_button.MinimumSize = new System.Drawing.Size(29, 32);
-            this.Add_V_button.Name = "Add_V_button";
-            this.Add_V_button.Size = new System.Drawing.Size(29, 32);
-            this.Add_V_button.TabIndex = 537;
-            this.Add_V_button.UseVisualStyleBackColor = false;
-            this.Add_V_button.Click += new System.EventHandler(this.Add_V_button_Click);
+            this.Add_T_button.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Add_T_button.BackColor = System.Drawing.Color.Transparent;
+            this.Add_T_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Add_T_button.BackgroundImage")));
+            this.Add_T_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Add_T_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Add_T_button.FlatAppearance.BorderSize = 0;
+            this.Add_T_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Add_T_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Add_T_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Add_T_button.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Add_T_button.ForeColor = System.Drawing.Color.White;
+            this.Add_T_button.Location = new System.Drawing.Point(40, 2204);
+            this.Add_T_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Add_T_button.MaximumSize = new System.Drawing.Size(29, 32);
+            this.Add_T_button.MinimumSize = new System.Drawing.Size(29, 32);
+            this.Add_T_button.Name = "Add_T_button";
+            this.Add_T_button.Size = new System.Drawing.Size(29, 32);
+            this.Add_T_button.TabIndex = 528;
+            this.Add_T_button.UseVisualStyleBackColor = false;
+            this.Add_T_button.Click += new System.EventHandler(this.Add_T_button_Click);
             // 
             // tableLayoutPanel14
             // 
@@ -1486,7 +1961,7 @@
             this.tableLayoutPanel14.Controls.Add(this.label1, 0, 15);
             this.tableLayoutPanel14.Controls.Add(this.keyperson_dataGridView, 0, 10);
             this.tableLayoutPanel14.Controls.Add(this.MainHeader2_label, 0, 8);
-            this.tableLayoutPanel14.Controls.Add(this.Person_Name_textBox, 3, 5);
+            this.tableLayoutPanel14.Controls.Add(this.Add_V_button, 4, 5);
             this.tableLayoutPanel14.Controls.Add(this.MicroProject_ID_textBox, 1, 5);
             this.tableLayoutPanel14.Controls.Add(this.MicroProject_ID_label, 0, 5);
             this.tableLayoutPanel14.Controls.Add(this.Career_textBox, 1, 6);
@@ -1495,6 +1970,7 @@
             this.tableLayoutPanel14.Controls.Add(this.label5, 2, 6);
             this.tableLayoutPanel14.Controls.Add(this.no_label, 0, 1);
             this.tableLayoutPanel14.Controls.Add(this.Add_K_button, 4, 6);
+            this.tableLayoutPanel14.Controls.Add(this.Beneficiary_comboBox, 3, 5);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel14.ForeColor = System.Drawing.Color.Black;
             this.tableLayoutPanel14.Location = new System.Drawing.Point(75, 0);
@@ -1570,15 +2046,14 @@
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label1.Location = new System.Drawing.Point(867, 524);
+            this.label1.Location = new System.Drawing.Point(919, 524);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tableLayoutPanel14.SetRowSpan(this.label1, 2);
-            this.label1.Size = new System.Drawing.Size(169, 84);
+            this.label1.Size = new System.Drawing.Size(169, 32);
             this.label1.TabIndex = 539;
             this.label1.Text = "ملاحظات وآراء أخرى:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1755,20 +2230,28 @@
             this.MainHeader2_label.Text = "الأشخاص المفتاحيين";
             this.MainHeader2_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Person_Name_textBox
+            // Add_V_button
             // 
-            this.Person_Name_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Person_Name_textBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.Person_Name_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.Person_Name_textBox.BackColor = System.Drawing.Color.White;
-            this.Person_Name_textBox.Location = new System.Drawing.Point(170, 165);
-            this.Person_Name_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Person_Name_textBox.Name = "Person_Name_textBox";
-            this.Person_Name_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Person_Name_textBox.Size = new System.Drawing.Size(268, 29);
-            this.Person_Name_textBox.TabIndex = 1;
-            this.Person_Name_textBox.TabStop = false;
-            this.Person_Name_textBox.Leave += new System.EventHandler(this.Person_Name_textBox_Leave);
+            this.Add_V_button.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Add_V_button.BackColor = System.Drawing.Color.Transparent;
+            this.Add_V_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Add_V_button.BackgroundImage")));
+            this.Add_V_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Add_V_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Add_V_button.FlatAppearance.BorderSize = 0;
+            this.Add_V_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Add_V_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Add_V_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Add_V_button.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Add_V_button.ForeColor = System.Drawing.Color.White;
+            this.Add_V_button.Location = new System.Drawing.Point(135, 164);
+            this.Add_V_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Add_V_button.MaximumSize = new System.Drawing.Size(29, 32);
+            this.Add_V_button.MinimumSize = new System.Drawing.Size(29, 32);
+            this.Add_V_button.Name = "Add_V_button";
+            this.Add_V_button.Size = new System.Drawing.Size(29, 32);
+            this.Add_V_button.TabIndex = 537;
+            this.Add_V_button.UseVisualStyleBackColor = false;
+            this.Add_V_button.Click += new System.EventHandler(this.Add_V_button_Click);
             // 
             // MicroProject_ID_textBox
             // 
@@ -1805,7 +2288,8 @@
             this.Career_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Career_textBox.Name = "Career_textBox";
             this.Career_textBox.Size = new System.Drawing.Size(240, 29);
-            this.Career_textBox.TabIndex = 540;
+            this.Career_textBox.TabIndex = 3;
+            this.Career_textBox.TabStop = false;
             // 
             // label4
             // 
@@ -1829,7 +2313,8 @@
             this.SubType_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubType_textBox.Name = "SubType_textBox";
             this.SubType_textBox.Size = new System.Drawing.Size(268, 29);
-            this.SubType_textBox.TabIndex = 542;
+            this.SubType_textBox.TabIndex = 4;
+            this.SubType_textBox.TabStop = false;
             // 
             // label5
             // 
@@ -1884,6 +2369,17 @@
             this.Add_K_button.UseVisualStyleBackColor = false;
             this.Add_K_button.Click += new System.EventHandler(this.Add_K_button_Click);
             // 
+            // Beneficiary_comboBox
+            // 
+            this.Beneficiary_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Beneficiary_comboBox.FormattingEnabled = true;
+            this.Beneficiary_comboBox.Location = new System.Drawing.Point(170, 168);
+            this.Beneficiary_comboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Beneficiary_comboBox.Name = "Beneficiary_comboBox";
+            this.Beneficiary_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Beneficiary_comboBox.Size = new System.Drawing.Size(268, 35);
+            this.Beneficiary_comboBox.TabIndex = 2;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -1933,6 +2429,14 @@
             this.Text = "CheckList_Form";
             this.Load += new System.EventHandler(this.CheckList_Form_Load);
             this.Main_panel.ResumeLayout(false);
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel11.PerformLayout();
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.tableLayoutPanel13.PerformLayout();
+            this.P_HasDebts_flowLayoutPanel.ResumeLayout(false);
+            this.P_HasDebts_flowLayoutPanel.PerformLayout();
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.tableLayoutPanel12.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
@@ -1950,7 +2454,9 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.visit_dataGridView)).EndInit();
+            this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Marks_dataGridView)).EndInit();
             this.tableLayoutPanel14.ResumeLayout(false);
             this.tableLayoutPanel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.keyperson_dataGridView)).EndInit();
@@ -1963,7 +2469,6 @@
 
         private System.Windows.Forms.Panel Main_panel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
-        private System.Windows.Forms.TextBox Person_Name_textBox;
         private System.Windows.Forms.Label MicroProject_ID_label;
         private System.Windows.Forms.TextBox MicroProject_ID_textBox;
         private System.Windows.Forms.Label Person_Name_label;
@@ -1983,13 +2488,11 @@
         private System.Windows.Forms.Button Add_C_button;
         private System.Windows.Forms.DataGridView team_dataGridView;
         private System.Windows.Forms.DataGridView commity_dataGridView;
-        private System.Windows.Forms.DataGridView visit_dataGridView;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.CheckBox VisitDate_checkBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.CheckBox TeamDate_checkBox;
-        private System.Windows.Forms.Button Add_V_button;
         private System.Windows.Forms.DateTimePicker VisitDate_dateTimePicker;
         private System.Windows.Forms.DateTimePicker TeamDate_dateTimePicker;
         private System.Windows.Forms.TextBox KeyPersonNotes_textBox;
@@ -2004,13 +2507,6 @@
         private System.Windows.Forms.DateTimePicker CommityDate_dateTimePicker;
         private System.Windows.Forms.CheckBox CommityDate_checkBox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn V_Checklist_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn V_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn V_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn V_Notes;
-        private System.Windows.Forms.DataGridViewButtonColumn V_DeleteRow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn V_InDataBase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn V_IsDirty;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Visits_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem payments_toolStripMenuItem;
@@ -2073,5 +2569,42 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label MainHeader7_label;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button Add_V_button;
+        private System.Windows.Forms.ComboBox Beneficiary_comboBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridView Marks_dataGridView;
+        private System.Windows.Forms.Label SumMarks_label;
+        private System.Windows.Forms.Label SumMarksValue_label;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label P_DebtsNote_label;
+        private System.Windows.Forms.TextBox P_DebtsNote_textBox;
+        private System.Windows.Forms.FlowLayoutPanel P_HasDebts_flowLayoutPanel;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.RadioButton P_HasDebtsYes_radioButton;
+        private System.Windows.Forms.RadioButton P_HasDebtsNo_radioButton;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label19;
     }
 }
