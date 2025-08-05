@@ -4183,7 +4183,7 @@ namespace MyWorkApplication
                 {
                     if (Zero_TO_Project || Direct_Full_Application)
                     {
-                        Query += " Update microproject set MP_ProgramUser_ID = @ProgramUser_ID , MP_EditedByUser_ID = null where MP_ID = @MicroProject_ID;";
+                        Query += " Update microproject set MP_ProgramUser_ID = @ProgramUser_ID , MP_EditedByUser_ID = null, ApplicationState = @ApplicationState where MP_ID = @MicroProject_ID;";
 
                         Query += " Update microproject_state set Current_State = 0 where MicroProject_ID = @MicroProject_ID;";
 
