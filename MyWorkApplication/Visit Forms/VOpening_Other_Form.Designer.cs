@@ -592,7 +592,7 @@
             this.tableLayoutPanel_o4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.tableLayoutPanel_o4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel_o4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel_o4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanel_o4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.tableLayoutPanel_o4.Controls.Add(this.o4_2_radioButton, 2, 0);
             this.tableLayoutPanel_o4.Controls.Add(this.o4_0_radioButton, 0, 0);
             this.tableLayoutPanel_o4.Controls.Add(this.o4_1_radioButton, 1, 0);
@@ -609,7 +609,7 @@
             // o4_2_radioButton
             // 
             this.o4_2_radioButton.AutoSize = true;
-            this.o4_2_radioButton.Location = new System.Drawing.Point(70, 4);
+            this.o4_2_radioButton.Location = new System.Drawing.Point(74, 4);
             this.o4_2_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o4_2_radioButton.Name = "o4_2_radioButton";
             this.o4_2_radioButton.Size = new System.Drawing.Size(74, 30);
@@ -633,7 +633,7 @@
             // o4_1_radioButton
             // 
             this.o4_1_radioButton.AutoSize = true;
-            this.o4_1_radioButton.Location = new System.Drawing.Point(161, 4);
+            this.o4_1_radioButton.Location = new System.Drawing.Point(163, 4);
             this.o4_1_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o4_1_radioButton.Name = "o4_1_radioButton";
             this.o4_1_radioButton.Size = new System.Drawing.Size(85, 30);
@@ -740,7 +740,7 @@
             this.tableLayoutPanel_o2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.tableLayoutPanel_o2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel_o2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel_o2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanel_o2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.tableLayoutPanel_o2.Controls.Add(this.o2_2_radioButton, 2, 0);
             this.tableLayoutPanel_o2.Controls.Add(this.o2_0_radioButton, 0, 0);
             this.tableLayoutPanel_o2.Controls.Add(this.o2_1_radioButton, 1, 0);
@@ -757,7 +757,7 @@
             // o2_2_radioButton
             // 
             this.o2_2_radioButton.AutoSize = true;
-            this.o2_2_radioButton.Location = new System.Drawing.Point(70, 4);
+            this.o2_2_radioButton.Location = new System.Drawing.Point(74, 4);
             this.o2_2_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o2_2_radioButton.Name = "o2_2_radioButton";
             this.o2_2_radioButton.Size = new System.Drawing.Size(74, 30);
@@ -781,7 +781,7 @@
             // o2_1_radioButton
             // 
             this.o2_1_radioButton.AutoSize = true;
-            this.o2_1_radioButton.Location = new System.Drawing.Point(161, 4);
+            this.o2_1_radioButton.Location = new System.Drawing.Point(163, 4);
             this.o2_1_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o2_1_radioButton.Name = "o2_1_radioButton";
             this.o2_1_radioButton.Size = new System.Drawing.Size(85, 30);
@@ -1206,6 +1206,7 @@
             this.LoanAmount_textBox1.Location = new System.Drawing.Point(420, 54);
             this.LoanAmount_textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LoanAmount_textBox1.Name = "LoanAmount_textBox1";
+            this.LoanAmount_textBox1.ReadOnly = true;
             this.LoanAmount_textBox1.Size = new System.Drawing.Size(183, 29);
             this.LoanAmount_textBox1.TabIndex = 4;
             this.LoanAmount_textBox1.TabStop = false;
@@ -1285,10 +1286,10 @@
             this.MicroProject_ID_textBox.Location = new System.Drawing.Point(783, 54);
             this.MicroProject_ID_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MicroProject_ID_textBox.Name = "MicroProject_ID_textBox";
+            this.MicroProject_ID_textBox.ReadOnly = true;
             this.MicroProject_ID_textBox.Size = new System.Drawing.Size(177, 29);
             this.MicroProject_ID_textBox.TabIndex = 2;
             this.MicroProject_ID_textBox.TabStop = false;
-            this.MicroProject_ID_textBox.Leave += new System.EventHandler(this.MicroProject_ID_textBox1_Leave);
             // 
             // Person_Name_label
             // 
@@ -1311,11 +1312,11 @@
             this.Person_Name_textBox.Location = new System.Drawing.Point(783, 100);
             this.Person_Name_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Person_Name_textBox.Name = "Person_Name_textBox";
+            this.Person_Name_textBox.ReadOnly = true;
             this.Person_Name_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Person_Name_textBox.Size = new System.Drawing.Size(177, 29);
             this.Person_Name_textBox.TabIndex = 1;
             this.Person_Name_textBox.TabStop = false;
-            this.Person_Name_textBox.Leave += new System.EventHandler(this.Person_Name_textBox1_Leave);
             // 
             // MP_Name_label
             // 
@@ -1342,6 +1343,7 @@
             this.MP_Name_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_Name_textBox.Size = new System.Drawing.Size(177, 29);
             this.MP_Name_textBox.TabIndex = 3;
+            this.MP_Name_textBox.TabStop = false;
             // 
             // label14
             // 
@@ -1697,7 +1699,7 @@
             this.tableLayoutPanel_o1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.tableLayoutPanel_o1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel_o1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel_o1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel_o1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanel_o1.Controls.Add(this.o1_2_radioButton, 2, 0);
             this.tableLayoutPanel_o1.Controls.Add(this.o1_0_radioButton, 0, 0);
             this.tableLayoutPanel_o1.Controls.Add(this.o1_1_radioButton, 1, 0);
@@ -1714,7 +1716,7 @@
             // o1_2_radioButton
             // 
             this.o1_2_radioButton.AutoSize = true;
-            this.o1_2_radioButton.Location = new System.Drawing.Point(68, 4);
+            this.o1_2_radioButton.Location = new System.Drawing.Point(72, 4);
             this.o1_2_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o1_2_radioButton.Name = "o1_2_radioButton";
             this.o1_2_radioButton.Size = new System.Drawing.Size(74, 30);
@@ -1738,7 +1740,7 @@
             // o1_1_radioButton
             // 
             this.o1_1_radioButton.AutoSize = true;
-            this.o1_1_radioButton.Location = new System.Drawing.Point(160, 4);
+            this.o1_1_radioButton.Location = new System.Drawing.Point(162, 4);
             this.o1_1_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o1_1_radioButton.Name = "o1_1_radioButton";
             this.o1_1_radioButton.Size = new System.Drawing.Size(85, 30);
