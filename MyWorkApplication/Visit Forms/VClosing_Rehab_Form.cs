@@ -386,7 +386,7 @@ namespace MyWorkApplication.Visit_Forms
 
                     }
                     else
-                    {
+                    { 
                         V_ID = v.Insert_Visit(MicroProject_ID, _KIND, visitDate, CreatedBy, Answers_Query, Visitors_Query);
                         Update_Mode = true;
                         MessageBox.Show("تم إدخال الزيارة بنجاح", "Confirmation");

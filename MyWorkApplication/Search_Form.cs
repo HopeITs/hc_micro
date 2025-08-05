@@ -392,7 +392,7 @@ namespace MyWorkApplication
                     = HomeStreet_label.Visible = ProjectStreet_label.Visible
                     = false;
 
-                ApplyDateFrom_label.Text = "Last Visit Date:";
+                ApplyDateFrom_label.Text = "Visit Date:";
                 from_label1.Visible = to_label1.Visible = year_label1.Visible =
                     ApplyDateFrom_label.Visible = ApplyDateFrom_dateTimePicker.Visible =
                     ApplyDateTo_DateTimePicker.Visible =
@@ -426,7 +426,7 @@ namespace MyWorkApplication
                     = true;
 
                 LastVisit_checkBox.Visible = true;
-                ApplyDateFrom_label.Text = "Last Visit Date:";
+                ApplyDateFrom_label.Text = "Visit Date:";
                 ApplyDateFrom_label.Visible = ApplyDateFrom_dateTimePicker.Visible =
                     ApplyDateTo_DateTimePicker.Visible =
                     FundedDateFrom_label.Visible = FundedDateFrom_DateTimePicker.Visible =
@@ -830,12 +830,7 @@ namespace MyWorkApplication
         public void Check_Conditions(string initial_cond)
         {
             condition = "";
-            condition += initial_cond;
-            //if (kind != "")
-            //{
-            //    if (kind == "Vehicles") condition += " and Category_ID in (1,2) ";
-            //    else condition += " and Category_ID not in (1,2) ";
-            //}
+            condition += initial_cond; 
 
             //Fund Type
             if (FundType_comboBox.Text != "" && FundType_comboBox.Visible)
@@ -923,20 +918,8 @@ namespace MyWorkApplication
             {
                 condition += " and maritalstatus.Name in ("
                     + Program.getSelectedItems_CheckboxComboBox(MaritalStatus_comboBox, true) + ")";
-            }
+            } 
 
-            //Apply Date
-            if (ApplyDate_comboBox.Text != "" && ApplyDate_checkBox.Visible)
-            {
-                condition += " and Year(MP_DateOfRequest) in ("
-                   + Program.getSelectedItems_CheckboxComboBox(ApplyDate_comboBox, true) + ")";
-            }
-            //Fund Date
-            if (FundDate_comboBox.Text != "" && FundDate_comboBox.Visible)
-            {
-                condition += " and Year(Loan_DateTaken) in ("
-                    + Program.getSelectedItems_CheckboxComboBox(FundDate_comboBox, true) + ")";
-            }
             //Age 
             if (Age_comboBox.Text != "" && Age_comboBox.Visible)
             {
@@ -969,7 +952,9 @@ namespace MyWorkApplication
             }
 
             //Apply Date
-            if (ApplyDate_condition != "")
+            if (ApplyDate_condition != "" 
+                && (SearchBy_comboBox.SelectedItem.ToString() != searchBy_list.ElementAt<string>(4))
+                && (SearchBy_comboBox.SelectedItem.ToString() != searchBy_list.ElementAt<string>(5))) //visits
                 condition += ApplyDate_condition;
 
             //Funded Date 

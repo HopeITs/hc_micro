@@ -403,48 +403,11 @@ namespace MyWorkApplication.Visit_Forms
 
         private void MicroProject_ID_textBox1_Leave(object sender, EventArgs e)
         {
-            if (MicroProject_ID_textBox.Text != "")
-            {
-                DataTable dt = new DataTable();
-                if (v.Has_Visit("", MicroProject_ID_textBox.Text, _KIND))
-                {
-                    Update_Mode = true;
-                    dt = v.Get_Visit("", "", MicroProject_ID_textBox.Text, _KIND);
-                }
-                else
-                {
-                    Update_Mode = false;
-                    dt = v.Get_Visit("", "", MicroProject_ID_textBox.Text, "");
-                }
-                clear_Visit_boxes(0);
 
-                if (dt != null)
-                    if (dt.Rows.Count > 0)
-                    {
-                        fill_visit_boxes(dt);
-                    }
-            }
         }
 
         private void Person_Name_textBox1_Leave(object sender, EventArgs e)
         {
-            if (Person_Name_textBox.Text != "")
-            {
-                DataTable dt = new DataTable();
-                if (v.Has_Visit("", Person_Name_textBox.Text, _KIND))
-                    dt = v.Get_Visit("", Person_Name_textBox.Text, "", _KIND);
-                else
-                    dt = v.Get_Visit("", Person_Name_textBox.Text, "", "");
-
-                clear_Visit_boxes(0);
-
-                if (dt != null)
-                    if (dt.Rows.Count > 0)
-                    {
-                        fill_visit_boxes(dt);
-                    }
-            }
-
 
         }
 
@@ -526,6 +489,10 @@ namespace MyWorkApplication.Visit_Forms
                 ////insert Section////
                 if (Update_Mode == false && V_ID == -1)
                 {
+                    //check if there is previous visit before inserting
+                    if (v.Has_Visit("", MicroProject_ID.ToString(), _KIND))
+                        throw new Exception("لا يمكن انشاء زيارة افتتاحية ثانية لهذا المشروع، لأنه يوجد زيارة سابقة");
+
                     v.Insert_Visit(MicroProject_ID, _KIND, "", VisitDate_dateTimePicker.Value.ToString("yyyy/MM/dd"),
                         Ans1_textBox.Text, Ans2_textBox.Text, Ans3_textBox.Text,
                         Ans4_textBox.Text, Ans5_textBox.Text, Ans6_textBox.Text, "", Indicatores_textBox.Text
