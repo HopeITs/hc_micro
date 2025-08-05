@@ -1168,6 +1168,8 @@ namespace MyWorkApplication
         {
             try
             {
+                Career_comboBox.DataSource = null;
+
                 if (SubCategory_comboBox.SelectedIndex >= 0)
                 {
                     DataTable Career_dt = ds.Tables[1].Copy();
@@ -1185,15 +1187,7 @@ namespace MyWorkApplication
                             if (selected_dt != null && selected_dt.Rows.Count > 0)
                                 Bind_ComboBox(Career_comboBox, selected_dt, false);
                         }
-                    }
-                    else
-                    {
-                        Career_comboBox.DataSource = null;
-                    }
-                }
-                else
-                {
-                    Career_comboBox.DataSource = null;
+                    }      
                 }
             }
             catch (Exception ex)
@@ -1224,6 +1218,8 @@ namespace MyWorkApplication
         {
             try
             {
+                SubType_comboBox.DataSource = null;
+
                 if (Type_comboBox.SelectedIndex >= 0)
                 {
                     DataTable SubType_dt = ds.Tables[3].Copy();
@@ -1243,14 +1239,6 @@ namespace MyWorkApplication
                                 Bind_ComboBox(SubType_comboBox, selected_dt, false);
                         }
                     }
-                    else
-                    {
-                        SubType_comboBox.DataSource = null;
-                    }
-                }
-                else
-                {
-                    SubType_comboBox.DataSource = null;
                 }
             }
             catch (Exception ex)
@@ -5542,7 +5530,14 @@ namespace MyWorkApplication
                         {
                             if (FamilyMember_dataGridView.Rows[i].Cells["P_HasWork"].Value.ToString() == "True")
                             {
-                                MessageBox.Show("الرجاء ملئ جدول طبيعة عمل عائلة المستفيد للأفراد الذين لديهم عمل", "Error");
+                                int PStateID = Int32.Parse(FamilyMember_dataGridView.Rows[i].Cells["P_State"].Value.ToString());
+
+                                string PStateType = ds.Tables[16].AsEnumerable()
+                                                 .Where(row => row.Field<int>("ID").Equals(PStateID) == true)
+                                                 .Select(row => row.Field<string>("Type"))
+                                                 .FirstOrDefault();
+
+                                MessageBox.Show("الرجاء ملئ جدول طبيعة عمل عائلة المستفيد للأفراد المقيمين الذين لديهم عمل", "Error");
                                 return;
                             }
                         }
