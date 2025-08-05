@@ -57,7 +57,8 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Kind_button = new System.Windows.Forms.Button();
             this.Beneficiary_comboBox = new System.Windows.Forms.ComboBox();
-            this.FundType_label = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.FundType_textBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_M)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_O)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_C)).BeginInit();
@@ -72,11 +73,11 @@
             this.VOpening_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VOpening_button.Font = new System.Drawing.Font("Rubik", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VOpening_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(96)))), ((int)(((byte)(96)))));
-            this.VOpening_button.Location = new System.Drawing.Point(375, 179);
+            this.VOpening_button.Location = new System.Drawing.Point(375, 192);
             this.VOpening_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.VOpening_button.MinimumSize = new System.Drawing.Size(153, 25);
             this.VOpening_button.Name = "VOpening_button";
-            this.VOpening_button.Size = new System.Drawing.Size(153, 54);
+            this.VOpening_button.Size = new System.Drawing.Size(153, 45);
             this.VOpening_button.TabIndex = 2;
             this.VOpening_button.Text = "+ Opening";
             this.VOpening_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -93,11 +94,11 @@
             this.VMonitoring_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VMonitoring_button.Font = new System.Drawing.Font("Rubik", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VMonitoring_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(96)))), ((int)(((byte)(96)))));
-            this.VMonitoring_button.Location = new System.Drawing.Point(375, 268);
+            this.VMonitoring_button.Location = new System.Drawing.Point(375, 257);
             this.VMonitoring_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.VMonitoring_button.MinimumSize = new System.Drawing.Size(153, 25);
             this.VMonitoring_button.Name = "VMonitoring_button";
-            this.VMonitoring_button.Size = new System.Drawing.Size(153, 54);
+            this.VMonitoring_button.Size = new System.Drawing.Size(153, 45);
             this.VMonitoring_button.TabIndex = 3;
             this.VMonitoring_button.Text = "+ Monitoring";
             this.VMonitoring_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -114,11 +115,11 @@
             this.VClosing_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VClosing_button.Font = new System.Drawing.Font("Rubik", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VClosing_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(96)))), ((int)(((byte)(96)))));
-            this.VClosing_button.Location = new System.Drawing.Point(377, 414);
+            this.VClosing_button.Location = new System.Drawing.Point(375, 427);
             this.VClosing_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.VClosing_button.MinimumSize = new System.Drawing.Size(153, 25);
             this.VClosing_button.Name = "VClosing_button";
-            this.VClosing_button.Size = new System.Drawing.Size(153, 54);
+            this.VClosing_button.Size = new System.Drawing.Size(153, 45);
             this.VClosing_button.TabIndex = 4;
             this.VClosing_button.Text = "+ Closing";
             this.VClosing_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -217,7 +218,7 @@
             this.dataGridView_M.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_M.EnableHeadersVisualStyles = false;
             this.dataGridView_M.GridColor = System.Drawing.Color.Gray;
-            this.dataGridView_M.Location = new System.Drawing.Point(104, 268);
+            this.dataGridView_M.Location = new System.Drawing.Point(104, 257);
             this.dataGridView_M.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView_M.Name = "dataGridView_M";
             this.dataGridView_M.ReadOnly = true;
@@ -233,7 +234,7 @@
             this.dataGridView_M.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView_M.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView_M.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_M.Size = new System.Drawing.Size(265, 118);
+            this.dataGridView_M.Size = new System.Drawing.Size(265, 148);
             this.dataGridView_M.TabIndex = 476;
             this.dataGridView_M.VirtualMode = true;
             this.dataGridView_M.Visible = false;
@@ -265,7 +266,7 @@
             this.dataGridView_O.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView_O.EnableHeadersVisualStyles = false;
             this.dataGridView_O.GridColor = System.Drawing.Color.Gray;
-            this.dataGridView_O.Location = new System.Drawing.Point(104, 179);
+            this.dataGridView_O.Location = new System.Drawing.Point(104, 192);
             this.dataGridView_O.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView_O.Name = "dataGridView_O";
             this.dataGridView_O.ReadOnly = true;
@@ -281,7 +282,7 @@
             this.dataGridView_O.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView_O.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView_O.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_O.Size = new System.Drawing.Size(265, 54);
+            this.dataGridView_O.Size = new System.Drawing.Size(265, 45);
             this.dataGridView_O.TabIndex = 477;
             this.dataGridView_O.Visible = false;
             this.dataGridView_O.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -312,7 +313,7 @@
             this.dataGridView_C.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView_C.EnableHeadersVisualStyles = false;
             this.dataGridView_C.GridColor = System.Drawing.Color.Gray;
-            this.dataGridView_C.Location = new System.Drawing.Point(104, 414);
+            this.dataGridView_C.Location = new System.Drawing.Point(104, 427);
             this.dataGridView_C.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView_C.Name = "dataGridView_C";
             this.dataGridView_C.ReadOnly = true;
@@ -328,7 +329,7 @@
             this.dataGridView_C.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView_C.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView_C.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_C.Size = new System.Drawing.Size(265, 54);
+            this.dataGridView_C.Size = new System.Drawing.Size(265, 45);
             this.dataGridView_C.TabIndex = 478;
             this.dataGridView_C.Visible = false;
             this.dataGridView_C.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
@@ -367,7 +368,7 @@
             // 
             this.Beneficiary_comboBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Beneficiary_comboBox.FormattingEnabled = true;
-            this.Beneficiary_comboBox.Location = new System.Drawing.Point(104, 94);
+            this.Beneficiary_comboBox.Location = new System.Drawing.Point(104, 96);
             this.Beneficiary_comboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Beneficiary_comboBox.Name = "Beneficiary_comboBox";
             this.Beneficiary_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -375,20 +376,33 @@
             this.Beneficiary_comboBox.TabIndex = 481;
             this.Beneficiary_comboBox.SelectedIndexChanged += new System.EventHandler(this.Beneficiary_comboBox_SelectedIndexChanged);
             // 
-            // FundType_label
+            // label3
             // 
-            this.FundType_label.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.FundType_label.AutoSize = true;
-            this.FundType_label.BackColor = System.Drawing.Color.White;
-            this.FundType_label.Font = new System.Drawing.Font("Somar Sans", 8F);
-            this.FundType_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.FundType_label.Location = new System.Drawing.Point(108, 68);
-            this.FundType_label.Name = "FundType_label";
-            this.FundType_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.FundType_label.Size = new System.Drawing.Size(39, 23);
-            this.FundType_label.TabIndex = 482;
-            this.FundType_label.Text = "منحة";
-            this.FundType_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label3.Location = new System.Drawing.Point(377, 137);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(130, 27);
+            this.label3.TabIndex = 483;
+            this.label3.Text = "طبيعة المشروع:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // FundType_textBox
+            // 
+            this.FundType_textBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.FundType_textBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.FundType_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.FundType_textBox.BackColor = System.Drawing.Color.White;
+            this.FundType_textBox.ForeColor = System.Drawing.Color.Black;
+            this.FundType_textBox.Location = new System.Drawing.Point(104, 137);
+            this.FundType_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FundType_textBox.Name = "FundType_textBox";
+            this.FundType_textBox.ReadOnly = true;
+            this.FundType_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FundType_textBox.Size = new System.Drawing.Size(265, 29);
+            this.FundType_textBox.TabIndex = 484;
             // 
             // ChooseVisitKind_Form
             // 
@@ -396,7 +410,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(579, 555);
-            this.Controls.Add(this.FundType_label);
+            this.Controls.Add(this.FundType_textBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.Beneficiary_comboBox);
             this.Controls.Add(this.Kind_button);
             this.Controls.Add(this.label2);
@@ -445,6 +460,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button Kind_button;
         private System.Windows.Forms.ComboBox Beneficiary_comboBox;
-        private System.Windows.Forms.Label FundType_label;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox FundType_textBox;
     }
 }

@@ -39,7 +39,8 @@ namespace MyWorkApplication.Visit_Forms
                 v = new Visit();
                 m_And_E = new M_and_E();
                 s = new Select();
-                FundType_label.Text = "";
+                //FundType_label.Text = "";
+                FundType_textBox.Text = "";
 
                 NewTheme NewTheme = new NewTheme();
                 if (Settings.Default.theme == "Light") NewTheme.ChooseVisit_ToLight(this);
@@ -127,7 +128,8 @@ namespace MyWorkApplication.Visit_Forms
 
                     type = fundtype = "";
                     type = dt_old1.Rows[0]["Type"].ToString();
-                    fundtype = FundType_label.Text = dt_old1.Rows[0]["FundType"].ToString();
+                    fundtype = dt_old1.Rows[0]["FundType"].ToString();
+                    FundType_textBox.Text = fundtype + " - " + type;
 
                     // Put background image of project kind
                     Kind_button.Visible = true;
@@ -168,6 +170,7 @@ namespace MyWorkApplication.Visit_Forms
                                     = dataGridView_O.Columns["Person_ID"].Visible
                                     = dataGridView_O.Columns["SubCategory_ID"].Visible
                                     = dataGridView_O.Columns["Kind"].Visible
+                                    = dataGridView_O.Columns["Type"].Visible
                                     = dataGridView_O.Columns["FundType"].Visible
                                     = dataGridView_O.Columns["V_ID"].Visible = false;
 
@@ -190,6 +193,7 @@ namespace MyWorkApplication.Visit_Forms
                                     = dataGridView_C.Columns["Person_ID"].Visible
                                     = dataGridView_C.Columns["SubCategory_ID"].Visible
                                     = dataGridView_C.Columns["Kind"].Visible
+                                    = dataGridView_C.Columns["Type"].Visible
                                     = dataGridView_C.Columns["FundType"].Visible
                                     = dataGridView_C.Columns["V_ID"].Visible = false;
 
@@ -214,6 +218,7 @@ namespace MyWorkApplication.Visit_Forms
                         = dataGridView_M.Columns["Beneficiary Name"].Visible
                         = dataGridView_M.Columns["Person_ID"].Visible
                         = dataGridView_M.Columns["SubCategory_ID"].Visible
+                        = dataGridView_M.Columns["Type"].Visible
                         = dataGridView_M.Columns["Kind"].Visible
                         = dataGridView_M.Columns["V_ID"].Visible = false;
                     dataGridView_M.Visible = true;

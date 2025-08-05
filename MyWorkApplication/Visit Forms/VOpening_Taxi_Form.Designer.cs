@@ -317,7 +317,7 @@
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.653313F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.912621F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(1241, 2004);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(1241, 1658);
             this.tableLayoutPanel14.TabIndex = 433;
             // 
             // tableLayoutPanel1
@@ -333,14 +333,14 @@
             this.tableLayoutPanel1.Controls.Add(this.label18, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.EditedBy_User_label, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(49, 1908);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(49, 1560);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1148, 49);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1148, 39);
             this.tableLayoutPanel1.TabIndex = 565;
             this.tableLayoutPanel1.TabStop = true;
             // 
@@ -349,7 +349,7 @@
             this.label33.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label33.AutoSize = true;
             this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label33.Location = new System.Drawing.Point(864, 10);
+            this.label33.Location = new System.Drawing.Point(864, 5);
             this.label33.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label33.Name = "label33";
             this.label33.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -362,7 +362,7 @@
             this.CreatedBy_User_label.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.CreatedBy_User_label.AutoSize = true;
             this.CreatedBy_User_label.BackColor = System.Drawing.Color.Transparent;
-            this.CreatedBy_User_label.Location = new System.Drawing.Point(858, 10);
+            this.CreatedBy_User_label.Location = new System.Drawing.Point(858, 5);
             this.CreatedBy_User_label.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreatedBy_User_label.MaximumSize = new System.Drawing.Size(275, 54);
             this.CreatedBy_User_label.Name = "CreatedBy_User_label";
@@ -375,7 +375,7 @@
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label18.Location = new System.Drawing.Point(290, 10);
+            this.label18.Location = new System.Drawing.Point(290, 5);
             this.label18.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label18.Name = "label18";
             this.label18.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -388,7 +388,7 @@
             this.EditedBy_User_label.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.EditedBy_User_label.AutoSize = true;
             this.EditedBy_User_label.BackColor = System.Drawing.Color.Transparent;
-            this.EditedBy_User_label.Location = new System.Drawing.Point(284, 10);
+            this.EditedBy_User_label.Location = new System.Drawing.Point(284, 5);
             this.EditedBy_User_label.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EditedBy_User_label.MaximumSize = new System.Drawing.Size(275, 54);
             this.EditedBy_User_label.Name = "EditedBy_User_label";
@@ -411,12 +411,12 @@
             this.tableLayoutPanel_o6.Controls.Add(this.o6_0_radioButton, 0, 0);
             this.tableLayoutPanel_o6.Controls.Add(this.o6_1_radioButton, 1, 0);
             this.tableLayoutPanel_o6.Controls.Add(this.o6_pictureBox, 3, 0);
-            this.tableLayoutPanel_o6.Location = new System.Drawing.Point(631, 1425);
+            this.tableLayoutPanel_o6.Location = new System.Drawing.Point(631, 1164);
             this.tableLayoutPanel_o6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel_o6.Name = "tableLayoutPanel_o6";
             this.tableLayoutPanel_o6.RowCount = 1;
             this.tableLayoutPanel_o6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_o6.Size = new System.Drawing.Size(367, 41);
+            this.tableLayoutPanel_o6.Size = new System.Drawing.Size(367, 32);
             this.tableLayoutPanel_o6.TabIndex = 40;
             this.tableLayoutPanel_o6.TabStop = true;
             // 
@@ -426,7 +426,7 @@
             this.o6_2_radioButton.Location = new System.Drawing.Point(70, 4);
             this.o6_2_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o6_2_radioButton.Name = "o6_2_radioButton";
-            this.o6_2_radioButton.Size = new System.Drawing.Size(74, 33);
+            this.o6_2_radioButton.Size = new System.Drawing.Size(74, 24);
             this.o6_2_radioButton.TabIndex = 3;
             this.o6_2_radioButton.TabStop = true;
             this.o6_2_radioButton.Text = "ممتاز";
@@ -438,7 +438,7 @@
             this.o6_0_radioButton.Location = new System.Drawing.Point(291, 4);
             this.o6_0_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o6_0_radioButton.Name = "o6_0_radioButton";
-            this.o6_0_radioButton.Size = new System.Drawing.Size(73, 33);
+            this.o6_0_radioButton.Size = new System.Drawing.Size(73, 24);
             this.o6_0_radioButton.TabIndex = 1;
             this.o6_0_radioButton.TabStop = true;
             this.o6_0_radioButton.Text = "سيء";
@@ -450,7 +450,7 @@
             this.o6_1_radioButton.Location = new System.Drawing.Point(169, 4);
             this.o6_1_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o6_1_radioButton.Name = "o6_1_radioButton";
-            this.o6_1_radioButton.Size = new System.Drawing.Size(85, 33);
+            this.o6_1_radioButton.Size = new System.Drawing.Size(85, 24);
             this.o6_1_radioButton.TabIndex = 2;
             this.o6_1_radioButton.TabStop = true;
             this.o6_1_radioButton.Text = "مقبول";
@@ -465,7 +465,7 @@
             this.o6_pictureBox.Location = new System.Drawing.Point(3, 4);
             this.o6_pictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o6_pictureBox.Name = "o6_pictureBox";
-            this.o6_pictureBox.Size = new System.Drawing.Size(30, 33);
+            this.o6_pictureBox.Size = new System.Drawing.Size(30, 24);
             this.o6_pictureBox.TabIndex = 499;
             this.o6_pictureBox.TabStop = false;
             this.toolTip1.SetToolTip(this.o6_pictureBox, "إلغاء التحديد");
@@ -486,12 +486,12 @@
             this.tableLayoutPanel_o5.Controls.Add(this.o5_0_radioButton, 0, 0);
             this.tableLayoutPanel_o5.Controls.Add(this.o5_1_radioButton, 1, 0);
             this.tableLayoutPanel_o5.Controls.Add(this.o5_pictureBox, 3, 0);
-            this.tableLayoutPanel_o5.Location = new System.Drawing.Point(631, 1376);
+            this.tableLayoutPanel_o5.Location = new System.Drawing.Point(631, 1124);
             this.tableLayoutPanel_o5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel_o5.Name = "tableLayoutPanel_o5";
             this.tableLayoutPanel_o5.RowCount = 1;
             this.tableLayoutPanel_o5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_o5.Size = new System.Drawing.Size(367, 41);
+            this.tableLayoutPanel_o5.Size = new System.Drawing.Size(367, 32);
             this.tableLayoutPanel_o5.TabIndex = 38;
             this.tableLayoutPanel_o5.TabStop = true;
             // 
@@ -501,7 +501,7 @@
             this.o5_2_radioButton.Location = new System.Drawing.Point(70, 4);
             this.o5_2_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o5_2_radioButton.Name = "o5_2_radioButton";
-            this.o5_2_radioButton.Size = new System.Drawing.Size(74, 33);
+            this.o5_2_radioButton.Size = new System.Drawing.Size(74, 24);
             this.o5_2_radioButton.TabIndex = 3;
             this.o5_2_radioButton.TabStop = true;
             this.o5_2_radioButton.Text = "ممتاز";
@@ -513,7 +513,7 @@
             this.o5_0_radioButton.Location = new System.Drawing.Point(291, 4);
             this.o5_0_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o5_0_radioButton.Name = "o5_0_radioButton";
-            this.o5_0_radioButton.Size = new System.Drawing.Size(73, 33);
+            this.o5_0_radioButton.Size = new System.Drawing.Size(73, 24);
             this.o5_0_radioButton.TabIndex = 1;
             this.o5_0_radioButton.TabStop = true;
             this.o5_0_radioButton.Text = "سيء";
@@ -525,7 +525,7 @@
             this.o5_1_radioButton.Location = new System.Drawing.Point(169, 4);
             this.o5_1_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o5_1_radioButton.Name = "o5_1_radioButton";
-            this.o5_1_radioButton.Size = new System.Drawing.Size(85, 33);
+            this.o5_1_radioButton.Size = new System.Drawing.Size(85, 24);
             this.o5_1_radioButton.TabIndex = 2;
             this.o5_1_radioButton.TabStop = true;
             this.o5_1_radioButton.Text = "مقبول";
@@ -540,7 +540,7 @@
             this.o5_pictureBox.Location = new System.Drawing.Point(3, 4);
             this.o5_pictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o5_pictureBox.Name = "o5_pictureBox";
-            this.o5_pictureBox.Size = new System.Drawing.Size(30, 33);
+            this.o5_pictureBox.Size = new System.Drawing.Size(30, 24);
             this.o5_pictureBox.TabIndex = 499;
             this.o5_pictureBox.TabStop = false;
             this.toolTip1.SetToolTip(this.o5_pictureBox, "إلغاء التحديد");
@@ -556,27 +556,27 @@
             this.tableLayoutPanel_o4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.tableLayoutPanel_o4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel_o4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel_o4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel_o4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel_o4.Controls.Add(this.o4_2_radioButton, 2, 0);
             this.tableLayoutPanel_o4.Controls.Add(this.o4_0_radioButton, 0, 0);
             this.tableLayoutPanel_o4.Controls.Add(this.o4_1_radioButton, 1, 0);
             this.tableLayoutPanel_o4.Controls.Add(this.o4_pictureBox, 3, 0);
-            this.tableLayoutPanel_o4.Location = new System.Drawing.Point(631, 1327);
+            this.tableLayoutPanel_o4.Location = new System.Drawing.Point(631, 1084);
             this.tableLayoutPanel_o4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel_o4.Name = "tableLayoutPanel_o4";
             this.tableLayoutPanel_o4.RowCount = 1;
             this.tableLayoutPanel_o4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_o4.Size = new System.Drawing.Size(367, 41);
+            this.tableLayoutPanel_o4.Size = new System.Drawing.Size(367, 32);
             this.tableLayoutPanel_o4.TabIndex = 36;
             this.tableLayoutPanel_o4.TabStop = true;
             // 
             // o4_2_radioButton
             // 
             this.o4_2_radioButton.AutoSize = true;
-            this.o4_2_radioButton.Location = new System.Drawing.Point(71, 4);
+            this.o4_2_radioButton.Location = new System.Drawing.Point(75, 4);
             this.o4_2_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o4_2_radioButton.Name = "o4_2_radioButton";
-            this.o4_2_radioButton.Size = new System.Drawing.Size(74, 33);
+            this.o4_2_radioButton.Size = new System.Drawing.Size(74, 24);
             this.o4_2_radioButton.TabIndex = 3;
             this.o4_2_radioButton.TabStop = true;
             this.o4_2_radioButton.Text = "ممتاز";
@@ -588,7 +588,7 @@
             this.o4_0_radioButton.Location = new System.Drawing.Point(291, 4);
             this.o4_0_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o4_0_radioButton.Name = "o4_0_radioButton";
-            this.o4_0_radioButton.Size = new System.Drawing.Size(73, 33);
+            this.o4_0_radioButton.Size = new System.Drawing.Size(73, 24);
             this.o4_0_radioButton.TabIndex = 1;
             this.o4_0_radioButton.TabStop = true;
             this.o4_0_radioButton.Text = "سيء";
@@ -597,10 +597,10 @@
             // o4_1_radioButton
             // 
             this.o4_1_radioButton.AutoSize = true;
-            this.o4_1_radioButton.Location = new System.Drawing.Point(170, 4);
+            this.o4_1_radioButton.Location = new System.Drawing.Point(172, 4);
             this.o4_1_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o4_1_radioButton.Name = "o4_1_radioButton";
-            this.o4_1_radioButton.Size = new System.Drawing.Size(85, 33);
+            this.o4_1_radioButton.Size = new System.Drawing.Size(85, 24);
             this.o4_1_radioButton.TabIndex = 2;
             this.o4_1_radioButton.TabStop = true;
             this.o4_1_radioButton.Text = "مقبول";
@@ -615,7 +615,7 @@
             this.o4_pictureBox.Location = new System.Drawing.Point(3, 4);
             this.o4_pictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o4_pictureBox.Name = "o4_pictureBox";
-            this.o4_pictureBox.Size = new System.Drawing.Size(30, 33);
+            this.o4_pictureBox.Size = new System.Drawing.Size(30, 24);
             this.o4_pictureBox.TabIndex = 499;
             this.o4_pictureBox.TabStop = false;
             this.toolTip1.SetToolTip(this.o4_pictureBox, "إلغاء التحديد");
@@ -631,27 +631,27 @@
             this.tableLayoutPanel_o3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel_o3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.23353F));
             this.tableLayoutPanel_o3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.53293F));
-            this.tableLayoutPanel_o3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel_o3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel_o3.Controls.Add(this.o3_2_radioButton, 2, 0);
             this.tableLayoutPanel_o3.Controls.Add(this.o3_0_radioButton, 0, 0);
             this.tableLayoutPanel_o3.Controls.Add(this.o3_1_radioButton, 1, 0);
             this.tableLayoutPanel_o3.Controls.Add(this.o3_pictureBox, 3, 0);
-            this.tableLayoutPanel_o3.Location = new System.Drawing.Point(631, 1278);
+            this.tableLayoutPanel_o3.Location = new System.Drawing.Point(631, 1044);
             this.tableLayoutPanel_o3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel_o3.Name = "tableLayoutPanel_o3";
             this.tableLayoutPanel_o3.RowCount = 1;
             this.tableLayoutPanel_o3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_o3.Size = new System.Drawing.Size(367, 41);
+            this.tableLayoutPanel_o3.Size = new System.Drawing.Size(367, 32);
             this.tableLayoutPanel_o3.TabIndex = 34;
             this.tableLayoutPanel_o3.TabStop = true;
             // 
             // o3_2_radioButton
             // 
             this.o3_2_radioButton.AutoSize = true;
-            this.o3_2_radioButton.Location = new System.Drawing.Point(71, 4);
+            this.o3_2_radioButton.Location = new System.Drawing.Point(75, 4);
             this.o3_2_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o3_2_radioButton.Name = "o3_2_radioButton";
-            this.o3_2_radioButton.Size = new System.Drawing.Size(74, 33);
+            this.o3_2_radioButton.Size = new System.Drawing.Size(74, 24);
             this.o3_2_radioButton.TabIndex = 3;
             this.o3_2_radioButton.TabStop = true;
             this.o3_2_radioButton.Text = "ممتاز";
@@ -663,7 +663,7 @@
             this.o3_0_radioButton.Location = new System.Drawing.Point(291, 4);
             this.o3_0_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o3_0_radioButton.Name = "o3_0_radioButton";
-            this.o3_0_radioButton.Size = new System.Drawing.Size(73, 33);
+            this.o3_0_radioButton.Size = new System.Drawing.Size(73, 24);
             this.o3_0_radioButton.TabIndex = 1;
             this.o3_0_radioButton.TabStop = true;
             this.o3_0_radioButton.Text = "سيء";
@@ -672,10 +672,10 @@
             // o3_1_radioButton
             // 
             this.o3_1_radioButton.AutoSize = true;
-            this.o3_1_radioButton.Location = new System.Drawing.Point(169, 4);
+            this.o3_1_radioButton.Location = new System.Drawing.Point(171, 4);
             this.o3_1_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o3_1_radioButton.Name = "o3_1_radioButton";
-            this.o3_1_radioButton.Size = new System.Drawing.Size(85, 33);
+            this.o3_1_radioButton.Size = new System.Drawing.Size(85, 24);
             this.o3_1_radioButton.TabIndex = 2;
             this.o3_1_radioButton.TabStop = true;
             this.o3_1_radioButton.Text = "مقبول";
@@ -690,7 +690,7 @@
             this.o3_pictureBox.Location = new System.Drawing.Point(3, 4);
             this.o3_pictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o3_pictureBox.Name = "o3_pictureBox";
-            this.o3_pictureBox.Size = new System.Drawing.Size(30, 33);
+            this.o3_pictureBox.Size = new System.Drawing.Size(30, 24);
             this.o3_pictureBox.TabIndex = 499;
             this.o3_pictureBox.TabStop = false;
             this.toolTip1.SetToolTip(this.o3_pictureBox, "إلغاء التحديد");
@@ -706,27 +706,27 @@
             this.tableLayoutPanel_o2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.tableLayoutPanel_o2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel_o2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel_o2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel_o2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel_o2.Controls.Add(this.o2_2_radioButton, 2, 0);
             this.tableLayoutPanel_o2.Controls.Add(this.o2_0_radioButton, 0, 0);
             this.tableLayoutPanel_o2.Controls.Add(this.o2_1_radioButton, 1, 0);
             this.tableLayoutPanel_o2.Controls.Add(this.o2_pictureBox, 3, 0);
-            this.tableLayoutPanel_o2.Location = new System.Drawing.Point(631, 1229);
+            this.tableLayoutPanel_o2.Location = new System.Drawing.Point(631, 1004);
             this.tableLayoutPanel_o2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel_o2.Name = "tableLayoutPanel_o2";
             this.tableLayoutPanel_o2.RowCount = 1;
             this.tableLayoutPanel_o2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_o2.Size = new System.Drawing.Size(367, 41);
+            this.tableLayoutPanel_o2.Size = new System.Drawing.Size(367, 32);
             this.tableLayoutPanel_o2.TabIndex = 32;
             this.tableLayoutPanel_o2.TabStop = true;
             // 
             // o2_2_radioButton
             // 
             this.o2_2_radioButton.AutoSize = true;
-            this.o2_2_radioButton.Location = new System.Drawing.Point(69, 4);
+            this.o2_2_radioButton.Location = new System.Drawing.Point(73, 4);
             this.o2_2_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o2_2_radioButton.Name = "o2_2_radioButton";
-            this.o2_2_radioButton.Size = new System.Drawing.Size(74, 33);
+            this.o2_2_radioButton.Size = new System.Drawing.Size(74, 24);
             this.o2_2_radioButton.TabIndex = 3;
             this.o2_2_radioButton.TabStop = true;
             this.o2_2_radioButton.Text = "ممتاز";
@@ -738,7 +738,7 @@
             this.o2_0_radioButton.Location = new System.Drawing.Point(291, 4);
             this.o2_0_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o2_0_radioButton.Name = "o2_0_radioButton";
-            this.o2_0_radioButton.Size = new System.Drawing.Size(73, 33);
+            this.o2_0_radioButton.Size = new System.Drawing.Size(73, 24);
             this.o2_0_radioButton.TabIndex = 1;
             this.o2_0_radioButton.TabStop = true;
             this.o2_0_radioButton.Text = "سيء";
@@ -747,10 +747,10 @@
             // o2_1_radioButton
             // 
             this.o2_1_radioButton.AutoSize = true;
-            this.o2_1_radioButton.Location = new System.Drawing.Point(169, 4);
+            this.o2_1_radioButton.Location = new System.Drawing.Point(171, 4);
             this.o2_1_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o2_1_radioButton.Name = "o2_1_radioButton";
-            this.o2_1_radioButton.Size = new System.Drawing.Size(85, 33);
+            this.o2_1_radioButton.Size = new System.Drawing.Size(85, 24);
             this.o2_1_radioButton.TabIndex = 2;
             this.o2_1_radioButton.TabStop = true;
             this.o2_1_radioButton.Text = "مقبول";
@@ -765,7 +765,7 @@
             this.o2_pictureBox.Location = new System.Drawing.Point(3, 4);
             this.o2_pictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o2_pictureBox.Name = "o2_pictureBox";
-            this.o2_pictureBox.Size = new System.Drawing.Size(28, 33);
+            this.o2_pictureBox.Size = new System.Drawing.Size(28, 24);
             this.o2_pictureBox.TabIndex = 499;
             this.o2_pictureBox.TabStop = false;
             this.toolTip1.SetToolTip(this.o2_pictureBox, "إلغاء التحديد");
@@ -779,13 +779,13 @@
             this.Ans3_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.SetColumnSpan(this.Ans3_textBox, 4);
             this.Ans3_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Ans3_textBox.Location = new System.Drawing.Point(49, 593);
+            this.Ans3_textBox.Location = new System.Drawing.Point(49, 485);
             this.Ans3_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Ans3_textBox.Multiline = true;
             this.Ans3_textBox.Name = "Ans3_textBox";
             this.Ans3_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel14.SetRowSpan(this.Ans3_textBox, 2);
-            this.Ans3_textBox.Size = new System.Drawing.Size(746, 88);
+            this.Ans3_textBox.Size = new System.Drawing.Size(746, 70);
             this.Ans3_textBox.TabIndex = 17;
             // 
             // label9
@@ -794,7 +794,7 @@
             this.label9.AutoSize = true;
             this.tableLayoutPanel14.SetColumnSpan(this.label9, 3);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label9.Location = new System.Drawing.Point(631, 1480);
+            this.label9.Location = new System.Drawing.Point(631, 1205);
             this.label9.Name = "label9";
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label9.Size = new System.Drawing.Size(308, 29);
@@ -806,7 +806,7 @@
             this.Office6_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Office6_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.SetColumnSpan(this.Office6_textBox, 3);
-            this.Office6_textBox.Location = new System.Drawing.Point(49, 1431);
+            this.Office6_textBox.Location = new System.Drawing.Point(49, 1165);
             this.Office6_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Office6_textBox.Name = "Office6_textBox";
             this.Office6_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -818,7 +818,7 @@
             this.Office5_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Office5_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.SetColumnSpan(this.Office5_textBox, 3);
-            this.Office5_textBox.Location = new System.Drawing.Point(49, 1382);
+            this.Office5_textBox.Location = new System.Drawing.Point(49, 1125);
             this.Office5_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Office5_textBox.Name = "Office5_textBox";
             this.Office5_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -830,7 +830,7 @@
             this.Office2_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Office2_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.SetColumnSpan(this.Office2_textBox, 3);
-            this.Office2_textBox.Location = new System.Drawing.Point(49, 1235);
+            this.Office2_textBox.Location = new System.Drawing.Point(49, 1005);
             this.Office2_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Office2_textBox.Name = "Office2_textBox";
             this.Office2_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -842,7 +842,7 @@
             this.Office4_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Office4_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.SetColumnSpan(this.Office4_textBox, 3);
-            this.Office4_textBox.Location = new System.Drawing.Point(49, 1333);
+            this.Office4_textBox.Location = new System.Drawing.Point(49, 1085);
             this.Office4_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Office4_textBox.Name = "Office4_textBox";
             this.Office4_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -854,7 +854,7 @@
             this.Office3_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Office3_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.SetColumnSpan(this.Office3_textBox, 3);
-            this.Office3_textBox.Location = new System.Drawing.Point(49, 1284);
+            this.Office3_textBox.Location = new System.Drawing.Point(49, 1045);
             this.Office3_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Office3_textBox.Name = "Office3_textBox";
             this.Office3_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -866,7 +866,7 @@
             this.Office1_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Office1_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.SetColumnSpan(this.Office1_textBox, 3);
-            this.Office1_textBox.Location = new System.Drawing.Point(49, 1186);
+            this.Office1_textBox.Location = new System.Drawing.Point(49, 965);
             this.Office1_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Office1_textBox.Name = "Office1_textBox";
             this.Office1_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -879,7 +879,7 @@
             this.StartTime_label.AutoSize = true;
             this.tableLayoutPanel14.SetColumnSpan(this.StartTime_label, 6);
             this.StartTime_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.StartTime_label.Location = new System.Drawing.Point(380, 255);
+            this.StartTime_label.Location = new System.Drawing.Point(380, 205);
             this.StartTime_label.Name = "StartTime_label";
             this.StartTime_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartTime_label.Size = new System.Drawing.Size(817, 29);
@@ -893,7 +893,7 @@
             this.PurchaseItemsBudget_label.AutoSize = true;
             this.tableLayoutPanel14.SetColumnSpan(this.PurchaseItemsBudget_label, 6);
             this.PurchaseItemsBudget_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.PurchaseItemsBudget_label.Location = new System.Drawing.Point(395, 696);
+            this.PurchaseItemsBudget_label.Location = new System.Drawing.Point(395, 565);
             this.PurchaseItemsBudget_label.Name = "PurchaseItemsBudget_label";
             this.PurchaseItemsBudget_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.PurchaseItemsBudget_label.Size = new System.Drawing.Size(802, 29);
@@ -909,13 +909,13 @@
             this.OtherComments_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.SetColumnSpan(this.OtherComments_textBox, 3);
             this.OtherComments_textBox.ForeColor = System.Drawing.Color.Black;
-            this.OtherComments_textBox.Location = new System.Drawing.Point(49, 1475);
+            this.OtherComments_textBox.Location = new System.Drawing.Point(49, 1205);
             this.OtherComments_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.OtherComments_textBox.Multiline = true;
             this.OtherComments_textBox.Name = "OtherComments_textBox";
             this.OtherComments_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel14.SetRowSpan(this.OtherComments_textBox, 2);
-            this.OtherComments_textBox.Size = new System.Drawing.Size(576, 88);
+            this.OtherComments_textBox.Size = new System.Drawing.Size(576, 70);
             this.OtherComments_textBox.TabIndex = 42;
             // 
             // VisitDate_dateTimePicker
@@ -926,7 +926,7 @@
             this.VisitDate_dateTimePicker.CustomFormat = "yyyy/MM/dd";
             this.VisitDate_dateTimePicker.ForeColor = System.Drawing.Color.Black;
             this.VisitDate_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.VisitDate_dateTimePicker.Location = new System.Drawing.Point(433, 157);
+            this.VisitDate_dateTimePicker.Location = new System.Drawing.Point(433, 125);
             this.VisitDate_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.VisitDate_dateTimePicker.Name = "VisitDate_dateTimePicker";
             this.VisitDate_dateTimePicker.RightToLeftLayout = true;
@@ -940,13 +940,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Ans4_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.SetColumnSpan(this.Ans4_textBox, 5);
-            this.Ans4_textBox.Location = new System.Drawing.Point(49, 740);
+            this.Ans4_textBox.Location = new System.Drawing.Point(49, 605);
             this.Ans4_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Ans4_textBox.Multiline = true;
             this.Ans4_textBox.Name = "Ans4_textBox";
             this.Ans4_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel14.SetRowSpan(this.Ans4_textBox, 2);
-            this.Ans4_textBox.Size = new System.Drawing.Size(949, 88);
+            this.Ans4_textBox.Size = new System.Drawing.Size(949, 70);
             this.Ans4_textBox.TabIndex = 19;
             // 
             // Users_tableLayoutPanel
@@ -962,13 +962,13 @@
             this.Users_tableLayoutPanel.Controls.Add(this.V2_comboBox, 1, 0);
             this.Users_tableLayoutPanel.Controls.Add(this.V1_comboBox, 0, 0);
             this.Users_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Users_tableLayoutPanel.Location = new System.Drawing.Point(49, 1777);
+            this.Users_tableLayoutPanel.Location = new System.Drawing.Point(49, 1452);
             this.Users_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Users_tableLayoutPanel.Name = "Users_tableLayoutPanel";
             this.Users_tableLayoutPanel.RowCount = 1;
             this.Users_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.Users_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
-            this.Users_tableLayoutPanel.Size = new System.Drawing.Size(1148, 51);
+            this.Users_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.Users_tableLayoutPanel.Size = new System.Drawing.Size(1148, 41);
             this.Users_tableLayoutPanel.TabIndex = 44;
             this.Users_tableLayoutPanel.TabStop = true;
             // 
@@ -1062,7 +1062,7 @@
             this.Visitors_label.AutoSize = true;
             this.tableLayoutPanel14.SetColumnSpan(this.Visitors_label, 6);
             this.Visitors_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Visitors_label.Location = new System.Drawing.Point(1032, 1730);
+            this.Visitors_label.Location = new System.Drawing.Point(1032, 1410);
             this.Visitors_label.Name = "Visitors_label";
             this.Visitors_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Visitors_label.Size = new System.Drawing.Size(165, 29);
@@ -1081,13 +1081,13 @@
             this.tableLayoutPanel2.Controls.Add(this.Delete_button, 2, 0);
             this.tableLayoutPanel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 1836);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 1501);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1235, 64);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1235, 51);
             this.tableLayoutPanel2.TabIndex = 50;
             this.tableLayoutPanel2.TabStop = true;
             // 
@@ -1104,10 +1104,10 @@
             this.Save_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Save_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save_button.ForeColor = System.Drawing.Color.Black;
-            this.Save_button.Location = new System.Drawing.Point(641, 9);
+            this.Save_button.Location = new System.Drawing.Point(641, 4);
             this.Save_button.Margin = new System.Windows.Forms.Padding(3, 4, 22, 4);
             this.Save_button.Name = "Save_button";
-            this.Save_button.Size = new System.Drawing.Size(132, 51);
+            this.Save_button.Size = new System.Drawing.Size(132, 43);
             this.Save_button.TabIndex = 50;
             this.Save_button.UseVisualStyleBackColor = false;
             this.Save_button.Click += new System.EventHandler(this.Save_button_Click);
@@ -1127,10 +1127,10 @@
             this.Delete_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Delete_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete_button.ForeColor = System.Drawing.Color.Black;
-            this.Delete_button.Location = new System.Drawing.Point(465, 9);
+            this.Delete_button.Location = new System.Drawing.Point(465, 4);
             this.Delete_button.Margin = new System.Windows.Forms.Padding(22, 4, 3, 4);
             this.Delete_button.Name = "Delete_button";
-            this.Delete_button.Size = new System.Drawing.Size(132, 51);
+            this.Delete_button.Size = new System.Drawing.Size(132, 43);
             this.Delete_button.TabIndex = 51;
             this.Delete_button.UseVisualStyleBackColor = false;
             this.Delete_button.Click += new System.EventHandler(this.Delete_button_Click);
@@ -1143,7 +1143,7 @@
             this.label1.AutoSize = true;
             this.tableLayoutPanel14.SetColumnSpan(this.label1, 6);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label1.Location = new System.Drawing.Point(311, 1137);
+            this.label1.Location = new System.Drawing.Point(311, 925);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(886, 29);
@@ -1156,7 +1156,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label2.Location = new System.Drawing.Point(1004, 1186);
+            this.label2.Location = new System.Drawing.Point(1004, 965);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(93, 29);
@@ -1168,7 +1168,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label3.Location = new System.Drawing.Point(1004, 1235);
+            this.label3.Location = new System.Drawing.Point(1004, 1005);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label3.Size = new System.Drawing.Size(72, 29);
@@ -1180,7 +1180,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label5.Location = new System.Drawing.Point(1004, 1284);
+            this.label5.Location = new System.Drawing.Point(1004, 1045);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label5.Size = new System.Drawing.Size(63, 29);
@@ -1192,7 +1192,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label6.Location = new System.Drawing.Point(1004, 1333);
+            this.label6.Location = new System.Drawing.Point(1004, 1085);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label6.Size = new System.Drawing.Size(84, 29);
@@ -1204,7 +1204,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label7.Location = new System.Drawing.Point(1004, 1382);
+            this.label7.Location = new System.Drawing.Point(1004, 1125);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label7.Size = new System.Drawing.Size(99, 29);
@@ -1216,7 +1216,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label8.Location = new System.Drawing.Point(1004, 1431);
+            this.label8.Location = new System.Drawing.Point(1004, 1165);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label8.Size = new System.Drawing.Size(75, 29);
@@ -1229,7 +1229,7 @@
             this.label4.AutoSize = true;
             this.tableLayoutPanel14.SetColumnSpan(this.label4, 6);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label4.Location = new System.Drawing.Point(909, 1578);
+            this.label4.Location = new System.Drawing.Point(909, 1285);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(288, 29);
@@ -1244,13 +1244,13 @@
             this.Indicatores_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.SetColumnSpan(this.Indicatores_textBox, 6);
             this.Indicatores_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Indicatores_textBox.Location = new System.Drawing.Point(49, 1622);
+            this.Indicatores_textBox.Location = new System.Drawing.Point(49, 1325);
             this.Indicatores_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Indicatores_textBox.Multiline = true;
             this.Indicatores_textBox.Name = "Indicatores_textBox";
             this.Indicatores_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel14.SetRowSpan(this.Indicatores_textBox, 2);
-            this.Indicatores_textBox.Size = new System.Drawing.Size(1148, 89);
+            this.Indicatores_textBox.Size = new System.Drawing.Size(1148, 71);
             this.Indicatores_textBox.TabIndex = 43;
             // 
             // LoanAmount_label
@@ -1258,7 +1258,7 @@
             this.LoanAmount_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.LoanAmount_label.AutoSize = true;
             this.LoanAmount_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.LoanAmount_label.Location = new System.Drawing.Point(631, 59);
+            this.LoanAmount_label.Location = new System.Drawing.Point(631, 45);
             this.LoanAmount_label.Name = "LoanAmount_label";
             this.LoanAmount_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LoanAmount_label.Size = new System.Drawing.Size(125, 29);
@@ -1270,9 +1270,10 @@
             // 
             this.LoanAmount_textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LoanAmount_textBox1.BackColor = System.Drawing.Color.White;
-            this.LoanAmount_textBox1.Location = new System.Drawing.Point(433, 59);
+            this.LoanAmount_textBox1.Location = new System.Drawing.Point(433, 45);
             this.LoanAmount_textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LoanAmount_textBox1.Name = "LoanAmount_textBox1";
+            this.LoanAmount_textBox1.ReadOnly = true;
             this.LoanAmount_textBox1.Size = new System.Drawing.Size(192, 29);
             this.LoanAmount_textBox1.TabIndex = 4;
             this.LoanAmount_textBox1.TabStop = false;
@@ -1282,7 +1283,7 @@
             this.VisitDate_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.VisitDate_label.AutoSize = true;
             this.VisitDate_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.VisitDate_label.Location = new System.Drawing.Point(631, 157);
+            this.VisitDate_label.Location = new System.Drawing.Point(631, 125);
             this.VisitDate_label.Name = "VisitDate_label";
             this.VisitDate_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.VisitDate_label.Size = new System.Drawing.Size(103, 29);
@@ -1296,7 +1297,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Rubik", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label15.Location = new System.Drawing.Point(269, 158);
+            this.label15.Location = new System.Drawing.Point(269, 126);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(147, 27);
             this.label15.TabIndex = 491;
@@ -1308,7 +1309,7 @@
             this.LoanDate_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.LoanDate_label.AutoSize = true;
             this.LoanDate_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.LoanDate_label.Location = new System.Drawing.Point(631, 108);
+            this.LoanDate_label.Location = new System.Drawing.Point(631, 85);
             this.LoanDate_label.Name = "LoanDate_label";
             this.LoanDate_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LoanDate_label.Size = new System.Drawing.Size(154, 29);
@@ -1324,7 +1325,7 @@
             this.LoanDate_dateTimePicker.CustomFormat = "yyyy/MM/dd";
             this.LoanDate_dateTimePicker.ForeColor = System.Drawing.Color.Black;
             this.LoanDate_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.LoanDate_dateTimePicker.Location = new System.Drawing.Point(433, 108);
+            this.LoanDate_dateTimePicker.Location = new System.Drawing.Point(433, 85);
             this.LoanDate_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LoanDate_dateTimePicker.Name = "LoanDate_dateTimePicker";
             this.LoanDate_dateTimePicker.RightToLeftLayout = true;
@@ -1337,7 +1338,7 @@
             this.MicroProject_ID_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.MicroProject_ID_label.AutoSize = true;
             this.MicroProject_ID_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.MicroProject_ID_label.Location = new System.Drawing.Point(1004, 59);
+            this.MicroProject_ID_label.Location = new System.Drawing.Point(1004, 45);
             this.MicroProject_ID_label.Name = "MicroProject_ID_label";
             this.MicroProject_ID_label.Size = new System.Drawing.Size(115, 29);
             this.MicroProject_ID_label.TabIndex = 0;
@@ -1350,20 +1351,20 @@
             this.MicroProject_ID_textBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.MicroProject_ID_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.MicroProject_ID_textBox.BackColor = System.Drawing.Color.White;
-            this.MicroProject_ID_textBox.Location = new System.Drawing.Point(801, 59);
+            this.MicroProject_ID_textBox.Location = new System.Drawing.Point(801, 45);
             this.MicroProject_ID_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MicroProject_ID_textBox.Name = "MicroProject_ID_textBox";
+            this.MicroProject_ID_textBox.ReadOnly = true;
             this.MicroProject_ID_textBox.Size = new System.Drawing.Size(197, 29);
             this.MicroProject_ID_textBox.TabIndex = 2;
             this.MicroProject_ID_textBox.TabStop = false;
-            this.MicroProject_ID_textBox.Leave += new System.EventHandler(this.MicroProject_ID_textBox1_Leave);
             // 
             // Person_Name_label
             // 
             this.Person_Name_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Person_Name_label.AutoSize = true;
             this.Person_Name_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Person_Name_label.Location = new System.Drawing.Point(1004, 108);
+            this.Person_Name_label.Location = new System.Drawing.Point(1004, 85);
             this.Person_Name_label.Name = "Person_Name_label";
             this.Person_Name_label.Size = new System.Drawing.Size(127, 29);
             this.Person_Name_label.TabIndex = 15;
@@ -1376,21 +1377,21 @@
             this.Person_Name_textBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.Person_Name_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.Person_Name_textBox.BackColor = System.Drawing.Color.White;
-            this.Person_Name_textBox.Location = new System.Drawing.Point(801, 108);
+            this.Person_Name_textBox.Location = new System.Drawing.Point(801, 85);
             this.Person_Name_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Person_Name_textBox.Name = "Person_Name_textBox";
+            this.Person_Name_textBox.ReadOnly = true;
             this.Person_Name_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Person_Name_textBox.Size = new System.Drawing.Size(197, 29);
             this.Person_Name_textBox.TabIndex = 1;
             this.Person_Name_textBox.TabStop = false;
-            this.Person_Name_textBox.Leave += new System.EventHandler(this.Person_Name_textBox1_Leave);
             // 
             // MP_Name_label
             // 
             this.MP_Name_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.MP_Name_label.AutoSize = true;
             this.MP_Name_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.MP_Name_label.Location = new System.Drawing.Point(1004, 157);
+            this.MP_Name_label.Location = new System.Drawing.Point(1004, 125);
             this.MP_Name_label.Name = "MP_Name_label";
             this.MP_Name_label.Size = new System.Drawing.Size(121, 29);
             this.MP_Name_label.TabIndex = 489;
@@ -1403,20 +1404,21 @@
             this.MP_Name_textBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.MP_Name_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.MP_Name_textBox.BackColor = System.Drawing.Color.White;
-            this.MP_Name_textBox.Location = new System.Drawing.Point(801, 157);
+            this.MP_Name_textBox.Location = new System.Drawing.Point(801, 125);
             this.MP_Name_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MP_Name_textBox.Name = "MP_Name_textBox";
             this.MP_Name_textBox.ReadOnly = true;
             this.MP_Name_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_Name_textBox.Size = new System.Drawing.Size(197, 29);
             this.MP_Name_textBox.TabIndex = 3;
+            this.MP_Name_textBox.TabStop = false;
             // 
             // label14
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label14.Location = new System.Drawing.Point(269, 108);
+            this.label14.Location = new System.Drawing.Point(269, 85);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(102, 29);
             this.label14.TabIndex = 490;
@@ -1429,7 +1431,7 @@
             this.VehicleNumber_textBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.VehicleNumber_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.VehicleNumber_textBox.BackColor = System.Drawing.Color.White;
-            this.VehicleNumber_textBox.Location = new System.Drawing.Point(49, 157);
+            this.VehicleNumber_textBox.Location = new System.Drawing.Point(49, 125);
             this.VehicleNumber_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.VehicleNumber_textBox.Name = "VehicleNumber_textBox";
             this.VehicleNumber_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1443,7 +1445,7 @@
             this.Mobile_textBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.Mobile_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.Mobile_textBox.BackColor = System.Drawing.Color.White;
-            this.Mobile_textBox.Location = new System.Drawing.Point(49, 108);
+            this.Mobile_textBox.Location = new System.Drawing.Point(49, 85);
             this.Mobile_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Mobile_textBox.Name = "Mobile_textBox";
             this.Mobile_textBox.ReadOnly = true;
@@ -1461,13 +1463,13 @@
             this.Ans1_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.SetColumnSpan(this.Ans1_textBox, 5);
             this.Ans1_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Ans1_textBox.Location = new System.Drawing.Point(49, 299);
+            this.Ans1_textBox.Location = new System.Drawing.Point(49, 245);
             this.Ans1_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Ans1_textBox.Multiline = true;
             this.Ans1_textBox.Name = "Ans1_textBox";
             this.Ans1_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel14.SetRowSpan(this.Ans1_textBox, 2);
-            this.Ans1_textBox.Size = new System.Drawing.Size(949, 88);
+            this.Ans1_textBox.Size = new System.Drawing.Size(949, 70);
             this.Ans1_textBox.TabIndex = 13;
             // 
             // ans1_tableLayoutPanel
@@ -1482,12 +1484,12 @@
             this.ans1_tableLayoutPanel.Controls.Add(this.pictureBox1, 2, 0);
             this.ans1_tableLayoutPanel.Controls.Add(this.yes1_radioButton, 0, 0);
             this.ans1_tableLayoutPanel.Controls.Add(this.no1_radioButton, 1, 0);
-            this.ans1_tableLayoutPanel.Location = new System.Drawing.Point(1004, 298);
+            this.ans1_tableLayoutPanel.Location = new System.Drawing.Point(1004, 244);
             this.ans1_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ans1_tableLayoutPanel.Name = "ans1_tableLayoutPanel";
             this.ans1_tableLayoutPanel.RowCount = 1;
             this.ans1_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.ans1_tableLayoutPanel.Size = new System.Drawing.Size(193, 41);
+            this.ans1_tableLayoutPanel.Size = new System.Drawing.Size(193, 32);
             this.ans1_tableLayoutPanel.TabIndex = 12;
             this.ans1_tableLayoutPanel.TabStop = true;
             // 
@@ -1500,7 +1502,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(3, 4);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 33);
+            this.pictureBox1.Size = new System.Drawing.Size(30, 24);
             this.pictureBox1.TabIndex = 494;
             this.pictureBox1.TabStop = false;
             this.toolTip1.SetToolTip(this.pictureBox1, "إلغاء التحديد");
@@ -1513,7 +1515,7 @@
             this.yes1_radioButton.Location = new System.Drawing.Point(124, 4);
             this.yes1_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.yes1_radioButton.Name = "yes1_radioButton";
-            this.yes1_radioButton.Size = new System.Drawing.Size(66, 33);
+            this.yes1_radioButton.Size = new System.Drawing.Size(66, 24);
             this.yes1_radioButton.TabIndex = 492;
             this.yes1_radioButton.TabStop = true;
             this.yes1_radioButton.Text = "نعم";
@@ -1526,7 +1528,7 @@
             this.no1_radioButton.Location = new System.Drawing.Point(52, 4);
             this.no1_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.no1_radioButton.Name = "no1_radioButton";
-            this.no1_radioButton.Size = new System.Drawing.Size(66, 33);
+            this.no1_radioButton.Size = new System.Drawing.Size(66, 24);
             this.no1_radioButton.TabIndex = 493;
             this.no1_radioButton.TabStop = true;
             this.no1_radioButton.Text = "لا";
@@ -1544,12 +1546,12 @@
             this.ans4_tableLayoutPanel.Controls.Add(this.yes4_radioButton, 0, 0);
             this.ans4_tableLayoutPanel.Controls.Add(this.no4_radioButton, 1, 0);
             this.ans4_tableLayoutPanel.Controls.Add(this.pictureBox4, 2, 0);
-            this.ans4_tableLayoutPanel.Location = new System.Drawing.Point(1004, 739);
+            this.ans4_tableLayoutPanel.Location = new System.Drawing.Point(1004, 604);
             this.ans4_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ans4_tableLayoutPanel.Name = "ans4_tableLayoutPanel";
             this.ans4_tableLayoutPanel.RowCount = 1;
             this.ans4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.ans4_tableLayoutPanel.Size = new System.Drawing.Size(193, 41);
+            this.ans4_tableLayoutPanel.Size = new System.Drawing.Size(193, 32);
             this.ans4_tableLayoutPanel.TabIndex = 18;
             this.ans4_tableLayoutPanel.TabStop = true;
             // 
@@ -1559,7 +1561,7 @@
             this.yes4_radioButton.Location = new System.Drawing.Point(128, 4);
             this.yes4_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.yes4_radioButton.Name = "yes4_radioButton";
-            this.yes4_radioButton.Size = new System.Drawing.Size(62, 33);
+            this.yes4_radioButton.Size = new System.Drawing.Size(62, 24);
             this.yes4_radioButton.TabIndex = 492;
             this.yes4_radioButton.TabStop = true;
             this.yes4_radioButton.Text = "نعم";
@@ -1571,7 +1573,7 @@
             this.no4_radioButton.Location = new System.Drawing.Point(69, 4);
             this.no4_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.no4_radioButton.Name = "no4_radioButton";
-            this.no4_radioButton.Size = new System.Drawing.Size(46, 33);
+            this.no4_radioButton.Size = new System.Drawing.Size(46, 24);
             this.no4_radioButton.TabIndex = 493;
             this.no4_radioButton.TabStop = true;
             this.no4_radioButton.Text = "لا";
@@ -1586,7 +1588,7 @@
             this.pictureBox4.Location = new System.Drawing.Point(3, 4);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(30, 33);
+            this.pictureBox4.Size = new System.Drawing.Size(30, 24);
             this.pictureBox4.TabIndex = 497;
             this.pictureBox4.TabStop = false;
             this.toolTip1.SetToolTip(this.pictureBox4, "إلغاء التحديد");
@@ -1604,12 +1606,12 @@
             this.ans2_tableLayoutPanel.Controls.Add(this.yes2_radioButton, 0, 0);
             this.ans2_tableLayoutPanel.Controls.Add(this.no2_radioButton, 1, 0);
             this.ans2_tableLayoutPanel.Controls.Add(this.pictureBox2, 2, 0);
-            this.ans2_tableLayoutPanel.Location = new System.Drawing.Point(1004, 445);
+            this.ans2_tableLayoutPanel.Location = new System.Drawing.Point(1004, 364);
             this.ans2_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ans2_tableLayoutPanel.Name = "ans2_tableLayoutPanel";
             this.ans2_tableLayoutPanel.RowCount = 1;
             this.ans2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.ans2_tableLayoutPanel.Size = new System.Drawing.Size(193, 41);
+            this.ans2_tableLayoutPanel.Size = new System.Drawing.Size(193, 32);
             this.ans2_tableLayoutPanel.TabIndex = 14;
             this.ans2_tableLayoutPanel.TabStop = true;
             // 
@@ -1620,7 +1622,7 @@
             this.yes2_radioButton.Location = new System.Drawing.Point(125, 4);
             this.yes2_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.yes2_radioButton.Name = "yes2_radioButton";
-            this.yes2_radioButton.Size = new System.Drawing.Size(65, 33);
+            this.yes2_radioButton.Size = new System.Drawing.Size(65, 24);
             this.yes2_radioButton.TabIndex = 492;
             this.yes2_radioButton.TabStop = true;
             this.yes2_radioButton.Text = "نعم";
@@ -1633,7 +1635,7 @@
             this.no2_radioButton.Location = new System.Drawing.Point(54, 4);
             this.no2_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.no2_radioButton.Name = "no2_radioButton";
-            this.no2_radioButton.Size = new System.Drawing.Size(65, 33);
+            this.no2_radioButton.Size = new System.Drawing.Size(65, 24);
             this.no2_radioButton.TabIndex = 493;
             this.no2_radioButton.TabStop = true;
             this.no2_radioButton.Text = "لا";
@@ -1648,7 +1650,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(3, 4);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 33);
+            this.pictureBox2.Size = new System.Drawing.Size(30, 24);
             this.pictureBox2.TabIndex = 495;
             this.pictureBox2.TabStop = false;
             this.toolTip1.SetToolTip(this.pictureBox2, "إلغاء التحديد");
@@ -1660,7 +1662,7 @@
             this.label10.AutoSize = true;
             this.tableLayoutPanel14.SetColumnSpan(this.label10, 6);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label10.Location = new System.Drawing.Point(378, 402);
+            this.label10.Location = new System.Drawing.Point(378, 325);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label10.Size = new System.Drawing.Size(819, 29);
@@ -1676,13 +1678,13 @@
             this.Ans2_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.SetColumnSpan(this.Ans2_textBox, 5);
             this.Ans2_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Ans2_textBox.Location = new System.Drawing.Point(49, 446);
+            this.Ans2_textBox.Location = new System.Drawing.Point(49, 365);
             this.Ans2_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Ans2_textBox.Multiline = true;
             this.Ans2_textBox.Name = "Ans2_textBox";
             this.Ans2_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel14.SetRowSpan(this.Ans2_textBox, 2);
-            this.Ans2_textBox.Size = new System.Drawing.Size(949, 88);
+            this.Ans2_textBox.Size = new System.Drawing.Size(949, 70);
             this.Ans2_textBox.TabIndex = 15;
             // 
             // label11
@@ -1691,7 +1693,7 @@
             this.label11.AutoSize = true;
             this.tableLayoutPanel14.SetColumnSpan(this.label11, 6);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label11.Location = new System.Drawing.Point(556, 549);
+            this.label11.Location = new System.Drawing.Point(556, 445);
             this.label11.Name = "label11";
             this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label11.Size = new System.Drawing.Size(641, 29);
@@ -1715,12 +1717,12 @@
             this.ans3_tableLayoutPanel.Controls.Add(this.ans3_50_radioButton, 1, 0);
             this.ans3_tableLayoutPanel.Controls.Add(this.ans3_75_radioButton, 2, 0);
             this.ans3_tableLayoutPanel.Controls.Add(this.pictureBox3, 4, 0);
-            this.ans3_tableLayoutPanel.Location = new System.Drawing.Point(801, 592);
+            this.ans3_tableLayoutPanel.Location = new System.Drawing.Point(801, 484);
             this.ans3_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ans3_tableLayoutPanel.Name = "ans3_tableLayoutPanel";
             this.ans3_tableLayoutPanel.RowCount = 1;
             this.ans3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.ans3_tableLayoutPanel.Size = new System.Drawing.Size(396, 41);
+            this.ans3_tableLayoutPanel.Size = new System.Drawing.Size(396, 32);
             this.ans3_tableLayoutPanel.TabIndex = 16;
             this.ans3_tableLayoutPanel.TabStop = true;
             // 
@@ -1731,7 +1733,7 @@
             this.ans3_100_radioButton.Location = new System.Drawing.Point(67, 4);
             this.ans3_100_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ans3_100_radioButton.Name = "ans3_100_radioButton";
-            this.ans3_100_radioButton.Size = new System.Drawing.Size(77, 33);
+            this.ans3_100_radioButton.Size = new System.Drawing.Size(77, 24);
             this.ans3_100_radioButton.TabIndex = 495;
             this.ans3_100_radioButton.TabStop = true;
             this.ans3_100_radioButton.Text = "100%";
@@ -1744,7 +1746,7 @@
             this.ans3_25_radioButton.Location = new System.Drawing.Point(316, 4);
             this.ans3_25_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ans3_25_radioButton.Name = "ans3_25_radioButton";
-            this.ans3_25_radioButton.Size = new System.Drawing.Size(77, 33);
+            this.ans3_25_radioButton.Size = new System.Drawing.Size(77, 24);
             this.ans3_25_radioButton.TabIndex = 492;
             this.ans3_25_radioButton.TabStop = true;
             this.ans3_25_radioButton.Text = "25%";
@@ -1757,7 +1759,7 @@
             this.ans3_50_radioButton.Location = new System.Drawing.Point(233, 4);
             this.ans3_50_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ans3_50_radioButton.Name = "ans3_50_radioButton";
-            this.ans3_50_radioButton.Size = new System.Drawing.Size(77, 33);
+            this.ans3_50_radioButton.Size = new System.Drawing.Size(77, 24);
             this.ans3_50_radioButton.TabIndex = 493;
             this.ans3_50_radioButton.TabStop = true;
             this.ans3_50_radioButton.Text = "50%";
@@ -1770,7 +1772,7 @@
             this.ans3_75_radioButton.Location = new System.Drawing.Point(150, 4);
             this.ans3_75_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ans3_75_radioButton.Name = "ans3_75_radioButton";
-            this.ans3_75_radioButton.Size = new System.Drawing.Size(77, 33);
+            this.ans3_75_radioButton.Size = new System.Drawing.Size(77, 24);
             this.ans3_75_radioButton.TabIndex = 494;
             this.ans3_75_radioButton.TabStop = true;
             this.ans3_75_radioButton.Text = "75%";
@@ -1785,7 +1787,7 @@
             this.pictureBox3.Location = new System.Drawing.Point(3, 4);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 33);
+            this.pictureBox3.Size = new System.Drawing.Size(30, 24);
             this.pictureBox3.TabIndex = 496;
             this.pictureBox3.TabStop = false;
             this.toolTip1.SetToolTip(this.pictureBox3, "إلغاء التحديد");
@@ -1797,7 +1799,7 @@
             this.label16.AutoSize = true;
             this.tableLayoutPanel14.SetColumnSpan(this.label16, 6);
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label16.Location = new System.Drawing.Point(200, 990);
+            this.label16.Location = new System.Drawing.Point(200, 805);
             this.label16.Name = "label16";
             this.label16.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label16.Size = new System.Drawing.Size(997, 29);
@@ -1811,7 +1813,7 @@
             this.label12.AutoSize = true;
             this.tableLayoutPanel14.SetColumnSpan(this.label12, 6);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label12.Location = new System.Drawing.Point(143, 843);
+            this.label12.Location = new System.Drawing.Point(143, 685);
             this.label12.Name = "label12";
             this.label12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label12.Size = new System.Drawing.Size(1054, 29);
@@ -1831,12 +1833,12 @@
             this.ans6_tableLayoutPanel.Controls.Add(this.yes6_radioButton, 0, 0);
             this.ans6_tableLayoutPanel.Controls.Add(this.no6_radioButton, 1, 0);
             this.ans6_tableLayoutPanel.Controls.Add(this.pictureBox6, 2, 0);
-            this.ans6_tableLayoutPanel.Location = new System.Drawing.Point(1004, 1033);
+            this.ans6_tableLayoutPanel.Location = new System.Drawing.Point(1004, 844);
             this.ans6_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ans6_tableLayoutPanel.Name = "ans6_tableLayoutPanel";
             this.ans6_tableLayoutPanel.RowCount = 1;
             this.ans6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.ans6_tableLayoutPanel.Size = new System.Drawing.Size(193, 41);
+            this.ans6_tableLayoutPanel.Size = new System.Drawing.Size(193, 32);
             this.ans6_tableLayoutPanel.TabIndex = 22;
             this.ans6_tableLayoutPanel.TabStop = true;
             // 
@@ -1846,7 +1848,7 @@
             this.yes6_radioButton.Location = new System.Drawing.Point(128, 4);
             this.yes6_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.yes6_radioButton.Name = "yes6_radioButton";
-            this.yes6_radioButton.Size = new System.Drawing.Size(62, 33);
+            this.yes6_radioButton.Size = new System.Drawing.Size(62, 24);
             this.yes6_radioButton.TabIndex = 492;
             this.yes6_radioButton.TabStop = true;
             this.yes6_radioButton.Text = "نعم";
@@ -1858,7 +1860,7 @@
             this.no6_radioButton.Location = new System.Drawing.Point(70, 4);
             this.no6_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.no6_radioButton.Name = "no6_radioButton";
-            this.no6_radioButton.Size = new System.Drawing.Size(46, 33);
+            this.no6_radioButton.Size = new System.Drawing.Size(46, 24);
             this.no6_radioButton.TabIndex = 493;
             this.no6_radioButton.TabStop = true;
             this.no6_radioButton.Text = "لا";
@@ -1873,7 +1875,7 @@
             this.pictureBox6.Location = new System.Drawing.Point(3, 4);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(30, 33);
+            this.pictureBox6.Size = new System.Drawing.Size(30, 24);
             this.pictureBox6.TabIndex = 499;
             this.pictureBox6.TabStop = false;
             this.toolTip1.SetToolTip(this.pictureBox6, "إلغاء التحديد");
@@ -1891,12 +1893,12 @@
             this.ans5_tableLayoutPanel.Controls.Add(this.yes5_radioButton, 0, 0);
             this.ans5_tableLayoutPanel.Controls.Add(this.no5_radioButton, 1, 0);
             this.ans5_tableLayoutPanel.Controls.Add(this.pictureBox5, 2, 0);
-            this.ans5_tableLayoutPanel.Location = new System.Drawing.Point(1004, 886);
+            this.ans5_tableLayoutPanel.Location = new System.Drawing.Point(1004, 724);
             this.ans5_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ans5_tableLayoutPanel.Name = "ans5_tableLayoutPanel";
             this.ans5_tableLayoutPanel.RowCount = 1;
             this.ans5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.ans5_tableLayoutPanel.Size = new System.Drawing.Size(193, 41);
+            this.ans5_tableLayoutPanel.Size = new System.Drawing.Size(193, 32);
             this.ans5_tableLayoutPanel.TabIndex = 20;
             this.ans5_tableLayoutPanel.TabStop = true;
             // 
@@ -1906,7 +1908,7 @@
             this.yes5_radioButton.Location = new System.Drawing.Point(128, 4);
             this.yes5_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.yes5_radioButton.Name = "yes5_radioButton";
-            this.yes5_radioButton.Size = new System.Drawing.Size(62, 33);
+            this.yes5_radioButton.Size = new System.Drawing.Size(62, 24);
             this.yes5_radioButton.TabIndex = 492;
             this.yes5_radioButton.TabStop = true;
             this.yes5_radioButton.Text = "نعم";
@@ -1918,7 +1920,7 @@
             this.no5_radioButton.Location = new System.Drawing.Point(67, 4);
             this.no5_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.no5_radioButton.Name = "no5_radioButton";
-            this.no5_radioButton.Size = new System.Drawing.Size(46, 33);
+            this.no5_radioButton.Size = new System.Drawing.Size(46, 24);
             this.no5_radioButton.TabIndex = 493;
             this.no5_radioButton.TabStop = true;
             this.no5_radioButton.Text = "لا";
@@ -1933,7 +1935,7 @@
             this.pictureBox5.Location = new System.Drawing.Point(3, 4);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(30, 33);
+            this.pictureBox5.Size = new System.Drawing.Size(30, 24);
             this.pictureBox5.TabIndex = 498;
             this.pictureBox5.TabStop = false;
             this.toolTip1.SetToolTip(this.pictureBox5, "إلغاء التحديد");
@@ -1946,13 +1948,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Ans5_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.SetColumnSpan(this.Ans5_textBox, 5);
-            this.Ans5_textBox.Location = new System.Drawing.Point(49, 887);
+            this.Ans5_textBox.Location = new System.Drawing.Point(49, 725);
             this.Ans5_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Ans5_textBox.Multiline = true;
             this.Ans5_textBox.Name = "Ans5_textBox";
             this.Ans5_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel14.SetRowSpan(this.Ans5_textBox, 2);
-            this.Ans5_textBox.Size = new System.Drawing.Size(949, 88);
+            this.Ans5_textBox.Size = new System.Drawing.Size(949, 70);
             this.Ans5_textBox.TabIndex = 21;
             // 
             // Ans6_textBox
@@ -1962,13 +1964,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Ans6_textBox.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel14.SetColumnSpan(this.Ans6_textBox, 5);
-            this.Ans6_textBox.Location = new System.Drawing.Point(49, 1034);
+            this.Ans6_textBox.Location = new System.Drawing.Point(49, 845);
             this.Ans6_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Ans6_textBox.Multiline = true;
             this.Ans6_textBox.Name = "Ans6_textBox";
             this.Ans6_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel14.SetRowSpan(this.Ans6_textBox, 2);
-            this.Ans6_textBox.Size = new System.Drawing.Size(949, 88);
+            this.Ans6_textBox.Size = new System.Drawing.Size(949, 70);
             this.Ans6_textBox.TabIndex = 23;
             // 
             // tableLayoutPanel_o1
@@ -1981,27 +1983,27 @@
             this.tableLayoutPanel_o1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.tableLayoutPanel_o1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel_o1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel_o1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel_o1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel_o1.Controls.Add(this.o1_2_radioButton, 2, 0);
             this.tableLayoutPanel_o1.Controls.Add(this.o1_0_radioButton, 0, 0);
             this.tableLayoutPanel_o1.Controls.Add(this.o1_1_radioButton, 1, 0);
             this.tableLayoutPanel_o1.Controls.Add(this.o1_pictureBox, 3, 0);
-            this.tableLayoutPanel_o1.Location = new System.Drawing.Point(631, 1180);
+            this.tableLayoutPanel_o1.Location = new System.Drawing.Point(631, 964);
             this.tableLayoutPanel_o1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel_o1.Name = "tableLayoutPanel_o1";
             this.tableLayoutPanel_o1.RowCount = 1;
             this.tableLayoutPanel_o1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_o1.Size = new System.Drawing.Size(367, 41);
+            this.tableLayoutPanel_o1.Size = new System.Drawing.Size(367, 32);
             this.tableLayoutPanel_o1.TabIndex = 30;
             this.tableLayoutPanel_o1.TabStop = true;
             // 
             // o1_2_radioButton
             // 
             this.o1_2_radioButton.AutoSize = true;
-            this.o1_2_radioButton.Location = new System.Drawing.Point(71, 4);
+            this.o1_2_radioButton.Location = new System.Drawing.Point(75, 4);
             this.o1_2_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o1_2_radioButton.Name = "o1_2_radioButton";
-            this.o1_2_radioButton.Size = new System.Drawing.Size(74, 33);
+            this.o1_2_radioButton.Size = new System.Drawing.Size(74, 24);
             this.o1_2_radioButton.TabIndex = 3;
             this.o1_2_radioButton.TabStop = true;
             this.o1_2_radioButton.Text = "ممتاز";
@@ -2013,7 +2015,7 @@
             this.o1_0_radioButton.Location = new System.Drawing.Point(291, 4);
             this.o1_0_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o1_0_radioButton.Name = "o1_0_radioButton";
-            this.o1_0_radioButton.Size = new System.Drawing.Size(73, 33);
+            this.o1_0_radioButton.Size = new System.Drawing.Size(73, 24);
             this.o1_0_radioButton.TabIndex = 1;
             this.o1_0_radioButton.TabStop = true;
             this.o1_0_radioButton.Text = "سيء";
@@ -2022,10 +2024,10 @@
             // o1_1_radioButton
             // 
             this.o1_1_radioButton.AutoSize = true;
-            this.o1_1_radioButton.Location = new System.Drawing.Point(170, 4);
+            this.o1_1_radioButton.Location = new System.Drawing.Point(172, 4);
             this.o1_1_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o1_1_radioButton.Name = "o1_1_radioButton";
-            this.o1_1_radioButton.Size = new System.Drawing.Size(85, 33);
+            this.o1_1_radioButton.Size = new System.Drawing.Size(85, 24);
             this.o1_1_radioButton.TabIndex = 2;
             this.o1_1_radioButton.TabStop = true;
             this.o1_1_radioButton.Text = "مقبول";
@@ -2040,7 +2042,7 @@
             this.o1_pictureBox.Location = new System.Drawing.Point(3, 4);
             this.o1_pictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.o1_pictureBox.Name = "o1_pictureBox";
-            this.o1_pictureBox.Size = new System.Drawing.Size(30, 33);
+            this.o1_pictureBox.Size = new System.Drawing.Size(30, 24);
             this.o1_pictureBox.TabIndex = 499;
             this.o1_pictureBox.TabStop = false;
             this.toolTip1.SetToolTip(this.o1_pictureBox, "إلغاء التحديد");
