@@ -1734,6 +1734,7 @@ namespace MyWorkApplication
                 string fullName = $"{firstName} {lastName}";
 
                 Members_dt.Rows.Add(Person_ID, fullName, "مستفيد");
+
             }
 
             for (int i = 0; i <= FamilyMember_dataGridView.Rows.Count - 2; i++)
@@ -1744,7 +1745,7 @@ namespace MyWorkApplication
                 if (!string.IsNullOrWhiteSpace(Convert.ToString(row.Cells["FPerson_ID"].Value ?? "")))
                     PersonID = Convert.ToInt32(row.Cells["FPerson_ID"].Value.ToString());
                 else
-                    PersonID = -i;
+                    PersonID = -i - 2;
 
                 string firstName = Convert.ToString(row.Cells["P_FirstName"].Value ?? "");
                 string lastName = Convert.ToString(row.Cells["P_LastName"].Value ?? "");
@@ -4468,7 +4469,7 @@ namespace MyWorkApplication
                         else
                             MilitaryInWar = 0;
                     }
-      
+
                     if (Person_ID <= 0)
                     {
                         Query += "insert into person (P_FirstName, P_LastName, P_Sex, P_FullName_en, P_FatherName, P_MotherName," +

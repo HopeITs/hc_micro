@@ -45,7 +45,7 @@ namespace MyWorkApplication
         public static Tuple<string, string> OfflineserversCredentials = new Tuple<string, string>("Admin", "admin54321");
 
         //SET Localhost = true for using local database;
-        public static bool Localhost = false;
+        public static bool Localhost = true;
 
         public static bool close_app;
 
