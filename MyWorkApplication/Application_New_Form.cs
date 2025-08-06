@@ -1188,7 +1188,7 @@ namespace MyWorkApplication
                             if (selected_dt != null && selected_dt.Rows.Count > 0)
                                 Bind_ComboBox(Career_comboBox, selected_dt, false);
                         }
-                    }      
+                    }
                 }
             }
             catch (Exception ex)
@@ -5530,7 +5530,7 @@ namespace MyWorkApplication
                     {
                         for (int i = 0; i < FamilyMember_dataGridView.Rows.Count - 2; i++)
                         {
-                            if (FamilyMember_dataGridView.Rows[i].Cells["P_HasWork"].Value.ToString() == "True")
+                            if (FamilyMember_dataGridView.Rows[i].Cells["P_HasWork"].Value != null && FamilyMember_dataGridView.Rows[i].Cells["P_HasWork"].Value.ToString() == "True")
                             {
                                 int PStateID = Int32.Parse(FamilyMember_dataGridView.Rows[i].Cells["P_State"].Value.ToString());
 
@@ -5539,8 +5539,11 @@ namespace MyWorkApplication
                                                  .Select(row => row.Field<string>("Type"))
                                                  .FirstOrDefault();
 
-                                MessageBox.Show("الرجاء ملئ جدول طبيعة عمل عائلة المستفيد للأفراد المقيمين الذين لديهم عمل", "Error");
-                                return;
+                                if (PStateType == "Active")
+                                {
+                                    MessageBox.Show("الرجاء ملئ جدول طبيعة عمل عائلة المستفيد للأفراد المقيمين الذين لديهم عمل", "Error");
+                                    return;
+                                }           
                             }
                         }
                     }
