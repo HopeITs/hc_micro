@@ -649,6 +649,7 @@ namespace MyWorkApplication
 
 
             #region Work
+            Work_dataGridView.ReadOnly = true;
             P_WorkYears_textBox_original = "";
             #endregion
 
@@ -734,7 +735,7 @@ namespace MyWorkApplication
                 }
                 else if (ApplicationState == "project")
                 {
-                    AddExtention_button.Visible = Delete_MP_button.Visible = FullApp_button.Visible = Save_button.Visible = AddPartner_button.Visible = true;
+                    AddExtention_button.Visible = Delete_MP_button.Visible = Save_button.Visible = AddPartner_button.Visible = true;
                 }
 
                 AddImage_button.Visible = Download_button.Visible = DeleteImage_button.Visible = true;
@@ -4446,7 +4447,8 @@ namespace MyWorkApplication
 
 
                         Military_Note = MilitaryNote_textBox.Text;
-                        MilitaryPeriod = Convert.ToInt32(Military_textBox.Text);
+
+                        MilitaryPeriod = int.TryParse(Military_textBox.Text, out int result) ? result : 0;
                         if (Military_Date_checkBox.Checked)
                         {
                             Military_Date = Military_Date_dateTimePicker.Value;
