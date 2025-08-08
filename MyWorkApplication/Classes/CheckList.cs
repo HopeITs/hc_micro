@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data;
 
 namespace MyWorkApplication.Classes
@@ -16,18 +17,35 @@ namespace MyWorkApplication.Classes
 ,checklist_member.Position_ID as 'Position_ID' 
 ,checklist_position.Name as 'Position'  
 ,MP.* 
+,career.Name as 'Career'
+,microprojectsubtype.Name as 'SubType'
+,  CONCAT('حالة المشروع: '
+    , IF(state.Name_ar = '-','N/A',state.Name_ar) 
+    , IF(mps.Note = '' ,'' ,' - ') 
+    , mps.Note
+    , IF(MP.MP_Note = '' ,'' ,' - ') 
+    , MP.MP_Note
+)  as 'State_Reason'    
 
  from microproject MP  
- left JOIN microproject_checklist on microproject_checklist.MicroProject_ID = MP.MP_ID
- left join person_microproject PMP on MP.MP_ID = PMP.MicroProject_ID  
- left join person P on P.P_ID = PMP.Person_ID  
- left JOIN checklist_member on microproject_checklist.Member_ID = checklist_member.ID
- left JOIN checklist_position on checklist_member.Position_ID = checklist_position.ID ";
+ LEFT JOIN microproject_checklist on microproject_checklist.MicroProject_ID = MP.MP_ID
+ LEFT JOIN person_microproject PMP on MP.MP_ID = PMP.MicroProject_ID  
+ LEFT JOIN person P on P.P_ID = PMP.Person_ID 
+ LEFT JOIN career on MP.Career_ID = career.ID 
 
+ LEFT JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
+ LEFT JOIN `state` on state.ID = mps.State_ID 
+ left join `statereason` on statereason.ID = mps.StateReason_ID 
+
+ LEFT JOIN microprojectsubtype on microprojectsubtype.ID = MP.MP_SubType_ID 
+ LEFT JOIN checklist_member on microproject_checklist.Member_ID = checklist_member.ID
+ LEFT JOIN checklist_position on checklist_member.Position_ID = checklist_position.ID ";
+
+            condition = " where Current_State = 1 ";
             if (MicroProject_ID != "")
-                condition = " Where MP.MP_ID = '" + MicroProject_ID + "'";
+                condition += " and MP.MP_ID = '" + MicroProject_ID + "'";
             else if (P_Name != "")
-                condition = " Where CONCAT(TRIM(P_FirstName),' ', TRIM(P_LastName),' ابن/ة ',TRIM(P_FatherName)) LIKE '" + P_Name + "'";
+                condition += " and CONCAT(TRIM(P_FirstName),' ', TRIM(P_LastName),' ابن/ة ',TRIM(P_FatherName)) LIKE '" + P_Name + "'";
 
             query += condition;
             Program.buildConnection();
@@ -73,9 +91,10 @@ namespace MyWorkApplication.Classes
         public int Insert(int MicroProject_ID, int Member_ID, int Opinion, string Notes, string NameNotes, string RoleNotes, string Location)
         {
             query = " START TRANSACTION;";
-            query += "INSERT INTO `microproject_checklist`(`MicroProject_ID`, `Member_ID`, `Opinion`, `Notes`, `NameNotes`, `RoleNotes`, `Location`) values("
+            query += "INSERT INTO `microproject_checklist`(`MicroProject_ID`, `Member_ID`, `Opinion`, `Notes`, `NameNotes`, `RoleNotes`, `Location` ,`created_at`) values("
                 + MicroProject_ID + "," + Member_ID + "," + Opinion + ",N'"
-                + Notes + "',N'" + NameNotes + "',N'" + RoleNotes + "',N'" + Location + "');";
+                + Notes + "',N'" + NameNotes + "',N'" + RoleNotes + "',N'" + Location + "','" 
+                + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "');";
             query += " SET @row_id = Last_Insert_ID();";
             query += " SELECT @row_id;";
             query += " COMMIT;";
@@ -126,7 +145,8 @@ namespace MyWorkApplication.Classes
                 ", `Notes` = '" + Notes + "' " +
                 ", `NameNotes` = '" + NameNotes + "' " +
                 ", `RoleNotes` = '" + RoleNotes + "' " +
-                " where ID = " + Row_ID + ";";
+                ", `created_at` = '" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "' " +
+            " where ID = " + Row_ID + ";";
             query += " COMMIT;";
 
             Program.buildConnection();

@@ -828,7 +828,8 @@ namespace MyWorkApplication.Classes
                                     {
                                         aa.ForeColor = light_white;
                                     }
-                                    else if (aa.Name == "OverallSyrian_label")
+                                    else if (aa.Name == "OverallSyrian_label" 
+                                        || aa.Name.Contains("GreyLable"))
                                     {
                                         aa.BackColor = dark_grey2;
                                     }
@@ -956,6 +957,12 @@ namespace MyWorkApplication.Classes
                                                     mm.GetType() == typeof(RadioButton))
                                                 {
                                                     mm.ForeColor = light_white;
+
+                                                    if (mm.Name.Contains("Yes_radioButton") 
+                                                     || mm.Name.Contains("No_radioButton"))
+                                                    {
+                                                        mm.ForeColor = light_red;
+                                                    }
                                                 }
                                                 else if (mm.GetType() == typeof(TextBox) ||
                                                             mm.GetType() == typeof(ComboBox))
@@ -972,10 +979,14 @@ namespace MyWorkApplication.Classes
 
                                     foreach (Control mm in aa.Controls)
                                         if (mm.GetType() == typeof(Label) || mm.GetType() == typeof(Button) ||
-                                            mm.GetType() == typeof(CheckBox) ||
-                                            mm.GetType() == typeof(RadioButton))
+                                            mm.GetType() == typeof(CheckBox) ||mm.GetType() == typeof(RadioButton))
                                         {
                                             mm.ForeColor = light_white;
+                                            if (mm.Name.Contains("Yes_radioButton")
+                                             || mm.Name.Contains("No_radioButton"))
+                                            {
+                                                mm.ForeColor = light_red;
+                                            }
                                         }
                                         else if (mm.GetType() == typeof(TextBox) ||
                                                     mm.GetType() == typeof(ComboBox))
@@ -1014,9 +1025,10 @@ namespace MyWorkApplication.Classes
                                     {
                                         aa.ForeColor = light_red;
                                     }
-                                    else if (aa.Name == "OverallSyrian_label")
+                                    else if (aa.Name == "OverallSyrian_label"
+                                        || aa.Name.Contains("GreyLable"))
                                     {
-                                        aa.BackColor = light_white;
+                                        aa.BackColor = light_grey11;
                                     }
                                 }
                                 else if (aa.GetType() == typeof(TextBox) || aa.GetType() == typeof(ComboBox))
@@ -1079,28 +1091,14 @@ namespace MyWorkApplication.Classes
                                         {
                                             bb.ForeColor = light_grey4;
                                             bb.BackColor = light_transparent;
-
-                                            //if (bb.Name == "Save_Beneficiary_Update_button" ||
-                                            //    bb.Name == "Save_MP_Update_button")
-                                            //    bb.BackgroundImage = Resources.Save2_D;
+                                             
                                             if (bb.Name == "Delete_MP_button" ||
                                                      bb.Name == "Delete_Beneficiary_button")
-                                                bb.BackgroundImage = Resources.Delete2_D;
-                                            //else if (bb.Name == "AddPriest_button" ||
-                                            //         bb.Name == "NewEducation_button" ||
-                                            //         bb.Name == "NewLanguage_button" || bb.Name == "NewSkill_button" ||
-                                            //         bb.Name == "NewWork_button")
-                                            //    bb.BackgroundImage = Resources.Plus_Sq_D_24;
+                                                bb.BackgroundImage = Resources.Delete2_D; 
                                             else if (bb.Name == "AddImage_button")
                                                 bb.BackgroundImage = Resources.Plus_Sq_D;
                                             else if (bb.Name == "DeleteImage_button")
-                                                bb.BackgroundImage = Resources.Trash_D;
-                                            //else if (bb.Name == "AddPartner_button")
-                                            //    bb.BackgroundImage = Resources.AddPartner_D;
-                                            //else if (bb.Name == "Save_button")
-                                            //    bb.BackgroundImage = Resources.Save2_D;
-                                            //else if (bb.Name == "AddExtention_button")
-                                            //    bb.BackgroundImage = Resources.AddExtention_D;
+                                                bb.BackgroundImage = Resources.Trash_D; 
                                             else if (bb.Name == "FullApp_button" || bb.Name == "AddPartner_button"
                                                || bb.Name == "Save_button" || bb.Name == "AddExtention_button")
                                             { 
@@ -1148,6 +1146,11 @@ namespace MyWorkApplication.Classes
                                                     zx.GetType() == typeof(RadioButton))
                                                 {
                                                     zx.ForeColor = light_grey4;
+                                                    if (zx.Name.Contains("Yes_radioButton")
+                                                         || zx.Name.Contains("No_radioButton"))
+                                                    {
+                                                        zx.ForeColor = light_red;
+                                                    }
                                                 }
                                                 else if (zx.GetType() == typeof(TextBox) || zx.GetType() == typeof(ComboBox))
                                                 {
@@ -1166,6 +1169,11 @@ namespace MyWorkApplication.Classes
                                             zx.GetType() == typeof(RadioButton))
                                         {
                                             zx.ForeColor = light_grey4;
+                                            if (zx.Name.Contains("Yes_radioButton")
+                                                     || zx.Name.Contains("No_radioButton"))
+                                            {
+                                                zx.ForeColor = light_red;
+                                            }
                                         }
                                         else if (zx.GetType() == typeof(TextBox) || zx.GetType() == typeof(ComboBox))
                                         {
