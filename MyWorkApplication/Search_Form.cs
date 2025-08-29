@@ -1058,9 +1058,10 @@ namespace MyWorkApplication
  , P_RegistrationPlace as 'القيد' 
  , P_NationalNumber as 'الرقم الوطني' 
  , P_Mobile as 'الموبايل' 
- 
- ,  IFNULL(P_NumAtHome,0) as 'عدد الأفراد الكلي'
- ,  IFNULL(P_NumOfMembers,0) as 'عدد الأفراد في المنزل'
+  
+ ,  IFNULL(P_NumOfMembers,0) as 'عدد أفراد العائلة'
+ ,  IFNULL(P_NumAtHome,0) as 'عدد أفراد المقيمين في المنزل'
+
 
   , (SELECT IFNULL(count(*) ,0)
     From `person` p 
@@ -2912,10 +2913,10 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                             for (var i = 0; i < SelectedRowCount; i++)
                             {
                                 var SelectedDataRow = ((DataRowView)MP_dataGridView.SelectedRows[i].DataBoundItem).Row;
-                                sum += double.Parse(SelectedDataRow["عدد الأفراد في المنزل"].ToString());
+                                sum += double.Parse(SelectedDataRow["عدد أفراد المقيمين في المنزل"].ToString());
                             }
 
-                            Sum_FamilyMembers_label.Text = "عدد الأفراد في المنزل: " + sum.ToString("#,##0");
+                            Sum_FamilyMembers_label.Text = "عدد أفراد المقيمين في المنزل: " + sum.ToString("#,##0");
                         }
                     }
 

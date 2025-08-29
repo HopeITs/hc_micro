@@ -1052,7 +1052,7 @@ namespace MyWorkApplication
             DataTable dt28 = ds.Tables[28].Copy();//GoalsCheckBoxes
             Bind_Chickbox_List(P_Goals_panel, dt28, true);
 
-            DataTable dt281 = ds.Tables[27].Copy();//Original_GoalsCheckBoxes
+            DataTable dt281 = ds.Tables[28].Copy();//Original_GoalsCheckBoxes
             Bind_Chickbox_List(Original_P_Goals_panel, dt281, false);
 
             //Micro Project ID
