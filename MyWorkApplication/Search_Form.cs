@@ -125,13 +125,13 @@ namespace MyWorkApplication
                 searchBy_list.Add("Applications");
                 searchBy_list.Add("Families");
                 searchBy_list.Add("Loans and Payments");
-                searchBy_list.Add("Attachments");
-              //  searchBy_list.Add("Executive Files");
+                searchBy_list.Add("Attachments"); 
                 searchBy_list.Add("M&E Visits");
                 searchBy_list.Add("Monitoring Visits(1 to 5)");
                 searchBy_list.Add("Check Lists");
                 searchBy_list.Add("Special Cases");
                 searchBy_list.Add("Aid Sources");
+                searchBy_list.Add("Project Materials");
 
                 for (int i = 0; i < searchBy_list.Count; i++)
                     SearchBy_comboBox.Items.Add(searchBy_list.ElementAt<string>(i));
@@ -327,45 +327,6 @@ namespace MyWorkApplication
 
                 showHideProfileImagesToolStripMenuItem.Visible = true;
             }
-            ////Executive Files //
-            //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
-            //{
-            //    FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
-            //        MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
-            //        Category_comboBox.Visible = SubCategory_comboBox.Visible = Career_comboBox.Visible =
-            //        FundDate_comboBox.Visible = ApplyDate_comboBox.Visible
-            //        = true;
-            //    P_Parish_comboBox.Visible = Age_comboBox.Visible
-            //        = Gender_comboBox.Visible = MaritalStatus_comboBox.Visible
-            //        = HomeStreet_comboBox.Visible = ProjectStreet_comboBox.Visible
-            //        = false;
-
-            //    FundType_label.Visible = Type_label.Visible = SubType_label.Visible = Partnership_label.Visible
-            //        = MP_Status_label.Visible = Donor_label.Visible = DonorGroup_label.Visible
-            //        = Category_label.Visible = SubCategory_label.Visible = Career_label.Visible
-            //        = FundedDateFrom_label.Visible = ApplyDateFrom_label.Visible
-            //        = true;
-
-            //    P_Parish_label.Visible = Age_label.Visible
-            //        = Gender_label.Visible = MaritalStatus_label.Visible
-            //        = HomeStreet_label.Visible = ProjectStreet_label.Visible
-            //        = false;
-
-            //    RequestedFrom_textBox.Visible = RequestedTo_textBox.Visible =
-            //        RequestedFrom_label.Visible =
-            //        FundedFrom_textBox.Visible = FundedTo_textBox.Visible =
-            //        FundedFrom_label.Visible =
-            //        from_label1.Visible = to_label1.Visible = year_label1.Visible =
-            //        from_label2.Visible = to_label2.Visible = year_label2.Visible =
-            //        ApplyDateFrom_label.Visible = FundedDateFrom_label.Visible =
-            //        ApplyDateFrom_dateTimePicker.Visible = ApplyDateTo_DateTimePicker.Visible =
-            //        FundedDateFrom_DateTimePicker.Visible = FundedDateTo_DateTimePicker.Visible =
-            //        ApplyDate_checkBox.Visible = FundedDate_checkBox.Visible = true;
-            //    //Requested_checkBox.Visible = Funded_checkBox.Visible = 
-
-            //    Export_dolar_label.Visible = Export_val_label.Visible = false;
-            //    Remaining_val_label.Visible = Import_val_label.Visible = false;
-            //}
             // Visits //
             else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
             {
@@ -533,6 +494,38 @@ namespace MyWorkApplication
                     FundedFrom_label.Visible = false;
                 //Requested_checkBox.Visible = Funded_checkBox.Visible = 
             }
+            // Materials //
+            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
+            {
+                FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
+                MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
+                Category_comboBox.Visible = SubCategory_comboBox.Visible = Career_comboBox.Visible =
+                FundDate_comboBox.Visible = ApplyDate_comboBox.Visible
+                 = true;
+                P_Parish_comboBox.Visible = Age_comboBox.Visible
+                    = Gender_comboBox.Visible = MaritalStatus_comboBox.Visible
+                    = HomeStreet_comboBox.Visible = ProjectStreet_comboBox.Visible = false;
+
+                FundType_label.Visible = Type_label.Visible = SubType_label.Visible = Partnership_label.Visible
+                    = MP_Status_label.Visible = Donor_label.Visible = DonorGroup_label.Visible
+                    = Category_label.Visible = SubCategory_label.Visible = Career_label.Visible
+                    = FundedDateFrom_label.Visible = ApplyDateFrom_label.Visible
+                    = true;
+                P_Parish_label.Visible = Age_label.Visible = Gender_label.Visible = MaritalStatus_label.Visible
+                    = HomeStreet_label.Visible = ProjectStreet_label.Visible = false;
+
+                ApplyDateFrom_label.Visible = ApplyDateFrom_dateTimePicker.Visible =
+                    ApplyDateTo_DateTimePicker.Visible =
+                    FundedDateFrom_label.Visible = FundedDateFrom_DateTimePicker.Visible =
+                    FundedDateTo_DateTimePicker.Visible =
+                    ApplyDate_checkBox.Visible = FundedDate_checkBox.Visible = true;
+
+                RequestedFrom_textBox.Visible = RequestedTo_textBox.Visible =
+                    RequestedFrom_label.Visible =
+                    FundedFrom_textBox.Visible = FundedTo_textBox.Visible =
+                    FundedFrom_label.Visible = false;
+                //Requested_checkBox.Visible = Funded_checkBox.Visible = 
+            } 
         }
 
         private void Calculate_ImportExportMoney(string str)
@@ -2161,6 +2154,87 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
             }
         }
 
+        private void bind_Materials()
+        {
+            try
+            {
+                var from = @"FROM material 
+          left JOIN `person_microproject` PMP on material.MicroProject_ID = PMP.MicroProject_ID 
+          left JOIN `person` P on PMP.Person_ID = P.P_ID 
+          left JOIN `microproject` MP on MP.MP_ID = PMP.MicroProject_ID   
+ 
+          left JOIN `category` C on MP.Category_ID = C.ID 
+          LEFT JOIN `subcategory` sub on MP.SubCategory_ID = sub.ID  
+          LEFT JOIN `career` on MP.Career_ID = career.ID   
+          LEFT JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
+          LEFT JOIN `state` on state.ID = mps.State_ID
+       
+          Left JOIN `donor` on donor.ID = MP.MP_Donor
+          LEFT JOIN `loan` L on L.MicroProject_ID = MP.MP_ID
+          LEFT JOIN `donorgroup` on donorgroup.ID = MP.DonorGroup_ID
+          LEFT JOIN `fundtype` on fundtype.ID = MP.MP_FundType_ID 
+          LEFT JOIN `microprojecttype` on microprojecttype.ID = MP.MP_Type_ID
+          LEFT JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID 
+        ";
+
+                string query = @"SELECT MP_ID as 'رقم المشروع'
+         , CONCAT(P_FirstName, ' ', P_LastName) as 'المستفيد' 
+         , P.P_FatherName as 'اسم الأب'  
+         , P_FullName_en as 'Beneficiary Name'
+        
+         , career.Name as 'المهنة' 
+         , career.Name_en as 'Project Name'  
+
+         , C.Name as 'Category'
+         , sub.Name as 'Sub Category' 
+
+         , material.Name as 'اسم المادة'
+         , material.Comments as 'النوع' 
+         , material.Amount as 'الكمية' 
+         , material.Price as 'سعر القطعة' 
+ 
+         , material.ID as 'ID' ";
+
+                var i_cond = " where 1 ";
+                Check_Conditions(i_cond);
+
+                query += from + condition;
+                query += " order by material.ID Desc; ";
+
+                Program.buildConnection();
+                MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
+                sc.ExecuteNonQuery();
+                MySqlDataAdapter da = new MySqlDataAdapter(sc);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+
+                MP_dataGridView.DataSource = null;
+                MP_dataGridView.Columns.Clear();
+                MP_dataGridView.Rows.Clear();
+                MP_dataGridView.ColumnHeadersVisible = false;
+                MP_dataGridView.RowHeadersVisible = false;
+
+                bs.DataSource = ds.Tables[0];
+                MP_dataGridView.DataSource = bs;
+
+                var dgc1 = MP_dataGridView.Columns["ID"];
+                dgc1.Visible = false;
+
+                MP_dataGridView.Columns["اسم المادة"].Width = 130;
+                MP_dataGridView.Columns["رقم المشروع"].Frozen = true;
+
+                //count rows
+                Count_label.Text = "All:" + ds.Tables[0].Rows.Count.ToString("#,##0");
+
+                MP_dataGridView.ColumnHeadersVisible = true;
+                MP_dataGridView.RowHeadersVisible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void Bind_All_ComboBoxes()
         {
             user_mode = false;
@@ -2425,12 +2499,7 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                 else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(3))
                 {
                     bind_Images();
-                }
-                ////Executive Files //
-                //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
-                //{
-                //    bind_ExeFile();
-                //}
+                } 
                 // Visits //
                 else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
                 {
@@ -2455,6 +2524,11 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                 else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
                 {
                     bind_AidSources();
+                }
+                // Materials //
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
+                {
+                    bind_Materials();
                 }
 
                 tick++;
@@ -2560,63 +2634,7 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                 MessageBox.Show(ex.Message);
             }
         }
-
-
-        //private void Category_comboBox_SelectedValueChanged(object sender, EventArgs e)
-        //{
-        //    //add the type_comboBox_selectedValue_changed to fill the data before binding subType  
-        //    try
-        //    {
-        //        if (user_mode)
-        //        { 
-        //            //SubCategory_bind(Category_comboBox.SelectedValue.ToString());
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
-        //private void SubCategory_comboBox_SelectedValueChanged(object sender, EventArgs e)
-        //{
-        //    //add the type_comboBox_selectedValue_changed to fill the data before binding subType  
-        //    try
-        //    {
-        //        //if (user_mode)
-        //        //    Career_bind(SubCategory_comboBox.SelectedValue.ToString());
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-
-        //}
-        //private void Type_comboBox_SelectedValueChanged(object sender, EventArgs e)
-        //{
-        //    //add the type_comboBox_selectedValue_changed to fill the data before binding subType  
-        //    try
-        //    {
-        //        if (user_mode)
-        //            SubType_bind(Type_comboBox.SelectedValue.ToString());
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
-        //private void Donor_comboBox_SelectedValueChanged(object sender, EventArgs e)
-        //{
-        //    //add the type_comboBox_selectedValue_changed to fill the data before binding subType  
-        //    try
-        //    {
-        //        if (user_mode)
-        //           DonorGroup_bind(Donor_comboBox.SelectedValue.ToString());
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+         
         #endregion
 
         #region datagridview functions 
@@ -2785,27 +2803,6 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                         Form attachments_Form = new Attachments_Form(MicroProject_ID, Image_ID, main_form);
                         main_form.showNewTab(attachments_Form, "Attachments", 0);
                     }
-
-                //Executive Files
-                //if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
-                //    if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
-                //    {
-                //        SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
-                //        if (SelectedDataRow != null)
-                //        {
-                //            if (SelectedDataRow["رقم المشروع"] == null ||
-                //                SelectedDataRow["رقم المشروع"] == DBNull.Value)
-                //                MicroProject_ID = -1;
-                //            else MicroProject_ID = int.Parse(SelectedDataRow["رقم المشروع"].ToString());
-
-                //            if (SelectedDataRow["ID"] == null || SelectedDataRow["ID"] == DBNull.Value)
-                //                ExeFile_ID = -1;
-                //            else ExeFile_ID = int.Parse(SelectedDataRow["ID"].ToString());
-                //        }
-
-                //        Form ExecutiveFiles_Form = new ExecutiveFiles_Form(ExeFile_ID, main_form);
-                //        main_form.showNewTab(ExecutiveFiles_Form, "Executive File", 0);
-                //    }
 
                 // Visits //
                 if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
@@ -3581,7 +3578,7 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
             else if (index == 6) Settings.Default.Search6_Visible_arr = value_str;
             else if (index == 7) Settings.Default.Search7_Visible_arr = value_str;
             else if (index == 8) Settings.Default.Search8_Visible_arr = value_str;
-            //else if (index == 9) Settings.Default.Search9_Visible_arr = value_str;
+            else if (index == 9) Settings.Default.Search9_Visible_arr = value_str;
 
             Settings.Default.Save();
         }
@@ -3609,8 +3606,8 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                     arr_str = (Settings.Default.Search7_Visible_arr == "" ? null : Settings.Default.Search7_Visible_arr.Split(','));
                 else if (index == 8)
                     arr_str = (Settings.Default.Search8_Visible_arr == "" ? null : Settings.Default.Search8_Visible_arr.Split(','));
-                //else if (index == 9)
-                //    arr_str = (Settings.Default.Search9_Visible_arr == "" ? null : Settings.Default.Search9_Visible_arr.Split(','));
+                else if (index == 9)
+                    arr_str = (Settings.Default.Search9_Visible_arr == "" ? null : Settings.Default.Search9_Visible_arr.Split(','));
 
                 if (arr_str == null) //using LINQ
                     MP_dataGridView.Columns.OfType<DataGridViewColumn>().ToList().ForEach(col => col.Visible = true);
