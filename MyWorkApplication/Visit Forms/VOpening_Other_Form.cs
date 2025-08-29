@@ -452,27 +452,44 @@ namespace MyWorkApplication.Visit_Forms
 
         }
 
+
+ 
+        
         private void generate_me_visits_notifications()
         {
             // زيارة الافتتاحية //updated
             DateTime OpeningVisit_date = VisitDate_dateTimePicker.Value;
+             
+            //الزيارة الاولى  (M1) بعد الافتتاحية ب 4 أشهر
+            //الزيارة الثانية(M2) بعد الزيارة الأولى ب 4 اشهر
+            //الزيارة الثالثة(M3) بعد الزيارة الثانية ب 4 اشهر
+            //الزيارة الرابعة(M4) بعد الزيارة الثالثة ب 6 اشهر
+            //الزيارة الخامسة(M5) بعد الزيارة الرابعة ب 6 أشهر
+            DateTime M1_Visit_date = OpeningVisit_date.AddMonths(4);
+            DateTime M2_Visit_date = M1_Visit_date.AddMonths(4);
+            DateTime M3_Visit_date = M2_Visit_date.AddMonths(4);
+            DateTime M4_Visit_date = M3_Visit_date.AddMonths(6);
+            DateTime M5_Visit_date = M4_Visit_date.AddMonths(6);
 
-            // أول زيارة M&E
-            // تبدأ بعد شهرين وأسبوع من زيارة الافتتاحية
-            //updated
-            DateTime M1_Visit_date = OpeningVisit_date.AddMonths(2);
-            //M1_Visit_date = M1_Visit_date.AddDays(7);
+            //OLD//
+            //    // زيارة الافتتاحية //updated
+            //    DateTime OpeningVisit_date = VisitDate_dateTimePicker.Value;
 
-            int visit_interval;
-            DateTime M2_Visit_date, M3_Visit_date, M4_Visit_date, M5_Visit_date;
-            M2_Visit_date = M3_Visit_date = M4_Visit_date = M5_Visit_date = DateTime.Now;
+            //    // أول زيارة M&E
+            //    // تبدأ بعد شهرين وأسبوع من زيارة الافتتاحية
+            //    DateTime M1_Visit_date = OpeningVisit_date.AddMonths(2);
+            //    //M1_Visit_date = M1_Visit_date.AddDays(7);
 
-            // المسافة بين كل زيارة هي 4 أشهر ثابتة
-            visit_interval = 4;
-            M2_Visit_date = M1_Visit_date.AddMonths(visit_interval);
-            M3_Visit_date = M2_Visit_date.AddMonths(visit_interval);
-            M4_Visit_date = M3_Visit_date.AddMonths(visit_interval);
-            M5_Visit_date = M4_Visit_date.AddMonths(visit_interval);
+            //    int visit_interval;
+            //    DateTime M2_Visit_date, M3_Visit_date, M4_Visit_date, M5_Visit_date;
+            //    M2_Visit_date = M3_Visit_date = M4_Visit_date = M5_Visit_date = DateTime.Now;
+
+            //    // المسافة بين كل زيارة هي 4 أشهر ثابتة
+            //    visit_interval = 4;
+            //    M2_Visit_date = M1_Visit_date.AddMonths(visit_interval);
+            //    M3_Visit_date = M2_Visit_date.AddMonths(visit_interval);
+            //    M4_Visit_date = M3_Visit_date.AddMonths(visit_interval);
+            //    M5_Visit_date = M4_Visit_date.AddMonths(visit_interval);
 
             //Send to M&E//
             if (User_IDs.Count == 0)
