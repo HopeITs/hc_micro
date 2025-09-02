@@ -9,6 +9,60 @@ namespace MyWorkApplication.Classes
         string query, condition, Ordered_By, log_query;
         MySqlCommand sc;
 
+        public DataSet Get_NewChecklist(int Person_ID, int MicroProject_ID)
+        {
+            string query1 = @"SELECT checklist.*
+,career.Name as 'Career'
+,microprojectsubtype.Name as 'SubType'
+,  CONCAT('حالة المشروع: '
+    , IF(state.Name_ar = '-','N/A',state.Name_ar) 
+    , IF(mps.Note = '' ,'' ,' - ') 
+    , mps.Note
+    , IF(MP.MP_Note = '' ,'' ,' - ') 
+    , MP.MP_Note
+)  as 'State_Reason'    
+
+ from checklist 
+ LEFT JOIN person_microproject PMP on checklist.Person_ID = PMP.Person_ID
+ LEFT JOIN microproject MP on MP.MP_ID = PMP.MicroProject_ID  
+ LEFT JOIN career on MP.Career_ID = career.ID 
+
+ LEFT JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
+ LEFT JOIN `state` on state.ID = mps.State_ID 
+ left join `statereason` on statereason.ID = mps.StateReason_ID 
+
+ LEFT JOIN microprojectsubtype on microprojectsubtype.ID = MP.MP_SubType_ID  ";
+
+            condition = " where Current_State = 1 ";
+            if (Person_ID != -1)
+                condition += " and checklist.Person_ID = "+ Person_ID ;
+            if (MicroProject_ID != -1)
+                condition += " and PMP.MicroProject_ID = " + MicroProject_ID ;
+
+            query1 += condition + ";";
+
+            string query2 = @"select person_checklistmembers.* 
+,checklist_member.Name as 'Name'
+,checklist_position.Type as 'Type'
+,checklist_member.Position_ID as 'Position_ID' 
+,checklist_position.Name as 'Position'  
+
+from person_checklistmembers 
+LEFT JOIN checklist_member on person_checklistmembers.Member_ID = checklist_member.ID
+LEFT JOIN checklist_position on checklist_member.Position_ID = checklist_position.ID 
+where person_checklistmembers.Person_ID = " + Person_ID + ";";
+
+            /////////// change this tables name /////////////
+
+            query = query1 + query2;
+            Program.buildConnection();
+            MySqlDataAdapter Ad = new MySqlDataAdapter(query, Program.MyConn);
+            DataSet ds = new DataSet();
+            Ad.Fill(ds);
+            Program.MyConn.Close();
+            return ds;
+        }
+
         public DataTable Get_Checklist(string MicroProject_ID, string P_Name)
         {
             query = @"SELECT distinct microproject_checklist.*
