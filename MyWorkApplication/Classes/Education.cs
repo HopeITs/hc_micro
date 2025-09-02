@@ -7,12 +7,12 @@ namespace MyWorkApplication.Classes
     {
         private string query;
 
-        public void Insert(string Name, string Type)
+        public void Insert(string Name, string Type_ID)
         {
 
             Program.buildConnection();
-            query = "INSERT INTO `education` (`E_Name`, `E_Type`) VALUES (N'"
-                         + Name + "',N'" + Type + "' )";
+            query = "INSERT INTO `education` (`Name`, `Type_ID`) VALUES " +
+                "(N'"+ Name + "'," + Type_ID + ")";
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.ExecuteNonQuery();
@@ -20,14 +20,14 @@ namespace MyWorkApplication.Classes
             }
         }
 
-        public void Update(int ID, string Name, string Type)
+        public void Update(int ID, string Name, string Type_ID)
         {
 
             Program.buildConnection();
             query = "Update `education` set "
-                         + "`E_Name` = N'" + Name + "',"
-                         + "`E_Type` = N'" + Type + "'"
-                         + "where `E_ID` =" + ID;
+                         + " `Name` = N'" + Name + "',"
+                         + " `Type_ID` = " + Type_ID + " "
+                         + " where `ID` =" + ID;
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.ExecuteNonQuery();
@@ -39,7 +39,7 @@ namespace MyWorkApplication.Classes
         {
 
             Program.buildConnection();
-            query = "delete From `education` where `E_ID` =" + ID;
+            query = "delete From `education` where `ID` =" + ID;
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.ExecuteNonQuery();
@@ -47,21 +47,37 @@ namespace MyWorkApplication.Classes
             }
         }
 
-        public DataTable Select(string Type, string Name)
+        public DataTable Select(string Type_ID, string Name)
         {
 
             Program.buildConnection();
-            query = "select `E_ID` as 'ID' " +
-                ",`E_Type` as 'Type'" +
-                ",`E_Name` as 'Name' from `education`";
+            query = @"select `ID` 
+    ,(select Name from educationtype where ID = Type_ID ) as 'Type' 
+    ,`Name` 
+    ,`Type_ID` 
+    from `education`";
             string condition = " where 1 ";
-            if (Name != "") condition += " and E_Name like '" + Name + "' ";
-            else if (Type != "") condition += " and E_Type like '" + Type + "' ";
+            if (Name != "") condition += " and Name like '" + Name + "' ";
+            else if (Type_ID != "") condition += " and Type_ID = " + Type_ID + " ";
             query += condition + " order by Name asc ";
             var sc = new MySqlCommand(query, Program.MyConn);
             sc.ExecuteNonQuery();
             var da = new MySqlDataAdapter(sc);
             var dt = new DataTable();
+            da.Fill(dt);
+            Program.MyConn.Close();
+            return dt;
+        }
+
+        public DataTable SelectEducationTypes()
+        {
+            Program.buildConnection();
+            string query1 = "select ID,Name from `educationtype` order by ID Asc;";
+
+            MySqlCommand sc = new MySqlCommand(query1, Program.MyConn);
+            sc.ExecuteNonQuery();
+            var da = new MySqlDataAdapter(sc);
+            DataTable dt = new DataTable();
             da.Fill(dt);
             Program.MyConn.Close();
             return dt;

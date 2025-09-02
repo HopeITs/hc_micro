@@ -2,6 +2,7 @@
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
 using System;
+using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Threading;
@@ -16,6 +17,8 @@ namespace MyWorkApplication
         private MySqlComponents MySS;
         private readonly string username;
         System.Data.DataTable Education_dt;
+        System.Data.DataTable EType_dt;
+        bool user_mode;
 
         public AddNewEducation()
         {
@@ -32,18 +35,28 @@ namespace MyWorkApplication
         {
             try
             {
+                user_mode = false;
                 var newTheme = new NewTheme();
                 if (Settings.Default.theme == "Dark")
                     newTheme.Category_ToNight(this);
                 else
                     newTheme.Category_ToLight(this);
 
-                Education_dt = new System.Data.DataTable();
-
                 MySS = new MySqlComponents();
                 l = new Log();
                 ed = new Education();
+
+                Education_dt = new System.Data.DataTable();
+                EType_dt = ed.SelectEducationTypes();
+                //bind
+                EducationType_comboBox.DataSource = null;
+                EducationType_comboBox.DataSource = EType_dt;
+                EducationType_comboBox.DisplayMember = "Name";
+                EducationType_comboBox.ValueMember = "ID";
+                EducationType_comboBox.SelectedIndex = -1;
+
                 Education_bind("", "");
+                user_mode = true;
             }
             catch (Exception ex)
             {
@@ -51,14 +64,15 @@ namespace MyWorkApplication
             }
         }
 
-        public void Education_bind(string Edu_type, string Name)
+        public void Education_bind(string type_id, string Name)
         {
-            Education_dt = ed.Select(Edu_type, Name);
+            Education_dt = ed.Select(type_id, Name);
             dataGridView.DataSource = null;
             dataGridView.Columns.Clear();
             dataGridView.DataSource = Education_dt;
 
             var dgC2 = dataGridView.Columns["ID"]; dgC2.Visible = false;
+            var dgC3 = dataGridView.Columns["Type_ID"]; dgC3.Visible = false;
             dataGridView.Columns["Type"].ReadOnly = true;
 
             var colCB = new DataGridViewButtonColumn();
@@ -77,10 +91,10 @@ namespace MyWorkApplication
         {
             try
             {
-                if (EducationName_textBox.Text == "" || EducationType_comboBox.Text == "")
+                if (EducationName_textBox.Text == "" || EducationType_comboBox.SelectedIndex == -1)
                     throw new InvalidOperationException("You can't leave empty fields");
 
-                ed.Insert(EducationName_textBox.Text, EducationType_comboBox.Text);
+                ed.Insert(EducationName_textBox.Text, EducationType_comboBox.SelectedValue.ToString());
                 l.Insert_Log("Insert " + EducationName_textBox.Text, " Education ", username, DateTime.Now);
 
                 EducationName_textBox.Clear();
@@ -104,8 +118,11 @@ namespace MyWorkApplication
         {
             try
             {
-                if (EducationType_comboBox.SelectedIndex != -1)
-                    Education_bind(EducationType_comboBox.SelectedItem.ToString(), "");
+                if (user_mode)
+                {
+                    if (EducationType_comboBox.SelectedIndex != -1)
+                        Education_bind(EducationType_comboBox.SelectedValue.ToString(), "");
+                }
             }
             catch (Exception ex)
             {
@@ -189,8 +206,9 @@ namespace MyWorkApplication
                     {
                         string Name = dataGridView.Rows[r].Cells["Name"].Value.ToString();
                         string Type = dataGridView.Rows[r].Cells["Type"].Value.ToString();
+                        string Type_ID = dataGridView.Rows[r].Cells["Type_ID"].Value.ToString();
 
-                        ed.Update(Education_ID, Name, Type);
+                        ed.Update(Education_ID, Name, Type_ID);
                         l.Insert_Log("Update Education:" + Type + ":" + Name, "Education", Program.UserName, DateTime.Now);
                     }
                     dataGridView.EndEdit();
