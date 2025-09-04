@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using DocumentFormat.OpenXml.ExtendedProperties;
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 
@@ -62,6 +63,160 @@ where person_checklistmembers.Person_ID = " + Person_ID + ";";
             Program.MyConn.Close();
             return ds;
         }
+        public void Insert_NewChecklist(int Person_ID
+                    , string HVisit_Date, string HVisit_Time, string HVisit_Notes, string isHVisited
+                    , string PVisit_Date, string PVisit_Time, string PVisit_Notes, string isPVisited
+                    , string VisitsReport, string Team_Date, string Commity_Date, string Notes
+            , int H_visitor_id1, int H_visitor_id2, int P_visitor_id1, int P_visitor_id2
+            , string NeedProTest, string NeedProTestNote
+                     , string HasProTest  , string ProTest_Date, string ProTest_Note, string ProTest_Result
+                     , string HasProTrain , string ProTrain_Trainer, string ProTrain_Place
+                     , string ProTrain_BDate, string ProTrain_EDate, string ProTrain_Note, string ProTrain_Result
+                     , string HasMngTrain , string MngTrain_Trainer, string MngTrain_Place, string MngTrain_Date, string MngTrain_Result
+            , int ProTest_User_ID
+            , string HasRejectMsg, string RejectMsg_Date
+            , int RejectMsgSender_id
+            )
+        {
+            query = " START TRANSACTION;";
+            query += "INSERT INTO `checklist`(`Person_ID`" +
+                ", `HasHomeVisit`   , `HVisit_Date`, `HVisit_Time`, `HVisit_Visitor1_ID`, `HVisit_Visitor2_ID`, `HVisit_Note`" +
+                ", `HasProjectVisit`, `PVisit_Date`, `PVisit_Time`, `PVisit_Visitor1_ID`, `PVisit_Visitor2_ID`, `PVisit_Note`" +
+                ", `VisitsReport`" +
+                ", `NeedProTest`, `NeedProTest_Note`" +
+                ", `HasProTest`, `ProTest_Date`, `ProTest_Note`, `ProTest_User_ID`, `ProTest_Result`" +
+                ", `HasProTrain`, `ProTrain_Trainer`, `ProTrain_Place`, `ProTrain_BDate`, `ProTrain_EDate`, `ProTrain_Note`, `ProTrain_Result`" +
+                ", `HasMngTrain`, `MngTrain_Trainer`, `MngTrain_Place`, `MngTrain_Date`, `MngTrain_Result`" +
+                ", `Notes`, `TeamDate`, `CommityDate`" +
+                ", `RejectMsg`, `RejectMsgDate`, `RejectMsgSender_ID`) VALUES (" +
+
+                   Person_ID + "," + isHVisited + ","
+                   + "N'" + HVisit_Date + "',"
+                   + "N'" + HVisit_Time + "'," 
+                   + H_visitor_id1 + "," + H_visitor_id2 + ","
+                   + "N'" + HVisit_Notes + "',"
+                   + isPVisited + ","
+                   + "N'" + PVisit_Date + "',"
+                   + "N'" + PVisit_Time + "',"
+                   + P_visitor_id1 + "," + P_visitor_id2 + ","
+                   + "N'" + PVisit_Notes + "',"
+                   + "N'" + VisitsReport + "',"
+
+                   + "N'" + NeedProTest + "'," + "N'" + NeedProTestNote + "',"
+
+                   + HasProTest + ","
+                   + "N'" + ProTest_Date + "',"
+                   + "N'" + ProTest_Note + "',"
+                   + ProTest_User_ID
+                   + "N'" + ProTest_Result + "',"
+
+                   + HasProTrain + ","
+                   + "N'" + ProTrain_Trainer + "'," + "N'" + ProTrain_Place + "',"
+                   + "N'" + ProTrain_BDate + "'," + "N'" + ProTrain_EDate + "',"
+                   + "N'" + ProTrain_Note + "'," + "N'" + ProTrain_Result + "',"
+
+                   + HasMngTrain + ","
+                   + "N'" + MngTrain_Trainer + "'," + "N'" + MngTrain_Place + "',"
+                   + "N'" + MngTrain_Date + "'," + "N'" + MngTrain_Result + "',"
+
+                   + "N'" + Notes + "',"
+                   + "N'" + Team_Date + "'," + "N'" + Commity_Date + "',"
+
+                   + HasRejectMsg + ","
+                   + "N'" + RejectMsg_Date + "',"
+                   + RejectMsgSender_id 
+            + ");";
+            query += " COMMIT;";
+            Program.buildConnection();
+            sc = new MySqlCommand(query, Program.MyConn);
+            {
+                sc.ExecuteNonQuery();
+                Program.MyConn.Close();
+            }
+        }
+        public void Update_NewChecklist(int Person_ID
+                    , string HVisit_Date, string HVisit_Time, string HVisit_Notes, string isHVisited
+                    , string PVisit_Date, string PVisit_Time, string PVisit_Notes, string isPVisited
+                    , string VisitsReport, string Team_Date, string Commity_Date, string Notes
+            , int H_visitor_id1, int H_visitor_id2, int P_visitor_id1, int P_visitor_id2
+            , string NeedProTest, string NeedProTestNote
+                     , string HasProTest, string ProTest_Date, string ProTest_Note, string ProTest_Result
+                     , string HasProTrain, string ProTrain_Trainer, string ProTrain_Place
+                     , string ProTrain_BDate, string ProTrain_EDate, string ProTrain_Note, string ProTrain_Result
+                     , string HasMngTrain, string MngTrain_Trainer, string MngTrain_Place, string MngTrain_Date, string MngTrain_Result
+            , int ProTest_User_ID
+            , string HasRejectMsg, string RejectMsg_Date
+            , int RejectMsgSender_id)
+        {
+            query = " START TRANSACTION;";
+            query += "UPDATE `checklist` SET " + 
+        "`HasHomeVisit`="   + isHVisited + "," +
+        "`HVisit_Date`=N'"  + HVisit_Date + "'," +
+        "`HVisit_Time`=N'"  + HVisit_Time + "'," +
+        "`HVisit_Visitor1_ID`=" + H_visitor_id1 + "," +
+        "`HVisit_Visitor2_ID`=" + H_visitor_id2 + "," +
+        "`HVisit_Note`=N'" + HVisit_Notes + "'," +
+
+        "`HasProjectVisit`=" + isPVisited + "," +
+        "`PVisit_Date`=N'" + PVisit_Date + "'," +
+        "`PVisit_Time`=N'" + PVisit_Time + "'," +
+        "`PVisit_Visitor1_ID`=" + P_visitor_id1 + "," +
+        "`PVisit_Visitor2_ID`=" + P_visitor_id2 + "," +
+        "`PVisit_Note`=N'" + PVisit_Notes + "'," +
+
+        "`VisitsReport`=N'" + VisitsReport + "'," +
+
+        "`NeedProTest`=N'" + NeedProTest + "'," +
+        "`NeedProTest_Note`=N'" + NeedProTestNote + "'," +
+
+        "`HasProTest`=" + HasProTest + "," +
+        "`ProTest_Date`=N'" + ProTest_Date + "'," +
+        "`ProTest_Note`=N'" + ProTest_Note + "'," +
+        "`ProTest_User_ID`=" + ProTest_User_ID + "," +
+        "`ProTest_Result`=N'" + ProTest_Result + "'," +
+
+        "`HasProTrain`=" + HasProTrain + "," +
+        "`ProTrain_Trainer`=N'" + ProTrain_Trainer + "'," +
+        "`ProTrain_Place`=N'" + ProTrain_Place + "'," +
+        "`ProTrain_BDate`=N'" + ProTrain_BDate + "'," +
+        "`ProTrain_EDate`=N'" + ProTrain_EDate + "'," +
+        "`ProTrain_Note`=N'" + ProTrain_Note + "'," +
+        "`ProTrain_Result`=N'" + ProTrain_Result + "'," +
+
+        "`HasMngTrain`=" + HasMngTrain + "," +
+        "`MngTrain_Trainer`=N'" + MngTrain_Trainer + "'," +
+        "`MngTrain_Place`=N'" + MngTrain_Place + "'," +
+        "`MngTrain_Date`=N'" + MngTrain_Date + "'," +
+        "`MngTrain_Result`=N'" + MngTrain_Result + "'," +
+
+        "`Notes`=N'" + Notes + "'," +
+        "`TeamDate`=N'" + Team_Date + "'," +
+        "`CommityDate`=N'" + Commity_Date + "'," +
+
+        "`RejectMsg`=" + HasRejectMsg + "," +
+        "`RejectMsgDate`=N'" + RejectMsg_Date + "'," +
+        "`RejectMsgSender_ID`=" + RejectMsgSender_id +
+
+            " WHERE `Person_ID`= " + Person_ID + ";";
+            query += " COMMIT;";
+            Program.buildConnection();
+            sc = new MySqlCommand(query, Program.MyConn);
+            {
+                sc.ExecuteNonQuery();
+                Program.MyConn.Close();
+            }
+        }
+        public void Delete_NewChecklist(int Person_ID)
+        {
+            query = "DELETE FROM `checklist` where `Person_ID` = " + Person_ID + ";";
+            Program.buildConnection();
+            using (MySqlCommand sc = new MySqlCommand(query, Program.MyConn))
+            {
+                sc.ExecuteNonQuery();
+                Program.MyConn.Close();
+            }
+        }
+
 
         public DataTable Get_Checklist(string MicroProject_ID, string P_Name)
         {
