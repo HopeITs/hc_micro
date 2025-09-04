@@ -732,40 +732,44 @@ namespace MyWorkApplication
         #region columns visibility
         private string[] arr_str;
         private void save_visible_columns()
-        {
-            arr_str = new string[MP_dataGridView.ColumnCount];
+        { 
+            // Save visibility as 1/0
+            var values = MP_dataGridView.Columns
+                .Cast<DataGridViewColumn>()
+                .Select(c => c.Visible ? "1" : "0");
 
-            for (var j = 0; j < MP_dataGridView.ColumnCount; j++)
-                if (MP_dataGridView.Columns[j].Visible)
-                    arr_str[j] = MP_dataGridView.Columns[j].Name;
-                else
-                    arr_str[j] = "";
-            var value_str = string.Join(",", arr_str.Select(i => i.ToString()).ToArray());
+            string value_str = string.Join(",", values);
 
             if (taskType == "f")
                 Settings.Default.Task_Visible_arr = value_str;
             else if (taskType == "a")
                 Settings.Default.Task1_Visible_arr = value_str;
-
             Settings.Default.Save();
         }
         private void restore_visible_columns()
         {
             try
-            {
-                if (taskType == "f")
-                    arr_str = Settings.Default.Task_Visible_arr.Split(',');
-                else if (taskType == "a")
-                    arr_str = Settings.Default.Task1_Visible_arr.Split(',');
+            { 
+                // Save visibility as 1/0
+                string saved = "";
 
-                if (arr_str == null) //using LINQ
-                    MP_dataGridView.Columns.OfType<DataGridViewColumn>().ToList().ForEach(col => col.Visible = true);
-                else
-                    for (var i = 0; i < MP_dataGridView.ColumnCount; i++)
-                    {
-                        if (arr_str[i] != "") MP_dataGridView.Columns[i].Visible = true; // if (arr[i] == 1) MP_dataGridView.Columns[i].Visible = true;  
-                        else MP_dataGridView.Columns[i].Visible = false;
-                    }
+                if (taskType == "f")
+                    saved = Settings.Default.Task_Visible_arr;
+                else if (taskType == "a")
+                    saved = Settings.Default.Task1_Visible_arr;
+
+                if (string.IsNullOrWhiteSpace(saved))
+                {
+                    // fallback → show all columns
+                    foreach (DataGridViewColumn col in MP_dataGridView.Columns)
+                        col.Visible = true;
+                    return;
+                }
+
+                string[] values = saved.Split(',');
+
+                for (int i = 0; i < MP_dataGridView.ColumnCount && i < values.Length; i++)
+                    MP_dataGridView.Columns[i].Visible = (values[i] == "1");
             }
             catch (Exception ex)
             {

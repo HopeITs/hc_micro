@@ -688,30 +688,32 @@ namespace MyWorkApplication
         #region save-restore columns
         private string[] arr_str;
         private void save_visible_columns()
-        {
-            arr_str = new string[MP_dataGridView.ColumnCount];
-
-            for (var j = 0; j < MP_dataGridView.ColumnCount; j++)
-                if (MP_dataGridView.Columns[j].Visible) arr_str[j] = MP_dataGridView.Columns[j].Name;
-                else arr_str[j] = "";
-            var value_str = string.Join(",", arr_str.Select(i => i.ToString()).ToArray());
-
-            Settings.Default.profile_picture = value_str;
+        { 
+            ////(store 1/0 instead of names).
+            var values = MP_dataGridView.Columns
+                .Cast<DataGridViewColumn>()
+                .Select(c => c.Visible ? "1" : "0");
+            Settings.Default.Admin_Visible_arr = string.Join(",", values);
             Settings.Default.Save();
         }
         private void restore_visible_columns()
         {
             try
-            {
-                arr_str = Settings.Default.profile_picture.Split(',');
-                if (arr_str == null) //using LINQ
-                    MP_dataGridView.Columns.OfType<DataGridViewColumn>().ToList().ForEach(col => col.Visible = true);
-                else
-                    for (var i = 0; i < MP_dataGridView.ColumnCount; i++)
-                    {
-                        if (arr_str[i] != "") MP_dataGridView.Columns[i].Visible = true; // if (arr[i] == 1) MP_dataGridView.Columns[i].Visible = true;  
-                        else MP_dataGridView.Columns[i].Visible = false;
-                    }
+            {  
+                ////(store 1/0 instead of names).
+                string saved = Settings.Default.Admin_Visible_arr; 
+                if (string.IsNullOrWhiteSpace(saved))
+                {
+                    // fallback → show all
+                    foreach (DataGridViewColumn col in MP_dataGridView.Columns)
+                        col.Visible = true;
+
+                    save_visible_columns(); // keep consistency
+                    return;
+                } 
+                string[] values = saved.Split(','); 
+                for (int i = 0; i < MP_dataGridView.ColumnCount && i < values.Length; i++)
+                    MP_dataGridView.Columns[i].Visible = (values[i] == "1");
             }
             catch (Exception ex)
             {
@@ -719,7 +721,7 @@ namespace MyWorkApplication
                     || ex.Message.Contains("Input string was not in a correct format"))
                 { }
                 else MessageBox.Show(ex.Message);
-
+                 
                 save_visible_columns();
             }
         }

@@ -1763,7 +1763,6 @@ namespace MyWorkApplication
 
 , C.Name as 'Category'
 , sub.Name as 'Sub Category'
-, career.Name as 'Career'
  
 , MP.`Category_ID` as 'Category_ID'
 , mevisit.Person_ID as 'رقم المستفيد'";
@@ -3559,64 +3558,62 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
         #region save visible arrays for each tab in search 
         private string[] arr_str;
         private void save_visible_columns(int index)
-        {
-            arr_str = new string[MP_dataGridView.ColumnCount];
+        { 
+            //// Save visibility as 1/0 instead of names
+            var values = MP_dataGridView.Columns
+                .Cast<DataGridViewColumn>()
+                .Select(c => c.Visible ? "1" : "0");
 
-            for (var j = 0; j < MP_dataGridView.ColumnCount; j++)
-                if (MP_dataGridView.Columns[j].Visible)
-                    arr_str[j] = MP_dataGridView.Columns[j].Name;
-                else arr_str[j] = "";
-
-            var value_str = string.Join(",", arr_str.Select(i => i.ToString()).ToArray());
-
-            if (index == 0) Settings.Default.Search0_Visible_arr = value_str;
-            else if (index == 1) Settings.Default.Search1_Visible_arr = value_str;
-            else if (index == 2) Settings.Default.Search2_Visible_arr = value_str;
-            else if (index == 3) Settings.Default.Search3_Visible_arr = value_str;
-            else if (index == 4) Settings.Default.Search4_Visible_arr = value_str;
-            else if (index == 5) Settings.Default.Search5_Visible_arr = value_str;
-            else if (index == 6) Settings.Default.Search6_Visible_arr = value_str;
-            else if (index == 7) Settings.Default.Search7_Visible_arr = value_str;
-            else if (index == 8) Settings.Default.Search8_Visible_arr = value_str;
-            else if (index == 9) Settings.Default.Search9_Visible_arr = value_str;
-
+            string value_str = string.Join(",", values); 
+            switch (index)
+            {
+                case 0: Settings.Default.Search0_Visible_arr = value_str; break;
+                case 1: Settings.Default.Search1_Visible_arr = value_str; break;
+                case 2: Settings.Default.Search2_Visible_arr = value_str; break;
+                case 3: Settings.Default.Search3_Visible_arr = value_str; break;
+                case 4: Settings.Default.Search4_Visible_arr = value_str; break;
+                case 5: Settings.Default.Search5_Visible_arr = value_str; break;
+                case 6: Settings.Default.Search6_Visible_arr = value_str; break;
+                case 7: Settings.Default.Search7_Visible_arr = value_str; break;
+                case 8: Settings.Default.Search8_Visible_arr = value_str; break;
+                case 9: Settings.Default.Search9_Visible_arr = value_str; break;
+            }  
             Settings.Default.Save();
         }
         private void restore_visible_columns(int index)
         {
             try
-            {
-                arr_str = null;
+            {  
+                //// Save visibility as 1/0 instead of names
+                string saved = "";
+                switch (index)
+                {
+                    case 0: saved = Settings.Default.Search0_Visible_arr; break;
+                    case 1: saved = Settings.Default.Search1_Visible_arr; break;
+                    case 2: saved = Settings.Default.Search2_Visible_arr; break;
+                    case 3: saved = Settings.Default.Search3_Visible_arr; break;
+                    case 4: saved = Settings.Default.Search4_Visible_arr; break;
+                    case 5: saved = Settings.Default.Search5_Visible_arr; break;
+                    case 6: saved = Settings.Default.Search6_Visible_arr; break;
+                    case 7: saved = Settings.Default.Search7_Visible_arr; break;
+                    case 8: saved = Settings.Default.Search8_Visible_arr; break;
+                    case 9: saved = Settings.Default.Search9_Visible_arr; break;
+                    default: saved = ""; break;
+                }
 
-                if (index == 0)
-                    arr_str = (Settings.Default.Search0_Visible_arr == "" ? null : Settings.Default.Search0_Visible_arr.Split(','));
-                else if (index == 1)
-                    arr_str = (Settings.Default.Search1_Visible_arr == "" ? null : Settings.Default.Search1_Visible_arr.Split(','));
-                else if (index == 2)
-                    arr_str = (Settings.Default.Search2_Visible_arr == "" ? null : Settings.Default.Search2_Visible_arr.Split(','));
-                else if (index == 3)
-                    arr_str = (Settings.Default.Search3_Visible_arr == "" ? null : Settings.Default.Search3_Visible_arr.Split(','));
-                else if (index == 4)
-                    arr_str = (Settings.Default.Search4_Visible_arr == "" ? null : Settings.Default.Search4_Visible_arr.Split(','));
-                else if (index == 5)
-                    arr_str = (Settings.Default.Search5_Visible_arr == "" ? null : Settings.Default.Search5_Visible_arr.Split(','));
-                else if (index == 6)
-                    arr_str = (Settings.Default.Search6_Visible_arr == "" ? null : Settings.Default.Search6_Visible_arr.Split(','));
-                else if (index == 7)
-                    arr_str = (Settings.Default.Search7_Visible_arr == "" ? null : Settings.Default.Search7_Visible_arr.Split(','));
-                else if (index == 8)
-                    arr_str = (Settings.Default.Search8_Visible_arr == "" ? null : Settings.Default.Search8_Visible_arr.Split(','));
-                else if (index == 9)
-                    arr_str = (Settings.Default.Search9_Visible_arr == "" ? null : Settings.Default.Search9_Visible_arr.Split(','));
+                if (string.IsNullOrWhiteSpace(saved))
+                {
+                    // default: show all columns
+                    foreach (DataGridViewColumn col in MP_dataGridView.Columns)
+                        col.Visible = true;
+                    return;
+                }
 
-                if (arr_str == null) //using LINQ
-                    MP_dataGridView.Columns.OfType<DataGridViewColumn>().ToList().ForEach(col => col.Visible = true);
-                else
-                    for (var i = 0; i < MP_dataGridView.ColumnCount; i++)
-                    {
-                        if (arr_str[i] != "") MP_dataGridView.Columns[i].Visible = true;
-                        else MP_dataGridView.Columns[i].Visible = false;
-                    }
+                string[] values = saved.Split(',');
+                for (int i = 0; i < MP_dataGridView.ColumnCount && i < values.Length; i++)
+                {
+                    MP_dataGridView.Columns[i].Visible = (values[i] == "1");
+                }
             }
             catch (Exception ex)
             {

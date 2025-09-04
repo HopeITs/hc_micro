@@ -70,29 +70,38 @@ namespace MyWorkApplication
                 ///DELETE THE "Connections.txt" FROM DEBUGE
                 //Encryption.FileEncrypt();  
 
-                if (Properties.Settings.Default.first_login)
+                //if (Properties.Settings.Default.first_login)
+                //{
+                //    Settings.Default.profile_picture = "";
+                //    Settings.Default.Admin_Visible_arr = "";
+
+                //    Settings.Default.Search0_Visible_arr = "";
+                //    Settings.Default.Search1_Visible_arr = "";
+                //    Settings.Default.Search2_Visible_arr = "";
+                //    Settings.Default.Search3_Visible_arr = "";
+                //    Settings.Default.Search4_Visible_arr = "";
+                //    Settings.Default.Search5_Visible_arr = "";
+                //    Settings.Default.Search6_Visible_arr = "";
+                //    Settings.Default.Search7_Visible_arr = "";
+                //    Settings.Default.Search8_Visible_arr = "";
+                //    Settings.Default.Search9_Visible_arr = "";
+
+                //    Settings.Default.Task_Visible_arr = "";
+                //    Settings.Default.Task1_Visible_arr = "";
+
+                //    Settings.Default.RememberMe = false;
+                //    Settings.Default.first_login = false;
+                //    Settings.Default.Save();
+                //}
+
+                //// Force clear all to defaults
+                if (Properties.Settings.Default.must_reset)
                 {
-                    Properties.Settings.Default.profile_picture = "";
-                    Properties.Settings.Default.Admin_Visible_arr = "";
-
-                    Properties.Settings.Default.Search0_Visible_arr = "";
-                    Properties.Settings.Default.Search1_Visible_arr = "";
-                    Properties.Settings.Default.Search2_Visible_arr = "";
-                    Properties.Settings.Default.Search3_Visible_arr = "";
-                    Properties.Settings.Default.Search4_Visible_arr = "";
-                    Properties.Settings.Default.Search5_Visible_arr = "";
-                    Properties.Settings.Default.Search6_Visible_arr = "";
-                    Properties.Settings.Default.Search7_Visible_arr = "";
-                    Properties.Settings.Default.Search8_Visible_arr = "";
-                    Properties.Settings.Default.Search9_Visible_arr = "";
-
-                    Properties.Settings.Default.Task_Visible_arr = "";
-                    Properties.Settings.Default.Task1_Visible_arr = "";
-
-                    Properties.Settings.Default.RememberMe = false;
-                    Properties.Settings.Default.first_login = false;
-                    Properties.Settings.Default.Save();
+                    Settings.Default.Reset();
+                    Settings.Default.must_reset = false;
+                    Settings.Default.Save();
                 }
+                //// Migrate settings from previous version
                 if (Settings.Default.update_version)
                 {
                     Settings.Default.Upgrade();

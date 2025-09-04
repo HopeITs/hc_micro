@@ -308,5 +308,17 @@ namespace MyWorkApplication.Properties {
                 this["update_version"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool must_reset {
+            get {
+                return ((bool)(this["must_reset"]));
+            }
+            set {
+                this["must_reset"] = value;
+            }
+        }
     }
 }
