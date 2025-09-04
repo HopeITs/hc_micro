@@ -625,14 +625,52 @@ namespace MyWorkApplication.Visit_Forms
             }
         }
 
-        private void MicroProject_ID_textBox1_Leave(object sender, EventArgs e)
-        {
-
-        }
 
         private void Person_Name_textBox1_Leave(object sender, EventArgs e)
         {
+            if (Person_Name_textBox1.Text != "")
+            {
+                var dt = m_And_E.SearchByName(Person_Name_textBox1.Text, MicroProject_ID_textBox1.Text);
+                clear_Visit_boxes(0);
 
+                if (dt != null && dt.Rows.Count > 0)
+                    for (var i = 0; i < dt.Rows.Count; i++)
+                    {
+                        MicroProject_ID = int.Parse(dt.Rows[i]["MicroProject_ID"].ToString());
+                        MicroProject_ID_textBox1.Text = MicroProject_ID.ToString();
+                        Person_Name_textBox1.Text = dt.Rows[i]["Beneficiary Name"].ToString();
+                        Person_ID = int.Parse(dt.Rows[i]["Beneficiary_ID"].ToString());
+                        MP_Name_textBox.Text = (string)dt.Rows[i]["Project Name"];
+                        Mobile_textBox.Text = (string)dt.Rows[i]["Mobile"];
+                        if (dt.Rows[i]["Address"] != DBNull.Value)
+                            WorkAddress_textBox.Text = (string)dt.Rows[i]["Address"];
+
+                        if (dt.Rows[i]["Loan Amount"] != DBNull.Value)
+                        {
+                            var dd = Convert.ToDouble(dt.Rows[i]["Loan Amount"].ToString());
+                            LoanAmount_textBox1.Text = dd.ToString();
+                        }
+
+                        if (dt.Rows[i]["Loan Date"] != DBNull.Value)
+                        {
+                            var date = Convert.ToDateTime(dt.Rows[i]["Loan Date"].ToString());
+                            LoanDate_dateTimePicker.Value = date;
+                        }
+
+                        if (dt.Rows[i]["ID"] != DBNull.Value)
+                        {
+                            if (dt.Rows[i]["Kind"].ToString() == _KIND &&
+                                dt.Rows[i]["Number"].ToString() == Visit_Num_textBox.Text)
+                            {
+                                V_ID = int.Parse(dt.Rows[i]["ID"].ToString());
+                                fill_visit_boxes(V_ID);
+                            }
+
+                            mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = true;
+                            mainForm.MP_ID_label.Text = MicroProject_ID.ToString();
+                        }
+                    }
+            }
         }
 
         private void Profit_textBox_TextChanged(object sender, EventArgs e)

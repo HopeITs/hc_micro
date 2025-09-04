@@ -570,13 +570,29 @@ namespace MyWorkApplication.Visit_Forms
 
         private void MicroProject_ID_textBox1_Leave(object sender, EventArgs e)
         {
+            if (MicroProject_ID_textBox.Text != "")
+            {
+                DataTable dt = new DataTable();
+                if (v.Has_Visit("", MicroProject_ID_textBox.Text, _KIND))
+                {
+                    Update_Mode = true;
+                    dt = v.Get_Visit("", "", MicroProject_ID_textBox.Text, _KIND);
+                }
+                else
+                {
+                    dt = v.Get_Visit("", "", MicroProject_ID_textBox.Text, "");
+                    Update_Mode = false;
+                }
+                clear_Visit_boxes(0);
 
+                if (dt != null)
+                    if (dt.Rows.Count > 0)
+                    {
+                        fill_visit_boxes(dt);
+                    }
+            }
         }
-
-        private void Person_Name_textBox1_Leave(object sender, EventArgs e)
-        {
-
-        }
+         
 
         private void clear_Visit_boxes(int j)
         {

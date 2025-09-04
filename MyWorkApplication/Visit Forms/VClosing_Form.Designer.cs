@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VClosing_Form));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
@@ -126,7 +125,7 @@
             this.CreatedBy_User_label = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.EditedBy_User_label = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.application_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNotesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -285,7 +284,7 @@
             this.tableLayoutPanel_o4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.tableLayoutPanel_o4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel_o4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel_o4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel_o4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_o4.Controls.Add(this.o4_2_radioButton, 2, 0);
             this.tableLayoutPanel_o4.Controls.Add(this.o4_0_radioButton, 0, 0);
             this.tableLayoutPanel_o4.Controls.Add(this.o4_1_radioButton, 1, 0);
@@ -302,7 +301,7 @@
             // o4_2_radioButton
             // 
             this.o4_2_radioButton.AutoSize = true;
-            this.o4_2_radioButton.Location = new System.Drawing.Point(79, 2);
+            this.o4_2_radioButton.Location = new System.Drawing.Point(80, 2);
             this.o4_2_radioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.o4_2_radioButton.Name = "o4_2_radioButton";
             this.o4_2_radioButton.Size = new System.Drawing.Size(71, 30);
@@ -433,7 +432,7 @@
             this.tableLayoutPanel_o2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.tableLayoutPanel_o2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel_o2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel_o2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel_o2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_o2.Controls.Add(this.o2_2_radioButton, 2, 0);
             this.tableLayoutPanel_o2.Controls.Add(this.o2_0_radioButton, 0, 0);
             this.tableLayoutPanel_o2.Controls.Add(this.o2_1_radioButton, 1, 0);
@@ -450,7 +449,7 @@
             // o2_2_radioButton
             // 
             this.o2_2_radioButton.AutoSize = true;
-            this.o2_2_radioButton.Location = new System.Drawing.Point(79, 2);
+            this.o2_2_radioButton.Location = new System.Drawing.Point(80, 2);
             this.o2_2_radioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.o2_2_radioButton.Name = "o2_2_radioButton";
             this.o2_2_radioButton.Size = new System.Drawing.Size(71, 30);
@@ -1183,7 +1182,7 @@
             this.ans2_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.3207F));
             this.ans2_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.86589F));
             this.ans2_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.1902F));
-            this.ans2_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.ans2_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.ans2_tableLayoutPanel.Controls.Add(this.ans2_2_radioButton, 2, 0);
             this.ans2_tableLayoutPanel.Controls.Add(this.ans2_3_radioButton, 3, 0);
             this.ans2_tableLayoutPanel.Controls.Add(this.ans2_0_radioButton, 0, 0);
@@ -1206,7 +1205,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ans2_2_radioButton.AutoSize = true;
             this.ans2_2_radioButton.Font = new System.Drawing.Font("Rubik", 10F);
-            this.ans2_2_radioButton.Location = new System.Drawing.Point(125, 2);
+            this.ans2_2_radioButton.Location = new System.Drawing.Point(126, 2);
             this.ans2_2_radioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ans2_2_radioButton.Name = "ans2_2_radioButton";
             this.ans2_2_radioButton.Size = new System.Drawing.Size(67, 68);
@@ -1222,7 +1221,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ans2_3_radioButton.AutoSize = true;
             this.ans2_3_radioButton.Font = new System.Drawing.Font("Rubik", 10F);
-            this.ans2_3_radioButton.Location = new System.Drawing.Point(51, 2);
+            this.ans2_3_radioButton.Location = new System.Drawing.Point(52, 2);
             this.ans2_3_radioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ans2_3_radioButton.Name = "ans2_3_radioButton";
             this.ans2_3_radioButton.Size = new System.Drawing.Size(68, 68);
@@ -1254,10 +1253,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ans2_1_radioButton.AutoSize = true;
             this.ans2_1_radioButton.Font = new System.Drawing.Font("Rubik", 9F);
-            this.ans2_1_radioButton.Location = new System.Drawing.Point(198, 2);
+            this.ans2_1_radioButton.Location = new System.Drawing.Point(199, 2);
             this.ans2_1_radioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ans2_1_radioButton.Name = "ans2_1_radioButton";
-            this.ans2_1_radioButton.Size = new System.Drawing.Size(96, 68);
+            this.ans2_1_radioButton.Size = new System.Drawing.Size(95, 68);
             this.ans2_1_radioButton.TabIndex = 493;
             this.ans2_1_radioButton.TabStop = true;
             this.ans2_1_radioButton.Text = "لم يُحقق أي تغيير";
@@ -1422,7 +1421,7 @@
             this.ans5_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.88473F));
             this.ans5_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.90202F));
             this.ans5_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.83574F));
-            this.ans5_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.ans5_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.ans5_tableLayoutPanel.Controls.Add(this.ans5_3_radioButton, 3, 0);
             this.ans5_tableLayoutPanel.Controls.Add(this.ans5_0_radioButton, 0, 0);
             this.ans5_tableLayoutPanel.Controls.Add(this.ans5_2_radioButton, 2, 0);
@@ -1440,7 +1439,7 @@
             // ans5_3_radioButton
             // 
             this.ans5_3_radioButton.AutoSize = true;
-            this.ans5_3_radioButton.Location = new System.Drawing.Point(62, 2);
+            this.ans5_3_radioButton.Location = new System.Drawing.Point(64, 2);
             this.ans5_3_radioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ans5_3_radioButton.Name = "ans5_3_radioButton";
             this.ans5_3_radioButton.Size = new System.Drawing.Size(88, 30);
@@ -1464,7 +1463,7 @@
             // ans5_2_radioButton
             // 
             this.ans5_2_radioButton.AutoSize = true;
-            this.ans5_2_radioButton.Location = new System.Drawing.Point(162, 2);
+            this.ans5_2_radioButton.Location = new System.Drawing.Point(163, 2);
             this.ans5_2_radioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ans5_2_radioButton.Name = "ans5_2_radioButton";
             this.ans5_2_radioButton.Size = new System.Drawing.Size(61, 30);
@@ -1476,7 +1475,7 @@
             // ans5_1_radioButton
             // 
             this.ans5_1_radioButton.AutoSize = true;
-            this.ans5_1_radioButton.Location = new System.Drawing.Point(245, 2);
+            this.ans5_1_radioButton.Location = new System.Drawing.Point(246, 2);
             this.ans5_1_radioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ans5_1_radioButton.Name = "ans5_1_radioButton";
             this.ans5_1_radioButton.Size = new System.Drawing.Size(44, 30);

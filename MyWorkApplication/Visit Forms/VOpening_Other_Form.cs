@@ -445,15 +445,7 @@ namespace MyWorkApplication.Visit_Forms
                         fill_visit_boxes(dt);
                     }
             }
-        }
-
-        private void Person_Name_textBox1_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-
- 
+        } 
         
         private void generate_me_visits_notifications()
         {
