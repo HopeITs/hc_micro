@@ -95,12 +95,15 @@ namespace MyWorkApplication
                 //}
 
                 //// Force clear all to defaults
-                if (Properties.Settings.Default.must_reset)
-                {
-                    Settings.Default.Reset();
-                    Settings.Default.must_reset = false;
-                    Settings.Default.Save();
-                }
+                //Settings.Default.must_reset = true;
+                //Settings.Default.Save();
+                //if (Properties.Settings.Default.must_reset)
+                //{
+                //    Settings.Default.Reset();
+                //    Settings.Default.must_reset = false;
+                //    Settings.Default.update_version = false;
+                //    Settings.Default.Save();
+                //}
                 //// Migrate settings from previous version
                 if (Settings.Default.update_version)
                 {
