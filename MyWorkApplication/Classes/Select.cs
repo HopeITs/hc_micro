@@ -499,6 +499,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 ,`Pay_Amount` as 'القسط' 
 ,`Pay_DueDate` as 'تاريخ الاستحقاق' 
 ,`Pay_RecievedOnDate` as 'تاريخ الدفع الفعلي' 
+,`Pay_Note` as 'ملاحظات' 
 , donorgroup.Name as 'المجموعة'
 ,`Pay_ID` as 'Pay_ID' ";
 

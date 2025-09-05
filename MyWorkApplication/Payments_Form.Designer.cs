@@ -85,14 +85,14 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.32653F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.02041F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.32653F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 172F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tableLayoutPanel2.Controls.Add(this.Sum_label, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportToExcel_button, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.Count_label, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.Selected_label, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 634);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel2.RowCount = 1;
@@ -106,7 +106,7 @@
             this.Sum_label.AutoSize = true;
             this.Sum_label.BackColor = System.Drawing.Color.Transparent;
             this.Sum_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Sum_label.Location = new System.Drawing.Point(175, 6);
+            this.Sum_label.Location = new System.Drawing.Point(177, 6);
             this.Sum_label.Margin = new System.Windows.Forms.Padding(0);
             this.Sum_label.Name = "Sum_label";
             this.Sum_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -235,7 +235,7 @@
             this.Group_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Group_comboBox.BackColor = System.Drawing.Color.White;
             this.Group_comboBox.FormattingEnabled = true;
-            this.Group_comboBox.Location = new System.Drawing.Point(727, 10);
+            this.Group_comboBox.Location = new System.Drawing.Point(727, 15);
             this.Group_comboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Group_comboBox.Name = "Group_comboBox";
             this.Group_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -585,7 +585,7 @@
             this.dataGridView.FilterAndSortEnabled = true;
             this.dataGridView.GridColor = System.Drawing.Color.Black;
             this.dataGridView.Location = new System.Drawing.Point(0, 87);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
