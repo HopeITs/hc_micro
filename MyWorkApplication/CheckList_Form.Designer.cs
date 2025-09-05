@@ -30,22 +30,22 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckList_Form));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Main_panel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.Delete_button = new System.Windows.Forms.Button();
@@ -53,9 +53,6 @@
             this.Print_button = new System.Windows.Forms.Button();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.RejectMsg_checkBox = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.RejectMsg_Date_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.RejectMsgSender_comboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -103,7 +100,6 @@
             this.GreyLable13_label = new System.Windows.Forms.Label();
             this.GreyLable14_label = new System.Windows.Forms.Label();
             this.GreyLable15_label = new System.Windows.Forms.Label();
-            this.MngTrain_Date_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.MngTrain_Result_textBox = new System.Windows.Forms.TextBox();
             this.MngTrain_Place_textBox = new System.Windows.Forms.TextBox();
             this.GreyLable12_label = new System.Windows.Forms.Label();
@@ -111,6 +107,7 @@
             this.HasMngTrain_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.HasMngTrainYes_radioButton = new System.Windows.Forms.RadioButton();
             this.HasMngTrainNo_radioButton = new System.Windows.Forms.RadioButton();
+            this.MngTrain_Date_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.GreyLable6_label = new System.Windows.Forms.Label();
             this.GreyLable7_label = new System.Windows.Forms.Label();
@@ -124,16 +121,16 @@
             this.GreyLable10_label = new System.Windows.Forms.Label();
             this.ProTrain_Note_textBox = new System.Windows.Forms.TextBox();
             this.GreyLable9_label = new System.Windows.Forms.Label();
-            this.ProTrain_BDate_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.GreyLable8_label = new System.Windows.Forms.Label();
-            this.ProTrain_EDate_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SubHeader2_label = new System.Windows.Forms.Label();
+            this.ProTrain_EDate_dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.ProTrain_BDate_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Add_V_button = new System.Windows.Forms.Button();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.ProTest_Date_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.GreyLable5_label = new System.Windows.Forms.Label();
             this.GreyLable3_label = new System.Windows.Forms.Label();
             this.GreyLable2_label = new System.Windows.Forms.Label();
-            this.ProTest_Date_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.ProTest_Note_textBox = new System.Windows.Forms.TextBox();
             this.ProTest_ResultYes_radioButton = new System.Windows.Forms.RadioButton();
             this.ProTest_ResultNo_radioButton = new System.Windows.Forms.RadioButton();
@@ -214,6 +211,13 @@
             this.Visits_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.payments_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.attachments_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.HasProfTest_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.HasProTrain_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.HasMngTrain_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.RejectMsg_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Main_panel.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel19.SuspendLayout();
@@ -241,6 +245,11 @@
             this.tableLayoutPanel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.keyperson_dataGridView)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.HasProfTest_tableLayoutPanel.SuspendLayout();
+            this.HasProTrain_tableLayoutPanel.SuspendLayout();
+            this.HasMngTrain_tableLayoutPanel.SuspendLayout();
+            this.RejectMsg_tableLayoutPanel.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Main_panel
@@ -282,7 +291,7 @@
             this.tableLayoutPanel6.Controls.Add(this.Save_button, 2, 0);
             this.tableLayoutPanel6.Controls.Add(this.Print_button, 3, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(75, 3932);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(75, 3896);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
@@ -353,97 +362,52 @@
             // 
             this.tableLayoutPanel19.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel19.ColumnCount = 3;
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel19.Controls.Add(this.RejectMsg_checkBox, 0, 4);
-            this.tableLayoutPanel19.Controls.Add(this.label1, 0, 3);
-            this.tableLayoutPanel19.Controls.Add(this.label2, 1, 3);
-            this.tableLayoutPanel19.Controls.Add(this.label3, 2, 3);
-            this.tableLayoutPanel19.Controls.Add(this.RejectMsg_Date_dateTimePicker, 1, 4);
-            this.tableLayoutPanel19.Controls.Add(this.RejectMsgSender_comboBox, 2, 4);
-            this.tableLayoutPanel19.Controls.Add(this.label7, 0, 1);
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.81655F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.8849F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29856F));
+            this.tableLayoutPanel19.Controls.Add(this.RejectMsg_tableLayoutPanel, 1, 3);
+            this.tableLayoutPanel19.Controls.Add(this.label7, 1, 1);
+            this.tableLayoutPanel19.Controls.Add(this.flowLayoutPanel1, 2, 1);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel19.Location = new System.Drawing.Point(75, 3752);
             this.tableLayoutPanel19.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tableLayoutPanel19.RowCount = 6;
+            this.tableLayoutPanel19.RowCount = 5;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(1113, 180);
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(1113, 144);
             this.tableLayoutPanel19.TabIndex = 538;
             // 
             // RejectMsg_checkBox
             // 
             this.RejectMsg_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.RejectMsg_checkBox.AutoSize = true;
-            this.RejectMsg_checkBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.RejectMsg_checkBox.Location = new System.Drawing.Point(974, 124);
+            this.RejectMsg_checkBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
+            this.RejectMsg_checkBox.Location = new System.Drawing.Point(15, 0);
             this.RejectMsg_checkBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.RejectMsg_checkBox.Name = "RejectMsg_checkBox";
             this.RejectMsg_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RejectMsg_checkBox.Size = new System.Drawing.Size(137, 31);
             this.RejectMsg_checkBox.TabIndex = 582;
-            this.RejectMsg_checkBox.Text = "لم يتم الارسال";
+            this.RejectMsg_checkBox.Text = "لم يتم الإرسال";
             this.RejectMsg_checkBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RejectMsg_checkBox.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Gainsboro;
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label1.Location = new System.Drawing.Point(746, 86);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(364, 27);
-            this.label1.TabIndex = 583;
-            this.label1.Text = "رسالة الرفض";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Gainsboro;
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label2.Location = new System.Drawing.Point(376, 86);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(364, 27);
-            this.label2.TabIndex = 578;
-            this.label2.Text = "تاريخ الارسال";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Gainsboro;
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label3.Location = new System.Drawing.Point(3, 86);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(367, 27);
-            this.label3.TabIndex = 579;
-            this.label3.Text = "المُرسِل";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RejectMsg_checkBox.CheckedChanged += new System.EventHandler(this.RejectMsg_checkBox_CheckedChanged);
             // 
             // RejectMsg_Date_dateTimePicker
             // 
             this.RejectMsg_Date_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.RejectMsg_Date_dateTimePicker.CustomFormat = "yyyy/MM/dd";
             this.RejectMsg_Date_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.RejectMsg_Date_dateTimePicker.Location = new System.Drawing.Point(376, 125);
+            this.RejectMsg_Date_dateTimePicker.Location = new System.Drawing.Point(387, 6);
             this.RejectMsg_Date_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RejectMsg_Date_dateTimePicker.Name = "RejectMsg_Date_dateTimePicker";
-            this.RejectMsg_Date_dateTimePicker.Size = new System.Drawing.Size(364, 29);
+            this.RejectMsg_Date_dateTimePicker.Size = new System.Drawing.Size(185, 29);
             this.RejectMsg_Date_dateTimePicker.TabIndex = 10;
             // 
             // RejectMsgSender_comboBox
@@ -457,23 +421,22 @@
             this.RejectMsgSender_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.RejectMsgSender_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RejectMsgSender_comboBox.FormattingEnabled = true;
-            this.RejectMsgSender_comboBox.Location = new System.Drawing.Point(3, 124);
+            this.RejectMsgSender_comboBox.Location = new System.Drawing.Point(3, 4);
             this.RejectMsgSender_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RejectMsgSender_comboBox.Name = "RejectMsgSender_comboBox";
-            this.RejectMsgSender_comboBox.Size = new System.Drawing.Size(367, 30);
+            this.RejectMsgSender_comboBox.Size = new System.Drawing.Size(187, 30);
             this.RejectMsgSender_comboBox.TabIndex = 584;
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.tableLayoutPanel19.SetColumnSpan(this.label7, 3);
             this.label7.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.label7.Location = new System.Drawing.Point(3, 21);
+            this.label7.Location = new System.Drawing.Point(163, 22);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(1107, 37);
+            this.label7.Size = new System.Drawing.Size(760, 37);
             this.label7.TabIndex = 575;
             this.label7.Text = "رسالة الرفض";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -626,10 +589,10 @@
             this.commity_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.commity_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.commity_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.commity_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.commity_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.commity_dataGridView.ColumnHeadersHeight = 70;
             this.commity_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.commity_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -644,14 +607,14 @@
             this.C_InDataBase,
             this.C_IsDirty});
             this.tableLayoutPanel3.SetColumnSpan(this.commity_dataGridView, 4);
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.commity_dataGridView.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.commity_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.commity_dataGridView.EnableHeadersVisualStyles = false;
             this.commity_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.commity_dataGridView.Location = new System.Drawing.Point(3, 132);
@@ -659,13 +622,13 @@
             this.commity_dataGridView.MultiSelect = false;
             this.commity_dataGridView.Name = "commity_dataGridView";
             this.commity_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Rubik", 10.8F);
-            this.commity_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rubik", 10.8F);
+            this.commity_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.commity_dataGridView.RowHeadersVisible = false;
             this.commity_dataGridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.commity_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.commity_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.commity_dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.commity_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.commity_dataGridView.RowTemplate.DividerHeight = 1;
@@ -883,10 +846,10 @@
             this.team_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.team_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.team_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.team_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.team_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.team_dataGridView.ColumnHeadersHeight = 70;
             this.team_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.team_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -901,14 +864,14 @@
             this.T_InDataBase,
             this.T_IsDirty});
             this.tableLayoutPanel7.SetColumnSpan(this.team_dataGridView, 4);
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.team_dataGridView.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.team_dataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.team_dataGridView.EnableHeadersVisualStyles = false;
             this.team_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.team_dataGridView.Location = new System.Drawing.Point(3, 132);
@@ -916,13 +879,13 @@
             this.team_dataGridView.MultiSelect = false;
             this.team_dataGridView.Name = "team_dataGridView";
             this.team_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Rubik", 10.8F);
-            this.team_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Rubik", 10.8F);
+            this.team_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.team_dataGridView.RowHeadersVisible = false;
             this.team_dataGridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.team_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.team_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.team_dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.team_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.team_dataGridView.RowTemplate.DividerHeight = 1;
@@ -1106,16 +1069,9 @@
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel17.Controls.Add(this.MngTrain_Trainer_textBox, 0, 4);
-            this.tableLayoutPanel17.Controls.Add(this.GreyLable13_label, 1, 3);
-            this.tableLayoutPanel17.Controls.Add(this.GreyLable14_label, 4, 3);
-            this.tableLayoutPanel17.Controls.Add(this.GreyLable15_label, 5, 3);
-            this.tableLayoutPanel17.Controls.Add(this.MngTrain_Result_textBox, 5, 4);
-            this.tableLayoutPanel17.Controls.Add(this.MngTrain_Place_textBox, 1, 4);
-            this.tableLayoutPanel17.Controls.Add(this.GreyLable12_label, 0, 3);
+            this.tableLayoutPanel17.Controls.Add(this.HasMngTrain_tableLayoutPanel, 0, 3);
             this.tableLayoutPanel17.Controls.Add(this.SubHeader3_label, 1, 1);
             this.tableLayoutPanel17.Controls.Add(this.HasMngTrain_flowLayoutPanel, 6, 1);
-            this.tableLayoutPanel17.Controls.Add(this.MngTrain_Date_dateTimePicker, 4, 4);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel17.Location = new System.Drawing.Point(75, 2295);
             this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1135,7 +1091,7 @@
             // 
             this.MngTrain_Trainer_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.MngTrain_Trainer_textBox.BackColor = System.Drawing.Color.White;
-            this.MngTrain_Trainer_textBox.Location = new System.Drawing.Point(958, 125);
+            this.MngTrain_Trainer_textBox.Location = new System.Drawing.Point(958, 45);
             this.MngTrain_Trainer_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MngTrain_Trainer_textBox.Name = "MngTrain_Trainer_textBox";
             this.MngTrain_Trainer_textBox.Size = new System.Drawing.Size(152, 29);
@@ -1146,9 +1102,9 @@
             this.GreyLable13_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.GreyLable13_label.AutoSize = true;
             this.GreyLable13_label.BackColor = System.Drawing.Color.Gainsboro;
-            this.tableLayoutPanel17.SetColumnSpan(this.GreyLable13_label, 3);
+            this.HasMngTrain_tableLayoutPanel.SetColumnSpan(this.GreyLable13_label, 3);
             this.GreyLable13_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GreyLable13_label.Location = new System.Drawing.Point(484, 86);
+            this.GreyLable13_label.Location = new System.Drawing.Point(484, 6);
             this.GreyLable13_label.Name = "GreyLable13_label";
             this.GreyLable13_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.GreyLable13_label.Size = new System.Drawing.Size(468, 27);
@@ -1162,7 +1118,7 @@
             this.GreyLable14_label.AutoSize = true;
             this.GreyLable14_label.BackColor = System.Drawing.Color.Gainsboro;
             this.GreyLable14_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GreyLable14_label.Location = new System.Drawing.Point(326, 86);
+            this.GreyLable14_label.Location = new System.Drawing.Point(326, 6);
             this.GreyLable14_label.Name = "GreyLable14_label";
             this.GreyLable14_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.GreyLable14_label.Size = new System.Drawing.Size(152, 27);
@@ -1175,9 +1131,9 @@
             this.GreyLable15_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.GreyLable15_label.AutoSize = true;
             this.GreyLable15_label.BackColor = System.Drawing.Color.Gainsboro;
-            this.tableLayoutPanel17.SetColumnSpan(this.GreyLable15_label, 2);
+            this.HasMngTrain_tableLayoutPanel.SetColumnSpan(this.GreyLable15_label, 2);
             this.GreyLable15_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GreyLable15_label.Location = new System.Drawing.Point(3, 86);
+            this.GreyLable15_label.Location = new System.Drawing.Point(3, 6);
             this.GreyLable15_label.Name = "GreyLable15_label";
             this.GreyLable15_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.GreyLable15_label.Size = new System.Drawing.Size(317, 27);
@@ -1185,23 +1141,12 @@
             this.GreyLable15_label.Text = "النتيجة";
             this.GreyLable15_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // MngTrain_Date_dateTimePicker
-            // 
-            this.MngTrain_Date_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.MngTrain_Date_dateTimePicker.CustomFormat = "yyyy/MM/dd";
-            this.MngTrain_Date_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.MngTrain_Date_dateTimePicker.Location = new System.Drawing.Point(326, 125);
-            this.MngTrain_Date_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MngTrain_Date_dateTimePicker.Name = "MngTrain_Date_dateTimePicker";
-            this.MngTrain_Date_dateTimePicker.Size = new System.Drawing.Size(152, 29);
-            this.MngTrain_Date_dateTimePicker.TabIndex = 10;
-            // 
             // MngTrain_Result_textBox
             // 
             this.MngTrain_Result_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.MngTrain_Result_textBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel17.SetColumnSpan(this.MngTrain_Result_textBox, 2);
-            this.MngTrain_Result_textBox.Location = new System.Drawing.Point(3, 125);
+            this.HasMngTrain_tableLayoutPanel.SetColumnSpan(this.MngTrain_Result_textBox, 2);
+            this.MngTrain_Result_textBox.Location = new System.Drawing.Point(3, 45);
             this.MngTrain_Result_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MngTrain_Result_textBox.Name = "MngTrain_Result_textBox";
             this.MngTrain_Result_textBox.Size = new System.Drawing.Size(317, 29);
@@ -1211,8 +1156,8 @@
             // 
             this.MngTrain_Place_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.MngTrain_Place_textBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel17.SetColumnSpan(this.MngTrain_Place_textBox, 3);
-            this.MngTrain_Place_textBox.Location = new System.Drawing.Point(484, 125);
+            this.HasMngTrain_tableLayoutPanel.SetColumnSpan(this.MngTrain_Place_textBox, 3);
+            this.MngTrain_Place_textBox.Location = new System.Drawing.Point(484, 45);
             this.MngTrain_Place_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MngTrain_Place_textBox.Name = "MngTrain_Place_textBox";
             this.MngTrain_Place_textBox.Size = new System.Drawing.Size(468, 29);
@@ -1224,7 +1169,7 @@
             this.GreyLable12_label.AutoSize = true;
             this.GreyLable12_label.BackColor = System.Drawing.Color.Gainsboro;
             this.GreyLable12_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GreyLable12_label.Location = new System.Drawing.Point(958, 86);
+            this.GreyLable12_label.Location = new System.Drawing.Point(958, 6);
             this.GreyLable12_label.Name = "GreyLable12_label";
             this.GreyLable12_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.GreyLable12_label.Size = new System.Drawing.Size(152, 27);
@@ -1275,6 +1220,7 @@
             this.HasMngTrainYes_radioButton.Text = "يوجد";
             this.HasMngTrainYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.HasMngTrainYes_radioButton.UseVisualStyleBackColor = true;
+            this.HasMngTrainYes_radioButton.CheckedChanged += new System.EventHandler(this.HasMngTrainYes_radioButton_CheckedChanged);
             // 
             // HasMngTrainNo_radioButton
             // 
@@ -1291,6 +1237,18 @@
             this.HasMngTrainNo_radioButton.Text = "لا يوجد";
             this.HasMngTrainNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.HasMngTrainNo_radioButton.UseVisualStyleBackColor = true;
+            this.HasMngTrainNo_radioButton.CheckedChanged += new System.EventHandler(this.HasMngTrainYes_radioButton_CheckedChanged);
+            // 
+            // MngTrain_Date_dateTimePicker
+            // 
+            this.MngTrain_Date_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.MngTrain_Date_dateTimePicker.CustomFormat = "yyyy/MM/dd";
+            this.MngTrain_Date_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.MngTrain_Date_dateTimePicker.Location = new System.Drawing.Point(326, 45);
+            this.MngTrain_Date_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MngTrain_Date_dateTimePicker.Name = "MngTrain_Date_dateTimePicker";
+            this.MngTrain_Date_dateTimePicker.Size = new System.Drawing.Size(152, 29);
+            this.MngTrain_Date_dateTimePicker.TabIndex = 10;
             // 
             // tableLayoutPanel18
             // 
@@ -1303,20 +1261,9 @@
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel18.Controls.Add(this.GreyLable6_label, 0, 3);
-            this.tableLayoutPanel18.Controls.Add(this.GreyLable7_label, 1, 3);
-            this.tableLayoutPanel18.Controls.Add(this.GreyLable11_label, 5, 3);
-            this.tableLayoutPanel18.Controls.Add(this.ProTrain_Result_textBox, 5, 4);
-            this.tableLayoutPanel18.Controls.Add(this.ProTrain_Trainer_textBox, 0, 4);
-            this.tableLayoutPanel18.Controls.Add(this.ProTrain_Place_textBox, 1, 4);
+            this.tableLayoutPanel18.Controls.Add(this.HasProTrain_tableLayoutPanel, 0, 3);
             this.tableLayoutPanel18.Controls.Add(this.HasProTrain_flowLayoutPanel, 6, 1);
-            this.tableLayoutPanel18.Controls.Add(this.GreyLable10_label, 4, 3);
-            this.tableLayoutPanel18.Controls.Add(this.ProTrain_Note_textBox, 4, 4);
-            this.tableLayoutPanel18.Controls.Add(this.GreyLable9_label, 3, 3);
-            this.tableLayoutPanel18.Controls.Add(this.GreyLable8_label, 2, 3);
             this.tableLayoutPanel18.Controls.Add(this.SubHeader2_label, 1, 1);
-            this.tableLayoutPanel18.Controls.Add(this.ProTrain_EDate_dateTimePicker, 3, 4);
-            this.tableLayoutPanel18.Controls.Add(this.ProTrain_BDate_dateTimePicker, 2, 4);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(75, 2115);
             this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1338,7 +1285,7 @@
             this.GreyLable6_label.AutoSize = true;
             this.GreyLable6_label.BackColor = System.Drawing.Color.Gainsboro;
             this.GreyLable6_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GreyLable6_label.Location = new System.Drawing.Point(958, 86);
+            this.GreyLable6_label.Location = new System.Drawing.Point(958, 6);
             this.GreyLable6_label.Name = "GreyLable6_label";
             this.GreyLable6_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.GreyLable6_label.Size = new System.Drawing.Size(152, 27);
@@ -1352,10 +1299,10 @@
             this.GreyLable7_label.AutoSize = true;
             this.GreyLable7_label.BackColor = System.Drawing.Color.Gainsboro;
             this.GreyLable7_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GreyLable7_label.Location = new System.Drawing.Point(800, 86);
+            this.GreyLable7_label.Location = new System.Drawing.Point(799, 6);
             this.GreyLable7_label.Name = "GreyLable7_label";
             this.GreyLable7_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.GreyLable7_label.Size = new System.Drawing.Size(152, 27);
+            this.GreyLable7_label.Size = new System.Drawing.Size(153, 27);
             this.GreyLable7_label.TabIndex = 567;
             this.GreyLable7_label.Text = "الجهة المنفّذة";
             this.GreyLable7_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1365,9 +1312,9 @@
             this.GreyLable11_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.GreyLable11_label.AutoSize = true;
             this.GreyLable11_label.BackColor = System.Drawing.Color.Gainsboro;
-            this.tableLayoutPanel18.SetColumnSpan(this.GreyLable11_label, 2);
+            this.HasProTrain_tableLayoutPanel.SetColumnSpan(this.GreyLable11_label, 2);
             this.GreyLable11_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GreyLable11_label.Location = new System.Drawing.Point(3, 86);
+            this.GreyLable11_label.Location = new System.Drawing.Point(3, 6);
             this.GreyLable11_label.Name = "GreyLable11_label";
             this.GreyLable11_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.GreyLable11_label.Size = new System.Drawing.Size(317, 27);
@@ -1379,8 +1326,8 @@
             // 
             this.ProTrain_Result_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ProTrain_Result_textBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel18.SetColumnSpan(this.ProTrain_Result_textBox, 2);
-            this.ProTrain_Result_textBox.Location = new System.Drawing.Point(3, 125);
+            this.HasProTrain_tableLayoutPanel.SetColumnSpan(this.ProTrain_Result_textBox, 2);
+            this.ProTrain_Result_textBox.Location = new System.Drawing.Point(3, 45);
             this.ProTrain_Result_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ProTrain_Result_textBox.Name = "ProTrain_Result_textBox";
             this.ProTrain_Result_textBox.Size = new System.Drawing.Size(317, 29);
@@ -1390,7 +1337,7 @@
             // 
             this.ProTrain_Trainer_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ProTrain_Trainer_textBox.BackColor = System.Drawing.Color.White;
-            this.ProTrain_Trainer_textBox.Location = new System.Drawing.Point(958, 125);
+            this.ProTrain_Trainer_textBox.Location = new System.Drawing.Point(958, 45);
             this.ProTrain_Trainer_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ProTrain_Trainer_textBox.Name = "ProTrain_Trainer_textBox";
             this.ProTrain_Trainer_textBox.Size = new System.Drawing.Size(152, 29);
@@ -1400,10 +1347,10 @@
             // 
             this.ProTrain_Place_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ProTrain_Place_textBox.BackColor = System.Drawing.Color.White;
-            this.ProTrain_Place_textBox.Location = new System.Drawing.Point(800, 125);
+            this.ProTrain_Place_textBox.Location = new System.Drawing.Point(799, 45);
             this.ProTrain_Place_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ProTrain_Place_textBox.Name = "ProTrain_Place_textBox";
-            this.ProTrain_Place_textBox.Size = new System.Drawing.Size(152, 29);
+            this.ProTrain_Place_textBox.Size = new System.Drawing.Size(153, 29);
             this.ProTrain_Place_textBox.TabIndex = 573;
             // 
             // HasProTrain_flowLayoutPanel
@@ -1434,6 +1381,7 @@
             this.HasProTrainYes_radioButton.Text = "يوجد";
             this.HasProTrainYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.HasProTrainYes_radioButton.UseVisualStyleBackColor = true;
+            this.HasProTrainYes_radioButton.CheckedChanged += new System.EventHandler(this.HasProTrainYes_radioButton_CheckedChanged);
             // 
             // HasProTrainNo_radioButton
             // 
@@ -1450,6 +1398,7 @@
             this.HasProTrainNo_radioButton.Text = "لا يوجد";
             this.HasProTrainNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.HasProTrainNo_radioButton.UseVisualStyleBackColor = true;
+            this.HasProTrainNo_radioButton.CheckedChanged += new System.EventHandler(this.HasProTrainYes_radioButton_CheckedChanged);
             // 
             // GreyLable10_label
             // 
@@ -1457,7 +1406,7 @@
             this.GreyLable10_label.AutoSize = true;
             this.GreyLable10_label.BackColor = System.Drawing.Color.Gainsboro;
             this.GreyLable10_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GreyLable10_label.Location = new System.Drawing.Point(326, 86);
+            this.GreyLable10_label.Location = new System.Drawing.Point(326, 6);
             this.GreyLable10_label.Name = "GreyLable10_label";
             this.GreyLable10_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.GreyLable10_label.Size = new System.Drawing.Size(152, 27);
@@ -1469,7 +1418,7 @@
             // 
             this.ProTrain_Note_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ProTrain_Note_textBox.BackColor = System.Drawing.Color.White;
-            this.ProTrain_Note_textBox.Location = new System.Drawing.Point(326, 125);
+            this.ProTrain_Note_textBox.Location = new System.Drawing.Point(326, 45);
             this.ProTrain_Note_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ProTrain_Note_textBox.Name = "ProTrain_Note_textBox";
             this.ProTrain_Note_textBox.ReadOnly = true;
@@ -1482,24 +1431,13 @@
             this.GreyLable9_label.AutoSize = true;
             this.GreyLable9_label.BackColor = System.Drawing.Color.Gainsboro;
             this.GreyLable9_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GreyLable9_label.Location = new System.Drawing.Point(484, 86);
+            this.GreyLable9_label.Location = new System.Drawing.Point(484, 6);
             this.GreyLable9_label.Name = "GreyLable9_label";
             this.GreyLable9_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.GreyLable9_label.Size = new System.Drawing.Size(152, 27);
+            this.GreyLable9_label.Size = new System.Drawing.Size(150, 27);
             this.GreyLable9_label.TabIndex = 583;
             this.GreyLable9_label.Text = "تاريخ النهاية";
             this.GreyLable9_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ProTrain_BDate_dateTimePicker
-            // 
-            this.ProTrain_BDate_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProTrain_BDate_dateTimePicker.CustomFormat = "yyyy/MM/dd";
-            this.ProTrain_BDate_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ProTrain_BDate_dateTimePicker.Location = new System.Drawing.Point(642, 125);
-            this.ProTrain_BDate_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ProTrain_BDate_dateTimePicker.Name = "ProTrain_BDate_dateTimePicker";
-            this.ProTrain_BDate_dateTimePicker.Size = new System.Drawing.Size(152, 29);
-            this.ProTrain_BDate_dateTimePicker.TabIndex = 10;
             // 
             // GreyLable8_label
             // 
@@ -1507,24 +1445,13 @@
             this.GreyLable8_label.AutoSize = true;
             this.GreyLable8_label.BackColor = System.Drawing.Color.Gainsboro;
             this.GreyLable8_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GreyLable8_label.Location = new System.Drawing.Point(642, 86);
+            this.GreyLable8_label.Location = new System.Drawing.Point(640, 6);
             this.GreyLable8_label.Name = "GreyLable8_label";
             this.GreyLable8_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.GreyLable8_label.Size = new System.Drawing.Size(152, 27);
+            this.GreyLable8_label.Size = new System.Drawing.Size(153, 27);
             this.GreyLable8_label.TabIndex = 582;
             this.GreyLable8_label.Text = "تاريخ البداية";
             this.GreyLable8_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ProTrain_EDate_dateTimePicker
-            // 
-            this.ProTrain_EDate_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProTrain_EDate_dateTimePicker.CustomFormat = "yyyy/MM/dd";
-            this.ProTrain_EDate_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ProTrain_EDate_dateTimePicker.Location = new System.Drawing.Point(484, 125);
-            this.ProTrain_EDate_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ProTrain_EDate_dateTimePicker.Name = "ProTrain_EDate_dateTimePicker";
-            this.ProTrain_EDate_dateTimePicker.Size = new System.Drawing.Size(152, 29);
-            this.ProTrain_EDate_dateTimePicker.TabIndex = 10;
             // 
             // SubHeader2_label
             // 
@@ -1540,6 +1467,28 @@
             this.SubHeader2_label.TabIndex = 565;
             this.SubHeader2_label.Text = "التدريب المهني";
             this.SubHeader2_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ProTrain_EDate_dateTimePicker
+            // 
+            this.ProTrain_EDate_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ProTrain_EDate_dateTimePicker.CustomFormat = "yyyy/MM/dd";
+            this.ProTrain_EDate_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ProTrain_EDate_dateTimePicker.Location = new System.Drawing.Point(484, 45);
+            this.ProTrain_EDate_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ProTrain_EDate_dateTimePicker.Name = "ProTrain_EDate_dateTimePicker";
+            this.ProTrain_EDate_dateTimePicker.Size = new System.Drawing.Size(150, 29);
+            this.ProTrain_EDate_dateTimePicker.TabIndex = 10;
+            // 
+            // ProTrain_BDate_dateTimePicker
+            // 
+            this.ProTrain_BDate_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ProTrain_BDate_dateTimePicker.CustomFormat = "yyyy/MM/dd";
+            this.ProTrain_BDate_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ProTrain_BDate_dateTimePicker.Location = new System.Drawing.Point(640, 45);
+            this.ProTrain_BDate_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ProTrain_BDate_dateTimePicker.Name = "ProTrain_BDate_dateTimePicker";
+            this.ProTrain_BDate_dateTimePicker.Size = new System.Drawing.Size(153, 29);
+            this.ProTrain_BDate_dateTimePicker.TabIndex = 10;
             // 
             // Add_V_button
             // 
@@ -1574,17 +1523,9 @@
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel15.Controls.Add(this.ProTest_Date_dateTimePicker, 0, 4);
-            this.tableLayoutPanel15.Controls.Add(this.GreyLable5_label, 5, 3);
-            this.tableLayoutPanel15.Controls.Add(this.GreyLable3_label, 1, 3);
-            this.tableLayoutPanel15.Controls.Add(this.GreyLable2_label, 0, 3);
-            this.tableLayoutPanel15.Controls.Add(this.ProTest_Note_textBox, 1, 4);
-            this.tableLayoutPanel15.Controls.Add(this.ProTest_ResultYes_radioButton, 5, 4);
-            this.tableLayoutPanel15.Controls.Add(this.ProTest_ResultNo_radioButton, 6, 4);
-            this.tableLayoutPanel15.Controls.Add(this.SubHeader1_label, 1, 1);
             this.tableLayoutPanel15.Controls.Add(this.HasProfTest_flowLayoutPanel, 6, 1);
-            this.tableLayoutPanel15.Controls.Add(this.GreyLable4_label, 4, 3);
-            this.tableLayoutPanel15.Controls.Add(this.ProTest_User_ID_comboBox, 4, 4);
+            this.tableLayoutPanel15.Controls.Add(this.HasProfTest_tableLayoutPanel, 0, 3);
+            this.tableLayoutPanel15.Controls.Add(this.SubHeader1_label, 1, 1);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel15.Location = new System.Drawing.Point(75, 1935);
             this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1600,14 +1541,25 @@
             this.tableLayoutPanel15.Size = new System.Drawing.Size(1113, 180);
             this.tableLayoutPanel15.TabIndex = 531;
             // 
+            // ProTest_Date_dateTimePicker
+            // 
+            this.ProTest_Date_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ProTest_Date_dateTimePicker.CustomFormat = "yyyy/MM/dd";
+            this.ProTest_Date_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ProTest_Date_dateTimePicker.Location = new System.Drawing.Point(958, 45);
+            this.ProTest_Date_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ProTest_Date_dateTimePicker.Name = "ProTest_Date_dateTimePicker";
+            this.ProTest_Date_dateTimePicker.Size = new System.Drawing.Size(152, 29);
+            this.ProTest_Date_dateTimePicker.TabIndex = 10;
+            // 
             // GreyLable5_label
             // 
             this.GreyLable5_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.GreyLable5_label.AutoSize = true;
             this.GreyLable5_label.BackColor = System.Drawing.Color.Gainsboro;
-            this.tableLayoutPanel15.SetColumnSpan(this.GreyLable5_label, 2);
+            this.HasProfTest_tableLayoutPanel.SetColumnSpan(this.GreyLable5_label, 2);
             this.GreyLable5_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GreyLable5_label.Location = new System.Drawing.Point(3, 86);
+            this.GreyLable5_label.Location = new System.Drawing.Point(3, 6);
             this.GreyLable5_label.Name = "GreyLable5_label";
             this.GreyLable5_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.GreyLable5_label.Size = new System.Drawing.Size(317, 27);
@@ -1620,9 +1572,9 @@
             this.GreyLable3_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.GreyLable3_label.AutoSize = true;
             this.GreyLable3_label.BackColor = System.Drawing.Color.Gainsboro;
-            this.tableLayoutPanel15.SetColumnSpan(this.GreyLable3_label, 3);
+            this.HasProfTest_tableLayoutPanel.SetColumnSpan(this.GreyLable3_label, 3);
             this.GreyLable3_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GreyLable3_label.Location = new System.Drawing.Point(484, 86);
+            this.GreyLable3_label.Location = new System.Drawing.Point(484, 6);
             this.GreyLable3_label.Name = "GreyLable3_label";
             this.GreyLable3_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.GreyLable3_label.Size = new System.Drawing.Size(468, 27);
@@ -1636,7 +1588,7 @@
             this.GreyLable2_label.AutoSize = true;
             this.GreyLable2_label.BackColor = System.Drawing.Color.Gainsboro;
             this.GreyLable2_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GreyLable2_label.Location = new System.Drawing.Point(958, 86);
+            this.GreyLable2_label.Location = new System.Drawing.Point(958, 6);
             this.GreyLable2_label.Name = "GreyLable2_label";
             this.GreyLable2_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.GreyLable2_label.Size = new System.Drawing.Size(152, 27);
@@ -1644,23 +1596,12 @@
             this.GreyLable2_label.Text = "تاريخ الفحص";
             this.GreyLable2_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ProTest_Date_dateTimePicker
-            // 
-            this.ProTest_Date_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProTest_Date_dateTimePicker.CustomFormat = "yyyy/MM/dd";
-            this.ProTest_Date_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ProTest_Date_dateTimePicker.Location = new System.Drawing.Point(958, 125);
-            this.ProTest_Date_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ProTest_Date_dateTimePicker.Name = "ProTest_Date_dateTimePicker";
-            this.ProTest_Date_dateTimePicker.Size = new System.Drawing.Size(152, 29);
-            this.ProTest_Date_dateTimePicker.TabIndex = 10;
-            // 
             // ProTest_Note_textBox
             // 
             this.ProTest_Note_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ProTest_Note_textBox.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel15.SetColumnSpan(this.ProTest_Note_textBox, 3);
-            this.ProTest_Note_textBox.Location = new System.Drawing.Point(484, 125);
+            this.HasProfTest_tableLayoutPanel.SetColumnSpan(this.ProTest_Note_textBox, 3);
+            this.ProTest_Note_textBox.Location = new System.Drawing.Point(484, 45);
             this.ProTest_Note_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ProTest_Note_textBox.Name = "ProTest_Note_textBox";
             this.ProTest_Note_textBox.Size = new System.Drawing.Size(468, 29);
@@ -1672,7 +1613,7 @@
             this.ProTest_ResultYes_radioButton.AutoSize = true;
             this.ProTest_ResultYes_radioButton.BackColor = System.Drawing.Color.Transparent;
             this.ProTest_ResultYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.ProTest_ResultYes_radioButton.Location = new System.Drawing.Point(168, 124);
+            this.ProTest_ResultYes_radioButton.Location = new System.Drawing.Point(168, 44);
             this.ProTest_ResultYes_radioButton.Name = "ProTest_ResultYes_radioButton";
             this.ProTest_ResultYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ProTest_ResultYes_radioButton.Size = new System.Drawing.Size(152, 31);
@@ -1687,7 +1628,7 @@
             this.ProTest_ResultNo_radioButton.AutoSize = true;
             this.ProTest_ResultNo_radioButton.BackColor = System.Drawing.Color.Transparent;
             this.ProTest_ResultNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.ProTest_ResultNo_radioButton.Location = new System.Drawing.Point(99, 124);
+            this.ProTest_ResultNo_radioButton.Location = new System.Drawing.Point(99, 44);
             this.ProTest_ResultNo_radioButton.Name = "ProTest_ResultNo_radioButton";
             this.ProTest_ResultNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ProTest_ResultNo_radioButton.Size = new System.Drawing.Size(63, 31);
@@ -1739,6 +1680,7 @@
             this.HasProTestYes_radioButton.Text = "يوجد";
             this.HasProTestYes_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.HasProTestYes_radioButton.UseVisualStyleBackColor = true;
+            this.HasProTestYes_radioButton.CheckedChanged += new System.EventHandler(this.HasProTestYes_radioButton_CheckedChanged);
             // 
             // HasProTestNo_radioButton
             // 
@@ -1755,6 +1697,7 @@
             this.HasProTestNo_radioButton.Text = "لا يوجد";
             this.HasProTestNo_radioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.HasProTestNo_radioButton.UseVisualStyleBackColor = true;
+            this.HasProTestNo_radioButton.CheckedChanged += new System.EventHandler(this.HasProTestYes_radioButton_CheckedChanged);
             // 
             // GreyLable4_label
             // 
@@ -1762,7 +1705,7 @@
             this.GreyLable4_label.AutoSize = true;
             this.GreyLable4_label.BackColor = System.Drawing.Color.Gainsboro;
             this.GreyLable4_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GreyLable4_label.Location = new System.Drawing.Point(326, 86);
+            this.GreyLable4_label.Location = new System.Drawing.Point(326, 6);
             this.GreyLable4_label.Name = "GreyLable4_label";
             this.GreyLable4_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.GreyLable4_label.Size = new System.Drawing.Size(152, 27);
@@ -1781,7 +1724,7 @@
             this.ProTest_User_ID_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.ProTest_User_ID_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProTest_User_ID_comboBox.FormattingEnabled = true;
-            this.ProTest_User_ID_comboBox.Location = new System.Drawing.Point(326, 124);
+            this.ProTest_User_ID_comboBox.Location = new System.Drawing.Point(326, 44);
             this.ProTest_User_ID_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ProTest_User_ID_comboBox.Name = "ProTest_User_ID_comboBox";
             this.ProTest_User_ID_comboBox.Size = new System.Drawing.Size(152, 30);
@@ -2446,21 +2389,21 @@
             this.Marks_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Marks_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Marks_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Marks_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Marks_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.Marks_dataGridView.ColumnHeadersHeight = 70;
             this.Marks_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.tableLayoutPanel10.SetColumnSpan(this.Marks_dataGridView, 4);
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Marks_dataGridView.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Marks_dataGridView.DefaultCellStyle = dataGridViewCellStyle10;
             this.Marks_dataGridView.EnableHeadersVisualStyles = false;
             this.Marks_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.Marks_dataGridView.Location = new System.Drawing.Point(3, 84);
@@ -2468,13 +2411,13 @@
             this.Marks_dataGridView.MultiSelect = false;
             this.Marks_dataGridView.Name = "Marks_dataGridView";
             this.Marks_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Rubik", 10.8F);
-            this.Marks_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Rubik", 10.8F);
+            this.Marks_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.Marks_dataGridView.RowHeadersVisible = false;
             this.Marks_dataGridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Marks_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Marks_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.Marks_dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.Marks_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Marks_dataGridView.RowTemplate.DividerHeight = 1;
@@ -2630,10 +2573,10 @@
             this.keyperson_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.keyperson_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.keyperson_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.keyperson_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.keyperson_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.keyperson_dataGridView.ColumnHeadersHeight = 70;
             this.keyperson_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.keyperson_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2648,14 +2591,14 @@
             this.K_InDataBase,
             this.K_IsDirty});
             this.tableLayoutPanel14.SetColumnSpan(this.keyperson_dataGridView, 5);
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.keyperson_dataGridView.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.keyperson_dataGridView.DefaultCellStyle = dataGridViewCellStyle14;
             this.keyperson_dataGridView.EnableHeadersVisualStyles = false;
             this.keyperson_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.keyperson_dataGridView.Location = new System.Drawing.Point(3, 297);
@@ -2663,13 +2606,13 @@
             this.keyperson_dataGridView.MultiSelect = false;
             this.keyperson_dataGridView.Name = "keyperson_dataGridView";
             this.keyperson_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Rubik", 10.8F);
-            this.keyperson_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Rubik", 10.8F);
+            this.keyperson_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.keyperson_dataGridView.RowHeadersVisible = false;
             this.keyperson_dataGridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.keyperson_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.keyperson_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.keyperson_dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.keyperson_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.keyperson_dataGridView.RowTemplate.DividerHeight = 1;
@@ -2949,6 +2892,159 @@
             this.attachments_toolStripMenuItem.Text = "Show Attachments";
             this.attachments_toolStripMenuItem.Click += new System.EventHandler(this.attachment_toolStripMenuItem3_Click);
             // 
+            // HasProfTest_tableLayoutPanel
+            // 
+            this.HasProfTest_tableLayoutPanel.ColumnCount = 7;
+            this.tableLayoutPanel15.SetColumnSpan(this.HasProfTest_tableLayoutPanel, 7);
+            this.HasProfTest_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.20864F));
+            this.HasProfTest_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29856F));
+            this.HasProfTest_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29856F));
+            this.HasProfTest_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.02878F));
+            this.HasProfTest_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.20863F));
+            this.HasProfTest_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.20863F));
+            this.HasProfTest_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.7482F));
+            this.HasProfTest_tableLayoutPanel.Controls.Add(this.ProTest_Date_dateTimePicker, 0, 1);
+            this.HasProfTest_tableLayoutPanel.Controls.Add(this.ProTest_Note_textBox, 1, 1);
+            this.HasProfTest_tableLayoutPanel.Controls.Add(this.GreyLable5_label, 5, 0);
+            this.HasProfTest_tableLayoutPanel.Controls.Add(this.ProTest_User_ID_comboBox, 4, 1);
+            this.HasProfTest_tableLayoutPanel.Controls.Add(this.GreyLable4_label, 4, 0);
+            this.HasProfTest_tableLayoutPanel.Controls.Add(this.ProTest_ResultYes_radioButton, 5, 1);
+            this.HasProfTest_tableLayoutPanel.Controls.Add(this.GreyLable3_label, 1, 0);
+            this.HasProfTest_tableLayoutPanel.Controls.Add(this.ProTest_ResultNo_radioButton, 6, 1);
+            this.HasProfTest_tableLayoutPanel.Controls.Add(this.GreyLable2_label, 0, 0);
+            this.HasProfTest_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HasProfTest_tableLayoutPanel.Location = new System.Drawing.Point(0, 80);
+            this.HasProfTest_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.HasProfTest_tableLayoutPanel.Name = "HasProfTest_tableLayoutPanel";
+            this.HasProfTest_tableLayoutPanel.RowCount = 2;
+            this.tableLayoutPanel15.SetRowSpan(this.HasProfTest_tableLayoutPanel, 2);
+            this.HasProfTest_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.HasProfTest_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.HasProfTest_tableLayoutPanel.Size = new System.Drawing.Size(1113, 80);
+            this.HasProfTest_tableLayoutPanel.TabIndex = 566;
+            // 
+            // HasProTrain_tableLayoutPanel
+            // 
+            this.HasProTrain_tableLayoutPanel.ColumnCount = 7;
+            this.tableLayoutPanel18.SetColumnSpan(this.HasProTrain_tableLayoutPanel, 7);
+            this.HasProTrain_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.20864F));
+            this.HasProTrain_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29856F));
+            this.HasProTrain_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29856F));
+            this.HasProTrain_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.02878F));
+            this.HasProTrain_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.20863F));
+            this.HasProTrain_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.20863F));
+            this.HasProTrain_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.7482F));
+            this.HasProTrain_tableLayoutPanel.Controls.Add(this.GreyLable6_label, 0, 0);
+            this.HasProTrain_tableLayoutPanel.Controls.Add(this.ProTrain_Result_textBox, 5, 1);
+            this.HasProTrain_tableLayoutPanel.Controls.Add(this.GreyLable11_label, 5, 0);
+            this.HasProTrain_tableLayoutPanel.Controls.Add(this.ProTrain_Place_textBox, 1, 1);
+            this.HasProTrain_tableLayoutPanel.Controls.Add(this.ProTrain_Note_textBox, 4, 1);
+            this.HasProTrain_tableLayoutPanel.Controls.Add(this.ProTrain_Trainer_textBox, 0, 1);
+            this.HasProTrain_tableLayoutPanel.Controls.Add(this.GreyLable7_label, 1, 0);
+            this.HasProTrain_tableLayoutPanel.Controls.Add(this.ProTrain_EDate_dateTimePicker, 3, 1);
+            this.HasProTrain_tableLayoutPanel.Controls.Add(this.GreyLable8_label, 2, 0);
+            this.HasProTrain_tableLayoutPanel.Controls.Add(this.ProTrain_BDate_dateTimePicker, 2, 1);
+            this.HasProTrain_tableLayoutPanel.Controls.Add(this.GreyLable9_label, 3, 0);
+            this.HasProTrain_tableLayoutPanel.Controls.Add(this.GreyLable10_label, 4, 0);
+            this.HasProTrain_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HasProTrain_tableLayoutPanel.Location = new System.Drawing.Point(0, 80);
+            this.HasProTrain_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.HasProTrain_tableLayoutPanel.Name = "HasProTrain_tableLayoutPanel";
+            this.HasProTrain_tableLayoutPanel.RowCount = 2;
+            this.tableLayoutPanel18.SetRowSpan(this.HasProTrain_tableLayoutPanel, 2);
+            this.HasProTrain_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.HasProTrain_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.HasProTrain_tableLayoutPanel.Size = new System.Drawing.Size(1113, 80);
+            this.HasProTrain_tableLayoutPanel.TabIndex = 584;
+            // 
+            // HasMngTrain_tableLayoutPanel
+            // 
+            this.HasMngTrain_tableLayoutPanel.ColumnCount = 7;
+            this.tableLayoutPanel17.SetColumnSpan(this.HasMngTrain_tableLayoutPanel, 7);
+            this.HasMngTrain_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.20864F));
+            this.HasMngTrain_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29856F));
+            this.HasMngTrain_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29856F));
+            this.HasMngTrain_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.02878F));
+            this.HasMngTrain_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.20863F));
+            this.HasMngTrain_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.20863F));
+            this.HasMngTrain_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.7482F));
+            this.HasMngTrain_tableLayoutPanel.Controls.Add(this.GreyLable12_label, 0, 0);
+            this.HasMngTrain_tableLayoutPanel.Controls.Add(this.MngTrain_Result_textBox, 5, 1);
+            this.HasMngTrain_tableLayoutPanel.Controls.Add(this.MngTrain_Trainer_textBox, 0, 1);
+            this.HasMngTrain_tableLayoutPanel.Controls.Add(this.MngTrain_Place_textBox, 1, 1);
+            this.HasMngTrain_tableLayoutPanel.Controls.Add(this.GreyLable13_label, 1, 0);
+            this.HasMngTrain_tableLayoutPanel.Controls.Add(this.MngTrain_Date_dateTimePicker, 4, 1);
+            this.HasMngTrain_tableLayoutPanel.Controls.Add(this.GreyLable15_label, 5, 0);
+            this.HasMngTrain_tableLayoutPanel.Controls.Add(this.GreyLable14_label, 4, 0);
+            this.HasMngTrain_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HasMngTrain_tableLayoutPanel.Location = new System.Drawing.Point(0, 80);
+            this.HasMngTrain_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.HasMngTrain_tableLayoutPanel.Name = "HasMngTrain_tableLayoutPanel";
+            this.HasMngTrain_tableLayoutPanel.RowCount = 2;
+            this.tableLayoutPanel17.SetRowSpan(this.HasMngTrain_tableLayoutPanel, 2);
+            this.HasMngTrain_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.HasMngTrain_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.HasMngTrain_tableLayoutPanel.Size = new System.Drawing.Size(1113, 80);
+            this.HasMngTrain_tableLayoutPanel.TabIndex = 585;
+            // 
+            // RejectMsg_tableLayoutPanel
+            // 
+            this.RejectMsg_tableLayoutPanel.ColumnCount = 4;
+            this.RejectMsg_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.RejectMsg_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.RejectMsg_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.RejectMsg_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.RejectMsg_tableLayoutPanel.Controls.Add(this.label2, 2, 0);
+            this.RejectMsg_tableLayoutPanel.Controls.Add(this.label1, 0, 0);
+            this.RejectMsg_tableLayoutPanel.Controls.Add(this.RejectMsgSender_comboBox, 3, 0);
+            this.RejectMsg_tableLayoutPanel.Controls.Add(this.RejectMsg_Date_dateTimePicker, 1, 0);
+            this.RejectMsg_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RejectMsg_tableLayoutPanel.Location = new System.Drawing.Point(160, 82);
+            this.RejectMsg_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.RejectMsg_tableLayoutPanel.Name = "RejectMsg_tableLayoutPanel";
+            this.RejectMsg_tableLayoutPanel.RowCount = 1;
+            this.RejectMsg_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.RejectMsg_tableLayoutPanel.Size = new System.Drawing.Size(766, 42);
+            this.RejectMsg_tableLayoutPanel.TabIndex = 586;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label1.Location = new System.Drawing.Point(653, 7);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(110, 27);
+            this.label1.TabIndex = 585;
+            this.label1.Text = "تاريخ الإرسال:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label2.Location = new System.Drawing.Point(272, 7);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(109, 27);
+            this.label2.TabIndex = 586;
+            this.label2.Text = "اسم المُرسِل:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.Controls.Add(this.RejectMsg_checkBox);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 23);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(154, 36);
+            this.flowLayoutPanel1.TabIndex = 587;
+            this.flowLayoutPanel1.TabStop = true;
+            // 
             // CheckList_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 27F);
@@ -3007,6 +3103,16 @@
             this.tableLayoutPanel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.keyperson_dataGridView)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.HasProfTest_tableLayoutPanel.ResumeLayout(false);
+            this.HasProfTest_tableLayoutPanel.PerformLayout();
+            this.HasProTrain_tableLayoutPanel.ResumeLayout(false);
+            this.HasProTrain_tableLayoutPanel.PerformLayout();
+            this.HasMngTrain_tableLayoutPanel.ResumeLayout(false);
+            this.HasMngTrain_tableLayoutPanel.PerformLayout();
+            this.RejectMsg_tableLayoutPanel.ResumeLayout(false);
+            this.RejectMsg_tableLayoutPanel.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3172,14 +3278,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn C_InDataBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn C_IsDirty;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker RejectMsg_Date_dateTimePicker;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox RejectMsg_checkBox;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox RejectMsgSender_comboBox;
         private System.Windows.Forms.TableLayoutPanel PVisitDate_tableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel HasProfTest_tableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel HasProTrain_tableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel HasMngTrain_tableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel RejectMsg_tableLayoutPanel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

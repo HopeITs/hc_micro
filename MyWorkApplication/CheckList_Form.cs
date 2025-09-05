@@ -216,7 +216,7 @@ namespace MyWorkApplication
             C_Name.ValueMember = "ID";
             
             //simple comboBox
-            System.Data.DataTable dt_v = checklist_member_dt.Select("Type='v'").CopyToDataTable();
+            System.Data.DataTable dt_v = checklist_member_dt.Select("Type='t'").CopyToDataTable();
 
             DataTable dth1 = dt_v.Copy();
             DataTable dth2 = dt_v.Copy();
@@ -225,18 +225,22 @@ namespace MyWorkApplication
             HVisit_Visitor1_comboBox.DataSource = dth1;
             HVisit_Visitor1_comboBox.DisplayMember = "Name";
             HVisit_Visitor1_comboBox.ValueMember = "ID";
+            HVisit_Visitor1_comboBox.SelectedIndex = -1;
 
             HVisit_Visitor2_comboBox.DataSource = dth2;
             HVisit_Visitor2_comboBox.DisplayMember = "Name";
             HVisit_Visitor2_comboBox.ValueMember = "ID";
+            HVisit_Visitor2_comboBox.SelectedIndex = -1;
 
             PVisit_Visitor1_comboBox.DataSource = dtp1;
             PVisit_Visitor1_comboBox.DisplayMember = "Name";
             PVisit_Visitor1_comboBox.ValueMember = "ID";
+            PVisit_Visitor1_comboBox.SelectedIndex = -1;
 
             PVisit_Visitor2_comboBox.DataSource = dtp2;
             PVisit_Visitor2_comboBox.DisplayMember = "Name";
-            PVisit_Visitor2_comboBox.ValueMember = "ID"; 
+            PVisit_Visitor2_comboBox.ValueMember = "ID";
+            PVisit_Visitor2_comboBox.SelectedIndex = -1;
             user_mode = true;
         }
 
@@ -888,7 +892,7 @@ namespace MyWorkApplication
         {
             try
             {
-                //check_data()
+                check_data();
                 //get_data
 
                 #region visit
@@ -1085,6 +1089,57 @@ namespace MyWorkApplication
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message, "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+        }
+
+        private void check_data()
+        {
+            if (string.IsNullOrWhiteSpace(Beneficiary_comboBox.Text)
+                || string.IsNullOrWhiteSpace(MicroProject_ID_textBox.Text))
+            {
+                MessageBox.Show("يُرجى التأكد من اختيار المشروع واسم المستفيد.", "Error");
+                return;
+            }
+
+            if(HasHVisit_checkBox.Checked && HVisit_Visitor1_comboBox.Text == "")
+            { 
+                MessageBox.Show("يُرجى اختيار زائر واحد على الأقل لزيارة المنزل.", "Error");
+                return;
+            }
+            if (HasPVisit_checkBox.Checked && PVisit_Visitor1_comboBox.Text == "")
+            {
+                MessageBox.Show("يُرجى اختيار زائر واحد على الأقل لزيارة المحل.", "Error");
+                return;
+            }
+
+            if (HasProfTest_tableLayoutPanel.Enabled && 
+                    (ProTest_Note_textBox.Text == "" 
+                    || ProTest_User_ID_comboBox.SelectedIndex == -1) )
+            {
+                MessageBox.Show("يُرجى استكمال معلومات الفحص المهني.", "Error");
+                return;
+            }
+            if (HasProTrain_tableLayoutPanel.Enabled &&
+                    (ProTrain_Trainer_textBox.Text == ""
+                    || ProTrain_Place_textBox.Text == ""
+                    || ProTrain_Note_textBox.Text  == "") )
+            {
+                MessageBox.Show("يُرجى استكمال معلومات التدريب المهني.", "Error");
+                return;
+            }
+            if (HasMngTrain_tableLayoutPanel.Enabled &&
+                (MngTrain_Trainer_textBox.Text == ""
+                || MngTrain_Place_textBox.Text == "") )
+                    {
+                        MessageBox.Show("يُرجى استكمال معلومات التدريب الإداري.", "Error");
+                        return;
+                    }
+
+            if (RejectMsg_checkBox.Checked &&
+                (RejectMsgSender_comboBox.SelectedIndex == -1) )
+            {
+                MessageBox.Show("يُرجى اختيار اسم مُرسِل رسالة الرفض.", "Error");
+                return;
+            } 
         }
 
         private void Insert_Update_ChecklistDetails()
@@ -1303,33 +1358,6 @@ namespace MyWorkApplication
         }
         #endregion
 
-        private void HasHVisit_checkBox_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (HasHVisit_checkBox.Checked)
-                    HVisitDate_tableLayoutPanel.Visible = true;
-                else HVisitDate_tableLayoutPanel.Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void HasPVisit_checkBox_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (HasPVisit_checkBox.Checked)
-                    PVisitDate_tableLayoutPanel.Visible = true;
-                else PVisitDate_tableLayoutPanel.Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
 
 
         #region context menu strip
@@ -1400,8 +1428,8 @@ namespace MyWorkApplication
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
-        System.Data.DataTable dt4444;
-         
+        System.Data.DataTable dt4444; 
+
         private void SaveCallDialog_2()
         {
             try
@@ -1499,5 +1527,102 @@ namespace MyWorkApplication
             }
         }
         #endregion
+
+        private void HasHVisit_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (HasHVisit_checkBox.Checked)
+                    HVisitDate_tableLayoutPanel.Enabled = true;
+                else HVisitDate_tableLayoutPanel.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void HasPVisit_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (HasPVisit_checkBox.Checked)
+                    PVisitDate_tableLayoutPanel.Enabled = true;
+                else PVisitDate_tableLayoutPanel.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void HasProTestYes_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //if (user_mode)
+                //{
+                if (HasProTestYes_radioButton.Checked)
+                    HasProfTest_tableLayoutPanel.Enabled = true;
+                else HasProfTest_tableLayoutPanel.Enabled = false;
+                //}
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void HasProTrainYes_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //if (user_mode)
+                //{
+                if (HasProTrainYes_radioButton.Checked)
+                    HasProTrain_tableLayoutPanel.Enabled = true;
+                else HasProTrain_tableLayoutPanel.Enabled = false;
+                //}
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+         
+        private void HasMngTrainYes_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //if (user_mode)
+                //{
+                if (HasMngTrainYes_radioButton.Checked)
+                    HasMngTrain_tableLayoutPanel.Enabled = true;
+                else HasMngTrain_tableLayoutPanel.Enabled = false;
+                //}
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
+        private void RejectMsg_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //if (user_mode)
+                //{
+                if (RejectMsg_checkBox.Checked)
+                    RejectMsg_tableLayoutPanel.Enabled = true;
+                else RejectMsg_tableLayoutPanel.Enabled = false;
+                //}
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+
     }
 }
