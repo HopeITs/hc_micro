@@ -324,16 +324,13 @@ namespace MyWorkApplication
                     if (hasHomeVisit == 1)
                     {
                         HasHVisit_checkBox.Checked = true;
-                        HVisitDate_tableLayoutPanel.Visible = true;
+                        HVisitDate_tableLayoutPanel.Enabled = true;
 
                         //date
-                        if (ds.Tables[0].Rows[0]["HVisit_Date"] == null || ds.Tables[0].Rows[0]["HVisit_Date"] == DBNull.Value)
-                            //    HVisitDate_checkBox.Checked = true;
-                            //else
-                            //{
-                            //    HVisitDate_checkBox.Checked = false;
+                        if (ds.Tables[0].Rows[0]["HVisit_Date"] != null 
+                            && ds.Tables[0].Rows[0]["HVisit_Date"] != DBNull.Value)
                             HVisitDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["HVisit_Date"].ToString());
-                        //} 
+
                         //time
                         HVisitTime_textBox.Text = ds.Tables[0].Rows[0]["HVisit_Time"].ToString();
                         //visitors
@@ -349,7 +346,7 @@ namespace MyWorkApplication
                     else
                     {
                         HasHVisit_checkBox.Checked = false;
-                        HVisitDate_tableLayoutPanel.Visible = false;
+                        HVisitDate_tableLayoutPanel.Enabled = false;
                     }
 
                     ////hasProjectVisit
@@ -357,16 +354,13 @@ namespace MyWorkApplication
                     if (hasProjectVisit == 1) 
                     { 
                         HasPVisit_checkBox.Checked = true; 
-                        PVisitDate_tableLayoutPanel.Visible = true;
+                        PVisitDate_tableLayoutPanel.Enabled = true;
                         
                         //date
-                        //if (ds.Tables[0].Rows[0]["PVisit_Date"] == null || ds.Tables[0].Rows[0]["PVisit_Date"] == DBNull.Value)
-                        //    PVisitDate_checkBox.Checked = true;
-                        //else
-                        //{
-                        //    PVisitDate_checkBox.Checked = false;
-                        PVisitDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["PVisit_Date"].ToString());
-                        //}
+                        if (ds.Tables[0].Rows[0]["PVisit_Date"] != null 
+                            && ds.Tables[0].Rows[0]["PVisit_Date"] != DBNull.Value)
+                            PVisitDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["PVisit_Date"].ToString());
+                        
                         //time
                         PVisitTime_textBox.Text = ds.Tables[0].Rows[0]["PVisit_Time"].ToString();
                         //visitors
@@ -381,7 +375,7 @@ namespace MyWorkApplication
                     }
                     else { 
                         HasPVisit_checkBox.Checked = false; 
-                        PVisitDate_tableLayoutPanel.Visible = false; 
+                        PVisitDate_tableLayoutPanel.Enabled = false; 
                     }
                     
                     ////visitsReport
@@ -409,21 +403,28 @@ namespace MyWorkApplication
 
                     ////hasRejectMsg
                     var hasRejectMsg = (int)ds.Tables[0].Rows[0]["RejectMsg"];
-                    if (hasRejectMsg == 1) { RejectMsg_checkBox.Checked = true; RejectMsg_checkBox.Text = "تم الإرسال"; }
-                    else {RejectMsg_checkBox.Checked = false; RejectMsg_checkBox.Text = "لم يتم الارسال"; }
+                    if (hasRejectMsg == 1) 
+                    { 
+                        RejectMsg_checkBox.Checked = true;
+                        RejectMsg_tableLayoutPanel.Enabled = true;
+                        RejectMsg_checkBox.Text = "تم الإرسال";
                         //date
-                        if (ds.Tables[0].Rows[0]["RejectMsgDate"] == null || ds.Tables[0].Rows[0]["RejectMsgDate"] == DBNull.Value)
-                        RejectMsg_Date_dateTimePicker.Visible = false;
-                    else
-                    {
-                        RejectMsg_Date_dateTimePicker.Visible = true;
-                        RejectMsg_Date_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["RejectMsgDate"].ToString());
-                    }
-                    //sender
-                    if (ds.Tables[0].Rows[0]["RejectMsgSender_ID"] == null || ds.Tables[0].Rows[0]["RejectMsgSender_ID"] == DBNull.Value)
-                       RejectMsgSender_comboBox.SelectedIndex = -1;
-                    else RejectMsgSender_comboBox.SelectedValue = Convert.ToInt32(ds.Tables[0].Rows[0]["RejectMsgSender_ID"].ToString());
+                        if (ds.Tables[0].Rows[0]["RejectMsgDate"] != null 
+                            && ds.Tables[0].Rows[0]["RejectMsgDate"] != DBNull.Value)
+                            RejectMsg_Date_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["RejectMsgDate"].ToString());
 
+                        //sender
+                        if (ds.Tables[0].Rows[0]["RejectMsgSender_ID"] == null || ds.Tables[0].Rows[0]["RejectMsgSender_ID"] == DBNull.Value)
+                            RejectMsgSender_comboBox.SelectedIndex = -1;
+                        else RejectMsgSender_comboBox.SelectedValue = Convert.ToInt32(ds.Tables[0].Rows[0]["RejectMsgSender_ID"].ToString());
+                    }
+                    else 
+                    {
+                        RejectMsg_checkBox.Checked = false;
+                        RejectMsg_tableLayoutPanel.Enabled = false;
+                        RejectMsg_checkBox.Text = "لم يتم الارسال";  
+                    } 
+                    
                     Update_Mode = true;
                 }
                 if (ds.Tables[1].Rows.Count > 0)

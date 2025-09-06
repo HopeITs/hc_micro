@@ -902,20 +902,28 @@ namespace MyWorkApplication.Classes
                                             else if (bb.Name == "AddImage_button")
                                                 bb.BackgroundImage = Resources.Plus_Sq_L;
                                             else if (bb.Name == "DeleteImage_button")
-                                                bb.BackgroundImage = Resources.Trash_L;
-                                            //else if(bb.Name == "AddPartner_button")
-                                            //    bb.BackgroundImage = Resources.AddPartner_L;
-                                            //else if (bb.Name == "Save_button")
-                                            //    bb.BackgroundImage = Resources.Save2_L;
-                                            //else if (bb.Name == "AddExtention_button")
-                                            //    bb.BackgroundImage = Resources.AddExtention_L;
+                                                bb.BackgroundImage = Resources.Trash_L; 
                                             else if (bb.Name == "FullApp_button" || bb.Name == "AddPartner_button"
                                                 || bb.Name == "Save_button" || bb.Name == "AddExtention_button")
                                             {
                                                 bb.ForeColor = dark_grey2;
                                                 bb.BackgroundImage = Resources.BtnBackground_L;
                                             }
-                                                
+
+                                            if (bb.Name.Contains("MainHeader"))
+                                            {
+                                                bb.BackColor = light_grey2;
+                                                bb.ForeColor = dark_grey2;
+                                            }
+                                            else if (bb.Name.Contains("SubHeader"))
+                                            {
+                                                bb.ForeColor = light_white;
+                                            }
+                                            else if (bb.Name == "OverallSyrian_label"
+                                                || bb.Name.Contains("GreyLable"))
+                                            {
+                                                bb.BackColor = dark_grey2;
+                                            }
                                         }
                                         else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                         {
@@ -958,8 +966,8 @@ namespace MyWorkApplication.Classes
                                                 {
                                                     mm.ForeColor = light_white;
 
-                                                    if (mm.Name.Contains("Yes_radioButton") 
-                                                     || mm.Name.Contains("No_radioButton"))
+                                                    if (mm.Name.Contains("_radioButton")
+                                                     || mm.Name.Contains("_checkBox"))
                                                     {
                                                         mm.ForeColor = light_red;
                                                     }
@@ -1106,6 +1114,20 @@ namespace MyWorkApplication.Classes
                                                 bb.BackgroundImage = Resources.BtnBackground_D;
                                             }
 
+                                            if (bb.Name.Contains("MainHeader"))
+                                            {
+                                                bb.BackColor = light_red;
+                                                bb.ForeColor = light_white;
+                                            }
+                                            else if (bb.Name.Contains("SubHeader"))
+                                            {
+                                                bb.ForeColor = light_red;
+                                            }
+                                            else if (bb.Name == "OverallSyrian_label"
+                                                || bb.Name.Contains("GreyLable"))
+                                            {
+                                                bb.BackColor = light_grey11;
+                                            }
                                         }
                                         else if (bb.GetType() == typeof(TextBox) || bb.GetType() == typeof(ComboBox))
                                         {
@@ -1169,8 +1191,8 @@ namespace MyWorkApplication.Classes
                                             zx.GetType() == typeof(RadioButton))
                                         {
                                             zx.ForeColor = light_grey4;
-                                            if (zx.Name.Contains("Yes_radioButton")
-                                                     || zx.Name.Contains("No_radioButton"))
+                                            if (zx.Name.Contains("_radioButton")
+                                                     || zx.Name.Contains("_checkBox"))
                                             {
                                                 zx.ForeColor = light_red;
                                             }
