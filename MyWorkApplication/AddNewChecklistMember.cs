@@ -66,7 +66,7 @@ namespace MyWorkApplication
 
         public void bind(string Type)
         {
-            checklist_member_dt = cl.Select_Checklist_Members("", Type);
+            checklist_member_dt = cl.Select_Members("", Type);
 
             dataGridView.Rows.Clear();
             for (int i = 0; i < checklist_member_dt.Rows.Count; i++)
