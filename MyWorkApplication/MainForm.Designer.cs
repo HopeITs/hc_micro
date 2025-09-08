@@ -108,6 +108,10 @@
             this.newAid_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newAidSource_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newPriest_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checklistMembersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.visitorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.keyPersonsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.commityMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financialToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.Loan_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Payments_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -885,7 +889,8 @@
             this.newDonor_toolStripMenuItem,
             this.newAid_toolStripMenuItem,
             this.newAidSource_toolStripMenuItem,
-            this.newPriest_ToolStripMenuItem});
+            this.newPriest_ToolStripMenuItem,
+            this.checklistMembersToolStripMenuItem});
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(226, 30);
             this.toolStripMenuItem4.Text = "ADMIN Tools";
@@ -938,6 +943,37 @@
             this.newPriest_ToolStripMenuItem.Size = new System.Drawing.Size(418, 30);
             this.newPriest_ToolStripMenuItem.Text = "(كاهن) Priest";
             this.newPriest_ToolStripMenuItem.Click += new System.EventHandler(this.newPriest_ToolStripMenuItem_Click);
+            // 
+            // checklistMembersToolStripMenuItem
+            // 
+            this.checklistMembersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.visitorsToolStripMenuItem,
+            this.keyPersonsToolStripMenuItem,
+            this.commityMemberToolStripMenuItem});
+            this.checklistMembersToolStripMenuItem.Name = "checklistMembersToolStripMenuItem";
+            this.checklistMembersToolStripMenuItem.Size = new System.Drawing.Size(418, 30);
+            this.checklistMembersToolStripMenuItem.Text = "Checklist Members";
+            // 
+            // visitorsToolStripMenuItem
+            // 
+            this.visitorsToolStripMenuItem.Name = "visitorsToolStripMenuItem";
+            this.visitorsToolStripMenuItem.Size = new System.Drawing.Size(275, 30);
+            this.visitorsToolStripMenuItem.Text = "Visitor / Team Member";
+            this.visitorsToolStripMenuItem.Click += new System.EventHandler(this.visitorsToolStripMenuItem_Click);
+            // 
+            // keyPersonsToolStripMenuItem
+            // 
+            this.keyPersonsToolStripMenuItem.Name = "keyPersonsToolStripMenuItem";
+            this.keyPersonsToolStripMenuItem.Size = new System.Drawing.Size(275, 30);
+            this.keyPersonsToolStripMenuItem.Text = "Key Person";
+            this.keyPersonsToolStripMenuItem.Click += new System.EventHandler(this.keyPersonsToolStripMenuItem_Click);
+            // 
+            // commityMemberToolStripMenuItem
+            // 
+            this.commityMemberToolStripMenuItem.Name = "commityMemberToolStripMenuItem";
+            this.commityMemberToolStripMenuItem.Size = new System.Drawing.Size(275, 30);
+            this.commityMemberToolStripMenuItem.Text = "Commity Member";
+            this.commityMemberToolStripMenuItem.Click += new System.EventHandler(this.commityMemberToolStripMenuItem_Click);
             // 
             // financialToolStripMenuItem1
             // 
@@ -1310,5 +1346,9 @@
         private System.Windows.Forms.ToolStripMenuItem newAid_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zero_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem full_ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checklistMembersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem visitorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem keyPersonsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem commityMemberToolStripMenuItem;
     }
 }

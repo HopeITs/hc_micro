@@ -72,17 +72,19 @@ namespace MyWorkApplication
             for (int i = 0; i < checklist_member_dt.Rows.Count; i++)
             {
                 dataGridView.Rows.Add();
-                dataGridView.Rows[i].Cells["Member_ID"].Value = checklist_member_dt.Rows[i].Field<int>(0);
-                dataGridView.Rows[i].Cells["Member_Name"].Value = checklist_member_dt.Rows[i].Field<string>(1);
-                dataGridView.Rows[i].Cells["Position_ID"].Value = checklist_member_dt.Rows[i].Field<int>(2);
+                dataGridView.Rows[i].Cells["Member_ID"].Value   = checklist_member_dt.Rows[i].Field<int>("ID");
+                dataGridView.Rows[i].Cells["Member_Name"].Value = checklist_member_dt.Rows[i].Field<string>("Name");
+                dataGridView.Rows[i].Cells["Position_ID"].Value = checklist_member_dt.Rows[i].Field<int>("Position_ID");
 
                 string P_Name, P_Type;
-                P_Name = checklist_member_dt.Rows[i].Field<string>(3);
-                P_Type = checklist_member_dt.Rows[i].Field<string>(4);
+                P_Name = checklist_member_dt.Rows[i].Field<string>("Position");
+                P_Type = checklist_member_dt.Rows[i].Field<string>("Type");
 
                 dataGridView.Rows[i].Cells["Position_Name"] = Load_Position_ComboBox(P_Name, P_Type);
                 dataGridView.Rows[i].Cells["Position_Name"].Value = P_Name;
                 dataGridView.Rows[i].Cells["Position_Type"].Value = P_Type;
+
+                dataGridView.Rows[i].Cells["IsActive"].Value = checklist_member_dt.Rows[i].Field<int>("IsActive");
             }
             Count_label.Text = "All:" + dataGridView.Rows.GetRowCount(DataGridViewElementStates.Visible);
         }
@@ -117,17 +119,35 @@ namespace MyWorkApplication
                     var r = e.RowIndex;
                     ID = Convert.ToInt32(dataGridView.Rows[r].Cells["Member_ID"].Value);
 
-                    if (e.ColumnIndex == 1 || e.ColumnIndex == 3) // name - position
-                    {
-                        string Name = dataGridView.Rows[r].Cells["Member_Name"].Value.ToString();
-                        string Position = dataGridView.Rows[r].Cells["Position_Name"].Value.ToString();
-                        DataRow[] rows = positions_dt.Select("Name = '" + Position + "'");
-                        int Position_ID = Convert.ToInt32(rows[0].Field<int>("ID"));
+                    string Name, Position, IsActive; 
+                    int Position_ID = -1;
 
-                        cl.Update_Member(ID, Name, Position_ID);
-                        l.Insert_Log("Update " + Name + ":" + Position, "Checklist", Program.UserName, DateTime.Now);
+                    if (e.ColumnIndex == 1
+                        || (e.ColumnIndex == 3)
+                        || (e.ColumnIndex == 5)) // member name // position  // isActive
+                    {
+                        if (dataGridView.Rows[r].Cells["Member_Name"].Value == null || dataGridView.Rows[r].Cells["Member_Name"].Value.ToString() == "")
+                            throw new Exception("لا يمكن ترك الخلية فارغة، يرجى التأكد وإعادة المحاولة");
+
+                        Name = dataGridView.Rows[r].Cells["Member_Name"].Value.ToString();
+
+                        if (dataGridView.Rows[r].Cells["Position_Name"].Value == null || dataGridView.Rows[r].Cells["Position_Name"].Value.ToString() == "")
+                            throw new Exception("لا يمكن ترك الخلية فارغة، يرجى التأكد وإعادة المحاولة");
+
+                        Position = dataGridView.Rows[r].Cells["Position_Name"].Value.ToString();
+                        DataRow[] rows = positions_dt.Select("Name = '" + Position + "'");
+                        Position_ID = Convert.ToInt32(rows[0].Field<int>("ID"));
+
+                        if (dataGridView.Rows[r].Cells["IsActive"].Value == null || dataGridView.Rows[r].Cells["IsActive"].Value.ToString() == "False")
+                            IsActive = "0";
+                        else IsActive = "1";
+                        
+                        cl.Update_Member(ID, Name, Position_ID, IsActive);
+                        l.Insert_Log("Update " + Name + ":" + Position + ":"
+                            + (IsActive=="1"?"Active":"Not Active") , "Checklist", Program.UserName, DateTime.Now);
+
+                        dataGridView.EndEdit();
                     }
-                    dataGridView.EndEdit();
                 }
                 else
                 {
@@ -137,6 +157,7 @@ namespace MyWorkApplication
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dataGridView.CancelEdit(); // Set cell value back to what it was prior to user's change
             }
         }
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)

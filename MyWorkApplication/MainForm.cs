@@ -1459,7 +1459,46 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
+        private void visitorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form AddNewMember = new AddNewChecklistMember("Visitors", "t");
+                AddNewMember.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void keyPersonsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form AddNewMember = new AddNewChecklistMember("Key Person", "k");
+                AddNewMember.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void commityMemberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form AddNewMember = new AddNewChecklistMember("Commity Member", "c");
+                AddNewMember.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
 
 
         //       private void clickmeToolStripMenuItem_Click(object sender, EventArgs e)

@@ -45,6 +45,8 @@ namespace MyWorkApplication.Classes
 , checklist_member.Position_ID as 'Position_ID'  
 , checklist_position.Name as 'Position'
 , checklist_position.Type as 'Type'
+, checklist_member.IsActive as 'IsActive'
+
  from checklist_member 
  left JOIN checklist_position on checklist_member.Position_ID = checklist_position.ID ";
             condition = " where 1";
@@ -149,11 +151,14 @@ namespace MyWorkApplication.Classes
                 Program.MyConn.Close();
             }
         }
-        public void Update_Member(int Member_ID, string Name, int Position_ID)
+        public void Update_Member(int Member_ID, string Name, int Position_ID, string IsActive)
         {
             query = " START TRANSACTION;";
-            query = "Update `checklist_member` set Name = N'" + Name + "',Position_ID = " + Position_ID + " " +
-              " Where ID = " + Member_ID + ";";
+            query = " Update `checklist_member` set " +
+                " Name = N'"        + Name + "'," +
+                " Position_ID = "   + Position_ID + "," +
+                " IsActive = "      + IsActive +  
+                " Where ID = " + Member_ID + ";";
             query += " COMMIT;";
             Program.buildConnection();
             sc = new MySqlCommand(query, Program.MyConn);

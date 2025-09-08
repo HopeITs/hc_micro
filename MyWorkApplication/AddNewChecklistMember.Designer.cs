@@ -46,15 +46,16 @@
             this.Name_lable = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Position_comboBox = new System.Windows.Forms.ComboBox();
+            this.AddPosition_button = new System.Windows.Forms.Button();
             this.Member_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Member_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Position_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Position_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Position_Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Position_comboBox = new System.Windows.Forms.ComboBox();
-            this.AddPosition_button = new System.Windows.Forms.Button();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -299,6 +300,7 @@
             this.Position_ID,
             this.Position_Name,
             this.Position_Type,
+            this.isActive,
             this.DeleteRow});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
@@ -345,55 +347,6 @@
             this.dataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEnter);
             this.dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
             this.dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
-            // 
-            // Member_ID
-            // 
-            this.Member_ID.HeaderText = "Member_ID";
-            this.Member_ID.MinimumWidth = 6;
-            this.Member_ID.Name = "Member_ID";
-            this.Member_ID.ReadOnly = true;
-            this.Member_ID.Visible = false;
-            // 
-            // Member_Name
-            // 
-            this.Member_Name.FillWeight = 107.2247F;
-            this.Member_Name.HeaderText = "الاسم";
-            this.Member_Name.MinimumWidth = 6;
-            this.Member_Name.Name = "Member_Name";
-            // 
-            // Position_ID
-            // 
-            this.Position_ID.HeaderText = "Position_ID";
-            this.Position_ID.MinimumWidth = 6;
-            this.Position_ID.Name = "Position_ID";
-            this.Position_ID.ReadOnly = true;
-            this.Position_ID.Visible = false;
-            // 
-            // Position_Name
-            // 
-            this.Position_Name.FillWeight = 107.2247F;
-            this.Position_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Position_Name.HeaderText = "المنصب الوظيفي";
-            this.Position_Name.MinimumWidth = 6;
-            this.Position_Name.Name = "Position_Name";
-            this.Position_Name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Position_Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Position_Type
-            // 
-            this.Position_Type.HeaderText = "Position_Type";
-            this.Position_Type.MinimumWidth = 6;
-            this.Position_Type.Name = "Position_Type";
-            this.Position_Type.ReadOnly = true;
-            this.Position_Type.Visible = false;
-            // 
-            // DeleteRow
-            // 
-            this.DeleteRow.FillWeight = 54.63681F;
-            this.DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteRow.HeaderText = "";
-            this.DeleteRow.MinimumWidth = 40;
-            this.DeleteRow.Name = "DeleteRow";
             // 
             // label4
             // 
@@ -446,6 +399,61 @@
             this.AddPosition_button.TabIndex = 528;
             this.AddPosition_button.UseVisualStyleBackColor = false;
             this.AddPosition_button.Click += new System.EventHandler(this.AddPosition_button_Click);
+            // 
+            // Member_ID
+            // 
+            this.Member_ID.HeaderText = "Member_ID";
+            this.Member_ID.MinimumWidth = 6;
+            this.Member_ID.Name = "Member_ID";
+            this.Member_ID.ReadOnly = true;
+            this.Member_ID.Visible = false;
+            // 
+            // Member_Name
+            // 
+            this.Member_Name.FillWeight = 107.2247F;
+            this.Member_Name.HeaderText = "الاسم";
+            this.Member_Name.MinimumWidth = 6;
+            this.Member_Name.Name = "Member_Name";
+            // 
+            // Position_ID
+            // 
+            this.Position_ID.HeaderText = "Position_ID";
+            this.Position_ID.MinimumWidth = 6;
+            this.Position_ID.Name = "Position_ID";
+            this.Position_ID.ReadOnly = true;
+            this.Position_ID.Visible = false;
+            // 
+            // Position_Name
+            // 
+            this.Position_Name.FillWeight = 107.2247F;
+            this.Position_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Position_Name.HeaderText = "المنصب الوظيفي";
+            this.Position_Name.MinimumWidth = 6;
+            this.Position_Name.Name = "Position_Name";
+            this.Position_Name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Position_Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Position_Type
+            // 
+            this.Position_Type.HeaderText = "Position_Type";
+            this.Position_Type.MinimumWidth = 6;
+            this.Position_Type.Name = "Position_Type";
+            this.Position_Type.ReadOnly = true;
+            this.Position_Type.Visible = false;
+            // 
+            // isActive
+            // 
+            this.isActive.HeaderText = "is Active";
+            this.isActive.MinimumWidth = 6;
+            this.isActive.Name = "isActive";
+            // 
+            // DeleteRow
+            // 
+            this.DeleteRow.FillWeight = 54.63681F;
+            this.DeleteRow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteRow.HeaderText = "";
+            this.DeleteRow.MinimumWidth = 40;
+            this.DeleteRow.Name = "DeleteRow";
             // 
             // AddNewChecklistMember
             // 
@@ -506,6 +514,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Position_ID;
         private System.Windows.Forms.DataGridViewComboBoxColumn Position_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Position_Type;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isActive;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteRow;
     }
 }
