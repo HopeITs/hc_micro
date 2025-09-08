@@ -197,12 +197,14 @@ namespace MyWorkApplication
         {
             user_mode = false;
 
-            checklist_member_dt = cl.Select_Checklist_Members("", "");
+            checklist_member_dt = cl.Select_Members("", "");
+            DataTable dt_k = checklist_member_dt.Select("Type='k'").CopyToDataTable();
+            DataTable dt_t = checklist_member_dt.Select("Type='t'").CopyToDataTable();
+            DataTable dt_c = checklist_member_dt.Select("Type='c'").CopyToDataTable();
 
-            System.Data.DataTable dt_k = checklist_member_dt.Select("Type='k'").CopyToDataTable();
-            System.Data.DataTable dt_t = checklist_member_dt.Select("Type='t'").CopyToDataTable();
-            System.Data.DataTable dt_c = checklist_member_dt.Select("Type='c'").CopyToDataTable();
-            
+            User u = new User();
+            DataTable dtusers = u.Select_Users("", "", "and IsVisitor=1");
+
             K_Name.DataSource = dt_k;
             K_Name.DisplayMember = "Name";
             K_Name.ValueMember = "ID";
@@ -218,10 +220,11 @@ namespace MyWorkApplication
             //simple comboBox
             System.Data.DataTable dt_v = checklist_member_dt.Select("Type='t'").CopyToDataTable();
 
-            DataTable dth1 = dt_v.Copy();
-            DataTable dth2 = dt_v.Copy();
-            DataTable dtp1 = dt_v.Copy();
-            DataTable dtp2 = dt_v.Copy();
+            DataTable dth1   = dt_v.Copy();
+            DataTable dth2   = dt_v.Copy();
+            DataTable dtp1   = dt_v.Copy();
+            DataTable dtp2   = dt_v.Copy();
+            DataTable dt1111 = dt_v.Copy();
             HVisit_Visitor1_comboBox.DataSource = dth1;
             HVisit_Visitor1_comboBox.DisplayMember = "Name";
             HVisit_Visitor1_comboBox.ValueMember = "ID";
@@ -241,6 +244,16 @@ namespace MyWorkApplication
             PVisit_Visitor2_comboBox.DisplayMember = "Name";
             PVisit_Visitor2_comboBox.ValueMember = "ID";
             PVisit_Visitor2_comboBox.SelectedIndex = -1;
+
+            ProTest_User_ID_comboBox.DataSource = dt1111;
+            ProTest_User_ID_comboBox.DisplayMember = "Name";
+            ProTest_User_ID_comboBox.ValueMember = "ID";
+            ProTest_User_ID_comboBox.SelectedIndex = -1;
+
+            RejectMsgSender_comboBox.DataSource = dtusers;
+            RejectMsgSender_comboBox.DisplayMember = "Username";
+            RejectMsgSender_comboBox.ValueMember = "ID";
+            RejectMsgSender_comboBox.SelectedIndex = -1;
             user_mode = true;
         }
 
@@ -280,9 +293,11 @@ namespace MyWorkApplication
             {
                 if (Beneficiary_comboBox.SelectedIndex != -1)
                 {
+                    Clear_Boxes(false);
                     Person_ID = -1;
                     int.TryParse(Beneficiary_comboBox.SelectedValue.ToString(), out Person_ID);
                     Fill_checklist(Person_ID ,MicroProject_ID);
+                    Fill_NeedEvaluation(Person_ID);
                 }
             }
             catch (Exception ex)
@@ -318,6 +333,7 @@ namespace MyWorkApplication
                     Career_textBox.Text  = ds.Tables[0].Rows[0]["Career"].ToString();
                     SubType_textBox.Text = ds.Tables[0].Rows[0]["SubType"].ToString(); 
                     State_Reason_textBox.Text = ds.Tables[0].Rows[0]["State_Reason"].ToString();
+                    ExpYears_label.Text = ds.Tables[0].Rows[0]["ExpYears"].ToString();
                        
                     ////hasHomeVisit
                     var hasHomeVisit = (int)ds.Tables[0].Rows[0]["HasHomeVisit"];
@@ -380,7 +396,92 @@ namespace MyWorkApplication
                     
                     ////visitsReport
                     VisitsReport_textBox.Text = ds.Tables[0].Rows[0]["VisitsReport"].ToString();
-                    
+
+                    //قسم الخبرة
+                    var NeedProTest = (int)ds.Tables[0].Rows[0]["NeedProTest"];
+                    if (NeedProTest == 1)
+                        NeedProTestYes_radioButton.Checked = true;
+                    else NeedProTestNo_radioButton.Checked = true;
+                    NeedProTestNote_textBox.Text = ds.Tables[0].Rows[0]["NeedProTest_Note"].ToString();
+
+                    ////HasProTest
+                    var HasProTest = (int)ds.Tables[0].Rows[0]["HasProTest"];
+                    if (HasProTest == 1)
+                    {
+                        HasProTestYes_radioButton.Checked = true;
+                        HasProfTest_tableLayoutPanel.Enabled = true;
+
+                        if (ds.Tables[0].Rows[0]["ProTest_Date"] != null
+                            && ds.Tables[0].Rows[0]["ProTest_Date"] != DBNull.Value)
+                            ProTest_Date_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["ProTest_Date"].ToString());
+
+                        ProTest_Note_textBox.Text = ds.Tables[0].Rows[0]["ProTest_Note"].ToString();
+                        var ProTest_Result = (string)ds.Tables[0].Rows[0]["ProTest_Result"];
+                        if (ProTest_Result == "1")
+                            ProTest_ResultYes_radioButton.Checked = true;
+                        else if (ProTest_Result == "0")
+                            ProTest_ResultNo_radioButton.Checked = true;
+                        else ProTest_ResultNo_radioButton.Checked 
+                                = ProTest_ResultYes_radioButton.Checked = false;
+
+                        if (ds.Tables[0].Rows[0]["ProTest_User_ID"] == null || ds.Tables[0].Rows[0]["ProTest_User_ID"] == DBNull.Value)
+                            ProTest_User_ID_comboBox.SelectedIndex = -1;
+                        else ProTest_User_ID_comboBox.SelectedValue = Convert.ToInt32(ds.Tables[0].Rows[0]["ProTest_User_ID"].ToString());
+                    }
+                    else
+                    {
+                        HasProTestNo_radioButton.Checked = true;
+                        HasProfTest_tableLayoutPanel.Enabled = false;
+                    }
+
+                    ////HasProTrain
+                    var HasProTrain = (int)ds.Tables[0].Rows[0]["HasProTrain"];
+                    if (HasProTrain == 1)
+                    {
+                        HasProTrainYes_radioButton.Checked = true;
+                        HasProTrain_tableLayoutPanel.Enabled = true;
+
+                        if (ds.Tables[0].Rows[0]["ProTrain_BDate"] != null
+                            && ds.Tables[0].Rows[0]["ProTrain_BDate"] != DBNull.Value)
+                            ProTrain_BDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["ProTrain_BDate"].ToString());
+
+                        if (ds.Tables[0].Rows[0]["ProTrain_EDate"] != null
+                            && ds.Tables[0].Rows[0]["ProTrain_EDate"] != DBNull.Value)
+                            ProTrain_EDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["ProTrain_EDate"].ToString());
+
+                        ProTrain_Trainer_textBox.Text = ds.Tables[0].Rows[0]["ProTrain_Trainer"].ToString();
+                        ProTrain_Place_textBox.Text   = ds.Tables[0].Rows[0]["ProTrain_Place"].ToString();
+                        ProTrain_Note_textBox.Text    = ds.Tables[0].Rows[0]["ProTrain_Note"].ToString();
+                        ProTrain_Result_textBox.Text  = ds.Tables[0].Rows[0]["ProTrain_Result"].ToString();
+                    }
+                    else
+                    {
+                        HasProTrainNo_radioButton.Checked = true;
+                        HasProTrain_tableLayoutPanel.Enabled = false;
+                    }
+
+
+                    ////HasMngTrain
+                    var HasMngTrain = (int)ds.Tables[0].Rows[0]["HasMngTrain"];
+                    if (HasMngTrain == 1)
+                    {
+                        HasMngTrainYes_radioButton.Checked = true;
+                        HasMngTrain_tableLayoutPanel.Enabled = true;
+
+                        if (ds.Tables[0].Rows[0]["MngTrain_Date"] != null
+                            && ds.Tables[0].Rows[0]["MngTrain_Date"] != DBNull.Value)
+                            MngTrain_Date_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["MngTrain_Date"].ToString());
+
+                        MngTrain_Trainer_textBox.Text = ds.Tables[0].Rows[0]["MngTrain_Trainer"].ToString();
+                        MngTrain_Place_textBox.Text   = ds.Tables[0].Rows[0]["MngTrain_Place"].ToString();
+                        MngTrain_Result_textBox.Text  = ds.Tables[0].Rows[0]["MngTrain_Result"].ToString();
+                    }
+                    else
+                    {
+                        HasMngTrainNo_radioButton.Checked = true;
+                        HasMngTrain_tableLayoutPanel.Enabled = false;
+                    }
+                      
                     ////team
                     if (ds.Tables[0].Rows[0]["TeamDate"] == null || ds.Tables[0].Rows[0]["TeamDate"] == DBNull.Value)
                         TeamDate_checkBox.Checked = true;
@@ -529,26 +630,99 @@ namespace MyWorkApplication
                 }
 
                 mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = true;
-                mainForm.MP_ID_label.Text = MicroProject_ID.ToString();
-                user_mode = true;
+                mainForm.MP_ID_label.Text = MicroProject_ID.ToString();                
             } 
+            user_mode = true;
         }
-        //TODO
-        private void Clear_Boxes()
+        public void Fill_NeedEvaluation(int P_ID)
         {
-            MicroProject_ID = -1;
-            //Person_Name_textBox.Text = 
-                MicroProject_ID_textBox.Text = Notes_textBox.Text =
-                //ParishNotes_textBox.Text = 
-                VisitsReport_textBox.Text = HVisitTime_textBox.Text = "";
+            DataSet ds1 = cl.Get_NeedEvaluation("P", P_ID.ToString());
+            if (ds1 != null)
+            {
+                if (ds1.Tables[0].Rows.Count > 0)
+                {
+                    NeedEvaluation_dataGridView.DataSource = null;
+                    NeedEvaluation_dataGridView.Rows.Clear();
+                    NeedEvaluation_dataGridView.Columns.Clear();
+                    NeedEvaluation_dataGridView.DataSource = ds1.Tables[0];
 
-            //clear radiobuttons
-            //for (int i = 1; i <= 7; i++)
-            //    set_radioButtons(i, -1);
+                    var dgC1 = NeedEvaluation_dataGridView.Columns["P_ID"];
+                    dgC1.Visible = false;
+                    var dgC2 = NeedEvaluation_dataGridView.Columns["MP_ID"];
+                    dgC2.Visible = false;
+                    var dgC3 = NeedEvaluation_dataGridView.Columns["Name"];
+                    dgC3.Visible = false;
 
+                    NeedEvaluation_dataGridView.Columns["المؤشر"].DefaultCellStyle.Alignment =
+                    NeedEvaluation_dataGridView.Columns["العلامة"].DefaultCellStyle.Alignment = 
+                        DataGridViewContentAlignment.MiddleCenter;
+
+                    NeedEvaluation_dataGridView.ClearSelection();
+                }
+                if (ds1.Tables[1].Rows.Count > 0)
+                {
+                    GreyLable0_label.Text = "";
+                    GreyLable0_label.Text = ds1.Tables[1].Rows[0]["TotalMarks"].ToString();
+                }
+            }
+        }
+
+        private void Clear_Boxes(bool with_ids)
+        {
+            if (with_ids)
+            {
+                Person_ID = MicroProject_ID = -1;
+                Beneficiary_comboBox.SelectedIndex = -1;
+                MicroProject_ID_textBox.Text = "";
+            }
+
+            Career_textBox.Text =
+            SubType_textBox.Text =
+            State_Reason_textBox.Text = "";
+
+            //HVisit
+            HasHVisit_checkBox.Checked = false;
+            HVisitDate_tableLayoutPanel.Enabled = false;
+            //time
+            HVisitTime_textBox.Text = "";
+            //visitors
+            HVisit_Visitor1_comboBox.SelectedIndex = -1;
+            HVisit_Visitor2_comboBox.SelectedIndex = -1;
+            //note
+            HVisitNote_textBox.Text = "";
+
+            //PVisit
+            HasPVisit_checkBox.Checked = false;
+            PVisitDate_tableLayoutPanel.Enabled = false;
+            //time
+            PVisitTime_textBox.Text = "";
+            //visitors
+            PVisit_Visitor1_comboBox.SelectedIndex = -1;
+            PVisit_Visitor2_comboBox.SelectedIndex = -1;
+            //note
+            PVisitNote_textBox.Text = "";
+
+            ////visitsReport
+            VisitsReport_textBox.Text = "";
+
+            ////team
+            TeamDate_checkBox.Checked = false; 
+            ////commity 
+            CommityDate_checkBox.Checked = false; 
+            
+            //Notes
+            Notes_textBox.Text = "";
+
+            ////hasRejectMsg 
+            RejectMsg_checkBox.Checked = false;
+            RejectMsg_tableLayoutPanel.Enabled = false;
+            RejectMsg_checkBox.Text = "لم يتم الارسال";
+            //sender
+            RejectMsgSender_comboBox.SelectedIndex = -1;
+            
+            //tables
             keyperson_dataGridView.Rows.Clear();
-            team_dataGridView.Rows.Clear();
-            //visit_dataGridView.Rows.Clear();
+            team_dataGridView.Rows.Clear(); 
             commity_dataGridView.Rows.Clear();
         }
 
@@ -584,7 +758,7 @@ namespace MyWorkApplication
                                 var Row_ID = Convert.ToInt32(keyperson_dataGridView.Rows[e.RowIndex].Cells["K_Checklist_ID"].Value.ToString());
                                 var Name = keyperson_dataGridView.Rows[e.RowIndex].Cells["K_Name"].Value.ToString();
 
-                                cl.Delete(Row_ID);
+                                cl.Delete_Checklist_Members(Row_ID);
                                 l.Insert_Log("Delete Member: " + Name + " from project: " + MicroProject_ID
                                     , "CheckList", Program.UserName, DateTime.Now);
                                 keyperson_dataGridView.Rows.RemoveAt(e.RowIndex);
@@ -690,7 +864,7 @@ namespace MyWorkApplication
                                 var Row_ID = Convert.ToInt32(team_dataGridView.Rows[e.RowIndex].Cells["T_Checklist_ID"].Value.ToString());
                                 var Name = team_dataGridView.Rows[e.RowIndex].Cells["T_Name"].Value.ToString();
 
-                                cl.Delete(Row_ID);
+                                cl.Delete_Checklist_Members(Row_ID);
                                 l.Insert_Log("Delete Member: " + Name + " from project: " + MicroProject_ID,
                                         "CheckList", Program.UserName, DateTime.Now);
                                 team_dataGridView.Rows.RemoveAt(e.RowIndex);
@@ -784,7 +958,7 @@ namespace MyWorkApplication
                                 var Row_ID = Convert.ToInt32(commity_dataGridView.Rows[e.RowIndex].Cells["C_Checklist_ID"].Value.ToString());
                                 var Name = commity_dataGridView.Rows[e.RowIndex].Cells["C_Name"].Value.ToString();
 
-                                cl.Delete(Row_ID);
+                                cl.Delete_Checklist_Members(Row_ID);
                                 l.Insert_Log("Delete Member: " + Name + " from project: " + MicroProject_ID,
                                         "CheckList", Program.UserName, DateTime.Now);
                                 commity_dataGridView.Rows.RemoveAt(e.RowIndex);
@@ -871,14 +1045,15 @@ namespace MyWorkApplication
                     MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    if (MicroProject_ID == -1)
+                    if (MicroProject_ID == -1 || Person_ID == -1)
                         throw new InvalidOperationException(
                             "لا يمكن حذف المشروع! الرجاء اختيار مشروع من قائمة البحث أولاً ثم المحاولة مرة ثانية.");
 
-                    mp.Update_Micro_VisitDetails(MicroProject_ID, "", "", "", "", "", "", "");
-                    cl.Delete_All(MicroProject_ID);
+                    //mp.Update_Micro_VisitDetails(MicroProject_ID, "", "", "", "", "", "", "");
+                    cl.Delete_NewChecklist(Person_ID);
+                    cl.Delete_All_Checklist_Members(Person_ID);
 
-                    Clear_Boxes();
+                    Clear_Boxes(true);
 
                     Update_Mode = false;
                 }
@@ -893,9 +1068,9 @@ namespace MyWorkApplication
         {
             try
             {
-                check_data();
-                //get_data
-
+                if (!check_data())
+                    return;
+                
                 #region visit
                 string Team_Date, Commity_Date
                     , HVisit_Date, HVisit_Time, HVisit_Notes, isHVisited
@@ -1092,24 +1267,24 @@ namespace MyWorkApplication
             { MessageBox.Show(ex.Message, "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         }
 
-        private void check_data()
+        private bool check_data()
         {
             if (string.IsNullOrWhiteSpace(Beneficiary_comboBox.Text)
                 || string.IsNullOrWhiteSpace(MicroProject_ID_textBox.Text))
             {
                 MessageBox.Show("يُرجى التأكد من اختيار المشروع واسم المستفيد.", "Error");
-                return;
+                return false;
             }
 
             if(HasHVisit_checkBox.Checked && HVisit_Visitor1_comboBox.Text == "")
             { 
                 MessageBox.Show("يُرجى اختيار زائر واحد على الأقل لزيارة المنزل.", "Error");
-                return;
+                return false;
             }
             if (HasPVisit_checkBox.Checked && PVisit_Visitor1_comboBox.Text == "")
             {
                 MessageBox.Show("يُرجى اختيار زائر واحد على الأقل لزيارة المحل.", "Error");
-                return;
+                return false;
             }
 
             if (HasProfTest_tableLayoutPanel.Enabled && 
@@ -1117,7 +1292,7 @@ namespace MyWorkApplication
                     || ProTest_User_ID_comboBox.SelectedIndex == -1) )
             {
                 MessageBox.Show("يُرجى استكمال معلومات الفحص المهني.", "Error");
-                return;
+                return false;
             }
             if (HasProTrain_tableLayoutPanel.Enabled &&
                     (ProTrain_Trainer_textBox.Text == ""
@@ -1125,22 +1300,24 @@ namespace MyWorkApplication
                     || ProTrain_Note_textBox.Text  == "") )
             {
                 MessageBox.Show("يُرجى استكمال معلومات التدريب المهني.", "Error");
-                return;
+                return false;
             }
             if (HasMngTrain_tableLayoutPanel.Enabled &&
                 (MngTrain_Trainer_textBox.Text == ""
                 || MngTrain_Place_textBox.Text == "") )
                     {
                         MessageBox.Show("يُرجى استكمال معلومات التدريب الإداري.", "Error");
-                        return;
+                        return false;
                     }
 
             if (RejectMsg_checkBox.Checked &&
                 (RejectMsgSender_comboBox.SelectedIndex == -1) )
             {
                 MessageBox.Show("يُرجى اختيار اسم مُرسِل رسالة الرفض.", "Error");
-                return;
-            } 
+                return false;
+            }
+
+            return true;
         }
 
         private void Insert_Update_ChecklistDetails()
@@ -1178,7 +1355,7 @@ namespace MyWorkApplication
                 {
                     if (keyperson_dataGridView.Rows[i].Cells["K_InDataBase"].Value == null)
                     {
-                        int RowID = cl.Insert(MicroProject_ID, K_ID, opinion, notes, name_notes, role_notes, "k");
+                        int RowID = cl.Insert_Checklist_Members(Person_ID, K_ID, opinion, notes, name_notes, role_notes, "k");
 
                         keyperson_dataGridView.Rows[i].Cells["K_InDataBase"].Value = "1";
                         keyperson_dataGridView.Rows[i].Cells["K_Checklist_ID"].Value = RowID;
@@ -1188,7 +1365,7 @@ namespace MyWorkApplication
                     else /// update
                     {
                         var RowID = Convert.ToInt32(keyperson_dataGridView.Rows[i].Cells["K_Checklist_ID"].Value);
-                        cl.Update(RowID, K_ID, opinion, notes, name_notes, role_notes);
+                        cl.Update_Checklist_Members(RowID, K_ID, opinion, notes, name_notes, role_notes);
                         l.Insert_Log("Update (k)-" + name_notes + ":" + role_notes + ":" + "to Project:" + MicroProject_ID + ":" + Beneficiary_comboBox.Text
                             , "CheckList", Program.UserName, DateTime.Now);
                     }
@@ -1222,7 +1399,7 @@ namespace MyWorkApplication
                 {
                     if (team_dataGridView.Rows[i].Cells["T_InDataBase"].Value == null)
                     {
-                        int RowID = cl.Insert(MicroProject_ID, T_ID, opinion, notes, "", "", "t");
+                        int RowID = cl.Insert_Checklist_Members(Person_ID, T_ID, opinion, notes, "", "", "t");
 
                         team_dataGridView.Rows[i].Cells["T_InDataBase"].Value = "1";
                         team_dataGridView.Rows[i].Cells["T_Checklist_ID"].Value = RowID;
@@ -1231,7 +1408,7 @@ namespace MyWorkApplication
                     else /// update
                     {
                         var RowID = Convert.ToInt32(team_dataGridView.Rows[i].Cells["T_Checklist_ID"].Value);
-                        cl.Update(RowID, T_ID, opinion, notes, "", "");
+                        cl.Update_Checklist_Members(RowID, T_ID, opinion, notes, "", "");
 
                         l.Insert_Log("Update (t)-" + T_ID + ":" + opinion_text + ":" + "to Project:" + MicroProject_ID + ":" + Beneficiary_comboBox.Text, "CheckList", Program.UserName, DateTime.Now);
                     }
@@ -1266,7 +1443,7 @@ namespace MyWorkApplication
                 {
                     if (commity_dataGridView.Rows[i].Cells["C_InDataBase"].Value == null)
                     {
-                        int RowID = cl.Insert(MicroProject_ID, C_ID, opinion, notes, "", "", "c");
+                        int RowID = cl.Insert_Checklist_Members(Person_ID, C_ID, opinion, notes, "", "", "c");
 
                         commity_dataGridView.Rows[i].Cells["C_InDataBase"].Value = "1";
                         commity_dataGridView.Rows[i].Cells["C_Checklist_ID"].Value = RowID;
@@ -1276,7 +1453,7 @@ namespace MyWorkApplication
                     else /// update
                     {
                         var RowID = Convert.ToInt32(commity_dataGridView.Rows[i].Cells["C_Checklist_ID"].Value);
-                        cl.Update(RowID, C_ID, opinion, notes, "", "");
+                        cl.Update_Checklist_Members(RowID, C_ID, opinion, notes, "", "");
 
                         l.Insert_Log("Update (c)-" + C_ID + ":" + opinion_text + ":" + "to Project:" + MicroProject_ID + ":" + Beneficiary_comboBox.Text
                             , "CheckList", Program.UserName, DateTime.Now);
