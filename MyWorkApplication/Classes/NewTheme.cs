@@ -969,7 +969,7 @@ namespace MyWorkApplication.Classes
                                                     if (mm.Name.Contains("_radioButton")
                                                      || mm.Name.Contains("_checkBox"))
                                                     {
-                                                        mm.ForeColor = light_red;
+                                                        mm.ForeColor = light_white;
                                                     }
                                                 }
                                                 else if (mm.GetType() == typeof(TextBox) ||
@@ -993,7 +993,7 @@ namespace MyWorkApplication.Classes
                                             if (mm.Name.Contains("Yes_radioButton")
                                              || mm.Name.Contains("No_radioButton"))
                                             {
-                                                mm.ForeColor = light_red;
+                                                mm.ForeColor = light_white;
                                             }
                                         }
                                         else if (mm.GetType() == typeof(TextBox) ||

@@ -10,58 +10,6 @@ namespace MyWorkApplication.Classes
         string query, condition, Ordered_By, log_query;
         MySqlCommand sc;
 
-        public DataSet Get_NewChecklist(int Person_ID, int MicroProject_ID)
-        {
-            string query1 = @"SELECT checklist.*
-,career.Name as 'Career'
-,microprojectsubtype.Name as 'SubType'
-,  CONCAT('حالة المشروع: '
-    , IF(state.Name_ar = '-','N/A',state.Name_ar) 
-    , IF(mps.Note = '' ,'' ,' - ') 
-    , mps.Note
-    , IF(MP.MP_Note = '' ,'' ,' - ') 
-    , MP.MP_Note
-)  as 'State_Reason'   
-,  PMP.P_WorkYears as 'ExpYears'
-
- from checklist 
- LEFT JOIN person_microproject PMP on checklist.Person_ID = PMP.Person_ID
- LEFT JOIN microproject MP on MP.MP_ID = PMP.MicroProject_ID  
- LEFT JOIN career on MP.Career_ID = career.ID 
-
- LEFT JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
- LEFT JOIN `state` on state.ID = mps.State_ID 
- left join `statereason` on statereason.ID = mps.StateReason_ID 
-
- LEFT JOIN microprojectsubtype on microprojectsubtype.ID = MP.MP_SubType_ID  ";
-
-            condition = " where Current_State = 1 ";
-            if (Person_ID != -1)
-                condition += " and checklist.Person_ID = "+ Person_ID ;
-            if (MicroProject_ID != -1)
-                condition += " and PMP.MicroProject_ID = " + MicroProject_ID ;
-
-            query1 += condition + ";";
-
-            string query2 = @"select person_checklistmembers.* 
-,checklist_member.Name as 'Name'
-,checklist_position.Type as 'Type'
-,checklist_member.Position_ID as 'Position_ID' 
-,checklist_position.Name as 'Position'  
-
-from person_checklistmembers 
-LEFT JOIN checklist_member on person_checklistmembers.Member_ID = checklist_member.ID
-LEFT JOIN checklist_position on checklist_member.Position_ID = checklist_position.ID 
-where person_checklistmembers.Person_ID = " + Person_ID + ";";
-
-            query = query1 + query2;
-            Program.buildConnection();
-            MySqlDataAdapter Ad = new MySqlDataAdapter(query, Program.MyConn);
-            DataSet ds = new DataSet();
-            Ad.Fill(ds);
-            Program.MyConn.Close();
-            return ds;
-        }
         public void Insert_NewChecklist(int Person_ID
                     , string HVisit_Date, string HVisit_Time, string HVisit_Notes, string isHVisited
                     , string PVisit_Date, string PVisit_Time, string PVisit_Notes, string isPVisited
@@ -308,12 +256,14 @@ where person_checklistmembers.Person_ID = " + Person_ID + ";";
  left JOIN checklist_position on checklist_member.Position_ID = checklist_position.ID ";
             condition = " where 1";
 
+            //if (isActive) //false to bring all members
+            //    condition += " and IsActive = 1 ";
             if (Member_ID != "")
                 condition += " and checklist_member.ID = " + Member_ID + " ";
             if (Type != "")
                 condition += " and checklist_position.Type like '" + Type + "' ";
 
-            Ordered_By = " ORDER BY checklist_member.Name ASC ";
+            Ordered_By = " ORDER BY IsActive DESC,checklist_member.Name ASC;";
 
             query += condition;
             query += Ordered_By;
@@ -459,6 +409,221 @@ where person_checklistmembers.Person_ID = " + Person_ID + ";";
             }
         }
 
+        public DataSet Get_NewChecklist(string Person_ID, string cond , bool withNeedEval)
+        {
+            string query1 = @" SELECT PMP.MicroProject_ID as 'رقم المشروع'
+ , GROUP_CONCAT(CONCAT(P_FirstName, ' ', P_LastName)) as 'المستفيد'
+ , P.P_FatherName as 'اسم الأب'
+ , P_FullName_en as 'Beneficiary Name'
+ , career.Name as 'المهنة'
+ , career.Name_en as 'Career'
+ , C.Name as 'Category'
+ , sub.Name as 'Sub Category'
+ , microprojectsubtype.Name as 'SubType'
+
+ , PMP.P_WorkYears as 'عدد سنين الخبرة'
+
+ , (CASE `HasHomeVisit` WHEN 1 THEN 'تمت' WHEN 0 THEN 'لم تتم' ELSE '' END) AS 'هل تمت زيارة منزل'
+ , `HVisit_Date` AS 'تاريخ زيارة المنزل'
+ , `HVisit_Time` AS 'ساعة زيارة المنزل'
+
+ , IFNULL((SELECT checklist_member.Name
+           FROM `person_checklistmembers`
+           LEFT JOIN checklist_member ON person_checklistmembers.Member_ID = checklist_member.ID
+           WHERE person_checklistmembers.Person_ID = checklist.Person_ID
+             AND checklist_member.ID = checklist.HVisit_Visitor1_ID
+           LIMIT 1),'') as 'الزائر1 / المنزل'
+
+ , IFNULL((SELECT checklist_member.Name
+           FROM `person_checklistmembers`
+           LEFT JOIN checklist_member ON person_checklistmembers.Member_ID = checklist_member.ID
+           WHERE person_checklistmembers.Person_ID = checklist.Person_ID
+             AND checklist_member.ID = checklist.HVisit_Visitor2_ID
+           LIMIT 1),'') as 'الزائر2 / المنزل'
+
+ , `HVisit_Note` AS 'ملاحظات زيارة المنزل'
+
+ , (CASE `HasProjectVisit` WHEN 1 THEN 'تمت' WHEN 0 THEN 'لم تتم' ELSE '' END) AS 'هل تمت زيارة المحل'
+ , `PVisit_Date` AS 'تاريخ زيارة المحل'
+ , `PVisit_Time` AS 'ساعة زيارة المحل'
+
+ , IFNULL((SELECT checklist_member.Name
+           FROM `person_checklistmembers`
+           LEFT JOIN checklist_member ON person_checklistmembers.Member_ID = checklist_member.ID
+           WHERE person_checklistmembers.Person_ID = checklist.Person_ID
+             AND checklist_member.ID = checklist.PVisit_Visitor1_ID
+           LIMIT 1),'') as 'الزائر1 / المحل'
+
+ , IFNULL((SELECT checklist_member.Name
+           FROM `person_checklistmembers`
+           LEFT JOIN checklist_member ON person_checklistmembers.Member_ID = checklist_member.ID
+           WHERE person_checklistmembers.Person_ID = checklist.Person_ID
+             AND checklist_member.ID = checklist.PVisit_Visitor2_ID
+           LIMIT 1),'') as 'الزائر2 / المحل'
+
+ , `PVisit_Note` AS 'ملاحظات زيارة المحل'
+ , `VisitsReport` AS 'تقرير الزيارات'
+
+ , (CASE `NeedProTest` WHEN 1 THEN 'بحاجة' WHEN 0 THEN 'ليس بحاجة' ELSE '' END) AS 'هل يحتاج لفحص مهني'
+ , `NeedProTest_Note` AS 'سبب الفحص'
+
+ , (CASE `HasProTest` WHEN 1 THEN 'نعم' WHEN 0 THEN 'لا' ELSE '' END) AS 'هل تم الفحص المهني'
+ , `ProTest_Date` AS 'تاريخ الفحص المهني'
+ , `ProTest_Note` AS 'ملاحظات الفحص المهني'
+
+ , IFNULL((SELECT user.UserName
+           FROM `user`
+           WHERE user.UserID = checklist.ProTest_User_ID
+           LIMIT 1),'') as 'مراقب الفحص المهني'
+
+ , `ProTest_Result` AS 'نتيجة الفحص المهني'
+
+ , (CASE `HasProTrain` WHEN 1 THEN 'نعم' WHEN 0 THEN 'لا' ELSE '' END) AS 'هل لديه تدريب مهني'
+ , `ProTrain_Trainer` AS 'المدرّب /مهني'
+ , `ProTrain_Place`   AS 'مكان التدريب /مهني'
+ , `ProTrain_BDate`   AS 'تاريخ بدء التدريب /مهني'
+ , `ProTrain_EDate`   AS 'تاريخ انتهاء التدريب /مهني'
+ , `ProTrain_Note`    AS 'ملاحظات التدريب /مهني'
+ , `ProTrain_Result`  AS 'نتيجة التدريب /مهني'
+
+ , (CASE `HasMngTrain` WHEN 1 THEN 'نعم' WHEN 0 THEN 'لا' ELSE '' END) AS 'هل لديه تدريب إداري'
+ , `MngTrain_Trainer` AS 'المدرّب /إداري'
+ , `MngTrain_Place`   AS 'مكان التدريب /إداري'
+ , `MngTrain_Date`    AS 'تاريخ التدريب /إداري'
+ , `MngTrain_Result`  AS 'نتيجة التدريب /إداري'
+
+ , `Notes` AS 'ملاحظات عامة'
+
+ , (CASE `RejectMsg` WHEN 1 THEN 'تم الارسال' WHEN 0 THEN 'لم يتم الارسال' ELSE '' END) AS 'رسالة الرفض'
+ , `RejectMsgDate` AS 'تاريخ رسالة الرفض'
+
+ , IFNULL((SELECT user.UserName
+           FROM `user`
+           WHERE user.UserID = checklist.RejectMsgSender_ID
+           LIMIT 1),'') as 'مرسل رسالة الرفض' 
+   ";
+
+            string Key_Q = @"
+, (SELECT COUNT(ID)
+    FROM `person_checklistmembers`
+    WHERE person_checklistmembers.Person_ID = PMP.Person_ID
+      AND Location LIKE 'k') as 'المفتاحيين (عدد)'
+, IFNULL((SELECT GROUP_CONCAT(CONCAT(checklist_member.Name, ' - '
+        , person_checklistmembers.NameNotes ,' - '
+        , person_checklistmembers.RoleNotes ,' - '
+        , REPLACE(REPLACE(person_checklistmembers.Notes, ' ', ' '), ' ', ' '))
+        SEPARATOR '\n')
+        FROM `person_checklistmembers`
+        LEFT JOIN checklist_member ON person_checklistmembers.Member_ID = checklist_member.ID
+        WHERE person_checklistmembers.Person_ID = PMP.Person_ID
+          AND Location LIKE 'k'),'') as 'رأي المفتاحيين'
+
+";
+
+            string team_Q = @" 
+ , `TeamDate` AS 'تاريخ اجتماع الفريق'
+
+, (SELECT COUNT(ID)
+    FROM `person_checklistmembers`
+    WHERE person_checklistmembers.Person_ID = PMP.Person_ID
+      AND Location LIKE 't') as 'الفريق (عدد)'
+
+, IFNULL((SELECT GROUP_CONCAT(CONCAT(checklist_member.Name, ' - '
+         , (CASE person_checklistmembers.Opinion WHEN 0 THEN 'ضد' WHEN 1 THEN 'مع' ELSE '' END)
+         , IF(person_checklistmembers.Notes = '','',' - ')
+         , REPLACE(REPLACE(person_checklistmembers.Notes, ' ', ' '), ' ', ' '))
+         SEPARATOR '\n')
+         FROM `person_checklistmembers`
+         LEFT JOIN checklist_member ON person_checklistmembers.Member_ID = checklist_member.ID
+         WHERE person_checklistmembers.Person_ID = PMP.Person_ID
+           AND Location LIKE 't'),'') as 'رأي الفريق'
+";
+
+            string commity_Q = @"
+, `CommityDate` AS 'تاريخ اجتماع اللجنة' 
+
+, (SELECT COUNT(ID)
+   FROM `person_checklistmembers`
+   WHERE person_checklistmembers.Person_ID = PMP.Person_ID
+     AND Location LIKE 'c') as 'اللجنة (عدد)'
+
+, IFNULL((SELECT GROUP_CONCAT(CONCAT(checklist_member.Name, ' - '
+        , (CASE person_checklistmembers.Opinion WHEN 0 THEN 'ضد' WHEN 1 THEN 'مع' ELSE '' END)
+        , IF(person_checklistmembers.Notes = '','',' - ')
+        , REPLACE(REPLACE(person_checklistmembers.Notes, ' ', ' '), ' ', ' '))
+        SEPARATOR '\n')
+        FROM `person_checklistmembers`
+        LEFT JOIN checklist_member ON person_checklistmembers.Member_ID = checklist_member.ID
+        WHERE person_checklistmembers.Person_ID = PMP.Person_ID
+          AND Location LIKE 'c'),'') as 'رأي اللجنة'
+";
+
+            string needEval_StateReason_IDs_Q = @"  
+, checklist.HVisit_Visitor1_ID , checklist.HVisit_Visitor2_ID
+, checklist.PVisit_Visitor1_ID , checklist.PVisit_Visitor2_ID
+, checklist.ProTest_User_ID    , checklist.RejectMsgSender_ID
+
+, CONCAT('حالة المشروع: '
+     , IF(state.Name_ar = '-','',state.Name_ar) 
+     , IF(mps.Note = '' ,'' ,' - ') 
+     , mps.Note
+     , IF(MP.MP_Note = '' ,'' ,' - ') 
+     , MP.MP_Note
+ )  as 'State_Reason' 
+
+  , need_evaluation.*
+  , (IFNULL(loss_Mark,0) + IFNULL(worktype_Mark,0) + IFNULL(maritalstatus_Mark,0) +  
+     IFNULL(NumAtHome_Mark,0) + IFNULL(workerspersentage_Mark,0) + IFNULL(NumChildElder_Mark,0) +  
+     IFNULL(illness_Mark,0) + IFNULL(homeassettype_Mark,0) + IFNULL(projectassettype_Mark,0) +  
+     IFNULL(assets_Mark,0) + IFNULL(homepowersource_Mark,0)) AS 'TotalMarks' 
+";
+
+            string from = @"FROM checklist 
+ LEFT JOIN need_evaluation on need_evaluation.P_ID = checklist.Person_ID  
+ LEFT JOIN person_microproject PMP on checklist.Person_ID = PMP.Person_ID
+ LEFT JOIN microproject MP on MP.MP_ID = PMP.MicroProject_ID  
+ LEFT JOIN person P on PMP.Person_ID = P.P_ID 
+ LEFT JOIN category C on MP.Category_ID = C.ID 
+ LEFT JOIN subcategory sub on MP.SubCategory_ID = sub.ID  
+ LEFT JOIN career on MP.Career_ID = career.ID  
+ LEFT JOIN microproject_state mps on mps.MicroProject_ID = MP.MP_ID
+ LEFT JOIN state on state.ID = mps.State_ID 
+ left join statereason on statereason.ID = mps.StateReason_ID  
+ LEFT JOIN microprojectsubtype on microprojectsubtype.ID = MP.MP_SubType_ID ";
+
+            string condition = " where Current_State = 1 and checklist.Person_ID = " + Person_ID;
+            if (cond != "")
+                condition = cond;
+
+            string group_by = " Group By PMP.Person_ID order by PMP.MicroProject_ID Desc ";
+            query1 += Key_Q + team_Q + commity_Q;
+
+            if (withNeedEval)
+                query1 += needEval_StateReason_IDs_Q;
+
+            query1 += from + condition + group_by + ";";
+
+            string query2 = @"select person_checklistmembers.* 
+,checklist_member.Name as 'Name'
+,checklist_position.Type as 'Type'
+,checklist_member.Position_ID as 'Position_ID' 
+,checklist_position.Name as 'Position'  
+
+from person_checklistmembers 
+LEFT JOIN checklist_member on person_checklistmembers.Member_ID = checklist_member.ID
+LEFT JOIN checklist_position on checklist_member.Position_ID = checklist_position.ID ";
+
+            if(Person_ID != "")
+                query2 += " where person_checklistmembers.Person_ID = " + Person_ID + ";";
+
+            query = query1 + query2;
+            Program.buildConnection();
+            MySqlDataAdapter Ad = new MySqlDataAdapter(query, Program.MyConn);
+            DataSet ds = new DataSet();
+            Ad.Fill(ds);
+            Program.MyConn.Close();
+            return ds;
+        }
 
         public DataSet Get_NeedEvaluation(string in_type, string in_ids)
         {

@@ -1,18 +1,23 @@
-﻿using ClosedXML.Excel;
-using DocumentFormat.OpenXml.ExtendedProperties;
-using Microsoft.Office.Interop.Word;
+﻿using DocumentFormat.OpenXml.ExtendedProperties; 
 using MyWorkApplication.Classes;
-using MyWorkApplication.Properties;
-using MyWorkApplication.Visit_Forms;
-using System;
-using System.Data;
-using System.Diagnostics;
+using MyWorkApplication.Properties;   
+using System.Data; 
 using System.Drawing;
+using System.Drawing.Printing;  
+using System.Threading;
+using System.Windows.Forms;  
+using DataTable = System.Data.DataTable;
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Threading;
-using System.Windows.Forms;
-using DataTable = System.Data.DataTable;
+using System.Runtime.InteropServices;
+using ClosedXML.Excel;
+using Microsoft.Office.Interop.Word; // add COM reference
+using WordApp = Microsoft.Office.Interop.Word.Application;
+using MyWorkApplication.Visit_Forms;
 
 namespace MyWorkApplication
 {
@@ -39,6 +44,7 @@ namespace MyWorkApplication
         MicroProject mp;
         Log l;
         Select s;
+        DataSet ds; DataSet ds_eval;
         int MicroProject_ID;
         int Person_ID;
         bool Update_Mode, user_mode;
@@ -63,7 +69,8 @@ namespace MyWorkApplication
                 l = new Log();
                 s = new Classes.Select();
                 mp = new MicroProject();
-
+                ds = new DataSet();
+                ds_eval = new DataSet();
                 user_mode = false;
 
                 //Person_Name_textBox.AutoCompleteCustomSource = s.select_beneficiaries("", "");
@@ -100,9 +107,7 @@ namespace MyWorkApplication
                 case 1: //admin 
                 case 8: //admin_l0
                     {
-                        Save_button.Visible = Delete_button.Visible = Print_button.Visible
-                            = Add_C_button.Visible = Add_K_button.Visible
-                            = Add_T_button.Visible = Add_V_button.Visible
+                        Save_button.Visible = Delete_button.Visible = Print_button.Visible 
                             = true;
                         return true;
                     }
@@ -110,9 +115,7 @@ namespace MyWorkApplication
                     {
                         payments_toolStripMenuItem.Visible = false;
 
-                        Save_button.Visible = Delete_button.Visible = Print_button.Visible
-                            = Add_C_button.Visible = Add_K_button.Visible
-                            = Add_T_button.Visible = Add_V_button.Visible
+                        Save_button.Visible = Delete_button.Visible = Print_button.Visible 
                             = true;
                         return true;
                     }
@@ -121,9 +124,7 @@ namespace MyWorkApplication
                     {
                         Visits_toolStripMenuItem.Visible = false;
 
-                        Save_button.Visible = Delete_button.Visible = Print_button.Visible
-                            = Add_C_button.Visible = Add_K_button.Visible
-                            = Add_T_button.Visible = Add_V_button.Visible
+                        Save_button.Visible = Delete_button.Visible = Print_button.Visible 
                             = false;
                         return false;
                     }
@@ -133,9 +134,7 @@ namespace MyWorkApplication
                         payments_toolStripMenuItem.Visible =
                             Visits_toolStripMenuItem.Visible = false;
 
-                        Save_button.Visible = Delete_button.Visible = Print_button.Visible
-                            = Add_C_button.Visible = Add_K_button.Visible
-                            = Add_T_button.Visible = Add_V_button.Visible
+                        Save_button.Visible = Delete_button.Visible = Print_button.Visible 
                            = false;
                         return false;
                     }
@@ -197,7 +196,7 @@ namespace MyWorkApplication
         {
             user_mode = false;
 
-            checklist_member_dt = cl.Select_Members("", "");
+            checklist_member_dt = cl.Select_Members("", ""); 
             DataTable dt_k = checklist_member_dt.Select("Type='k'").CopyToDataTable();
             DataTable dt_t = checklist_member_dt.Select("Type='t'").CopyToDataTable();
             DataTable dt_c = checklist_member_dt.Select("Type='c'").CopyToDataTable();
@@ -296,7 +295,7 @@ namespace MyWorkApplication
                     Clear_Boxes(false);
                     Person_ID = -1;
                     int.TryParse(Beneficiary_comboBox.SelectedValue.ToString(), out Person_ID);
-                    Fill_checklist(Person_ID ,MicroProject_ID);
+                    Fill_checklist(Person_ID);
                     Fill_NeedEvaluation(Person_ID);
                 }
             }
@@ -322,42 +321,38 @@ namespace MyWorkApplication
         //        MessageBox.Show(ex.Message);
         //    }
         //}
-        public void Fill_checklist(int P_ID, int MP_ID)
+        public void Fill_checklist(int P_ID)
         {
-            user_mode = false;
-            DataSet ds = cl.Get_NewChecklist(P_ID, MP_ID);
+            user_mode = false; 
+            ds = cl.Get_NewChecklist(P_ID.ToString(),"",true);
             if (ds != null)
-            { 
+            {
                 if (ds.Tables[0].Rows.Count > 0)
-                { 
-                    Career_textBox.Text  = ds.Tables[0].Rows[0]["Career"].ToString();
-                    SubType_textBox.Text = ds.Tables[0].Rows[0]["SubType"].ToString(); 
-                    State_Reason_textBox.Text = ds.Tables[0].Rows[0]["State_Reason"].ToString();
-                    ExpYears_label.Text = ds.Tables[0].Rows[0]["ExpYears"].ToString();
-                       
-                    ////hasHomeVisit
-                    var hasHomeVisit = (int)ds.Tables[0].Rows[0]["HasHomeVisit"];
-                    if (hasHomeVisit == 1)
+                {
+                    Career_textBox.Text = ds.Tables[0].Rows[0]["المهنة"].ToString();
+                    SubType_textBox.Text = ds.Tables[0].Rows[0]["SubType"].ToString();
+                    ExpYears_label.Text = ds.Tables[0].Rows[0]["عدد سنين الخبرة"].ToString();
+
+                    ////HasHomeVisit
+                    var hasHomeVisit = ds.Tables[0].Rows[0]["هل تمت زيارة منزل"].ToString();
+                    if (hasHomeVisit == "تمت")
                     {
                         HasHVisit_checkBox.Checked = true;
                         HVisitDate_tableLayoutPanel.Enabled = true;
 
-                        //date
-                        if (ds.Tables[0].Rows[0]["HVisit_Date"] != null 
-                            && ds.Tables[0].Rows[0]["HVisit_Date"] != DBNull.Value)
-                            HVisitDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["HVisit_Date"].ToString());
+                        if (ds.Tables[0].Rows[0]["تاريخ زيارة المنزل"] != DBNull.Value)
+                            HVisitDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["تاريخ زيارة المنزل"].ToString());
 
-                        //time
-                        HVisitTime_textBox.Text = ds.Tables[0].Rows[0]["HVisit_Time"].ToString();
                         //visitors
-                        if (ds.Tables[0].Rows[0]["HVisit_Visitor1_ID"] == null || ds.Tables[0].Rows[0]["HVisit_Visitor1_ID"] == DBNull.Value)
-                            HVisit_Visitor1_comboBox.SelectedIndex = -1;
-                        else HVisit_Visitor1_comboBox.SelectedValue = Convert.ToInt32(ds.Tables[0].Rows[0]["HVisit_Visitor1_ID"].ToString());
-                        if (ds.Tables[0].Rows[0]["HVisit_Visitor2_ID"] == null || ds.Tables[0].Rows[0]["HVisit_Visitor2_ID"] == DBNull.Value)
+                        if (ds.Tables[0].Rows[0]["HVisit_Visitor1_ID"] == null || ds.Tables[0].Rows[0]["HVisit_Visitor1_ID"] == DBNull.Value) 
+                            HVisit_Visitor1_comboBox.SelectedIndex = -1; 
+                        else HVisit_Visitor1_comboBox.SelectedValue = Convert.ToInt32(ds.Tables[0].Rows[0]["HVisit_Visitor1_ID"].ToString()); 
+                        if (ds.Tables[0].Rows[0]["HVisit_Visitor2_ID"] == null || ds.Tables[0].Rows[0]["HVisit_Visitor2_ID"] == DBNull.Value) 
                             HVisit_Visitor2_comboBox.SelectedIndex = -1;
                         else HVisit_Visitor2_comboBox.SelectedValue = Convert.ToInt32(ds.Tables[0].Rows[0]["HVisit_Visitor2_ID"].ToString());
-                        //note
-                        HVisitNote_textBox.Text = ds.Tables[0].Rows[0]["HVisit_Note"].ToString();
+
+                        HVisitTime_textBox.Text = ds.Tables[0].Rows[0]["ساعة زيارة المنزل"].ToString();
+                        HVisitNote_textBox.Text = ds.Tables[0].Rows[0]["ملاحظات زيارة المنزل"].ToString();
                     }
                     else
                     {
@@ -365,68 +360,65 @@ namespace MyWorkApplication
                         HVisitDate_tableLayoutPanel.Enabled = false;
                     }
 
-                    ////hasProjectVisit
-                    var hasProjectVisit = (int)ds.Tables[0].Rows[0]["HasProjectVisit"];
-                    if (hasProjectVisit == 1) 
-                    { 
-                        HasPVisit_checkBox.Checked = true; 
+                    ////HasProjectVisit
+                    var hasProjectVisit = ds.Tables[0].Rows[0]["هل تمت زيارة المحل"].ToString();
+                    if (hasProjectVisit == "تمت")
+                    {
+                        HasPVisit_checkBox.Checked = true;
                         PVisitDate_tableLayoutPanel.Enabled = true;
-                        
-                        //date
-                        if (ds.Tables[0].Rows[0]["PVisit_Date"] != null 
-                            && ds.Tables[0].Rows[0]["PVisit_Date"] != DBNull.Value)
-                            PVisitDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["PVisit_Date"].ToString());
-                        
-                        //time
-                        PVisitTime_textBox.Text = ds.Tables[0].Rows[0]["PVisit_Time"].ToString();
-                        //visitors
-                        if (ds.Tables[0].Rows[0]["PVisit_Visitor1_ID"] == null || ds.Tables[0].Rows[0]["PVisit_Visitor1_ID"] == DBNull.Value)
-                            PVisit_Visitor1_comboBox.SelectedIndex = -1;
-                        else PVisit_Visitor1_comboBox.SelectedValue = Convert.ToInt32(ds.Tables[0].Rows[0]["PVisit_Visitor1_ID"].ToString());
-                        if (ds.Tables[0].Rows[0]["PVisit_Visitor2_ID"] == null || ds.Tables[0].Rows[0]["PVisit_Visitor2_ID"] == DBNull.Value)
-                            PVisit_Visitor2_comboBox.SelectedIndex = -1;
-                        else PVisit_Visitor2_comboBox.SelectedValue = Convert.ToInt32(ds.Tables[0].Rows[0]["PVisit_Visitor2_ID"].ToString());
-                        //note
-                        PVisitNote_textBox.Text = ds.Tables[0].Rows[0]["PVisit_Note"].ToString();
-                    }
-                    else { 
-                        HasPVisit_checkBox.Checked = false; 
-                        PVisitDate_tableLayoutPanel.Enabled = false; 
-                    }
-                    
-                    ////visitsReport
-                    VisitsReport_textBox.Text = ds.Tables[0].Rows[0]["VisitsReport"].ToString();
 
-                    //قسم الخبرة
-                    var NeedProTest = (int)ds.Tables[0].Rows[0]["NeedProTest"];
-                    if (NeedProTest == 1)
-                        NeedProTestYes_radioButton.Checked = true;
-                    else NeedProTestNo_radioButton.Checked = true;
-                    NeedProTestNote_textBox.Text = ds.Tables[0].Rows[0]["NeedProTest_Note"].ToString();
+                        if (ds.Tables[0].Rows[0]["تاريخ زيارة المحل"] != DBNull.Value)
+                            PVisitDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["تاريخ زيارة المحل"].ToString());
+
+                        //visitors
+                        if (ds.Tables[0].Rows[0]["PVisit_Visitor1_ID"] == null || ds.Tables[0].Rows[0]["PVisit_Visitor1_ID"] == DBNull.Value) 
+                            PVisit_Visitor1_comboBox.SelectedIndex = -1; 
+                        else PVisit_Visitor1_comboBox.SelectedValue = Convert.ToInt32(ds.Tables[0].Rows[0]["PVisit_Visitor1_ID"].ToString()); 
+                        if (ds.Tables[0].Rows[0]["PVisit_Visitor2_ID"] == null || ds.Tables[0].Rows[0]["PVisit_Visitor2_ID"] == DBNull.Value) 
+                            PVisit_Visitor2_comboBox.SelectedIndex = -1; 
+                        else PVisit_Visitor2_comboBox.SelectedValue = Convert.ToInt32(ds.Tables[0].Rows[0]["PVisit_Visitor2_ID"].ToString());
+
+                        PVisitTime_textBox.Text = ds.Tables[0].Rows[0]["ساعة زيارة المحل"].ToString();
+                        PVisitNote_textBox.Text = ds.Tables[0].Rows[0]["ملاحظات زيارة المحل"].ToString();
+                    }
+                    else
+                    {
+                        HasPVisit_checkBox.Checked = false;
+                        PVisitDate_tableLayoutPanel.Enabled = false;
+                    }
+
+                    ////VisitsReport
+                    VisitsReport_textBox.Text = ds.Tables[0].Rows[0]["تقرير الزيارات"].ToString();
+
+                    ////NeedProTest
+                    var needProTest = ds.Tables[0].Rows[0]["هل يحتاج لفحص مهني"].ToString();
+                    NeedProTestYes_radioButton.Checked = needProTest == "نعم";
+                    NeedProTestNo_radioButton.Checked = needProTest == "لا";
+                    NeedProTestNote_textBox.Text = ds.Tables[0].Rows[0]["سبب الفحص"].ToString();
 
                     ////HasProTest
-                    var HasProTest = (int)ds.Tables[0].Rows[0]["HasProTest"];
-                    if (HasProTest == 1)
+                    var hasProTest = ds.Tables[0].Rows[0]["هل تم الفحص المهني"].ToString();
+                    if (hasProTest == "نعم")
                     {
                         HasProTestYes_radioButton.Checked = true;
                         HasProfTest_tableLayoutPanel.Enabled = true;
 
-                        if (ds.Tables[0].Rows[0]["ProTest_Date"] != null
-                            && ds.Tables[0].Rows[0]["ProTest_Date"] != DBNull.Value)
-                            ProTest_Date_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["ProTest_Date"].ToString());
-
-                        ProTest_Note_textBox.Text = ds.Tables[0].Rows[0]["ProTest_Note"].ToString();
-                        var ProTest_Result = (string)ds.Tables[0].Rows[0]["ProTest_Result"];
-                        if (ProTest_Result == "1")
-                            ProTest_ResultYes_radioButton.Checked = true;
-                        else if (ProTest_Result == "0")
-                            ProTest_ResultNo_radioButton.Checked = true;
-                        else ProTest_ResultNo_radioButton.Checked 
-                                = ProTest_ResultYes_radioButton.Checked = false;
-
-                        if (ds.Tables[0].Rows[0]["ProTest_User_ID"] == null || ds.Tables[0].Rows[0]["ProTest_User_ID"] == DBNull.Value)
-                            ProTest_User_ID_comboBox.SelectedIndex = -1;
+                        if (ds.Tables[0].Rows[0]["تاريخ الفحص المهني"] != DBNull.Value)
+                            ProTest_Date_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["تاريخ الفحص المهني"].ToString());
+                        
+                        //
+                        if (ds.Tables[0].Rows[0]["ProTest_User_ID"] == null || ds.Tables[0].Rows[0]["ProTest_User_ID"] == DBNull.Value) 
+                            ProTest_User_ID_comboBox.SelectedIndex = -1; 
                         else ProTest_User_ID_comboBox.SelectedValue = Convert.ToInt32(ds.Tables[0].Rows[0]["ProTest_User_ID"].ToString());
+
+                        ProTest_Note_textBox.Text = ds.Tables[0].Rows[0]["ملاحظات الفحص المهني"].ToString();
+                        
+                        //
+                        var ProTest_Result = (string)ds.Tables[0].Rows[0]["نتيجة الفحص المهني"]; 
+                        if (ProTest_Result == "1") 
+                            ProTest_ResultYes_radioButton.Checked = true; 
+                        else if (ProTest_Result == "0") ProTest_ResultNo_radioButton.Checked = true; 
+                        else ProTest_ResultNo_radioButton.Checked = ProTest_ResultYes_radioButton.Checked = false; 
                     }
                     else
                     {
@@ -435,24 +427,22 @@ namespace MyWorkApplication
                     }
 
                     ////HasProTrain
-                    var HasProTrain = (int)ds.Tables[0].Rows[0]["HasProTrain"];
-                    if (HasProTrain == 1)
+                    var hasProTrain = ds.Tables[0].Rows[0]["هل لديه تدريب مهني"].ToString();
+                    if (hasProTrain == "نعم")
                     {
                         HasProTrainYes_radioButton.Checked = true;
                         HasProTrain_tableLayoutPanel.Enabled = true;
 
-                        if (ds.Tables[0].Rows[0]["ProTrain_BDate"] != null
-                            && ds.Tables[0].Rows[0]["ProTrain_BDate"] != DBNull.Value)
-                            ProTrain_BDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["ProTrain_BDate"].ToString());
+                        if (ds.Tables[0].Rows[0]["تاريخ بدء التدريب /مهني"] != DBNull.Value)
+                            ProTrain_BDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["تاريخ بدء التدريب /مهني"].ToString());
 
-                        if (ds.Tables[0].Rows[0]["ProTrain_EDate"] != null
-                            && ds.Tables[0].Rows[0]["ProTrain_EDate"] != DBNull.Value)
-                            ProTrain_EDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["ProTrain_EDate"].ToString());
+                        if (ds.Tables[0].Rows[0]["تاريخ انتهاء التدريب /مهني"] != DBNull.Value)
+                            ProTrain_EDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["تاريخ انتهاء التدريب /مهني"].ToString());
 
-                        ProTrain_Trainer_textBox.Text = ds.Tables[0].Rows[0]["ProTrain_Trainer"].ToString();
-                        ProTrain_Place_textBox.Text   = ds.Tables[0].Rows[0]["ProTrain_Place"].ToString();
-                        ProTrain_Note_textBox.Text    = ds.Tables[0].Rows[0]["ProTrain_Note"].ToString();
-                        ProTrain_Result_textBox.Text  = ds.Tables[0].Rows[0]["ProTrain_Result"].ToString();
+                        ProTrain_Trainer_textBox.Text = ds.Tables[0].Rows[0]["المدرّب /مهني"].ToString();
+                        ProTrain_Place_textBox.Text = ds.Tables[0].Rows[0]["مكان التدريب /مهني"].ToString();
+                        ProTrain_Note_textBox.Text = ds.Tables[0].Rows[0]["ملاحظات التدريب /مهني"].ToString();
+                        ProTrain_Result_textBox.Text = ds.Tables[0].Rows[0]["نتيجة التدريب /مهني"].ToString();
                     }
                     else
                     {
@@ -460,72 +450,70 @@ namespace MyWorkApplication
                         HasProTrain_tableLayoutPanel.Enabled = false;
                     }
 
-
                     ////HasMngTrain
-                    var HasMngTrain = (int)ds.Tables[0].Rows[0]["HasMngTrain"];
-                    if (HasMngTrain == 1)
+                    var hasMngTrain = ds.Tables[0].Rows[0]["هل لديه تدريب إداري"].ToString();
+                    if (hasMngTrain == "نعم")
                     {
                         HasMngTrainYes_radioButton.Checked = true;
                         HasMngTrain_tableLayoutPanel.Enabled = true;
 
-                        if (ds.Tables[0].Rows[0]["MngTrain_Date"] != null
-                            && ds.Tables[0].Rows[0]["MngTrain_Date"] != DBNull.Value)
-                            MngTrain_Date_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["MngTrain_Date"].ToString());
+                        if (ds.Tables[0].Rows[0]["تاريخ التدريب /إداري"] != DBNull.Value)
+                            MngTrain_Date_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["تاريخ التدريب /إداري"].ToString());
 
-                        MngTrain_Trainer_textBox.Text = ds.Tables[0].Rows[0]["MngTrain_Trainer"].ToString();
-                        MngTrain_Place_textBox.Text   = ds.Tables[0].Rows[0]["MngTrain_Place"].ToString();
-                        MngTrain_Result_textBox.Text  = ds.Tables[0].Rows[0]["MngTrain_Result"].ToString();
+                        MngTrain_Trainer_textBox.Text = ds.Tables[0].Rows[0]["المدرّب /إداري"].ToString();
+                        MngTrain_Place_textBox.Text = ds.Tables[0].Rows[0]["مكان التدريب /إداري"].ToString();
+                        MngTrain_Result_textBox.Text = ds.Tables[0].Rows[0]["نتيجة التدريب /إداري"].ToString();
                     }
                     else
                     {
                         HasMngTrainNo_radioButton.Checked = true;
                         HasMngTrain_tableLayoutPanel.Enabled = false;
                     }
-                      
+
                     ////team
-                    if (ds.Tables[0].Rows[0]["TeamDate"] == null || ds.Tables[0].Rows[0]["TeamDate"] == DBNull.Value)
+                    if (ds.Tables[0].Rows[0]["تاريخ اجتماع الفريق"] == DBNull.Value)
                         TeamDate_checkBox.Checked = true;
                     else
                     {
                         TeamDate_checkBox.Checked = false;
-                        TeamDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["TeamDate"].ToString());
+                        TeamDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["تاريخ اجتماع الفريق"].ToString());
                     }
 
                     ////commity
-                    if (ds.Tables[0].Rows[0]["CommityDate"] == null || ds.Tables[0].Rows[0]["CommityDate"] == DBNull.Value)
+                    if (ds.Tables[0].Rows[0]["تاريخ اجتماع اللجنة"] == DBNull.Value)
                         CommityDate_checkBox.Checked = true;
                     else
                     {
                         CommityDate_checkBox.Checked = false;
-                        CommityDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["CommityDate"].ToString());
+                        CommityDate_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["تاريخ اجتماع اللجنة"].ToString());
                     }
 
-                    Notes_textBox.Text = ds.Tables[0].Rows[0]["Notes"].ToString();
+                    Notes_textBox.Text = ds.Tables[0].Rows[0]["ملاحظات عامة"].ToString();
+                    State_Reason_textBox.Text = ds.Tables[0].Rows[0]["State_Reason"].ToString();
 
-                    ////hasRejectMsg
-                    var hasRejectMsg = (int)ds.Tables[0].Rows[0]["RejectMsg"];
-                    if (hasRejectMsg == 1) 
-                    { 
+                    ////RejectMsg
+                    var rejectMsg = ds.Tables[0].Rows[0]["رسالة الرفض"].ToString();
+                    if (rejectMsg == "تم الارسال")
+                    {
                         RejectMsg_checkBox.Checked = true;
                         RejectMsg_tableLayoutPanel.Enabled = true;
                         RejectMsg_checkBox.Text = "تم الإرسال";
-                        //date
-                        if (ds.Tables[0].Rows[0]["RejectMsgDate"] != null 
-                            && ds.Tables[0].Rows[0]["RejectMsgDate"] != DBNull.Value)
-                            RejectMsg_Date_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["RejectMsgDate"].ToString());
+
+                        if (ds.Tables[0].Rows[0]["تاريخ رسالة الرفض"] != DBNull.Value)
+                            RejectMsg_Date_dateTimePicker.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["تاريخ رسالة الرفض"].ToString());
 
                         //sender
-                        if (ds.Tables[0].Rows[0]["RejectMsgSender_ID"] == null || ds.Tables[0].Rows[0]["RejectMsgSender_ID"] == DBNull.Value)
-                            RejectMsgSender_comboBox.SelectedIndex = -1;
+                        if (ds.Tables[0].Rows[0]["RejectMsgSender_ID"] == null || ds.Tables[0].Rows[0]["RejectMsgSender_ID"] == DBNull.Value) 
+                            RejectMsgSender_comboBox.SelectedIndex = -1; 
                         else RejectMsgSender_comboBox.SelectedValue = Convert.ToInt32(ds.Tables[0].Rows[0]["RejectMsgSender_ID"].ToString());
                     }
-                    else 
+                    else
                     {
                         RejectMsg_checkBox.Checked = false;
                         RejectMsg_tableLayoutPanel.Enabled = false;
-                        RejectMsg_checkBox.Text = "لم يتم الارسال";  
-                    } 
-                    
+                        RejectMsg_checkBox.Text = "لم يتم الارسال";
+                    }
+
                     Update_Mode = true;
                 }
                 if (ds.Tables[1].Rows.Count > 0)
@@ -636,15 +624,15 @@ namespace MyWorkApplication
         }
         public void Fill_NeedEvaluation(int P_ID)
         {
-            DataSet ds1 = cl.Get_NeedEvaluation("P", P_ID.ToString());
-            if (ds1 != null)
+            ds_eval = cl.Get_NeedEvaluation("P", P_ID.ToString());
+            if (ds_eval != null)
             {
-                if (ds1.Tables[0].Rows.Count > 0)
+                if (ds_eval.Tables[0].Rows.Count > 0)
                 {
                     NeedEvaluation_dataGridView.DataSource = null;
                     NeedEvaluation_dataGridView.Rows.Clear();
                     NeedEvaluation_dataGridView.Columns.Clear();
-                    NeedEvaluation_dataGridView.DataSource = ds1.Tables[0];
+                    NeedEvaluation_dataGridView.DataSource = ds_eval.Tables[0];
 
                     var dgC1 = NeedEvaluation_dataGridView.Columns["P_ID"];
                     dgC1.Visible = false;
@@ -654,15 +642,15 @@ namespace MyWorkApplication
                     dgC3.Visible = false;
 
                     NeedEvaluation_dataGridView.Columns["المؤشر"].DefaultCellStyle.Alignment =
-                    NeedEvaluation_dataGridView.Columns["العلامة"].DefaultCellStyle.Alignment = 
+                    NeedEvaluation_dataGridView.Columns["العلامة"].DefaultCellStyle.Alignment =
                         DataGridViewContentAlignment.MiddleCenter;
 
                     NeedEvaluation_dataGridView.ClearSelection();
                 }
-                if (ds1.Tables[1].Rows.Count > 0)
+                if (ds_eval.Tables[1].Rows.Count > 0)
                 {
                     GreyLable0_label.Text = "";
-                    GreyLable0_label.Text = ds1.Tables[1].Rows[0]["TotalMarks"].ToString();
+                    GreyLable0_label.Text = ds_eval.Tables[1].Rows[0]["TotalMarks"].ToString();
                 }
             }
         }
@@ -1025,12 +1013,7 @@ namespace MyWorkApplication
         {
             if (TeamDate_checkBox.Checked) TeamDate_dateTimePicker.Visible = false;
             else TeamDate_dateTimePicker.Visible = true;
-        }
-        private void Date_checkBox_CheckedChanged(object sender, EventArgs e)
-        {
-           // if (HVisitDate_checkBox.Checked) HVisitDate_dateTimePicker.Visible = false;
-           // else HVisitDate_dateTimePicker.Visible = true;
-        }
+        } 
         private void CommityDate_checkBox_CheckedChanged(object sender, EventArgs e)
         {
             if (CommityDate_checkBox.Checked) CommityDate_dateTimePicker.Visible = false;
@@ -1261,7 +1244,7 @@ namespace MyWorkApplication
                 Insert_Update_ChecklistDetails();
 
                 MessageBox.Show("تم حفظ كافة المعلومات بنجاح", "Save", MessageBoxButtons.OK, MessageBoxIcon.None);
-                MicroProject_ID_textBox_Leave(sender, e);
+                Beneficiary_comboBox_SelectedIndexChanged(sender, e);
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message, "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
@@ -1535,9 +1518,7 @@ namespace MyWorkApplication
             }
         }
         #endregion
-
-
-
+         
         #region context menu strip
         private void visit_toolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -1574,25 +1555,20 @@ namespace MyWorkApplication
         #endregion
 
         #region printing 
+        DataTable dt4444;
+        DataSet   ds4444;
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                if (MicroProject_ID_textBox.Text != "" && MicroProject_ID != -1)
+                if (Person_ID != -1 && MicroProject_ID != -1)
                 {
-                    string p_name = Beneficiary_comboBox.Text;
-                    int charLocation = Beneficiary_comboBox.Text.IndexOf("-", StringComparison.Ordinal);
-                    if (charLocation > 0)
-                    {
-                        p_name = p_name.Substring(0, charLocation);
-                    }
+                    string condition = 
+                        " and checklist.Person_ID = " + Person_ID +
+                        " and PMP.MicroProject_ID = " + MicroProject_ID ;
 
-                    string condition = " and MP_ID in (" + MicroProject_ID_textBox.Text + ")"
-                        + " and CONCAT(P_FirstName, ' ' , P_LastName , ' ابن/ة ', P_FatherName) like N'" + p_name + "' ;";
-
-                    dt4444 = new System.Data.DataTable();
-                    dt4444 = cl.Checklist_Details_Procedure(condition);
-
+                    dt4444 = ds.Tables[0];
+                      
                     Thread myTh = new Thread(SaveCallDialog_2);
                     myTh.SetApartmentState(ApartmentState.STA);
                     myTh.Start();
@@ -1606,7 +1582,98 @@ namespace MyWorkApplication
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
-        System.Data.DataTable dt4444; 
+
+        //private void SaveCallDialog_2()
+        //{
+        //    if (dt4444 == null || dt4444.Rows.Count == 0)
+        //        throw new InvalidOperationException("DataTable is empty.");
+
+        //    WordApp word = null;
+        //    Microsoft.Office.Interop.Word.Document doc = null;
+
+        //    try
+        //    {
+        //        // ---- Paths ----
+        //        string sourcedir = Path.Combine(Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath), "DocPrint");
+        //        string myfilename = "cl";
+        //        string templateDoc = Path.Combine(sourcedir, myfilename + ".docx");
+
+        //        string appdataDir = Path.Combine(
+        //            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+        //            @"Micro Projects\DocPrint");
+        //        Directory.CreateDirectory(appdataDir);
+
+        //        string workingDocx = Path.Combine(appdataDir, myfilename + ".docx");
+        //        string xlsxPath = Path.Combine(appdataDir, myfilename + ".xlsx");
+
+        //        // Copy template
+        //        File.Copy(templateDoc, workingDocx, overwrite: true);
+
+        //        // ---- Excel: write one DataTable to Sheet1 ----
+        //        using (var wb = new XLWorkbook { RightToLeft = true })
+        //        {
+        //            wb.Worksheets.Add(dt4444.Copy(), "Sheet1");
+        //            wb.SaveAs(xlsxPath);
+        //        }
+
+        //        //if (!doMailMerge) return;
+
+        //        // ---- Word Mail Merge from Sheet1 ----
+        //        word = new WordApp { Visible = false };
+        //        doc = word.Documents.Open(workingDocx, ReadOnly: false);
+
+        //        string conn = $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={xlsxPath};Extended Properties=""Excel 12.0 Xml;HDR=YES;IMEX=1"";";
+        //        string sql = "SELECT * FROM [Sheet1$]";
+
+        //        doc.MailMerge.MainDocumentType = WdMailMergeMainDocType.wdFormLetters;
+        //        doc.MailMerge.OpenDataSource(
+        //            Name: xlsxPath,
+        //            ConfirmConversions: false,
+        //            ReadOnly: false,
+        //            LinkToSource: true,
+        //            AddToRecentFiles: false,
+        //            PasswordDocument: Type.Missing,
+        //            PasswordTemplate: Type.Missing,
+        //            WritePasswordDocument: Type.Missing,
+        //            WritePasswordTemplate: Type.Missing,
+        //            Revert: false,
+        //            Format: WdOpenFormat.wdOpenFormatAuto,
+        //            Connection: conn,
+        //            SQLStatement: sql
+        //        );
+
+        //        doc.MailMerge.Destination = WdMailMergeDestination.wdSendToNewDocument;
+        //        doc.MailMerge.SuppressBlankLines = true;
+        //        doc.MailMerge.Execute();
+
+        //        // Close template without saving
+        //        doc.Close(WdSaveOptions.wdDoNotSaveChanges);
+        //        Marshal.FinalReleaseComObject(doc); doc = null;
+
+        //        // Show the merged result
+        //        word.Visible = true; // set false if you plan to save & close it yourself
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        // COM cleanup
+        //        if (doc != null)
+        //        {
+        //            try { doc.Close(WdSaveOptions.wdDoNotSaveChanges); } catch { }
+        //            Marshal.FinalReleaseComObject(doc);
+        //        }
+        //        if (word != null)
+        //        {
+        //            try { word.Quit(WdSaveOptions.wdDoNotSaveChanges); } catch { }
+        //            Marshal.FinalReleaseComObject(word);
+        //        }
+        //        GC.Collect();
+        //        GC.WaitForPendingFinalizers();
+        //    }
+        //}
 
         private void SaveCallDialog_2()
         {
@@ -1704,6 +1771,58 @@ namespace MyWorkApplication
                 }
             }
         }
+
+
+        //FROM DISC PROGRAM//
+
+        //        private void Print_button_Click(object sender, EventArgs e)
+        //        {
+        //            try
+        //            {
+        //                try
+        //                {
+        //                    //string condition = " where student.id = " + Student_ID + "";
+        //                    dt4444 = new System.Data.DataTable();
+
+        //                    string Images_appdata_path
+        //= Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\DISC App\StudentPic\stup.Png";
+
+        //                    dt4444 = s.Student_Details_Procedure(Student_ID, Images_appdata_path.Replace(@"\", @"\\\\\\\\"));
+
+        //                    Thread myTh = new Thread(SaveCallDialog_2);
+        //                    myTh.SetApartmentState(ApartmentState.STA);
+        //                    myTh.Start();
+        //                    myTh.Join();
+        //                }
+        //                catch (Exception ex)
+        //                { MessageBox.Show(ex.Message); }
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                MessageBox.Show(ex.Message);
+
+        //                //to close locked word files//
+        //                Process[] workers = Process.GetProcessesByName("Winword.exe");
+        //                foreach (Process worker in workers)
+        //                {
+        //                    worker.Kill();
+        //                    worker.WaitForExit();
+        //                    worker.Dispose();
+        //                }
+        //            }
+        //        }
+        //public static Image resizeImage(Image imgToResize, Size size)
+        //{
+        //    return (Image)(new Bitmap(imgToResize, size));
+        //}
+
+        //private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        //{
+        //    StringFormat format = new StringFormat(StringFormatFlags.DirectionRightToLeft);
+        //    e.Graphics.DrawString("رقم الطالب" + ":" + StudentID_textBox.Text, new System.Drawing.Font("Arial", 12, FontStyle.Regular), Brushes.Blue, new PointF(750, 100), format);
+        //    e.Graphics.DrawString("اسم الطالب" + ":" + FName_textBox.Text + " " + LName_textBox.Text, new System.Drawing.Font("Arial", 12, FontStyle.Regular), Brushes.Black, new PointF(750, 120), format);
+
+        //}
         #endregion
 
         private void HasHVisit_checkBox_CheckedChanged(object sender, EventArgs e)

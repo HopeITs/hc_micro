@@ -196,9 +196,9 @@ namespace MyWorkApplication
                 theme = new NewTheme();
                 foreach (var form in _childForms)
                 {
-                    if (form.Name == "Application_Form" || form.Name == "CheckList_Form")
+                    if (form.Name == "Application_Form" )
                         theme.Application_ToNight(form);
-                    if (form.Name == "Application_New_Form")
+                    if (form.Name == "Application_New_Form" || form.Name == "CheckList_Form")
                         theme.ApplicationNew_ToNight(form);
 
                     if (form.Name == "AdminPanel_From") theme.AdminPanel_ToNight(form, false);
@@ -250,9 +250,9 @@ namespace MyWorkApplication
                 theme = new NewTheme();
                 foreach (var form in _childForms)
                 {
-                    if (form.Name == "Application_Form" || form.Name == "CheckList_Form")
+                    if (form.Name == "Application_Form" )
                         theme.Application_ToLight(form);
-                    if (form.Name == "Application_New_Form")
+                    if (form.Name == "Application_New_Form" || form.Name == "CheckList_Form")
                         theme.ApplicationNew_ToLight(form);
 
                     if (form.Name == "AdminPanel_From") theme.AdminPanel_ToLight(form, false);

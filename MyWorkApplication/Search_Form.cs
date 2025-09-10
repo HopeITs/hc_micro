@@ -47,6 +47,7 @@ namespace MyWorkApplication
         MySqlComponents MySS;
         NewTheme NewTheme;
         Select s; Log l;
+        CheckList cl;
         Street st; SubCategory sub; Career career;
         bool user_mode;
         DataSet ds, combo_ds;
@@ -108,6 +109,7 @@ namespace MyWorkApplication
                 sub = new SubCategory();
                 career = new Career();
                 NewTheme = new NewTheme();
+                cl = new CheckList();
 
                 if (Settings.Default.theme == "Light") NewTheme.Search_ToLight(this, false);
                 else NewTheme.Search_ToNight(this, false);
@@ -1464,93 +1466,6 @@ namespace MyWorkApplication
             MP_dataGridView.RowHeadersVisible = true;
         }
 
- //       private void bind_ExeFile()
- //       {
- //           var from = @" from `exefile` 
- //left OUTER join `microproject` MP on exefile.MicroProject_ID = MP.MP_ID  
- //LEFT OUTER join `person_microproject` PMP on PMP.MicroProject_ID = MP.MP_ID  
- //LEFT OUTER join `person` P on P.P_ID = PMP.Person_ID  
- //LEFT OUTER join `category` C on MP.Category_ID = C.ID  
- //LEFT OUTER join `subcategory` sub on MP.SubCategory_ID = sub.ID  
- //LEFT OUTER join `career` on MP.Career_ID = career.ID
- //Left OUTER join `donor` on donor.ID = MP.MP_Donor 
- //LEFT OUTER JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
- //LEFT OUTER JOIN `state` on state.ID = mps.State_ID 
- //LEFT OUTER join `loan` L on L.MicroProject_ID = MP.MP_ID
- //LEFT OUTER join `donorgroup` on donorgroup.ID = MP.DonorGroup_ID
- //LEFT OUTER JOIN `fundtype` on fundtype.ID = MP.MP_FundType_ID 
- //LEFT OUTER JOIN `microprojecttype` on microprojecttype.ID = MP.MP_Type_ID
- //LEFT OUTER JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID  ";
-
- //           string query = " select PMP.MicroProject_ID as 'رقم المشروع'"
- //                        + ", CONCAT(P_FirstName,' ', P_LastName) as 'المستفيد'"
- //                        + ", P.P_FatherName as 'اسم الأب'"
- //                        + ", ExeF_No as 'رقم الملف'"
- //                        + ", ExeF_BeginDate as 'تاريخ البداية'"
- //                        + ", ExeF_CurrentDate as 'التاريخ الحالي'"
- //                        + ", ExeF_NumOfMonths as 'عدد الأشهر'"
- //                        + ", DATE_ADD(ExeF_CurrentDate, INTERVAL ExeF_NumOfMonths Month) as 'تاريخ الاستحقاق'"
- //                        + ", ExeF_ImpoundDate as 'تاريخ الحجز'"
- //                        + ", ExeF_ImpoundType as 'نوع الحجز' "
- //                        + ", ExeF_ID as 'ID'" + from;
-
- //           var i_cond = " where Current_State = 1 ";
- //           Check_Conditions(i_cond);
-
- //           query += condition;
-
- //           Program.buildConnection();
- //           MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
- //           sc.ExecuteNonQuery();
- //           MySqlDataAdapter da = new MySqlDataAdapter(sc);
- //           DataSet ds = new DataSet();
- //           da.Fill(ds);
- //           Program.MyConn.Close();
-
- //           MP_dataGridView.DataSource = null;
- //           MP_dataGridView.Columns.Clear();
- //           MP_dataGridView.Rows.Clear();
- //           MP_dataGridView.ColumnHeadersVisible = false;
- //           MP_dataGridView.RowHeadersVisible = false;
-
- //           bs.DataSource = ds.Tables[0];
- //           MP_dataGridView.DataSource = bs;
-
- //           MP_dataGridView.Columns["تاريخ البداية"].DefaultCellStyle.Format = "dd/MM/yyyy";
- //           MP_dataGridView.Columns["تاريخ الاستحقاق"].DefaultCellStyle.Format = "dd/MM/yyyy";
- //           MP_dataGridView.Columns["تاريخ الحجز"].DefaultCellStyle.Format = "dd/MM/yyyy";
- //           MP_dataGridView.Columns["التاريخ الحالي"].DefaultCellStyle.Format = "dd/MM/yyyy";
-
- //           var dgc1 = MP_dataGridView.Columns["ID"];
- //           dgc1.Visible = false;
-
-
- //           Program.buildConnection();
- //           //count rows
- //           var sel = "select count(DISTINCT MP_ID) " + from + condition;
- //           MySS.sc = new MySqlCommand(sel, Program.MyConn);
- //           decimal count = Convert.ToDecimal(MySS.sc.ExecuteScalar());
- //           Count_label.Text = "All:" + count.ToString("#,##0");
- //           Program.MyConn.Close();
-
- //           MP_dataGridView.Columns["رقم المشروع"].Width
- //               = MP_dataGridView.Columns["نوع الحجز"].Width
- //               = MP_dataGridView.Columns["رقم الملف"].Width = 80;
-
- //           MP_dataGridView.Columns["رقم المشروع"].DefaultCellStyle.Alignment
- //               = MP_dataGridView.Columns["تاريخ البداية"].DefaultCellStyle.Alignment
- //               = MP_dataGridView.Columns["التاريخ الحالي"].DefaultCellStyle.Alignment
- //               = MP_dataGridView.Columns["تاريخ الاستحقاق"].DefaultCellStyle.Alignment
- //               = MP_dataGridView.Columns["رقم الملف"].DefaultCellStyle.Alignment
- //               = MP_dataGridView.Columns["عدد الأشهر"].DefaultCellStyle.Alignment
- //               = MP_dataGridView.Columns["تاريخ الحجز"].DefaultCellStyle.Alignment
- //               = MP_dataGridView.Columns["نوع الحجز"].DefaultCellStyle.Alignment
- //               = DataGridViewContentAlignment.MiddleCenter;
-
- //           MP_dataGridView.ColumnHeadersVisible = true;
- //           MP_dataGridView.RowHeadersVisible = true;
- //       }
-
         private void bind_Visits()
         {
             try
@@ -1751,11 +1666,11 @@ namespace MyWorkApplication
  from meresultranges where Result >= Min and  Result <= Max limit 1) as 'التقييم' 
 
 , (select concat(user.UserName , ':' , mevisit_user.Mark) FROM mevisit_user 
- LEFT JOIN user on mevisit_user.User_ID = user.UserID 
+ LEFT JOIN user on mevisit_user.UserID = user.UserID 
  WHERE mevisit_user.Visit_ID = mevisit.ID 
  ORDER by mevisit_user.ID ASC LIMIT 1) as 'رأي الزائر1'
 , (select concat(user.UserName , ':' , mevisit_user.Mark) FROM mevisit_user 
- LEFT JOIN user on mevisit_user.User_ID = user.UserID 
+ LEFT JOIN user on mevisit_user.UserID = user.UserID 
  WHERE mevisit_user.Visit_ID = mevisit.ID 
  ORDER by mevisit_user.ID DESC LIMIT 1) as 'رأي الزائر2'
 
@@ -1839,111 +1754,13 @@ namespace MyWorkApplication
         }
 
         private void bind_CheckList()
-        {
-            // , MP_ParishNotes as 'رأي الطائفة' 
-            //, (case ch_HouseTechCondition when 0 then 'دون' when 1 then 'عادي' when 2 then 'جيد' else 'N/A' End) as 'الحالة الفنية للمنزل'
-            //, (case ch_ProjectExperience when 0 then 'لا يوجد' when 1 then 'قليلة' when 2 then 'وسط' when 3 then 'ممتازة' else 'N/A' End) as 'الخبرة في المشروع'
-            //, (case ch_ExpectedProjectSuccess when 0 then 'نعم' when 1 then 'لا' else 'N/A' End) as 'تعديل على الميزانية'
-            //, (case ch_WorkAbility when 0 then 'غير قادر' when 1 then 'قادر' else 'N/A' End) as 'القدرة على العمل'
-
+        { 
             try
-            {
-                var from = @"FROM `microproject` MP  
-  left outer join `person_microproject` PMP on MP.MP_ID = PMP.MicroProject_ID 
-  left outer join `person` P on PMP.Person_ID = P.P_ID
-  left outer join `category` C on MP.Category_ID = C.ID 
-  LEFT OUTER JOIN `subcategory` sub on MP.SubCategory_ID = sub.ID  
-  LEFT OUTER JOIN `career` on MP.Career_ID = career.ID   
-  LEFT OUTER JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
-  LEFT OUTER JOIN `state` on state.ID = mps.State_ID ";
-
-                string query = @"SELECT MP_ID as 'رقم المشروع'
- , GROUP_CONCAT(CONCAT(P_FirstName, ' ', P_LastName)) as 'المستفيد' 
- , P.P_FatherName as 'اسم الأب' 
- , P_FullName_en as 'Beneficiary Name'
- , career.Name as 'المهنة' 
- , career.Name_en as 'Career'  
-
- , C.Name as 'Category'
- , sub.Name as 'Sub Category' 
- 
- ,(SELECT COUNT(ID) 
- FROM `microproject_checklist` 
- WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'k') as 'الأشخاص المفتاحيين (عدد)'
- , ( Select GROUP_CONCAT( CONCAT_WS(':'
-    , checklist_member.Name  
-    , microproject_checklist.NameNotes  
-    , microproject_checklist.RoleNotes  
-    , microproject_checklist.Notes       
-        )  SEPARATOR ' / ' ) 
- FROM `microproject_checklist` 
- left join checklist_member on microproject_checklist.Member_ID = checklist_member.ID 
- WHERE microproject_checklist.MicroProject_ID = MP.MP_ID 
- AND Location like 'k') as 'الأشخاص المفتاحيين'
-
- , MP_KeyPersonNotes as 'آراء أخرى' 
-
- , MP_TeamDate as 'تاريخ اجتماع الفريق'
- ,(SELECT COUNT(ID) 
- FROM `microproject_checklist` 
- WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 't') as 'الفريق (عدد)'
- ,  ( Select GROUP_CONCAT( CONCAT_WS(':',
-         checklist_member.Name 
-         , (CASE microproject_checklist.Opinion WHEN 0 THEN 'ضد' WHEN 1 THEN 'مع' ELSE 'N/A' END)
-         , microproject_checklist.Notes
-    )  SEPARATOR ' / ' ) 
- FROM `microproject_checklist` 
- left join checklist_member on microproject_checklist.Member_ID = checklist_member.ID 
- WHERE microproject_checklist.MicroProject_ID = MP.MP_ID 
- AND Location like 't') as 'الفريق'
- 
- , (case MP_Visited when 1 then 'مزار' else 'لم تتم بعد' end) as 'الزيارة الأولية' 
- , MP_VisitTime as 'توقيت الزيارة الأولية'
- , MP_VisitDate as 'تاريخ الزيارة الأولية'
-   
- , MP_VisitNotes as 'ملاحظات الزيارة الأولية'
- 
- ,(SELECT COUNT(ID) 
-FROM `microproject_checklist` 
-WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'v') as 'الزائرون (عدد)'
-
- , ( Select GROUP_CONCAT( CONCAT_WS(':',
-         checklist_member.Name 
-        , microproject_checklist.Notes
-        )  SEPARATOR ' / ' ) 
- FROM `microproject_checklist` 
- left join checklist_member on microproject_checklist.Member_ID = checklist_member.ID 
- WHERE microproject_checklist.MicroProject_ID = MP.MP_ID 
- AND Location like 'v') as 'الزائرون'
-
-
-, MP_CommityDate as 'تاريخ اجتماع اللجنة' 
-
-,(SELECT COUNT(ID) 
-FROM `microproject_checklist` 
-WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') as 'اللجنة (عدد)'
-
-, ( Select GROUP_CONCAT( CONCAT_WS(':',
-         checklist_member.Name 
-         , (CASE microproject_checklist.Opinion WHEN 0 THEN 'ضد' WHEN 1 THEN 'مع' ELSE 'N/A' END)
-         , microproject_checklist.Notes
-        )  SEPARATOR ' / ' ) 
- FROM `microproject_checklist` 
- left join checklist_member on microproject_checklist.Member_ID = checklist_member.ID 
- WHERE microproject_checklist.MicroProject_ID = MP.MP_ID 
- AND Location like 'c') as 'اللجنة' ";
-
+            { 
                 var i_cond = " where Current_State = 1 ";
                 Check_Conditions(i_cond);
 
-                query += from + condition + " Group By MP_ID ";
-
-                Program.buildConnection();
-                MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-                sc.ExecuteNonQuery();
-                MySqlDataAdapter da = new MySqlDataAdapter(sc);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
+                ds = cl.Get_NewChecklist("", condition, false);
 
                 MP_dataGridView.DataSource = null;
                 MP_dataGridView.Columns.Clear();
@@ -1954,19 +1771,8 @@ WHERE microproject_checklist.MicroProject_ID = MP.MP_ID AND Location like 'c') a
                 bs.DataSource = ds.Tables[0];
                 MP_dataGridView.DataSource = bs;
 
-                //////////////////////////////////////////////////////////////////
-                var s = new StringBuilder();
-                s.Append("select MP_ID from microproject where MP_ID in ");
-                s.Append("(");
-                s.Append("select PMP.MicroProject_ID as 'MicroProject_ID'" + from + condition);
-                s.Append(")");
                 //count rows
-                var sel = "select count(DISTINCT MP_ID) " + from + condition;
-                sc = new MySqlCommand(sel, Program.MyConn);
-                decimal count = Convert.ToDecimal(sc.ExecuteScalar());
-                Program.MyConn.Close();
-                Count_label.Text = "All:" + count.ToString("#,##0");
-                //////////////////////////////////////////////////////////////////
+                Count_label.Text = "All:" + ds.Tables[0].Rows.Count.ToString("#,##0");
 
                 MP_dataGridView.Columns["رقم المشروع"].Width = 80;
 
