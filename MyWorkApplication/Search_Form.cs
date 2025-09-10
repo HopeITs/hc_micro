@@ -1087,13 +1087,7 @@ namespace MyWorkApplication
   
  , w_street.Name as 'منطقة المشروع'
  , MP_AddressAfterFund  as 'موقع المشروع' 
-
- , (CASE MP_Visited WHEN 0 THEN N'غير مزار' ELSE N'مزار' End) as 'الزيارة' 
- , MP_VisitDate as 'تاريخ الزيارة'
- , MP_VisitTime as 'موعد الزيارة'
-
- , (CASE MP_Message WHEN 1 THEN N'تم الإرسال' ELSE 'لا يوجد' End) as 'رسالة الرفض' 
-
+  
  , PMP.PersonType as 'صفة مقدم الطلب' 
   
  , PMP_ID as 'ID' 
@@ -1161,8 +1155,7 @@ namespace MyWorkApplication
                 MP_dataGridView.Columns["رقم المشروع"].Width = 70;
                 MP_dataGridView.Columns["عدد الحالات"].Width = 50;
 
-                MP_dataGridView.Columns["رقم المشروع"].DefaultCellStyle.Alignment =
-                    MP_dataGridView.Columns["الزيارة"].DefaultCellStyle.Alignment =
+                MP_dataGridView.Columns["رقم المشروع"].DefaultCellStyle.Alignment = 
                     MP_dataGridView.Columns["تاريخ التقديم"].DefaultCellStyle.Alignment =
                     MP_dataGridView.Columns["Category"].DefaultCellStyle.Alignment =
                     MP_dataGridView.Columns["Sub Category"].DefaultCellStyle.Alignment =
@@ -1666,11 +1659,11 @@ namespace MyWorkApplication
  from meresultranges where Result >= Min and  Result <= Max limit 1) as 'التقييم' 
 
 , (select concat(user.UserName , ':' , mevisit_user.Mark) FROM mevisit_user 
- LEFT JOIN user on mevisit_user.UserID = user.UserID 
+ LEFT JOIN user on mevisit_user.User_ID = user.UserID 
  WHERE mevisit_user.Visit_ID = mevisit.ID 
  ORDER by mevisit_user.ID ASC LIMIT 1) as 'رأي الزائر1'
 , (select concat(user.UserName , ':' , mevisit_user.Mark) FROM mevisit_user 
- LEFT JOIN user on mevisit_user.UserID = user.UserID 
+ LEFT JOIN user on mevisit_user.User_ID = user.UserID 
  WHERE mevisit_user.Visit_ID = mevisit.ID 
  ORDER by mevisit_user.ID DESC LIMIT 1) as 'رأي الزائر2'
 
