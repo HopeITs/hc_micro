@@ -125,6 +125,7 @@ namespace MyWorkApplication
             }
         }
 
+        #region queries
         private void insertPayment(int Loan_ID, string pay_amount, DateTime Pay_DueDate, string Pay_IsPaid,
             DateTime Pay_RecievedOnDate, string pay_note)
         {
@@ -277,15 +278,84 @@ namespace MyWorkApplication
             MySS.sc.ExecuteNonQuery();
             Program.MyConn.Close();
         }
+        #endregion
 
-        private int getCurrentLoanID()
+        private void Payment_bind(int L_ID)
         {
+
             Program.buildConnection();
-            MySS.query = "select MAX(`Loan_ID`) from `loan` ";
-            MySS.sc = new MySqlCommand(MySS.query, Program.MyConn);
-            var id = int.Parse(MySS.sc.ExecuteScalar().ToString());
+
+            MySS.query = "select Pay_ID as 'ID'" +
+                         ",Pay_Amount as 'Amount'" +
+                         ",Pay_DueDate as 'Pay Date'" +
+                         ",Pay_IsPaid as 'State'" +
+                         ",Pay_RecievedOnDate as 'Actual Pay Date'" +
+                         ",Pay_Note as 'Pay Note'" +
+                         ",Loan_ID as 'Loan_ID'" +
+                         " from `payment` ";
+            var condition = " ";
+            condition = " where Loan_ID = " + L_ID + " ";
+            MySS.query += condition;
+
+            var sc = new MySqlCommand(MySS.query, Program.MyConn);
+            sc.ExecuteNonQuery();
+            var da = new MySqlDataAdapter(sc);
+            var dt = new DataTable();
+            da.Fill(dt);
+
             Program.MyConn.Close();
-            return id;
+            Payment_dataGridView.Rows.Clear();
+
+            //late_num = 0;
+            if (dt != null)
+                for (var i = 0; i < dt.Rows.Count; i++)
+                {
+                    Payment_dataGridView.Rows.Add();
+                    // get the data of 1 row
+                    var Paid = "Not Paid";
+
+                    Payment_dataGridView.Rows[i].Cells["Pay_ID"].Value = dt.Rows[i].Field<int>("ID").ToString();
+                    Payment_ID = Convert.ToInt32(Payment_dataGridView.Rows[i].Cells["Pay_ID"].Value);
+
+                    Payment_dataGridView.Rows[i].Cells["Pay_Loan_ID"].Value =
+                        dt.Rows[i].Field<int>("Loan_ID").ToString();
+                    Loan_ID = Convert.ToInt32(Payment_dataGridView.Rows[i].Cells["Pay_Loan_ID"].Value);
+
+                    if (dt.Rows[i].Field<string>("Pay Note") == null)
+                        Payment_dataGridView.Rows[i].Cells["Pay_Note"].Value = "";
+                    else Payment_dataGridView.Rows[i].Cells["Pay_Note"].Value = dt.Rows[i].Field<string>("Pay Note");
+
+                    if (dt.Rows[i].Field<float>("Amount") == null ||
+                        dt.Rows[i].Field<float>("Amount").ToString() == null)
+                        Payment_dataGridView.Rows[i].Cells["Pay_Amount"].Value = 0;
+                    else
+                        Payment_dataGridView.Rows[i].Cells["Pay_Amount"].Value =
+                            dt.Rows[i].Field<float>("Amount").ToString();
+
+                    Paid = dt.Rows[i].Field<string>("State");
+                    var chkchecking = Payment_dataGridView.Rows[i].Cells["Pay_IsPaid"] as DataGridViewCheckBoxCell;
+                    chkchecking.ValueType = typeof(bool);
+                    if (Paid == "Paid")
+                        chkchecking.Value = true;
+                    else chkchecking.Value = false;
+
+                    Payment_dataGridView.Rows[i].Cells["Pay_DueDate"].Value =
+                        dt.Rows[i].Field<DateTime>("Pay Date").Date;
+
+                    Payment_dataGridView.Rows[i].Cells["Pay_RecievedOnDate"].Value =
+                        dt.Rows[i].Field<DateTime>("Actual Pay Date").Date;
+
+                    Payment_dataGridView.Rows[i].Cells["P_InDataBase"].Value = "1";
+
+                    var realDate = (DateTime)Payment_dataGridView.Rows[i].Cells["Pay_RecievedOnDate"].Value;
+                    var dueDate = (DateTime)Payment_dataGridView.Rows[i].Cells["Pay_DueDate"].Value;
+                    //if ((realDate - dueDate).Days > 10)
+                    //    late_num++;
+                }
+
+            Payment_dataGridView.Columns["Pay_RecievedOnDate"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            Payment_dataGridView.Columns["Pay_DueDate"].DefaultCellStyle.Format = "dd/MM/yyyy";
+
         }
 
         private void Calculate_RemainedAmount(int LoanID)
@@ -376,83 +446,7 @@ namespace MyWorkApplication
             Rate_textBox.Text = rate.ToString("N1");
         }
 
-        private void Payment_bind(int L_ID)
-        {
-
-            Program.buildConnection();
-
-            MySS.query = "select Pay_ID as 'ID'" +
-                         ",Pay_Amount as 'Amount'" +
-                         ",Pay_DueDate as 'Pay Date'" +
-                         ",Pay_IsPaid as 'State'" +
-                         ",Pay_RecievedOnDate as 'Actual Pay Date'" +
-                         ",Pay_Note as 'Pay Note'" +
-                         ",Loan_ID as 'Loan_ID'" +
-                         " from `payment` ";
-            var condition = " ";
-            condition = " where Loan_ID = " + L_ID + " ";
-            MySS.query += condition;
-
-            var sc = new MySqlCommand(MySS.query, Program.MyConn);
-            sc.ExecuteNonQuery();
-            var da = new MySqlDataAdapter(sc);
-            var dt = new DataTable();
-            da.Fill(dt);
-
-            Program.MyConn.Close();
-            Payment_dataGridView.Rows.Clear();
-
-            //late_num = 0;
-            if (dt != null)
-                for (var i = 0; i < dt.Rows.Count; i++)
-                {
-                    Payment_dataGridView.Rows.Add();
-                    // get the data of 1 row
-                    var Paid = "Not Paid";
-
-                    Payment_dataGridView.Rows[i].Cells["Pay_ID"].Value = dt.Rows[i].Field<int>("ID").ToString();
-                    Payment_ID = Convert.ToInt32(Payment_dataGridView.Rows[i].Cells["Pay_ID"].Value);
-
-                    Payment_dataGridView.Rows[i].Cells["Pay_Loan_ID"].Value =
-                        dt.Rows[i].Field<int>("Loan_ID").ToString();
-                    Loan_ID = Convert.ToInt32(Payment_dataGridView.Rows[i].Cells["Pay_Loan_ID"].Value);
-
-                    if (dt.Rows[i].Field<string>("Pay Note") == null)
-                        Payment_dataGridView.Rows[i].Cells["Pay_Note"].Value = "";
-                    else Payment_dataGridView.Rows[i].Cells["Pay_Note"].Value = dt.Rows[i].Field<string>("Pay Note");
-
-                    if (dt.Rows[i].Field<float>("Amount") == null ||
-                        dt.Rows[i].Field<float>("Amount").ToString() == null)
-                        Payment_dataGridView.Rows[i].Cells["Pay_Amount"].Value = 0;
-                    else
-                        Payment_dataGridView.Rows[i].Cells["Pay_Amount"].Value =
-                            dt.Rows[i].Field<float>("Amount").ToString();
-
-                    Paid = dt.Rows[i].Field<string>("State");
-                    var chkchecking = Payment_dataGridView.Rows[i].Cells["Pay_IsPaid"] as DataGridViewCheckBoxCell;
-                    chkchecking.ValueType = typeof(bool);
-                    if (Paid == "Paid")
-                        chkchecking.Value = true;
-                    else chkchecking.Value = false;
-
-                    Payment_dataGridView.Rows[i].Cells["Pay_DueDate"].Value =
-                        dt.Rows[i].Field<DateTime>("Pay Date").Date;
-
-                    Payment_dataGridView.Rows[i].Cells["Pay_RecievedOnDate"].Value =
-                        dt.Rows[i].Field<DateTime>("Actual Pay Date").Date;
-
-                    Payment_dataGridView.Rows[i].Cells["P_InDataBase"].Value = "1";
-
-                    var realDate = (DateTime)Payment_dataGridView.Rows[i].Cells["Pay_RecievedOnDate"].Value;
-                    var dueDate = (DateTime)Payment_dataGridView.Rows[i].Cells["Pay_DueDate"].Value;
-                    //if ((realDate - dueDate).Days > 10)
-                    //    late_num++;
-                }
-
-            Payment_dataGridView.Columns["Pay_RecievedOnDate"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            Payment_dataGridView.Columns["Pay_DueDate"].DefaultCellStyle.Format = "dd/MM/yyyy";
-
-        }
+        #region payments datagrid functions
 
         private void Payment_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -529,17 +523,361 @@ namespace MyWorkApplication
         {
             e.Cancel = true;
         }
+        private void Payment_dataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            try
+            {
+                if (Payment_dataGridView.CurrentCell.ColumnIndex == 3)
+                {
+                    dateTimePicker1.Location = Payment_dataGridView
+                        .GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
+                    dateTimePicker1.Visible = true;
+                    if (Payment_dataGridView.CurrentCell.Value != DBNull.Value &&
+                        Payment_dataGridView.CurrentCell.Value != null)
+                        dateTimePicker1.Value = (DateTime)Payment_dataGridView.CurrentCell.Value;
+                    else
+                        dateTimePicker1.Value = DateTime.Today;
+                }
+                else if (Payment_dataGridView.CurrentCell.ColumnIndex == 4)
+                {
+                    dateTimePicker1.Location = Payment_dataGridView
+                        .GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
+                    dateTimePicker1.Visible = true;
+                    if (Payment_dataGridView.CurrentCell.Value != DBNull.Value &&
+                        Payment_dataGridView.CurrentCell.Value != null)
+                        dateTimePicker1.Value = (DateTime)Payment_dataGridView.CurrentCell.Value;
+                    else
+                        dateTimePicker1.Value = DateTime.Today;
+                }
+                else
+                {
+                    dateTimePicker1.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Payment_dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (Payment_dataGridView.Focused && Payment_dataGridView.CurrentCell.ColumnIndex == 3)
+                {
+                    Payment_dataGridView.CurrentCell.Value = dateTimePicker1.Value.Date;
+                    Payment_dataGridView.CurrentCell.Style.Format = "dd/MM/yyyy";
+                    dueTo_date = dateTimePicker1.Value;
+                }
+                else if (Payment_dataGridView.Focused && Payment_dataGridView.CurrentCell.ColumnIndex == 4)
+                {
+                    Payment_dataGridView.CurrentCell.Value = dateTimePicker1.Value.Date;
+                    Payment_dataGridView.CurrentCell.Style.Format = "dd/MM/yyyy";
+                    Receive_date = dateTimePicker1.Value;
+                }
+                else if (Payment_dataGridView.Focused && Payment_dataGridView.CurrentCell.ColumnIndex == 2)
+                {
+                    if (Payment_dataGridView.CurrentCell.Value.ToString() != "")
+                        Payment_dataGridView.CurrentCell.Value =
+                            Regex.Replace(
+                                string.Format("{0:n" + 4 + "}",
+                                    Convert.ToDecimal(Payment_dataGridView.CurrentCell.Value.ToString())),
+                                @"[" + NumberFormatInfo.CurrentInfo.NumberDecimalSeparator + "]?0+$", "");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         private void DateTimePickerChange(object sender, EventArgs e)
         {
             Payment_dataGridView.CurrentCell.Value = dateTimePicker1.Text;
         }
-
-        private void DateTimePickerClose(object sender, EventArgs e)
+        #endregion
+        
+        private void AddLoan_button_Click(object sender, EventArgs e)
         {
-            Payment_dataGridView.CurrentCell.Value = dateTimePicker1.Text;
-            dateTimePicker1.Visible = false;
+            try
+            {
+                CheckUserPermission();
+                if (LoanAmount_textBox.Text == "") throw new InvalidOperationException("Loan Amount");
+                MicroProject_ID = int.Parse(MicroProject_ID_textBox.Text);
+
+                var date = DateTime.Now.Year + "/"
+                         + DateTime.Now.Month + "/" + DateTime.Now.Day + " "
+                         + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":"
+                         + DateTime.Now.Second;
+
+                if (!Update_Mood)
+                {
+                    Loan_ID = Insert_Loan(MicroProject_ID);
+                    l.Insert_Log("Insert Loan to: " + MicroProject_ID + " ", "Loan", Program.UserName, DateTime.Now);
+
+                    // change project state to Financed ممول // 
+
+                    mp.Update_Project_State(MicroProject_ID, "ممول", date);
+                    /////////////////////////////////////////////////////
+                    l.Insert_Log("Update Project State of:" + MicroProject_ID + " to Financed ممول", "MicroProject",
+                        Program.UserName, DateTime.Now);
+
+                    //////////////////   task = تسليم كامل المبلغ و تحديد الأقساط ///////////
+                    string task = "تسليم كامل المبلغ و تحديد الأقساط";
+                    TasksOfProjects = new TasksOfProjects();
+                    TasksOfProjects.Update_Task_MicroProject(MicroProject_ID, task, true, DateTime.Now);
+
+                    Update_Mood = true;
+                }
+                else
+                {
+                    Update_Loan(Loan_ID);
+                    l.Insert_Log("Update the Loan of: " + MicroProject_ID + " ", "Loan", Program.UserName,
+                        DateTime.Now);
+                }
+
+                //update DonorGroup_ID and Donor_ID in microproject Table//
+                string DonorGroup_ID = "-1";
+                string Donor_ID = "-1";
+                string Donor = "";
+                if (Group_comboBox.SelectedValue != null && Group_comboBox.SelectedIndex != -1)
+                {
+                    DonorGroup_ID = Group_comboBox.SelectedValue.ToString();
+                    var row = dt_Group.Select("ID=" + DonorGroup_ID);
+                    Donor_ID = row[0].Field<int>("Donor_ID").ToString();
+                    Donor = row[0].Field<string>("Donor").ToString();
+                    Donor = Program.ReplaceQuotation(Donor);
+
+                    mp.Update_Project(MicroProject_ID, "DonorGroup_ID", DonorGroup_ID, "MP_Donor=" + Donor_ID);
+
+                    l.Insert_Log("Update the project: " + MicroProject_ID
+                        + " SET DonorGroup:" + Group_comboBox.Text + ","
+                        + " SET Donor:" + Donor + ",",
+                        "Loan", Program.UserName, DateTime.Now);
+                }
+
+                //check if the project has visits notifications
+                //then genereate if it hasn't have one (in both cases insert & update) 
+                bool mevisits_generated = false;
+                mevisits_generated = userNotification.Has_Notifications(MicroProject_ID, "", "", "", -21, "");
+                if (!mevisits_generated)
+                {
+                    var dialogResult = MessageBox.Show(
+                        "انتبه !! هذا المشروع لا يملك إشعار زيارة افتتاحية ولا أي إشعار لزيارات  المراقبة والتقييم" 
+                        + Environment.NewLine +
+                        "هل تريد توليد إشعارات الزيارات وذلك حسب تاريخ تسليم القرض؟؟" 
+                        + Environment.NewLine,
+                        "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        //Delete this project Visit notifications//
+                        userNotification.Delete_Notification(MicroProject_ID, "", "", Person_Name_textBox.Text, -21);
+                        l.Insert_Log("Delete visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text
+                            , "Loan", Program.UserName, DateTime.Now);
+
+                        if (type.Contains("زراع"))
+                            generate_me_agricultural_visits_notifications();
+                        else
+                            generate_me_visits_notifications();
+                    }
+                }
+                
+                Calculate_RemainedAmount(Loan_ID);
+            }
+            catch (NoNullAllowedException)
+            {
+                MessageBox.Show("Please choose the Project you want to add the Loan to it");
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("Loan Amount"))
+                    MessageBox.Show("You can't leave empty fields, Please enter the Loan Amount.");
+                else
+                    MessageBox.Show(ex.Message);
+            }
         }
+
+        #region visits notifications
+        private void generate_me_visits_notifications()
+        {
+            try
+            {
+                //Generate Opening Visit + M1 to M5 visits on saving the loan//
+                ///////////////////////////////////////////////////////////////
+
+                // زيارة الافتتاحية مع تاريخ التمويل
+                DateTime OpeningVisit_date = LoanDate_DateTimePicker.Value.AddDays(5);
+
+                //الزيارة الاولى  (M1) بعد الافتتاحية ب 4 أشهر
+                //الزيارة الثانية(M2) بعد الزيارة الأولى ب 4 اشهر
+                //الزيارة الثالثة(M3) بعد الزيارة الثانية ب 4 اشهر
+                //الزيارة الرابعة(M4) بعد الزيارة الثالثة ب 6 اشهر
+                //الزيارة الخامسة(M5) بعد الزيارة الرابعة ب 6 أشهر
+                DateTime M1_Visit_date = OpeningVisit_date.AddMonths(4);
+                DateTime M2_Visit_date = M1_Visit_date.AddMonths(4);
+                DateTime M3_Visit_date = M2_Visit_date.AddMonths(4);
+                DateTime M4_Visit_date = M3_Visit_date.AddMonths(6);
+                DateTime M5_Visit_date = M4_Visit_date.AddMonths(6);
+
+                //Send to M&E//
+                if (User_IDs.Count == 0)
+                    MessageBox.Show(
+                        "لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
+                else
+                    //foreach (var u in User_IDs)
+                    {
+                    //send it to user_id = null to save 1 version of notifications
+                    //with pay_id = -21 to know it as visit noti
+                    int u = -1;
+                    if (type.Contains("ترميم") && fundtype.Contains("منحة"))
+                        {
+                            //generate only 1 rehabilitation closing visit
+                            userNotification.Insert_UserNotification(OpeningVisit_date.ToString("yyyy/MM/dd"), "Visit Closing-R",
+                                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+                    }
+                    else
+                    {
+                            userNotification.Insert_UserNotification(OpeningVisit_date.ToString("yyyy/MM/dd"), "Visit Opening-" + SubCategory,
+                               Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+
+                            userNotification.Insert_UserNotification(M1_Visit_date.ToString("yyyy/MM/dd"), "Visit M1-" + SubCategory,
+                                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+                            userNotification.Insert_UserNotification(M2_Visit_date.ToString("yyyy/MM/dd"), "Visit M2-" + SubCategory,
+                                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+                            userNotification.Insert_UserNotification(M3_Visit_date.ToString("yyyy/MM/dd"), "Visit M3-" + SubCategory,
+                                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+                            userNotification.Insert_UserNotification(M4_Visit_date.ToString("yyyy/MM/dd"), "Visit M4-" + SubCategory,
+                                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+                            userNotification.Insert_UserNotification(M5_Visit_date.ToString("yyyy/MM/dd"), "Visit M5-" + SubCategory,
+                                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+                    }
+                }
+                l.Insert_Log("Insert Opening Visit / M&E Visits notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
+                        "Loan", Program.UserName, DateTime.Now);
+
+                MessageBox.Show("تم توليد إشعار زيارة الافتتاحية وزيارات المراقبة والتقييم الخاصة بهذا المشروع بنجاح");
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+        }
+
+        private void generate_me_agricultural_visits_notifications()
+        {
+            // زيارة الافتتاحية //updated
+            DateTime OpeningVisit_date = LoanDate_DateTimePicker.Value.AddDays(5);
+
+            // أول زيارة M&E
+            //في الشهر الاقرب للافتتاحية اما رابع او حادي عشر 
+
+            OpeningVisit_date = OpeningVisit_date.AddMonths(2); // كرمال تكون ابعد
+            DateTime M1_Visit_date = OpeningVisit_date;
+            DateTime M2_Visit_date, M3_Visit_date, M4_Visit_date, M5_Visit_date;
+            M2_Visit_date = M3_Visit_date = M4_Visit_date = M5_Visit_date = DateTime.Now;
+
+            string day, month, year;
+            day = OpeningVisit_date.Day.ToString();
+            if (OpeningVisit_date.Day == 31) day = "30";
+            year = OpeningVisit_date.Year.ToString();
+
+            if (OpeningVisit_date.Month >= 1 && OpeningVisit_date.Month < 4)
+            {
+                month = "04";
+                string dateString = year + "-" + month + "-" + day;
+                M1_Visit_date = DateTime.Parse(dateString);
+
+                M2_Visit_date = M1_Visit_date.AddMonths(7); //11
+                M3_Visit_date = M2_Visit_date.AddMonths(5); //4
+                M4_Visit_date = M3_Visit_date.AddMonths(7); //11
+                M5_Visit_date = M4_Visit_date.AddMonths(5); //4 
+            }
+            else if (OpeningVisit_date.Month >= 4 && OpeningVisit_date.Month < 11)
+            {
+                month = "11";
+                string dateString = year + "-" + month + "-" + day;
+                M1_Visit_date = DateTime.Parse(dateString);
+
+                M2_Visit_date = M1_Visit_date.AddMonths(5); //4
+                M3_Visit_date = M2_Visit_date.AddMonths(7); //11
+                M4_Visit_date = M3_Visit_date.AddMonths(5); //4
+                M5_Visit_date = M4_Visit_date.AddMonths(7); //11 
+            }
+            else if (OpeningVisit_date.Month >= 11) //should turn to the next year
+            {
+                month = "04";
+                OpeningVisit_date = OpeningVisit_date.AddYears(1);
+                year = OpeningVisit_date.Year.ToString();
+                string dateString = year + "-" + month + "-" + day;
+                M1_Visit_date = DateTime.Parse(dateString);
+
+                M2_Visit_date = M1_Visit_date.AddMonths(7); //11
+                M3_Visit_date = M2_Visit_date.AddMonths(5); //4
+                M4_Visit_date = M3_Visit_date.AddMonths(7); //11
+                M5_Visit_date = M4_Visit_date.AddMonths(5); //4 
+            }
+
+            //Send to M&E//
+            if (User_IDs.Count == 0)
+                MessageBox.Show(
+                    "لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
+            else
+                //foreach (var u in User_IDs)
+                {
+
+                //send it to user_id = null to save 1 version of notifications
+                //with pay_id = -21 to know it as visit noti
+                int u = -1;
+                    userNotification.Insert_UserNotification(OpeningVisit_date.ToString("yyyy/MM/dd"), "Visit Opening-" + SubCategory,
+                       Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+
+                    userNotification.Insert_UserNotification(M1_Visit_date.ToString("yyyy/MM/dd"), "Visit M1-" + SubCategory,
+                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+                    userNotification.Insert_UserNotification(M2_Visit_date.ToString("yyyy/MM/dd"), "Visit M2-" + SubCategory,
+                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+                    userNotification.Insert_UserNotification(M3_Visit_date.ToString("yyyy/MM/dd"), "Visit M3-" + SubCategory,
+                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+                    userNotification.Insert_UserNotification(M4_Visit_date.ToString("yyyy/MM/dd"), "Visit M4-" + SubCategory,
+                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+                    userNotification.Insert_UserNotification(M5_Visit_date.ToString("yyyy/MM/dd"), "Visit M5-" + SubCategory,
+                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+                }
+            l.Insert_Log("Insert M&E visits notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
+                    "Visit", Program.UserName, DateTime.Now);
+
+            MessageBox.Show("تم توليد إشعارات زيارات المراقبة والتقييم الخاصة بهذا المشروع بنجاح");
+        }
+
+        private void Send_Trophy_Notifications()
+        {
+            var dialogResult = MessageBox.Show("سيتم إرسال إشعار بالزيارة الختامية للمشروع، هل أنت متأكد من أن المستفيد انتهى من دفع أقساطه؟", "Delete", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //زيارة الختام بعد أسبوع من تاريخ آخر دفعة
+                var Final_Visit_date = (DateTime)Payment_dataGridView.Rows[Payment_dataGridView.RowCount - 2]
+                .Cells["Pay_RecievedOnDate"].Value;
+                Final_Visit_date = Final_Visit_date.AddDays(7);
+
+                //Send to M&E//
+                if (User_IDs.Count == 0)
+                    throw new InvalidOperationException("لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
+
+                foreach (var u in User_IDs)
+                    userNotification.Insert_UserNotification(Final_Visit_date.ToString("yyyy/MM/dd"), "Visit Closing-" + SubCategory,
+                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+
+                //Send to Conmunication//
+                if (Communication_IDs.Count == 0)
+                    throw new InvalidOperationException("لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
+
+                foreach (var u in Communication_IDs)
+                    userNotification.Insert_UserNotification(Final_Visit_date.ToString("yyyy/MM/dd"), "Visit (Trophy)" + SubCategory,
+                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -10);
+
+                l.Insert_Log("Insert Closing Visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
+                        "Loan", Program.UserName, DateTime.Now);
+            }
+        }
+        #endregion
 
         private void DeleteLoan_button_Click(object sender, EventArgs e)
         {
@@ -686,106 +1024,6 @@ namespace MyWorkApplication
             }
         }
 
-        private void Send_Trophy_Notifications()
-        {
-            var dialogResult = MessageBox.Show("سيتم إرسال إشعار بالزيارة الختامية للمشروع، هل أنت متأكد من أن المستفيد انتهى من دفع أقساطه؟", "Delete", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                //زيارة الختام بعد أسبوع من تاريخ آخر دفعة
-                var Final_Visit_date = (DateTime)Payment_dataGridView.Rows[Payment_dataGridView.RowCount - 2]
-                .Cells["Pay_RecievedOnDate"].Value;
-                Final_Visit_date = Final_Visit_date.AddDays(7);
-
-                //Send to M&E//
-                if (User_IDs.Count == 0)
-                    throw new InvalidOperationException("لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
-
-                foreach (var u in User_IDs)
-                    userNotification.Insert_UserNotification(Final_Visit_date.ToString("yyyy/MM/dd"), "Visit Closing-" + SubCategory,
-                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-
-                //Send to Conmunication//
-                if (Communication_IDs.Count == 0)
-                    throw new InvalidOperationException("لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
-
-                foreach (var u in Communication_IDs)
-                    userNotification.Insert_UserNotification(Final_Visit_date.ToString("yyyy/MM/dd"), "Visit (Trophy)" + SubCategory,
-                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -10);
-
-                l.Insert_Log("Insert Closing Visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
-                        "Loan", Program.UserName, DateTime.Now);
-            }
-        }
-
-        private void Payment_dataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            try
-            {
-                if (Payment_dataGridView.CurrentCell.ColumnIndex == 3)
-                {
-                    dateTimePicker1.Location = Payment_dataGridView
-                        .GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
-                    dateTimePicker1.Visible = true;
-                    if (Payment_dataGridView.CurrentCell.Value != DBNull.Value &&
-                        Payment_dataGridView.CurrentCell.Value != null)
-                        dateTimePicker1.Value = (DateTime)Payment_dataGridView.CurrentCell.Value;
-                    else
-                        dateTimePicker1.Value = DateTime.Today;
-                }
-                else if (Payment_dataGridView.CurrentCell.ColumnIndex == 4)
-                {
-                    dateTimePicker1.Location = Payment_dataGridView
-                        .GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
-                    dateTimePicker1.Visible = true;
-                    if (Payment_dataGridView.CurrentCell.Value != DBNull.Value &&
-                        Payment_dataGridView.CurrentCell.Value != null)
-                        dateTimePicker1.Value = (DateTime)Payment_dataGridView.CurrentCell.Value;
-                    else
-                        dateTimePicker1.Value = DateTime.Today;
-                }
-                else
-                {
-                    dateTimePicker1.Visible = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void Payment_dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (Payment_dataGridView.Focused && Payment_dataGridView.CurrentCell.ColumnIndex == 3)
-                {
-                    Payment_dataGridView.CurrentCell.Value = dateTimePicker1.Value.Date;
-                    Payment_dataGridView.CurrentCell.Style.Format = "dd/MM/yyyy";
-                    dueTo_date = dateTimePicker1.Value;
-                }
-                else if (Payment_dataGridView.Focused && Payment_dataGridView.CurrentCell.ColumnIndex == 4)
-                {
-                    Payment_dataGridView.CurrentCell.Value = dateTimePicker1.Value.Date;
-                    Payment_dataGridView.CurrentCell.Style.Format = "dd/MM/yyyy";
-                    Receive_date = dateTimePicker1.Value;
-                }
-                else if (Payment_dataGridView.Focused && Payment_dataGridView.CurrentCell.ColumnIndex == 2)
-                {
-                    if (Payment_dataGridView.CurrentCell.Value.ToString() != "")
-                        Payment_dataGridView.CurrentCell.Value =
-                            Regex.Replace(
-                                string.Format("{0:n" + 4 + "}",
-                                    Convert.ToDecimal(Payment_dataGridView.CurrentCell.Value.ToString())),
-                                @"[" + NumberFormatInfo.CurrentInfo.NumberDecimalSeparator + "]?0+$", "");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void CheckUserPermission()
         {
             switch (Program.role)
@@ -812,168 +1050,8 @@ namespace MyWorkApplication
             }
         }
 
-        private void PaymentAmount_textBox_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                if (LoanAmount_textBox.Text != ""
-                        && ReturnedAmount1_textBox.Text != ""
-                        && PaymentAmount_textBox.Text != "")
-                    Calculate_RemainedAmount(Loan_ID);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void generate_me_visits_notifications(bool deleteAndInsert)
-        {
-            try
-            {
-                // استلام القرض //
-                // زيارة الافتتاحية مع تاريخ التمويل
-                DateTime OpeningVisit_date = LoanDate_DateTimePicker.Value.AddDays(5);
-
-                //Generate only Opening Visit on saving the loan//
-                //generate the M1 to M5 visits AFTER saving the opening visit//
-                ///////////////////////////////////////////////////////////////
-
-                if (type.Contains("ترميم") && fundtype.Contains("منحة"))
-                {
-                    if (deleteAndInsert)
-                        //delete old notification
-                        userNotification.Delete_Notification(
-                            MicroProject_ID
-                            , ""
-                            , "Visit Closing-R"
-                            , Person_Name_textBox.Text
-                            , -21);
-                }
-                else
-                {
-                    if (deleteAndInsert)
-                        //delete old notification
-                        userNotification.Delete_Notification(
-                           MicroProject_ID
-                           , ""
-                           , "Visit Opening-" + SubCategory
-                           , Person_Name_textBox.Text
-                           , -21);
-                }
-
-                //Send to M&E//
-                if (User_IDs.Count == 0)
-                    MessageBox.Show(
-                        "لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
-                else
-                    foreach (var u in User_IDs)
-                    {
-                        if (type.Contains("ترميم") && fundtype.Contains("منحة"))
-                        {
-                            //generate only 1 rehabilitation closing visit
-                            userNotification.Insert_UserNotification(OpeningVisit_date.ToString("yyyy/MM/dd"), "Visit Closing-R",
-                                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                        }
-                        else
-                        {
-                            userNotification.Insert_UserNotification(OpeningVisit_date.ToString("yyyy/MM/dd"), "Visit Opening-" + SubCategory,
-                               Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                        }
-                    }
-
-                l.Insert_Log("Insert Opening Visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
-                        "Loan", Program.UserName, DateTime.Now);
-
-                MessageBox.Show("تم توليد إشعار زيارة الافتتاحية الخاصة بهذا المشروع بنجاح");
-            }
-            catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
-        }
-
-
-        private void AddLoan_button_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                CheckUserPermission();
-                if (LoanAmount_textBox.Text == "") throw new InvalidOperationException("Loan Amount");
-                MicroProject_ID = int.Parse(MicroProject_ID_textBox.Text);
-
-                var date = DateTime.Now.Year + "/"
-                         + DateTime.Now.Month + "/" + DateTime.Now.Day + " "
-                         + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":"
-                         + DateTime.Now.Second;
-
-                if (!Update_Mood)
-                {
-                    Loan_ID = Insert_Loan(MicroProject_ID);
-                    l.Insert_Log("insert Loan to: " + MicroProject_ID + " ", "Loan", Program.UserName, DateTime.Now);
-
-                    // change project state to Financed ممول // 
-
-                    mp.Update_Project_State(MicroProject_ID, "ممول", date);
-                    /////////////////////////////////////////////////////
-                    l.Insert_Log("Update Project State of:" + MicroProject_ID + " to Financed ممول", "MicroProject",
-                        Program.UserName, DateTime.Now);
-
-                    //////////////////   task = تسليم كامل المبلغ و تحديد الأقساط ///////////
-                    string task = "تسليم كامل المبلغ و تحديد الأقساط";
-                    TasksOfProjects = new TasksOfProjects();
-                    TasksOfProjects.Update_Task_MicroProject(MicroProject_ID, task, true, DateTime.Now);
-
-                    Update_Mood = true;
-                }
-                else
-                {
-                    Update_Loan(Loan_ID);
-                    l.Insert_Log("Update the Loan of: " + MicroProject_ID + " ", "Loan", Program.UserName,
-                        DateTime.Now);
-                }
-
-                //update DonorGroup_ID and Donor_ID in microproject Table//
-                string DonorGroup_ID = "-1";
-                string Donor_ID = "-1";
-                string Donor = "";
-                if (Group_comboBox.SelectedValue != null && Group_comboBox.SelectedIndex != -1)
-                {
-                    DonorGroup_ID = Group_comboBox.SelectedValue.ToString();
-                    var row = dt_Group.Select("ID=" + DonorGroup_ID);
-                    Donor_ID = row[0].Field<int>("Donor_ID").ToString();
-                    Donor = row[0].Field<string>("Donor").ToString();
-                    Donor = Program.ReplaceQuotation(Donor);
-
-                    mp.Update_Project(MicroProject_ID, "DonorGroup_ID", DonorGroup_ID, "MP_Donor=" + Donor_ID);
-
-                    l.Insert_Log("Update the project: " + MicroProject_ID
-                        + " SET DonorGroup:" + Group_comboBox.Text + ","
-                        + " SET Donor:" + Donor + ",",
-                        "Loan", Program.UserName, DateTime.Now);
-                }
-
-                //check if the project has opening visit notification
-                //then genereate if it hasn't have one (in both cases insert & update)
-                int count = userNotification.Has_Visit_Notifications(MicroProject_ID, "Op");
-                if (count <= 0) //توليد اشعار افتتاحية لكل المشاريع حتى الزراعية
-                    generate_me_visits_notifications(false);
-                else
-                    generate_me_visits_notifications(true);
-
-                Calculate_RemainedAmount(Loan_ID);
-            }
-            catch (NoNullAllowedException)
-            {
-                MessageBox.Show("Please choose the Project you want to add the Loan to it");
-            }
-            catch (Exception ex)
-            {
-                if (ex.Message.Contains("Loan Amount"))
-                    MessageBox.Show("You can't leave empty fields, Please enter the Loan Amount.");
-                else
-                    MessageBox.Show(ex.Message);
-            }
-        }
-
+        
+        
         private void clear_Boxes()
         {
             Loan_ID = -1;
@@ -1340,25 +1418,20 @@ namespace MyWorkApplication
             }
         }
 
-        //private void RemainOfReturned_textBox_TextChanged(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (RemainOfReturned_textBox.Text != "")
-        //        {
-        //            RemainOfReturned_textBox.Text =
-        //                Regex.Replace(string.Format("{0:n" + 4 + "}", Convert.ToDecimal(RemainOfReturned_textBox.Text)),
-        //                    @"[" + NumberFormatInfo.CurrentInfo.NumberDecimalSeparator + "]?0+$", "");
-
-        //            RemainOfReturned_textBox.SelectionStart = RemainOfReturned_textBox.Text.Length;
-        //            RemainOfReturned_textBox.SelectionLength = 0;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        private void PaymentAmount_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (LoanAmount_textBox.Text != ""
+                        && ReturnedAmount1_textBox.Text != ""
+                        && PaymentAmount_textBox.Text != "")
+                    Calculate_RemainedAmount(Loan_ID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         #endregion
 
@@ -1468,32 +1541,10 @@ namespace MyWorkApplication
         }
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    CheckUserPermission(); 
-            //    var dialogResult = MessageBox.Show("سيتم إعادة توليد إشعارات زيارات المراقبة والتقييم وذلك حسب تاريخ تسليم القرض، وحذف الإشعارات القديمة في حال تم توليدها سابقاً",
-            //            " ", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
-            //    if (dialogResult == DialogResult.Yes)
-            //    {
-            //        //Delete this project Visit notifications//
-            //        userNotification.Update_MicroUsers_Notification(MicroProject_ID, "", "Visit%", Person_Name_textBox.Text,"1");
-            //        /////////////////////////////////////////// 
-            //        generate_me_visits_notifications();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-        }
 
         #region Prevent vertical scroll
         // Prevent vertical and horizontal scroll messages from being processed 
         int previousVerticalScrollValue;
-
-
         private void Payment_dataGridView_Scroll(object sender, ScrollEventArgs e)
         {
             try

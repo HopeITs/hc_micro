@@ -516,7 +516,7 @@
             this.Group_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Group_comboBox.BackColor = System.Drawing.Color.White;
             this.Group_comboBox.FormattingEnabled = true;
-            this.Group_comboBox.Location = new System.Drawing.Point(46, 11);
+            this.Group_comboBox.Location = new System.Drawing.Point(46, 5);
             this.Group_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.Group_comboBox.Name = "Group_comboBox";
             this.Group_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

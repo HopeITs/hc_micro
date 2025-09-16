@@ -7,8 +7,7 @@ namespace MyWorkApplication.Classes
     public class UserNotification
     {
 
-        public void Insert_UserNotification(string Date, string Body, string P_Name, int MicroProject_ID, int User_ID,
-            int Sender_ID, int Pay_ID)
+        public void Insert_UserNotification(string Date, string Body, string P_Name, int MicroProject_ID, int User_ID, int Sender_ID, int Pay_ID)
         {
 
             Program.buildConnection();
@@ -17,23 +16,24 @@ namespace MyWorkApplication.Classes
 
             //save null if no MicroProject_id
             object MP_ID = (MicroProject_ID == -1) ? (object)DBNull.Value : MicroProject_ID;
+            //save null if no user_id
+            object U_ID  = (User_ID == -1)         ? (object)DBNull.Value : User_ID;
 
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
-                sc.Parameters.AddWithValue("@Date", Date);
-                sc.Parameters.AddWithValue("@Body", Body);
-                sc.Parameters.AddWithValue("@P_Name", P_Name);
+                sc.Parameters.AddWithValue("@Date"           , Date);
+                sc.Parameters.AddWithValue("@Body"           , Body);
+                sc.Parameters.AddWithValue("@P_Name"         , P_Name);
                 sc.Parameters.AddWithValue("@MicroProject_ID", MP_ID);
-                sc.Parameters.AddWithValue("@User_ID", User_ID);
-                sc.Parameters.AddWithValue("@Sender_ID", Sender_ID);
-                sc.Parameters.AddWithValue("@Pay_ID", Pay_ID);
+                sc.Parameters.AddWithValue("@User_ID"        , U_ID);
+                sc.Parameters.AddWithValue("@Sender_ID"      , Sender_ID);
+                sc.Parameters.AddWithValue("@Pay_ID"         , Pay_ID);
                 sc.ExecuteNonQuery();
                 Program.MyConn.Close();
             }
         }
 
-        public void Update_MicroUsers_Notification(int MicroProject_ID, string Date, string Body, string P_Name
-            , int Pay_ID, string Seen)
+        public void Update_MicroUsers_Notification(int MicroProject_ID, string Date, string Body, string P_Name, int Pay_ID, string Seen)
         {
             //save null if no MicroProject_id
             object MP_ID = (MicroProject_ID == -1) ? (object)DBNull.Value : MicroProject_ID;
@@ -79,7 +79,7 @@ namespace MyWorkApplication.Classes
             if (Date != "")
                 condition += " and `Date` = @Date ";
             if (Body != "")
-                condition += " and `Body` = @Body ";
+                condition += " and `Body` = @Body "; 
             if (Pay_ID != -1)
                 condition += " and `Pay_ID` = @Pay_ID ";
 
@@ -87,15 +87,14 @@ namespace MyWorkApplication.Classes
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.Parameters.AddWithValue("@MicroProject_ID", MicroProject_ID);
-                sc.Parameters.AddWithValue("@Date", Date);
-                sc.Parameters.AddWithValue("@Body", Body);
                 sc.Parameters.AddWithValue("@P_Name", P_Name);
-                sc.Parameters.AddWithValue("@Pay_ID", Pay_ID);
+                if (Date != "")   sc.Parameters.AddWithValue("@Date", Date);
+                if (Body != "")   sc.Parameters.AddWithValue("@Body", Body); 
+                if (Pay_ID != -1) sc.Parameters.AddWithValue("@Pay_ID", Pay_ID);
                 sc.ExecuteNonQuery();
                 Program.MyConn.Close();
             }
-        }
-
+        } 
 
         public void Update_NotificationWithPaymentID(int Pay_ID, string Body, string Date, string Seen)
         {
@@ -136,22 +135,7 @@ namespace MyWorkApplication.Classes
                 Program.MyConn.Close();
             }
         }
-
-        public void Update_UserNotification(int N_ID)
-        {
-
-            Program.buildConnection();
-
-            string query = "update `user_notification` set `Seen` = 1 where `ID` = @N_ID ";
-            using (var sc = new MySqlCommand(query, Program.MyConn))
-            {
-                sc.Parameters.AddWithValue("@N_ID", N_ID);
-
-                sc.ExecuteNonQuery();
-                Program.MyConn.Close();
-            }
-        }
-
+          
         public void Update_UserNotification(int MicroProject_ID, int User_ID)
         {
 
@@ -169,24 +153,7 @@ namespace MyWorkApplication.Classes
                 Program.MyConn.Close();
             }
         }
-        public void Delete_VisitNotification(int MicroProject_ID, int Seen)
-        {
-            Program.buildConnection();
-            string query = " Delete from `user_notification` " +
-                " where `MicroProject_ID` = @MicroProject_ID " +
-                " and `Pay_ID` = -21 " +
-                " and `Seen` = @Seen ";
-
-            using (var sc = new MySqlCommand(query, Program.MyConn))
-            {
-                sc.Parameters.AddWithValue("@MicroProject_ID", MicroProject_ID);
-                sc.Parameters.AddWithValue("@Seen", Seen);
-
-                sc.ExecuteNonQuery();
-                Program.MyConn.Close();
-            }
-        }
-
+  
         public bool Has_Notifications(int MicroProject_ID, string Date, string Body, string P_Name, int Pay_ID, string Seen)
         {
             Program.buildConnection();
@@ -206,6 +173,8 @@ namespace MyWorkApplication.Classes
                 condition += " and `Pay_ID` = @Pay_ID ";
 
             query += condition;
+            query += " GROUP BY user_notification.MicroProject_ID;";
+
             int count = 0;
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
@@ -225,9 +194,7 @@ namespace MyWorkApplication.Classes
         }
 
         public DataTable Select_VisitNotifications(string month, string year, string V_Kind, string V_number, string Street_ID, string Type_ID, string seen)
-        {
-            //  , (select Pay_DueDate from payment left join loan on payment.Loan_ID = loan.Loan_ID where Pay_IsPaid like 'Paid' and loan.MicroProject_ID = MP.MP_ID order by Pay_DueDate Desc limit 1) 'تاريخ آخر دفعة مدفوعة'
-
+        { 
             Program.buildConnection();
             var q = @"select user_notification.`ID` as 'ID' 
  , user_notification.`MicroProject_ID` as 'رقم المشروع' 
@@ -269,15 +236,18 @@ namespace MyWorkApplication.Classes
  Left Join `donor` on donor.ID = MP.MP_Donor
  LEFT JOIN `state` on state.ID = mps.State_ID ";
 
-            var condition =
-                " where Current_State = 1 and `Pay_ID` = -21 and `User_ID` =  (select UserID from user where IsME = 1 limit 1) "; //28
-            if (month != "") condition += " and Month(user_notification.`Date`) in (" + month + ")";
-            if (year != "") condition += " and Year(user_notification.`Date`) like " + year;
-            if (V_Kind != "") condition += " and Body like '%-" + V_Kind + "'";
-            if (V_number != "") condition += " and Body like 'Visit " + V_number + "%'";
+            var condition = " where Current_State = 1 " +
+                " and `Pay_ID` = -21 " +
+                " and `User_ID` is NULL ";
+                // " and `User_ID` =  (select UserID from user where IsME = 1 limit 1) "; //28
+            if (month != "")     condition += " and Month(user_notification.`Date`) in (" + month + ")";
+            if (year != "")      condition += " and Year(user_notification.`Date`) like " + year;
+            if (V_Kind != "")    condition += " and Body like '%-" + V_Kind + "'";
+            if (V_number != "")  condition += " and Body like 'Visit " + V_number + "%'";
             if (Street_ID != "") condition += " and w_street.ID = " + Street_ID + " ";
-            if (Type_ID != "") condition += " and MP_Type_ID = " + Type_ID + " ";
-            if (seen != "") condition += " and Seen = " + seen;
+            if (Type_ID != "")   condition += " and MP_Type_ID = " + Type_ID + " ";
+            if (seen != "")      condition += " and Seen = " + seen;
+            
             q += condition + "  GROUP BY user_notification.ID ORDER BY user_notification.`Date` asc  ";
 
             var sc = new MySqlCommand(q, Program.MyConn);
@@ -288,20 +258,6 @@ namespace MyWorkApplication.Classes
             Program.MyConn.Close();
             return dt;
         }
-
-        public int Has_Visit_Notifications(int MicroProject_ID, string Visit_Type)
-        {
-            Program.buildConnection();
-            string q1 = "SELECT count(*) " +
-                " FROM user_notification " +
-                " WHERE user_notification.MicroProject_ID = " + MicroProject_ID +
-                " and user_notification.Body like '%" + Visit_Type + "%' " +
-                " GROUP BY user_notification.MicroProject_ID;";
-
-            MySqlCommand sc1 = new MySqlCommand(q1, Program.MyConn);
-            var count = Convert.ToInt32(sc1.ExecuteScalar());
-            Program.MyConn.Close();
-            return count;
-        }
+         
     }
 }

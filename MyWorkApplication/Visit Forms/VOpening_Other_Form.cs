@@ -122,7 +122,7 @@ namespace MyWorkApplication.Visit_Forms
                     mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = true;
                     mainForm.MP_ID_label.Text = MicroProject_ID.ToString();
 
-                    check_visit_notifications();
+                    //check_visit_notifications();
                 }
                 else if (MicroProject_ID != -1)
                 {
@@ -140,31 +140,31 @@ namespace MyWorkApplication.Visit_Forms
             }
         }
 
-        private void check_visit_notifications()
-        {
-            //select the visits not to ignore generate notifications
-            UserNotification U_noti = new UserNotification();
-            mevisits_generated = U_noti.Has_Notifications(MicroProject_ID, "", "%Visit M%", "", -1, "");
+        //private void check_visit_notifications()
+        //{
+        //    //select the visits not to ignore generate notifications
+        //    UserNotification U_noti = new UserNotification();
+        //    mevisits_generated = U_noti.Has_Notifications(MicroProject_ID, "", "%Visit M%", "", -1, "");
 
-            if (!mevisits_generated)
-            {
-                var dialogResult = MessageBox.Show(
-                    "انتبه !! هذا المشروع لا يملك أي إشعار لزيارات  المراقبة والتقييم" + Environment.NewLine +
-                    "هل تريد توليد إشعارات الزيارات وذلك حسب تاريخ زيارة الافتتاحية التالية؟؟" + Environment.NewLine,
-                            "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    //Delete this project Visit notifications//
-                    noti.Delete_Notification(MicroProject_ID, "", "Visit M%", Person_Name_textBox.Text, -1);
-                    l.Insert_Log("Delete visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ", "Visit", Program.UserName, DateTime.Now);
+        //    if (!mevisits_generated)
+        //    {
+        //        var dialogResult = MessageBox.Show(
+        //            "انتبه !! هذا المشروع لا يملك أي إشعار لزيارات  المراقبة والتقييم" + Environment.NewLine +
+        //            "هل تريد توليد إشعارات الزيارات وذلك حسب تاريخ زيارة الافتتاحية التالية؟؟" + Environment.NewLine,
+        //                    "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        //        if (dialogResult == DialogResult.Yes)
+        //        {
+        //            //Delete this project Visit notifications//
+        //            noti.Delete_Notification(MicroProject_ID, "", "Visit M%", Person_Name_textBox.Text, -1);
+        //            l.Insert_Log("Delete visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ", "Visit", Program.UserName, DateTime.Now);
 
-                    if (Type.Contains("زراع"))
-                        generate_me_agricultural_visits_notifications();
-                    else
-                        generate_me_visits_notifications();
-                }
-            }
-        }
+        //            if (Type.Contains("زراع"))
+        //                generate_me_agricultural_visits_notifications();
+        //            else
+        //                generate_me_visits_notifications();
+        //        }
+        //    }
+        //}
 
         private void users_bind(ComboBox comboBox)
         {
@@ -447,142 +447,142 @@ namespace MyWorkApplication.Visit_Forms
             }
         } 
         
-        private void generate_me_visits_notifications()
-        {
-            // زيارة الافتتاحية //updated
-            DateTime OpeningVisit_date = VisitDate_dateTimePicker.Value;
+        //private void generate_me_visits_notifications()
+        //{
+        //    // زيارة الافتتاحية //updated
+        //    DateTime OpeningVisit_date = VisitDate_dateTimePicker.Value;
              
-            //الزيارة الاولى  (M1) بعد الافتتاحية ب 4 أشهر
-            //الزيارة الثانية(M2) بعد الزيارة الأولى ب 4 اشهر
-            //الزيارة الثالثة(M3) بعد الزيارة الثانية ب 4 اشهر
-            //الزيارة الرابعة(M4) بعد الزيارة الثالثة ب 6 اشهر
-            //الزيارة الخامسة(M5) بعد الزيارة الرابعة ب 6 أشهر
-            DateTime M1_Visit_date = OpeningVisit_date.AddMonths(4);
-            DateTime M2_Visit_date = M1_Visit_date.AddMonths(4);
-            DateTime M3_Visit_date = M2_Visit_date.AddMonths(4);
-            DateTime M4_Visit_date = M3_Visit_date.AddMonths(6);
-            DateTime M5_Visit_date = M4_Visit_date.AddMonths(6);
+        //    //الزيارة الاولى  (M1) بعد الافتتاحية ب 4 أشهر
+        //    //الزيارة الثانية(M2) بعد الزيارة الأولى ب 4 اشهر
+        //    //الزيارة الثالثة(M3) بعد الزيارة الثانية ب 4 اشهر
+        //    //الزيارة الرابعة(M4) بعد الزيارة الثالثة ب 6 اشهر
+        //    //الزيارة الخامسة(M5) بعد الزيارة الرابعة ب 6 أشهر
+        //    DateTime M1_Visit_date = OpeningVisit_date.AddMonths(4);
+        //    DateTime M2_Visit_date = M1_Visit_date.AddMonths(4);
+        //    DateTime M3_Visit_date = M2_Visit_date.AddMonths(4);
+        //    DateTime M4_Visit_date = M3_Visit_date.AddMonths(6);
+        //    DateTime M5_Visit_date = M4_Visit_date.AddMonths(6);
 
-            //OLD//
-            //    // زيارة الافتتاحية //updated
-            //    DateTime OpeningVisit_date = VisitDate_dateTimePicker.Value;
+        //    //OLD//
+        //    //    // زيارة الافتتاحية //updated
+        //    //    DateTime OpeningVisit_date = VisitDate_dateTimePicker.Value;
 
-            //    // أول زيارة M&E
-            //    // تبدأ بعد شهرين وأسبوع من زيارة الافتتاحية
-            //    DateTime M1_Visit_date = OpeningVisit_date.AddMonths(2);
-            //    //M1_Visit_date = M1_Visit_date.AddDays(7);
+        //    //    // أول زيارة M&E
+        //    //    // تبدأ بعد شهرين وأسبوع من زيارة الافتتاحية
+        //    //    DateTime M1_Visit_date = OpeningVisit_date.AddMonths(2);
+        //    //    //M1_Visit_date = M1_Visit_date.AddDays(7);
 
-            //    int visit_interval;
-            //    DateTime M2_Visit_date, M3_Visit_date, M4_Visit_date, M5_Visit_date;
-            //    M2_Visit_date = M3_Visit_date = M4_Visit_date = M5_Visit_date = DateTime.Now;
+        //    //    int visit_interval;
+        //    //    DateTime M2_Visit_date, M3_Visit_date, M4_Visit_date, M5_Visit_date;
+        //    //    M2_Visit_date = M3_Visit_date = M4_Visit_date = M5_Visit_date = DateTime.Now;
 
-            //    // المسافة بين كل زيارة هي 4 أشهر ثابتة
-            //    visit_interval = 4;
-            //    M2_Visit_date = M1_Visit_date.AddMonths(visit_interval);
-            //    M3_Visit_date = M2_Visit_date.AddMonths(visit_interval);
-            //    M4_Visit_date = M3_Visit_date.AddMonths(visit_interval);
-            //    M5_Visit_date = M4_Visit_date.AddMonths(visit_interval);
+        //    //    // المسافة بين كل زيارة هي 4 أشهر ثابتة
+        //    //    visit_interval = 4;
+        //    //    M2_Visit_date = M1_Visit_date.AddMonths(visit_interval);
+        //    //    M3_Visit_date = M2_Visit_date.AddMonths(visit_interval);
+        //    //    M4_Visit_date = M3_Visit_date.AddMonths(visit_interval);
+        //    //    M5_Visit_date = M4_Visit_date.AddMonths(visit_interval);
 
-            //Send to M&E//
-            if (User_IDs.Count == 0)
-                MessageBox.Show(
-                    "لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
-            else
-                foreach (var u in User_IDs)
-                {
-                    noti.Insert_UserNotification(M1_Visit_date.ToString("yyyy/MM/dd"), "Visit M1-" + _KIND.Substring(0, 1),
-                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                    noti.Insert_UserNotification(M2_Visit_date.ToString("yyyy/MM/dd"), "Visit M2-" + _KIND.Substring(0, 1),
-                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                    noti.Insert_UserNotification(M3_Visit_date.ToString("yyyy/MM/dd"), "Visit M3-" + _KIND.Substring(0, 1),
-                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                    noti.Insert_UserNotification(M4_Visit_date.ToString("yyyy/MM/dd"), "Visit M4-" + _KIND.Substring(0, 1),
-                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                    noti.Insert_UserNotification(M5_Visit_date.ToString("yyyy/MM/dd"), "Visit M5-" + _KIND.Substring(0, 1),
-                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                }
-            l.Insert_Log("Insert visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
-                    "Visit", Program.UserName, DateTime.Now);
+        //    //Send to M&E//
+        //    if (User_IDs.Count == 0)
+        //        MessageBox.Show(
+        //            "لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
+        //    else
+        //        foreach (var u in User_IDs)
+        //        {
+        //            noti.Insert_UserNotification(M1_Visit_date.ToString("yyyy/MM/dd"), "Visit M1-" + _KIND.Substring(0, 1),
+        //                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+        //            noti.Insert_UserNotification(M2_Visit_date.ToString("yyyy/MM/dd"), "Visit M2-" + _KIND.Substring(0, 1),
+        //                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+        //            noti.Insert_UserNotification(M3_Visit_date.ToString("yyyy/MM/dd"), "Visit M3-" + _KIND.Substring(0, 1),
+        //                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+        //            noti.Insert_UserNotification(M4_Visit_date.ToString("yyyy/MM/dd"), "Visit M4-" + _KIND.Substring(0, 1),
+        //                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+        //            noti.Insert_UserNotification(M5_Visit_date.ToString("yyyy/MM/dd"), "Visit M5-" + _KIND.Substring(0, 1),
+        //                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+        //        }
+        //    l.Insert_Log("Insert visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
+        //            "Visit", Program.UserName, DateTime.Now);
 
-            MessageBox.Show("تم توليد إشعارات زيارات المراقبة والتقييم الخاصة بهذا المشروع بنجاح");
-        }
-        private void generate_me_agricultural_visits_notifications()
-        {
-            // زيارة الافتتاحية //updated
-            DateTime OpeningVisit_date = VisitDate_dateTimePicker.Value;
+        //    MessageBox.Show("تم توليد إشعارات زيارات المراقبة والتقييم الخاصة بهذا المشروع بنجاح");
+        //}
+        //private void generate_me_agricultural_visits_notifications()
+        //{
+        //    // زيارة الافتتاحية //updated
+        //    DateTime OpeningVisit_date = VisitDate_dateTimePicker.Value;
 
-            // أول زيارة M&E
-            //في الشهر الاقرب للافتتاحية اما رابع او حادي عشر 
+        //    // أول زيارة M&E
+        //    //في الشهر الاقرب للافتتاحية اما رابع او حادي عشر 
 
-            OpeningVisit_date = OpeningVisit_date.AddMonths(2); // كرمال تكون ابعد
-            DateTime M1_Visit_date = OpeningVisit_date;
-            DateTime M2_Visit_date, M3_Visit_date, M4_Visit_date, M5_Visit_date;
-            M2_Visit_date = M3_Visit_date = M4_Visit_date = M5_Visit_date = DateTime.Now;
+        //    OpeningVisit_date = OpeningVisit_date.AddMonths(2); // كرمال تكون ابعد
+        //    DateTime M1_Visit_date = OpeningVisit_date;
+        //    DateTime M2_Visit_date, M3_Visit_date, M4_Visit_date, M5_Visit_date;
+        //    M2_Visit_date = M3_Visit_date = M4_Visit_date = M5_Visit_date = DateTime.Now;
 
-            string day, month, year;
-            day = OpeningVisit_date.Day.ToString();
-            if (OpeningVisit_date.Day == 31) day = "30";
-            year = OpeningVisit_date.Year.ToString();
+        //    string day, month, year;
+        //    day = OpeningVisit_date.Day.ToString();
+        //    if (OpeningVisit_date.Day == 31) day = "30";
+        //    year = OpeningVisit_date.Year.ToString();
 
-            if (OpeningVisit_date.Month >= 1 && OpeningVisit_date.Month < 4)
-            {
-                month = "04";
-                string dateString = year + "-" + month + "-" + day;
-                M1_Visit_date = DateTime.Parse(dateString);
+        //    if (OpeningVisit_date.Month >= 1 && OpeningVisit_date.Month < 4)
+        //    {
+        //        month = "04";
+        //        string dateString = year + "-" + month + "-" + day;
+        //        M1_Visit_date = DateTime.Parse(dateString);
 
-                M2_Visit_date = M1_Visit_date.AddMonths(7); //11
-                M3_Visit_date = M2_Visit_date.AddMonths(5); //4
-                M4_Visit_date = M3_Visit_date.AddMonths(7); //11
-                M5_Visit_date = M4_Visit_date.AddMonths(5); //4 
-            }
-            else if (OpeningVisit_date.Month >= 4 && OpeningVisit_date.Month < 11)
-            {
-                month = "11";
-                string dateString = year + "-" + month + "-" + day;
-                M1_Visit_date = DateTime.Parse(dateString);
+        //        M2_Visit_date = M1_Visit_date.AddMonths(7); //11
+        //        M3_Visit_date = M2_Visit_date.AddMonths(5); //4
+        //        M4_Visit_date = M3_Visit_date.AddMonths(7); //11
+        //        M5_Visit_date = M4_Visit_date.AddMonths(5); //4 
+        //    }
+        //    else if (OpeningVisit_date.Month >= 4 && OpeningVisit_date.Month < 11)
+        //    {
+        //        month = "11";
+        //        string dateString = year + "-" + month + "-" + day;
+        //        M1_Visit_date = DateTime.Parse(dateString);
 
-                M2_Visit_date = M1_Visit_date.AddMonths(5); //4
-                M3_Visit_date = M2_Visit_date.AddMonths(7); //11
-                M4_Visit_date = M3_Visit_date.AddMonths(5); //4
-                M5_Visit_date = M4_Visit_date.AddMonths(7); //11 
-            }
-            else if (OpeningVisit_date.Month >= 11) //should turn to the next year
-            {
-                month = "04";
-                OpeningVisit_date = OpeningVisit_date.AddYears(1);
-                year = OpeningVisit_date.Year.ToString();
-                string dateString = year + "-" + month + "-" + day;
-                M1_Visit_date = DateTime.Parse(dateString);
+        //        M2_Visit_date = M1_Visit_date.AddMonths(5); //4
+        //        M3_Visit_date = M2_Visit_date.AddMonths(7); //11
+        //        M4_Visit_date = M3_Visit_date.AddMonths(5); //4
+        //        M5_Visit_date = M4_Visit_date.AddMonths(7); //11 
+        //    }
+        //    else if (OpeningVisit_date.Month >= 11) //should turn to the next year
+        //    {
+        //        month = "04";
+        //        OpeningVisit_date = OpeningVisit_date.AddYears(1);
+        //        year = OpeningVisit_date.Year.ToString();
+        //        string dateString = year + "-" + month + "-" + day;
+        //        M1_Visit_date = DateTime.Parse(dateString);
 
-                M2_Visit_date = M1_Visit_date.AddMonths(7); //11
-                M3_Visit_date = M2_Visit_date.AddMonths(5); //4
-                M4_Visit_date = M3_Visit_date.AddMonths(7); //11
-                M5_Visit_date = M4_Visit_date.AddMonths(5); //4 
-            }
+        //        M2_Visit_date = M1_Visit_date.AddMonths(7); //11
+        //        M3_Visit_date = M2_Visit_date.AddMonths(5); //4
+        //        M4_Visit_date = M3_Visit_date.AddMonths(7); //11
+        //        M5_Visit_date = M4_Visit_date.AddMonths(5); //4 
+        //    }
 
-            //Send to M&E//
-            if (User_IDs.Count == 0)
-                MessageBox.Show(
-                    "لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
-            else
-                foreach (var u in User_IDs)
-                {
-                    noti.Insert_UserNotification(M1_Visit_date.ToString("yyyy/MM/dd"), "Visit M1-" + _KIND.Substring(0, 1),
-                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                    noti.Insert_UserNotification(M2_Visit_date.ToString("yyyy/MM/dd"), "Visit M2-" + _KIND.Substring(0, 1),
-                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                    noti.Insert_UserNotification(M3_Visit_date.ToString("yyyy/MM/dd"), "Visit M3-" + _KIND.Substring(0, 1),
-                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                    noti.Insert_UserNotification(M4_Visit_date.ToString("yyyy/MM/dd"), "Visit M4-" + _KIND.Substring(0, 1),
-                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                    noti.Insert_UserNotification(M5_Visit_date.ToString("yyyy/MM/dd"), "Visit M5-" + _KIND.Substring(0, 1),
-                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                }
-            l.Insert_Log("Insert visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
-                    "Visit", Program.UserName, DateTime.Now);
+        //    //Send to M&E//
+        //    if (User_IDs.Count == 0)
+        //        MessageBox.Show(
+        //            "لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
+        //    else
+        //        foreach (var u in User_IDs)
+        //        {
+        //            noti.Insert_UserNotification(M1_Visit_date.ToString("yyyy/MM/dd"), "Visit M1-" + _KIND.Substring(0, 1),
+        //                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+        //            noti.Insert_UserNotification(M2_Visit_date.ToString("yyyy/MM/dd"), "Visit M2-" + _KIND.Substring(0, 1),
+        //                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+        //            noti.Insert_UserNotification(M3_Visit_date.ToString("yyyy/MM/dd"), "Visit M3-" + _KIND.Substring(0, 1),
+        //                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+        //            noti.Insert_UserNotification(M4_Visit_date.ToString("yyyy/MM/dd"), "Visit M4-" + _KIND.Substring(0, 1),
+        //                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+        //            noti.Insert_UserNotification(M5_Visit_date.ToString("yyyy/MM/dd"), "Visit M5-" + _KIND.Substring(0, 1),
+        //                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+        //        }
+        //    l.Insert_Log("Insert visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
+        //            "Visit", Program.UserName, DateTime.Now);
 
-            MessageBox.Show("تم توليد إشعارات زيارات المراقبة والتقييم الخاصة بهذا المشروع بنجاح");
-        }
+        //    MessageBox.Show("تم توليد إشعارات زيارات المراقبة والتقييم الخاصة بهذا المشروع بنجاح");
+        //}
 
         private void Save_button_Click(object sender, EventArgs e)
         {
@@ -643,12 +643,12 @@ namespace MyWorkApplication.Visit_Forms
                     l.Insert_Log("Delete visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ", "Visit", Program.UserName, DateTime.Now);
 
                     /////////////////////////////////////////// 
-                    // توليد اشعارات الزيارات للمشاريع الزراعية فقط في الشهرين الرابع والحادي عشر //
-                    if (Type.Contains("زراع"))
-                        //MessageBox.Show("ملاحظة:" + Environment.NewLine + "لن يتم توليد أي اشعار بالزيارات للمشروع لأنه من المشاريع الزراعية", "Alert");
-                        generate_me_agricultural_visits_notifications();
-                    else
-                        generate_me_visits_notifications();
+                    //// توليد اشعارات الزيارات للمشاريع الزراعية فقط في الشهرين الرابع والحادي عشر //
+                    //if (Type.Contains("زراع"))
+                    //    //MessageBox.Show("ملاحظة:" + Environment.NewLine + "لن يتم توليد أي اشعار بالزيارات للمشروع لأنه من المشاريع الزراعية", "Alert");
+                    //    generate_me_agricultural_visits_notifications();
+                    //else
+                    //    generate_me_visits_notifications();
                 }
                 else ////update section ////
                 {
@@ -714,9 +714,9 @@ namespace MyWorkApplication.Visit_Forms
                 l.Insert_Log("Update place after fund of " + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
                     "Visit", Program.UserName, DateTime.Now);
 
-                //check عدا الزراعي
-                if (!Type.Contains("زراع"))
-                    check_visit_notifications();
+                ////check عدا الزراعي
+                //if (!Type.Contains("زراع"))
+                //    check_visit_notifications();
 
                 MessageBox.Show("Visit saved successfuly");
                 clear_Visit_boxes(1);
