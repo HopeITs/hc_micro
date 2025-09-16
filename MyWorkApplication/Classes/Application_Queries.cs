@@ -41,6 +41,7 @@ namespace MyWorkApplication.Classes
                 + ", microproject.MP_Agreement2"
                 + ", microproject.MP_Agreement3"
                 + ", microproject.MP_Agreement4"
+                + ", microproject.MP_Agreement5"
                 + ", (select SUM(material.Price*material.Amount) from material where material.MicroProject_ID = @MicroProject_ID) AS 'OverallSyrian'"
                 + ", microproject.IsContentUpdated"
                 + " from microproject left join fundtype on fundtype.id = microproject.MP_FundType_ID"
@@ -150,11 +151,7 @@ namespace MyWorkApplication.Classes
             return ds;
         }
         #endregion
-
-        #region insert
-
-        #endregion
-
+         
         #region update
         public void Update_Material(int M_ID, string name, double amount, double price, double local, string comment)
         {
@@ -269,10 +266,7 @@ namespace MyWorkApplication.Classes
 
 
         #endregion
-
-        #region delete
-
-        #endregion
+         
 
 
 

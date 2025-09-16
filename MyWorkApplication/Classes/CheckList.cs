@@ -1,7 +1,12 @@
-﻿using DocumentFormat.OpenXml.ExtendedProperties;
+﻿using DocumentFormat.OpenXml.Drawing.Charts;
+using DocumentFormat.OpenXml.ExtendedProperties;
+using DocumentFormat.OpenXml.Spreadsheet;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using static Google.Protobuf.WireFormat;
+using System.Windows.Controls.Primitives;
+using DataTable = System.Data.DataTable;
 
 namespace MyWorkApplication.Classes
 {
@@ -393,12 +398,12 @@ namespace MyWorkApplication.Classes
         }
         #endregion
 
-        public DataTable Checklist_Details_Procedure(string condition)
+        public DataTable Print_Checklist_Procedure(string Person_ID)
         {
             Program.buildConnection();
-            MySqlCommand sc = new MySqlCommand("select_checklist_details", Program.MyConn);
+            MySqlCommand sc = new MySqlCommand("print_checklist", Program.MyConn);
             sc.CommandType = CommandType.StoredProcedure;
-            sc.Parameters.AddWithValue("@MyCondition", condition);
+            sc.Parameters.AddWithValue("@inPersonID", Person_ID);
 
             using (MySqlDataAdapter sda = new MySqlDataAdapter(sc))
             {
@@ -409,7 +414,7 @@ namespace MyWorkApplication.Classes
             }
         }
 
-        public DataSet Get_NewChecklist(string Person_ID, string cond , bool withNeedEval)
+        public DataSet Get_NewChecklist(string Person_ID, string cond, bool stateReason_IDs)
         {
             string query1 = @" SELECT PMP.MicroProject_ID as 'رقم المشروع'
  , GROUP_CONCAT(CONCAT(P_FirstName, ' ', P_LastName)) as 'المستفيد'
@@ -501,33 +506,30 @@ namespace MyWorkApplication.Classes
            FROM `user`
            WHERE user.UserID = checklist.RejectMsgSender_ID
            LIMIT 1),'') as 'مرسل رسالة الرفض' 
-   ";
-
-            string Key_Q = @"
+  
 , (SELECT COUNT(ID)
     FROM `person_checklistmembers`
     WHERE person_checklistmembers.Person_ID = PMP.Person_ID
       AND Location LIKE 'k') as 'المفتاحيين (عدد)'
-, IFNULL((SELECT GROUP_CONCAT(CONCAT(checklist_member.Name, ' - '
-        , person_checklistmembers.NameNotes ,' - '
-        , person_checklistmembers.RoleNotes ,' - '
-        , REPLACE(REPLACE(person_checklistmembers.Notes, ' ', ' '), ' ', ' '))
-        SEPARATOR '\n')
+, IFNULL((SELECT GROUP_CONCAT(
+        CONCAT(
+            person_checklistmembers.NameNotes, ' - ',
+            checklist_member.Name, ' - ',
+            person_checklistmembers.RoleNotes, ' - ',
+            REPLACE(person_checklistmembers.Notes, ' ', ' - '),
+            person_checklistmembers.created_at
+        ) SEPARATOR '\n' )
         FROM `person_checklistmembers`
         LEFT JOIN checklist_member ON person_checklistmembers.Member_ID = checklist_member.ID
         WHERE person_checklistmembers.Person_ID = PMP.Person_ID
           AND Location LIKE 'k'),'') as 'رأي المفتاحيين'
 
-";
-
-            string team_Q = @" 
- , `TeamDate` AS 'تاريخ اجتماع الفريق'
+, `TeamDate` AS 'تاريخ اجتماع الفريق'
 
 , (SELECT COUNT(ID)
     FROM `person_checklistmembers`
     WHERE person_checklistmembers.Person_ID = PMP.Person_ID
-      AND Location LIKE 't') as 'الفريق (عدد)'
-
+      AND Location LIKE 't') as 'الفريق (عدد)' 
 , IFNULL((SELECT GROUP_CONCAT(CONCAT(checklist_member.Name, ' - '
          , (CASE person_checklistmembers.Opinion WHEN 0 THEN 'ضد' WHEN 1 THEN 'مع' ELSE '' END)
          , IF(person_checklistmembers.Notes = '','',' - ')
@@ -537,9 +539,7 @@ namespace MyWorkApplication.Classes
          LEFT JOIN checklist_member ON person_checklistmembers.Member_ID = checklist_member.ID
          WHERE person_checklistmembers.Person_ID = PMP.Person_ID
            AND Location LIKE 't'),'') as 'رأي الفريق'
-";
 
-            string commity_Q = @"
 , `CommityDate` AS 'تاريخ اجتماع اللجنة' 
 
 , (SELECT COUNT(ID)
@@ -555,10 +555,14 @@ namespace MyWorkApplication.Classes
         FROM `person_checklistmembers`
         LEFT JOIN checklist_member ON person_checklistmembers.Member_ID = checklist_member.ID
         WHERE person_checklistmembers.Person_ID = PMP.Person_ID
-          AND Location LIKE 'c'),'') as 'رأي اللجنة'
-";
+          AND Location LIKE 'c'),'') as 'رأي اللجنة' 
 
-            string needEval_StateReason_IDs_Q = @"  
+, (IFNULL(loss_Mark,0) + IFNULL(worktype_Mark,0) + IFNULL(maritalstatus_Mark,0) +  
+   IFNULL(NumAtHome_Mark,0) + IFNULL(workerspersentage_Mark,0) + IFNULL(NumChildElder_Mark,0) +  
+   IFNULL(illness_Mark,0) + IFNULL(homeassettype_Mark,0) + IFNULL(projectassettype_Mark,0) +  
+   IFNULL(assets_Mark,0) + IFNULL(homepowersource_Mark,0)) AS 'TotalMarks' ";
+ 
+            string StateReason_IDs_Q = @"  
 , checklist.HVisit_Visitor1_ID , checklist.HVisit_Visitor2_ID
 , checklist.PVisit_Visitor1_ID , checklist.PVisit_Visitor2_ID
 , checklist.ProTest_User_ID    , checklist.RejectMsgSender_ID
@@ -569,15 +573,11 @@ namespace MyWorkApplication.Classes
      , mps.Note
      , IF(MP.MP_Note = '' ,'' ,' - ') 
      , MP.MP_Note
- )  as 'State_Reason' 
-
-  , need_evaluation.*
-  , (IFNULL(loss_Mark,0) + IFNULL(worktype_Mark,0) + IFNULL(maritalstatus_Mark,0) +  
-     IFNULL(NumAtHome_Mark,0) + IFNULL(workerspersentage_Mark,0) + IFNULL(NumChildElder_Mark,0) +  
-     IFNULL(illness_Mark,0) + IFNULL(homeassettype_Mark,0) + IFNULL(projectassettype_Mark,0) +  
-     IFNULL(assets_Mark,0) + IFNULL(homepowersource_Mark,0)) AS 'TotalMarks' 
-";
-
+ )  as 'State_Reason'  
+"; 
+            if (stateReason_IDs)
+                query1 += StateReason_IDs_Q; 
+             
             string from = @"FROM checklist 
  LEFT JOIN need_evaluation on need_evaluation.P_ID = checklist.Person_ID  
  LEFT JOIN person_microproject PMP on checklist.Person_ID = PMP.Person_ID
@@ -590,19 +590,16 @@ namespace MyWorkApplication.Classes
  LEFT JOIN state on state.ID = mps.State_ID 
  left join statereason on statereason.ID = mps.StateReason_ID  
  LEFT JOIN microprojectsubtype on microprojectsubtype.ID = MP.MP_SubType_ID ";
-
+ 
             string condition = " where Current_State = 1 and checklist.Person_ID = " + Person_ID;
             if (cond != "")
                 condition = cond;
 
             string group_by = " Group By PMP.Person_ID order by PMP.MicroProject_ID Desc ";
-            query1 += Key_Q + team_Q + commity_Q;
-
-            if (withNeedEval)
-                query1 += needEval_StateReason_IDs_Q;
-
+             
             query1 += from + condition + group_by + ";";
 
+            // 
             string query2 = @"select person_checklistmembers.* 
 ,checklist_member.Name as 'Name'
 ,checklist_position.Type as 'Type'
@@ -615,8 +612,27 @@ LEFT JOIN checklist_position on checklist_member.Position_ID = checklist_positio
 
             if(Person_ID != "")
                 query2 += " where person_checklistmembers.Person_ID = " + Person_ID + ";";
+             
+            //
+            string query3_from = " FROM need_evaluation ";
+            if (Person_ID != "")
+                query3_from += " WHERE P_ID = " + Person_ID ;
+            
+            string query3 = " SELECT 'الخسارات التي تعرّض لها المستفيد' AS المعيار, loss AS المؤشر, loss_Mark AS العلامة ,P_ID " + query3_from
+                + " UNION ALL SELECT 'طبيعة عمل المستفيد', worktype, worktype_Mark ,P_ID " + query3_from
+                + " UNION ALL SELECT 'الحالة الاجتماعية', maritalstatus, maritalstatus_Mark ,P_ID " + query3_from
+                + " UNION ALL SELECT 'عدد الافراد القاطنين في المنزل', NumAtHome, NumAtHome_Mark ,P_ID " + query3_from
+                + " UNION ALL SELECT 'عدد العاملين في المنزل أو مصدر الدخل', workerspersentage, workerspersentage_Mark ,P_ID " + query3_from
+                + " UNION ALL SELECT 'عدد الأطفال تحت 3 سنوات والمسنين فوق 70 سنة', NumChildElder, NumChildElder_Mark ,P_ID " + query3_from
+                + " UNION ALL SELECT 'حالات مرضية', illness, illness_Mark ,P_ID " + query3_from
+                + " UNION ALL SELECT 'ملكية المنزل', homeassettype, homeassettype_Mark ,P_ID " + query3_from
+                + " UNION ALL SELECT 'ملكية عقار المشروع', projectassettype, projectassettype_Mark ,P_ID " + query3_from
+                + " UNION ALL SELECT 'أملاك أو مصادر دخل أخرى', assets, assets_Mark ,P_ID " + query3_from
+                + " UNION ALL SELECT 'هل يوجد مصدر للطاقة', homepowersource, homepowersource_Mark ,P_ID " + query3_from
+                + " ORDER BY P_ID, المعيار ; ";
+             
 
-            query = query1 + query2;
+            query = query1 + query2 + query3;
             Program.buildConnection();
             MySqlDataAdapter Ad = new MySqlDataAdapter(query, Program.MyConn);
             DataSet ds = new DataSet();
@@ -624,22 +640,22 @@ LEFT JOIN checklist_position on checklist_member.Position_ID = checklist_positio
             Program.MyConn.Close();
             return ds;
         }
+          
+        //public DataSet Get_NeedEvaluation(string in_type, string in_ids)
+        //{
+        //    Program.buildConnection();
+        //    MySqlCommand sc = new MySqlCommand("GetNeedEvaluation", Program.MyConn);
+        //    sc.CommandType = CommandType.StoredProcedure;
+        //    sc.Parameters.AddWithValue("@in_type", in_type);
+        //    sc.Parameters.AddWithValue("@in_ids" , in_ids);
 
-        public DataSet Get_NeedEvaluation(string in_type, string in_ids)
-        {
-            Program.buildConnection();
-            MySqlCommand sc = new MySqlCommand("GetNeedEvaluation", Program.MyConn);
-            sc.CommandType = CommandType.StoredProcedure;
-            sc.Parameters.AddWithValue("@in_type", in_type);
-            sc.Parameters.AddWithValue("@in_ids" , in_ids);
-
-            using (MySqlDataAdapter sda = new MySqlDataAdapter(sc))
-            {
-                DataSet ds = new DataSet();
-                sda.Fill(ds);
-                Program.MyConn.Close();
-                return ds;
-            }
-        }
+        //    using (MySqlDataAdapter sda = new MySqlDataAdapter(sc))
+        //    {
+        //        DataSet ds = new DataSet();
+        //        sda.Fill(ds);
+        //        Program.MyConn.Close();
+        //        return ds;
+        //    }
+        //}
     }
 }

@@ -428,6 +428,9 @@ namespace MyWorkApplication
             Agreement3_Yes_radioButton.Checked = false;
             Agreement4_Yes_radioButton.Checked = false;
             Agreement4_No_radioButton.Checked = false;
+            //
+            Agreement5_Yes_radioButton.Checked = false;
+            Agreement5_No_radioButton.Checked = false;
             Materials_dataGridView.Rows.Clear();
 
             #endregion
@@ -4366,7 +4369,7 @@ namespace MyWorkApplication
                     return;
                 }
 
-                if (ApplicationState == "project")
+                if (ApplicationState == "project" && P_Sex_comboBox.Text == "ذكر")
                 {
                     if (MilitaryFinished_radioButton.Checked || MilitaryNow_radioButton.Checked)
                     {
@@ -4431,7 +4434,7 @@ namespace MyWorkApplication
 
                     P_HomeStateNote = P_HomeStateNote_textBox.Text;
 
-                    if (ApplicationState == "project")
+                    if (ApplicationState == "project" && P_Sex_comboBox.Text == "ذكر")
                     {
                         if (MilitarySingle_radioButton.Checked)
                             Military = "وحيد";
@@ -5121,7 +5124,7 @@ namespace MyWorkApplication
 
                 #region Projrct_Info
                 string MP_PlaceAddress = "", MP_PlaceNote = "", AmperNumber = "";
-                int MP_PlaceType = -1, IsAmper = -1, Agreement1 = -1, Agreement2 = -1, Agreement3 = -1, Agreement4 = -1;
+                int MP_PlaceType = -1, IsAmper = -1, Agreement1 = -1, Agreement2 = -1, Agreement3 = -1, Agreement4 = -1, Agreement5 = -1;
 
                 if (ApplicationState == "project")
                 {
@@ -5146,7 +5149,8 @@ namespace MyWorkApplication
                     if ((!Agreement1_Yes_radioButton.Checked && !Agreement1_No_radioButton.Checked) ||
                         (!Agreement2_Yes_radioButton.Checked && !Agreement2_No_radioButton.Checked) ||
                         (!Agreement3_Yes_radioButton.Checked && !Agreement3_No_radioButton.Checked) ||
-                        (!Agreement4_Yes_radioButton.Checked && !Agreement4_No_radioButton.Checked))
+                        (!Agreement4_Yes_radioButton.Checked && !Agreement4_No_radioButton.Checked) ||
+                        (!Agreement5_Yes_radioButton.Checked && !Agreement5_No_radioButton.Checked) )
                     {
                         MessageBox.Show("الرجاء التأكد من تحديد نعم/لا في جميع الخيارات في قسم الموافقات", "Error");
                         return;
@@ -5255,8 +5259,23 @@ namespace MyWorkApplication
                             Agreement4 = -1;
                         }
 
-                        Query += " Update microproject set MP_PlaceType_ID = @MP_PlaceType, MP_PlaceAddress = @MP_PlaceAddress, MP_PlaceNote = @MP_PlaceNote, MP_AmperNumber = @AmperNumber," +
-                            " MP_AmperType = @IsAmper, MP_Agreement1 = @Agreement1, MP_Agreement2 = @Agreement2, MP_Agreement3 = @Agreement3, MP_Agreement4 = @Agreement4" +
+                        //
+                        if (Agreement5_Yes_radioButton.Checked)
+                        {
+                            Agreement5 = 1;
+                        }
+                        else if (Agreement5_No_radioButton.Checked)
+                        {
+                            Agreement5 = 0;
+                        }
+                        else
+                        {
+                            Agreement5 = -1;
+                        }
+
+                        Query += " Update microproject set MP_PlaceType_ID = @MP_PlaceType, MP_PlaceAddress = @MP_PlaceAddress, MP_PlaceNote = @MP_PlaceNote, " +
+                            " MP_AmperNumber = @AmperNumber, MP_AmperType = @IsAmper, " +
+                            " MP_Agreement1 = @Agreement1, MP_Agreement2 = @Agreement2, MP_Agreement3 = @Agreement3, MP_Agreement4 = @Agreement4, MP_Agreement5 = @Agreement5" +
                             " where MP_ID = @MicroProject_ID;";
 
                         sc.Parameters.AddWithValue("@MP_PlaceType", MP_PlaceType == -1 ? (object)DBNull.Value : MP_PlaceType);
@@ -5268,6 +5287,7 @@ namespace MyWorkApplication
                         sc.Parameters.AddWithValue("@Agreement2", Agreement2);
                         sc.Parameters.AddWithValue("@Agreement3", Agreement3);
                         sc.Parameters.AddWithValue("@Agreement4", Agreement4);
+                        sc.Parameters.AddWithValue("@Agreement5", Agreement5);
 
 
                     }
@@ -6783,6 +6803,18 @@ namespace MyWorkApplication
                     else if (Application_ds.Tables[0].Rows[0].Field<int?>("MP_Agreement4") == 0)
                     {
                         Agreement4_No_radioButton.Checked = true;
+                    }
+                }
+                //
+                if (Application_ds.Tables[0].Rows[0]["MP_Agreement5"] != DBNull.Value)
+                {
+                    if (Application_ds.Tables[0].Rows[0].Field<int?>("MP_Agreement5") == 1)
+                    {
+                        Agreement5_Yes_radioButton.Checked = true;
+                    }
+                    else if (Application_ds.Tables[0].Rows[0].Field<int?>("MP_Agreement5") == 0)
+                    {
+                        Agreement5_No_radioButton.Checked = true;
                     }
                 }
 

@@ -295,8 +295,7 @@ namespace MyWorkApplication
                     Clear_Boxes(false);
                     Person_ID = -1;
                     int.TryParse(Beneficiary_comboBox.SelectedValue.ToString(), out Person_ID);
-                    Fill_checklist(Person_ID);
-                    Fill_NeedEvaluation(Person_ID);
+                    Fill_checklist(Person_ID); 
                 }
             }
             catch (Exception ex)
@@ -324,7 +323,7 @@ namespace MyWorkApplication
         public void Fill_checklist(int P_ID)
         {
             user_mode = false; 
-            ds = cl.Get_NewChecklist(P_ID.ToString(),"",true);
+            ds = cl.Get_NewChecklist(P_ID.ToString(),"" ,true);
             if (ds != null)
             {
                 if (ds.Tables[0].Rows.Count > 0)
@@ -514,6 +513,10 @@ namespace MyWorkApplication
                         RejectMsg_checkBox.Text = "لم يتم الارسال";
                     }
 
+                    //totalMarks needEvaluation
+                    GreyLable0_label.Text = "";
+                    GreyLable0_label.Text = ds.Tables[0].Rows[0]["TotalMarks"].ToString();
+                     
                     Update_Mode = true;
                 }
                 if (ds.Tables[1].Rows.Count > 0)
@@ -616,30 +619,15 @@ namespace MyWorkApplication
                     commity_dataGridView.ClearSelection();
 
                 }
-
-                mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = true;
-                mainForm.MP_ID_label.Text = MicroProject_ID.ToString();                
-            } 
-            user_mode = true;
-        }
-        public void Fill_NeedEvaluation(int P_ID)
-        {
-            ds_eval = cl.Get_NeedEvaluation("P", P_ID.ToString());
-            if (ds_eval != null)
-            {
-                if (ds_eval.Tables[0].Rows.Count > 0)
+                if (ds.Tables[2].Rows.Count > 0)
                 {
                     NeedEvaluation_dataGridView.DataSource = null;
                     NeedEvaluation_dataGridView.Rows.Clear();
                     NeedEvaluation_dataGridView.Columns.Clear();
-                    NeedEvaluation_dataGridView.DataSource = ds_eval.Tables[0];
+                    NeedEvaluation_dataGridView.DataSource = ds.Tables[2];
 
                     var dgC1 = NeedEvaluation_dataGridView.Columns["P_ID"];
-                    dgC1.Visible = false;
-                    var dgC2 = NeedEvaluation_dataGridView.Columns["MP_ID"];
-                    dgC2.Visible = false;
-                    var dgC3 = NeedEvaluation_dataGridView.Columns["Name"];
-                    dgC3.Visible = false;
+                    dgC1.Visible = false; 
 
                     NeedEvaluation_dataGridView.Columns["المؤشر"].DefaultCellStyle.Alignment =
                     NeedEvaluation_dataGridView.Columns["العلامة"].DefaultCellStyle.Alignment =
@@ -647,12 +635,11 @@ namespace MyWorkApplication
 
                     NeedEvaluation_dataGridView.ClearSelection();
                 }
-                if (ds_eval.Tables[1].Rows.Count > 0)
-                {
-                    GreyLable0_label.Text = "";
-                    GreyLable0_label.Text = ds_eval.Tables[1].Rows[0]["TotalMarks"].ToString();
-                }
-            }
+                  
+                mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = true;
+                mainForm.MP_ID_label.Text = MicroProject_ID.ToString();                
+            } 
+            user_mode = true;
         }
 
         private void Clear_Boxes(bool with_ids)
@@ -1555,20 +1542,15 @@ namespace MyWorkApplication
         #endregion
 
         #region printing 
-        DataTable dt4444;
-        DataSet   ds4444;
+        DataTable dt4444; 
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
                 if (Person_ID != -1 && MicroProject_ID != -1)
-                {
-                    string condition = 
-                        " and checklist.Person_ID = " + Person_ID +
-                        " and PMP.MicroProject_ID = " + MicroProject_ID ;
+                { 
+                    dt4444 = cl.Print_Checklist_Procedure(Person_ID.ToString());
 
-                    dt4444 = ds.Tables[0];
-                      
                     Thread myTh = new Thread(SaveCallDialog_2);
                     myTh.SetApartmentState(ApartmentState.STA);
                     myTh.Start();
@@ -1582,99 +1564,7 @@ namespace MyWorkApplication
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
-
-        //private void SaveCallDialog_2()
-        //{
-        //    if (dt4444 == null || dt4444.Rows.Count == 0)
-        //        throw new InvalidOperationException("DataTable is empty.");
-
-        //    WordApp word = null;
-        //    Microsoft.Office.Interop.Word.Document doc = null;
-
-        //    try
-        //    {
-        //        // ---- Paths ----
-        //        string sourcedir = Path.Combine(Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath), "DocPrint");
-        //        string myfilename = "cl";
-        //        string templateDoc = Path.Combine(sourcedir, myfilename + ".docx");
-
-        //        string appdataDir = Path.Combine(
-        //            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-        //            @"Micro Projects\DocPrint");
-        //        Directory.CreateDirectory(appdataDir);
-
-        //        string workingDocx = Path.Combine(appdataDir, myfilename + ".docx");
-        //        string xlsxPath = Path.Combine(appdataDir, myfilename + ".xlsx");
-
-        //        // Copy template
-        //        File.Copy(templateDoc, workingDocx, overwrite: true);
-
-        //        // ---- Excel: write one DataTable to Sheet1 ----
-        //        using (var wb = new XLWorkbook { RightToLeft = true })
-        //        {
-        //            wb.Worksheets.Add(dt4444.Copy(), "Sheet1");
-        //            wb.SaveAs(xlsxPath);
-        //        }
-
-        //        //if (!doMailMerge) return;
-
-        //        // ---- Word Mail Merge from Sheet1 ----
-        //        word = new WordApp { Visible = false };
-        //        doc = word.Documents.Open(workingDocx, ReadOnly: false);
-
-        //        string conn = $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={xlsxPath};Extended Properties=""Excel 12.0 Xml;HDR=YES;IMEX=1"";";
-        //        string sql = "SELECT * FROM [Sheet1$]";
-
-        //        doc.MailMerge.MainDocumentType = WdMailMergeMainDocType.wdFormLetters;
-        //        doc.MailMerge.OpenDataSource(
-        //            Name: xlsxPath,
-        //            ConfirmConversions: false,
-        //            ReadOnly: false,
-        //            LinkToSource: true,
-        //            AddToRecentFiles: false,
-        //            PasswordDocument: Type.Missing,
-        //            PasswordTemplate: Type.Missing,
-        //            WritePasswordDocument: Type.Missing,
-        //            WritePasswordTemplate: Type.Missing,
-        //            Revert: false,
-        //            Format: WdOpenFormat.wdOpenFormatAuto,
-        //            Connection: conn,
-        //            SQLStatement: sql
-        //        );
-
-        //        doc.MailMerge.Destination = WdMailMergeDestination.wdSendToNewDocument;
-        //        doc.MailMerge.SuppressBlankLines = true;
-        //        doc.MailMerge.Execute();
-
-        //        // Close template without saving
-        //        doc.Close(WdSaveOptions.wdDoNotSaveChanges);
-        //        Marshal.FinalReleaseComObject(doc); doc = null;
-
-        //        // Show the merged result
-        //        word.Visible = true; // set false if you plan to save & close it yourself
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //    finally
-        //    {
-        //        // COM cleanup
-        //        if (doc != null)
-        //        {
-        //            try { doc.Close(WdSaveOptions.wdDoNotSaveChanges); } catch { }
-        //            Marshal.FinalReleaseComObject(doc);
-        //        }
-        //        if (word != null)
-        //        {
-        //            try { word.Quit(WdSaveOptions.wdDoNotSaveChanges); } catch { }
-        //            Marshal.FinalReleaseComObject(word);
-        //        }
-        //        GC.Collect();
-        //        GC.WaitForPendingFinalizers();
-        //    }
-        //}
-
+         
         private void SaveCallDialog_2()
         {
             try
@@ -1724,7 +1614,7 @@ namespace MyWorkApplication
                 }
 
                 wb.Worksheets.Add(dt4444, "Sheet1");
-
+                
                 wb.SaveAs(filename);
                 wb.Dispose();
 
