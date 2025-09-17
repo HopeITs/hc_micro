@@ -262,11 +262,11 @@ namespace MyWorkApplication
             this.SearchBy_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchBy_comboBox.ForeColor = System.Drawing.Color.Black;
             this.SearchBy_comboBox.FormattingEnabled = true;
-            this.SearchBy_comboBox.Location = new System.Drawing.Point(748, 4);
+            this.SearchBy_comboBox.Location = new System.Drawing.Point(749, 4);
             this.SearchBy_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SearchBy_comboBox.Name = "SearchBy_comboBox";
             this.SearchBy_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SearchBy_comboBox.Size = new System.Drawing.Size(349, 35);
+            this.SearchBy_comboBox.Size = new System.Drawing.Size(348, 35);
             this.SearchBy_comboBox.TabIndex = 1;
             this.SearchBy_comboBox.SelectedIndexChanged += new System.EventHandler(this.SearchBy_comboBox_SelectedIndexChanged);
             // 
@@ -294,7 +294,7 @@ namespace MyWorkApplication
             this.ShowHide_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShowHide_button.Location = new System.Drawing.Point(139, 4);
+            this.ShowHide_button.Location = new System.Drawing.Point(142, 4);
             this.ShowHide_button.Margin = new System.Windows.Forms.Padding(0);
             this.ShowHide_button.MaximumSize = new System.Drawing.Size(150, 40);
             this.ShowHide_button.MinimumSize = new System.Drawing.Size(150, 40);
@@ -1470,7 +1470,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.16274F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
             this.tableLayoutPanel1.ContextMenuStrip = this.contextMenuStrip1;
             this.tableLayoutPanel1.Controls.Add(this.ShowHide_button, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.LastVisit_checkBox, 4, 0);
@@ -1492,7 +1492,7 @@ namespace MyWorkApplication
             // 
             this.LastVisit_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.LastVisit_checkBox.AutoSize = true;
-            this.LastVisit_checkBox.Location = new System.Drawing.Point(417, 9);
+            this.LastVisit_checkBox.Location = new System.Drawing.Point(420, 9);
             this.LastVisit_checkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LastVisit_checkBox.Name = "LastVisit_checkBox";
             this.LastVisit_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1514,7 +1514,7 @@ namespace MyWorkApplication
             this.ApplyFilter_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ApplyFilter_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ApplyFilter_button.ForeColor = System.Drawing.Color.LightGray;
-            this.ApplyFilter_button.Location = new System.Drawing.Point(299, 7);
+            this.ApplyFilter_button.Location = new System.Drawing.Point(302, 7);
             this.ApplyFilter_button.Margin = new System.Windows.Forms.Padding(0);
             this.ApplyFilter_button.MaximumSize = new System.Drawing.Size(110, 34);
             this.ApplyFilter_button.MinimumSize = new System.Drawing.Size(110, 34);

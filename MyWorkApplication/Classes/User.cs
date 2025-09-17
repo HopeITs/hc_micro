@@ -250,7 +250,6 @@ where `User_ID` =  @User_ID ";
         {
             MailMessage msgMail = new MailMessage();
             msgMail.From = new MailAddress("feedback.userapp@hcsyria.org");
-            msgMail.To.Add("sary.zainoun@hcsyria.org");
             msgMail.To.Add("judy.dadaghlian@hcsyria.org");
 
             msgMail.Subject = Subject;

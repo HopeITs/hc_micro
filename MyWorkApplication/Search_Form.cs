@@ -1,4 +1,7 @@
 ﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Math;
+using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Vml.Office;
 using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
@@ -16,6 +19,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using static Google.Protobuf.Reflection.UninterpretedOption.Types;
 using DataTable = System.Data.DataTable;
 
 namespace MyWorkApplication
@@ -996,6 +1000,12 @@ namespace MyWorkApplication
     LEFT JOIN `microprojecttype` on microproject.MP_Type_ID = microprojecttype.ID 
     LEFT JOIN `microprojectsubtype` on microproject.MP_SubType_ID = microprojectsubtype.ID ";
 
+   //, (CASE WHEN state.Name_Ar IN('مغلق','ملغى') 
+   //   THEN CONCAT(
+   //   TIMESTAMPDIFF(YEAR, Loan_DateTaken, mps.Date), ' سنة و ',
+   //   MOD(TIMESTAMPDIFF(MONTH, Loan_DateTaken, mps.Date), 12), ' شهر' )
+   //   ELSE '' END) AS 'مدة_الاستدامة'
+
                 string query1 = @" Select MP_ID as 'رقم المشروع'  
   , CONCAT(P_FirstName, ' ', P_LastName) as 'المستفيد'  
   , P_FatherName as 'اسم الأب'  
@@ -1032,11 +1042,16 @@ namespace MyWorkApplication
  , (select count(*) 
         from microproject_state 
         where microproject_state.MicroProject_ID = MP_ID) as 'عدد الحالات'
- 
- , IFNULL(Loan_Amount,0) as 'مبلغ التمويل'
+  
  , Loan_DateTaken as 'تاريخ التمويل' 
+ , IFNULL(Loan_Amount,0) as 'مبلغ التمويل'
  , IFNULL(donor.Name,'') as 'الجهة الممولة' 
  , IFNULL(donorgroup.Name,'') as 'المجموعة' 
+
+ , TIMESTAMPDIFF(MONTH, MP_DateOfRequest, Loan_DateTaken) as 'مدة الانتظار /شهر' 
+ , (CASE WHEN state.Name_Ar IN ('مغلق','ملغى') 
+   THEN TIMESTAMPDIFF(YEAR, Loan_DateTaken, mps.Date) 
+   ELSE '' END) AS 'مدة الاستدامة'
 
  , (CASE IsContentUpdated WHEN 0 THEN N'لا' ELSE N'نعم' End) as 'تبديل المشروع' 
 
@@ -1057,25 +1072,24 @@ namespace MyWorkApplication
  ,  IFNULL(P_NumOfMembers,0) as 'عدد أفراد العائلة'
  ,  IFNULL(P_NumAtHome,0) as 'عدد أفراد المقيمين في المنزل'
 
+ , (SELECT IFNULL(count(*) ,0)
+   From `person` p 
+   left join `person_family` pf on p.P_ID = pf.Person_ID  
+   left join `personstate` on personstate.ID = p.P_State_ID
+   left join relation on relation.id = pf.Relation_ID
+   WHERE relation.Name like N'ابن/ة' 
+   AND lower(personstate.Type) like 'active'
+   AND pf.P_Provider_ID = PMP.Person_ID limit 1) as 'عدد الأبناء في المنزل' 
 
-  , (SELECT IFNULL(count(*) ,0)
-    From `person` p 
-    left join `person_family` pf on p.P_ID = pf.Person_ID  
-    left join `personstate` on personstate.ID = p.P_State_ID
-    left join relation on relation.id = pf.Relation_ID
-    WHERE relation.Name like N'ابن/ة' 
-    AND lower(personstate.Type) like 'active'
-    and pf.P_Provider_ID = PMP.Person_ID limit 1) as 'عدد الأبناء في المنزل' 
-
-  , ( SELECT IFNULL(count(*) ,0)
-    From `person` p 
-    left join `person_family` pf on p.P_ID = pf.Person_ID  
-    left join `personstate` on personstate.ID = p.P_State_ID
-    left join relation on relation.id = pf.Relation_ID
-    WHERE relation.Name like N'ابن/ة'
-    AND lower(personstate.Type) like 'active'    
- 	and TIMESTAMPDIFF(YEAR, p.P_DOB, MP_DateOfRequest) < 18
-    and pf.P_Provider_ID = person.P_ID limit 1 ) as 'عدد الأبناء تحت 18'
+ , ( SELECT IFNULL(count(*) ,0)
+   From `person` p 
+   left join `person_family` pf on p.P_ID = pf.Person_ID  
+   left join `personstate` on personstate.ID = p.P_State_ID
+   left join relation on relation.id = pf.Relation_ID
+   WHERE relation.Name like N'ابن/ة'
+   AND lower(personstate.Type) like 'active'    
+   AND TIMESTAMPDIFF(YEAR, p.P_DOB, MP_DateOfRequest) < 18
+   AND pf.P_Provider_ID = person.P_ID limit 1 ) as 'عدد الأبناء تحت 18'
  
  , P_MilitaryService as 'خدمة العلم'
  , P_MilitaryService_Date as 'تاريخ التسريح'
