@@ -352,6 +352,7 @@
     <Compile Include="Classes\Images.cs" />
     <Compile Include="Classes\InputValidationHelpercs.cs" />
     <Compile Include="Classes\PasswordHelper.cs" />
+    <Compile Include="Classes\Purchasing.cs" />
     <Compile Include="Classes\RehabApplication.cs" />
     <Compile Include="Classes\SpecialCase.cs" />
     <Compile Include="Classes\StateReason.cs" />
@@ -369,6 +370,7 @@
     <Compile Include="Controls\BCDateTimePicker.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\CalendarColumn.cs" />
     <Compile Include="Controls\CCBoxItem.cs" />
     <Compile Include="Controls\CheckBoxComboBox\CheckBoxComboBox.cs">
       <SubType>Component</SubType>
@@ -477,6 +479,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Purchasing_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchasing_Form.Designer.cs">
+      <DependentUpon>Purchasing_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="QR_Form.cs">
       <SubType>Form</SubType>
@@ -719,6 +727,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Payments_Form.resx">
       <DependentUpon>Payments_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchasing_Form.resx">
+      <DependentUpon>Purchasing_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QR_Form.resx">
       <DependentUpon>QR_Form.cs</DependentUpon>

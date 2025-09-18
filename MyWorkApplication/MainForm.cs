@@ -198,13 +198,15 @@ namespace MyWorkApplication
                 {
                     if (form.Name == "Application_Form" )
                         theme.Application_ToNight(form);
-                    if (form.Name == "Application_New_Form" || form.Name == "CheckList_Form")
+                    if (form.Name == "Application_New_Form" || form.Name == "CheckList_Form"
+                        || form.Name == "SpecialCase_Form"  || form.Name == "Purchasing_Form"
+                        || form.Name == "Loans_Form")
                         theme.ApplicationNew_ToNight(form);
 
                     if (form.Name == "AdminPanel_From") theme.AdminPanel_ToNight(form, false);
 
                     if (form.Name == "VOpening_Other_Form" || form.Name == "VOpening_Taxi_Form" ||
-                        form.Name == "VClosing_Form" || form.Name == "SpecialCase_Form")
+                        form.Name == "VClosing_Form" )
                         theme.Visit_ToNight(form);
 
                     if (form.Name == "V_ME_Other_Form" || form.Name == "VOpening_Taxi_Form")
@@ -213,8 +215,8 @@ namespace MyWorkApplication
                     if (form.Name == "Visits_Statistics") theme.Visit_User_ToNight(form);
 
                     if (form.Name == "Attachments_Form") theme.Attachment_ToNight(form);
-                    if (form.Name == "Loans_Form") theme.Loan_ToNight(form);
-                    if (form.Name == "ExecutiveFiles_Form") theme.Loan_ToNight(form);
+                    //if (form.Name == "Loans_Form") theme.Loan_ToNight(form);
+                    //if (form.Name == "ExecutiveFiles_Form") theme.Loan_ToNight(form);
 
                     if (form.Name == "Timeline_Form") theme.Timeline_ToNight(form);
                     if (form.Name == "Search_Form") theme.Search_ToNight(form, false);
@@ -252,13 +254,15 @@ namespace MyWorkApplication
                 {
                     if (form.Name == "Application_Form" )
                         theme.Application_ToLight(form);
-                    if (form.Name == "Application_New_Form" || form.Name == "CheckList_Form")
+                    if (form.Name == "Application_New_Form" || form.Name == "CheckList_Form"
+                         || form.Name == "SpecialCase_Form" || form.Name == "Purchasing_Form"
+                         || form.Name == "Loans_Form")
                         theme.ApplicationNew_ToLight(form);
 
                     if (form.Name == "AdminPanel_From") theme.AdminPanel_ToLight(form, false);
 
                     if (form.Name == "VOpening_Other_Form" || form.Name == "VOpening_Taxi_Form" ||
-                        form.Name == "VClosing_Form" || form.Name == "SpecialCase_Form")
+                        form.Name == "VClosing_Form" )
                         theme.Visit_ToLight(form);
 
                     if (form.Name == "Visits_Statistics") theme.Visit_User_ToLight(form);
@@ -267,8 +271,8 @@ namespace MyWorkApplication
                         theme.ME_Visit_ToLight(form);
 
                     if (form.Name == "Attachments_Form") theme.Attachment_ToLight(form);
-                    if (form.Name == "Loans_Form") theme.Loan_ToLight(form);
-                    if (form.Name == "ExecutiveFiles_Form") theme.Loan_ToLight(form);
+                    //if (form.Name == "Loans_Form") theme.Loan_ToLight(form);
+                    //if (form.Name == "ExecutiveFiles_Form") theme.Loan_ToLight(form);
 
                     if (form.Name == "Timeline_Form") theme.Timeline_ToLight(form);
                     if (form.Name == "Search_Form") theme.Search_ToLight(form, false);
@@ -359,7 +363,7 @@ namespace MyWorkApplication
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[1], Keys.Alt | Keys.L);//Loans 
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[2], Keys.Alt | Keys.P);//Payments schedule
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[3], Keys.Alt | Keys.I);//Attachments
-                            //ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[4], Keys.Alt | Keys.F);//Executive 
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[4], Keys.Alt | Keys.P);//Purchasing 
 
                             // --------------------------------------------------------------------- 
 
@@ -406,7 +410,7 @@ namespace MyWorkApplication
                             HideMenuItemWithShortcut((ToolStripMenuItem)financialItems[1]);//Loans
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[2], Keys.Alt | Keys.P);//Payments schedule
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[3], Keys.Alt | Keys.I);//Attachments
-                            //HideMenuItemWithShortcut((ToolStripMenuItem)financialItems[4]);//Executive 
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[4], Keys.Alt | Keys.P);//Purchasing
 
                             // --------------------------------------------------------------------- 
 
@@ -755,23 +759,19 @@ namespace MyWorkApplication
             }
         }
 
-        private void moveVisitsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RejectReasonsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void purchasingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                AddNewStateReasons Form = new AddNewStateReasons();
-                Form.Show();
+                Form Purchasing_Form = new Purchasing_Form(this);
+                showNewTab(Purchasing_Form, "Purchasing", 0);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+         
 
         private void restoreImagesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -843,20 +843,7 @@ namespace MyWorkApplication
 
             //MessageBox.Show("DONE ^_^");
         }
-
-        private void newSearchToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //Form form = new Search_Form2(this);
-                //showNewTab(form, "Search_Form2", 0);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
+         
         private void donorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -1498,6 +1485,8 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
+
+       
 
 
 

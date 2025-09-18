@@ -320,5 +320,17 @@ namespace MyWorkApplication.Properties {
                 this["must_reset"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Search10_Visible_arr {
+            get {
+                return ((string)(this["Search10_Visible_arr"]));
+            }
+            set {
+                this["Search10_Visible_arr"] = value;
+            }
+        }
     }
 }

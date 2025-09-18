@@ -54,9 +54,9 @@ namespace MyWorkApplication
             {
                 NewTheme = new NewTheme();
                 if (Settings.Default.theme == "Light")
-                    NewTheme.Visit_ToLight(this);
+                    NewTheme.ApplicationNew_ToLight(this);
                 else
-                    NewTheme.Visit_ToNight(this);
+                    NewTheme.ApplicationNew_ToNight(this);
                 mainForm.Project_label.Visible = mainForm.TabName_label.Visible = true;
                 mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = false;
                 mainForm.TabName_label.Text = "Special Case";

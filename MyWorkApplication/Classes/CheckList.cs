@@ -610,15 +610,16 @@ from person_checklistmembers
 LEFT JOIN checklist_member on person_checklistmembers.Member_ID = checklist_member.ID
 LEFT JOIN checklist_position on checklist_member.Position_ID = checklist_position.ID ";
 
-            if(Person_ID != "")
+            if (Person_ID != "")
                 query2 += " where person_checklistmembers.Person_ID = " + Person_ID + ";";
-             
-            //
-            string query3_from = " FROM need_evaluation ";
+            else query2 += ";";
+
+                //
+                string query3_from = " FROM need_evaluation ";
             if (Person_ID != "")
                 query3_from += " WHERE P_ID = " + Person_ID ;
             
-            string query3 = " SELECT 'الخسارات التي تعرّض لها المستفيد' AS المعيار, loss AS المؤشر, loss_Mark AS العلامة ,P_ID " + query3_from
+            string query3 = " SELECT 'الخسارات التي تعرّض لها المستفيد' AS 'المعيار', loss AS 'المؤشر', loss_Mark AS 'العلامة' ,P_ID " + query3_from
                 + " UNION ALL SELECT 'طبيعة عمل المستفيد', worktype, worktype_Mark ,P_ID " + query3_from
                 + " UNION ALL SELECT 'الحالة الاجتماعية', maritalstatus, maritalstatus_Mark ,P_ID " + query3_from
                 + " UNION ALL SELECT 'عدد الافراد القاطنين في المنزل', NumAtHome, NumAtHome_Mark ,P_ID " + query3_from

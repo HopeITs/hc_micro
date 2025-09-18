@@ -137,7 +137,8 @@ namespace MyWorkApplication
                 searchBy_list.Add("Check Lists");
                 searchBy_list.Add("Special Cases");
                 searchBy_list.Add("Aid Sources");
-                searchBy_list.Add("Project Materials");
+                searchBy_list.Add("Materials Required");
+                searchBy_list.Add("Materials Purchased");
 
                 for (int i = 0; i < searchBy_list.Count; i++)
                     SearchBy_comboBox.Items.Add(searchBy_list.ElementAt<string>(i));
@@ -500,7 +501,7 @@ namespace MyWorkApplication
                     FundedFrom_label.Visible = false;
                 //Requested_checkBox.Visible = Funded_checkBox.Visible = 
             }
-            // Materials //
+            // Materials Required //
             else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
             {
                 FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
@@ -529,9 +530,41 @@ namespace MyWorkApplication
                 RequestedFrom_textBox.Visible = RequestedTo_textBox.Visible =
                     RequestedFrom_label.Visible =
                     FundedFrom_textBox.Visible = FundedTo_textBox.Visible =
-                    FundedFrom_label.Visible = false;
+                    FundedFrom_label.Visible = true;
                 //Requested_checkBox.Visible = Funded_checkBox.Visible = 
-            } 
+            }
+            // Materials Purchased //
+            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
+            {
+                FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
+                MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
+                Category_comboBox.Visible = SubCategory_comboBox.Visible = Career_comboBox.Visible =
+                FundDate_comboBox.Visible = ApplyDate_comboBox.Visible
+                 = true;
+                P_Parish_comboBox.Visible = Age_comboBox.Visible
+                    = Gender_comboBox.Visible = MaritalStatus_comboBox.Visible
+                    = HomeStreet_comboBox.Visible = ProjectStreet_comboBox.Visible = false;
+
+                FundType_label.Visible = Type_label.Visible = SubType_label.Visible = Partnership_label.Visible
+                    = MP_Status_label.Visible = Donor_label.Visible = DonorGroup_label.Visible
+                    = Category_label.Visible = SubCategory_label.Visible = Career_label.Visible
+                    = FundedDateFrom_label.Visible = ApplyDateFrom_label.Visible
+                    = true;
+                P_Parish_label.Visible = Age_label.Visible = Gender_label.Visible = MaritalStatus_label.Visible
+                    = HomeStreet_label.Visible = ProjectStreet_label.Visible = false;
+
+                ApplyDateFrom_label.Visible = ApplyDateFrom_dateTimePicker.Visible =
+                    ApplyDateTo_DateTimePicker.Visible =
+                    FundedDateFrom_label.Visible = FundedDateFrom_DateTimePicker.Visible =
+                    FundedDateTo_DateTimePicker.Visible =
+                    ApplyDate_checkBox.Visible = FundedDate_checkBox.Visible = true;
+
+                RequestedFrom_textBox.Visible = RequestedTo_textBox.Visible =
+                    RequestedFrom_label.Visible =
+                    FundedFrom_textBox.Visible = FundedTo_textBox.Visible =
+                    FundedFrom_label.Visible = true;
+                //Requested_checkBox.Visible = Funded_checkBox.Visible = 
+            }
         }
 
         private void Calculate_ImportExportMoney(string str)
@@ -660,7 +693,6 @@ namespace MyWorkApplication
                     RequestedAmount_condition = " and (`MP_RequestedAmount` BETWEEN "
                         + Needed_from_d + " and " + Needed_to_d + ") ";
 
-                    //SearchBy_comboBox_SelectedIndexChanged(sender, e);
                 }
             }
             catch (Exception ex)
@@ -689,7 +721,6 @@ namespace MyWorkApplication
                    // " and (L.Loan_Amount BETWEEN " + Financed_from_d + " and " + Financed_To_d + ") ";
                    " and ( Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN " + Financed_from_d + " and " + Financed_To_d + ") ";
 
-                //SearchBy_comboBox_SelectedIndexChanged(sender, e);
             }
         }
         ///////////////////////////////////////////////////////////////////////////
@@ -709,7 +740,6 @@ namespace MyWorkApplication
                 ApplyDateFrom_dateTimePicker.Enabled = ApplyDateFrom_label.Enabled
                     = ApplyDateTo_DateTimePicker.Enabled = false;
 
-                //SearchBy_comboBox_SelectedIndexChanged(sender, e);
             }
         }
 
@@ -726,7 +756,6 @@ namespace MyWorkApplication
                 FundedDate_condition = "";
                 FundedDateFrom_DateTimePicker.Enabled = FundedDateFrom_label.Enabled
                     = FundedDateTo_DateTimePicker.Enabled = false;
-                //SearchBy_comboBox_SelectedIndexChanged(sender, e);
             }
         }
 
@@ -737,7 +766,6 @@ namespace MyWorkApplication
             {
                 lastvisit_condition = @" and mevisit.Date = (SELECT MAX(me.Date) FROM mevisit me WHERE me.Person_ID = P.P_ID ) Group By P.P_ID,MP.MP_ID ";
             }
-            //SearchBy_comboBox_SelectedIndexChanged(sender, e);
         }
         /////////////////  #############  /////////////////
         private void ApplyDateFrom_dateTimePicker_ValueChanged(object sender, EventArgs e)
@@ -758,7 +786,6 @@ namespace MyWorkApplication
                 visitDate_condition = " and ( visit.Date between '" + beg + "' and '" + end + "' )";
                 mevisitDate_condition = " and ( mevisit.Date between '" + beg + "' and '" + end + "')";
 
-                //SearchBy_comboBox_SelectedIndexChanged(sender, e);
             }
             catch (Exception ex)
             {
@@ -781,7 +808,6 @@ namespace MyWorkApplication
                                        " Loan_DateTaken between '" + beg.Year + "/" + beg.Month + "/" + beg.Day + "' " +
                                        " and '" + end.Year + "/" + end.Month + "/" + end.Day + "' )";
 
-                //SearchBy_comboBox_SelectedIndexChanged(sender, e);
             }
             catch (Exception ex)
             {
@@ -2007,11 +2033,98 @@ namespace MyWorkApplication
  
          , material.ID as 'ID' ";
 
-                var i_cond = " where 1 ";
+                var i_cond = " where Current_State = 1 ";
                 Check_Conditions(i_cond);
 
                 query += from + condition;
                 query += " order by material.ID Desc; ";
+
+                Program.buildConnection();
+                MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
+                sc.ExecuteNonQuery();
+                MySqlDataAdapter da = new MySqlDataAdapter(sc);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+
+                MP_dataGridView.DataSource = null;
+                MP_dataGridView.Columns.Clear();
+                MP_dataGridView.Rows.Clear();
+                MP_dataGridView.ColumnHeadersVisible = false;
+                MP_dataGridView.RowHeadersVisible = false;
+
+                bs.DataSource = ds.Tables[0];
+                MP_dataGridView.DataSource = bs;
+
+                var dgc1 = MP_dataGridView.Columns["ID"];
+                dgc1.Visible = false;
+
+                MP_dataGridView.Columns["اسم المادة"].Width = 130;
+                MP_dataGridView.Columns["رقم المشروع"].Frozen = true;
+
+                //count rows
+                Count_label.Text = "All:" + ds.Tables[0].Rows.Count.ToString("#,##0");
+
+                MP_dataGridView.ColumnHeadersVisible = true;
+                MP_dataGridView.RowHeadersVisible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        
+        private void bind_Purchasing()
+        {
+            try
+            {
+                var from = @"FROM purchasing 
+          left JOIN `purchasingcategory` pc on pc.ID = purchasing.ItemCategory_ID 
+          left JOIN `person_microproject` PMP on purchasing.MicroProject_ID = PMP.MicroProject_ID 
+          left JOIN `person` P on PMP.Person_ID = P.P_ID 
+          left JOIN `microproject` MP on MP.MP_ID = PMP.MicroProject_ID   
+ 
+          left JOIN `category` C on MP.Category_ID = C.ID 
+          LEFT JOIN `subcategory` sub on MP.SubCategory_ID = sub.ID  
+          LEFT JOIN `career` on MP.Career_ID = career.ID   
+          LEFT JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
+          LEFT JOIN `state` on state.ID = mps.State_ID
+       
+          Left JOIN `donor` on donor.ID = MP.MP_Donor
+          LEFT JOIN `loan` L on L.MicroProject_ID = MP.MP_ID
+          LEFT JOIN `donorgroup` on donorgroup.ID = MP.DonorGroup_ID
+          LEFT JOIN `fundtype` on fundtype.ID = MP.MP_FundType_ID 
+          LEFT JOIN `microprojecttype` on microprojecttype.ID = MP.MP_Type_ID
+          LEFT JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID 
+        ";
+
+                string query = @" SELECT MP_ID as 'رقم المشروع'
+         , CONCAT(P_FirstName, ' ', P_LastName) as 'المستفيد' 
+         , P.P_FatherName as 'اسم الأب'  
+         , P_FullName_en as 'Beneficiary Name'
+        
+         , career.Name as 'المهنة' 
+         , career.Name_en as 'Project Name'  
+
+         , C.Name as 'Category'
+         , sub.Name as 'Sub Category' 
+
+         ,  ItemName          AS 'اسم المادة'
+         ,  Brand             AS 'الماركة'
+         ,  pc.Name           AS 'فئة المادة'
+         ,  Quantity          AS 'العدد'
+         ,  Price             AS 'السعر'
+         ,  Currency          AS 'نوع العملة'
+         ,  InvoiceDate       AS 'تاريخ الفاتورة'
+         ,  InvoiceNumber     AS 'رقم الفاتورة'
+         ,  TraderName        AS 'اسم التاجر'
+ 
+         ,  purchasing.ID as 'ID' ";
+
+                var i_cond = " where Current_State = 1 ";
+                Check_Conditions(i_cond);
+
+                query += from + condition;
+                query += " order by purchasing.ID Desc; ";
 
                 Program.buildConnection();
                 MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
@@ -2337,10 +2450,15 @@ namespace MyWorkApplication
                 {
                     bind_AidSources();
                 }
-                // Materials //
+                // Materials Required //
                 else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
                 {
                     bind_Materials();
+                }
+                // Materials Purchased //
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
+                {
+                    bind_Purchasing();
                 }
 
                 tick++;
@@ -2913,9 +3031,9 @@ namespace MyWorkApplication
                                 .SelectMany(r => r.ToList());
             foreach (var r in dupRos)
             {
-                r.Cells["المستفيد"].Style.BackColor = Color.LightCoral;
+                r.Cells["المستفيد"].Style.BackColor = System.Drawing.Color.LightCoral;
                 if (Settings.Default.theme == "Light") { }
-                else r.Cells["المستفيد"].Style.ForeColor = Color.Black;
+                else r.Cells["المستفيد"].Style.ForeColor = System.Drawing.Color.Black;
             }
             
         }
@@ -3380,16 +3498,17 @@ namespace MyWorkApplication
             string value_str = string.Join(",", values); 
             switch (index)
             {
-                case 0: Settings.Default.Search0_Visible_arr = value_str; break;
-                case 1: Settings.Default.Search1_Visible_arr = value_str; break;
-                case 2: Settings.Default.Search2_Visible_arr = value_str; break;
-                case 3: Settings.Default.Search3_Visible_arr = value_str; break;
-                case 4: Settings.Default.Search4_Visible_arr = value_str; break;
-                case 5: Settings.Default.Search5_Visible_arr = value_str; break;
-                case 6: Settings.Default.Search6_Visible_arr = value_str; break;
-                case 7: Settings.Default.Search7_Visible_arr = value_str; break;
-                case 8: Settings.Default.Search8_Visible_arr = value_str; break;
-                case 9: Settings.Default.Search9_Visible_arr = value_str; break;
+                case 0:  Settings.Default.Search0_Visible_arr = value_str; break;
+                case 1:  Settings.Default.Search1_Visible_arr = value_str; break;
+                case 2:  Settings.Default.Search2_Visible_arr = value_str; break;
+                case 3:  Settings.Default.Search3_Visible_arr = value_str; break;
+                case 4:  Settings.Default.Search4_Visible_arr = value_str; break;
+                case 5:  Settings.Default.Search5_Visible_arr = value_str; break;
+                case 6:  Settings.Default.Search6_Visible_arr = value_str; break;
+                case 7:  Settings.Default.Search7_Visible_arr = value_str; break;
+                case 8:  Settings.Default.Search8_Visible_arr = value_str; break;
+                case 9:  Settings.Default.Search9_Visible_arr = value_str; break;
+                case 10: Settings.Default.Search10_Visible_arr = value_str; break;
             }  
             Settings.Default.Save();
         }
@@ -3401,16 +3520,17 @@ namespace MyWorkApplication
                 string saved = "";
                 switch (index)
                 {
-                    case 0: saved = Settings.Default.Search0_Visible_arr; break;
-                    case 1: saved = Settings.Default.Search1_Visible_arr; break;
-                    case 2: saved = Settings.Default.Search2_Visible_arr; break;
-                    case 3: saved = Settings.Default.Search3_Visible_arr; break;
-                    case 4: saved = Settings.Default.Search4_Visible_arr; break;
-                    case 5: saved = Settings.Default.Search5_Visible_arr; break;
-                    case 6: saved = Settings.Default.Search6_Visible_arr; break;
-                    case 7: saved = Settings.Default.Search7_Visible_arr; break;
-                    case 8: saved = Settings.Default.Search8_Visible_arr; break;
-                    case 9: saved = Settings.Default.Search9_Visible_arr; break;
+                    case 0:  saved = Settings.Default.Search0_Visible_arr; break;
+                    case 1:  saved = Settings.Default.Search1_Visible_arr; break;
+                    case 2:  saved = Settings.Default.Search2_Visible_arr; break;
+                    case 3:  saved = Settings.Default.Search3_Visible_arr; break;
+                    case 4:  saved = Settings.Default.Search4_Visible_arr; break;
+                    case 5:  saved = Settings.Default.Search5_Visible_arr; break;
+                    case 6:  saved = Settings.Default.Search6_Visible_arr; break;
+                    case 7:  saved = Settings.Default.Search7_Visible_arr; break;
+                    case 8:  saved = Settings.Default.Search8_Visible_arr; break;
+                    case 9:  saved = Settings.Default.Search9_Visible_arr; break;
+                    case 10: saved = Settings.Default.Search10_Visible_arr; break;
                     default: saved = ""; break;
                 }
 

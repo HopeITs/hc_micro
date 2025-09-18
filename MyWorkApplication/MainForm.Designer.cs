@@ -116,6 +116,7 @@
             this.Loan_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Payments_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Attachments_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.purchasingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mEToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.Visit_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VDates_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -980,7 +981,8 @@
             this.financialToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Loan_toolStripMenuItem,
             this.Payments_toolStripMenuItem,
-            this.Attachments_toolStripMenuItem});
+            this.Attachments_toolStripMenuItem,
+            this.purchasingToolStripMenuItem});
             this.financialToolStripMenuItem1.Name = "financialToolStripMenuItem1";
             this.financialToolStripMenuItem1.Size = new System.Drawing.Size(95, 29);
             this.financialToolStripMenuItem1.Text = "&Financial";
@@ -1005,6 +1007,13 @@
             this.Attachments_toolStripMenuItem.Size = new System.Drawing.Size(256, 30);
             this.Attachments_toolStripMenuItem.Text = "Attachments";
             this.Attachments_toolStripMenuItem.Click += new System.EventHandler(this.newAttachmentToolStripMenuItem_Click);
+            // 
+            // purchasingToolStripMenuItem
+            // 
+            this.purchasingToolStripMenuItem.Name = "purchasingToolStripMenuItem";
+            this.purchasingToolStripMenuItem.Size = new System.Drawing.Size(256, 30);
+            this.purchasingToolStripMenuItem.Text = "Purchasing";
+            this.purchasingToolStripMenuItem.Click += new System.EventHandler(this.purchasingToolStripMenuItem_Click);
             // 
             // mEToolStripMenuItem1
             // 
@@ -1350,5 +1359,6 @@
         private System.Windows.Forms.ToolStripMenuItem visitorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem keyPersonsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem commityMemberToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem purchasingToolStripMenuItem;
     }
 }
