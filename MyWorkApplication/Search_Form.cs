@@ -1075,10 +1075,18 @@ namespace MyWorkApplication
  , IFNULL(donorgroup.Name,'') as 'المجموعة' 
 
  , TIMESTAMPDIFF(MONTH, MP_DateOfRequest, Loan_DateTaken) as 'مدة الانتظار /شهر' 
- , (CASE WHEN state.Name_Ar IN ('مغلق','ملغى') 
-   THEN TIMESTAMPDIFF(YEAR, Loan_DateTaken, mps.Date) 
-   ELSE '' END) AS 'مدة الاستدامة'
-
+ 
+ 
+ , (CASE WHEN state.Name_Ar IN('مغلق','ملغى') 
+    THEN CONCAT(
+        TIMESTAMPDIFF(YEAR, Loan_DateTaken, mps.Date), '.',
+        MOD(TIMESTAMPDIFF(MONTH, Loan_DateTaken, mps.Date), 12))
+    WHEN state.Name_Ar IN('ممول', 'منتهي')
+    THEN CONCAT(
+        TIMESTAMPDIFF(YEAR, Loan_DateTaken, NOW()), '.',
+        MOD(TIMESTAMPDIFF(MONTH, Loan_DateTaken, NOW()), 12))
+    ELSE '' END) AS 'مدة الاستدامة /سنة'
+ 
  , (CASE IsContentUpdated WHEN 0 THEN N'لا' ELSE N'نعم' End) as 'تبديل المشروع' 
 
  , IFNULL(P_DOB,'1900') as 'المواليد'  

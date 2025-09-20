@@ -247,7 +247,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.82353F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel1.ContextMenuStrip = this.contextMenuStrip1;
             this.tableLayoutPanel1.Controls.Add(this.comboBox1, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.AdvancedSearch_button, 8, 0);
@@ -276,7 +276,7 @@ namespace MyWorkApplication
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox1.ForeColor = System.Drawing.Color.Black;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(320, 5);
+            this.comboBox1.Location = new System.Drawing.Point(323, 5);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(8, 5, 3, 5);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -295,7 +295,7 @@ namespace MyWorkApplication
             this.AdvancedSearch_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.AdvancedSearch_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.AdvancedSearch_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdvancedSearch_button.Location = new System.Drawing.Point(42, 0);
+            this.AdvancedSearch_button.Location = new System.Drawing.Point(45, 0);
             this.AdvancedSearch_button.Margin = new System.Windows.Forms.Padding(0);
             this.AdvancedSearch_button.MaximumSize = new System.Drawing.Size(150, 40);
             this.AdvancedSearch_button.MinimumSize = new System.Drawing.Size(150, 40);
@@ -329,10 +329,10 @@ namespace MyWorkApplication
             this.X_Axis_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.X_Axis_comboBox.ForeColor = System.Drawing.Color.Black;
             this.X_Axis_comboBox.FormattingEnabled = true;
-            this.X_Axis_comboBox.Location = new System.Drawing.Point(961, 5);
+            this.X_Axis_comboBox.Location = new System.Drawing.Point(962, 5);
             this.X_Axis_comboBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.X_Axis_comboBox.Name = "X_Axis_comboBox";
-            this.X_Axis_comboBox.Size = new System.Drawing.Size(182, 34);
+            this.X_Axis_comboBox.Size = new System.Drawing.Size(181, 34);
             this.X_Axis_comboBox.TabIndex = 439;
             this.X_Axis_comboBox.SelectedIndexChanged += new System.EventHandler(this.X_Axis_comboBox_SelectedIndexChanged);
             // 
@@ -341,7 +341,7 @@ namespace MyWorkApplication
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label1.Location = new System.Drawing.Point(497, 9);
+            this.label1.Location = new System.Drawing.Point(500, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(7, 9, 7, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 22);
@@ -400,7 +400,7 @@ namespace MyWorkApplication
             this.withFunded_checkBox.AutoSize = true;
             this.withFunded_checkBox.Checked = true;
             this.withFunded_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.withFunded_checkBox.Location = new System.Drawing.Point(706, 5);
+            this.withFunded_checkBox.Location = new System.Drawing.Point(707, 5);
             this.withFunded_checkBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.withFunded_checkBox.Name = "withFunded_checkBox";
             this.withFunded_checkBox.Size = new System.Drawing.Size(249, 30);
@@ -422,7 +422,7 @@ namespace MyWorkApplication
             this.ApplyFilter_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ApplyFilter_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ApplyFilter_button.ForeColor = System.Drawing.Color.LightGray;
-            this.ApplyFilter_button.Location = new System.Drawing.Point(202, 3);
+            this.ApplyFilter_button.Location = new System.Drawing.Point(205, 3);
             this.ApplyFilter_button.Margin = new System.Windows.Forms.Padding(0);
             this.ApplyFilter_button.MaximumSize = new System.Drawing.Size(110, 34);
             this.ApplyFilter_button.MinimumSize = new System.Drawing.Size(110, 34);
@@ -445,7 +445,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.34349F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.2956F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.65828F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 648F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 651F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.ExportToExcel_button, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.Count_all_label, 1, 0);
@@ -491,11 +491,11 @@ namespace MyWorkApplication
             this.Count_all_label.AutoSize = true;
             this.Count_all_label.BackColor = System.Drawing.Color.Transparent;
             this.Count_all_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Count_all_label.Location = new System.Drawing.Point(1107, 4);
+            this.Count_all_label.Location = new System.Drawing.Point(1108, 4);
             this.Count_all_label.Margin = new System.Windows.Forms.Padding(0);
             this.Count_all_label.Name = "Count_all_label";
             this.Count_all_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Count_all_label.Size = new System.Drawing.Size(122, 26);
+            this.Count_all_label.Size = new System.Drawing.Size(121, 26);
             this.Count_all_label.TabIndex = 476;
             this.Count_all_label.Text = "Count";
             this.Count_all_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -506,7 +506,7 @@ namespace MyWorkApplication
             this.Count_funded_label.AutoSize = true;
             this.Count_funded_label.BackColor = System.Drawing.Color.Transparent;
             this.Count_funded_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Count_funded_label.Location = new System.Drawing.Point(971, 4);
+            this.Count_funded_label.Location = new System.Drawing.Point(972, 4);
             this.Count_funded_label.Margin = new System.Windows.Forms.Padding(0);
             this.Count_funded_label.Name = "Count_funded_label";
             this.Count_funded_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -822,11 +822,10 @@ namespace MyWorkApplication
             this.FundType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FundType_comboBox.ForeColor = System.Drawing.Color.White;
             this.FundType_comboBox.FormattingEnabled = true;
-            this.FundType_comboBox.Location = new System.Drawing.Point(956, 3);
+            this.FundType_comboBox.Location = new System.Drawing.Point(956, 4);
             this.FundType_comboBox.Name = "FundType_comboBox";
             this.FundType_comboBox.Size = new System.Drawing.Size(136, 34);
             this.FundType_comboBox.TabIndex = 598;
-            this.FundType_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // Type_comboBox
             // 
@@ -839,12 +838,11 @@ namespace MyWorkApplication
             this.Type_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Type_comboBox.ForeColor = System.Drawing.Color.White;
             this.Type_comboBox.FormattingEnabled = true;
-            this.Type_comboBox.Location = new System.Drawing.Point(647, 3);
+            this.Type_comboBox.Location = new System.Drawing.Point(647, 4);
             this.Type_comboBox.Name = "Type_comboBox";
             this.Type_comboBox.Size = new System.Drawing.Size(136, 34);
             this.Type_comboBox.TabIndex = 599;
             this.Type_comboBox.SelectedValueChanged += new System.EventHandler(this.Type_comboBox_SelectedValueChanged);
-            this.Type_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // SubType_comboBox
             // 
@@ -857,11 +855,10 @@ namespace MyWorkApplication
             this.SubType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubType_comboBox.ForeColor = System.Drawing.Color.White;
             this.SubType_comboBox.FormattingEnabled = true;
-            this.SubType_comboBox.Location = new System.Drawing.Point(338, 3);
+            this.SubType_comboBox.Location = new System.Drawing.Point(338, 4);
             this.SubType_comboBox.Name = "SubType_comboBox";
             this.SubType_comboBox.Size = new System.Drawing.Size(136, 34);
             this.SubType_comboBox.TabIndex = 600;
-            this.SubType_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // Partnership_comboBox
             // 
@@ -877,11 +874,10 @@ namespace MyWorkApplication
             this.Partnership_comboBox.Items.AddRange(new object[] {
             "فردي",
             "شراكة"});
-            this.Partnership_comboBox.Location = new System.Drawing.Point(29, 3);
+            this.Partnership_comboBox.Location = new System.Drawing.Point(29, 4);
             this.Partnership_comboBox.Name = "Partnership_comboBox";
             this.Partnership_comboBox.Size = new System.Drawing.Size(136, 34);
             this.Partnership_comboBox.TabIndex = 601;
-            this.Partnership_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // MP_Status_comboBox
             // 
@@ -894,11 +890,10 @@ namespace MyWorkApplication
             this.MP_Status_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MP_Status_comboBox.ForeColor = System.Drawing.Color.White;
             this.MP_Status_comboBox.FormattingEnabled = true;
-            this.MP_Status_comboBox.Location = new System.Drawing.Point(956, 36);
+            this.MP_Status_comboBox.Location = new System.Drawing.Point(956, 37);
             this.MP_Status_comboBox.Name = "MP_Status_comboBox";
             this.MP_Status_comboBox.Size = new System.Drawing.Size(136, 34);
             this.MP_Status_comboBox.TabIndex = 602;
-            this.MP_Status_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // Donor_comboBox
             // 
@@ -911,12 +906,11 @@ namespace MyWorkApplication
             this.Donor_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Donor_comboBox.ForeColor = System.Drawing.Color.White;
             this.Donor_comboBox.FormattingEnabled = true;
-            this.Donor_comboBox.Location = new System.Drawing.Point(647, 36);
+            this.Donor_comboBox.Location = new System.Drawing.Point(647, 37);
             this.Donor_comboBox.Name = "Donor_comboBox";
             this.Donor_comboBox.Size = new System.Drawing.Size(136, 34);
             this.Donor_comboBox.TabIndex = 603;
             this.Donor_comboBox.SelectedValueChanged += new System.EventHandler(this.Donor_comboBox_SelectedValueChanged);
-            this.Donor_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // DonorGroup_comboBox
             // 
@@ -929,12 +923,11 @@ namespace MyWorkApplication
             this.DonorGroup_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DonorGroup_comboBox.ForeColor = System.Drawing.Color.White;
             this.DonorGroup_comboBox.FormattingEnabled = true;
-            this.DonorGroup_comboBox.Location = new System.Drawing.Point(338, 36);
+            this.DonorGroup_comboBox.Location = new System.Drawing.Point(338, 37);
             this.DonorGroup_comboBox.Name = "DonorGroup_comboBox";
             this.DonorGroup_comboBox.Size = new System.Drawing.Size(136, 34);
             this.DonorGroup_comboBox.TabIndex = 604;
             this.DonorGroup_comboBox.Enter += new System.EventHandler(this.DonorGroup_comboBox_Enter);
-            this.DonorGroup_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // P_Parish_comboBox
             // 
@@ -947,11 +940,10 @@ namespace MyWorkApplication
             this.P_Parish_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Parish_comboBox.ForeColor = System.Drawing.Color.White;
             this.P_Parish_comboBox.FormattingEnabled = true;
-            this.P_Parish_comboBox.Location = new System.Drawing.Point(29, 36);
+            this.P_Parish_comboBox.Location = new System.Drawing.Point(29, 37);
             this.P_Parish_comboBox.Name = "P_Parish_comboBox";
             this.P_Parish_comboBox.Size = new System.Drawing.Size(136, 34);
             this.P_Parish_comboBox.TabIndex = 605;
-            this.P_Parish_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // Category_comboBox
             // 
@@ -964,11 +956,10 @@ namespace MyWorkApplication
             this.Category_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Category_comboBox.ForeColor = System.Drawing.Color.White;
             this.Category_comboBox.FormattingEnabled = true;
-            this.Category_comboBox.Location = new System.Drawing.Point(956, 69);
+            this.Category_comboBox.Location = new System.Drawing.Point(956, 70);
             this.Category_comboBox.Name = "Category_comboBox";
             this.Category_comboBox.Size = new System.Drawing.Size(136, 34);
             this.Category_comboBox.TabIndex = 606;
-            this.Category_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // SubCategory_comboBox
             // 
@@ -981,12 +972,11 @@ namespace MyWorkApplication
             this.SubCategory_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubCategory_comboBox.ForeColor = System.Drawing.Color.White;
             this.SubCategory_comboBox.FormattingEnabled = true;
-            this.SubCategory_comboBox.Location = new System.Drawing.Point(647, 69);
+            this.SubCategory_comboBox.Location = new System.Drawing.Point(647, 70);
             this.SubCategory_comboBox.Name = "SubCategory_comboBox";
             this.SubCategory_comboBox.Size = new System.Drawing.Size(136, 34);
             this.SubCategory_comboBox.TabIndex = 607;
             this.SubCategory_comboBox.Enter += new System.EventHandler(this.SubCategory_comboBox_Enter);
-            this.SubCategory_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // Career_comboBox
             // 
@@ -999,12 +989,11 @@ namespace MyWorkApplication
             this.Career_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Career_comboBox.ForeColor = System.Drawing.Color.White;
             this.Career_comboBox.FormattingEnabled = true;
-            this.Career_comboBox.Location = new System.Drawing.Point(338, 69);
+            this.Career_comboBox.Location = new System.Drawing.Point(338, 70);
             this.Career_comboBox.Name = "Career_comboBox";
             this.Career_comboBox.Size = new System.Drawing.Size(136, 34);
             this.Career_comboBox.TabIndex = 608;
             this.Career_comboBox.Enter += new System.EventHandler(this.Career_comboBox_Enter);
-            this.Career_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // MaritalStatus_comboBox
             // 
@@ -1017,11 +1006,10 @@ namespace MyWorkApplication
             this.MaritalStatus_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MaritalStatus_comboBox.ForeColor = System.Drawing.Color.White;
             this.MaritalStatus_comboBox.FormattingEnabled = true;
-            this.MaritalStatus_comboBox.Location = new System.Drawing.Point(29, 69);
+            this.MaritalStatus_comboBox.Location = new System.Drawing.Point(29, 70);
             this.MaritalStatus_comboBox.Name = "MaritalStatus_comboBox";
             this.MaritalStatus_comboBox.Size = new System.Drawing.Size(136, 34);
             this.MaritalStatus_comboBox.TabIndex = 609;
-            this.MaritalStatus_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // Age_comboBox
             // 
@@ -1034,11 +1022,10 @@ namespace MyWorkApplication
             this.Age_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Age_comboBox.ForeColor = System.Drawing.Color.White;
             this.Age_comboBox.FormattingEnabled = true;
-            this.Age_comboBox.Location = new System.Drawing.Point(338, 102);
+            this.Age_comboBox.Location = new System.Drawing.Point(338, 103);
             this.Age_comboBox.Name = "Age_comboBox";
             this.Age_comboBox.Size = new System.Drawing.Size(136, 34);
             this.Age_comboBox.TabIndex = 612;
-            this.Age_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // Gender_comboBox
             // 
@@ -1054,11 +1041,10 @@ namespace MyWorkApplication
             this.Gender_comboBox.Items.AddRange(new object[] {
             "ذكر",
             "أنثى"});
-            this.Gender_comboBox.Location = new System.Drawing.Point(29, 102);
+            this.Gender_comboBox.Location = new System.Drawing.Point(29, 103);
             this.Gender_comboBox.Name = "Gender_comboBox";
             this.Gender_comboBox.Size = new System.Drawing.Size(136, 34);
             this.Gender_comboBox.TabIndex = 613;
-            this.Gender_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // HomeStreet_label
             // 
@@ -1085,11 +1071,10 @@ namespace MyWorkApplication
             this.HomeStreet_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HomeStreet_comboBox.ForeColor = System.Drawing.Color.White;
             this.HomeStreet_comboBox.FormattingEnabled = true;
-            this.HomeStreet_comboBox.Location = new System.Drawing.Point(956, 102);
+            this.HomeStreet_comboBox.Location = new System.Drawing.Point(956, 103);
             this.HomeStreet_comboBox.Name = "HomeStreet_comboBox";
             this.HomeStreet_comboBox.Size = new System.Drawing.Size(136, 34);
             this.HomeStreet_comboBox.TabIndex = 614;
-            this.HomeStreet_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // ProjectStreet_label
             // 
@@ -1117,11 +1102,10 @@ namespace MyWorkApplication
             this.ProjectStreet_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProjectStreet_comboBox.ForeColor = System.Drawing.Color.White;
             this.ProjectStreet_comboBox.FormattingEnabled = true;
-            this.ProjectStreet_comboBox.Location = new System.Drawing.Point(647, 102);
+            this.ProjectStreet_comboBox.Location = new System.Drawing.Point(647, 103);
             this.ProjectStreet_comboBox.Name = "ProjectStreet_comboBox";
             this.ProjectStreet_comboBox.Size = new System.Drawing.Size(136, 34);
             this.ProjectStreet_comboBox.TabIndex = 615;
-            this.ProjectStreet_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // ApplyDateFrom_label
             // 
@@ -1160,11 +1144,10 @@ namespace MyWorkApplication
             this.FundDate_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FundDate_comboBox.ForeColor = System.Drawing.Color.White;
             this.FundDate_comboBox.FormattingEnabled = true;
-            this.FundDate_comboBox.Location = new System.Drawing.Point(29, 175);
+            this.FundDate_comboBox.Location = new System.Drawing.Point(29, 176);
             this.FundDate_comboBox.Name = "FundDate_comboBox";
             this.FundDate_comboBox.Size = new System.Drawing.Size(136, 34);
             this.FundDate_comboBox.TabIndex = 611;
-            this.FundDate_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // ApplyDate_comboBox
             // 
@@ -1177,11 +1160,10 @@ namespace MyWorkApplication
             this.ApplyDate_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ApplyDate_comboBox.ForeColor = System.Drawing.Color.White;
             this.ApplyDate_comboBox.FormattingEnabled = true;
-            this.ApplyDate_comboBox.Location = new System.Drawing.Point(647, 175);
+            this.ApplyDate_comboBox.Location = new System.Drawing.Point(647, 176);
             this.ApplyDate_comboBox.Name = "ApplyDate_comboBox";
             this.ApplyDate_comboBox.Size = new System.Drawing.Size(136, 34);
             this.ApplyDate_comboBox.TabIndex = 610;
-            this.ApplyDate_comboBox.Leave += new System.EventHandler(this.Category_comboBox_Leave);
             // 
             // ApplyDate_checkBox
             // 

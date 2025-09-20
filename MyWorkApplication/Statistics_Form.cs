@@ -1,4 +1,7 @@
-﻿using Microsoft.Office.Interop.Excel;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Math;
+using DocumentFormat.OpenXml.Spreadsheet;
+using Microsoft.Office.Interop.Excel;
 using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
@@ -12,14 +15,19 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.AxHost;
 using Application = Microsoft.Office.Interop.Excel.Application;
 using ChartArea = System.Windows.Forms.DataVisualization.Charting.ChartArea;
+using Color = System.Drawing.Color;
 using DataTable = System.Data.DataTable;
 using Font = System.Drawing.Font;
 using Legend = System.Windows.Forms.DataVisualization.Charting.Legend;
 using Series = System.Windows.Forms.DataVisualization.Charting.Series;
+using Workbook = Microsoft.Office.Interop.Excel.Workbook;
+using Worksheet = Microsoft.Office.Interop.Excel.Worksheet;
 
 namespace MyWorkApplication
 {
@@ -87,23 +95,26 @@ namespace MyWorkApplication
                 Hided = true;
                 Search_panel.Height = 0;
 
-                X_Axis_list = new List<string>();
-                X_Axis_list.Add("Project Status");
-                X_Axis_list.Add("Fund Type");
-                X_Axis_list.Add("New Project VS Developing");
-                X_Axis_list.Add("Categories");
-                X_Axis_list.Add("Sub Categories");
-                X_Axis_list.Add("Donors");
-                X_Axis_list.Add("Partnership");
                 //X_Axis_list.Add("Experience VS Project");
-                X_Axis_list.Add("Parishes");
-                X_Axis_list.Add("Gender");
-                X_Axis_list.Add("Marital Status");
-                X_Axis_list.Add("Age");
-                X_Axis_list.Add("Profit Rate");
-                X_Axis_list.Add("Success Rate");
-                X_Axis_list.Add("Fund Year");
-                X_Axis_list.Add("Fund Amount ($)");
+                //X_Axis_list.Add("Profit Rate");
+                //X_Axis_list.Add("Success Rate");
+
+                X_Axis_list = new List<string>();
+                X_Axis_list.Add("Project Status");              //0
+                X_Axis_list.Add("Funding Type");                //1
+                X_Axis_list.Add("Project Type");                //2 طاقة زراعي ترميم
+                X_Axis_list.Add("New Project VS Developing");   //3
+                X_Axis_list.Add("Categories");                  //4
+                X_Axis_list.Add("Sub Categories");              //5
+                X_Axis_list.Add("Partnership");                 //6
+                X_Axis_list.Add("Parishes");                    //7
+                X_Axis_list.Add("Gender");                      //8
+                X_Axis_list.Add("Marital Status");              //9
+                X_Axis_list.Add("Age");                         //10
+                X_Axis_list.Add("Donors");                      //11
+                X_Axis_list.Add("Fund Year");                   //12
+                X_Axis_list.Add("Fund Amount ($)");             //13
+                X_Axis_list.Add("Sustainability of projects");  //14 مدة استدامة المشاريع الممولة
 
 
                 for (int i = 0; i < X_Axis_list.Count; i++)
@@ -177,14 +188,6 @@ namespace MyWorkApplication
  LEFT JOIN `microprojecttype` on microprojecttype.ID = microproject.MP_Type_ID
  LEFT JOIN `microprojectsubtype` on microprojectsubtype.ID = microproject.MP_SubType_ID ";
 
-                        //      FundType_comboBox.Text, Type_comboBox.Text, SubType_comboBox.Text
-                        //    , Partnership_comboBox.Text, MP_Status_comboBox.Text
-                        //    , replaceQuotation(Donor_comboBox.Text), replaceQuotation(DonorGroup_comboBox.Text)
-                        //    , replaceQuotation(Category_comboBox.Text), SubCategory_comboBox.Text
-                        //    , P_Parish_comboBox.Text, Age_comboBox.Text, Gender_comboBox.Text, MaritalStatus_comboBox.Text
-                        //    , ApplyDate_comboBox.Text, FundDate_comboBox.Text
-                        //    , ApplyDate_condition, FundedDate_condition
-                        //    , HomeStreet_comboBox.Text, ProjectStreet_comboBox.Text
                         Check_Conditions();
 
                         //clear
@@ -196,10 +199,13 @@ namespace MyWorkApplication
 
                         //build
                         Build_ChartArea(0);
-                        if (   X_Axis_comboBox.SelectedIndex != 11
-                            && X_Axis_comboBox.SelectedIndex != 12
-                            && X_Axis_comboBox.SelectedIndex != 13
-                            && X_Axis_comboBox.SelectedIndex != 14) //profit rate - success rate - me results
+
+                        //profit rate - success rate SelectedIndex != 13
+                        if (X_Axis_comboBox.SelectedIndex != 11
+                         && X_Axis_comboBox.SelectedIndex != 12
+                         && X_Axis_comboBox.SelectedIndex != 13
+                         //&& X_Axis_comboBox.SelectedIndex != 14
+                         )    
                         {
                             withFunded_checkBox.Visible = true;
                             user_mode = true;
@@ -223,15 +229,24 @@ namespace MyWorkApplication
                             Fill_ChartArea("Status");
                         }
 
-                        // Type //
+                        // Fund Type //
                         else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(1))
+                        {
+                            Project_FundType_BindChart();
+
+                            Fill_ChartArea("Fund Type");
+                        }
+
+                        // Project Type //
+                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(2))
                         {
                             Project_Type_BindChart();
 
-                            Fill_ChartArea("Type");
+                            Fill_ChartArea("Project Type");
                         }
+
                         // SubType //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(2))
+                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(3))
                         {
                             Project_SubType_BindChart();
 
@@ -239,26 +254,18 @@ namespace MyWorkApplication
                         }
 
                         // Categories //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(3))
+                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(4))
                         {
                             Project_Category_BindChart();
 
                             Fill_ChartArea("Categories");
                         }
                         // Sub Categories //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(4))
+                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(5))
                         {
                             Project_SubCategory_BindChart();
 
                             Fill_ChartArea("Sub Categories");
-                        }
-
-                        // Donors //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(5))
-                        {
-                            Project_Donor_BindChart();
-
-                            Fill_ChartArea("Donors");
                         }
 
                         // Partnership //
@@ -269,14 +276,6 @@ namespace MyWorkApplication
                             Fill_ChartArea("Partnership");
                         }
 
-                        // experience //
-                        //else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(7))
-                        //{
-                        //    Project_Experience_BindChart();
-
-                        //    Fill_ChartArea("Experience");
-                        //}
-
                         // Parishes //
                         else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(7))
                         {
@@ -284,6 +283,7 @@ namespace MyWorkApplication
 
                             Fill_ChartArea("Parishes");
                         }
+
                         // Gender //
                         else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(8))
                         {
@@ -309,25 +309,33 @@ namespace MyWorkApplication
                         }
 
                         // profit rate //
+                        //else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(11))
+                        //{
+                        //    condition += mevisitDate_condition;
+                        //    Project_LastProfitRate_BindChart();
+
+                        //    Fill_ChartArea("Profit Rate");
+                        //}
+
+                        //// success rate //
+                        //else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(12))
+                        //{
+                        //    condition += mevisitDate_condition;
+                        //    Project_LastMEResults_BindChart();
+
+                        //    Fill_ChartArea("Success Rate");
+                        //}
+
+                        // Donors //
                         else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(11))
                         {
-                            condition += mevisitDate_condition;
-                            Project_LastProfitRate_BindChart();
+                            Project_Donor_BindChart();
 
-                            Fill_ChartArea("Profit Rate");
-                        }
-
-                        // success rate //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(12))
-                        {
-                            condition += mevisitDate_condition;
-                            Project_LastMEResults_BindChart();
-
-                            Fill_ChartArea("Success Rate");
+                            Fill_ChartArea("Donors");
                         }
 
                         // Fund Year //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(13))
+                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(12))
                         {
                             Project_FundYear_BindChart();
 
@@ -335,11 +343,19 @@ namespace MyWorkApplication
                         }
 
                         // Fund Year //
-                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(14))
+                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(13))
                         {
                             Project_FundAmount_BindChart();
 
                             Fill_ChartArea("Fund Amount");
+                        }
+
+                        // Sustainability //
+                        else if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(14))
+                        {
+                            Project_Sustainability_BindChart();
+
+                            Fill_ChartArea("Sustainability");
                         }
 
                         //to show/hide columns
@@ -353,22 +369,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void Category_comboBox_Leave(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    if (user_mode)
-            //    {
-            //        X_Axis_comboBox_SelectedIndexChanged(sender, e);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-        }
-
+         
         private void ApplyFilter_button_Click(object sender, EventArgs e)
         {
             try
@@ -427,16 +428,16 @@ namespace MyWorkApplication
                 = HomeStreet_label.Visible = ProjectStreet_label.Visible = true;
 
             ApplyDateFrom_label.Text = "Apply Date:";
-            // profit rate //
-            if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(12))
-            {
-                ApplyDateFrom_label.Text = "Visit Date:";
-            }
-            // success rate //
-            if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(13))
-            {
-                ApplyDateFrom_label.Text = "Visit Date:";
-            }
+            //// profit rate //
+            //if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(12))
+            //{
+            //    ApplyDateFrom_label.Text = "Visit Date:";
+            //}
+            //// success rate //
+            //if (X_Axis_comboBox.SelectedItem.ToString() == X_Axis_list.ElementAt<string>(13))
+            //{
+            //    ApplyDateFrom_label.Text = "Visit Date:";
+            //}
         }
         public void Check_Conditions()
         {
@@ -577,9 +578,12 @@ namespace MyWorkApplication
             //Apply Date
             if (ApplyDate_condition != "")
             {
+                //profit rate - success rate  
                 if (X_Axis_comboBox.SelectedIndex != 11
                  && X_Axis_comboBox.SelectedIndex != 12
-                 && X_Axis_comboBox.SelectedIndex != 13) //profit rate - success rate - me results
+                 && X_Axis_comboBox.SelectedIndex != 13
+                 //&& X_Axis_comboBox.SelectedIndex != 14
+                 )  
                     condition += ApplyDate_condition;
             }
 
@@ -757,11 +761,22 @@ namespace MyWorkApplication
             results_dataGridView.DataSource = ds.Tables[0];
             Count_all_label.Text = Count_funded_label.Text = "";
 
-            var sumObject = ds.Tables[0].Compute("Sum(numOfProjects)", string.Empty);
-            var sumObject2 = ds.Tables[0].Compute("Sum(numOfFundedProjects)", string.Empty);
+            if (X_Axis_comboBox.SelectedIndex == 14)
+            {
+                var sumObject = ds.Tables[0].Compute("Sum(Num_Funded)", string.Empty);
+                var sumObject2 = ds.Tables[0].Compute("Sum(Num_Closed)", string.Empty);
 
-            Count_all_label.Text = "All:" + sumObject.ToString();
-            Count_funded_label.Text = "Funded:" + sumObject2.ToString();
+                Count_all_label.Text = "Ongoing:" + sumObject.ToString();
+                Count_funded_label.Text = "Closed:" + sumObject2.ToString();
+            }
+            else
+            {
+                var sumObject = ds.Tables[0].Compute("Sum(numOfProjects)", string.Empty);
+                var sumObject2 = ds.Tables[0].Compute("Sum(numOfFundedProjects)", string.Empty);
+
+                Count_all_label.Text = "All:" + sumObject.ToString();
+                Count_funded_label.Text = "Funded:" + sumObject2.ToString();
+            }
         }
 
         #region select project statistics 
@@ -788,7 +803,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-        private void Project_Type_BindChart()
+        private void Project_FundType_BindChart()
         {
             try
             {
@@ -812,6 +827,28 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
+        private void Project_Type_BindChart()
+        {
+            try
+            {
+                string query = " Select microprojecttype.Name_en as 'Type'" +
+                    ", count(DISTINCT MP_ID) as numOfProjects " +
+                    ", (select count(DISTINCT microproject.MP_ID) " +
+                             inner_from + condition +
+                             " and State_ID in (4,5,7,8) " +
+                             " and Current_State = 1 " +
+                             " and MP.MP_SubType_ID = microproject.MP_SubType_ID ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
+
+                var GroupBycondition = "  group by microprojecttype.Name ";
+                query += from + condition + GroupBycondition + ";";
+
+                executeQuery_countAll(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void Project_SubType_BindChart()
         {
             try
@@ -824,7 +861,10 @@ namespace MyWorkApplication
                              " and Current_State = 1 " +
                              " and MP.MP_SubType_ID = microproject.MP_SubType_ID ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
 
-                var GroupBycondition = "  group by microprojectsubtype.Name ";
+                var GroupBycondition = @" group by microprojectsubtype.Name_en 
+    order by Field(microprojectsubtype.Name_en
+,'New Project','Development/Expand'
+,'Renovation' ,'Renovation - New Project' ,'Renovation - Development/Expand')";
                 query += from + condition + GroupBycondition + ";";
 
                 executeQuery_countAll(query);
@@ -880,6 +920,28 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
+        private void Project_Partnership_BindChart()
+        {
+            try
+            {
+                string query = "Select case WHEN Partnership = 1 THEN 'Individual' ELSE CONCAT(Partnership, ' Partners') END as PartnershipRange "
+                             + ", count(DISTINCT MP_ID) as numOfProjects "
+                             + ", (select count(DISTINCT microproject.MP_ID) "
+                             + inner_from + condition +
+                             " and State_ID in (4,5,7,8) " +
+                             " and Current_State = 1 " +
+                             " and MP.Partnership = microproject.Partnership ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
+
+                var GroupBycondition = "  group by PartnershipRange ";
+                query += from + condition + GroupBycondition + ";";
+
+                executeQuery_countAll(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void Project_Donor_BindChart()
         {
             try
@@ -904,19 +966,21 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-        private void Project_Partnership_BindChart()
+        private void Project_FundYear_BindChart()
         {
             try
             {
-                string query = "Select CASE Partnership WHEN '1' THEN 'Individual' ELSE 'Partnership' END as 'Partnership'"
+                condition += " and YEAR(Loan_DateTaken) is not null ";
+
+                string query = "Select YEAR(Loan_DateTaken) as 'Fund Year'"
                              + ", count(DISTINCT MP_ID) as numOfProjects "
                              + ", (select count(DISTINCT microproject.MP_ID) "
                              + inner_from + condition +
                              " and State_ID in (4,5,7,8) " +
                              " and Current_State = 1 " +
-                             " and MP.Partnership = microproject.Partnership ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
+                             " and YEAR(L.Loan_DateTaken) = YEAR(loan.Loan_DateTaken) ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
 
-                var GroupBycondition = "  group by Partnership ";
+                var GroupBycondition = "  group by YEAR(Loan_DateTaken) ";
                 query += from + condition + GroupBycondition + ";";
 
                 executeQuery_countAll(query);
@@ -926,35 +990,149 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-        private void Project_Experience_BindChart()
+        private void Project_FundAmount_BindChart()
         {
-            //try
-            //{
+            try
+            {
+                //condition += " and Round( (Loan_Amount / donorgroup.Rate) , 2 ) is not null ";
 
-//                condition += " and Score_ID = 3 ";
+                string query = "Select case " +
+                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 0    AND 1000 THEN '0-1000' " +
+                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 1001 AND 2000 THEN '1001-2000' " +
+                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 2001 AND 3000 THEN '2001-3000' " +
+                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 3001 AND 4000 THEN '3001-4000' " +
+                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 4001 AND 5000 THEN '4001-5000' " +
+                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 4001 AND 5000 THEN '5001-5001' " +
+                    " ELSE '>6000' END as FundAmountRange "
 
-//                var from3 = " left join microproject_score ms on MP.MP_ID = ms.MicroProject_ID ";
-//                var inner_from3 = " left join microproject_score on microproject.MP_ID = microproject_score.MicroProject_ID ";
+                    + ", count(DISTINCT MP_ID) as numOfProjects "
+                    + ", (select count(DISTINCT microproject.MP_ID) "
+                            + inner_from + condition +
+                            " and State_ID in (4,5,7,8) " +
+                            " and Current_State = 1 " +
+                            " and YEAR(L.Loan_Amount) = YEAR(loan.Loan_Amount) ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
 
-//                string query = @"SELECT case ms.value when 1 then 'Yes' when 0 then 'No' else 'N/A' end as 'Experience'
-//, count(DISTINCT MP_ID) as numOfProjects 
-//, (select count(DISTINCT microproject.MP_ID) " +
-//        inner_from + inner_from3 + condition +
-//                             " and State_ID in (4,5,7,8) " +
-//                             " and Current_State = 1 " +
-//        " and ms.value = microproject_score.value ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
+                var GroupBycondition = @" 
+    GROUP BY FundAmountRange 
+    ORDER BY FIELD(FundAmountRange ,
+    '0-1000', '1001-2000', '2001-3000', '3001-4000', '4001-5000', '5001-6000', '>6000')";
 
-//                var GroupBycondition = "  group by ms.value ";
+                query += from + condition + GroupBycondition + ";";
 
-                //query += from + from3 + condition + GroupBycondition + ";";
-
-                //executeQuery_countAll(query);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+                executeQuery_countAll(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+        private void Project_Sustainability_BindChart()
+        {
+            try
+            {
+                string query = @"SELECT
+CASE WHEN(
+        CASE
+            WHEN state.Name_Ar IN('مغلق', 'ملغى')
+                THEN TIMESTAMPDIFF(YEAR, Loan_DateTaken, mps.Date)
+            WHEN state.Name_Ar IN('ممول', 'منتهي')
+                THEN TIMESTAMPDIFF(YEAR, Loan_DateTaken, NOW())
+            ELSE NULL
+        END
+            ) < 1 THEN '<1 year' 
+    WHEN(
+        CASE
+            WHEN state.Name_Ar IN('مغلق', 'ملغى')
+                THEN TIMESTAMPDIFF(YEAR, Loan_DateTaken, mps.Date)
+            WHEN state.Name_Ar IN('ممول', 'منتهي')
+                THEN TIMESTAMPDIFF(YEAR, Loan_DateTaken, NOW())
+            ELSE NULL
+        END
+            ) BETWEEN 1 AND 2 THEN '1-2 years'
+    WHEN(
+        CASE
+            WHEN state.Name_Ar IN('مغلق', 'ملغى')
+                THEN TIMESTAMPDIFF(YEAR, Loan_DateTaken, mps.Date)
+            WHEN state.Name_Ar IN('ممول', 'منتهي')
+                THEN TIMESTAMPDIFF(YEAR, Loan_DateTaken, NOW())
+            ELSE NULL
+        END
+    ) BETWEEN 2 AND 3 THEN '2-3 years'
+    WHEN(
+        CASE
+            WHEN state.Name_Ar IN('مغلق', 'ملغى')
+                THEN TIMESTAMPDIFF(YEAR, Loan_DateTaken, mps.Date)
+            WHEN state.Name_Ar IN('ممول', 'منتهي')
+                THEN TIMESTAMPDIFF(YEAR, Loan_DateTaken, NOW())
+            ELSE NULL
+        END
+    ) BETWEEN 3 AND 4 THEN '3-4 years'
+    WHEN(
+        CASE
+            WHEN state.Name_Ar IN('مغلق', 'ملغى')
+                THEN TIMESTAMPDIFF(YEAR, Loan_DateTaken, mps.Date)
+            WHEN state.Name_Ar IN('ممول', 'منتهي')
+                THEN TIMESTAMPDIFF(YEAR, Loan_DateTaken, NOW())
+            ELSE NULL
+        END
+    ) BETWEEN 4 AND 5 THEN '4-5 years'
+    ELSE '>5 years'
+END AS SustainabilityRange "
+
+        + ", COUNT(DISTINCT CASE WHEN state.Name_Ar IN('ممول','منتهي') THEN MP_ID END) AS Num_Funded "
+        + ", COUNT(DISTINCT CASE WHEN state.Name_Ar IN('ملغى','مغلق') THEN MP_ID END)  AS Num_Closed "; //بس ملغى ومغلق
+
+        //+ ", COUNT(DISTINCT MP_ID) AS numOfProjects "
+        //+ ", (select count(DISTINCT microproject.MP_ID) "
+        //+ inner_from + condition +
+        //" and State_ID in (4,5,7,8) " + 
+        //" and Current_State = 1 " +
+        //" AND YEAR(L.Loan_DateTaken) = YEAR(loan.Loan_DateTaken) ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
+
+                var GroupBycondition = @" 
+    GROUP BY SustainabilityRange 
+    ORDER BY FIELD(SustainabilityRange ,
+    '<1 year', '1-2 years', '2-3 years', '3-4 years', '4-5 years', '>5 years')";
+
+                query += from + condition + GroupBycondition + ";";
+
+                executeQuery_countAll(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        
+        //        private void Project_Experience_BindChart()
+        //        {
+        //            //try
+        //            //{
+
+        ////                condition += " and Score_ID = 3 ";
+
+        ////                var from3 = " left join microproject_score ms on MP.MP_ID = ms.MicroProject_ID ";
+        ////                var inner_from3 = " left join microproject_score on microproject.MP_ID = microproject_score.MicroProject_ID ";
+
+        ////                string query = @"SELECT case ms.value when 1 then 'Yes' when 0 then 'No' else 'N/A' end as 'Experience'
+        ////, count(DISTINCT MP_ID) as numOfProjects 
+        ////, (select count(DISTINCT microproject.MP_ID) " +
+        ////        inner_from + inner_from3 + condition +
+        ////                             " and State_ID in (4,5,7,8) " +
+        ////                             " and Current_State = 1 " +
+        ////        " and ms.value = microproject_score.value ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
+
+        ////                var GroupBycondition = "  group by ms.value ";
+
+        //                //query += from + from3 + condition + GroupBycondition + ";";
+
+        //                //executeQuery_countAll(query);
+        //            //}
+        //            //catch (Exception ex)
+        //            //{
+        //            //    MessageBox.Show(ex.Message);
+        //            //}
+        //        }
 
         #endregion
         #region select beneficiary statistics 
@@ -1061,123 +1239,61 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-        private void Project_LastProfitRate_BindChart()
-        {
-            try
-            {
-                MySqlCommand sc = new MySqlCommand("calculate_profit_rates", Program.MyConn);
-                sc.CommandType = CommandType.StoredProcedure;
-                sc.Parameters.AddWithValue("@MyCondition", condition);
 
-                using (MySqlDataAdapter sda = new MySqlDataAdapter(sc))
-                {
-                    DataTable dt = new DataTable();
-                    sda.Fill(dt);
-                    results_dataGridView.DataSource = dt;
-                    Program.MyConn.Close();
+        //private void Project_LastProfitRate_BindChart()
+        //{
+        //    try
+        //    {
+        //        MySqlCommand sc = new MySqlCommand("calculate_profit_rates", Program.MyConn);
+        //        sc.CommandType = CommandType.StoredProcedure;
+        //        sc.Parameters.AddWithValue("@MyCondition", condition);
 
-                    Count_all_label.Text = Count_funded_label.Text = "";
+        //        using (MySqlDataAdapter sda = new MySqlDataAdapter(sc))
+        //        {
+        //            DataTable dt = new DataTable();
+        //            sda.Fill(dt);
+        //            results_dataGridView.DataSource = dt;
+        //            Program.MyConn.Close();
 
-                    var sumObject = dt.Compute("Sum(numOfProjects)", string.Empty);
-                    Count_funded_label.Text = "Funded:" + sumObject.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void Project_LastMEResults_BindChart()
-        {
-            try
-            {
-                MySqlCommand sc = new MySqlCommand("calculate_last_me_results", Program.MyConn);
-                sc.CommandType = CommandType.StoredProcedure;
-                sc.Parameters.AddWithValue("@MyCondition", condition);
+        //            Count_all_label.Text = Count_funded_label.Text = "";
 
-                using (MySqlDataAdapter sda = new MySqlDataAdapter(sc))
-                {
-                    DataTable dt = new DataTable();
-                    sda.Fill(dt);
-                    results_dataGridView.DataSource = dt;
-                    Program.MyConn.Close();
+        //            var sumObject = dt.Compute("Sum(numOfProjects)", string.Empty);
+        //            Count_funded_label.Text = "Funded:" + sumObject.ToString();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+        //private void Project_LastMEResults_BindChart()
+        //{
+        //    try
+        //    {
+        //        MySqlCommand sc = new MySqlCommand("calculate_last_me_results", Program.MyConn);
+        //        sc.CommandType = CommandType.StoredProcedure;
+        //        sc.Parameters.AddWithValue("@MyCondition", condition);
 
-                    Count_all_label.Text = Count_funded_label.Text = "";
+        //        using (MySqlDataAdapter sda = new MySqlDataAdapter(sc))
+        //        {
+        //            DataTable dt = new DataTable();
+        //            sda.Fill(dt);
+        //            results_dataGridView.DataSource = dt;
+        //            Program.MyConn.Close();
 
-                    var sumObject = dt.Compute("Sum(numOfProjects)", string.Empty);
+        //            Count_all_label.Text = Count_funded_label.Text = "";
 
-                    Count_funded_label.Text = "Funded:" + sumObject.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void Project_FundYear_BindChart()
-        {
-            try
-            {
-                condition += " and YEAR(Loan_DateTaken) is not null ";
+        //            var sumObject = dt.Compute("Sum(numOfProjects)", string.Empty);
 
-                string query = "Select YEAR(Loan_DateTaken) as 'Fund Year'"
-                             + ", count(DISTINCT MP_ID) as numOfProjects "
-                             + ", (select count(DISTINCT microproject.MP_ID) "
-                             + inner_from + condition +
-                             " and State_ID in (4,5,7,8) " +
-                             " and Current_State = 1 " +
-                             " and YEAR(L.Loan_DateTaken) = YEAR(loan.Loan_DateTaken) ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
+        //            Count_funded_label.Text = "Funded:" + sumObject.ToString();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
-                var GroupBycondition = "  group by YEAR(Loan_DateTaken) ";
-                query += from + condition + GroupBycondition + ";";
-
-                executeQuery_countAll(query);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void Project_FundAmount_BindChart()
-        {
-            try
-            {
-                //condition += " and Round( (Loan_Amount / donorgroup.Rate) , 2 ) is not null ";
-
-                string query = "Select case " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 0    AND 1000 THEN '0-1000' " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 1001 AND 2000 THEN '1001-2000' " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 2001 AND 3000 THEN '2001-3000' " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 3001 AND 4000 THEN '3001-4000' " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 4001 AND 5000 THEN '4001-5000' " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 4001 AND 5000 THEN '5001-5001' " +
-                    " ELSE '>6000' END as 'Fund Amount' "
-
-                    + ", count(DISTINCT MP_ID) as numOfProjects "
-                    + ", (select count(DISTINCT microproject.MP_ID) "
-                            + inner_from + condition +
-                            " and State_ID in (4,5,7,8) " +
-                            " and Current_State = 1 " +
-                            " and YEAR(L.Loan_Amount) = YEAR(loan.Loan_Amount) ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
-
-                var GroupBycondition = "  group by case " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 0    AND 1000 THEN '0-1000' " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 1001 AND 2000 THEN '1001-2000' " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 2001 AND 3000 THEN '2001-3000' " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 3001 AND 4000 THEN '3001-4000' " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 4001 AND 5000 THEN '4001-5000' " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 4001 AND 5000 THEN '5001-6000' " +
-                    " ELSE '>6000' END ";
-
-                query += from + condition + GroupBycondition + ";";
-
-                executeQuery_countAll(query);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
         #endregion
 
         #region comboBox bind and events
@@ -1404,131 +1520,6 @@ namespace MyWorkApplication
             user_mode = true;
         }
 
-        //private void Career_bind(string SubCategory_ID)
-        //{
-        //    user_mode = false;
-        //    Career_comboBox.DataSource = null;
-        //    //Career_comboBox.DisplayMember = "Name";
-        //    //Career_comboBox.ValueMember = "ID";
-
-        //    if (SubCategory_ID != "")
-        //    {
-        //        DataRow[] rows = null;
-        //        rows = combo_ds.Tables[2].Select("SubCategory_ID=" + SubCategory_ID);
-
-        //        DataTable selected_rows_dt = new DataTable();
-        //        selected_rows_dt = combo_ds.Tables[2].Copy();
-        //        selected_rows_dt.Rows.Clear();
-        //        foreach (DataRow row in rows)
-        //            selected_rows_dt.ImportRow(row);
-
-        //        if (selected_rows_dt.Rows.Count != 0 && selected_rows_dt != null)
-        //            Set_checkboxcomboBox_datasource(Career_comboBox,selected_rows_dt);
-        //    }
-        //    else
-        //    {
-        //        Set_checkboxcomboBox_datasource(Career_comboBox,combo_ds.Tables[2]);
-
-        //    }
-        //    Career_comboBox.SelectedIndex = -1;
-        //    user_mode = true;
-        //}
-        //private void SubCategory_bind(string Category_ID)
-        //{
-        //    user_mode = false;
-        //    SubCategory_comboBox.DataSource = null;
-        //    //SubCategory_comboBox.DisplayMember = "Name";
-        //    //SubCategory_comboBox.ValueMember = "ID";
-
-        //    if (Category_ID != "")
-        //    {
-        //        DataRow[] rows = null;
-        //        rows = combo_ds.Tables[1].Select("Category_ID=" + Category_ID);
-
-        //        DataTable selected_rows_dt = new DataTable();
-        //        selected_rows_dt = combo_ds.Tables[1].Copy();
-        //        selected_rows_dt.Rows.Clear();
-        //        foreach (DataRow row in rows)
-        //            selected_rows_dt.ImportRow(row);
-
-        //        if (selected_rows_dt.Rows.Count != 0 && selected_rows_dt != null)
-        //            Set_checkboxcomboBox_datasource(SubCategory_comboBox,selected_rows_dt);
-        //    }
-        //    else
-        //    {
-        //        Set_checkboxcomboBox_datasource(SubCategory_comboBox,combo_ds.Tables[1]);
-
-        //    }
-        //    SubCategory_comboBox.SelectedIndex = -1;
-        //    user_mode = true;
-        //}
-        //private void SubType_bind(string Type_ID)
-        //{
-        //    user_mode = false;
-        //    SubType_comboBox.DataSource = null;
-        //    //SubType_comboBox.DisplayMember = "Name";
-        //    //SubType_comboBox.ValueMember = "ID";
-
-        //    if (Type_ID != "")
-        //    {
-        //        DataRow[] rows = null;
-        //        rows = combo_ds.Tables[7].Select("Type_ID=" + Type_ID);
-
-        //        DataTable selected_rows_dt = new DataTable();
-        //        selected_rows_dt = combo_ds.Tables[7].Copy();
-        //        selected_rows_dt.Rows.Clear();
-        //        foreach (DataRow row in rows)
-        //            selected_rows_dt.ImportRow(row);
-
-        //        if (selected_rows_dt.Rows.Count != 0 || selected_rows_dt != null)
-        //            SubType_comboBox.DataSource = selected_rows_dt;
-        //        else
-        //        {
-
-        //        }
-        //    }
-        //    else
-        //    {
-        //        SubType_comboBox.DataSource = combo_ds.Tables[7];
-
-        //    }
-        //    SubType_comboBox.SelectedIndex = -1;
-        //    user_mode = true;
-        //}
-        //private void DonorGroup_bind(string Donor_ID)
-        //{
-        //    user_mode = false;
-        //    DonorGroup_comboBox.DataSource = null;
-        //    DonorGroup_comboBox.DisplayMember = "Name";
-        //    DonorGroup_comboBox.ValueMember = "ID";
-
-        //    if (Donor_ID != "")
-        //    {
-        //        DataRow[] rows = null;
-        //        rows = combo_ds.Tables[4].Select("Donor_ID=" + Donor_ID);
-
-        //        DataTable selected_rows_dt = new DataTable();
-        //        selected_rows_dt = combo_ds.Tables[4].Copy();
-        //        selected_rows_dt.Rows.Clear();
-        //        foreach (DataRow row in rows)
-        //            selected_rows_dt.ImportRow(row);
-
-        //        if (selected_rows_dt.Rows.Count != 0 || selected_rows_dt != null)
-        //            DonorGroup_comboBox.DataSource = selected_rows_dt;
-        //        else
-        //        {
-
-        //        }
-        //    }
-        //    else
-        //    {
-        //        DonorGroup_comboBox.DataSource = combo_ds.Tables[4];
-
-        //    }
-        //    DonorGroup_comboBox.SelectedIndex = -1;
-        //    user_mode = true;
-        //}
-
         private void DonorGroup_comboBox_Enter(object sender, EventArgs e)
         {
             if (Donor_comboBox.SelectedIndex != -1)
@@ -1698,13 +1689,22 @@ namespace MyWorkApplication
 
         private void Fill_ChartArea(string Name)
         {
-            Build_Series("all projects - " + Name);
+            if(X_Axis_comboBox.SelectedIndex == 14)
+                Build_Series("Ongoing projects - " + Name);
+            else 
+                Build_Series("all projects - " + Name);
 
-            if (   X_Axis_comboBox.SelectedIndex != 11
-                && X_Axis_comboBox.SelectedIndex != 12
-                && X_Axis_comboBox.SelectedIndex != 13
-                && X_Axis_comboBox.SelectedIndex != 14) //not profit rate , success rate , me results
-                Build_Series("funded projects - " + Name);
+            //not profit rate , success rate
+            if (X_Axis_comboBox.SelectedIndex != 11
+             && X_Axis_comboBox.SelectedIndex != 12
+             && X_Axis_comboBox.SelectedIndex != 13)
+            {
+                if (X_Axis_comboBox.SelectedIndex == 14)
+                    Build_Series("Closed projects - " + Name);
+                else 
+                    Build_Series("funded projects - " + Name);
+            }
+
 
             if (Chart_type == SeriesChartType.Doughnut)
             {
@@ -1731,16 +1731,25 @@ namespace MyWorkApplication
             for (var i = 0; i < results_dataGridView.Rows.Count; i++)
             {
                 //fill chart
-                chart1.Series["all projects - " + Name].Points.AddXY(
+                if (X_Axis_comboBox.SelectedIndex == 14)
+                    chart1.Series["Ongoing projects - " + Name].Points.AddXY(
+                        results_dataGridView.Rows[i].Cells[0].Value.ToString(), Convert.ToInt32(results_dataGridView.Rows[i].Cells[1].Value.ToString()));
+                else
+                    chart1.Series["all projects - " + Name].Points.AddXY(
                     results_dataGridView.Rows[i].Cells[0].Value.ToString(), Convert.ToInt32(results_dataGridView.Rows[i].Cells[1].Value.ToString()));
 
-                if (   X_Axis_comboBox.SelectedIndex != 11
-                    && X_Axis_comboBox.SelectedIndex != 12
-                    && X_Axis_comboBox.SelectedIndex != 13
-                    && X_Axis_comboBox.SelectedIndex != 14) //not profit rate ,success rate, me results
-                    chart1.Series["funded projects - " + Name].Points.AddXY(
-                        results_dataGridView.Rows[i].Cells[0].Value.ToString(), Convert.ToInt32(results_dataGridView.Rows[i].Cells[2].Value.ToString()));
-
+                //not profit rate ,success rate
+                if (X_Axis_comboBox.SelectedIndex != 11
+                 && X_Axis_comboBox.SelectedIndex != 12
+                 && X_Axis_comboBox.SelectedIndex != 13)
+                {
+                    if (X_Axis_comboBox.SelectedIndex == 14) 
+                        chart1.Series["Closed projects - " + Name].Points.AddXY(
+                            results_dataGridView.Rows[i].Cells[0].Value.ToString(), Convert.ToInt32(results_dataGridView.Rows[i].Cells[2].Value.ToString()));
+                    else
+                        chart1.Series["funded projects - " + Name].Points.AddXY(
+                            results_dataGridView.Rows[i].Cells[0].Value.ToString(), Convert.ToInt32(results_dataGridView.Rows[i].Cells[2].Value.ToString()));
+                }
                 //save the maximum value
                 if (Convert.ToInt32(results_dataGridView.Rows[i].Cells[1].Value) > max_value)
                     max_value = Convert.ToInt32(results_dataGridView.Rows[i].Cells[1].Value);
