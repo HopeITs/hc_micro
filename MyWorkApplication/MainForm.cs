@@ -363,7 +363,7 @@ namespace MyWorkApplication
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[1], Keys.Alt | Keys.L);//Loans 
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[2], Keys.Alt | Keys.P);//Payments schedule
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[3], Keys.Alt | Keys.I);//Attachments
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[4], Keys.Alt | Keys.P);//Purchasing 
+                            //ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[4], Keys.Alt | Keys.P);//Purchasing 
 
                             // --------------------------------------------------------------------- 
 
@@ -410,7 +410,7 @@ namespace MyWorkApplication
                             HideMenuItemWithShortcut((ToolStripMenuItem)financialItems[1]);//Loans
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[2], Keys.Alt | Keys.P);//Payments schedule
                             ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[3], Keys.Alt | Keys.I);//Attachments
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[4], Keys.Alt | Keys.P);//Purchasing
+                            //ShowMenuItemWithShortcut((ToolStripMenuItem)financialItems[4], Keys.Alt | Keys.P);//Purchasing
 
                             // --------------------------------------------------------------------- 
 
@@ -761,15 +761,15 @@ namespace MyWorkApplication
 
         private void purchasingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Form Purchasing_Form = new Purchasing_Form(this);
-                showNewTab(Purchasing_Form, "Purchasing", 0);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //try
+            //{
+            //    Form Purchasing_Form = new Purchasing_Form(this);
+            //    showNewTab(Purchasing_Form, "Purchasing", 0);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
          
 

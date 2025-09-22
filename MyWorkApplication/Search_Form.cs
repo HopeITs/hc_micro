@@ -138,7 +138,7 @@ namespace MyWorkApplication
                 searchBy_list.Add("Special Cases");
                 searchBy_list.Add("Aid Sources");
                 searchBy_list.Add("Materials Required");
-                searchBy_list.Add("Materials Purchased");
+                //searchBy_list.Add("Materials Purchased");
 
                 for (int i = 0; i < searchBy_list.Count; i++)
                     SearchBy_comboBox.Items.Add(searchBy_list.ElementAt<string>(i));
@@ -534,37 +534,37 @@ namespace MyWorkApplication
                 //Requested_checkBox.Visible = Funded_checkBox.Visible = 
             }
             // Materials Purchased //
-            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
-            {
-                FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
-                MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
-                Category_comboBox.Visible = SubCategory_comboBox.Visible = Career_comboBox.Visible =
-                FundDate_comboBox.Visible = ApplyDate_comboBox.Visible
-                 = true;
-                P_Parish_comboBox.Visible = Age_comboBox.Visible
-                    = Gender_comboBox.Visible = MaritalStatus_comboBox.Visible
-                    = HomeStreet_comboBox.Visible = ProjectStreet_comboBox.Visible = false;
+            //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
+            //{
+            //    FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
+            //    MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
+            //    Category_comboBox.Visible = SubCategory_comboBox.Visible = Career_comboBox.Visible =
+            //    FundDate_comboBox.Visible = ApplyDate_comboBox.Visible
+            //     = true;
+            //    P_Parish_comboBox.Visible = Age_comboBox.Visible
+            //        = Gender_comboBox.Visible = MaritalStatus_comboBox.Visible
+            //        = HomeStreet_comboBox.Visible = ProjectStreet_comboBox.Visible = false;
 
-                FundType_label.Visible = Type_label.Visible = SubType_label.Visible = Partnership_label.Visible
-                    = MP_Status_label.Visible = Donor_label.Visible = DonorGroup_label.Visible
-                    = Category_label.Visible = SubCategory_label.Visible = Career_label.Visible
-                    = FundedDateFrom_label.Visible = ApplyDateFrom_label.Visible
-                    = true;
-                P_Parish_label.Visible = Age_label.Visible = Gender_label.Visible = MaritalStatus_label.Visible
-                    = HomeStreet_label.Visible = ProjectStreet_label.Visible = false;
+            //    FundType_label.Visible = Type_label.Visible = SubType_label.Visible = Partnership_label.Visible
+            //        = MP_Status_label.Visible = Donor_label.Visible = DonorGroup_label.Visible
+            //        = Category_label.Visible = SubCategory_label.Visible = Career_label.Visible
+            //        = FundedDateFrom_label.Visible = ApplyDateFrom_label.Visible
+            //        = true;
+            //    P_Parish_label.Visible = Age_label.Visible = Gender_label.Visible = MaritalStatus_label.Visible
+            //        = HomeStreet_label.Visible = ProjectStreet_label.Visible = false;
 
-                ApplyDateFrom_label.Visible = ApplyDateFrom_dateTimePicker.Visible =
-                    ApplyDateTo_DateTimePicker.Visible =
-                    FundedDateFrom_label.Visible = FundedDateFrom_DateTimePicker.Visible =
-                    FundedDateTo_DateTimePicker.Visible =
-                    ApplyDate_checkBox.Visible = FundedDate_checkBox.Visible = true;
+            //    ApplyDateFrom_label.Visible = ApplyDateFrom_dateTimePicker.Visible =
+            //        ApplyDateTo_DateTimePicker.Visible =
+            //        FundedDateFrom_label.Visible = FundedDateFrom_DateTimePicker.Visible =
+            //        FundedDateTo_DateTimePicker.Visible =
+            //        ApplyDate_checkBox.Visible = FundedDate_checkBox.Visible = true;
 
-                RequestedFrom_textBox.Visible = RequestedTo_textBox.Visible =
-                    RequestedFrom_label.Visible =
-                    FundedFrom_textBox.Visible = FundedTo_textBox.Visible =
-                    FundedFrom_label.Visible = true;
-                //Requested_checkBox.Visible = Funded_checkBox.Visible = 
-            }
+            //    RequestedFrom_textBox.Visible = RequestedTo_textBox.Visible =
+            //        RequestedFrom_label.Visible =
+            //        FundedFrom_textBox.Visible = FundedTo_textBox.Visible =
+            //        FundedFrom_label.Visible = true;
+            //    //Requested_checkBox.Visible = Funded_checkBox.Visible = 
+            //}
         }
 
         private void Calculate_ImportExportMoney(string str)
@@ -2464,10 +2464,10 @@ namespace MyWorkApplication
                     bind_Materials();
                 }
                 // Materials Purchased //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
-                {
-                    bind_Purchasing();
-                }
+                //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
+                //{
+                //    bind_Purchasing();
+                //}
 
                 tick++;
                 // Use of the DataGridViewColumnSelector
@@ -3516,7 +3516,7 @@ namespace MyWorkApplication
                 case 7:  Settings.Default.Search7_Visible_arr = value_str; break;
                 case 8:  Settings.Default.Search8_Visible_arr = value_str; break;
                 case 9:  Settings.Default.Search9_Visible_arr = value_str; break;
-                case 10: Settings.Default.Search10_Visible_arr = value_str; break;
+                //case 10: Settings.Default.Search10_Visible_arr = value_str; break;
             }  
             Settings.Default.Save();
         }
@@ -3538,7 +3538,7 @@ namespace MyWorkApplication
                     case 7:  saved = Settings.Default.Search7_Visible_arr; break;
                     case 8:  saved = Settings.Default.Search8_Visible_arr; break;
                     case 9:  saved = Settings.Default.Search9_Visible_arr; break;
-                    case 10: saved = Settings.Default.Search10_Visible_arr; break;
+                    //case 10: saved = Settings.Default.Search10_Visible_arr; break;
                     default: saved = ""; break;
                 }
 
