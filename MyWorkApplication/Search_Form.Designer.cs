@@ -162,12 +162,13 @@ namespace MyWorkApplication
             this.sumAll_label = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.MP_dataGridView = new Zuby.ADGV.AdvancedDataGridView();
-            this.Hide_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Show_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.SearchToolBar = new Zuby.ADGV.AdvancedDataGridViewSearchToolBar();
-            this.Show_Hide_ToolStrip = new System.Windows.Forms.ToolStripSplitButton();
+            this.Show_Hide_ToolStrip = new System.Windows.Forms.ToolStripDropDownButton();
+            this.Hide_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Show_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.showAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -262,11 +263,11 @@ namespace MyWorkApplication
             this.SearchBy_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchBy_comboBox.ForeColor = System.Drawing.Color.Black;
             this.SearchBy_comboBox.FormattingEnabled = true;
-            this.SearchBy_comboBox.Location = new System.Drawing.Point(752, 4);
+            this.SearchBy_comboBox.Location = new System.Drawing.Point(761, 4);
             this.SearchBy_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SearchBy_comboBox.Name = "SearchBy_comboBox";
             this.SearchBy_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SearchBy_comboBox.Size = new System.Drawing.Size(346, 35);
+            this.SearchBy_comboBox.Size = new System.Drawing.Size(340, 35);
             this.SearchBy_comboBox.TabIndex = 1;
             this.SearchBy_comboBox.SelectedIndexChanged += new System.EventHandler(this.SearchBy_comboBox_SelectedIndexChanged);
             // 
@@ -275,7 +276,7 @@ namespace MyWorkApplication
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label16.Location = new System.Drawing.Point(1101, 0);
+            this.label16.Location = new System.Drawing.Point(1104, 0);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
             this.label16.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -294,7 +295,7 @@ namespace MyWorkApplication
             this.ShowHide_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShowHide_button.Location = new System.Drawing.Point(146, 4);
+            this.ShowHide_button.Location = new System.Drawing.Point(161, 4);
             this.ShowHide_button.Margin = new System.Windows.Forms.Padding(0);
             this.ShowHide_button.MaximumSize = new System.Drawing.Size(150, 40);
             this.ShowHide_button.MinimumSize = new System.Drawing.Size(150, 40);
@@ -525,7 +526,7 @@ namespace MyWorkApplication
             this.Refresh_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Refresh_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Refresh_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Refresh_button.Location = new System.Drawing.Point(1205, 8);
+            this.Refresh_button.Location = new System.Drawing.Point(1206, 8);
             this.Refresh_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Refresh_button.MaximumSize = new System.Drawing.Size(29, 32);
             this.Refresh_button.MinimumSize = new System.Drawing.Size(29, 32);
@@ -1470,7 +1471,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.16274F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
             this.tableLayoutPanel1.ContextMenuStrip = this.contextMenuStrip1;
             this.tableLayoutPanel1.Controls.Add(this.ShowHide_button, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.LastVisit_checkBox, 4, 0);
@@ -1492,7 +1493,7 @@ namespace MyWorkApplication
             // 
             this.LastVisit_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.LastVisit_checkBox.AutoSize = true;
-            this.LastVisit_checkBox.Location = new System.Drawing.Point(424, 9);
+            this.LastVisit_checkBox.Location = new System.Drawing.Point(439, 9);
             this.LastVisit_checkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LastVisit_checkBox.Name = "LastVisit_checkBox";
             this.LastVisit_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1514,7 +1515,7 @@ namespace MyWorkApplication
             this.ApplyFilter_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ApplyFilter_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ApplyFilter_button.ForeColor = System.Drawing.Color.LightGray;
-            this.ApplyFilter_button.Location = new System.Drawing.Point(306, 7);
+            this.ApplyFilter_button.Location = new System.Drawing.Point(321, 7);
             this.ApplyFilter_button.Margin = new System.Windows.Forms.Padding(0);
             this.ApplyFilter_button.MaximumSize = new System.Drawing.Size(110, 34);
             this.ApplyFilter_button.MinimumSize = new System.Drawing.Size(110, 34);
@@ -1914,31 +1915,10 @@ namespace MyWorkApplication
             this.MP_dataGridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.MP_dataGridView_RowHeaderMouseClick);
             this.MP_dataGridView.SelectionChanged += new System.EventHandler(this.MP_dataGridView_SelectionChanged);
             // 
-            // Hide_MenuItem
-            // 
-            this.Hide_MenuItem.Name = "Hide_MenuItem";
-            this.Hide_MenuItem.Size = new System.Drawing.Size(168, 32);
-            this.Hide_MenuItem.Text = "Hide";
-            this.Hide_MenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Hide_MenuItem_DropDownItemClicked);
-            // 
-            // Show_MenuItem
-            // 
-            this.Show_MenuItem.Name = "Show_MenuItem";
-            this.Show_MenuItem.Size = new System.Drawing.Size(168, 32);
-            this.Show_MenuItem.Text = "Show";
-            this.Show_MenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Show_MenuItem_DropDownItemClicked);
-            // 
-            // showAllToolStripMenuItem
-            // 
-            this.showAllToolStripMenuItem.Name = "showAllToolStripMenuItem";
-            this.showAllToolStripMenuItem.Size = new System.Drawing.Size(168, 32);
-            this.showAllToolStripMenuItem.Text = "Show All";
-            this.showAllToolStripMenuItem.Click += new System.EventHandler(this.showAllToolStripMenuItem_Clicked);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(165, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(147, 6);
             // 
             // SearchToolBar
             // 
@@ -1948,6 +1928,8 @@ namespace MyWorkApplication
             this.SearchToolBar.Font = new System.Drawing.Font("Rubik", 10.8F);
             this.SearchToolBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.SearchToolBar.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.SearchToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Show_Hide_ToolStrip});
             this.SearchToolBar.Location = new System.Drawing.Point(289, 300);
             this.SearchToolBar.MaximumSize = new System.Drawing.Size(0, 32);
             this.SearchToolBar.MinimumSize = new System.Drawing.Size(0, 32);
@@ -1962,22 +1944,44 @@ namespace MyWorkApplication
             // Show_Hide_ToolStrip
             // 
             this.Show_Hide_ToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Show_Hide_ToolStrip.DropDownButtonWidth = 10;
             this.Show_Hide_ToolStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Hide_MenuItem,
             this.Show_MenuItem,
-            this.toolStripSeparator1,
-            this.showAllToolStripMenuItem});
-            this.Show_Hide_ToolStrip.Image = global::MyWorkApplication.Properties.Resources.show_password_false;
+            this.toolStripSeparator2,
+            this.showAllToolStripMenuItem1});
+            this.Show_Hide_ToolStrip.Image = global::MyWorkApplication.Properties.Resources.Down_D;
             this.Show_Hide_ToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Show_Hide_ToolStrip.Name = "Show_Hide_ToolStrip";
             this.Show_Hide_ToolStrip.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.Show_Hide_ToolStrip.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Show_Hide_ToolStrip.Size = new System.Drawing.Size(33, 29);
-            this.Show_Hide_ToolStrip.Text = "show/hide columns";
-            this.Show_Hide_ToolStrip.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.Show_Hide_ToolStrip.ToolTipText = "إخفاء و إظهار الأعمدة";
-            this.Show_Hide_ToolStrip.ButtonClick += new System.EventHandler(this.Show_Hide_ToolStrip_ButtonClick);
+            this.Show_Hide_ToolStrip.Size = new System.Drawing.Size(32, 29);
+            this.Show_Hide_ToolStrip.ToolTipText = "show/hide colums";
+            this.Show_Hide_ToolStrip.Click += new System.EventHandler(this.Show_Hide_ToolStrip_ButtonClick);
+            // 
+            // Hide_MenuItem
+            // 
+            this.Hide_MenuItem.Name = "Hide_MenuItem";
+            this.Hide_MenuItem.Size = new System.Drawing.Size(224, 32);
+            this.Hide_MenuItem.Text = "Hide";
+            this.Hide_MenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Hide_MenuItem_DropDownItemClicked);
+            // 
+            // Show_MenuItem
+            // 
+            this.Show_MenuItem.Name = "Show_MenuItem";
+            this.Show_MenuItem.Size = new System.Drawing.Size(224, 32);
+            this.Show_MenuItem.Text = "Show";
+            this.Show_MenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Show_MenuItem_DropDownItemClicked);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
+            // 
+            // showAllToolStripMenuItem1
+            // 
+            this.showAllToolStripMenuItem1.Name = "showAllToolStripMenuItem1";
+            this.showAllToolStripMenuItem1.Size = new System.Drawing.Size(224, 32);
+            this.showAllToolStripMenuItem1.Text = "Show All";
+            this.showAllToolStripMenuItem1.Click += new System.EventHandler(this.showAllToolStripMenuItem_Clicked);
             // 
             // toolStripSeparator4
             // 
@@ -2084,11 +2088,7 @@ namespace MyWorkApplication
         private Zuby.ADGV.AdvancedDataGridView MP_dataGridView;
         private System.Windows.Forms.CheckBox LastVisit_checkBox;  
         private Zuby.ADGV.AdvancedDataGridViewSearchToolBar SearchToolBar;
-        private System.Windows.Forms.ToolStripSplitButton Show_Hide_ToolStrip;
-        private System.Windows.Forms.ToolStripMenuItem Hide_MenuItem;
-        private System.Windows.Forms.ToolStripMenuItem Show_MenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem showAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.DateTimePicker FundedDateFrom_DateTimePicker;
         private System.Windows.Forms.DateTimePicker ApplyDateFrom_dateTimePicker;
@@ -2146,5 +2146,10 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label year_label1;
         private System.Windows.Forms.Label year_label2;
         private System.Windows.Forms.Button ApplyFilter_button;
+        private System.Windows.Forms.ToolStripDropDownButton Show_Hide_ToolStrip;
+        private System.Windows.Forms.ToolStripMenuItem Show_MenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Hide_MenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem showAllToolStripMenuItem1;
     }
 }
