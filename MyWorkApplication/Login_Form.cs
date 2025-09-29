@@ -328,7 +328,7 @@ namespace MyWorkApplication
                 {
                     if (reader.Read())
                     {
-                        string storedHash = reader.GetString("Password");
+                        string storedHash = reader.GetString("Password");   
                         return PasswordHelper.VerifyPassword(password, storedHash);
                     }
                 } 

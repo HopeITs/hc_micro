@@ -3878,8 +3878,23 @@ namespace MyWorkApplication
         {
             try
             {
-                Form Appplication_New_Form = new Application_New_Form(mainForm, MicroProject_ID, -1, "zero");
-                mainForm.showNewTab(Appplication_New_Form, "Application", 0);
+
+                bool anyDataGrid_ISDirty = IsDirty_DataGrid.Values.Any(v => v);
+                bool anyData_ISDirty = IsDirty_Data.Values.Any(v => v);
+
+                if (anyDataGrid_ISDirty || anyData_ISDirty)
+                {
+                    MessageBox.Show("يوجد بعض التعديلات غير المحوفظة، يرجى حفظ الاستمارة ثم إعادة المحاولة", "Error");
+                }
+                else
+                {
+                    //Zero_TO_Project = true;
+                    //ApplicationState = "project";
+
+                    Form Appplication_New_Form 
+                        = new Application_New_Form(mainForm, MicroProject_ID, -1, ApplicationState, Direct_Full_Application);
+                    mainForm.showNewTab(Appplication_New_Form, "Application", 0);
+                }
             }
             catch (Exception ex)
             {
@@ -6843,6 +6858,11 @@ namespace MyWorkApplication
 
             if (ApplicationState == "zero" || ApplicationState == "project")
             {
+                //من احل اختيار نوع المستفيد على انه شريك -- في حال يوجد مشروع ولا يوجد تفاصيل شخص
+                if (MicroProject_ID != -1 && Person_ID == -1)
+                    PersonType_comboBox.SelectedItem = "شريك";
+                //////////////////////////////////////////////////////////////////////////////////
+
                 if (Application_ds.Tables[1] != null && Application_ds.Tables[1].Rows.Count > 0)
                 {
                     Person_ID = Application_ds.Tables[1].Rows[0].Field<int>("P_ID");
