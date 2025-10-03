@@ -551,8 +551,9 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
      LEFT OUTER JOIN `microprojecttype` on microprojecttype.ID = MP.MP_Type_ID
      LEFT OUTER JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID ";
 
-                var query = @"select L.Loan_ID as 'ID'
-    ,L.MicroProject_ID as 'رقم المشروع' 
+                //,Round( ( Loan_Amount / (SELECT Rate from donorgroup where donorgroup.ID = MP.DonorGroup_ID)) , 2 ) as 'القرض ($)'
+                var query = @"select 
+      L.MicroProject_ID as 'رقم المشروع' 
     , Group_Concat(CONCAT(P_FirstName, ' ' , P_LastName , ' ابن/ة ', P_FatherName)) as 'المستفيد' 
     , career.Name as 'المهنة' 
     , P_FullName_en as 'Beneficiary Name'
@@ -565,9 +566,20 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
     , P_Mobile as 'الموبايل' 
 
     ,L.Loan_DateTaken as 'تاريخ استلام القرض'
-    ,L.Loan_Amount as 'القرض'
-    ,Round( ( Loan_Amount / (SELECT Rate from donorgroup where donorgroup.ID = MP.DonorGroup_ID)) , 2 ) as 'القرض ($)'
-    ,Round((L.Loan_ReturnedAmount * 100)/L.Loan_Amount, 2 ) as 'النسبة' 
+    
+    ,L.Currency as 'عملة القرض'
+    ,L.ExchangeRate as 'سعر الصرف'
+
+    ,CASE 
+        WHEN Currency = 'SP'  THEN Loan_Amount
+        WHEN Currency = 'USD' THEN Loan_Amount * ExchangeRate
+    END AS 'القرض (sp)',
+    CASE 
+        WHEN Currency = 'SP'  THEN Loan_Amount / ExchangeRate
+        WHEN Currency = 'USD' THEN Loan_Amount
+    END AS 'القرض (usd)'
+
+    ,Round((L.Loan_ReturnedAmount * 100)/L.Loan_Amount, 2 ) as 'نسبة الاسترجاع' 
     ,L.Loan_ReturnedAmount as 'المبلغ المطلوب استرداده'
     ,L.Loan_PaymentsAmount as 'القسط'
 
@@ -602,7 +614,8 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
     ,Loan_Note as 'ملاحظات'
     ,donorgroup.Name as 'المجموعة'
-    ,L.Loan_ReceiptID as 'رقم الإيصال'";
+    ,L.Loan_ReceiptID as 'رقم الإيصال'
+    ,L.Loan_ID as 'ID' ";
 
                 string condition = "";
                 //= " where Current_State = 1 ";
@@ -640,36 +653,150 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable Select_Loan_Sum(string id_loan_str, string donor)
         {
-            var net_query = ""; string query = "";
+            //",IFNULL( SUM( ( Loan_Amount / (SELECT Rate from donorgroup where donorgroup.ID = microproject.DonorGroup_ID))) ,0) as 'Export($)'"
 
-            if (id_loan_str == "")
-                net_query = @" ,IFNULL((select sum(`Pay_Amount`) from `payment` where Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0)";
-            else
-                net_query = @" ,IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount < 0 and `Pay_IsPaid` = N'Paid') ,0) + IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0)";
+            string query,remaining_usd_query, remaining_sp_query , net_usd_query, net_sp_query,import_query,returned_query;
+            query = remaining_usd_query = remaining_sp_query = net_usd_query = net_sp_query = import_query = returned_query = "";
 
-            if (donor != "") net_query += @"-(select SUM(lulu.Loan_Amount) from loan lulu join microproject m on lulu.MicroProject_ID = m.MP_ID left join donor on donor.ID = m.MP_Donor left join donorgroup on donorgroup.ID = m.DonorGroup_ID where donor.Name like '" + donor + "' and donorgroup.Name like '%Installment%') ";
-            net_query += " as 'Remaining'";
+            //net = (sum paid payment <0 ) + (sum paid payments >= 0)
+            net_sp_query = @" 
+,IFNULL((select sum(
+    CASE 
+        WHEN l.Currency = 'SP' THEN Pay_Amount
+    END) 
+    from `payment` 
+    JOIN loan l ON payment.Loan_ID = l.Loan_ID
+    where Pay_Amount < 0  
+    and `Pay_IsPaid` = N'Paid' " +
+    (id_loan_str == "" ? "" : " and payment.Loan_ID in " + id_loan_str) + @"
+) ,0)  
++ IFNULL((select sum(
+    CASE 
+        WHEN l.Currency = 'SP' THEN Pay_Amount
+    END)
+    from `payment` 
+    JOIN loan l ON payment.Loan_ID = l.Loan_ID
+    where Pay_Amount >= 0 
+    and `Pay_IsPaid` = N'Paid' " +
+    (id_loan_str == "" ? "" : " and payment.Loan_ID in " + id_loan_str) + @"
+) ,0) ";
+
+            net_usd_query = @" 
+,IFNULL((select sum(
+    CASE 
+        WHEN l.Currency = 'USD' THEN Pay_Amount
+    END) 
+    from `payment` 
+    JOIN loan l ON payment.Loan_ID = l.Loan_ID
+    where Pay_Amount < 0  
+    and `Pay_IsPaid` = N'Paid' " +
+    (id_loan_str == "" ? "" : " and payment.Loan_ID in " + id_loan_str) + @"
+) ,0)  
++ IFNULL((select sum(
+    CASE 
+        WHEN l.Currency = 'USD' THEN Pay_Amount
+    END)
+    from `payment` 
+    JOIN loan l ON payment.Loan_ID = l.Loan_ID
+    where Pay_Amount >= 0 
+    and `Pay_IsPaid` = N'Paid' " +
+    (id_loan_str == "" ? "" : " and payment.Loan_ID in " + id_loan_str) + @"
+) ,0) ";
+              
+            //remained = net - those donors and installments of those donors
+            string inner_from = @" from loan lulu 
+            join microproject m on lulu.MicroProject_ID = m.MP_ID 
+            left join donor on donor.ID = m.MP_Donor 
+            left join donorgroup on donorgroup.ID = m.DonorGroup_ID 
+            where donorgroup.Name like '%Installment%') " +
+            (donor == "" ? "" : " and donor.Name in (" + donor + ")" );
+
+            remaining_sp_query = net_sp_query + @" - (select SUM(
+                CASE 
+                    WHEN lulu.Currency = 'SP'  THEN lulu.Loan_Amount
+                    WHEN lulu.Currency = 'USD' THEN lulu.Loan_Amount * lulu.ExchangeRate
+                END) " + inner_from;
+
+            remaining_usd_query = net_usd_query + @" - (select SUM(
+                CASE
+                    WHEN lulu.Currency = 'USD' THEN lulu.Loan_Amount
+                    WHEN lulu.Currency = 'SP'  THEN lulu.Loan_Amount / lulu.ExchangeRate
+                END) " + inner_from;
+
+            remaining_sp_query += " as 'Remaining(SP)' ";
+            remaining_usd_query += " as 'Remaining(USD)'";
+
+            net_sp_query += " as 'Net(SP)' ";
+            net_usd_query += " as 'Net(USD)' ";
 
 
-            if (id_loan_str == "")
-                query = @"select SUM(`Loan_Amount`) as 'Export'
- ,IFNULL((select sum(`Pay_Amount`) from `payment` where Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Import' " +
-",IFNULL((select sum(`Pay_Amount`) from `payment` where Pay_Amount < 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Returned' " +
-",IFNULL((select sum(`Pay_Amount`) from `payment` where Pay_Amount < 0 and `Pay_IsPaid` = N'Paid') ,0) + IFNULL((select sum(`Pay_Amount`) from `payment` where Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Net'" +
-",IFNULL( SUM( ( Loan_Amount / (SELECT Rate from donorgroup where donorgroup.ID = microproject.DonorGroup_ID))) ,0) as 'Export($)'"
- + net_query
- + " from `loan` left join `microproject` on loan.MicroProject_ID = microproject.MP_ID ";
-            else
-                query = @"select SUM(`Loan_Amount`) as 'Export'
- ,IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Import' " +
-",IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount < 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Returned' " +
-",IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount < 0 and `Pay_IsPaid` = N'Paid') ,0) + IFNULL((select sum(`Pay_Amount`) from `payment` where payment.Loan_ID in " + id_loan_str + " and Pay_Amount >= 0 and `Pay_IsPaid` = N'Paid') ,0) as 'Net'" +
-",IFNULL( SUM( ( Loan_Amount / (SELECT Rate from donorgroup where donorgroup.ID = microproject.DonorGroup_ID))) ,0) as 'Export($)'"
-  + net_query
-  + " from `loan` left join `microproject` on loan.MicroProject_ID = microproject.MP_ID where `Loan_ID` in " + id_loan_str + " ";
+            //import
+            import_query = @"
+,IFNULL((select sum(
+    CASE 
+        WHEN l.Currency = 'SP' THEN Pay_Amount
+    END) 
+    from `payment` 
+    JOIN loan l ON payment.Loan_ID = l.Loan_ID
+    where Pay_Amount >= 0 
+    and `Pay_IsPaid` = N'Paid' " +
+    (id_loan_str == "" ? "" : " and payment.Loan_ID in " + id_loan_str) + @"
+) ,0) as 'Import(SP)' 
 
-            //        ,SUM(IF(((L.Loan_Amount * L.Loan_Rate / 100) - (select sum(`Pay_Amount`) from `payment` where `Pay_IsPaid` like N'Paid' and `Loan_ID` = L.Loan_ID)) < 0
-            //,0,((L.Loan_Amount * L.Loan_Rate / 100) - (select sum(`Pay_Amount`) from `payment` where `Pay_IsPaid` like N'Paid' and `Loan_ID` = L.Loan_ID)))) as 'Remaining'
+,IFNULL((select sum(
+    CASE 
+        WHEN l.Currency = 'USD' THEN Pay_Amount
+    END) 
+    from `payment` 
+    JOIN loan l ON payment.Loan_ID = l.Loan_ID
+    where Pay_Amount >= 0 
+    and `Pay_IsPaid` = N'Paid' " +
+    (id_loan_str == "" ? "" : " and payment.Loan_ID in " + id_loan_str) + @"
+) ,0) as 'Import(USD)' ";
+
+            //returned
+            returned_query = @"
+,IFNULL((select sum(
+    CASE 
+        WHEN l.Currency = 'SP' THEN Pay_Amount
+    END) 
+    from `payment`
+    JOIN loan l ON payment.Loan_ID = l.Loan_ID
+    where Pay_Amount < 0  
+    and `Pay_IsPaid` = N'Paid' " +
+    (id_loan_str == "" ? "" : " and payment.Loan_ID in " + id_loan_str) + @"
+) ,0) as 'Returned(SP)'  
+
+,IFNULL((select sum(
+    CASE 
+        WHEN l.Currency = 'USD' THEN Pay_Amount
+    END) 
+    from `payment` 
+    JOIN loan l ON payment.Loan_ID = l.Loan_ID
+    where Pay_Amount < 0  
+    and `Pay_IsPaid` = N'Paid' " +
+    (id_loan_str == "" ? "" : " and payment.Loan_ID in " + id_loan_str) + @"
+) ,0) as 'Returned(USD)' ";
+
+            //export + all
+            query = @" select
+ IFNULL(SUM(
+        CASE 
+            WHEN Currency = 'SP'  THEN Loan_Amount
+            WHEN Currency = 'USD' THEN Loan_Amount * ExchangeRate
+        END),0) as 'Export(SP)'
+
+,IFNULL(SUM(
+    CASE
+        WHEN Currency = 'USD' THEN Loan_Amount
+        WHEN Currency = 'SP'  THEN Loan_Amount / ExchangeRate
+    END),0) AS 'Export(USD)' "   
++ import_query
++ returned_query
++ net_sp_query + net_usd_query
++ remaining_sp_query + remaining_usd_query
++ " from `loan` left join `microproject` on loan.MicroProject_ID = microproject.MP_ID "
++ (id_loan_str == "" ? "" : " where `Loan_ID` in " + id_loan_str) + ";" ;
 
             Program.buildConnection();
             var sc = new MySqlCommand(query, Program.MyConn);

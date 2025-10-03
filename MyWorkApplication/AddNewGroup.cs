@@ -1,9 +1,12 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ClosedXML.Excel;
+using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
 using System;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace MyWorkApplication
@@ -81,6 +84,7 @@ namespace MyWorkApplication
                     group_dataGridView["Donor", i] = ComboBoxCell2;
                 }
 
+                Count_label.Text = "All:" + group_dataGridView.Rows.GetRowCount(DataGridViewElementStates.Visible);
             }
         }
 
@@ -124,18 +128,18 @@ namespace MyWorkApplication
                 if (Donor_comboBox.Text == "" || Donor_comboBox.SelectedIndex == -1)
                     throw new InvalidOperationException("لا يمكن ترك بعض الخلايا فارغة!");
 
-                double rate;
-                if (Rate_textBox.Text == "") rate = 0;
-                else double.TryParse(Rate_textBox.Text, out rate);
+                //double rate;
+                //if (Rate_textBox.Text == "") rate = 0;
+                //else double.TryParse(Rate_textBox.Text, out rate);
 
                 int Donor_ID = Convert.ToInt32(Donor_comboBox.SelectedValue.ToString());
                 string donor = replaceQuotation(Donor_comboBox.Text);
 
-                group.Insert(Name_textBox.Text, rate, Donor_ID);
-                l.Insert_Log("Insert " + Name_textBox.Text + ":" + donor + ":" + rate, " Group ", Program.UserName,
+                group.Insert(Name_textBox.Text, Donor_ID);
+                l.Insert_Log("Insert " + Name_textBox.Text + ":" + donor , " Group ", Program.UserName,
                     DateTime.Now);
                 Name_textBox.Clear();
-                Rate_textBox.Clear();
+                //Rate_textBox.Clear();
                 Donor_comboBox.SelectedIndex = -1;
 
                 Fill_Groups("");
@@ -179,11 +183,11 @@ namespace MyWorkApplication
                     var r = e.RowIndex;
                     ID = Convert.ToInt32(group_dataGridView.Rows[r].Cells["ID"].Value);
 
-                    if (e.ColumnIndex == 1 || e.ColumnIndex == 2 || e.ColumnIndex == 3) // name - rate - donor
+                    if (e.ColumnIndex == 1 || e.ColumnIndex == 2) // name - donor
                     {
-                        double rate;
-                        if (group_dataGridView.Rows[r].Cells["Rate"].Value == null) rate = 0;
-                        else double.TryParse(group_dataGridView.Rows[r].Cells["Rate"].Value.ToString(), out rate);
+                        //double rate;
+                        //if (group_dataGridView.Rows[r].Cells["Rate"].Value == null) rate = 0;
+                        //else double.TryParse(group_dataGridView.Rows[r].Cells["Rate"].Value.ToString(), out rate);
 
                         string donor = replaceQuotation(group_dataGridView.Rows[r].Cells["Donor"].Value.ToString());
                         DataRow[] rows = null;
@@ -193,8 +197,8 @@ namespace MyWorkApplication
                         //             where row.Field<string>("Name") == donor
                         //             select row.Field<int>("ID"); 
 
-                        group.Update(ID, group_dataGridView.Rows[r].Cells["Name"].Value.ToString(), rate, Donor_ID);
-                        l.Insert_Log("Update Group:" + group_dataGridView.Rows[r].Cells["Name"].Value + ":" + donor + ":" + rate,
+                        group.Update(ID, group_dataGridView.Rows[r].Cells["Name"].Value.ToString(), Donor_ID);
+                        l.Insert_Log("Update Group:" + group_dataGridView.Rows[r].Cells["Name"].Value + ":" + donor,
                             "Group", Program.UserName, DateTime.Now);
                     }
 
@@ -266,6 +270,18 @@ namespace MyWorkApplication
             }
         }
 
+        private void group_dataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var SelectedRowCount = group_dataGridView.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                Selected_label.Text = "Selected: " + SelectedRowCount;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         #region mouse hover
 
 
@@ -298,5 +314,68 @@ namespace MyWorkApplication
         }
 
         #endregion mouse hover
+
+        private void ExportToExcel_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //if Guest or Out of service or lawful//
+                if (Program.role == 4 ||
+                    Program.role == 6 ||
+                    Program.role == 7)
+                    throw new InvalidOperationException("Sorry ! You Don't have the permission for this action.");
+
+                Thread myTh = new Thread(SaveCallDialog);
+                myTh.SetApartmentState(ApartmentState.STA);
+                myTh.Start();
+                myTh.Join();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void SaveCallDialog()
+        {
+            try
+            {
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                saveFileDialog1.Title = "Save Excel File";
+                saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx";
+                saveFileDialog1.ValidateNames = true;
+
+                var res = saveFileDialog1.ShowDialog();
+                if (res == DialogResult.OK && saveFileDialog1.FileName != "")
+                {
+                    string filename = filename = saveFileDialog1.FileName;
+                    XLWorkbook wb = new XLWorkbook { RightToLeft = true };
+                    //defaultView gets the visible rows only//
+                    System.Data.DataTable ex_dt = ((System.Data.DataTable)group_dataGridView.DataSource).DefaultView.ToTable();
+
+                    ////Remove invisible columns//
+                    //for (var j = dataGridView.ColumnCount - 1; j >= 0; j--)
+                    //    if (dataGridView.Columns[j].Visible == false)
+                    //        ex_dt.Columns.RemoveAt(j);
+                    for (var j = 0; j <= group_dataGridView.ColumnCount - 1; j++)
+                    {
+                        if (group_dataGridView.Columns[j].Visible == false)
+                            ex_dt.Columns.Remove(group_dataGridView.Columns[j].Name.ToString());
+                    }
+
+                    wb.Worksheets.Add(ex_dt, "Exported from App");
+
+                    wb.SaveAs(filename);
+                    wb.Dispose();
+
+                    Process.Start(filename);
+                }
+                else
+                    return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

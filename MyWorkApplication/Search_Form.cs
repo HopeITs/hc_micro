@@ -181,7 +181,7 @@ namespace MyWorkApplication
             if (Sum_FamilyMembers_label.Visible) Sum_FamilyMembers_label.Visible = false;
             if (visit_statistics_tableLayoutPanel.Visible) visit_statistics_tableLayoutPanel.Visible = false;
             if (Financial_tableLayoutPanel.Visible) Financial_tableLayoutPanel.Visible = false;
-            if (Export_dolar_label.Visible) Export_dolar_label.Visible = false;
+            if (Export_usd_label.Visible) Export_usd_label.Visible = false;
             if (showHideProfileImagesToolStripMenuItem.Visible) showHideProfileImagesToolStripMenuItem.Visible = false;
             if (Delete_button.Visible) Delete_button.Visible = false;
             LastVisit_checkBox.Visible = false;
@@ -292,9 +292,9 @@ namespace MyWorkApplication
                     ApplyDate_checkBox.Visible = FundedDate_checkBox.Visible = true;
                 //Requested_checkBox.Visible = Funded_checkBox.Visible =  
 
-                Export_dolar_label.Visible = Export_val_label.Visible =
-                Remaining_val_label.Visible = Import_val_label.Visible =
-                Returned_val_label.Visible = Net_val_label.Visible = true;
+                Export_usd_label.Visible = Export_sp_label.Visible =
+                Remaining_sp_label.Visible = Import_sp_label.Visible =
+                Returned_sp_label.Visible = Net_sp_label.Visible = true;
 
                 Financial_tableLayoutPanel.Visible = true;
             }
@@ -578,26 +578,44 @@ namespace MyWorkApplication
             var dt2 = s.Select_Loan_Sum(str, donor);
             if (dt2.Rows.Count != 0)
             {
-                Export_val_label.Text = "Exports:" + (dt2.Rows[0]["Export"] == DBNull.Value
+                Export_sp_label.Text = "Export(SP): " + (dt2.Rows[0]["Export(SP)"] == DBNull.Value
                     ? "0"
-                    : Convert.ToDecimal(dt2.Rows[0]["Export"]).ToString("#,##0"));
-                Export_dolar_label.Text = "Exports($):" + (dt2.Rows[0]["Export($)"] == DBNull.Value
+                    : Convert.ToDecimal(dt2.Rows[0]["Export(SP)"]).ToString("#,##0"));
+                Export_usd_label.Text = "Export(USD): " + (dt2.Rows[0]["Export(USD)"] == DBNull.Value
                     ? "0"
-                    : Convert.ToDecimal(dt2.Rows[0]["Export($)"]).ToString("#,##0"));
-                Import_val_label.Text = "Imports:" + (dt2.Rows[0]["Import"] == DBNull.Value
-                    ? "0"
-                    : Convert.ToDecimal(dt2.Rows[0]["Import"]).ToString("#,##0"));
-                Remaining_val_label.Text = "Remaining:" + (dt2.Rows[0]["Remaining"] == DBNull.Value
-                    ? "0"
-                    : Convert.ToDecimal(dt2.Rows[0]["Remaining"]).ToString("#,##0"));
+                    : Convert.ToDecimal(dt2.Rows[0]["Export(USD)"]).ToString("#,##0"));
+                
 
-                Returned_val_label.Text = "Returned:" + (dt2.Rows[0]["Returned"] == DBNull.Value
-                   ? "0"
-                   : Convert.ToDecimal(dt2.Rows[0]["Returned"]).ToString("#,##0"));
+                Import_sp_label.Text = "Import(SP): " + (dt2.Rows[0]["Import(SP)"] == DBNull.Value
+                    ? "0"
+                    : Convert.ToDecimal(dt2.Rows[0]["Import(SP)"]).ToString("#,##0"));
+                Import_usd_label.Text = "Import(USD): " + (dt2.Rows[0]["Import(USD)"] == DBNull.Value
+                    ? "0"
+                    : Convert.ToDecimal(dt2.Rows[0]["Import(USD)"]).ToString("#,##0"));
 
-                Net_val_label.Text = "Net:" + (dt2.Rows[0]["Net"] == DBNull.Value
+
+                Remaining_sp_label.Text = "Remaining(SP): " + (dt2.Rows[0]["Remaining(SP)"] == DBNull.Value
+                    ? "0"
+                    : Convert.ToDecimal(dt2.Rows[0]["Remaining(SP)"]).ToString("#,##0"));
+                Remaining_usd_label.Text = "Remaining(USD): " + (dt2.Rows[0]["Remaining(USD)"] == DBNull.Value
+                    ? "0"
+                    : Convert.ToDecimal(dt2.Rows[0]["Remaining(USD)"]).ToString("#,##0"));
+
+
+                Returned_sp_label.Text = "Returned(SP): " + (dt2.Rows[0]["Returned(SP)"] == DBNull.Value
                    ? "0"
-                   : Convert.ToDecimal(dt2.Rows[0]["Net"]).ToString("#,##0"));
+                   : Convert.ToDecimal(dt2.Rows[0]["Returned(SP)"]).ToString("#,##0"));
+                Returned_usd_label.Text = "Returned(USD): " + (dt2.Rows[0]["Returned(USD)"] == DBNull.Value
+                   ? "0"
+                   : Convert.ToDecimal(dt2.Rows[0]["Returned(USD)"]).ToString("#,##0"));
+
+
+                Net_sp_label.Text = "Net(SP): " + (dt2.Rows[0]["Net(SP)"] == DBNull.Value
+                   ? "0"
+                   : Convert.ToDecimal(dt2.Rows[0]["Net(SP)"]).ToString("#,##0"));
+                Net_usd_label.Text = "Net(USD): " + (dt2.Rows[0]["Net(USD)"] == DBNull.Value
+                   ? "0"
+                   : Convert.ToDecimal(dt2.Rows[0]["Net(USD)"]).ToString("#,##0"));
             }
         }
 
@@ -1361,8 +1379,8 @@ namespace MyWorkApplication
                 = MP_dataGridView.Columns["تاريخ الدفعة المستحقة"].DefaultCellStyle.Format
                 = "dd/MM/yyyy";
 
-            MP_dataGridView.Columns["القرض"].DefaultCellStyle.Format
-                = MP_dataGridView.Columns["القرض ($)"].DefaultCellStyle.Format
+            MP_dataGridView.Columns["القرض (sp)"].DefaultCellStyle.Format
+                = MP_dataGridView.Columns["القرض (usd)"].DefaultCellStyle.Format
                 = MP_dataGridView.Columns["القسط"].DefaultCellStyle.Format
                 = MP_dataGridView.Columns["المبلغ المدفوع"].DefaultCellStyle.Format
                 = MP_dataGridView.Columns["المبلغ المتبقي"].DefaultCellStyle.Format
@@ -1373,6 +1391,8 @@ namespace MyWorkApplication
             var dgc1 = MP_dataGridView.Columns["ID"];
             dgc1.Visible = false;
 
+            
+
             decimal count = Convert.ToDecimal(s.Count_Distinct_Loan_IDs());
             Count_label.Text = "All:" + count.ToString("#,##0");
 
@@ -1382,9 +1402,9 @@ namespace MyWorkApplication
                 = MP_dataGridView.Columns["عدد الدفعات المدفوعة"].DefaultCellStyle.Alignment
                 = MP_dataGridView.Columns["عدد الدفعات الكلي"].DefaultCellStyle.Alignment
                 = MP_dataGridView.Columns["تاريخ استلام القرض"].DefaultCellStyle.Alignment
-                = MP_dataGridView.Columns["القرض"].DefaultCellStyle.Alignment
-                = MP_dataGridView.Columns["القرض ($)"].DefaultCellStyle.Alignment
-                = MP_dataGridView.Columns["النسبة"].DefaultCellStyle.Alignment
+                = MP_dataGridView.Columns["القرض (sp)"].DefaultCellStyle.Alignment
+                = MP_dataGridView.Columns["القرض (usd)"].DefaultCellStyle.Alignment
+                = MP_dataGridView.Columns["نسبة الاسترجاع"].DefaultCellStyle.Alignment
                 = MP_dataGridView.Columns["المجموعة"].DefaultCellStyle.Alignment
                 = MP_dataGridView.Columns["رقم الإيصال"].DefaultCellStyle.Alignment
                 = MP_dataGridView.Columns["المبلغ المطلوب استرداده"].DefaultCellStyle.Alignment
@@ -1395,6 +1415,9 @@ namespace MyWorkApplication
                 = MP_dataGridView.Columns["أشهر التأخير"].DefaultCellStyle.Alignment
                 = MP_dataGridView.Columns["الدفعات المستحقة والغير مدفوعة"].DefaultCellStyle.Alignment
                 = DataGridViewContentAlignment.MiddleCenter;
+
+
+            MP_dataGridView.Columns["رقم المشروع"].Frozen = true;
 
             MP_dataGridView.ColumnHeadersVisible = true;
             MP_dataGridView.RowHeadersVisible = true;

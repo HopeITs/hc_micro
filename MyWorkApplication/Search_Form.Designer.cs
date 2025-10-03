@@ -67,18 +67,18 @@ namespace MyWorkApplication
             this.label16 = new System.Windows.Forms.Label();
             this.ShowHide_button = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.Delete_button = new System.Windows.Forms.Button();
             this.ExportToExcel_button = new System.Windows.Forms.Button();
             this.exportExcel_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.export_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.export_applications_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Export_dolar_label = new System.Windows.Forms.Label();
             this.Count_label = new System.Windows.Forms.Label();
             this.Selected_label = new System.Windows.Forms.Label();
             this.Sum_FamilyMembers_label = new System.Windows.Forms.Label();
-            this.Export_val_label = new System.Windows.Forms.Label();
-            this.Remaining_val_label = new System.Windows.Forms.Label();
-            this.Import_val_label = new System.Windows.Forms.Label();
+            this.Export_usd_label = new System.Windows.Forms.Label();
+            this.Import_usd_label = new System.Windows.Forms.Label();
+            this.Export_sp_label = new System.Windows.Forms.Label();
+            this.Remaining_sp_label = new System.Windows.Forms.Label();
+            this.Import_sp_label = new System.Windows.Forms.Label();
             this.Refresh_button = new System.Windows.Forms.Button();
             this.Search_panel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -141,8 +141,11 @@ namespace MyWorkApplication
             this.ApplyFilter_button = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Financial_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.Returned_val_label = new System.Windows.Forms.Label();
-            this.Net_val_label = new System.Windows.Forms.Label();
+            this.Remaining_usd_label = new System.Windows.Forms.Label();
+            this.Returned_usd_label = new System.Windows.Forms.Label();
+            this.Returned_sp_label = new System.Windows.Forms.Label();
+            this.Net_sp_label = new System.Windows.Forms.Label();
+            this.Net_usd_label = new System.Windows.Forms.Label();
             this.visit_statistics_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.sumM1_label = new System.Windows.Forms.Label();
@@ -170,6 +173,7 @@ namespace MyWorkApplication
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.showAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.Delete_button = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.exportExcel_contextMenuStrip.SuspendLayout();
@@ -263,11 +267,11 @@ namespace MyWorkApplication
             this.SearchBy_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchBy_comboBox.ForeColor = System.Drawing.Color.Black;
             this.SearchBy_comboBox.FormattingEnabled = true;
-            this.SearchBy_comboBox.Location = new System.Drawing.Point(762, 4);
+            this.SearchBy_comboBox.Location = new System.Drawing.Point(767, 4);
             this.SearchBy_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SearchBy_comboBox.Name = "SearchBy_comboBox";
             this.SearchBy_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SearchBy_comboBox.Size = new System.Drawing.Size(339, 35);
+            this.SearchBy_comboBox.Size = new System.Drawing.Size(336, 35);
             this.SearchBy_comboBox.TabIndex = 1;
             this.SearchBy_comboBox.SelectedIndexChanged += new System.EventHandler(this.SearchBy_comboBox_SelectedIndexChanged);
             // 
@@ -276,7 +280,7 @@ namespace MyWorkApplication
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label16.Location = new System.Drawing.Point(1104, 0);
+            this.label16.Location = new System.Drawing.Point(1106, 0);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
             this.label16.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -295,7 +299,7 @@ namespace MyWorkApplication
             this.ShowHide_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShowHide_button.Location = new System.Drawing.Point(163, 4);
+            this.ShowHide_button.Location = new System.Drawing.Point(171, 4);
             this.ShowHide_button.Margin = new System.Windows.Forms.Padding(0);
             this.ShowHide_button.MaximumSize = new System.Drawing.Size(150, 40);
             this.ShowHide_button.MinimumSize = new System.Drawing.Size(150, 40);
@@ -310,24 +314,22 @@ namespace MyWorkApplication
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.tableLayoutPanel2.ColumnCount = 10;
+            this.tableLayoutPanel2.ColumnCount = 8;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 282F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 254F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 275F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 165F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 321F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.87088F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.43277F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.76135F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.93499F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ContextMenuStrip = this.contextMenuStrip1;
-            this.tableLayoutPanel2.Controls.Add(this.Delete_button, 8, 0);
             this.tableLayoutPanel2.Controls.Add(this.ExportToExcel_button, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.Export_dolar_label, 7, 0);
             this.tableLayoutPanel2.Controls.Add(this.Count_label, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.Selected_label, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.Sum_FamilyMembers_label, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.Delete_button, 6, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 639);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
@@ -337,30 +339,6 @@ namespace MyWorkApplication
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1262, 34);
             this.tableLayoutPanel2.TabIndex = 408;
-            // 
-            // Delete_button
-            // 
-            this.Delete_button.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Delete_button.BackColor = System.Drawing.Color.Transparent;
-            this.Delete_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.Trash_Ds;
-            this.Delete_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Delete_button.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.Delete_button.FlatAppearance.BorderSize = 0;
-            this.Delete_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Delete_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Delete_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Delete_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Delete_button.ForeColor = System.Drawing.Color.White;
-            this.Delete_button.Location = new System.Drawing.Point(28, 4);
-            this.Delete_button.Margin = new System.Windows.Forms.Padding(10, 1, 3, 1);
-            this.Delete_button.MaximumSize = new System.Drawing.Size(42, 26);
-            this.Delete_button.MinimumSize = new System.Drawing.Size(42, 26);
-            this.Delete_button.Name = "Delete_button";
-            this.Delete_button.Size = new System.Drawing.Size(42, 26);
-            this.Delete_button.TabIndex = 468;
-            this.Delete_button.UseVisualStyleBackColor = false;
-            this.Delete_button.Visible = false;
-            this.Delete_button.Click += new System.EventHandler(this.Delete_button_Click);
             // 
             // ExportToExcel_button
             // 
@@ -412,32 +390,17 @@ namespace MyWorkApplication
             this.export_applications_ToolStripMenuItem.Text = "كل معلومات الاستمارة";
             this.export_applications_ToolStripMenuItem.Click += new System.EventHandler(this.export_applications_ToolStripMenuItem_Click);
             // 
-            // Export_dolar_label
-            // 
-            this.Export_dolar_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Export_dolar_label.AutoSize = true;
-            this.Export_dolar_label.BackColor = System.Drawing.Color.Transparent;
-            this.Export_dolar_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Export_dolar_label.Location = new System.Drawing.Point(81, 3);
-            this.Export_dolar_label.Margin = new System.Windows.Forms.Padding(0);
-            this.Export_dolar_label.Name = "Export_dolar_label";
-            this.Export_dolar_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Export_dolar_label.Size = new System.Drawing.Size(321, 27);
-            this.Export_dolar_label.TabIndex = 481;
-            this.Export_dolar_label.Text = "Exports($): 000,000,000";
-            this.Export_dolar_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // Count_label
             // 
             this.Count_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Count_label.AutoSize = true;
             this.Count_label.BackColor = System.Drawing.Color.Transparent;
             this.Count_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Count_label.Location = new System.Drawing.Point(911, 3);
+            this.Count_label.Location = new System.Drawing.Point(1026, 3);
             this.Count_label.Margin = new System.Windows.Forms.Padding(0);
             this.Count_label.Name = "Count_label";
             this.Count_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Count_label.Size = new System.Drawing.Size(282, 27);
+            this.Count_label.Size = new System.Drawing.Size(167, 27);
             this.Count_label.TabIndex = 475;
             this.Count_label.Text = "00000";
             this.Count_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -448,11 +411,11 @@ namespace MyWorkApplication
             this.Selected_label.AutoSize = true;
             this.Selected_label.BackColor = System.Drawing.Color.Transparent;
             this.Selected_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Selected_label.Location = new System.Drawing.Point(657, 3);
+            this.Selected_label.Location = new System.Drawing.Point(819, 3);
             this.Selected_label.Margin = new System.Windows.Forms.Padding(0);
             this.Selected_label.Name = "Selected_label";
             this.Selected_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Selected_label.Size = new System.Drawing.Size(254, 27);
+            this.Selected_label.Size = new System.Drawing.Size(207, 27);
             this.Selected_label.TabIndex = 476;
             this.Selected_label.Text = "00000";
             this.Selected_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -463,59 +426,89 @@ namespace MyWorkApplication
             this.Sum_FamilyMembers_label.AutoSize = true;
             this.Sum_FamilyMembers_label.BackColor = System.Drawing.Color.Transparent;
             this.Sum_FamilyMembers_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Sum_FamilyMembers_label.Location = new System.Drawing.Point(382, 3);
+            this.Sum_FamilyMembers_label.Location = new System.Drawing.Point(642, 3);
             this.Sum_FamilyMembers_label.Margin = new System.Windows.Forms.Padding(0);
             this.Sum_FamilyMembers_label.Name = "Sum_FamilyMembers_label";
             this.Sum_FamilyMembers_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Sum_FamilyMembers_label.Size = new System.Drawing.Size(275, 27);
+            this.Sum_FamilyMembers_label.Size = new System.Drawing.Size(177, 27);
             this.Sum_FamilyMembers_label.TabIndex = 482;
             this.Sum_FamilyMembers_label.Text = "00000";
             this.Sum_FamilyMembers_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Export_val_label
+            // Export_usd_label
             // 
-            this.Export_val_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Export_val_label.AutoSize = true;
-            this.Export_val_label.BackColor = System.Drawing.Color.Transparent;
-            this.Export_val_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Export_val_label.Location = new System.Drawing.Point(27, 7);
-            this.Export_val_label.Margin = new System.Windows.Forms.Padding(0);
-            this.Export_val_label.Name = "Export_val_label";
-            this.Export_val_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Export_val_label.Size = new System.Drawing.Size(242, 27);
-            this.Export_val_label.TabIndex = 477;
-            this.Export_val_label.Text = "Exports: 000,000,000,000";
-            this.Export_val_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Export_usd_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Export_usd_label.AutoSize = true;
+            this.Export_usd_label.BackColor = System.Drawing.Color.Transparent;
+            this.Export_usd_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Export_usd_label.Location = new System.Drawing.Point(27, 22);
+            this.Export_usd_label.Margin = new System.Windows.Forms.Padding(0);
+            this.Export_usd_label.Name = "Export_usd_label";
+            this.Export_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Export_usd_label.Size = new System.Drawing.Size(242, 20);
+            this.Export_usd_label.TabIndex = 481;
+            this.Export_usd_label.Text = "Exports($): 00,000,000";
+            this.Export_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // Remaining_val_label
+            // Import_usd_label
             // 
-            this.Remaining_val_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Remaining_val_label.AutoSize = true;
-            this.Remaining_val_label.BackColor = System.Drawing.Color.Transparent;
-            this.Remaining_val_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Remaining_val_label.Location = new System.Drawing.Point(995, 0);
-            this.Remaining_val_label.Margin = new System.Windows.Forms.Padding(0);
-            this.Remaining_val_label.Name = "Remaining_val_label";
-            this.Remaining_val_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Remaining_val_label.Size = new System.Drawing.Size(242, 42);
-            this.Remaining_val_label.TabIndex = 480;
-            this.Remaining_val_label.Text = "Remaining: 000,000,000,000";
-            this.Remaining_val_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Import_usd_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Import_usd_label.AutoSize = true;
+            this.Import_usd_label.BackColor = System.Drawing.Color.Transparent;
+            this.Import_usd_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Import_usd_label.Location = new System.Drawing.Point(269, 22);
+            this.Import_usd_label.Margin = new System.Windows.Forms.Padding(0);
+            this.Import_usd_label.Name = "Import_usd_label";
+            this.Import_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Import_usd_label.Size = new System.Drawing.Size(242, 20);
+            this.Import_usd_label.TabIndex = 483;
+            this.Import_usd_label.Text = "Imports($): 0,000,000,000";
+            this.Import_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // Import_val_label
+            // Export_sp_label
             // 
-            this.Import_val_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Import_val_label.AutoSize = true;
-            this.Import_val_label.BackColor = System.Drawing.Color.Transparent;
-            this.Import_val_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Import_val_label.Location = new System.Drawing.Point(269, 7);
-            this.Import_val_label.Margin = new System.Windows.Forms.Padding(0);
-            this.Import_val_label.Name = "Import_val_label";
-            this.Import_val_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Import_val_label.Size = new System.Drawing.Size(242, 27);
-            this.Import_val_label.TabIndex = 478;
-            this.Import_val_label.Text = "Imports: 000,000,000,000";
-            this.Import_val_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Export_sp_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Export_sp_label.AutoSize = true;
+            this.Export_sp_label.BackColor = System.Drawing.Color.Transparent;
+            this.Export_sp_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Export_sp_label.Location = new System.Drawing.Point(27, 0);
+            this.Export_sp_label.Margin = new System.Windows.Forms.Padding(0);
+            this.Export_sp_label.Name = "Export_sp_label";
+            this.Export_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Export_sp_label.Size = new System.Drawing.Size(242, 22);
+            this.Export_sp_label.TabIndex = 477;
+            this.Export_sp_label.Text = "Exports: 00,000,000,000";
+            this.Export_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Remaining_sp_label
+            // 
+            this.Remaining_sp_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Remaining_sp_label.AutoSize = true;
+            this.Remaining_sp_label.BackColor = System.Drawing.Color.Transparent;
+            this.Remaining_sp_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Remaining_sp_label.Location = new System.Drawing.Point(995, 0);
+            this.Remaining_sp_label.Margin = new System.Windows.Forms.Padding(0);
+            this.Remaining_sp_label.Name = "Remaining_sp_label";
+            this.Remaining_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Remaining_sp_label.Size = new System.Drawing.Size(242, 22);
+            this.Remaining_sp_label.TabIndex = 480;
+            this.Remaining_sp_label.Text = "Remaining: 0,000,000,000";
+            this.Remaining_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Import_sp_label
+            // 
+            this.Import_sp_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Import_sp_label.AutoSize = true;
+            this.Import_sp_label.BackColor = System.Drawing.Color.Transparent;
+            this.Import_sp_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Import_sp_label.Location = new System.Drawing.Point(269, 0);
+            this.Import_sp_label.Margin = new System.Windows.Forms.Padding(0);
+            this.Import_sp_label.Name = "Import_sp_label";
+            this.Import_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Import_sp_label.Size = new System.Drawing.Size(242, 22);
+            this.Import_sp_label.TabIndex = 478;
+            this.Import_sp_label.Text = "Imports: 00,000,000,000";
+            this.Import_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Refresh_button
             // 
@@ -526,7 +519,7 @@ namespace MyWorkApplication
             this.Refresh_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Refresh_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Refresh_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Refresh_button.Location = new System.Drawing.Point(1206, 8);
+            this.Refresh_button.Location = new System.Drawing.Point(1207, 8);
             this.Refresh_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Refresh_button.MaximumSize = new System.Drawing.Size(29, 32);
             this.Refresh_button.MinimumSize = new System.Drawing.Size(29, 32);
@@ -1471,7 +1464,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.16274F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
             this.tableLayoutPanel1.ContextMenuStrip = this.contextMenuStrip1;
             this.tableLayoutPanel1.Controls.Add(this.ShowHide_button, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.LastVisit_checkBox, 4, 0);
@@ -1493,7 +1486,7 @@ namespace MyWorkApplication
             // 
             this.LastVisit_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.LastVisit_checkBox.AutoSize = true;
-            this.LastVisit_checkBox.Location = new System.Drawing.Point(441, 9);
+            this.LastVisit_checkBox.Location = new System.Drawing.Point(449, 9);
             this.LastVisit_checkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LastVisit_checkBox.Name = "LastVisit_checkBox";
             this.LastVisit_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1515,7 +1508,7 @@ namespace MyWorkApplication
             this.ApplyFilter_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ApplyFilter_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ApplyFilter_button.ForeColor = System.Drawing.Color.LightGray;
-            this.ApplyFilter_button.Location = new System.Drawing.Point(323, 7);
+            this.ApplyFilter_button.Location = new System.Drawing.Point(331, 7);
             this.ApplyFilter_button.Margin = new System.Windows.Forms.Padding(0);
             this.ApplyFilter_button.MaximumSize = new System.Drawing.Size(110, 34);
             this.ApplyFilter_button.MinimumSize = new System.Drawing.Size(110, 34);
@@ -1540,51 +1533,102 @@ namespace MyWorkApplication
             this.Financial_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.Financial_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.Financial_tableLayoutPanel.ContextMenuStrip = this.contextMenuStrip1;
-            this.Financial_tableLayoutPanel.Controls.Add(this.Remaining_val_label, 1, 0);
-            this.Financial_tableLayoutPanel.Controls.Add(this.Returned_val_label, 3, 0);
-            this.Financial_tableLayoutPanel.Controls.Add(this.Export_val_label, 5, 0);
-            this.Financial_tableLayoutPanel.Controls.Add(this.Import_val_label, 4, 0);
-            this.Financial_tableLayoutPanel.Controls.Add(this.Net_val_label, 2, 0);
+            this.Financial_tableLayoutPanel.Controls.Add(this.Remaining_usd_label, 1, 1);
+            this.Financial_tableLayoutPanel.Controls.Add(this.Remaining_sp_label, 1, 0);
+            this.Financial_tableLayoutPanel.Controls.Add(this.Returned_usd_label, 3, 1);
+            this.Financial_tableLayoutPanel.Controls.Add(this.Returned_sp_label, 3, 0);
+            this.Financial_tableLayoutPanel.Controls.Add(this.Export_sp_label, 5, 0);
+            this.Financial_tableLayoutPanel.Controls.Add(this.Import_sp_label, 4, 0);
+            this.Financial_tableLayoutPanel.Controls.Add(this.Export_usd_label, 5, 1);
+            this.Financial_tableLayoutPanel.Controls.Add(this.Import_usd_label, 4, 1);
+            this.Financial_tableLayoutPanel.Controls.Add(this.Net_sp_label, 2, 0);
+            this.Financial_tableLayoutPanel.Controls.Add(this.Net_usd_label, 2, 1);
             this.Financial_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Financial_tableLayoutPanel.Location = new System.Drawing.Point(0, 597);
             this.Financial_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.Financial_tableLayoutPanel.Name = "Financial_tableLayoutPanel";
             this.Financial_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Financial_tableLayoutPanel.RowCount = 1;
+            this.Financial_tableLayoutPanel.RowCount = 2;
             this.Financial_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.Financial_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.Financial_tableLayoutPanel.Size = new System.Drawing.Size(1262, 42);
             this.Financial_tableLayoutPanel.TabIndex = 497;
             this.Financial_tableLayoutPanel.Visible = false;
             // 
-            // Returned_val_label
+            // Remaining_usd_label
             // 
-            this.Returned_val_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Returned_val_label.AutoSize = true;
-            this.Returned_val_label.BackColor = System.Drawing.Color.Transparent;
-            this.Returned_val_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Returned_val_label.Location = new System.Drawing.Point(511, 0);
-            this.Returned_val_label.Margin = new System.Windows.Forms.Padding(0);
-            this.Returned_val_label.Name = "Returned_val_label";
-            this.Returned_val_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Returned_val_label.Size = new System.Drawing.Size(242, 42);
-            this.Returned_val_label.TabIndex = 481;
-            this.Returned_val_label.Text = "Returned: 000,000,000,000";
-            this.Returned_val_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Remaining_usd_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Remaining_usd_label.AutoSize = true;
+            this.Remaining_usd_label.BackColor = System.Drawing.Color.Transparent;
+            this.Remaining_usd_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Remaining_usd_label.Location = new System.Drawing.Point(995, 22);
+            this.Remaining_usd_label.Margin = new System.Windows.Forms.Padding(0);
+            this.Remaining_usd_label.Name = "Remaining_usd_label";
+            this.Remaining_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Remaining_usd_label.Size = new System.Drawing.Size(242, 20);
+            this.Remaining_usd_label.TabIndex = 484;
+            this.Remaining_usd_label.Text = "Remaining: 0,000,000,000";
+            this.Remaining_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // Net_val_label
+            // Returned_usd_label
             // 
-            this.Net_val_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Net_val_label.AutoSize = true;
-            this.Net_val_label.BackColor = System.Drawing.Color.Transparent;
-            this.Net_val_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Net_val_label.Location = new System.Drawing.Point(753, 7);
-            this.Net_val_label.Margin = new System.Windows.Forms.Padding(0);
-            this.Net_val_label.Name = "Net_val_label";
-            this.Net_val_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Net_val_label.Size = new System.Drawing.Size(242, 27);
-            this.Net_val_label.TabIndex = 482;
-            this.Net_val_label.Text = "Net: 000,000,000,000";
-            this.Net_val_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Returned_usd_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Returned_usd_label.AutoSize = true;
+            this.Returned_usd_label.BackColor = System.Drawing.Color.Transparent;
+            this.Returned_usd_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Returned_usd_label.Location = new System.Drawing.Point(511, 22);
+            this.Returned_usd_label.Margin = new System.Windows.Forms.Padding(0);
+            this.Returned_usd_label.Name = "Returned_usd_label";
+            this.Returned_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Returned_usd_label.Size = new System.Drawing.Size(242, 20);
+            this.Returned_usd_label.TabIndex = 485;
+            this.Returned_usd_label.Text = "Returned: 00,000,000,000";
+            this.Returned_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Returned_sp_label
+            // 
+            this.Returned_sp_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Returned_sp_label.AutoSize = true;
+            this.Returned_sp_label.BackColor = System.Drawing.Color.Transparent;
+            this.Returned_sp_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Returned_sp_label.Location = new System.Drawing.Point(511, 0);
+            this.Returned_sp_label.Margin = new System.Windows.Forms.Padding(0);
+            this.Returned_sp_label.Name = "Returned_sp_label";
+            this.Returned_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Returned_sp_label.Size = new System.Drawing.Size(242, 22);
+            this.Returned_sp_label.TabIndex = 481;
+            this.Returned_sp_label.Text = "Returned: 00,000,000,000";
+            this.Returned_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Net_sp_label
+            // 
+            this.Net_sp_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Net_sp_label.AutoSize = true;
+            this.Net_sp_label.BackColor = System.Drawing.Color.Transparent;
+            this.Net_sp_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Net_sp_label.Location = new System.Drawing.Point(753, 0);
+            this.Net_sp_label.Margin = new System.Windows.Forms.Padding(0);
+            this.Net_sp_label.Name = "Net_sp_label";
+            this.Net_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Net_sp_label.Size = new System.Drawing.Size(242, 22);
+            this.Net_sp_label.TabIndex = 482;
+            this.Net_sp_label.Text = "Net: 00,000,000,000";
+            this.Net_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Net_usd_label
+            // 
+            this.Net_usd_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Net_usd_label.AutoSize = true;
+            this.Net_usd_label.BackColor = System.Drawing.Color.Transparent;
+            this.Net_usd_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Net_usd_label.Location = new System.Drawing.Point(753, 22);
+            this.Net_usd_label.Margin = new System.Windows.Forms.Padding(0);
+            this.Net_usd_label.Name = "Net_usd_label";
+            this.Net_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Net_usd_label.Size = new System.Drawing.Size(242, 20);
+            this.Net_usd_label.TabIndex = 486;
+            this.Net_usd_label.Text = "Net: 00,000,000,000";
+            this.Net_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // visit_statistics_tableLayoutPanel
             // 
@@ -1960,26 +2004,26 @@ namespace MyWorkApplication
             // Hide_MenuItem
             // 
             this.Hide_MenuItem.Name = "Hide_MenuItem";
-            this.Hide_MenuItem.Size = new System.Drawing.Size(224, 32);
+            this.Hide_MenuItem.Size = new System.Drawing.Size(168, 32);
             this.Hide_MenuItem.Text = "Hide";
             this.Hide_MenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Hide_MenuItem_DropDownItemClicked);
             // 
             // Show_MenuItem
             // 
             this.Show_MenuItem.Name = "Show_MenuItem";
-            this.Show_MenuItem.Size = new System.Drawing.Size(224, 32);
+            this.Show_MenuItem.Size = new System.Drawing.Size(168, 32);
             this.Show_MenuItem.Text = "Show";
             this.Show_MenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Show_MenuItem_DropDownItemClicked);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(165, 6);
             // 
             // showAllToolStripMenuItem1
             // 
             this.showAllToolStripMenuItem1.Name = "showAllToolStripMenuItem1";
-            this.showAllToolStripMenuItem1.Size = new System.Drawing.Size(224, 32);
+            this.showAllToolStripMenuItem1.Size = new System.Drawing.Size(168, 32);
             this.showAllToolStripMenuItem1.Text = "Show All";
             this.showAllToolStripMenuItem1.Click += new System.EventHandler(this.showAllToolStripMenuItem_Clicked);
             // 
@@ -1989,6 +2033,30 @@ namespace MyWorkApplication
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
             this.toolStripSeparator4.Size = new System.Drawing.Size(10, 35);
+            // 
+            // Delete_button
+            // 
+            this.Delete_button.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Delete_button.BackColor = System.Drawing.Color.Transparent;
+            this.Delete_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.Trash_Ds;
+            this.Delete_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Delete_button.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.Delete_button.FlatAppearance.BorderSize = 0;
+            this.Delete_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.Delete_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Delete_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Delete_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Delete_button.ForeColor = System.Drawing.Color.White;
+            this.Delete_button.Location = new System.Drawing.Point(29, 4);
+            this.Delete_button.Margin = new System.Windows.Forms.Padding(10, 1, 3, 1);
+            this.Delete_button.MaximumSize = new System.Drawing.Size(42, 26);
+            this.Delete_button.MinimumSize = new System.Drawing.Size(42, 26);
+            this.Delete_button.Name = "Delete_button";
+            this.Delete_button.Size = new System.Drawing.Size(42, 26);
+            this.Delete_button.TabIndex = 468;
+            this.Delete_button.UseVisualStyleBackColor = false;
+            this.Delete_button.Visible = false;
+            this.Delete_button.Click += new System.EventHandler(this.Delete_button_Click);
             // 
             // Search_Form
             // 
@@ -2038,10 +2106,8 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox SearchBy_comboBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button ExportToExcel_button;
         private System.Windows.Forms.Panel Search_panel;
         private System.Windows.Forms.Button ShowHide_button;
-        private System.Windows.Forms.Button Delete_button;
         private System.Windows.Forms.Button Refresh_button;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem refreshPageToolStripMenuItem;
@@ -2055,14 +2121,14 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label Count_label;
         private System.Windows.Forms.Label Selected_label;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Label Export_val_label;
-        private System.Windows.Forms.Label Import_val_label;
-        private System.Windows.Forms.Label Remaining_val_label;
-        private System.Windows.Forms.Label Export_dolar_label;
+        private System.Windows.Forms.Label Export_sp_label;
+        private System.Windows.Forms.Label Import_sp_label;
+        private System.Windows.Forms.Label Remaining_sp_label;
+        private System.Windows.Forms.Label Export_usd_label;
         private System.Windows.Forms.ToolStripMenuItem showHideProfileImagesToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel Financial_tableLayoutPanel;
-        private System.Windows.Forms.Label Returned_val_label;
-        private System.Windows.Forms.Label Net_val_label;
+        private System.Windows.Forms.Label Returned_sp_label;
+        private System.Windows.Forms.Label Net_sp_label;
         private System.Windows.Forms.TableLayoutPanel visit_statistics_tableLayoutPanel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label sumM1_label;
@@ -2151,5 +2217,11 @@ namespace MyWorkApplication
         private System.Windows.Forms.ToolStripMenuItem Hide_MenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem showAllToolStripMenuItem1;
+        private System.Windows.Forms.Button ExportToExcel_button;
+        private System.Windows.Forms.Label Import_usd_label;
+        private System.Windows.Forms.Label Remaining_usd_label;
+        private System.Windows.Forms.Label Returned_usd_label;
+        private System.Windows.Forms.Label Net_usd_label;
+        private System.Windows.Forms.Button Delete_button;
     }
 }

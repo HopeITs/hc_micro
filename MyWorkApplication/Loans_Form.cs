@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace MyWorkApplication
@@ -68,34 +69,18 @@ namespace MyWorkApplication
                 CheckUserPermission();
 
                 //////////////////// handle auto scrolling for all comboBoxes //////////////////////
-                Group_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                Currency_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+                Group_comboBox.MouseWheel    += new MouseEventHandler(comboBox_MouseWheel);
                 ///////////////////////////////////////////////////////////////////////////////////////
 
                 Loan_ID = -1;
-                Person_Name_textBox.AutoCompleteCustomSource = s.select_beneficiaries("", "Yes");
+                Person_Name_textBox.AutoCompleteCustomSource     = s.select_beneficiaries("", "Yes");
                 MicroProject_ID_textBox.AutoCompleteCustomSource = s.select_project_IDs("", "Yes");
                 Group_bind();
-
-                //dateTimePicker1 = new DateTimePicker();
-                //dateTimePicker1.Format = DateTimePickerFormat.Custom;
-                //dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-                //dateTimePicker1.Visible = false;
-                //var oRectangle = Payment_dataGridView.GetCellDisplayRectangle(3, 0, true);
-                //// Setting area for dateTimePicker1.
-                //dateTimePicker1.Size = new Size(oRectangle.Width, oRectangle.Height);
-                //// Setting location for dateTimePicker1.
-                //dateTimePicker1.Location = new Point(oRectangle.X, oRectangle.Y);
-
-                //Payment_dataGridView.Controls.Add(dateTimePicker1);
-                //dateTimePicker1.ValueChanged += DateTimePickerChange;
-
+                  
                 var newTheme = new NewTheme();
-                if (Settings.Default.theme == "Dark")
-                {
-                    newTheme.ApplicationNew_ToNight(this);
-                    //dateTimePicker1.BackColor = Color.FromArgb(75, 75, 75);
-                    //dateTimePicker1.ForeColor = Color.White;
-                }
+                if (Settings.Default.theme == "Dark") 
+                    newTheme.ApplicationNew_ToNight(this); 
                 else newTheme.ApplicationNew_ToLight(this);
 
                 Add_DateTimeColumn_Gridview();
@@ -209,25 +194,31 @@ namespace MyWorkApplication
 
         private int Insert_Loan(int MP_ID)
         {
-            double rate, count;
+            double rate, count, exchange_rate;
 
             Loan = LoanAmount_textBox.Text.Replace(",", "");
-            pay = PaymentAmount_textBox.Text.Replace(",", "");
+            pay  = PaymentAmount_textBox.Text.Replace(",", "");
             returned_amount = ReturnedAmount1_textBox.Text.Replace(",", "");
 
             if (PaymentAmount_textBox.Text == "" || PaymentAmount_textBox.Text == "0") pay = "0";
 
             if (ReturnedAmount1_textBox.Text == "" || ReturnedAmount1_textBox.Text == "0") returned_amount = "0";
 
-            if (Rate_textBox.Text == "" || Rate_textBox.Text == "0") rate = 0;
-            else rate = Convert.ToDouble(Rate_textBox.Text);
+            if (ReturnRate_textBox.Text == "" || ReturnRate_textBox.Text == "0") rate = 0;
+            else rate = Convert.ToDouble(ReturnRate_textBox.Text);
 
             if (PaymentsCount_label.Text == "" || PaymentsCount_label.Text == "0") count = 0;
             else count = Convert.ToDouble(PaymentsCount_label.Text);
 
+            if (ExchangeRate_textBox.Text == "" || ExchangeRate_textBox.Text == "0") exchange_rate = 0;
+            else exchange_rate = Convert.ToDouble(ExchangeRate_textBox.Text);
+
+
             MySS.query =
                 " START TRANSACTION; "
-                + "Insert Into `loan`(`Loan_Amount`, `Loan_DateTaken`, `Loan_PaymentsCount`,`Loan_Rate`,`Loan_ReturnedAmount`,`Loan_PaymentsAmount`,`Loan_Note`,`Loan_ReceiptID`, `MicroProject_ID`) values("
+                + "Insert Into `loan`(`Currency`,`ExchangeRate`,`Loan_Amount`, `Loan_DateTaken`, `Loan_PaymentsCount`,`Loan_Rate`,`Loan_ReturnedAmount`,`Loan_PaymentsAmount`,`Loan_Note`,`Loan_ReceiptID`, `MicroProject_ID`) values("
+                + "'" + Currency_comboBox.SelectedItem.ToString() + "',"
+                + exchange_rate + ","
                 + Loan + ",N'"
                 + LoanDate_DateTimePicker.Value.Year + "/"
                 + LoanDate_DateTimePicker.Value.Month + "/"
@@ -254,7 +245,8 @@ namespace MyWorkApplication
         private void Update_Loan(int L_ID)
         {
 
-            double rate, count;
+            double rate, count, exchange_rate;
+
             var Loan = LoanAmount_textBox.Text.Replace(",", "");
             pay = PaymentAmount_textBox.Text.Replace(",", "");
             returned_amount = ReturnedAmount1_textBox.Text.Replace(",", "");
@@ -262,14 +254,20 @@ namespace MyWorkApplication
             if (PaymentAmount_textBox.Text == "" || PaymentAmount_textBox.Text == "0") pay = "0";
             if (ReturnedAmount1_textBox.Text == "" || ReturnedAmount1_textBox.Text == "0") returned_amount = "0";
 
-            if (Rate_textBox.Text == "" || Rate_textBox.Text == "0") rate = 0;
-            else rate = Convert.ToDouble(Rate_textBox.Text);
+            if (ReturnRate_textBox.Text == "" || ReturnRate_textBox.Text == "0") rate = 0;
+            else rate = Convert.ToDouble(ReturnRate_textBox.Text);
 
             if (PaymentsCount_label.Text == "" || PaymentsCount_label.Text == "0") count = 0;
             else count = Convert.ToDouble(PaymentsCount_label.Text);
 
+            if (ExchangeRate_textBox.Text == "" || ExchangeRate_textBox.Text == "0") exchange_rate = 0;
+            else exchange_rate = Convert.ToDouble(ExchangeRate_textBox.Text);
+
+
             MySS.query = " Update `loan` set " +
-                         "`Loan_Amount` = " + double.Parse(Loan) +
+                         " `Currency` = '" + Currency_comboBox.SelectedItem.ToString() + "'" +
+                         ",`ExchangeRate` = " + exchange_rate +
+                         ",`Loan_Amount` = " + double.Parse(Loan) +
                          ",`Loan_DateTaken` = N'" + LoanDate_DateTimePicker.Value.ToString("yyyy/MM/dd") + "'" +
                          ",`Loan_PaymentsCount` = " + count +
                          ",`Loan_Rate` = " + rate +
@@ -301,24 +299,26 @@ namespace MyWorkApplication
         public void fill_loan(string where)
         {
             Program.buildConnection();
-            var query = "select PMP.MicroProject_ID as 'MicroProject_ID'"
-                        + " ,CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName) as 'Beneficiary Name'"
-                        + " ,L.Loan_ID as 'Loan_ID'"
-                        + " ,L.Loan_Amount as 'Loan Amount'"
-                        + " ,L.Loan_DateTaken as 'Loan Date'"
-                        + " ,L.Loan_PaymentsCount as 'Payments Count'"
-                        + " ,L.Loan_Rate as 'Rate'"
-                        + " ,L.Loan_ReturnedAmount as 'Returned Amount'"
-                        + " ,L.Loan_PaymentsAmount as 'Payments Amount'"
-                        + " ,L.Loan_Note as 'Note'"
-                        + " ,L.Loan_ReceiptID  as 'ReceiptID'"
-                        + " ,SubCategory_ID as 'SubCategory_ID'"
-                        + " ,MP.DonorGroup_ID as 'Group_ID'"
-                        + " ,MP.MP_Donor as 'Donor_ID'"
-                        + " , microprojecttype.Name as 'Type' "
-                        + " , fundtype.Name as 'FundType' "
+            var query = @"select PMP.MicroProject_ID as 'MicroProject_ID'
+        , CONCAT(P_FirstName,' ', P_LastName,' ابن/ة ',P_FatherName) as 'Beneficiary Name'
+        , Loan_ID
+        , Currency 
+        , ExchangeRate 
+        , Loan_Amount as 'Loan Amount'
+        , Loan_DateTaken as 'Loan Date'
+        , Loan_PaymentsCount as 'Payments Count'
+        , Loan_Rate as 'Rate'
+        , Loan_ReturnedAmount as 'Returned Amount'
+        , Loan_PaymentsAmount as 'Payments Amount'
+        , Loan_Note as 'Note'
+        , Loan_ReceiptID   as 'ReceiptID' 
+        , SubCategory_ID   as 'SubCategory_ID' 
+        , MP.DonorGroup_ID as 'Group_ID' 
+        , MP.MP_Donor      as 'Donor_ID' 
+        , microprojecttype.Name as 'Type' 
+        , fundtype.Name    as 'FundType' 
 
-                        + @" From person_microproject PMP
+        From person_microproject PMP
  left join person P1 on P1.P_ID = PMP.Person_ID 
  left join microproject MP on PMP.MicroProject_ID = MP.MP_ID
  left join loan L on MP.MP_ID = L.MicroProject_ID 
@@ -383,9 +383,28 @@ namespace MyWorkApplication
                             Update_Mood = true;
                         }
 
+                        //exchange rate
+                        if (project_dt.Rows[0]["ExchangeRate"] != DBNull.Value)
+                        {
+                            var dd = Convert.ToDecimal(project_dt.Rows[0]["ExchangeRate"].ToString());
+                            ExchangeRate_textBox.Text = dd.ToString();
+                        }
+                        //currency
+                        if (project_dt.Rows[0]["Currency"] != DBNull.Value)
+                        {
+                            Currency_comboBox.SelectedItem = project_dt.Rows[0]["Currency"].ToString();
+                        }
+
+                        //amount 
                         if (project_dt.Rows[0]["Loan Amount"] != DBNull.Value)
                         {
                             var dd = Convert.ToDouble(project_dt.Rows[0]["Loan Amount"].ToString());
+                            if (project_dt.Rows[0]["Currency"].ToString() == "SP")
+                            {
+
+                            }
+
+
                             LoanAmount_textBox.Text = dd.ToString();
                             Loan = LoanAmount_textBox.Text;
                         }
@@ -402,11 +421,11 @@ namespace MyWorkApplication
                             PaymentsCount_label.Text = Count.ToString();
                         }
 
-                        ///////////////////// new columns /////////////////////////
+
                         if (project_dt.Rows[0]["Rate"] != DBNull.Value)
                         {
                             var dd = Convert.ToDouble(project_dt.Rows[0]["Rate"].ToString());
-                            Rate_textBox.Text = dd.ToString();
+                            ReturnRate_textBox.Text = dd.ToString();
                         }
 
                         if (project_dt.Rows[0]["Returned Amount"] != DBNull.Value)
@@ -423,16 +442,10 @@ namespace MyWorkApplication
                             Calculate_RemainedAmount(Loan_ID);
                         }
 
-                        // to generate notifications by type (opening or closing)
-                        type = fundtype = "";
-                        type = project_dt.Rows[0]["Type"].ToString();
-                        fundtype = project_dt.Rows[0]["FundType"].ToString();
-
-
                         if (project_dt.Rows[0]["Note"] != DBNull.Value) Note_textBox.Text = project_dt.Rows[0]["Note"].ToString();
                         if (project_dt.Rows[0]["ReceiptID"] != DBNull.Value)
                             ReceiptNo_textBox.Text = project_dt.Rows[0]["ReceiptID"].ToString();
-                        ////////////////////////////////////////////////////////////
+
                         if (project_dt.Rows[0]["Group_ID"] == DBNull.Value)
                         {
                             Group_comboBox.SelectedIndex = -1;
@@ -461,6 +474,12 @@ namespace MyWorkApplication
                             SavePayments_button.Visible = true;
                         }
 
+                        ////////////////////////////////////////////////////////////
+                        // to generate notifications by type (opening or closing)
+                        type = fundtype = "";
+                        type = project_dt.Rows[0]["Type"].ToString();
+                        fundtype = project_dt.Rows[0]["FundType"].ToString();
+                        ////////////////////////////////////////////////////////////
 
                         mainForm.ProjectNumber_label.Visible = mainForm.MP_ID_label.Visible = true;
                         mainForm.MP_ID_label.Text = MicroProject_ID.ToString();
@@ -619,7 +638,7 @@ namespace MyWorkApplication
 
             if (e.ColumnIndex == Payment_dataGridView.Columns["P_DeleteRow"].Index)
             {
-                Image image = null;
+                System.Drawing.Image image = null;
                 if (Settings.Default.theme == "Dark")
                     image = Resources.KAKA_Alii_D;
                 else
@@ -637,61 +656,12 @@ namespace MyWorkApplication
         private void Payment_dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel = true;
-        }
-        private void Payment_dataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            //try
-            //{
-            //    if (Payment_dataGridView.CurrentCell.ColumnIndex == 3)
-            //    {
-            //        dateTimePicker1.Location = Payment_dataGridView
-            //            .GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
-            //        dateTimePicker1.Visible = true;
-            //        if (Payment_dataGridView.CurrentCell.Value != DBNull.Value &&
-            //            Payment_dataGridView.CurrentCell.Value != null)
-            //            dateTimePicker1.Value = (DateTime)Payment_dataGridView.CurrentCell.Value;
-            //        else
-            //            dateTimePicker1.Value = DateTime.Today;
-            //    }
-            //    else if (Payment_dataGridView.CurrentCell.ColumnIndex == 4)
-            //    {
-            //        dateTimePicker1.Location = Payment_dataGridView
-            //            .GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).Location;
-            //        dateTimePicker1.Visible = true;
-            //        if (Payment_dataGridView.CurrentCell.Value != DBNull.Value &&
-            //            Payment_dataGridView.CurrentCell.Value != null)
-            //            dateTimePicker1.Value = (DateTime)Payment_dataGridView.CurrentCell.Value;
-            //        else
-            //            dateTimePicker1.Value = DateTime.Today;
-            //    }
-            //    else
-            //    {
-            //        dateTimePicker1.Visible = false;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-        }
+        } 
 
         private void Payment_dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             try
-            {
-                //if (Payment_dataGridView.Focused && Payment_dataGridView.CurrentCell.ColumnIndex == 3)
-                //{
-                //    Payment_dataGridView.CurrentCell.Value = dateTimePicker1.Value.Date;
-                //    Payment_dataGridView.CurrentCell.Style.Format = "dd/MM/yyyy";
-                //    dueTo_date = dateTimePicker1.Value;
-                //}
-                //else if (Payment_dataGridView.Focused && Payment_dataGridView.CurrentCell.ColumnIndex == 4)
-                //{
-                //    Payment_dataGridView.CurrentCell.Value = dateTimePicker1.Value.Date;
-                //    Payment_dataGridView.CurrentCell.Style.Format = "dd/MM/yyyy";
-                //    Receive_date = dateTimePicker1.Value;
-                //}
-                // else 
+            { 
                 if (Payment_dataGridView.Focused && Payment_dataGridView.CurrentCell.ColumnIndex == 2)
                 {
                     if (Payment_dataGridView.CurrentCell.Value.ToString() != "")
@@ -706,12 +676,7 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        //private void DateTimePickerChange(object sender, EventArgs e)
-        //{
-        //    Payment_dataGridView.CurrentCell.Value = dateTimePicker1.Text;
-        //}
+        } 
         #endregion
          
         #region visits notifications
@@ -1169,6 +1134,15 @@ namespace MyWorkApplication
             // المبلغ الكلي
             var Amount = LoanAmount_textBox.Text.Replace(",", "");
             var loan_amount = Convert.ToDouble(Amount);
+            // سعر الصرف
+            var exchange_rate = Convert.ToDouble(ExchangeRate_textBox.Text);
+            // المبلغ بالعملة المقابلة
+            var opp_Amount = 0.0;
+            if (Currency_comboBox.SelectedItem.ToString() == "SP")
+                opp_Amount = loan_amount / exchange_rate;
+            else
+                opp_Amount = loan_amount * exchange_rate;
+            OppAmount_textBox.Text = opp_Amount.ToString("N2");
 
             if (PaymentAmount_textBox.Text == ""
              || PaymentAmount_textBox.Text == "0"
@@ -1185,12 +1159,7 @@ namespace MyWorkApplication
 
             // النسبة
             var rate = Return_amount * 100 / loan_amount;
-
-            ////// النسبة
-            ////Double rate = Convert.ToDouble(Rate_textBox.Text.ToString()); 
-            ////// المبلغ المطلوب استرداده
-            ////Return_amount = loan_amount * rate / 100;
-
+             
             // عدد الدفعات الكلي //
             all_pay_count = (decimal)Return_amount / (decimal)payment_amount;
 
@@ -1246,7 +1215,7 @@ namespace MyWorkApplication
 
             ReturnedAmount2_label.Text = Return_amount.ToString("#,##0");
             PaymentsCount_label.Text = all_pay_count.ToString("N1");
-            Rate_textBox.Text = rate.ToString("N1");
+            ReturnRate_textBox.Text = rate.ToString("N1");
         }
 
         private void CheckUserPermission()
@@ -1287,11 +1256,11 @@ namespace MyWorkApplication
                 RemainOfReturned_label.ForeColor = Color.WhiteSmoke;
             else RemainOfReturned_label.ForeColor = Color.Black;
 
-            Rate_textBox.Text = PaymentAmount_textBox.Text = ReceiptNo_textBox.Text = Note_textBox.Text = "";
+            ReturnRate_textBox.Text = PaymentAmount_textBox.Text = ReceiptNo_textBox.Text = Note_textBox.Text = "";
             LoanDate_DateTimePicker.Value = DateTime.Now;
             Group_comboBox.SelectedIndex = -1;
             Payment_dataGridView.Rows.Clear();
-            dolarAmount_textBox.Text = "";
+            OppAmount_textBox.Text = "";
         }
 
         private void MicroProject_ID_textBox2_Leave(object sender, EventArgs e)
@@ -1410,9 +1379,10 @@ namespace MyWorkApplication
         {
             try
             {
-                if (LoanAmount_textBox.Text != ""
-                        && ReturnedAmount1_textBox.Text != ""
-                        && PaymentAmount_textBox.Text != "")
+                if (LoanAmount_textBox.Text      != ""
+                 && ReturnedAmount1_textBox.Text != ""
+                 && PaymentAmount_textBox.Text   != ""
+                 && ExchangeRate_textBox.Text    != "")
                     Calculate_RemainedAmount(Loan_ID);
             }
             catch (Exception ex)
@@ -1421,24 +1391,18 @@ namespace MyWorkApplication
             }
         }
 
-        private void Group_comboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (LoanAmount_textBox.Text != "" && Group_comboBox.SelectedIndex != -1)
-                {
-                    var row = dt_Group.Select("ID = " + Group_comboBox.SelectedValue);
-                    var rate = row[0].Field<double>("Rate");
-                    Loan = LoanAmount_textBox.Text.Replace(",", "");
-                    var syr_Amount = double.Parse(Loan);
 
-                    var dolarAmount = syr_Amount / rate;
-                    dolarAmount_textBox.Text = dolarAmount.ToString("N2");
-                }
-            }
-            catch (Exception ex)
+        private void Currency_comboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (Currency_comboBox.SelectedItem.ToString() == "SP")
             {
-                MessageBox.Show(ex.Message);
+                Amount_label.Text = "مبلغ القرض (sp):";
+                OppAmount_label.Text = "مبلغ القرض (usd):";
+            }
+            else
+            {
+                Amount_label.Text = "مبلغ القرض (usd):";
+                OppAmount_label.Text = "مبلغ القرض (sp):";
             }
         }
         #endregion
@@ -1486,6 +1450,7 @@ namespace MyWorkApplication
                 SavePayments_button.BackgroundImage = Resources.Save2_L;
             else SavePayments_button.BackgroundImage = Resources.Save2_D;
         }
+
 
         #endregion
 

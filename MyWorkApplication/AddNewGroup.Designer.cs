@@ -40,13 +40,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Close_button = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Rate_textBox = new System.Windows.Forms.TextBox();
             this.group_dataGridView = new System.Windows.Forms.DataGridView();
             this.Donor_comboBox = new System.Windows.Forms.ComboBox();
             this.Donor_label = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ExportToExcel_button = new System.Windows.Forms.Button();
+            this.Count_label = new System.Windows.Forms.Label();
+            this.Selected_label = new System.Windows.Forms.Label();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.group_dataGridView)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Save_button
@@ -62,7 +66,7 @@
             this.Save_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Save_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save_button.ForeColor = System.Drawing.Color.White;
-            this.Save_button.Location = new System.Drawing.Point(199, 206);
+            this.Save_button.Location = new System.Drawing.Point(200, 170);
             this.Save_button.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.Save_button.Name = "Save_button";
             this.Save_button.Size = new System.Drawing.Size(99, 36);
@@ -78,7 +82,7 @@
             this.label48.AutoSize = true;
             this.label48.BackColor = System.Drawing.Color.Transparent;
             this.label48.ForeColor = System.Drawing.Color.Black;
-            this.label48.Location = new System.Drawing.Point(338, 77);
+            this.label48.Location = new System.Drawing.Point(338, 84);
             this.label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label48.Name = "label48";
             this.label48.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -92,11 +96,11 @@
             this.Name_textBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Name_textBox.BackColor = System.Drawing.Color.White;
             this.Name_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Name_textBox.Location = new System.Drawing.Point(23, 74);
+            this.Name_textBox.Location = new System.Drawing.Point(49, 81);
             this.Name_textBox.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.Name_textBox.Name = "Name_textBox";
             this.Name_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Name_textBox.Size = new System.Drawing.Size(301, 29);
+            this.Name_textBox.Size = new System.Drawing.Size(275, 29);
             this.Name_textBox.TabIndex = 1;
             this.Name_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Name_textBox.TextChanged += new System.EventHandler(this.Name_textBox_TextChanged);
@@ -108,7 +112,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Rubik", 14F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(143, 17);
+            this.label2.Location = new System.Drawing.Point(144, 17);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -124,7 +128,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Rubik", 14F);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(246, 17);
+            this.label1.Location = new System.Drawing.Point(247, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -162,7 +166,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.68732F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.31268F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.tableLayoutPanel4.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.label1, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.Close_button, 0, 0);
@@ -175,34 +179,6 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(506, 54);
             this.tableLayoutPanel4.TabIndex = 464;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(338, 120);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(128, 27);
-            this.label3.TabIndex = 465;
-            this.label3.Text = "المعدّل (Rate):";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Rate_textBox
-            // 
-            this.Rate_textBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.Rate_textBox.BackColor = System.Drawing.Color.White;
-            this.Rate_textBox.ForeColor = System.Drawing.Color.Black;
-            this.Rate_textBox.Location = new System.Drawing.Point(23, 117);
-            this.Rate_textBox.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.Rate_textBox.Name = "Rate_textBox";
-            this.Rate_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Rate_textBox.Size = new System.Drawing.Size(301, 29);
-            this.Rate_textBox.TabIndex = 2;
-            this.Rate_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // group_dataGridView
             // 
@@ -236,8 +212,8 @@
             this.group_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.group_dataGridView.EnableHeadersVisualStyles = false;
             this.group_dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.group_dataGridView.Location = new System.Drawing.Point(14, 260);
-            this.group_dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.group_dataGridView.Location = new System.Drawing.Point(13, 214);
+            this.group_dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.group_dataGridView.Name = "group_dataGridView";
             this.group_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.group_dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -263,13 +239,14 @@
             this.group_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.group_dataGridView.RowTemplate.Height = 30;
             this.group_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.group_dataGridView.Size = new System.Drawing.Size(478, 449);
+            this.group_dataGridView.Size = new System.Drawing.Size(478, 419);
             this.group_dataGridView.TabIndex = 466;
             this.group_dataGridView.VirtualMode = true;
             this.group_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.group_dataGridView_CellContentClick);
             this.group_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.group_dataGridView_CellEndEdit);
             this.group_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.group_dataGridView_CellPainting);
             this.group_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.group_dataGridView_DataError);
+            this.group_dataGridView.SelectionChanged += new System.EventHandler(this.group_dataGridView_SelectionChanged);
             // 
             // Donor_comboBox
             // 
@@ -277,11 +254,11 @@
             this.Donor_comboBox.BackColor = System.Drawing.Color.White;
             this.Donor_comboBox.ForeColor = System.Drawing.Color.Black;
             this.Donor_comboBox.FormattingEnabled = true;
-            this.Donor_comboBox.Location = new System.Drawing.Point(23, 160);
+            this.Donor_comboBox.Location = new System.Drawing.Point(49, 121);
             this.Donor_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Donor_comboBox.Name = "Donor_comboBox";
             this.Donor_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Donor_comboBox.Size = new System.Drawing.Size(301, 35);
+            this.Donor_comboBox.Size = new System.Drawing.Size(275, 35);
             this.Donor_comboBox.TabIndex = 469;
             // 
             // Donor_label
@@ -290,13 +267,105 @@
             this.Donor_label.AutoSize = true;
             this.Donor_label.BackColor = System.Drawing.Color.Transparent;
             this.Donor_label.ForeColor = System.Drawing.Color.Black;
-            this.Donor_label.Location = new System.Drawing.Point(345, 163);
+            this.Donor_label.Location = new System.Drawing.Point(345, 124);
             this.Donor_label.Margin = new System.Windows.Forms.Padding(0);
             this.Donor_label.Name = "Donor_label";
             this.Donor_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Donor_label.Size = new System.Drawing.Size(119, 27);
             this.Donor_label.TabIndex = 470;
             this.Donor_label.Text = "الجهة الممولة:";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ExportToExcel_button, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.Count_label, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.Selected_label, 2, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 650);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(506, 74);
+            this.tableLayoutPanel2.TabIndex = 483;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel2.SetColumnSpan(this.label3, 4);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label3.Location = new System.Drawing.Point(0, 5);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(506, 27);
+            this.label3.TabIndex = 479;
+            this.label3.Text = "يمكن التعديل على المهنة مباشرة من الجدول...";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ExportToExcel_button
+            // 
+            this.ExportToExcel_button.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ExportToExcel_button.AutoSize = true;
+            this.ExportToExcel_button.BackColor = System.Drawing.Color.Transparent;
+            this.ExportToExcel_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.Excel_D;
+            this.ExportToExcel_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ExportToExcel_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.ExportToExcel_button.FlatAppearance.BorderSize = 0;
+            this.ExportToExcel_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ExportToExcel_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ExportToExcel_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExportToExcel_button.ForeColor = System.Drawing.Color.White;
+            this.ExportToExcel_button.Location = new System.Drawing.Point(460, 41);
+            this.ExportToExcel_button.Margin = new System.Windows.Forms.Padding(4);
+            this.ExportToExcel_button.MaximumSize = new System.Drawing.Size(28, 31);
+            this.ExportToExcel_button.MinimumSize = new System.Drawing.Size(28, 31);
+            this.ExportToExcel_button.Name = "ExportToExcel_button";
+            this.ExportToExcel_button.Size = new System.Drawing.Size(28, 31);
+            this.ExportToExcel_button.TabIndex = 411;
+            this.ExportToExcel_button.UseVisualStyleBackColor = false;
+            this.ExportToExcel_button.Click += new System.EventHandler(this.ExportToExcel_button_Click);
+            // 
+            // Count_label
+            // 
+            this.Count_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Count_label.AutoSize = true;
+            this.Count_label.BackColor = System.Drawing.Color.Transparent;
+            this.Count_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Count_label.Location = new System.Drawing.Point(304, 42);
+            this.Count_label.Margin = new System.Windows.Forms.Padding(0);
+            this.Count_label.Name = "Count_label";
+            this.Count_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Count_label.Size = new System.Drawing.Size(152, 27);
+            this.Count_label.TabIndex = 477;
+            this.Count_label.Text = "Count";
+            this.Count_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Selected_label
+            // 
+            this.Selected_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Selected_label.AutoSize = true;
+            this.Selected_label.BackColor = System.Drawing.Color.Transparent;
+            this.Selected_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Selected_label.Location = new System.Drawing.Point(152, 42);
+            this.Selected_label.Margin = new System.Windows.Forms.Padding(0);
+            this.Selected_label.Name = "Selected_label";
+            this.Selected_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Selected_label.Size = new System.Drawing.Size(152, 27);
+            this.Selected_label.TabIndex = 478;
+            this.Selected_label.Text = "Selected";
+            this.Selected_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AddNewGroup
             // 
@@ -306,13 +375,12 @@
             this.BackgroundImage = global::MyWorkApplication.Properties.Resources.Background_Border;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(506, 724);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.Donor_comboBox);
             this.Controls.Add(this.Donor_label);
             this.Controls.Add(this.group_dataGridView);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.Save_button);
             this.Controls.Add(this.label48);
-            this.Controls.Add(this.Rate_textBox);
             this.Controls.Add(this.Name_textBox);
             this.Controls.Add(this.tableLayoutPanel4);
             this.DoubleBuffered = true;
@@ -327,6 +395,8 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.group_dataGridView)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,10 +410,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Close_button;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Rate_textBox;
         private System.Windows.Forms.DataGridView group_dataGridView;
         private System.Windows.Forms.ComboBox Donor_comboBox;
         private System.Windows.Forms.Label Donor_label;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button ExportToExcel_button;
+        private System.Windows.Forms.Label Count_label;
+        private System.Windows.Forms.Label Selected_label;
     }
 }
