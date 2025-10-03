@@ -46,7 +46,7 @@
             this.P_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SavePayments_button = new System.Windows.Forms.Button();
             this.MainHeader1_label = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.stats_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.GreyLable1_label = new System.Windows.Forms.Label();
@@ -108,7 +108,7 @@
             this.panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Payment_dataGridView)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.stats_tableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -121,7 +121,7 @@
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.tableLayoutPanel3);
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Controls.Add(this.stats_tableLayoutPanel);
             this.panel1.Controls.Add(this.tableLayoutPanel4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -316,25 +316,25 @@
             this.MainHeader1_label.Text = "أقساط المستفيد";
             this.MainHeader1_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel1
+            // stats_tableLayoutPanel
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Linen;
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.10526F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.89474F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.89474F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.10526F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(100, 501);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 203F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1041, 203);
-            this.tableLayoutPanel1.TabIndex = 3;
+            this.stats_tableLayoutPanel.BackColor = System.Drawing.Color.Linen;
+            this.stats_tableLayoutPanel.ColumnCount = 5;
+            this.stats_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.10526F));
+            this.stats_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.89474F));
+            this.stats_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.stats_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.89474F));
+            this.stats_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.10526F));
+            this.stats_tableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 3, 0);
+            this.stats_tableLayoutPanel.Controls.Add(this.tableLayoutPanel5, 1, 0);
+            this.stats_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.stats_tableLayoutPanel.Location = new System.Drawing.Point(100, 501);
+            this.stats_tableLayoutPanel.Name = "stats_tableLayoutPanel";
+            this.stats_tableLayoutPanel.RowCount = 1;
+            this.stats_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.stats_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 203F));
+            this.stats_tableLayoutPanel.Size = new System.Drawing.Size(1041, 203);
+            this.stats_tableLayoutPanel.TabIndex = 3;
             // 
             // tableLayoutPanel2
             // 
@@ -1221,7 +1221,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Payment_dataGridView)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.stats_tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -1292,7 +1292,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn P_DeleteRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_InDataBase;
         private System.Windows.Forms.Label SubHeader1_label;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel stats_tableLayoutPanel;
         private System.Windows.Forms.Label GreyLable1_label;
         private System.Windows.Forms.Label GreyLable2_label;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
