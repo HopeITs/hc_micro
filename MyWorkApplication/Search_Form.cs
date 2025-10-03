@@ -578,44 +578,60 @@ namespace MyWorkApplication
             var dt2 = s.Select_Loan_Sum(str, donor);
             if (dt2.Rows.Count != 0)
             {
-                Export_sp_label.Text = "Export(SP): " + (dt2.Rows[0]["Export(SP)"] == DBNull.Value
+                Export_sp_label.Text = //"Loans: " +
+                                       (dt2.Rows[0]["Export(SP)"] == DBNull.Value
                     ? "0"
                     : Convert.ToDecimal(dt2.Rows[0]["Export(SP)"]).ToString("#,##0"));
-                Export_usd_label.Text = "Export(USD): " + (dt2.Rows[0]["Export(USD)"] == DBNull.Value
+                Export_usd_label.Text =// "Loans($): " +
+                                       (dt2.Rows[0]["Export(USD)"] == DBNull.Value
                     ? "0"
                     : Convert.ToDecimal(dt2.Rows[0]["Export(USD)"]).ToString("#,##0"));
                 
-
-                Import_sp_label.Text = "Import(SP): " + (dt2.Rows[0]["Import(SP)"] == DBNull.Value
+                Import_sp_label.Text = //"Repayments: " +
+                                       (dt2.Rows[0]["Import(SP)"] == DBNull.Value
                     ? "0"
                     : Convert.ToDecimal(dt2.Rows[0]["Import(SP)"]).ToString("#,##0"));
-                Import_usd_label.Text = "Import(USD): " + (dt2.Rows[0]["Import(USD)"] == DBNull.Value
+                Import_usd_label.Text =// "Repayments($): " +
+                                       (dt2.Rows[0]["Import(USD)"] == DBNull.Value
                     ? "0"
                     : Convert.ToDecimal(dt2.Rows[0]["Import(USD)"]).ToString("#,##0"));
-
-
-                Remaining_sp_label.Text = "Remaining(SP): " + (dt2.Rows[0]["Remaining(SP)"] == DBNull.Value
-                    ? "0"
-                    : Convert.ToDecimal(dt2.Rows[0]["Remaining(SP)"]).ToString("#,##0"));
-                Remaining_usd_label.Text = "Remaining(USD): " + (dt2.Rows[0]["Remaining(USD)"] == DBNull.Value
-                    ? "0"
-                    : Convert.ToDecimal(dt2.Rows[0]["Remaining(USD)"]).ToString("#,##0"));
-
-
-                Returned_sp_label.Text = "Returned(SP): " + (dt2.Rows[0]["Returned(SP)"] == DBNull.Value
+                 
+                Returned_sp_label.Text = //"Returned: " +
+                                         (dt2.Rows[0]["Returned(SP)"] == DBNull.Value
                    ? "0"
                    : Convert.ToDecimal(dt2.Rows[0]["Returned(SP)"]).ToString("#,##0"));
-                Returned_usd_label.Text = "Returned(USD): " + (dt2.Rows[0]["Returned(USD)"] == DBNull.Value
+                Returned_usd_label.Text =// "Returned($): " +
+                                         (dt2.Rows[0]["Returned(USD)"] == DBNull.Value
                    ? "0"
                    : Convert.ToDecimal(dt2.Rows[0]["Returned(USD)"]).ToString("#,##0"));
-
-
-                Net_sp_label.Text = "Net(SP): " + (dt2.Rows[0]["Net(SP)"] == DBNull.Value
+                 
+                Net_sp_label.Text =// "Net Repayments: " +
+                                   (dt2.Rows[0]["Net(SP)"] == DBNull.Value
                    ? "0"
                    : Convert.ToDecimal(dt2.Rows[0]["Net(SP)"]).ToString("#,##0"));
-                Net_usd_label.Text = "Net(USD): " + (dt2.Rows[0]["Net(USD)"] == DBNull.Value
+                Net_usd_label.Text =// "Net Repayments($): " +
+                                    (dt2.Rows[0]["Net(USD)"] == DBNull.Value
                    ? "0"
                    : Convert.ToDecimal(dt2.Rows[0]["Net(USD)"]).ToString("#,##0"));
+
+                //NEW
+                RepayLoans_sp_label.Text = //"Repayment Loans: " +
+                                           (dt2.Rows[0]["RepayLoans(SP)"] == DBNull.Value
+                   ? "0"
+                   : Convert.ToDecimal(dt2.Rows[0]["RepayLoans(SP)"]).ToString("#,##0"));
+                RepayLoans_usd_label.Text =// "Repayment Loans($): " +
+                                           (dt2.Rows[0]["RepayLoans(USD)"] == DBNull.Value
+                   ? "0"
+                   : Convert.ToDecimal(dt2.Rows[0]["RepayLoans(USD)"]).ToString("#,##0"));
+
+                Remaining_sp_label.Text = //"Repayment Balance: " +
+                                          (dt2.Rows[0]["Remaining(SP)"] == DBNull.Value
+                    ? "0"
+                    : Convert.ToDecimal(dt2.Rows[0]["Remaining(SP)"]).ToString("#,##0"));
+                Remaining_usd_label.Text =// "Repayment Balance($): " +
+                                          (dt2.Rows[0]["Remaining(USD)"] == DBNull.Value
+                    ? "0"
+                    : Convert.ToDecimal(dt2.Rows[0]["Remaining(USD)"]).ToString("#,##0"));
             }
         }
 

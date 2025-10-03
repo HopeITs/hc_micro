@@ -653,12 +653,33 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
         public DataTable Select_Loan_Sum(string id_loan_str, string donor)
         {
-            //",IFNULL( SUM( ( Loan_Amount / (SELECT Rate from donorgroup where donorgroup.ID = microproject.DonorGroup_ID))) ,0) as 'Export($)'"
+            //Exports:Loans(SP) : مجموع القروض بالسوري (يتضمن القروض بالليرة السورية + القروض بالدولار مضروبة بسعر الصرف بحسب كل قرض)
+            //Exports:Loans(USD): مجموع القروض بالدولار (يتضمن القروض بالدولار + القروض بالليرة السورية مقسمة على سعر الصرف بحسب كل قرض) 
+            //
+            //Imports:Repayments(SP) : مجموع الأقساط الموجبة فقط ان كانت العملة سوري
+            //Imports:Repayments(USD): مجموع الأقساط الموجبة فقط ان كانت العملة دولار
+            //
+            //Returned:Amount Paid Back to beneficiary(SP) : مجموع الأقساط السالبة فقط ان كانت العملة سوري
+            //Returned:Amount Paid Back to beneficiary(USD): مجموع الأقساط السالبة فقط ان كانت العملة دولار
+            //
+            //Net:Net Repayments(SP) :  مجموع الأقساط الموجبة + مجموع الأقساط السالبة  كلاهما فقط ان كانت العملة سوري
+            //Net:Net Repayments(USD):  مجموع الأقساط الموجبة + مجموع الأقساط السالبة  كلاهما فقط ان كانت العملة دولار
+            //
+            //Repayment Loans(SP) : مجموع القروض بالسوري الممولة من Installment (يتضمن القروض بالليرة السورية + القروض بالدولار مضروبة بسعر الصرف بحسب كل قرض)
+            //Repayment Loans(USD): مجموع القروض بالدولار الممولة من Installment (يتضمن القروض بالليرة السورية + القروض بالسوري مقسمة على سعر الصرف بحسب كل قرض)
+            //
+            //Remaining:Repayments balance(SP) :  net - القروض الممولة من installment
+            //Remaining:Repayments balance(SP) :  net - القروض الممولة من installment
 
-            string query,remaining_usd_query, remaining_sp_query , net_usd_query, net_sp_query,import_query,returned_query;
-            query = remaining_usd_query = remaining_sp_query = net_usd_query = net_sp_query = import_query = returned_query = "";
-
-            //net = (sum paid payment <0 ) + (sum paid payments >= 0)
+            string query, repay_loans_sp_query, repay_loans_usd_query
+                , remaining_usd_query, remaining_sp_query
+                , net_usd_query, net_sp_query
+                , import_query, returned_query;
+            query = repay_loans_sp_query = repay_loans_usd_query
+                = remaining_usd_query = remaining_sp_query 
+                = net_usd_query = net_sp_query 
+                = import_query = returned_query = "";
+             
             net_sp_query = @" 
 ,IFNULL((select sum(
     CASE 
@@ -702,8 +723,8 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
     and `Pay_IsPaid` = N'Paid' " +
     (id_loan_str == "" ? "" : " and payment.Loan_ID in " + id_loan_str) + @"
 ) ,0) ";
-              
-            //remained = net - those donors and installments of those donors
+
+           
             string inner_from = @" from loan lulu 
             join microproject m on lulu.MicroProject_ID = m.MP_ID 
             left join donor on donor.ID = m.MP_Donor 
@@ -711,17 +732,21 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
             where donorgroup.Name like '%Installment%') " +
             (donor == "" ? "" : " and donor.Name in (" + donor + ")" );
 
-            remaining_sp_query = net_sp_query + @" - (select SUM(
+            repay_loans_sp_query = @" IFNULL((select SUM(
                 CASE 
                     WHEN lulu.Currency = 'SP'  THEN lulu.Loan_Amount
                     WHEN lulu.Currency = 'USD' THEN lulu.Loan_Amount * lulu.ExchangeRate
-                END) " + inner_from;
+                END) " + inner_from + ",0) ";
 
-            remaining_usd_query = net_usd_query + @" - (select SUM(
+            repay_loans_usd_query = @" IFNULL((select SUM(
                 CASE
                     WHEN lulu.Currency = 'USD' THEN lulu.Loan_Amount
                     WHEN lulu.Currency = 'SP'  THEN lulu.Loan_Amount / lulu.ExchangeRate
-                END) " + inner_from;
+                END) " + inner_from + ",0) ";
+
+
+            remaining_sp_query = net_sp_query + " - " + repay_loans_sp_query;
+            remaining_usd_query = net_usd_query + " - " + repay_loans_usd_query;
 
             remaining_sp_query += " as 'Remaining(SP)' ";
             remaining_usd_query += " as 'Remaining(USD)'";
@@ -729,6 +754,8 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
             net_sp_query += " as 'Net(SP)' ";
             net_usd_query += " as 'Net(USD)' ";
 
+            repay_loans_sp_query  = "," + repay_loans_sp_query  + " as 'RepayLoans(SP)' ";
+            repay_loans_usd_query = "," + repay_loans_usd_query + " as 'RepayLoans(USD)' ";
 
             //import
             import_query = @"
@@ -795,6 +822,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 + returned_query
 + net_sp_query + net_usd_query
 + remaining_sp_query + remaining_usd_query
++ repay_loans_sp_query + repay_loans_usd_query
 + " from `loan` left join `microproject` on loan.MicroProject_ID = microproject.MP_ID "
 + (id_loan_str == "" ? "" : " where `Loan_ID` in " + id_loan_str) + ";" ;
 
