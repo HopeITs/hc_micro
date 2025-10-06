@@ -2325,7 +2325,11 @@ namespace MyWorkApplication
                 else Financed_To_d = Convert.ToDouble(FinancedTo);
                 FundedAmount_condition +=
                     //" and (L.Loan_Amount BETWEEN " + Financed_from_d + " and " + Financed_To_d + ") ";
-                    " and ( Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN " + Financed_from_d + " and " + Financed_To_d + ") ";
+                    @" and ( Round( 
+                        (CASE Currency 
+                        WHEN 'SP'  THEN Loan_Amount / ExchangeRate
+                        WHEN 'USD' THEN Loan_Amount 
+                        END) , 2 ) BETWEEN " + Financed_from_d + " and " + Financed_To_d + ") ";
 
                 //Refresh_button_Click_1(sender, e);
             }

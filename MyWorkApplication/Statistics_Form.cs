@@ -994,16 +994,37 @@ namespace MyWorkApplication
         {
             try
             {
-                //condition += " and Round( (Loan_Amount / donorgroup.Rate) , 2 ) is not null ";
-
-                string query = "Select case " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 0    AND 1000 THEN '0-1000' " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 1001 AND 2000 THEN '1001-2000' " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 2001 AND 3000 THEN '2001-3000' " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 3001 AND 4000 THEN '3001-4000' " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 4001 AND 5000 THEN '4001-5000' " +
-                    " WHEN Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN 4001 AND 5000 THEN '5001-5001' " +
-                    " ELSE '>6000' END as FundAmountRange "
+                 
+                string query = @"Select case 
+ WHEN Round( (CASE Currency 
+    WHEN 'SP'  THEN Loan_Amount / ExchangeRate
+    WHEN 'USD' THEN Loan_Amount 
+    END) , 2 ) BETWEEN 0 AND 1000 THEN '0-1000' 
+ WHEN Round( (CASE Currency 
+    WHEN 'SP'  THEN Loan_Amount / ExchangeRate
+    WHEN 'USD' THEN Loan_Amount 
+    END) , 2 ) BETWEEN 1001 AND 2000 THEN '1001-2000' 
+ WHEN Round( (CASE Currency 
+    WHEN 'SP'  THEN Loan_Amount / ExchangeRate
+    WHEN 'USD' THEN Loan_Amount 
+    END) , 2 ) BETWEEN 2001 AND 3000 THEN '2001-3000' 
+ WHEN Round( (CASE Currency 
+    WHEN 'SP'  THEN Loan_Amount / ExchangeRate
+    WHEN 'USD' THEN Loan_Amount 
+    END) , 2 ) BETWEEN 3001 AND 4000 THEN '3001-4000' 
+ WHEN Round( (CASE Currency 
+    WHEN 'SP'  THEN Loan_Amount / ExchangeRate
+    WHEN 'USD' THEN Loan_Amount 
+    END) , 2 ) BETWEEN 4001 AND 5000 THEN '4001-5000' 
+ WHEN Round( (CASE Currency 
+    WHEN 'SP'  THEN Loan_Amount / ExchangeRate
+    WHEN 'USD' THEN Loan_Amount 
+    END) , 2 ) BETWEEN 5001 AND 5000 THEN '5001-5000' 
+ WHEN Round( (CASE Currency 
+    WHEN 'SP'  THEN Loan_Amount / ExchangeRate
+    WHEN 'USD' THEN Loan_Amount 
+    END) , 2 ) BETWEEN 6001 AND 7000 THEN '6001-7000' 
+ELSE '>7000' END as FundAmountRange "
 
                     + ", count(DISTINCT MP_ID) as numOfProjects "
                     + ", (select count(DISTINCT microproject.MP_ID) "
@@ -1015,7 +1036,7 @@ namespace MyWorkApplication
                 var GroupBycondition = @" 
     GROUP BY FundAmountRange 
     ORDER BY FIELD(FundAmountRange ,
-    '0-1000', '1001-2000', '2001-3000', '3001-4000', '4001-5000', '5001-6000', '>6000')";
+    '0-1000', '1001-2000', '2001-3000', '3001-4000', '4001-5000', '5001-6000', '6001-7000', '>7000')";
 
                 query += from + condition + GroupBycondition + ";";
 
@@ -2099,7 +2120,10 @@ END AS SustainabilityRange "
                 else Financed_To_d = Convert.ToDouble(FinancedTo);
                 FundedAmount_condition +=
                    // " and (L.Loan_Amount BETWEEN " + Financed_from_d + " and " + Financed_To_d + ") ";
-                   " and ( Round( (Loan_Amount / donorgroup.Rate) , 2 ) BETWEEN " + Financed_from_d + " and " + Financed_To_d + ") ";
+                   @" and ( Round( (CASE Currency 
+   WHEN 'SP'  THEN Loan_Amount / ExchangeRate
+   WHEN 'USD' THEN Loan_Amount 
+   END) , 2 ) BETWEEN " + Financed_from_d + " and " + Financed_To_d + ") ";
 
                 //SearchBy_comboBox_SelectedIndexChanged(sender, e);
             }
