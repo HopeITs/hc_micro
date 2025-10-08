@@ -572,7 +572,8 @@ namespace MyWorkApplication
             string donor = "";
             if (Donor_comboBox.Text != "")
             {
-                donor = Program.ReplaceQuotation(Donor_comboBox.Text);
+                //donor = Program.ReplaceQuotation(Donor_comboBox.Text);
+                donor = Program.getSelectedItems_CheckboxComboBox(Donor_comboBox, true);
             }
 
             var dt2 = s.Select_Loan_Sum(str, donor);

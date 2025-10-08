@@ -724,25 +724,25 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
     (id_loan_str == "" ? "" : " and payment.Loan_ID in " + id_loan_str) + @"
 ) ,0) ";
 
-           
+
             string inner_from = @" from loan lulu 
             join microproject m on lulu.MicroProject_ID = m.MP_ID 
             left join donor on donor.ID = m.MP_Donor 
             left join donorgroup on donorgroup.ID = m.DonorGroup_ID 
-            where donorgroup.Name like '%Installment%') " +
-            (donor == "" ? "" : " and donor.Name in (" + donor + ")" );
+            where donorgroup.Name like '%Installment%' " +
+            (donor == "" ? "" : " and donor.Name in (" + donor + ")") ;
 
             repay_loans_sp_query = @" IFNULL((select SUM(
                 CASE 
                     WHEN lulu.Currency = 'SP'  THEN lulu.Loan_Amount
                     WHEN lulu.Currency = 'USD' THEN lulu.Loan_Amount * lulu.ExchangeRate
-                END) " + inner_from + ",0) ";
+                END) " + inner_from + "),0) ";
 
             repay_loans_usd_query = @" IFNULL((select SUM(
                 CASE
                     WHEN lulu.Currency = 'USD' THEN lulu.Loan_Amount
                     WHEN lulu.Currency = 'SP'  THEN lulu.Loan_Amount / lulu.ExchangeRate
-                END) " + inner_from + ",0) ";
+                END) " + inner_from + "),0) ";
 
 
             remaining_sp_query = net_sp_query + " - " + repay_loans_sp_query;
