@@ -73,63 +73,14 @@ namespace MyWorkApplication
             return selected;
         }
 
-        //Judy's old code
-        ////public static void set_ConnectionString()
-        ////{ 
-        ////    if (Properties.Settings.Default.selected_hope != "")
-        ////    { 
-        ////        string online_offline_localhost = "local";
-        ////        if (Properties.Settings.Default.Online)  //online
-        ////            online_offline_localhost = "online";
-        ////        //else //offline
-        ////        //    online_offline_localhost = "admin"; 
-        ////        string txtpath = Directory.GetCurrentDirectory() + @"\connection.txt";  
-        ////        if (File.Exists(txtpath))
-        ////        {
-        ////            using (StreamReader sr = new StreamReader(txtpath))
-        ////            {
-        ////                while (sr.Peek() >= 0)
-        ////                {
-        ////                    string ss = sr.ReadLine();
-        ////                    string[] txtsplit = ss.Split(';'); 
-        ////                    //select the first key : database type and name
-        ////                    string connect = txtsplit[0].ToString(); 
-        ////                    if (connect.Contains(Properties.Settings.Default.selected_hope.ToLower()) 
-        ////                        && connect.Contains(online_offline_localhost))
-        ////                    {
-        ////                        //the next node of this index is the connection string// 
-        ////                        ConnectionString = Base64Decode(txtsplit[1].ToString());
-        ////                        Console.WriteLine(ConnectionString);
-        ////                        return;
-        ////                    } 
-        ////                }
-        ////            }
-        ////        } 
-        ////    }
-        ////    else
-        ////    {
-        ////        ConnectionString = ""; 
-        ////    } 
-        ////}
-        ////public static string Base64Decode(string base64EncodedData)
-        ////{
-        ////    var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
-        ////    return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
-        ////}
-        ////public static string Base64Encode(string plainText)
-        ////{
-        ////    var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
-        ////    return System.Convert.ToBase64String(plainTextBytes); 
-        ////}
-
         public static void set_ConnectionString()
         {
             //Added for the new encryption
             string datalocation;
             if (Properties.Settings.Default.Online)
                 datalocation = "online";
-            else datalocation = "localhost";
-            //else datalocation = "PC-ADMIN";
+            //else datalocation = "localhost";
+            else datalocation = "PC-ADMIN";
 
             OnlineRoot = "ftp://hcsyria.org/micro_images2/";
             OfflineRoot = "ftp://PC-ADMIN/micro_images/";
@@ -178,13 +129,6 @@ namespace MyWorkApplication
                 OnlineRoot += "pts aleppo";
                 OfflineRoot += "pts aleppo";
             }
-            //else if (selected_database == "All Databases")
-            //{
-            //    //like aleppo head office
-            //    ConnectionString = "Database=hcsyria_micro;" + ConnectionString;
-            //    OnlineRoot += "aleppo";
-            //    OfflineRoot += "aleppo";
-            //}
             else
             {
                 ConnectionString = "";
