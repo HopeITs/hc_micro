@@ -391,8 +391,8 @@ namespace MyWorkApplication
 
                     ////NeedProTest
                     var needProTest = ds.Tables[0].Rows[0]["هل يحتاج لفحص مهني"].ToString();
-                    NeedProTestYes_radioButton.Checked = needProTest == "نعم";
-                    NeedProTestNo_radioButton.Checked = needProTest == "لا";
+                    NeedProTestYes_radioButton.Checked = needProTest == "بحاجة";
+                    NeedProTestNo_radioButton.Checked = needProTest == "ليس بحاجة";
                     NeedProTestNote_textBox.Text = ds.Tables[0].Rows[0]["سبب الفحص"].ToString();
 
                     ////HasProTest

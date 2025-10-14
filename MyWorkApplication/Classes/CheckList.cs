@@ -425,25 +425,22 @@ namespace MyWorkApplication.Classes
  , C.Name as 'Category'
  , sub.Name as 'Sub Category'
  , microprojectsubtype.Name as 'SubType'
-
+ , state.Name_ar as 'حالة المشروع'
+ 
  , PMP.P_WorkYears as 'عدد سنين الخبرة'
 
  , (CASE `HasHomeVisit` WHEN 1 THEN 'تمت' WHEN 0 THEN 'لم تتم' ELSE '' END) AS 'هل تمت زيارة منزل'
  , `HVisit_Date` AS 'تاريخ زيارة المنزل'
  , `HVisit_Time` AS 'ساعة زيارة المنزل'
 
- , IFNULL((SELECT checklist_member.Name
-           FROM `person_checklistmembers`
-           LEFT JOIN checklist_member ON person_checklistmembers.Member_ID = checklist_member.ID
-           WHERE person_checklistmembers.Person_ID = checklist.Person_ID
-             AND checklist_member.ID = checklist.HVisit_Visitor1_ID
+ , IFNULL((SELECT cm.Name
+           FROM checklist_member cm 
+           WHERE cm.ID = checklist.HVisit_Visitor1_ID
            LIMIT 1),'') as 'الزائر1 / المنزل'
 
- , IFNULL((SELECT checklist_member.Name
-           FROM `person_checklistmembers`
-           LEFT JOIN checklist_member ON person_checklistmembers.Member_ID = checklist_member.ID
-           WHERE person_checklistmembers.Person_ID = checklist.Person_ID
-             AND checklist_member.ID = checklist.HVisit_Visitor2_ID
+ , IFNULL((SELECT cm.Name
+           FROM checklist_member cm 
+           WHERE cm.ID = checklist.HVisit_Visitor2_ID
            LIMIT 1),'') as 'الزائر2 / المنزل'
 
  , `HVisit_Note` AS 'ملاحظات زيارة المنزل'
@@ -452,18 +449,14 @@ namespace MyWorkApplication.Classes
  , `PVisit_Date` AS 'تاريخ زيارة المحل'
  , `PVisit_Time` AS 'ساعة زيارة المحل'
 
- , IFNULL((SELECT checklist_member.Name
-           FROM `person_checklistmembers`
-           LEFT JOIN checklist_member ON person_checklistmembers.Member_ID = checklist_member.ID
-           WHERE person_checklistmembers.Person_ID = checklist.Person_ID
-             AND checklist_member.ID = checklist.PVisit_Visitor1_ID
+ , IFNULL((SELECT cm.Name
+           FROM checklist_member cm 
+           WHERE cm.ID = checklist.PVisit_Visitor1_ID
            LIMIT 1),'') as 'الزائر1 / المحل'
 
- , IFNULL((SELECT checklist_member.Name
-           FROM `person_checklistmembers`
-           LEFT JOIN checklist_member ON person_checklistmembers.Member_ID = checklist_member.ID
-           WHERE person_checklistmembers.Person_ID = checklist.Person_ID
-             AND checklist_member.ID = checklist.PVisit_Visitor2_ID
+ , IFNULL((SELECT cm.Name
+           FROM checklist_member cm 
+           WHERE cm.ID = checklist.HVisit_Visitor2_ID
            LIMIT 1),'') as 'الزائر2 / المحل'
 
  , `PVisit_Note` AS 'ملاحظات زيارة المحل'
