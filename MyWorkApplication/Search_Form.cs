@@ -3256,7 +3256,7 @@ namespace MyWorkApplication
                     if (bs.Filter != "")
                         export_cond += mp_cond;
                      
-                    DataTable ex_dt = s.ZeroApplication_Details_Procedure(export_cond);
+                    DataTable ex_dt = s.Application_Details_Procedure(export_cond);
 
                     wb.Worksheets.Add(ex_dt, "Exported from App");
 

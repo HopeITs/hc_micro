@@ -1057,10 +1057,10 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
         }
 
 
-        public DataTable ZeroApplication_Details_Procedure(string condition)
+        public DataTable Application_Details_Procedure(string condition)
         {
             Program.buildConnection();
-            MySqlCommand sc = new MySqlCommand("select_zeroapplication_details", Program.MyConn);
+            MySqlCommand sc = new MySqlCommand("select_fullapplication_details", Program.MyConn);
             sc.CommandType = CommandType.StoredProcedure;
             sc.Parameters.AddWithValue("@MyCondition", condition);
 
