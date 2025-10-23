@@ -651,6 +651,8 @@ namespace MyWorkApplication
                 MicroProject_ID_textBox.Text = "";
             }
 
+            Update_Mode = false;
+
             Career_textBox.Text =
             SubType_textBox.Text =
             State_Reason_textBox.Text = "";
