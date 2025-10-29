@@ -950,7 +950,7 @@ namespace MyWorkApplication
             this.Type_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Type_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Type_comboBox.FormattingEnabled = true;
-            this.Type_comboBox.Location = new System.Drawing.Point(104, 181);
+            this.Type_comboBox.Location = new System.Drawing.Point(104, 177);
             this.Type_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Type_comboBox.Name = "Type_comboBox";
             this.Type_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1028,7 +1028,7 @@ namespace MyWorkApplication
             this.SubType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.SubType_comboBox.FormattingEnabled = true;
-            this.SubType_comboBox.Location = new System.Drawing.Point(104, 220);
+            this.SubType_comboBox.Location = new System.Drawing.Point(104, 216);
             this.SubType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubType_comboBox.Name = "SubType_comboBox";
             this.SubType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1159,7 +1159,7 @@ namespace MyWorkApplication
             this.SubCategory_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubCategory_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.SubCategory_comboBox.FormattingEnabled = true;
-            this.SubCategory_comboBox.Location = new System.Drawing.Point(121, 7);
+            this.SubCategory_comboBox.Location = new System.Drawing.Point(121, 4);
             this.SubCategory_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubCategory_comboBox.Name = "SubCategory_comboBox";
             this.SubCategory_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1181,7 +1181,7 @@ namespace MyWorkApplication
             this.Career_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Career_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Career_comboBox.FormattingEnabled = true;
-            this.Career_comboBox.Location = new System.Drawing.Point(3, 7);
+            this.Career_comboBox.Location = new System.Drawing.Point(3, 4);
             this.Career_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Career_comboBox.Name = "Career_comboBox";
             this.Career_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1569,7 +1569,7 @@ namespace MyWorkApplication
             this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.2379F));
             this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.16129F));
-            this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 228F));
+            this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 230F));
             this.t3_tableLayoutPanel.Controls.Add(this.P_HomeStateNote_label, 4, 15);
             this.t3_tableLayoutPanel.Controls.Add(this.label81, 7, 15);
             this.t3_tableLayoutPanel.Controls.Add(this.label18, 7, 14);
@@ -1785,7 +1785,7 @@ namespace MyWorkApplication
             this.P_Sex_comboBox.Items.AddRange(new object[] {
             "ذكر",
             "أنثى"});
-            this.P_Sex_comboBox.Location = new System.Drawing.Point(3, 105);
+            this.P_Sex_comboBox.Location = new System.Drawing.Point(3, 102);
             this.P_Sex_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_Sex_comboBox.Name = "P_Sex_comboBox";
             this.P_Sex_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1953,7 +1953,7 @@ namespace MyWorkApplication
             this.P_MaritalState_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.P_MaritalState_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_MaritalState_comboBox.FormattingEnabled = true;
-            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(3, 257);
+            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(3, 254);
             this.P_MaritalState_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_MaritalState_comboBox.Name = "P_MaritalState_comboBox";
             this.P_MaritalState_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2064,7 +2064,7 @@ namespace MyWorkApplication
             this.Street_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Street_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Street_comboBox.FormattingEnabled = true;
-            this.Street_comboBox.Location = new System.Drawing.Point(746, 505);
+            this.Street_comboBox.Location = new System.Drawing.Point(746, 502);
             this.Street_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.Street_comboBox.Name = "Street_comboBox";
             this.Street_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2084,7 +2084,7 @@ namespace MyWorkApplication
             this.P_HomeType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_HomeType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_HomeType_comboBox.FormattingEnabled = true;
-            this.P_HomeType_comboBox.Location = new System.Drawing.Point(746, 543);
+            this.P_HomeType_comboBox.Location = new System.Drawing.Point(746, 540);
             this.P_HomeType_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_HomeType_comboBox.Name = "P_HomeType_comboBox";
             this.P_HomeType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2285,7 +2285,7 @@ namespace MyWorkApplication
             this.P_Priest2_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Priest2_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Priest2_comboBox.FormattingEnabled = true;
-            this.P_Priest2_comboBox.Location = new System.Drawing.Point(3, 6);
+            this.P_Priest2_comboBox.Location = new System.Drawing.Point(3, 3);
             this.P_Priest2_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Priest2_comboBox.Name = "P_Priest2_comboBox";
             this.P_Priest2_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2305,7 +2305,7 @@ namespace MyWorkApplication
             this.P_Priest_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Priest_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Priest_comboBox.FormattingEnabled = true;
-            this.P_Priest_comboBox.Location = new System.Drawing.Point(98, 6);
+            this.P_Priest_comboBox.Location = new System.Drawing.Point(98, 3);
             this.P_Priest_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Priest_comboBox.Name = "P_Priest_comboBox";
             this.P_Priest_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2351,7 +2351,7 @@ namespace MyWorkApplication
             this.P_Parish_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Parish_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Parish_comboBox.FormattingEnabled = true;
-            this.P_Parish_comboBox.Location = new System.Drawing.Point(746, 353);
+            this.P_Parish_comboBox.Location = new System.Drawing.Point(746, 350);
             this.P_Parish_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Parish_comboBox.Name = "P_Parish_comboBox";
             this.P_Parish_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2464,7 +2464,7 @@ namespace MyWorkApplication
             this.PersonType_comboBox.Items.AddRange(new object[] {
             "مستفيد",
             "شريك"});
-            this.PersonType_comboBox.Location = new System.Drawing.Point(746, 143);
+            this.PersonType_comboBox.Location = new System.Drawing.Point(746, 140);
             this.PersonType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PersonType_comboBox.Name = "PersonType_comboBox";
             this.PersonType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3445,7 +3445,7 @@ namespace MyWorkApplication
             this.final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.19126F));
             this.final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.80874F));
             this.final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 275F));
+            this.final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 277F));
             this.final_tableLayoutPanel.Controls.Add(this.PaperApplicationUser_comboBox, 4, 0);
             this.final_tableLayoutPanel.Controls.Add(this.label27, 5, 0);
             this.final_tableLayoutPanel.Controls.Add(this.tableLayoutPanel4, 0, 2);
@@ -3476,11 +3476,11 @@ namespace MyWorkApplication
             this.PaperApplicationUser_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.PaperApplicationUser_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaperApplicationUser_comboBox.FormattingEnabled = true;
-            this.PaperApplicationUser_comboBox.Location = new System.Drawing.Point(654, 10);
+            this.PaperApplicationUser_comboBox.Location = new System.Drawing.Point(651, 10);
             this.PaperApplicationUser_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PaperApplicationUser_comboBox.Name = "PaperApplicationUser_comboBox";
             this.PaperApplicationUser_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PaperApplicationUser_comboBox.Size = new System.Drawing.Size(157, 30);
+            this.PaperApplicationUser_comboBox.Size = new System.Drawing.Size(156, 30);
             this.PaperApplicationUser_comboBox.TabIndex = 101;
             this.PaperApplicationUser_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.PaperApplicationUser_comboBox.SelectionChangeCommitted += new System.EventHandler(this.PaperApplicationUser_comboBox_SelectionChangeCommitted);
@@ -3662,7 +3662,7 @@ namespace MyWorkApplication
             this.label33.AutoEllipsis = true;
             this.label33.AutoSize = true;
             this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label33.Location = new System.Drawing.Point(452, 4);
+            this.label33.Location = new System.Drawing.Point(450, 4);
             this.label33.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label33.Name = "label33";
             this.label33.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3675,7 +3675,7 @@ namespace MyWorkApplication
             this.CreatedBy_User_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.CreatedBy_User_label.AutoSize = true;
             this.CreatedBy_User_label.BackColor = System.Drawing.Color.Transparent;
-            this.CreatedBy_User_label.Location = new System.Drawing.Point(394, 7);
+            this.CreatedBy_User_label.Location = new System.Drawing.Point(392, 7);
             this.CreatedBy_User_label.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreatedBy_User_label.MaximumSize = new System.Drawing.Size(310, 36);
             this.CreatedBy_User_label.Name = "CreatedBy_User_label";
@@ -3690,7 +3690,7 @@ namespace MyWorkApplication
             this.Visitors_label.AutoEllipsis = true;
             this.Visitors_label.AutoSize = true;
             this.Visitors_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Visitors_label.Location = new System.Drawing.Point(166, 4);
+            this.Visitors_label.Location = new System.Drawing.Point(165, 4);
             this.Visitors_label.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Visitors_label.Name = "Visitors_label";
             this.Visitors_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -3703,7 +3703,7 @@ namespace MyWorkApplication
             this.EditedBy_User_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.EditedBy_User_label.AutoSize = true;
             this.EditedBy_User_label.BackColor = System.Drawing.Color.Transparent;
-            this.EditedBy_User_label.Location = new System.Drawing.Point(108, 7);
+            this.EditedBy_User_label.Location = new System.Drawing.Point(107, 7);
             this.EditedBy_User_label.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EditedBy_User_label.MaximumSize = new System.Drawing.Size(310, 36);
             this.EditedBy_User_label.Name = "EditedBy_User_label";
@@ -4385,7 +4385,7 @@ namespace MyWorkApplication
             this.t10_tableLayoutPanel.ColumnCount = 3;
             this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
+            this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
             this.t10_tableLayoutPanel.Controls.Add(this.SubHeader9_label, 1, 1);
             this.t10_tableLayoutPanel.Controls.Add(this.AidSource_dataGridView, 0, 3);
             this.t10_tableLayoutPanel.Controls.Add(this.P_HasAidSource_flowLayoutPanel, 0, 1);
@@ -5990,7 +5990,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.18182F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.18182F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 245F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 246F));
             this.tableLayoutPanel9.Controls.Add(this.label9, 7, 0);
             this.tableLayoutPanel9.Controls.Add(this.P_NumOfMembers_textBox, 6, 0);
             this.tableLayoutPanel9.Controls.Add(this.label21, 4, 0);
@@ -6613,7 +6613,7 @@ namespace MyWorkApplication
             this.MP_PlaceType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MP_PlaceType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.MP_PlaceType_comboBox.FormattingEnabled = true;
-            this.MP_PlaceType_comboBox.Location = new System.Drawing.Point(727, 49);
+            this.MP_PlaceType_comboBox.Location = new System.Drawing.Point(727, 46);
             this.MP_PlaceType_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.MP_PlaceType_comboBox.Name = "MP_PlaceType_comboBox";
             this.MP_PlaceType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

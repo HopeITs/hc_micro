@@ -766,16 +766,16 @@ namespace MyWorkApplication
                 var sumObject = ds.Tables[0].Compute("Sum(Num_Funded)", string.Empty);
                 var sumObject2 = ds.Tables[0].Compute("Sum(Num_Closed)", string.Empty);
 
-                Count_all_label.Text = "Ongoing:" + sumObject.ToString();
-                Count_funded_label.Text = "Closed:" + sumObject2.ToString();
+                Count_all_label.Text = "Ongoing: " + sumObject.ToString();
+                Count_funded_label.Text = "Closed: " + sumObject2.ToString();
             }
             else
             {
                 var sumObject = ds.Tables[0].Compute("Sum(numOfProjects)", string.Empty);
                 var sumObject2 = ds.Tables[0].Compute("Sum(numOfFundedProjects)", string.Empty);
 
-                Count_all_label.Text = "All:" + sumObject.ToString();
-                Count_funded_label.Text = "Funded:" + sumObject2.ToString();
+                Count_all_label.Text = "All: " + sumObject.ToString();
+                Count_funded_label.Text = "Funded: " + sumObject2.ToString();
             }
         }
 
@@ -2138,21 +2138,21 @@ END AS SustainabilityRange "
                 chart1.Series[0].IsVisibleInLegend = chart1.Series[0].Enabled = true;
                 chart1.Series[1].IsVisibleInLegend = chart1.Series[1].Enabled = true;
 
-                withFunded_checkBox.Text = "الأعمدة:كل المشاريع + الممولة";
+                withFunded_checkBox.Text = "The Columns: All + Funded";
             }
             else if (withFunded_checkBox.CheckState == CheckState.Unchecked) // الكل فقط
             {
                 chart1.Series[0].IsVisibleInLegend = chart1.Series[0].Enabled = true;
                 chart1.Series[1].IsVisibleInLegend = chart1.Series[1].Enabled = false;
 
-                withFunded_checkBox.Text = "الأعمدة:كل المشاريع فقط";
+                withFunded_checkBox.Text = "The Columns: All Projects";
             }
             else if (withFunded_checkBox.CheckState == CheckState.Indeterminate) // fund فقط
             {
                 chart1.Series[0].IsVisibleInLegend = chart1.Series[0].Enabled = false;
                 chart1.Series[1].IsVisibleInLegend = chart1.Series[1].Enabled = true;
 
-                withFunded_checkBox.Text = "الأعمدة:الممولة فقط";
+                withFunded_checkBox.Text = "The Columns: Funded Projects";
             }
         }
 

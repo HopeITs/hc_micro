@@ -1474,7 +1474,7 @@ namespace MyWorkApplication
                 if (Education_dataGridView.Rows[i].Cells["Edu_InDataBase"].Value == null)
                 {
                     //Insert into person_education_Table 
-                    var query = "select MAX(PEdu_ID) from `person_education` ";
+                    var query = "select MAX(ID) from `person_education` ";
                     Program.buildConnection();
                     sc = new MySqlCommand(query, Program.MyConn);
                     var ID = 0;
@@ -1484,7 +1484,7 @@ namespace MyWorkApplication
                     ID = ID + 1;
                     Program.MyConn.Close();
 
-                    MySS.query = "Insert Into `person_education`(`Person_ID`, `Education_ID`,`PEdu_ID`) values("
+                    MySS.query = "Insert Into `person_education`(`Person_ID`, `Education_ID`,`ID`) values("
                                  + Person_ID + ","
                                  + E_ID + ","
                                  + ID + ")";
@@ -1579,7 +1579,7 @@ namespace MyWorkApplication
                 {
                     //Insert into person_workexp_Table
 
-                    var query = "select MAX(PW_ID) from `person_workexp` ";
+                    var query = "select MAX(ID) from `person_workexp` ";
                     Program.buildConnection();
                     sc = new MySqlCommand(query, Program.MyConn);
                     var ID = 0;
@@ -1588,7 +1588,7 @@ namespace MyWorkApplication
                     ID = ID + 1;
                     Program.MyConn.Close();
 
-                    MySS.query = "Insert Into `person_workexp`(`PW_ID`,`Person_ID`, `Work_ID`" +
+                    MySS.query = "Insert Into `person_workexp`(`ID`,`Person_ID`, `Work_ID`" +
                                  ", `W_Description`, `W_BeginDate`, `W_EndDate`, `W_Place`,`W_PlaceState`, `W_Status`" +
                                  ", `W_CauseOfLose`, `W_CauseOfLoseDescription`, `W_Salary`,`MicroProject_ID`) values("
                                  + ID + "," + Person_ID + "," + W_ID
@@ -1677,7 +1677,7 @@ namespace MyWorkApplication
                 if (Exp_dataGridView.Rows[i].Cells["Exp_InDataBase"].Value == null)
                 {
                     //Insert into person_workexp_Table 
-                    var query = "select MAX(PW_ID) from `person_workexp` ";
+                    var query = "select MAX(ID) from `person_workexp` ";
                     Program.buildConnection();
                     sc = new MySqlCommand(query, Program.MyConn);
 
@@ -1686,7 +1686,7 @@ namespace MyWorkApplication
 
                     ID = ID + 1;
                     Program.MyConn.Close();
-                    MySS.query = "Insert Into `person_workexp`(`PW_ID`,`Person_ID`, `Work_ID`," +
+                    MySS.query = "Insert Into `person_workexp`(`ID`,`Person_ID`, `Work_ID`," +
                                  " `W_Description`, `W_BeginDate`, `W_EndDate`, `W_Place`, `W_PlaceState`, `W_Status`," +
                                  " `W_CauseOfLose`, `W_CauseOfLoseDescription`, `W_Salary`,`MicroProject_ID`) values("
                                  + ID + "," + Person_ID + "," + Exp_ID
@@ -3723,7 +3723,7 @@ namespace MyWorkApplication
                                 .ToString());
 
 
-                            var query = "delete from `person_education` where PEdu_ID = " + ID;
+                            var query = "delete from `person_education` where ID = " + ID;
                             Program.buildConnection();
                             var sc = new MySqlCommand(query, Program.MyConn);
                             sc.ExecuteNonQuery();
@@ -3837,10 +3837,10 @@ namespace MyWorkApplication
                                     .ToString());
                                 var W_ID = Convert.ToInt32(
                                     Work_dataGridView.Rows[e.RowIndex].Cells["W_ID"].Value.ToString());
-                                var PW_ID = Convert.ToInt32(Work_dataGridView.Rows[e.RowIndex].Cells["W_RowID"].Value
+                                var ID = Convert.ToInt32(Work_dataGridView.Rows[e.RowIndex].Cells["W_RowID"].Value
                                     .ToString());
 
-                                var query = "delete from `person_workexp` where W_Status like 'Yes' and PW_ID = " + PW_ID +
+                                var query = "delete from `person_workexp` where W_Status like 'Yes' and ID = " + ID +
                                             "";
                                 Program.buildConnection();
                                 var sc = new MySqlCommand(query, Program.MyConn);
@@ -3952,11 +3952,11 @@ namespace MyWorkApplication
                                     .ToString());
                                 var W_ID = Convert.ToInt32(Exp_dataGridView.Rows[e.RowIndex].Cells["Exp_ID"].Value
                                     .ToString());
-                                var PW_ID = Convert.ToInt32(Exp_dataGridView.Rows[e.RowIndex].Cells["Exp_RowID"].Value
+                                var ID = Convert.ToInt32(Exp_dataGridView.Rows[e.RowIndex].Cells["Exp_RowID"].Value
                                     .ToString());
 
                                 var query = "delete from `person_workexp` " +
-                                            " where W_Status like 'No' and PW_ID = " + PW_ID + "";
+                                            " where W_Status like 'No' and ID = " + ID + "";
                                 Program.buildConnection();
                                 var sc = new MySqlCommand(query, Program.MyConn);
                                 sc.ExecuteNonQuery();

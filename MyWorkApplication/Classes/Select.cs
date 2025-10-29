@@ -1187,7 +1187,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
             Program.buildConnection();
 
-            MySS.query = "select PEdu_ID as 'ID'" +
+            MySS.query = "select ID as 'ID'" +
                          ",E.E_Type as 'E_Type'" +
                          ",E.E_Name as 'Name'" +
                          ",Education_ID " +
@@ -1211,7 +1211,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
             Program.buildConnection();
 
-            MySS.query = "select PW_ID as 'ID'" +
+            MySS.query = "select ID as 'ID'" +
                          ",W.W_Name as 'Name'" +
                          ",PWE.W_Description as 'Description'" +
                          ",PWE.W_BeginDate as 'Begin Date'" +
@@ -1243,7 +1243,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 
             Program.buildConnection();
 
-            MySS.query = "select PW_ID as 'ID'" +
+            MySS.query = "select ID as 'ID'" +
                          ",W.W_Name as 'Name'" +
                          ",PWE.W_Description as 'Description'" +
                          ",PWE.W_BeginDate as 'Begin Date'" +

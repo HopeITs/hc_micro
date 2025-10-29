@@ -129,16 +129,27 @@ namespace MyWorkApplication
 
                 searchBy_list = new List<string>();
                 searchBy_list.Add("Applications");
-                searchBy_list.Add("Families");
+                searchBy_list.Add("Family Members");
                 searchBy_list.Add("Loans and Payments");
                 searchBy_list.Add("Attachments"); 
                 searchBy_list.Add("M&E Visits");
                 searchBy_list.Add("Monitoring Visits(1 to 5)");
                 searchBy_list.Add("Check Lists");
                 searchBy_list.Add("Special Cases");
-                searchBy_list.Add("Aid Sources");
                 searchBy_list.Add("Materials Required");
                 //searchBy_list.Add("Materials Purchased");
+                searchBy_list.Add("Aid Sources");   //9
+                searchBy_list.Add("Assets");      
+                searchBy_list.Add("Cources");
+                searchBy_list.Add("Educations");
+                searchBy_list.Add("Goals");
+                searchBy_list.Add("Relief Aids");
+                searchBy_list.Add("Illnes & Medical Needs");
+                searchBy_list.Add("Losses");
+                searchBy_list.Add("Home Power Sources");
+                searchBy_list.Add("Current Works");
+                searchBy_list.Add("Work Experiences"); //19
+
 
                 for (int i = 0; i < searchBy_list.Count; i++)
                     SearchBy_comboBox.Items.Add(searchBy_list.ElementAt<string>(i));
@@ -469,40 +480,9 @@ namespace MyWorkApplication
                     FundedFrom_label.Visible = false;
                 //Requested_checkBox.Visible = Funded_checkBox.Visible = 
             }
-            // Aid Sources //
-            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
-            {
-                FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
-                MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
-                Category_comboBox.Visible = SubCategory_comboBox.Visible = Career_comboBox.Visible =
-                FundDate_comboBox.Visible = ApplyDate_comboBox.Visible
-                 = true;
-                P_Parish_comboBox.Visible = Age_comboBox.Visible
-                    = Gender_comboBox.Visible = MaritalStatus_comboBox.Visible
-                    = HomeStreet_comboBox.Visible = ProjectStreet_comboBox.Visible = false;
-
-                FundType_label.Visible = Type_label.Visible = SubType_label.Visible = Partnership_label.Visible
-                    = MP_Status_label.Visible = Donor_label.Visible = DonorGroup_label.Visible
-                    = Category_label.Visible = SubCategory_label.Visible = Career_label.Visible
-                    = FundedDateFrom_label.Visible = ApplyDateFrom_label.Visible
-                    = true;
-                P_Parish_label.Visible = Age_label.Visible = Gender_label.Visible = MaritalStatus_label.Visible
-                    = HomeStreet_label.Visible = ProjectStreet_label.Visible = false;
-
-                ApplyDateFrom_label.Visible = ApplyDateFrom_dateTimePicker.Visible =
-                    ApplyDateTo_DateTimePicker.Visible =
-                    FundedDateFrom_label.Visible = FundedDateFrom_DateTimePicker.Visible =
-                    FundedDateTo_DateTimePicker.Visible =
-                    ApplyDate_checkBox.Visible = FundedDate_checkBox.Visible = true;
-
-                RequestedFrom_textBox.Visible = RequestedTo_textBox.Visible =
-                    RequestedFrom_label.Visible =
-                    FundedFrom_textBox.Visible = FundedTo_textBox.Visible =
-                    FundedFrom_label.Visible = false;
-                //Requested_checkBox.Visible = Funded_checkBox.Visible = 
-            }
+            
             // Materials Required //
-            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
+            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
             {
                 FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
                 MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
@@ -533,6 +513,53 @@ namespace MyWorkApplication
                     FundedFrom_label.Visible = true;
                 //Requested_checkBox.Visible = Funded_checkBox.Visible = 
             }
+             
+            //B. Aid Sources 
+            //B. Assets  //B. Cources     //B. Educations 
+            //B. Goals   //B. Relief Aids //B. Illnes & Medical Needs 
+            //B. Losses  //B. Home Power Sources 
+            //B. Current Works //B. Work Experiences
+            else if( (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
+                  || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
+                  || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(11))
+                  || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(12))
+                  || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(13))
+                  || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(14))
+                  || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(15))
+                  || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(16))
+                  || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(17))
+                  || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(18))
+                  || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(19))
+            ) {
+                FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
+                    MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
+                    Category_comboBox.Visible = SubCategory_comboBox.Visible = Career_comboBox.Visible =
+                    FundDate_comboBox.Visible = ApplyDate_comboBox.Visible =
+                    P_Parish_comboBox.Visible = Age_comboBox.Visible =
+                    Gender_comboBox.Visible = MaritalStatus_comboBox.Visible =
+                    HomeStreet_comboBox.Visible = ProjectStreet_comboBox.Visible
+                    = true;
+
+                FundType_label.Visible = Type_label.Visible = SubType_label.Visible = Partnership_label.Visible
+                    = MP_Status_label.Visible = Donor_label.Visible = DonorGroup_label.Visible
+                    = Category_label.Visible = SubCategory_label.Visible = Career_comboBox.Visible
+                    = FundedDateFrom_label.Visible = ApplyDateFrom_label.Visible
+                    = P_Parish_label.Visible = Age_label.Visible = Gender_label.Visible = MaritalStatus_label.Visible
+                    = HomeStreet_label.Visible = ProjectStreet_label.Visible
+                    = true;
+
+                RequestedFrom_textBox.Visible = RequestedTo_textBox.Visible =
+                    RequestedFrom_label.Visible =
+                    FundedFrom_textBox.Visible = FundedTo_textBox.Visible =
+                    FundedFrom_label.Visible =
+                    ApplyDateFrom_label.Visible = ApplyDateFrom_dateTimePicker.Visible =
+                    ApplyDateTo_DateTimePicker.Visible =
+                    FundedDateFrom_label.Visible = FundedDateFrom_DateTimePicker.Visible =
+                    FundedDateTo_DateTimePicker.Visible =
+                    ApplyDate_checkBox.Visible = FundedDate_checkBox.Visible = true;
+                //Requested_checkBox.Visible = Funded_checkBox.Visible = 
+            }
+
             // Materials Purchased //
             //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
             //{
@@ -565,6 +592,8 @@ namespace MyWorkApplication
             //        FundedFrom_label.Visible = true;
             //    //Requested_checkBox.Visible = Funded_checkBox.Visible = 
             //}
+
+             
         }
 
         private void Calculate_ImportExportMoney(string str)
@@ -1228,12 +1257,12 @@ namespace MyWorkApplication
                 //////calculate sum of projects// 
                 total_bind_count = 0;
                 total_bind_count = Convert.ToInt32(ds.Tables[1].Rows[0][0].ToString());
-                Count_label.Text = "All:" + total_bind_count.ToString("#,##0");
+                Count_label.Text = "Projects Count: " + total_bind_count.ToString("#,##0");
 
                 //////calculate sum of family members for all projects//  
                 Decimal sumObject = 0;
                 sumObject = Convert.ToDecimal(ds.Tables[1].Rows[0][1].ToString());
-                Sum_FamilyMembers_label.Text = "مجموع الأفراد: " + sumObject.ToString("#,##0");
+                Sum_FamilyMembers_label.Text = "Members Count: " + sumObject.ToString("#,##0");
 
                 MP_dataGridView.Columns["تاريخ التقديم"].DefaultCellStyle.Format = "dd/MM/yyyy";
                 MP_dataGridView.Columns["تاريخ الحالة"].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -1362,7 +1391,7 @@ namespace MyWorkApplication
             var sel = "select count(*) FROM `person`";
             MySS.sc = new MySqlCommand(sel, Program.MyConn);
             decimal count = Convert.ToDecimal(MySS.sc.ExecuteScalar());
-            Count_label.Text = "All:" + count.ToString("#,##0");
+            Count_label.Text = "All: " + count.ToString("#,##0");
             Program.MyConn.Close();
 
             MP_dataGridView.Columns["رقم العائلة"].Width = 60;
@@ -1415,7 +1444,7 @@ namespace MyWorkApplication
             
 
             decimal count = Convert.ToDecimal(s.Count_Distinct_Loan_IDs());
-            Count_label.Text = "All:" + count.ToString("#,##0");
+            Count_label.Text = "All: " + count.ToString("#,##0");
 
             MP_dataGridView.Columns["رقم المشروع"].DefaultCellStyle.Alignment
                 = MP_dataGridView.Columns["القسط"].DefaultCellStyle.Alignment
@@ -1530,7 +1559,7 @@ namespace MyWorkApplication
             var sel = "select count(DISTINCT MP_ID) " + from + condition;
             MySS.sc = new MySqlCommand(sel, Program.MyConn);
             decimal count = Convert.ToDecimal(MySS.sc.ExecuteScalar());
-            Count_label.Text = "All:" + count.ToString("#,##0");
+            Count_label.Text = "Projects Count: " + count.ToString("#,##0");
             Program.MyConn.Close();
 
             MP_dataGridView.Columns["رقم المشروع"].Width = MP_dataGridView.Columns["النوع"].Width = 80;
@@ -1678,7 +1707,7 @@ namespace MyWorkApplication
                 var sel = "select count(DISTINCT MP_ID) " + from + condition;
                 MySqlCommand sc1 = new MySqlCommand(sel, Program.MyConn);
                 decimal count = Convert.ToDecimal(sc1.ExecuteScalar());
-                Count_label.Text = "All:" + count.ToString("#,##0");
+                Count_label.Text = "Projects Count: " + count.ToString("#,##0");
                 Program.MyConn.Close();
 
                 MP_dataGridView.Columns["رقم المشروع"].DefaultCellStyle.Alignment =
@@ -1815,7 +1844,7 @@ namespace MyWorkApplication
                 Program.buildConnection();
                 MySS.sc = new MySqlCommand(sel, Program.MyConn);
                 decimal count = Convert.ToDecimal(MySS.sc.ExecuteScalar());
-                Count_label.Text = "All:" + count.ToString("#,##0");
+                Count_label.Text = "All: " + count.ToString("#,##0");
                 Program.MyConn.Close();
 
                 MP_dataGridView.Columns["رقم المشروع"].Width = 80;
@@ -1857,7 +1886,7 @@ namespace MyWorkApplication
                 MP_dataGridView.DataSource = bs;
 
                 //count rows
-                Count_label.Text = "All:" + ds.Tables[0].Rows.Count.ToString("#,##0");
+                Count_label.Text = "All: " + ds.Tables[0].Rows.Count.ToString("#,##0");
 
                 MP_dataGridView.Columns["رقم المشروع"].Width = 80;
 
@@ -1951,89 +1980,7 @@ namespace MyWorkApplication
                 //MP_dataGridView.Columns["رقم المشروع"].Width = 80; 
 
                 //count rows
-                Count_label.Text = "All:" + ds.Tables[0].Rows.Count.ToString("#,##0");
-
-                MP_dataGridView.ColumnHeadersVisible = true;
-                MP_dataGridView.RowHeadersVisible = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void bind_AidSources()
-        {
-            try
-            {
-                var from = @"FROM person_aidsource 
-          left JOIN `person_microproject` PMP on person_aidsource.Person_ID = PMP.Person_ID and person_aidsource.MicroProject_ID = PMP.MicroProject_ID
-          left JOIN `person` P on PMP.Person_ID = P.P_ID 
-          left JOIN `microproject` MP on MP.MP_ID = PMP.MicroProject_ID  
-          left JOIN `aidsource` on aidsource.ID = person_aidsource.AidSource_ID 
- 
-          left JOIN `category` C on MP.Category_ID = C.ID 
-          LEFT JOIN `subcategory` sub on MP.SubCategory_ID = sub.ID  
-          LEFT JOIN `career` on MP.Career_ID = career.ID   
-          LEFT JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
-          LEFT JOIN `state` on state.ID = mps.State_ID
-       
-          Left JOIN `donor` on donor.ID = MP.MP_Donor
-          LEFT JOIN `loan` L on L.MicroProject_ID = MP.MP_ID
-          LEFT JOIN `donorgroup` on donorgroup.ID = MP.DonorGroup_ID
-          LEFT JOIN `fundtype` on fundtype.ID = MP.MP_FundType_ID 
-          LEFT JOIN `microprojecttype` on microprojecttype.ID = MP.MP_Type_ID
-          LEFT JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID 
-        ";
-
-                string query = @"SELECT MP_ID as 'رقم المشروع'
-         , CONCAT(P_FirstName, ' ', P_LastName) as 'المستفيد' 
-         , P.P_FatherName as 'اسم الأب'  
-         , P_FullName_en as 'Beneficiary Name'
-        
-         , career.Name as 'المهنة' 
-         , career.Name_en as 'Project Name'  
-
-         , C.Name as 'Category'
-         , sub.Name as 'Sub Category' 
-
-         , aidsource.Name as 'الجهة الممولة'
-         , person_aidsource.`DateYear` as 'سنة التمويل' 
-         , person_aidsource.`Notes` as 'المواد' 
-
-         , person_aidsource.Person_ID as 'رقم المستفيد'
-         , person_aidsource.ID as 'ID' ";
-
-                var i_cond = " where 1 ";
-                Check_Conditions(i_cond);
-
-                query += from + condition;
-                query += " order by person_aidsource.DateYear Desc; ";
-
-                Program.buildConnection();
-                MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-                sc.ExecuteNonQuery();
-                MySqlDataAdapter da = new MySqlDataAdapter(sc);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-
-                MP_dataGridView.DataSource = null;
-                MP_dataGridView.Columns.Clear();
-                MP_dataGridView.Rows.Clear();
-                MP_dataGridView.ColumnHeadersVisible = false;
-                MP_dataGridView.RowHeadersVisible = false;
-
-                bs.DataSource = ds.Tables[0];
-                MP_dataGridView.DataSource = bs;
-
-                var dgc1 = MP_dataGridView.Columns["ID"];
-                dgc1.Visible = false;
-
-                var dgc2 = MP_dataGridView.Columns["رقم المستفيد"];
-                dgc2.Visible = false;
-
-                //count rows
-                Count_label.Text = "All:" + ds.Tables[0].Rows.Count.ToString("#,##0");
+                Count_label.Text = "All: " + ds.Tables[0].Rows.Count.ToString("#,##0");
 
                 MP_dataGridView.ColumnHeadersVisible = true;
                 MP_dataGridView.RowHeadersVisible = true;
@@ -2114,7 +2061,7 @@ namespace MyWorkApplication
                 MP_dataGridView.Columns["رقم المشروع"].Frozen = true;
 
                 //count rows
-                Count_label.Text = "All:" + ds.Tables[0].Rows.Count.ToString("#,##0");
+                Count_label.Text = "All: " + ds.Tables[0].Rows.Count.ToString("#,##0");
 
                 MP_dataGridView.ColumnHeadersVisible = true;
                 MP_dataGridView.RowHeadersVisible = true;
@@ -2124,16 +2071,103 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
+
+        //private void bind_Purchasing()
+        //{
+        //    try
+        //    {
+        //        var from = @"FROM purchasing 
+        //  left JOIN `purchasingcategory` pc on pc.ID = purchasing.ItemCategory_ID 
+        //  left JOIN `person_microproject` PMP on purchasing.MicroProject_ID = PMP.MicroProject_ID 
+        //  left JOIN `person` P on PMP.Person_ID = P.P_ID 
+        //  left JOIN `microproject` MP on MP.MP_ID = PMP.MicroProject_ID   
+ 
+        //  left JOIN `category` C on MP.Category_ID = C.ID 
+        //  LEFT JOIN `subcategory` sub on MP.SubCategory_ID = sub.ID  
+        //  LEFT JOIN `career` on MP.Career_ID = career.ID   
+        //  LEFT JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
+        //  LEFT JOIN `state` on state.ID = mps.State_ID
+       
+        //  Left JOIN `donor` on donor.ID = MP.MP_Donor
+        //  LEFT JOIN `loan` L on L.MicroProject_ID = MP.MP_ID
+        //  LEFT JOIN `donorgroup` on donorgroup.ID = MP.DonorGroup_ID
+        //  LEFT JOIN `fundtype` on fundtype.ID = MP.MP_FundType_ID 
+        //  LEFT JOIN `microprojecttype` on microprojecttype.ID = MP.MP_Type_ID
+        //  LEFT JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID 
+        //";
+
+        //        string query = @" SELECT MP_ID as 'رقم المشروع'
+        // , CONCAT(P_FirstName, ' ', P_LastName) as 'المستفيد' 
+        // , P.P_FatherName as 'اسم الأب'  
+        // , P_FullName_en as 'Beneficiary Name'
         
-        private void bind_Purchasing()
+        // , career.Name as 'المهنة' 
+        // , career.Name_en as 'Project Name'  
+
+        // , C.Name as 'Category'
+        // , sub.Name as 'Sub Category' 
+
+        // ,  ItemName          AS 'اسم المادة'
+        // ,  Brand             AS 'الماركة'
+        // ,  pc.Name           AS 'فئة المادة'
+        // ,  Quantity          AS 'العدد'
+        // ,  Price             AS 'السعر'
+        // ,  Currency          AS 'نوع العملة'
+        // ,  InvoiceDate       AS 'تاريخ الفاتورة'
+        // ,  InvoiceNumber     AS 'رقم الفاتورة'
+        // ,  TraderName        AS 'اسم التاجر'
+ 
+        // ,  purchasing.ID as 'ID' ";
+
+        //        var i_cond = " where Current_State = 1 ";
+        //        Check_Conditions(i_cond);
+
+        //        query += from + condition;
+        //        query += " order by purchasing.ID Desc; ";
+
+        //        Program.buildConnection();
+        //        MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
+        //        sc.ExecuteNonQuery();
+        //        MySqlDataAdapter da = new MySqlDataAdapter(sc);
+        //        DataSet ds = new DataSet();
+        //        da.Fill(ds);
+
+        //        MP_dataGridView.DataSource = null;
+        //        MP_dataGridView.Columns.Clear();
+        //        MP_dataGridView.Rows.Clear();
+        //        MP_dataGridView.ColumnHeadersVisible = false;
+        //        MP_dataGridView.RowHeadersVisible = false;
+
+        //        bs.DataSource = ds.Tables[0];
+        //        MP_dataGridView.DataSource = bs;
+
+        //        var dgc1 = MP_dataGridView.Columns["ID"];
+        //        dgc1.Visible = false;
+
+        //        MP_dataGridView.Columns["اسم المادة"].Width = 130;
+        //        MP_dataGridView.Columns["رقم المشروع"].Frozen = true;
+
+        //        //count rows
+        //        Count_label.Text = "All: " + ds.Tables[0].Rows.Count.ToString("#,##0");
+
+        //        MP_dataGridView.ColumnHeadersVisible = true;
+        //        MP_dataGridView.RowHeadersVisible = true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
+        private void bind_AidSources()
         {
             try
             {
-                var from = @"FROM purchasing 
-          left JOIN `purchasingcategory` pc on pc.ID = purchasing.ItemCategory_ID 
-          left JOIN `person_microproject` PMP on purchasing.MicroProject_ID = PMP.MicroProject_ID 
+                var from = @"FROM person_aidsource 
+          left JOIN `person_microproject` PMP on person_aidsource.Person_ID = PMP.Person_ID and person_aidsource.MicroProject_ID = PMP.MicroProject_ID
           left JOIN `person` P on PMP.Person_ID = P.P_ID 
-          left JOIN `microproject` MP on MP.MP_ID = PMP.MicroProject_ID   
+          left JOIN `microproject` MP on MP.MP_ID = PMP.MicroProject_ID  
+          left JOIN `aidsource` on aidsource.ID = person_aidsource.AidSource_ID 
  
           left JOIN `category` C on MP.Category_ID = C.ID 
           LEFT JOIN `subcategory` sub on MP.SubCategory_ID = sub.ID  
@@ -2149,7 +2183,7 @@ namespace MyWorkApplication
           LEFT JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID 
         ";
 
-                string query = @" SELECT MP_ID as 'رقم المشروع'
+                string query = @"SELECT MP_ID as 'رقم المشروع'
          , CONCAT(P_FirstName, ' ', P_LastName) as 'المستفيد' 
          , P.P_FatherName as 'اسم الأب'  
          , P_FullName_en as 'Beneficiary Name'
@@ -2160,23 +2194,18 @@ namespace MyWorkApplication
          , C.Name as 'Category'
          , sub.Name as 'Sub Category' 
 
-         ,  ItemName          AS 'اسم المادة'
-         ,  Brand             AS 'الماركة'
-         ,  pc.Name           AS 'فئة المادة'
-         ,  Quantity          AS 'العدد'
-         ,  Price             AS 'السعر'
-         ,  Currency          AS 'نوع العملة'
-         ,  InvoiceDate       AS 'تاريخ الفاتورة'
-         ,  InvoiceNumber     AS 'رقم الفاتورة'
-         ,  TraderName        AS 'اسم التاجر'
- 
-         ,  purchasing.ID as 'ID' ";
+         , aidsource.Name as 'الجهة الممولة'
+         , person_aidsource.`DateYear` as 'سنة التمويل' 
+         , person_aidsource.`Notes` as 'المواد' 
 
-                var i_cond = " where Current_State = 1 ";
+         , person_aidsource.Person_ID as 'رقم المستفيد'
+         , person_aidsource.ID as 'ID' ";
+
+                var i_cond = " where 1 ";
                 Check_Conditions(i_cond);
 
                 query += from + condition;
-                query += " order by purchasing.ID Desc; ";
+                query += " order by person_aidsource.DateYear Desc; ";
 
                 Program.buildConnection();
                 MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
@@ -2197,11 +2226,11 @@ namespace MyWorkApplication
                 var dgc1 = MP_dataGridView.Columns["ID"];
                 dgc1.Visible = false;
 
-                MP_dataGridView.Columns["اسم المادة"].Width = 130;
-                MP_dataGridView.Columns["رقم المشروع"].Frozen = true;
+                var dgc2 = MP_dataGridView.Columns["رقم المستفيد"];
+                dgc2.Visible = false;
 
                 //count rows
-                Count_label.Text = "All:" + ds.Tables[0].Rows.Count.ToString("#,##0");
+                Count_label.Text = "All: " + ds.Tables[0].Rows.Count.ToString("#,##0");
 
                 MP_dataGridView.ColumnHeadersVisible = true;
                 MP_dataGridView.RowHeadersVisible = true;
@@ -2211,6 +2240,214 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void bind_person_tables(string tablename,bool currentwork)
+        {
+            try
+            {
+                //left JOIN `person_microproject` PMP on mytable.Person_ID = PMP.Person_ID and mytable.MicroProject_ID = PMP.MicroProject_ID
+                var from = " FROM " + tablename + @" mytable 
+          left JOIN `person` P on mytable.Person_ID = P.P_ID 
+          LEFT JOIN `person_family` on person_family.Person_ID = mytable.Person_ID
+          LEFT JOIN `person_microproject` PMP on person_family.P_Provider_ID = PMP.Person_ID 
+          left JOIN `microproject` MP on MP.MP_ID = PMP.MicroProject_ID  
+
+          left JOIN `category` C on MP.Category_ID = C.ID 
+          LEFT JOIN `subcategory` sub on MP.SubCategory_ID = sub.ID  
+          LEFT JOIN `career` on MP.Career_ID = career.ID   
+          LEFT JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
+          LEFT JOIN `state` on state.ID = mps.State_ID
+       
+          Left JOIN `donor` on donor.ID = MP.MP_Donor
+          LEFT JOIN `loan` L on L.MicroProject_ID = MP.MP_ID
+          LEFT JOIN `donorgroup` on donorgroup.ID = MP.DonorGroup_ID
+          LEFT JOIN `fundtype` on fundtype.ID = MP.MP_FundType_ID 
+          LEFT JOIN `microprojecttype` on microprojecttype.ID = MP.MP_Type_ID
+          LEFT JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID 
+        ";
+                var i_cond = " where Current_State = 1  ";
+                string table_query = "";
+                
+                //B. aid source
+                if (tablename == "person_aidsource")
+                {
+                    table_query = @" 
+, (SELECT Name FROM aidsource WHERE aidsource.ID =`AidSource_ID` LIMIT 1) as 'الجهة الممولة' 
+, mytable.DateYear as 'تاريخ الاستفادة' 
+, mytable.Amount as 'المبلغ'
+, mytable.ProjectType as 'نوع المشروع'
+, mytable.Notes as 'المواد المستفاد منها' ";
+                }
+                //B. assets
+                if (tablename == "person_asset")
+                {
+                    table_query = @"
+, (SELECT Name FROM assettype WHERE assettype.ID = `Asset_Type_ID` LIMIT 1) as 'نوع الملك' 
+, mytable.`Year` as 'سنة الشراء'
+, (SELECT Name FROM asset WHERE asset.ID = `Asset_ID` LIMIT 1) as 'طبيعة الملك'
+, mytable.`Description` as 'وصف الملك'
+, (SELECT Name FROM assetbenefits WHERE assetbenefits.ID = `Asset_Benefits_ID` LIMIT 1) as 'مدى الاستفادة منه' 
+, mytable.`Note` as 'ملاحظات'
+";
+                }
+                //B. cources
+                if (tablename == "person_course")
+                {
+                    table_query = @"
+,(SELECT Name FROM subcategory WHERE subcategory.ID = mytable.`SubCategory_ID` LIMIT 1) as 'نوع الدورة'
+,mytable.`Name` as 'اسم الدورة'
+,mytable.`Place` as 'اسم المعهد'
+,mytable.`Donor` as 'الجهة الممولة'
+,mytable.`Date` as 'تاريخ الدورة'
+";
+                }
+                //B. educations
+                if (tablename == "person_education")
+                {
+                    table_query = @"
+, (SELECT Name FROM educationlevel WHERE educationlevel.ID = `Level_ID` LIMIT 1) as 'التحصيل العلمي'
+, (SELECT educationtype.Name 
+    FROM educationtype 
+    left join education on educationtype.ID = education.Type_ID 
+    WHERE education.ID = mytable.`Education_ID` LIMIT 1) as 'الدرجة العلمية' 
+, (SELECT Name FROM education WHERE education.ID = mytable.`Education_ID` LIMIT 1) as 'الاختصاص' 
+";
+                }
+                //B. goals
+                if (tablename == "person_goals")
+                {
+                    table_query = @",(SELECT Name FROM goal WHERE goal.ID = `Goal_ID` LIMIT 1) as 'الهدف من القرض' ";
+                }
+                //B. relief aid help
+                if (tablename == "person_help")
+                {
+                    table_query = @"
+, (SELECT Name FROM aidsource WHERE aidsource.ID =`AidSource_ID` LIMIT 1) as 'جهة المساعدة'
+, (SELECT Name FROM aid WHERE aid.ID =`Aid_ID` LIMIT 1) as 'نوع المساعدة'
+, (SELECT Name FROM aidperiod WHERE aidperiod.ID =`AidPeriod_ID` LIMIT 1) as 'مدة المساعدة' 
+, mytable.`Notes` as 'ملاحظات'
+";
+                }
+                //B. illness
+                if (tablename == "person_illness")
+                {
+                    //, `Donor` as ''
+                    table_query = @"
+, (SELECT Name FROM illness WHERE illness.ID =`Illness_ID` LIMIT 1) as 'الحالة الصحية' 
+, mytable.`Note` as 'وصف المرض'
+, mytable.`Has_MedicalAid` as 'مساعدات طبية'
+, (SELECT Name FROM aidsource WHERE aidsource.ID =`AidSource_ID` LIMIT 1) as 'الجهة المساعدة'
+, (SELECT Name FROM aidperiod WHERE aidperiod.ID =`AidPeriod_ID` LIMIT 1) as 'مدة المساعدة' 
+, (SELECT Name FROM medicalneeds WHERE medicalneeds.ID =`MedicalNeeds_ID` LIMIT 1) as 'احتياجات طبية'
+ ";
+                }
+                //B. losses
+                if (tablename == "person_loss")
+                {
+                    table_query = @"
+ ,(SELECT Name FROM loss WHERE loss.ID = `Loss_ID` LIMIT 1) as 'نوع الخسارة'
+ ,mytable.`Year` as 'سنة الواقعة'
+ ,mytable.`Note` as 'ملاحظات'
+ ";
+                }
+                //B. home power sources
+                if (tablename == "person_powersource")
+                {
+                    table_query = @"
+,(SELECT Name FROM powersource WHERE powersource.ID = mytable.PowerSource_ID LIMIT 1) as 'مصدر الطاقة'
+,mytable.Note as 'شرح المنظومة'
+,mytable.Cost as 'القيمة المدفوعة شهرياً'
+,mytable.Responsability as 'الجهة الممولة'
+ ";
+                }
+                //B. current work
+                if (tablename == "person_workexp" && currentwork)
+                {
+                    table_query = @"
+,(SELECT W_Name FROM `work` WHERE `work`.`W_ID` = `Work_ID` LIMIT 1) as 'المهنة'
+,(SELECT Name FROM `worktype` WHERE `worktype`.ID = `W_WorkType_ID` LIMIT 1) as 'طبيعة العمل'
+,`W_Description` as 'وصف العمل'
+,`W_BeginDate` as 'تاريخ البداية' 
+,`W_PlaceState` as 'ملكية العقار'
+,`W_Place` as 'العنوان'
+,`W_Contact`    as 'اسم ورقم صاحب العمل' 
+,`W_Salary` as 'الربح / الراتب'
+ ";
+
+                    i_cond += " and lower(`W_Status`) like 'yes' ";
+                }
+                //B. work experiences
+                if (tablename == "person_workexp" && !currentwork)
+                {
+                    table_query = @"
+,(SELECT W_Name FROM `work` WHERE `work`.`W_ID` = `Work_ID` LIMIT 1) as 'المهنة'
+,(SELECT Name FROM `worktype` WHERE `worktype`.ID = `W_WorkType_ID` LIMIT 1) as 'طبيعة العمل'
+,`W_Description` as 'وصف العمل'
+,`W_BeginDate` as 'تاريخ البداية'
+,`W_EndDate`   as 'تاريخ النهاية'
+,`W_PlaceState` as 'ملكية العقار'
+,`W_Place`     as 'العنوان'
+,`W_Contact`    as 'اسم ورقم صاحب العمل'
+,`W_CauseOfLoseDescription` as 'سبب التوقف'
+ ";
+
+                    i_cond += " and lower(`W_Status`) like 'no' ";
+                }
+
+
+                string query = @"SELECT PMP.MicroProject_ID as 'رقم المشروع'
+ , CONCAT(P_FirstName, ' ', P_LastName) as 'الاسم' 
+ , (SELECT Name FROM relation WHERE relation.ID =person_family.Relation_ID LIMIT 1) as 'الصفة' "
+ + table_query 
+ + @", mytable.Person_ID as 'رقم الشخص'
+ , mytable.ID as 'ID' ";
+                    
+         //, career.Name as 'المهنة'
+         //, career.Name_en as 'Project Name'
+         //, C.Name as 'Category'
+         //, sub.Name as 'Sub Category' 
+
+                Check_Conditions(i_cond);
+
+                query += from + condition;
+                //query += " GROUP BY mytable.Person_ID ";
+                query += " order by PMP.MicroProject_ID Desc; ";
+
+                Program.buildConnection();
+                MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
+                sc.ExecuteNonQuery();
+                MySqlDataAdapter da = new MySqlDataAdapter(sc);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+
+                MP_dataGridView.DataSource = null;
+                MP_dataGridView.Columns.Clear();
+                MP_dataGridView.Rows.Clear();
+                MP_dataGridView.ColumnHeadersVisible = false;
+                MP_dataGridView.RowHeadersVisible = false;
+
+                bs.DataSource = ds.Tables[0];
+                MP_dataGridView.DataSource = bs;
+
+                var dgc1 = MP_dataGridView.Columns["ID"];
+                dgc1.Visible = false;
+
+                var dgc2 = MP_dataGridView.Columns["رقم الشخص"];
+                dgc2.Visible = false;
+
+                //count rows
+                Count_label.Text = "All: " + ds.Tables[0].Rows.Count.ToString("#,##0");
+
+                MP_dataGridView.ColumnHeadersVisible = true;
+                MP_dataGridView.RowHeadersVisible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
 
         private void Bind_All_ComboBoxes()
         {
@@ -2476,7 +2713,7 @@ namespace MyWorkApplication
                 else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(3))
                 {
                     bind_Images();
-                } 
+                }
                 // Visits //
                 else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
                 {
@@ -2497,21 +2734,49 @@ namespace MyWorkApplication
                 {
                     bind_SpecialCases();
                 }
-                // Aid Sources //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
-                {
-                    bind_AidSources();
-                }
                 // Materials Required //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
                 {
                     bind_Materials();
                 }
+                // Aid Sources //
+                //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
+                //{
+                //    bind_AidSources();
+                //}
                 // Materials Purchased //
                 //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
                 //{
                 //    bind_Purchasing();
                 //}
+
+                //B. Aid Sources 
+                //B. Assets  //B. Cources     //B. Educations 
+                //B. Goals   //B. Relief Aids //B. Illnes & Medical Needs 
+                //B. Losses  //B. Home Power Sources 
+                //B. Current Works //B. Work Experiences
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
+                    bind_person_tables("person_aidsource"   , false);
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
+                    bind_person_tables("person_asset"       , false);
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(11))
+                    bind_person_tables("person_course"      ,false);
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(12))
+                    bind_person_tables("person_education"   ,false);
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(13))
+                    bind_person_tables("person_goals"       ,false);
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(14))
+                    bind_person_tables("person_help"        ,false);
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(15))
+                    bind_person_tables("person_illness"     , false);
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(16))
+                    bind_person_tables("person_loss"        , false);
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(17))
+                    bind_person_tables("person_powersource" , false);
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(18))
+                    bind_person_tables("person_workexp"     , true);
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(19))
+                    bind_person_tables("person_workexp"     , false);
 
                 tick++;
                 // Use of the DataGridViewColumnSelector
@@ -2881,7 +3146,7 @@ namespace MyWorkApplication
                 if (user_mode)
                 {
                     var SelectedRowCount = MP_dataGridView.Rows.GetRowCount(DataGridViewElementStates.Selected);
-                    Selected_label.Text = "عدد الأسطر المحددة: " + SelectedRowCount;
+                    Selected_label.Text = "Selected: " + SelectedRowCount;
 
                     // Applications //
                     if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
@@ -2895,7 +3160,7 @@ namespace MyWorkApplication
                                 sum += double.Parse(SelectedDataRow["عدد أفراد المقيمين في المنزل"].ToString());
                             }
 
-                            Sum_FamilyMembers_label.Text = "عدد أفراد المقيمين في المنزل: " + sum.ToString("#,##0");
+                            Sum_FamilyMembers_label.Text = "Num At Home: " + sum.ToString("#,##0");
                         }
                     }
 
@@ -3061,7 +3326,7 @@ namespace MyWorkApplication
                 {
                     BindingSource f_bs = (BindingSource)MP_dataGridView.DataSource;
                     DataTable filtered_dt = ((DataTable)f_bs.DataSource).DefaultView.ToTable(true, "رقم المشروع");
-                    Count_label.Text = "عدد المشاريع: " + filtered_dt.Rows.Count.ToString("#,##0");
+                    Count_label.Text = "Projects Count: " + filtered_dt.Rows.Count.ToString("#,##0");
                 }
 
                 Color_Duplicate_Beneficiaries();
@@ -3075,7 +3340,10 @@ namespace MyWorkApplication
 
         private void Color_Duplicate_Beneficiaries()
         {
-            
+            // Check if the column exists
+            if (!MP_dataGridView.Columns.Contains("المستفيد"))
+                return; // Column not found, so exit safely
+
             //color duplicate rows//
             var allrows = MP_dataGridView.Rows.OfType<DataGridViewRow>().Reverse().Skip(1);//ignore the last empty line
             var dupRos = allrows.GroupBy(r => r.Cells["المستفيد"].Value.ToString())

@@ -236,7 +236,7 @@ namespace MyWorkApplication
                 //////calculate sum of projects// 
                 total_bind_count = 0; 
                 total_bind_count = Convert.ToInt32(main_ds.Tables[1].Rows[0][0].ToString());
-                Count_label.Text = "All:" + total_bind_count.ToString("#,##0");
+                Count_label.Text = "Projects Count: " + total_bind_count.ToString("#,##0");
 
                 MP_dataGridView.Columns["المبلغ المطلوب"].DefaultCellStyle.Format = "#,##0";
                 MP_dataGridView.Columns["مبلغ التمويل"].DefaultCellStyle.Format = "#,##0";
@@ -1720,7 +1720,7 @@ namespace MyWorkApplication
         }
         private void bs_ListChanged(object sender, System.ComponentModel.ListChangedEventArgs e)
         {
-            Count_label.Text = "All: " + MP_dataGridView.Rows.Count.ToString("#,##0");
+            Count_label.Text = "Projects Count: " + MP_dataGridView.Rows.Count.ToString("#,##0");
         }
         #endregion
 

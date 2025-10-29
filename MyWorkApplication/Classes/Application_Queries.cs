@@ -62,7 +62,7 @@ namespace MyWorkApplication.Classes
                 " where image.MicroProject_ID = @MicroProject_ID and image.Person_ID = @Person_ID and " +
                 " imagetype.Name = 'صورة شخصية';";
 
-            query += " select person_workexp.PW_ID, person_workexp.Work_ID,person_workexp.W_Description, person_workexp.W_WorkType_ID, person_workexp.W_BeginDate, person_workexp.W_EndDate, person_workexp.W_PlaceState, person_workexp.W_Place, person_workexp.W_Contact, person_workexp.W_Salary, person_workexp.W_CauseOfLoseDescription, person_workexp.W_Status" +
+            query += " select person_workexp.ID, person_workexp.Work_ID,person_workexp.W_Description, person_workexp.W_WorkType_ID, person_workexp.W_BeginDate, person_workexp.W_EndDate, person_workexp.W_PlaceState, person_workexp.W_Place, person_workexp.W_Contact, person_workexp.W_Salary, person_workexp.W_CauseOfLoseDescription, person_workexp.W_Status" +
                 " from person_workexp where Person_ID = @Person_ID;";
 
             query += " select family.F_ID, family.F_Number, person_family.PF_ID, person_family.Person_ID, person.P_FirstName, person.P_LastName, person.P_FatherName, person.P_DOB, person.P_NationalNumber, person.P_State_ID," +
@@ -83,7 +83,7 @@ namespace MyWorkApplication.Classes
                 " from person_goals left join goal on person_goals.Goal_ID = goal.ID" +
                 " where Person_ID = @Person_ID;";
 
-            query += " select person_education.PEdu_ID, person_education.Level_ID , person_education.Education_ID, educationtype.ID as 'Educationtype_ID'" +
+            query += " select person_education.ID, person_education.Level_ID , person_education.Education_ID, educationtype.ID as 'Educationtype_ID'" +
                 " from person_education left join education on person_education.Education_ID = education.ID" +
                 " left join educationtype on educationtype.id = education.Type_ID" +
                 " where Person_ID = @Person_ID;";
@@ -101,7 +101,7 @@ namespace MyWorkApplication.Classes
                 " where material.MicroProject_ID = @MicroProject_ID;";
 
 
-            query += " select person_workexp.PW_ID, person_workexp.Person_ID, person_workexp.W_Description, person_workexp.W_WorkType_ID, person_workexp.W_Salary, relation.Name as 'Relation_Name'" +
+            query += " select person_workexp.ID, person_workexp.Person_ID, person_workexp.W_Description, person_workexp.W_WorkType_ID, person_workexp.W_Salary, relation.Name as 'Relation_Name'" +
                 " from person_workexp left join person on person_workexp.Person_ID = person.P_ID" +
                 " left join person_family on person.P_ID = person_family.Person_ID" +
                 " left join relation on relation.ID = person_family.Relation_ID" +
@@ -178,24 +178,24 @@ namespace MyWorkApplication.Classes
             }
         }
 
-        public void Update_Person_Education(int PEdu_ID, int Education_ID)
+        public void Update_Person_Education(int ID, int Education_ID)
         {
 
             Program.buildConnection();
             query = "UPDATE `person_education` SET "
                     + " `Education_ID` = @Education_ID "
-                    + " WHERE `PEdu_ID`= @PEdu_ID ";
+                    + " WHERE `ID`= @ID ";
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.Parameters.AddWithValue("@Education_ID", Education_ID);
-                sc.Parameters.AddWithValue("@PEdu_ID", PEdu_ID);
+                sc.Parameters.AddWithValue("@ID", ID);
 
                 sc.ExecuteNonQuery();
                 Program.MyConn.Close();
             }
         }
 
-        public void Update_Person_WorkExp(int PW_ID, int Work_ID
+        public void Update_Person_WorkExp(int ID, int Work_ID
             , string W_Description, string W_BeginDate, string W_EndDate
             , string W_Place, string W_PlaceState
             , string W_CauseOfLoseDescription, double W_Salary)
@@ -211,7 +211,7 @@ namespace MyWorkApplication.Classes
                     + ",`W_PlaceState`= @W_PlaceState "
                     + ",`W_CauseOfLoseDescription`= @W_CauseOfLoseDescription "
                     + ",`W_Salary`= @W_Salary "
-                    + " WHERE `PW_ID`= @PW_ID ";
+                    + " WHERE `ID`= @ID ";
             using (var sc = new MySqlCommand(query, Program.MyConn))
             {
                 sc.Parameters.AddWithValue("@Work_ID", Work_ID);
@@ -222,7 +222,7 @@ namespace MyWorkApplication.Classes
                 sc.Parameters.AddWithValue("@W_PlaceState", W_PlaceState);
                 sc.Parameters.AddWithValue("@W_CauseOfLoseDescription", W_CauseOfLoseDescription);
                 sc.Parameters.AddWithValue("@W_Salary", W_Salary);
-                sc.Parameters.AddWithValue("@PW_ID", PW_ID);
+                sc.Parameters.AddWithValue("@ID", ID);
                 sc.ExecuteNonQuery();
                 Program.MyConn.Close();
             }

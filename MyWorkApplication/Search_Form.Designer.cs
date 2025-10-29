@@ -269,19 +269,15 @@ namespace MyWorkApplication
             // 
             // SearchBy_comboBox
             // 
-            this.SearchBy_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchBy_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchBy_comboBox.BackColor = System.Drawing.Color.White;
             this.SearchBy_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SearchBy_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchBy_comboBox.ForeColor = System.Drawing.Color.Black;
             this.SearchBy_comboBox.FormattingEnabled = true;
-            this.SearchBy_comboBox.Location = new System.Drawing.Point(782, 4);
-            this.SearchBy_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SearchBy_comboBox.Location = new System.Drawing.Point(205, 5);
             this.SearchBy_comboBox.Name = "SearchBy_comboBox";
-            this.SearchBy_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SearchBy_comboBox.Size = new System.Drawing.Size(325, 35);
+            this.SearchBy_comboBox.Size = new System.Drawing.Size(372, 35);
             this.SearchBy_comboBox.TabIndex = 1;
             this.SearchBy_comboBox.SelectedIndexChanged += new System.EventHandler(this.SearchBy_comboBox_SelectedIndexChanged);
             // 
@@ -290,11 +286,10 @@ namespace MyWorkApplication
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label16.Location = new System.Drawing.Point(1110, 0);
+            this.label16.Location = new System.Drawing.Point(100, 9);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
-            this.label16.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label16.Size = new System.Drawing.Size(71, 49);
+            this.label16.Size = new System.Drawing.Size(102, 27);
             this.label16.TabIndex = 296;
             this.label16.Text = "Search By:";
             // 
@@ -309,7 +304,7 @@ namespace MyWorkApplication
             this.ShowHide_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShowHide_button.Location = new System.Drawing.Point(196, 4);
+            this.ShowHide_button.Location = new System.Drawing.Point(1079, 2);
             this.ShowHide_button.Margin = new System.Windows.Forms.Padding(0);
             this.ShowHide_button.MaximumSize = new System.Drawing.Size(150, 40);
             this.ShowHide_button.MinimumSize = new System.Drawing.Size(150, 40);
@@ -332,7 +327,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.76135F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.93499F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ContextMenuStrip = this.contextMenuStrip1;
             this.tableLayoutPanel2.Controls.Add(this.ExportToExcel_button, 1, 0);
@@ -344,7 +339,6 @@ namespace MyWorkApplication
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 639);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1262, 34);
@@ -364,7 +358,7 @@ namespace MyWorkApplication
             this.ExportToExcel_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ExportToExcel_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExportToExcel_button.ForeColor = System.Drawing.Color.White;
-            this.ExportToExcel_button.Location = new System.Drawing.Point(1197, 4);
+            this.ExportToExcel_button.Location = new System.Drawing.Point(32, 4);
             this.ExportToExcel_button.Margin = new System.Windows.Forms.Padding(4);
             this.ExportToExcel_button.MaximumSize = new System.Drawing.Size(35, 31);
             this.ExportToExcel_button.MinimumSize = new System.Drawing.Size(33, 27);
@@ -406,11 +400,11 @@ namespace MyWorkApplication
             this.Count_label.AutoSize = true;
             this.Count_label.BackColor = System.Drawing.Color.Transparent;
             this.Count_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Count_label.Location = new System.Drawing.Point(1030, 3);
+            this.Count_label.Location = new System.Drawing.Point(69, 3);
             this.Count_label.Margin = new System.Windows.Forms.Padding(0);
             this.Count_label.Name = "Count_label";
             this.Count_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Count_label.Size = new System.Drawing.Size(163, 27);
+            this.Count_label.Size = new System.Drawing.Size(161, 27);
             this.Count_label.TabIndex = 475;
             this.Count_label.Text = "00000";
             this.Count_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -421,11 +415,11 @@ namespace MyWorkApplication
             this.Selected_label.AutoSize = true;
             this.Selected_label.BackColor = System.Drawing.Color.Transparent;
             this.Selected_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Selected_label.Location = new System.Drawing.Point(828, 3);
+            this.Selected_label.Location = new System.Drawing.Point(230, 3);
             this.Selected_label.Margin = new System.Windows.Forms.Padding(0);
             this.Selected_label.Name = "Selected_label";
             this.Selected_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Selected_label.Size = new System.Drawing.Size(202, 27);
+            this.Selected_label.Size = new System.Drawing.Size(200, 27);
             this.Selected_label.TabIndex = 476;
             this.Selected_label.Text = "00000";
             this.Selected_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -436,11 +430,11 @@ namespace MyWorkApplication
             this.Sum_FamilyMembers_label.AutoSize = true;
             this.Sum_FamilyMembers_label.BackColor = System.Drawing.Color.Transparent;
             this.Sum_FamilyMembers_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Sum_FamilyMembers_label.Location = new System.Drawing.Point(655, 3);
+            this.Sum_FamilyMembers_label.Location = new System.Drawing.Point(430, 3);
             this.Sum_FamilyMembers_label.Margin = new System.Windows.Forms.Padding(0);
             this.Sum_FamilyMembers_label.Name = "Sum_FamilyMembers_label";
             this.Sum_FamilyMembers_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Sum_FamilyMembers_label.Size = new System.Drawing.Size(173, 27);
+            this.Sum_FamilyMembers_label.Size = new System.Drawing.Size(171, 27);
             this.Sum_FamilyMembers_label.TabIndex = 482;
             this.Sum_FamilyMembers_label.Text = "00000";
             this.Sum_FamilyMembers_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -458,7 +452,7 @@ namespace MyWorkApplication
             this.Delete_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Delete_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete_button.ForeColor = System.Drawing.Color.White;
-            this.Delete_button.Location = new System.Drawing.Point(54, 4);
+            this.Delete_button.Location = new System.Drawing.Point(1165, 4);
             this.Delete_button.Margin = new System.Windows.Forms.Padding(10, 1, 3, 1);
             this.Delete_button.MaximumSize = new System.Drawing.Size(42, 26);
             this.Delete_button.MinimumSize = new System.Drawing.Size(42, 26);
@@ -479,7 +473,7 @@ namespace MyWorkApplication
             this.Export_usd_label.Margin = new System.Windows.Forms.Padding(0);
             this.Export_usd_label.Name = "Export_usd_label";
             this.Export_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Export_usd_label.Size = new System.Drawing.Size(185, 24);
+            this.Export_usd_label.Size = new System.Drawing.Size(179, 24);
             this.Export_usd_label.TabIndex = 481;
             this.Export_usd_label.Text = "00,000,000,000";
             this.Export_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -491,11 +485,11 @@ namespace MyWorkApplication
             this.Import_usd_label.AutoSize = true;
             this.Import_usd_label.BackColor = System.Drawing.Color.Transparent;
             this.Import_usd_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Import_usd_label.Location = new System.Drawing.Point(243, 47);
+            this.Import_usd_label.Location = new System.Drawing.Point(237, 47);
             this.Import_usd_label.Margin = new System.Windows.Forms.Padding(0);
             this.Import_usd_label.Name = "Import_usd_label";
             this.Import_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Import_usd_label.Size = new System.Drawing.Size(185, 24);
+            this.Import_usd_label.Size = new System.Drawing.Size(179, 24);
             this.Import_usd_label.TabIndex = 483;
             this.Import_usd_label.Text = "00,000,000,000";
             this.Import_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -511,7 +505,7 @@ namespace MyWorkApplication
             this.Export_sp_label.Margin = new System.Windows.Forms.Padding(0);
             this.Export_sp_label.Name = "Export_sp_label";
             this.Export_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Export_sp_label.Size = new System.Drawing.Size(185, 22);
+            this.Export_sp_label.Size = new System.Drawing.Size(179, 22);
             this.Export_sp_label.TabIndex = 477;
             this.Export_sp_label.Text = "00,000,000,000";
             this.Export_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -523,11 +517,11 @@ namespace MyWorkApplication
             this.Remaining_sp_label.AutoSize = true;
             this.Remaining_sp_label.BackColor = System.Drawing.Color.Transparent;
             this.Remaining_sp_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Remaining_sp_label.Location = new System.Drawing.Point(987, 24);
+            this.Remaining_sp_label.Location = new System.Drawing.Point(957, 24);
             this.Remaining_sp_label.Margin = new System.Windows.Forms.Padding(0);
             this.Remaining_sp_label.Name = "Remaining_sp_label";
             this.Remaining_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Remaining_sp_label.Size = new System.Drawing.Size(185, 22);
+            this.Remaining_sp_label.Size = new System.Drawing.Size(179, 22);
             this.Remaining_sp_label.TabIndex = 480;
             this.Remaining_sp_label.Text = "00,000,000,000";
             this.Remaining_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -538,11 +532,11 @@ namespace MyWorkApplication
             this.Import_sp_label.AutoSize = true;
             this.Import_sp_label.BackColor = System.Drawing.Color.Transparent;
             this.Import_sp_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Import_sp_label.Location = new System.Drawing.Point(243, 24);
+            this.Import_sp_label.Location = new System.Drawing.Point(237, 24);
             this.Import_sp_label.Margin = new System.Windows.Forms.Padding(0);
             this.Import_sp_label.Name = "Import_sp_label";
             this.Import_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Import_sp_label.Size = new System.Drawing.Size(185, 22);
+            this.Import_sp_label.Size = new System.Drawing.Size(179, 22);
             this.Import_sp_label.TabIndex = 478;
             this.Import_sp_label.Text = "00,000,000,000";
             this.Import_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -557,7 +551,7 @@ namespace MyWorkApplication
             this.Refresh_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Refresh_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Refresh_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Refresh_button.Location = new System.Drawing.Point(1208, 8);
+            this.Refresh_button.Location = new System.Drawing.Point(28, 6);
             this.Refresh_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Refresh_button.MaximumSize = new System.Drawing.Size(29, 32);
             this.Refresh_button.MinimumSize = new System.Drawing.Size(29, 32);
@@ -575,7 +569,7 @@ namespace MyWorkApplication
             this.Search_panel.ContextMenuStrip = this.contextMenuStrip1;
             this.Search_panel.Controls.Add(this.tableLayoutPanel3);
             this.Search_panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Search_panel.Location = new System.Drawing.Point(0, 49);
+            this.Search_panel.Location = new System.Drawing.Point(0, 45);
             this.Search_panel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Search_panel.Name = "Search_panel";
             this.Search_panel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -656,7 +650,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tableLayoutPanel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tableLayoutPanel3.RowCount = 8;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -676,10 +670,9 @@ namespace MyWorkApplication
             this.Type_label.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel3.SetColumnSpan(this.Type_label, 2);
             this.Type_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Type_label.Location = new System.Drawing.Point(777, 4);
+            this.Type_label.Location = new System.Drawing.Point(363, 4);
             this.Type_label.Margin = new System.Windows.Forms.Padding(0);
             this.Type_label.Name = "Type_label";
-            this.Type_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Type_label.Size = new System.Drawing.Size(122, 27);
             this.Type_label.TabIndex = 592;
             this.Type_label.Text = "Project Type:";
@@ -690,10 +683,9 @@ namespace MyWorkApplication
             this.DonorGroup_label.AutoSize = true;
             this.DonorGroup_label.BackColor = System.Drawing.Color.Transparent;
             this.DonorGroup_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.DonorGroup_label.Location = new System.Drawing.Point(487, 39);
+            this.DonorGroup_label.Location = new System.Drawing.Point(653, 39);
             this.DonorGroup_label.Margin = new System.Windows.Forms.Padding(0);
             this.DonorGroup_label.Name = "DonorGroup_label";
-            this.DonorGroup_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.DonorGroup_label.Size = new System.Drawing.Size(122, 27);
             this.DonorGroup_label.TabIndex = 573;
             this.DonorGroup_label.Text = "Donor Group:";
@@ -704,10 +696,9 @@ namespace MyWorkApplication
             this.MaritalStatus_label.AutoSize = true;
             this.tableLayoutPanel3.SetColumnSpan(this.MaritalStatus_label, 2);
             this.MaritalStatus_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.MaritalStatus_label.Location = new System.Drawing.Point(172, 74);
+            this.MaritalStatus_label.Location = new System.Drawing.Point(958, 74);
             this.MaritalStatus_label.Margin = new System.Windows.Forms.Padding(0);
             this.MaritalStatus_label.Name = "MaritalStatus_label";
-            this.MaritalStatus_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MaritalStatus_label.Size = new System.Drawing.Size(132, 27);
             this.MaritalStatus_label.TabIndex = 470;
             this.MaritalStatus_label.Text = "Marital Status:";
@@ -717,10 +708,9 @@ namespace MyWorkApplication
             this.MP_Status_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.MP_Status_label.AutoSize = true;
             this.MP_Status_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.MP_Status_label.Location = new System.Drawing.Point(1092, 39);
+            this.MP_Status_label.Location = new System.Drawing.Point(98, 39);
             this.MP_Status_label.Margin = new System.Windows.Forms.Padding(0);
             this.MP_Status_label.Name = "MP_Status_label";
-            this.MP_Status_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MP_Status_label.Size = new System.Drawing.Size(72, 27);
             this.MP_Status_label.TabIndex = 441;
             this.MP_Status_label.Text = "Status:";
@@ -731,10 +721,9 @@ namespace MyWorkApplication
             this.Donor_label.AutoSize = true;
             this.tableLayoutPanel3.SetColumnSpan(this.Donor_label, 2);
             this.Donor_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Donor_label.Location = new System.Drawing.Point(777, 39);
+            this.Donor_label.Location = new System.Drawing.Point(418, 39);
             this.Donor_label.Margin = new System.Windows.Forms.Padding(0);
             this.Donor_label.Name = "Donor_label";
-            this.Donor_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Donor_label.Size = new System.Drawing.Size(67, 27);
             this.Donor_label.TabIndex = 468;
             this.Donor_label.Text = "Donor:";
@@ -745,10 +734,9 @@ namespace MyWorkApplication
             this.P_Parish_label.AutoSize = true;
             this.tableLayoutPanel3.SetColumnSpan(this.P_Parish_label, 2);
             this.P_Parish_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.P_Parish_label.Location = new System.Drawing.Point(172, 39);
+            this.P_Parish_label.Location = new System.Drawing.Point(1020, 39);
             this.P_Parish_label.Margin = new System.Windows.Forms.Padding(0);
             this.P_Parish_label.Name = "P_Parish_label";
-            this.P_Parish_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.P_Parish_label.Size = new System.Drawing.Size(70, 27);
             this.P_Parish_label.TabIndex = 466;
             this.P_Parish_label.Text = "Parish:";
@@ -758,10 +746,9 @@ namespace MyWorkApplication
             this.Category_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Category_label.AutoSize = true;
             this.Category_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Category_label.Location = new System.Drawing.Point(1092, 74);
+            this.Category_label.Location = new System.Drawing.Point(76, 74);
             this.Category_label.Margin = new System.Windows.Forms.Padding(0);
             this.Category_label.Name = "Category_label";
-            this.Category_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Category_label.Size = new System.Drawing.Size(94, 27);
             this.Category_label.TabIndex = 465;
             this.Category_label.Text = "Category:";
@@ -772,10 +759,9 @@ namespace MyWorkApplication
             this.Age_label.AutoSize = true;
             this.Age_label.BackColor = System.Drawing.Color.Transparent;
             this.Age_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Age_label.Location = new System.Drawing.Point(487, 109);
+            this.Age_label.Location = new System.Drawing.Point(658, 109);
             this.Age_label.Margin = new System.Windows.Forms.Padding(0);
             this.Age_label.Name = "Age_label";
-            this.Age_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Age_label.Size = new System.Drawing.Size(117, 27);
             this.Age_label.TabIndex = 496;
             this.Age_label.Text = "Age Ranges:";
@@ -787,10 +773,9 @@ namespace MyWorkApplication
             this.SubCategory_label.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel3.SetColumnSpan(this.SubCategory_label, 2);
             this.SubCategory_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SubCategory_label.Location = new System.Drawing.Point(777, 74);
+            this.SubCategory_label.Location = new System.Drawing.Point(354, 74);
             this.SubCategory_label.Margin = new System.Windows.Forms.Padding(0);
             this.SubCategory_label.Name = "SubCategory_label";
-            this.SubCategory_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SubCategory_label.Size = new System.Drawing.Size(131, 27);
             this.SubCategory_label.TabIndex = 569;
             this.SubCategory_label.Text = "Sub Category:";
@@ -801,10 +786,9 @@ namespace MyWorkApplication
             this.Gender_label.AutoSize = true;
             this.tableLayoutPanel3.SetColumnSpan(this.Gender_label, 2);
             this.Gender_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Gender_label.Location = new System.Drawing.Point(172, 109);
+            this.Gender_label.Location = new System.Drawing.Point(1012, 109);
             this.Gender_label.Margin = new System.Windows.Forms.Padding(0);
             this.Gender_label.Name = "Gender_label";
-            this.Gender_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Gender_label.Size = new System.Drawing.Size(78, 27);
             this.Gender_label.TabIndex = 467;
             this.Gender_label.Text = "Gender:";
@@ -815,10 +799,9 @@ namespace MyWorkApplication
             this.Career_label.AutoSize = true;
             this.Career_label.BackColor = System.Drawing.Color.Transparent;
             this.Career_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Career_label.Location = new System.Drawing.Point(487, 74);
+            this.Career_label.Location = new System.Drawing.Point(702, 74);
             this.Career_label.Margin = new System.Windows.Forms.Padding(0);
             this.Career_label.Name = "Career_label";
-            this.Career_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Career_label.Size = new System.Drawing.Size(73, 27);
             this.Career_label.TabIndex = 589;
             this.Career_label.Text = "Career:";
@@ -830,10 +813,9 @@ namespace MyWorkApplication
             this.Partnership_label.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel3.SetColumnSpan(this.Partnership_label, 2);
             this.Partnership_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Partnership_label.Location = new System.Drawing.Point(172, 4);
+            this.Partnership_label.Location = new System.Drawing.Point(974, 4);
             this.Partnership_label.Margin = new System.Windows.Forms.Padding(0);
             this.Partnership_label.Name = "Partnership_label";
-            this.Partnership_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Partnership_label.Size = new System.Drawing.Size(116, 27);
             this.Partnership_label.TabIndex = 591;
             this.Partnership_label.Text = "Partnership:";
@@ -844,10 +826,9 @@ namespace MyWorkApplication
             this.FundType_label.AutoSize = true;
             this.FundType_label.BackColor = System.Drawing.Color.Transparent;
             this.FundType_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.FundType_label.Location = new System.Drawing.Point(1092, 4);
+            this.FundType_label.Location = new System.Drawing.Point(65, 4);
             this.FundType_label.Margin = new System.Windows.Forms.Padding(0);
             this.FundType_label.Name = "FundType_label";
-            this.FundType_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.FundType_label.Size = new System.Drawing.Size(105, 27);
             this.FundType_label.TabIndex = 590;
             this.FundType_label.Text = "Fund Type:";
@@ -858,11 +839,10 @@ namespace MyWorkApplication
             this.SubType_label.AutoSize = true;
             this.SubType_label.BackColor = System.Drawing.Color.Transparent;
             this.SubType_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SubType_label.Location = new System.Drawing.Point(487, 0);
+            this.SubType_label.Location = new System.Drawing.Point(661, 0);
             this.SubType_label.Margin = new System.Windows.Forms.Padding(0);
             this.SubType_label.Name = "SubType_label";
-            this.SubType_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubType_label.Size = new System.Drawing.Size(110, 35);
+            this.SubType_label.Size = new System.Drawing.Size(114, 35);
             this.SubType_label.TabIndex = 593;
             this.SubType_label.Text = "Project Sub Type:";
             // 
@@ -877,7 +857,7 @@ namespace MyWorkApplication
             this.FundType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FundType_comboBox.ForeColor = System.Drawing.Color.White;
             this.FundType_comboBox.FormattingEnabled = true;
-            this.FundType_comboBox.Location = new System.Drawing.Point(950, 3);
+            this.FundType_comboBox.Location = new System.Drawing.Point(173, 3);
             this.FundType_comboBox.Name = "FundType_comboBox";
             this.FundType_comboBox.Size = new System.Drawing.Size(139, 35);
             this.FundType_comboBox.TabIndex = 598;
@@ -893,7 +873,7 @@ namespace MyWorkApplication
             this.Type_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Type_comboBox.ForeColor = System.Drawing.Color.White;
             this.Type_comboBox.FormattingEnabled = true;
-            this.Type_comboBox.Location = new System.Drawing.Point(635, 3);
+            this.Type_comboBox.Location = new System.Drawing.Point(488, 3);
             this.Type_comboBox.Name = "Type_comboBox";
             this.Type_comboBox.Size = new System.Drawing.Size(139, 35);
             this.Type_comboBox.TabIndex = 599;
@@ -910,7 +890,7 @@ namespace MyWorkApplication
             this.SubType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubType_comboBox.ForeColor = System.Drawing.Color.White;
             this.SubType_comboBox.FormattingEnabled = true;
-            this.SubType_comboBox.Location = new System.Drawing.Point(345, 3);
+            this.SubType_comboBox.Location = new System.Drawing.Point(778, 3);
             this.SubType_comboBox.Name = "SubType_comboBox";
             this.SubType_comboBox.Size = new System.Drawing.Size(139, 35);
             this.SubType_comboBox.TabIndex = 600;
@@ -929,7 +909,7 @@ namespace MyWorkApplication
             this.Partnership_comboBox.Items.AddRange(new object[] {
             "فردي",
             "شراكة"});
-            this.Partnership_comboBox.Location = new System.Drawing.Point(30, 3);
+            this.Partnership_comboBox.Location = new System.Drawing.Point(1093, 3);
             this.Partnership_comboBox.Name = "Partnership_comboBox";
             this.Partnership_comboBox.Size = new System.Drawing.Size(139, 35);
             this.Partnership_comboBox.TabIndex = 601;
@@ -945,7 +925,7 @@ namespace MyWorkApplication
             this.MP_Status_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MP_Status_comboBox.ForeColor = System.Drawing.Color.White;
             this.MP_Status_comboBox.FormattingEnabled = true;
-            this.MP_Status_comboBox.Location = new System.Drawing.Point(950, 38);
+            this.MP_Status_comboBox.Location = new System.Drawing.Point(173, 40);
             this.MP_Status_comboBox.Name = "MP_Status_comboBox";
             this.MP_Status_comboBox.Size = new System.Drawing.Size(139, 35);
             this.MP_Status_comboBox.TabIndex = 602;
@@ -961,7 +941,7 @@ namespace MyWorkApplication
             this.Donor_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Donor_comboBox.ForeColor = System.Drawing.Color.White;
             this.Donor_comboBox.FormattingEnabled = true;
-            this.Donor_comboBox.Location = new System.Drawing.Point(635, 40);
+            this.Donor_comboBox.Location = new System.Drawing.Point(488, 40);
             this.Donor_comboBox.Name = "Donor_comboBox";
             this.Donor_comboBox.Size = new System.Drawing.Size(139, 35);
             this.Donor_comboBox.TabIndex = 603;
@@ -978,7 +958,7 @@ namespace MyWorkApplication
             this.DonorGroup_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DonorGroup_comboBox.ForeColor = System.Drawing.Color.White;
             this.DonorGroup_comboBox.FormattingEnabled = true;
-            this.DonorGroup_comboBox.Location = new System.Drawing.Point(345, 38);
+            this.DonorGroup_comboBox.Location = new System.Drawing.Point(778, 40);
             this.DonorGroup_comboBox.Name = "DonorGroup_comboBox";
             this.DonorGroup_comboBox.Size = new System.Drawing.Size(139, 35);
             this.DonorGroup_comboBox.TabIndex = 604;
@@ -994,7 +974,7 @@ namespace MyWorkApplication
             this.P_Parish_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Parish_comboBox.ForeColor = System.Drawing.Color.White;
             this.P_Parish_comboBox.FormattingEnabled = true;
-            this.P_Parish_comboBox.Location = new System.Drawing.Point(30, 38);
+            this.P_Parish_comboBox.Location = new System.Drawing.Point(1093, 40);
             this.P_Parish_comboBox.Name = "P_Parish_comboBox";
             this.P_Parish_comboBox.Size = new System.Drawing.Size(139, 35);
             this.P_Parish_comboBox.TabIndex = 605;
@@ -1010,7 +990,7 @@ namespace MyWorkApplication
             this.Category_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Category_comboBox.ForeColor = System.Drawing.Color.White;
             this.Category_comboBox.FormattingEnabled = true;
-            this.Category_comboBox.Location = new System.Drawing.Point(950, 73);
+            this.Category_comboBox.Location = new System.Drawing.Point(173, 75);
             this.Category_comboBox.Name = "Category_comboBox";
             this.Category_comboBox.Size = new System.Drawing.Size(139, 35);
             this.Category_comboBox.TabIndex = 606;
@@ -1027,7 +1007,7 @@ namespace MyWorkApplication
             this.SubCategory_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubCategory_comboBox.ForeColor = System.Drawing.Color.White;
             this.SubCategory_comboBox.FormattingEnabled = true;
-            this.SubCategory_comboBox.Location = new System.Drawing.Point(635, 73);
+            this.SubCategory_comboBox.Location = new System.Drawing.Point(488, 75);
             this.SubCategory_comboBox.Name = "SubCategory_comboBox";
             this.SubCategory_comboBox.Size = new System.Drawing.Size(139, 35);
             this.SubCategory_comboBox.TabIndex = 607;
@@ -1044,7 +1024,7 @@ namespace MyWorkApplication
             this.Career_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Career_comboBox.ForeColor = System.Drawing.Color.White;
             this.Career_comboBox.FormattingEnabled = true;
-            this.Career_comboBox.Location = new System.Drawing.Point(345, 73);
+            this.Career_comboBox.Location = new System.Drawing.Point(778, 75);
             this.Career_comboBox.Name = "Career_comboBox";
             this.Career_comboBox.Size = new System.Drawing.Size(139, 35);
             this.Career_comboBox.TabIndex = 608;
@@ -1060,7 +1040,7 @@ namespace MyWorkApplication
             this.MaritalStatus_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MaritalStatus_comboBox.ForeColor = System.Drawing.Color.White;
             this.MaritalStatus_comboBox.FormattingEnabled = true;
-            this.MaritalStatus_comboBox.Location = new System.Drawing.Point(30, 73);
+            this.MaritalStatus_comboBox.Location = new System.Drawing.Point(1093, 75);
             this.MaritalStatus_comboBox.Name = "MaritalStatus_comboBox";
             this.MaritalStatus_comboBox.Size = new System.Drawing.Size(139, 35);
             this.MaritalStatus_comboBox.TabIndex = 609;
@@ -1076,7 +1056,7 @@ namespace MyWorkApplication
             this.Age_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Age_comboBox.ForeColor = System.Drawing.Color.White;
             this.Age_comboBox.FormattingEnabled = true;
-            this.Age_comboBox.Location = new System.Drawing.Point(345, 108);
+            this.Age_comboBox.Location = new System.Drawing.Point(778, 110);
             this.Age_comboBox.Name = "Age_comboBox";
             this.Age_comboBox.Size = new System.Drawing.Size(139, 35);
             this.Age_comboBox.TabIndex = 612;
@@ -1095,7 +1075,7 @@ namespace MyWorkApplication
             this.Gender_comboBox.Items.AddRange(new object[] {
             "ذكر",
             "أنثى"});
-            this.Gender_comboBox.Location = new System.Drawing.Point(30, 108);
+            this.Gender_comboBox.Location = new System.Drawing.Point(1093, 110);
             this.Gender_comboBox.Name = "Gender_comboBox";
             this.Gender_comboBox.Size = new System.Drawing.Size(139, 35);
             this.Gender_comboBox.TabIndex = 613;
@@ -1105,10 +1085,9 @@ namespace MyWorkApplication
             this.ApplyDateFrom_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ApplyDateFrom_label.AutoSize = true;
             this.ApplyDateFrom_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ApplyDateFrom_label.Location = new System.Drawing.Point(1095, 184);
+            this.ApplyDateFrom_label.Location = new System.Drawing.Point(59, 184);
             this.ApplyDateFrom_label.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.ApplyDateFrom_label.Name = "ApplyDateFrom_label";
-            this.ApplyDateFrom_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ApplyDateFrom_label.Size = new System.Drawing.Size(108, 27);
             this.ApplyDateFrom_label.TabIndex = 557;
             this.ApplyDateFrom_label.Text = "Apply Date:";
@@ -1119,10 +1098,9 @@ namespace MyWorkApplication
             this.HomeStreet_label.AutoSize = true;
             this.HomeStreet_label.BackColor = System.Drawing.Color.Transparent;
             this.HomeStreet_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.HomeStreet_label.Location = new System.Drawing.Point(1092, 109);
+            this.HomeStreet_label.Location = new System.Drawing.Point(48, 109);
             this.HomeStreet_label.Margin = new System.Windows.Forms.Padding(0);
             this.HomeStreet_label.Name = "HomeStreet_label";
-            this.HomeStreet_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.HomeStreet_label.Size = new System.Drawing.Size(122, 27);
             this.HomeStreet_label.TabIndex = 594;
             this.HomeStreet_label.Text = "Home Street:";
@@ -1138,7 +1116,7 @@ namespace MyWorkApplication
             this.HomeStreet_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HomeStreet_comboBox.ForeColor = System.Drawing.Color.White;
             this.HomeStreet_comboBox.FormattingEnabled = true;
-            this.HomeStreet_comboBox.Location = new System.Drawing.Point(950, 108);
+            this.HomeStreet_comboBox.Location = new System.Drawing.Point(173, 110);
             this.HomeStreet_comboBox.Name = "HomeStreet_comboBox";
             this.HomeStreet_comboBox.Size = new System.Drawing.Size(139, 35);
             this.HomeStreet_comboBox.TabIndex = 614;
@@ -1150,10 +1128,9 @@ namespace MyWorkApplication
             this.ProjectStreet_label.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel3.SetColumnSpan(this.ProjectStreet_label, 2);
             this.ProjectStreet_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ProjectStreet_label.Location = new System.Drawing.Point(777, 109);
+            this.ProjectStreet_label.Location = new System.Drawing.Point(351, 109);
             this.ProjectStreet_label.Margin = new System.Windows.Forms.Padding(0);
             this.ProjectStreet_label.Name = "ProjectStreet_label";
-            this.ProjectStreet_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ProjectStreet_label.Size = new System.Drawing.Size(134, 27);
             this.ProjectStreet_label.TabIndex = 596;
             this.ProjectStreet_label.Text = "Project Street:";
@@ -1169,7 +1146,7 @@ namespace MyWorkApplication
             this.ProjectStreet_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProjectStreet_comboBox.ForeColor = System.Drawing.Color.White;
             this.ProjectStreet_comboBox.FormattingEnabled = true;
-            this.ProjectStreet_comboBox.Location = new System.Drawing.Point(635, 108);
+            this.ProjectStreet_comboBox.Location = new System.Drawing.Point(488, 110);
             this.ProjectStreet_comboBox.Name = "ProjectStreet_comboBox";
             this.ProjectStreet_comboBox.Size = new System.Drawing.Size(139, 35);
             this.ProjectStreet_comboBox.TabIndex = 615;
@@ -1179,10 +1156,9 @@ namespace MyWorkApplication
             this.FundedDateFrom_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.FundedDateFrom_label.AutoSize = true;
             this.FundedDateFrom_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.FundedDateFrom_label.Location = new System.Drawing.Point(490, 184);
+            this.FundedDateFrom_label.Location = new System.Drawing.Point(668, 184);
             this.FundedDateFrom_label.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.FundedDateFrom_label.Name = "FundedDateFrom_label";
-            this.FundedDateFrom_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.FundedDateFrom_label.Size = new System.Drawing.Size(104, 27);
             this.FundedDateFrom_label.TabIndex = 558;
             this.FundedDateFrom_label.Text = "Fund Date:";
@@ -1194,11 +1170,10 @@ namespace MyWorkApplication
             this.FundedFrom_label.BackColor = System.Drawing.Color.Transparent;
             this.FundedFrom_label.Font = new System.Drawing.Font("Rubik", 10F);
             this.FundedFrom_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.FundedFrom_label.Location = new System.Drawing.Point(490, 216);
+            this.FundedFrom_label.Location = new System.Drawing.Point(649, 216);
             this.FundedFrom_label.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.FundedFrom_label.Name = "FundedFrom_label";
-            this.FundedFrom_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.FundedFrom_label.Size = new System.Drawing.Size(119, 34);
+            this.FundedFrom_label.Size = new System.Drawing.Size(123, 34);
             this.FundedFrom_label.TabIndex = 553;
             this.FundedFrom_label.Text = "Fund Amount ($):";
             // 
@@ -1209,11 +1184,10 @@ namespace MyWorkApplication
             this.RequestedFrom_label.BackColor = System.Drawing.Color.Transparent;
             this.RequestedFrom_label.Font = new System.Drawing.Font("Rubik", 10F);
             this.RequestedFrom_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.RequestedFrom_label.Location = new System.Drawing.Point(1095, 216);
+            this.RequestedFrom_label.Location = new System.Drawing.Point(64, 216);
             this.RequestedFrom_label.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.RequestedFrom_label.Name = "RequestedFrom_label";
-            this.RequestedFrom_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.RequestedFrom_label.Size = new System.Drawing.Size(99, 34);
+            this.RequestedFrom_label.Size = new System.Drawing.Size(103, 34);
             this.RequestedFrom_label.TabIndex = 551;
             this.RequestedFrom_label.Text = "Requested Amount:";
             // 
@@ -1223,7 +1197,7 @@ namespace MyWorkApplication
             this.ApplyDateFrom_dateTimePicker.CustomFormat = "yyyy-MM-dd";
             this.ApplyDateFrom_dateTimePicker.Enabled = false;
             this.ApplyDateFrom_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ApplyDateFrom_dateTimePicker.Location = new System.Drawing.Point(950, 185);
+            this.ApplyDateFrom_dateTimePicker.Location = new System.Drawing.Point(173, 185);
             this.ApplyDateFrom_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.ApplyDateFrom_dateTimePicker.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             this.ApplyDateFrom_dateTimePicker.Name = "ApplyDateFrom_dateTimePicker";
@@ -1239,7 +1213,7 @@ namespace MyWorkApplication
             this.ApplyDateTo_DateTimePicker.CustomFormat = "yyyy-MM-dd";
             this.ApplyDateTo_DateTimePicker.Enabled = false;
             this.ApplyDateTo_DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ApplyDateTo_DateTimePicker.Location = new System.Drawing.Point(805, 185);
+            this.ApplyDateTo_DateTimePicker.Location = new System.Drawing.Point(318, 185);
             this.ApplyDateTo_DateTimePicker.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.ApplyDateTo_DateTimePicker.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             this.ApplyDateTo_DateTimePicker.Name = "ApplyDateTo_DateTimePicker";
@@ -1260,7 +1234,7 @@ namespace MyWorkApplication
             this.ApplyDate_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ApplyDate_comboBox.ForeColor = System.Drawing.Color.White;
             this.ApplyDate_comboBox.FormattingEnabled = true;
-            this.ApplyDate_comboBox.Location = new System.Drawing.Point(635, 183);
+            this.ApplyDate_comboBox.Location = new System.Drawing.Point(488, 185);
             this.ApplyDate_comboBox.Name = "ApplyDate_comboBox";
             this.ApplyDate_comboBox.Size = new System.Drawing.Size(139, 35);
             this.ApplyDate_comboBox.TabIndex = 610;
@@ -1269,7 +1243,7 @@ namespace MyWorkApplication
             // 
             this.ApplyDate_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ApplyDate_checkBox.AutoSize = true;
-            this.ApplyDate_checkBox.Location = new System.Drawing.Point(781, 189);
+            this.ApplyDate_checkBox.Location = new System.Drawing.Point(463, 189);
             this.ApplyDate_checkBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.ApplyDate_checkBox.Name = "ApplyDate_checkBox";
             this.ApplyDate_checkBox.Size = new System.Drawing.Size(18, 17);
@@ -1281,7 +1255,7 @@ namespace MyWorkApplication
             // 
             this.RequestedFrom_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.RequestedFrom_textBox.BackColor = System.Drawing.Color.White;
-            this.RequestedFrom_textBox.Location = new System.Drawing.Point(950, 220);
+            this.RequestedFrom_textBox.Location = new System.Drawing.Point(173, 220);
             this.RequestedFrom_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.RequestedFrom_textBox.Name = "RequestedFrom_textBox";
             this.RequestedFrom_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1294,7 +1268,7 @@ namespace MyWorkApplication
             // 
             this.RequestedTo_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.RequestedTo_textBox.BackColor = System.Drawing.Color.White;
-            this.RequestedTo_textBox.Location = new System.Drawing.Point(805, 220);
+            this.RequestedTo_textBox.Location = new System.Drawing.Point(318, 220);
             this.RequestedTo_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.RequestedTo_textBox.Name = "RequestedTo_textBox";
             this.RequestedTo_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1311,10 +1285,9 @@ namespace MyWorkApplication
             this.from_label1.Enabled = false;
             this.from_label1.Font = new System.Drawing.Font("Rubik", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.from_label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.from_label1.Location = new System.Drawing.Point(950, 161);
+            this.from_label1.Location = new System.Drawing.Point(173, 161);
             this.from_label1.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.from_label1.Name = "from_label1";
-            this.from_label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.from_label1.Size = new System.Drawing.Size(139, 18);
             this.from_label1.TabIndex = 616;
             this.from_label1.Text = "from";
@@ -1328,10 +1301,9 @@ namespace MyWorkApplication
             this.to_label1.Enabled = false;
             this.to_label1.Font = new System.Drawing.Font("Rubik", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.to_label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.to_label1.Location = new System.Drawing.Point(805, 161);
+            this.to_label1.Location = new System.Drawing.Point(318, 161);
             this.to_label1.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.to_label1.Name = "to_label1";
-            this.to_label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.to_label1.Size = new System.Drawing.Size(139, 18);
             this.to_label1.TabIndex = 617;
             this.to_label1.Text = "to";
@@ -1341,7 +1313,7 @@ namespace MyWorkApplication
             // 
             this.FundedDate_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.FundedDate_checkBox.AutoSize = true;
-            this.FundedDate_checkBox.Location = new System.Drawing.Point(176, 189);
+            this.FundedDate_checkBox.Location = new System.Drawing.Point(1068, 189);
             this.FundedDate_checkBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.FundedDate_checkBox.Name = "FundedDate_checkBox";
             this.FundedDate_checkBox.Size = new System.Drawing.Size(18, 17);
@@ -1357,10 +1329,9 @@ namespace MyWorkApplication
             this.from_label2.Enabled = false;
             this.from_label2.Font = new System.Drawing.Font("Rubik", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.from_label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.from_label2.Location = new System.Drawing.Point(345, 161);
+            this.from_label2.Location = new System.Drawing.Point(778, 161);
             this.from_label2.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.from_label2.Name = "from_label2";
-            this.from_label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.from_label2.Size = new System.Drawing.Size(139, 18);
             this.from_label2.TabIndex = 618;
             this.from_label2.Text = "from";
@@ -1374,10 +1345,9 @@ namespace MyWorkApplication
             this.to_label2.Enabled = false;
             this.to_label2.Font = new System.Drawing.Font("Rubik", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.to_label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.to_label2.Location = new System.Drawing.Point(200, 161);
+            this.to_label2.Location = new System.Drawing.Point(923, 161);
             this.to_label2.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.to_label2.Name = "to_label2";
-            this.to_label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.to_label2.Size = new System.Drawing.Size(139, 18);
             this.to_label2.TabIndex = 619;
             this.to_label2.Text = "to";
@@ -1389,7 +1359,7 @@ namespace MyWorkApplication
             this.FundedDateFrom_DateTimePicker.CustomFormat = "yyyy-MM-dd";
             this.FundedDateFrom_DateTimePicker.Enabled = false;
             this.FundedDateFrom_DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.FundedDateFrom_DateTimePicker.Location = new System.Drawing.Point(345, 185);
+            this.FundedDateFrom_DateTimePicker.Location = new System.Drawing.Point(778, 185);
             this.FundedDateFrom_DateTimePicker.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.FundedDateFrom_DateTimePicker.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             this.FundedDateFrom_DateTimePicker.Name = "FundedDateFrom_DateTimePicker";
@@ -1405,7 +1375,7 @@ namespace MyWorkApplication
             this.FundedDateTo_DateTimePicker.CustomFormat = "yyyy-MM-dd";
             this.FundedDateTo_DateTimePicker.Enabled = false;
             this.FundedDateTo_DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.FundedDateTo_DateTimePicker.Location = new System.Drawing.Point(200, 185);
+            this.FundedDateTo_DateTimePicker.Location = new System.Drawing.Point(923, 185);
             this.FundedDateTo_DateTimePicker.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.FundedDateTo_DateTimePicker.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             this.FundedDateTo_DateTimePicker.Name = "FundedDateTo_DateTimePicker";
@@ -1426,7 +1396,7 @@ namespace MyWorkApplication
             this.FundDate_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FundDate_comboBox.ForeColor = System.Drawing.Color.White;
             this.FundDate_comboBox.FormattingEnabled = true;
-            this.FundDate_comboBox.Location = new System.Drawing.Point(30, 183);
+            this.FundDate_comboBox.Location = new System.Drawing.Point(1093, 185);
             this.FundDate_comboBox.Name = "FundDate_comboBox";
             this.FundDate_comboBox.Size = new System.Drawing.Size(139, 35);
             this.FundDate_comboBox.TabIndex = 611;
@@ -1435,7 +1405,7 @@ namespace MyWorkApplication
             // 
             this.FundedFrom_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.FundedFrom_textBox.BackColor = System.Drawing.Color.White;
-            this.FundedFrom_textBox.Location = new System.Drawing.Point(345, 220);
+            this.FundedFrom_textBox.Location = new System.Drawing.Point(778, 220);
             this.FundedFrom_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.FundedFrom_textBox.Name = "FundedFrom_textBox";
             this.FundedFrom_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1448,7 +1418,7 @@ namespace MyWorkApplication
             // 
             this.FundedTo_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.FundedTo_textBox.BackColor = System.Drawing.Color.White;
-            this.FundedTo_textBox.Location = new System.Drawing.Point(200, 220);
+            this.FundedTo_textBox.Location = new System.Drawing.Point(923, 220);
             this.FundedTo_textBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.FundedTo_textBox.Name = "FundedTo_textBox";
             this.FundedTo_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1465,10 +1435,9 @@ namespace MyWorkApplication
             this.year_label1.Enabled = false;
             this.year_label1.Font = new System.Drawing.Font("Rubik", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.year_label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.year_label1.Location = new System.Drawing.Point(635, 161);
+            this.year_label1.Location = new System.Drawing.Point(488, 161);
             this.year_label1.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.year_label1.Name = "year_label1";
-            this.year_label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.year_label1.Size = new System.Drawing.Size(139, 18);
             this.year_label1.TabIndex = 620;
             this.year_label1.Text = "year";
@@ -1482,10 +1451,9 @@ namespace MyWorkApplication
             this.year_label2.Enabled = false;
             this.year_label2.Font = new System.Drawing.Font("Rubik", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.year_label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.year_label2.Location = new System.Drawing.Point(30, 161);
+            this.year_label2.Location = new System.Drawing.Point(1093, 161);
             this.year_label2.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.year_label2.Name = "year_label2";
-            this.year_label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.year_label2.Size = new System.Drawing.Size(139, 18);
             this.year_label2.TabIndex = 621;
             this.year_label2.Text = "year";
@@ -1497,12 +1465,12 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.ColumnCount = 8;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.279022F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.43501F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.12323F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.86842F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.65789F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.16274F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 194F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 157F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel1.ContextMenuStrip = this.contextMenuStrip1;
             this.tableLayoutPanel1.Controls.Add(this.ShowHide_button, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.LastVisit_checkBox, 4, 0);
@@ -1514,20 +1482,18 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1262, 49);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1262, 45);
             this.tableLayoutPanel1.TabIndex = 496;
             // 
             // LastVisit_checkBox
             // 
             this.LastVisit_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.LastVisit_checkBox.AutoSize = true;
-            this.LastVisit_checkBox.Location = new System.Drawing.Point(474, 9);
+            this.LastVisit_checkBox.Location = new System.Drawing.Point(841, 7);
             this.LastVisit_checkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LastVisit_checkBox.Name = "LastVisit_checkBox";
-            this.LastVisit_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.LastVisit_checkBox.Size = new System.Drawing.Size(110, 31);
             this.LastVisit_checkBox.TabIndex = 552;
             this.LastVisit_checkBox.Text = "Last Visit";
@@ -1546,7 +1512,7 @@ namespace MyWorkApplication
             this.ApplyFilter_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ApplyFilter_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ApplyFilter_button.ForeColor = System.Drawing.Color.LightGray;
-            this.ApplyFilter_button.Location = new System.Drawing.Point(356, 7);
+            this.ApplyFilter_button.Location = new System.Drawing.Point(962, 5);
             this.ApplyFilter_button.Margin = new System.Windows.Forms.Padding(0);
             this.ApplyFilter_button.MaximumSize = new System.Drawing.Size(110, 34);
             this.ApplyFilter_button.MinimumSize = new System.Drawing.Size(110, 34);
@@ -1565,11 +1531,11 @@ namespace MyWorkApplication
             this.Returned_sp_label.AutoSize = true;
             this.Returned_sp_label.BackColor = System.Drawing.Color.Transparent;
             this.Returned_sp_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Returned_sp_label.Location = new System.Drawing.Point(429, 24);
+            this.Returned_sp_label.Location = new System.Drawing.Point(417, 24);
             this.Returned_sp_label.Margin = new System.Windows.Forms.Padding(0);
             this.Returned_sp_label.Name = "Returned_sp_label";
             this.Returned_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Returned_sp_label.Size = new System.Drawing.Size(185, 22);
+            this.Returned_sp_label.Size = new System.Drawing.Size(179, 22);
             this.Returned_sp_label.TabIndex = 481;
             this.Returned_sp_label.Text = "00,000,000,000";
             this.Returned_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1581,11 +1547,11 @@ namespace MyWorkApplication
             this.Returned_usd_label.AutoSize = true;
             this.Returned_usd_label.BackColor = System.Drawing.Color.Transparent;
             this.Returned_usd_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Returned_usd_label.Location = new System.Drawing.Point(429, 47);
+            this.Returned_usd_label.Location = new System.Drawing.Point(417, 47);
             this.Returned_usd_label.Margin = new System.Windows.Forms.Padding(0);
             this.Returned_usd_label.Name = "Returned_usd_label";
             this.Returned_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Returned_usd_label.Size = new System.Drawing.Size(185, 24);
+            this.Returned_usd_label.Size = new System.Drawing.Size(179, 24);
             this.Returned_usd_label.TabIndex = 485;
             this.Returned_usd_label.Text = "00,000,000,000";
             this.Returned_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1597,11 +1563,11 @@ namespace MyWorkApplication
             this.Net_sp_label.AutoSize = true;
             this.Net_sp_label.BackColor = System.Drawing.Color.Transparent;
             this.Net_sp_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Net_sp_label.Location = new System.Drawing.Point(615, 24);
+            this.Net_sp_label.Location = new System.Drawing.Point(597, 24);
             this.Net_sp_label.Margin = new System.Windows.Forms.Padding(0);
             this.Net_sp_label.Name = "Net_sp_label";
             this.Net_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Net_sp_label.Size = new System.Drawing.Size(185, 22);
+            this.Net_sp_label.Size = new System.Drawing.Size(179, 22);
             this.Net_sp_label.TabIndex = 482;
             this.Net_sp_label.Text = "00,000,000,000";
             this.Net_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1613,11 +1579,11 @@ namespace MyWorkApplication
             this.Net_usd_label.AutoSize = true;
             this.Net_usd_label.BackColor = System.Drawing.Color.Transparent;
             this.Net_usd_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Net_usd_label.Location = new System.Drawing.Point(615, 47);
+            this.Net_usd_label.Location = new System.Drawing.Point(597, 47);
             this.Net_usd_label.Margin = new System.Windows.Forms.Padding(0);
             this.Net_usd_label.Name = "Net_usd_label";
             this.Net_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Net_usd_label.Size = new System.Drawing.Size(185, 24);
+            this.Net_usd_label.Size = new System.Drawing.Size(179, 24);
             this.Net_usd_label.TabIndex = 486;
             this.Net_usd_label.Text = "00,000,000,000";
             this.Net_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1629,11 +1595,11 @@ namespace MyWorkApplication
             this.RepayLoans_sp_label.AutoSize = true;
             this.RepayLoans_sp_label.BackColor = System.Drawing.Color.Transparent;
             this.RepayLoans_sp_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.RepayLoans_sp_label.Location = new System.Drawing.Point(801, 24);
+            this.RepayLoans_sp_label.Location = new System.Drawing.Point(777, 24);
             this.RepayLoans_sp_label.Margin = new System.Windows.Forms.Padding(0);
             this.RepayLoans_sp_label.Name = "RepayLoans_sp_label";
             this.RepayLoans_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RepayLoans_sp_label.Size = new System.Drawing.Size(185, 22);
+            this.RepayLoans_sp_label.Size = new System.Drawing.Size(179, 22);
             this.RepayLoans_sp_label.TabIndex = 487;
             this.RepayLoans_sp_label.Text = "00,000,000,000";
             this.RepayLoans_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1645,11 +1611,11 @@ namespace MyWorkApplication
             this.RepayLoans_usd_label.AutoSize = true;
             this.RepayLoans_usd_label.BackColor = System.Drawing.Color.Transparent;
             this.RepayLoans_usd_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.RepayLoans_usd_label.Location = new System.Drawing.Point(801, 47);
+            this.RepayLoans_usd_label.Location = new System.Drawing.Point(777, 47);
             this.RepayLoans_usd_label.Margin = new System.Windows.Forms.Padding(0);
             this.RepayLoans_usd_label.Name = "RepayLoans_usd_label";
             this.RepayLoans_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RepayLoans_usd_label.Size = new System.Drawing.Size(185, 24);
+            this.RepayLoans_usd_label.Size = new System.Drawing.Size(179, 24);
             this.RepayLoans_usd_label.TabIndex = 488;
             this.RepayLoans_usd_label.Text = "00,000,000,000";
             this.RepayLoans_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1665,7 +1631,7 @@ namespace MyWorkApplication
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label2.Size = new System.Drawing.Size(185, 22);
+            this.label2.Size = new System.Drawing.Size(179, 22);
             this.label2.TabIndex = 489;
             this.label2.Text = "Loans";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1677,11 +1643,11 @@ namespace MyWorkApplication
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label3.Location = new System.Drawing.Point(243, 1);
+            this.label3.Location = new System.Drawing.Point(237, 1);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label3.Size = new System.Drawing.Size(185, 22);
+            this.label3.Size = new System.Drawing.Size(179, 22);
             this.label3.TabIndex = 490;
             this.label3.Text = "Repayments";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1693,11 +1659,11 @@ namespace MyWorkApplication
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label9.Location = new System.Drawing.Point(429, 1);
+            this.label9.Location = new System.Drawing.Point(417, 1);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label9.Size = new System.Drawing.Size(185, 22);
+            this.label9.Size = new System.Drawing.Size(179, 22);
             this.label9.TabIndex = 491;
             this.label9.Text = "Returned";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1709,11 +1675,11 @@ namespace MyWorkApplication
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label10.Location = new System.Drawing.Point(615, 1);
+            this.label10.Location = new System.Drawing.Point(597, 1);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label10.Size = new System.Drawing.Size(185, 22);
+            this.label10.Size = new System.Drawing.Size(179, 22);
             this.label10.TabIndex = 492;
             this.label10.Text = "Net Repayments";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1725,11 +1691,11 @@ namespace MyWorkApplication
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label12.Location = new System.Drawing.Point(801, 1);
+            this.label12.Location = new System.Drawing.Point(777, 1);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
             this.label12.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label12.Size = new System.Drawing.Size(185, 22);
+            this.label12.Size = new System.Drawing.Size(179, 22);
             this.label12.TabIndex = 493;
             this.label12.Text = "Repayment Loans";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1779,7 +1745,7 @@ namespace MyWorkApplication
             this.Financial_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
             this.Financial_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
             this.Financial_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
-            this.Financial_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83F));
+            this.Financial_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119F));
             this.Financial_tableLayoutPanel.ContextMenuStrip = this.contextMenuStrip1;
             this.Financial_tableLayoutPanel.Controls.Add(this.label14, 0, 1);
             this.Financial_tableLayoutPanel.Controls.Add(this.label17, 0, 2);
@@ -1821,11 +1787,11 @@ namespace MyWorkApplication
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label13.Location = new System.Drawing.Point(987, 1);
+            this.label13.Location = new System.Drawing.Point(957, 1);
             this.label13.Margin = new System.Windows.Forms.Padding(0);
             this.label13.Name = "label13";
             this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label13.Size = new System.Drawing.Size(185, 22);
+            this.label13.Size = new System.Drawing.Size(179, 22);
             this.label13.TabIndex = 494;
             this.label13.Text = "Repayments balance";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1836,11 +1802,11 @@ namespace MyWorkApplication
             this.Remaining_usd_label.AutoSize = true;
             this.Remaining_usd_label.BackColor = System.Drawing.Color.Transparent;
             this.Remaining_usd_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Remaining_usd_label.Location = new System.Drawing.Point(987, 47);
+            this.Remaining_usd_label.Location = new System.Drawing.Point(957, 47);
             this.Remaining_usd_label.Margin = new System.Windows.Forms.Padding(0);
             this.Remaining_usd_label.Name = "Remaining_usd_label";
             this.Remaining_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Remaining_usd_label.Size = new System.Drawing.Size(185, 24);
+            this.Remaining_usd_label.Size = new System.Drawing.Size(179, 24);
             this.Remaining_usd_label.TabIndex = 484;
             this.Remaining_usd_label.Text = "00,000,000,000";
             this.Remaining_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1869,7 +1835,7 @@ namespace MyWorkApplication
             this.visit_statistics_tableLayoutPanel.Controls.Add(this.sumAll_label, 1, 7);
             this.visit_statistics_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.visit_statistics_tableLayoutPanel.Font = new System.Drawing.Font("Rubik", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visit_statistics_tableLayoutPanel.Location = new System.Drawing.Point(0, 300);
+            this.visit_statistics_tableLayoutPanel.Location = new System.Drawing.Point(0, 296);
             this.visit_statistics_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.visit_statistics_tableLayoutPanel.Name = "visit_statistics_tableLayoutPanel";
             this.visit_statistics_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1883,7 +1849,7 @@ namespace MyWorkApplication
             this.visit_statistics_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.visit_statistics_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.visit_statistics_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.visit_statistics_tableLayoutPanel.Size = new System.Drawing.Size(289, 267);
+            this.visit_statistics_tableLayoutPanel.Size = new System.Drawing.Size(289, 271);
             this.visit_statistics_tableLayoutPanel.TabIndex = 563;
             this.visit_statistics_tableLayoutPanel.Visible = false;
             // 
@@ -1892,11 +1858,11 @@ namespace MyWorkApplication
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label5.Location = new System.Drawing.Point(99, 87);
+            this.label5.Location = new System.Drawing.Point(99, 90);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(119, 29);
+            this.label5.Size = new System.Drawing.Size(119, 30);
             this.label5.TabIndex = 488;
             this.label5.Text = "مجموع M3:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1906,11 +1872,11 @@ namespace MyWorkApplication
             this.sumM1_label.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.sumM1_label.AutoSize = true;
             this.sumM1_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.sumM1_label.Location = new System.Drawing.Point(42, 29);
+            this.sumM1_label.Location = new System.Drawing.Point(42, 30);
             this.sumM1_label.Name = "sumM1_label";
             this.sumM1_label.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.sumM1_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.sumM1_label.Size = new System.Drawing.Size(51, 29);
+            this.sumM1_label.Size = new System.Drawing.Size(51, 30);
             this.sumM1_label.TabIndex = 486;
             this.sumM1_label.Text = "0.0";
             this.sumM1_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1920,11 +1886,11 @@ namespace MyWorkApplication
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label1.Location = new System.Drawing.Point(99, 29);
+            this.label1.Location = new System.Drawing.Point(99, 30);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(116, 29);
+            this.label1.Size = new System.Drawing.Size(116, 30);
             this.label1.TabIndex = 485;
             this.label1.Text = "مجموع M1:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1938,7 +1904,7 @@ namespace MyWorkApplication
             this.sumOp_label.Name = "sumOp_label";
             this.sumOp_label.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.sumOp_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.sumOp_label.Size = new System.Drawing.Size(51, 29);
+            this.sumOp_label.Size = new System.Drawing.Size(51, 30);
             this.sumOp_label.TabIndex = 484;
             this.sumOp_label.Text = "0.0";
             this.sumOp_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1952,7 +1918,7 @@ namespace MyWorkApplication
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label11.Size = new System.Drawing.Size(173, 29);
+            this.label11.Size = new System.Drawing.Size(173, 30);
             this.label11.TabIndex = 483;
             this.label11.Text = "مجموع Opening:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1962,11 +1928,11 @@ namespace MyWorkApplication
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label4.Location = new System.Drawing.Point(99, 58);
+            this.label4.Location = new System.Drawing.Point(99, 60);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(119, 29);
+            this.label4.Size = new System.Drawing.Size(119, 30);
             this.label4.TabIndex = 487;
             this.label4.Text = "مجموع M2:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1976,11 +1942,11 @@ namespace MyWorkApplication
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label6.Location = new System.Drawing.Point(99, 116);
+            this.label6.Location = new System.Drawing.Point(99, 120);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(120, 29);
+            this.label6.Size = new System.Drawing.Size(120, 30);
             this.label6.TabIndex = 489;
             this.label6.Text = "مجموع M4:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1990,11 +1956,11 @@ namespace MyWorkApplication
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label7.Location = new System.Drawing.Point(99, 145);
+            this.label7.Location = new System.Drawing.Point(99, 150);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(119, 29);
+            this.label7.Size = new System.Drawing.Size(119, 30);
             this.label7.TabIndex = 490;
             this.label7.Text = "مجموع M5:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2004,11 +1970,11 @@ namespace MyWorkApplication
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label8.Location = new System.Drawing.Point(99, 174);
+            this.label8.Location = new System.Drawing.Point(99, 180);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label8.Size = new System.Drawing.Size(164, 29);
+            this.label8.Size = new System.Drawing.Size(164, 30);
             this.label8.TabIndex = 491;
             this.label8.Text = "مجموع Closing:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2018,11 +1984,11 @@ namespace MyWorkApplication
             this.sumM2_label.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.sumM2_label.AutoSize = true;
             this.sumM2_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.sumM2_label.Location = new System.Drawing.Point(42, 58);
+            this.sumM2_label.Location = new System.Drawing.Point(42, 60);
             this.sumM2_label.Name = "sumM2_label";
             this.sumM2_label.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.sumM2_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.sumM2_label.Size = new System.Drawing.Size(51, 29);
+            this.sumM2_label.Size = new System.Drawing.Size(51, 30);
             this.sumM2_label.TabIndex = 492;
             this.sumM2_label.Text = "0.0";
             this.sumM2_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2032,11 +1998,11 @@ namespace MyWorkApplication
             this.sumM3_label.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.sumM3_label.AutoSize = true;
             this.sumM3_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.sumM3_label.Location = new System.Drawing.Point(42, 87);
+            this.sumM3_label.Location = new System.Drawing.Point(42, 90);
             this.sumM3_label.Name = "sumM3_label";
             this.sumM3_label.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.sumM3_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.sumM3_label.Size = new System.Drawing.Size(51, 29);
+            this.sumM3_label.Size = new System.Drawing.Size(51, 30);
             this.sumM3_label.TabIndex = 493;
             this.sumM3_label.Text = "0.0";
             this.sumM3_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2046,11 +2012,11 @@ namespace MyWorkApplication
             this.sumM4_label.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.sumM4_label.AutoSize = true;
             this.sumM4_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.sumM4_label.Location = new System.Drawing.Point(42, 116);
+            this.sumM4_label.Location = new System.Drawing.Point(42, 120);
             this.sumM4_label.Name = "sumM4_label";
             this.sumM4_label.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.sumM4_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.sumM4_label.Size = new System.Drawing.Size(51, 29);
+            this.sumM4_label.Size = new System.Drawing.Size(51, 30);
             this.sumM4_label.TabIndex = 494;
             this.sumM4_label.Text = "0.0";
             this.sumM4_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2060,11 +2026,11 @@ namespace MyWorkApplication
             this.sumM5_label.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.sumM5_label.AutoSize = true;
             this.sumM5_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.sumM5_label.Location = new System.Drawing.Point(42, 145);
+            this.sumM5_label.Location = new System.Drawing.Point(42, 150);
             this.sumM5_label.Name = "sumM5_label";
             this.sumM5_label.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.sumM5_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.sumM5_label.Size = new System.Drawing.Size(51, 29);
+            this.sumM5_label.Size = new System.Drawing.Size(51, 30);
             this.sumM5_label.TabIndex = 495;
             this.sumM5_label.Text = "0.0";
             this.sumM5_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2074,11 +2040,11 @@ namespace MyWorkApplication
             this.sumCl_label.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.sumCl_label.AutoSize = true;
             this.sumCl_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.sumCl_label.Location = new System.Drawing.Point(42, 174);
+            this.sumCl_label.Location = new System.Drawing.Point(42, 180);
             this.sumCl_label.Name = "sumCl_label";
             this.sumCl_label.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.sumCl_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.sumCl_label.Size = new System.Drawing.Size(51, 29);
+            this.sumCl_label.Size = new System.Drawing.Size(51, 30);
             this.sumCl_label.TabIndex = 496;
             this.sumCl_label.Text = "0.0";
             this.sumCl_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2088,11 +2054,11 @@ namespace MyWorkApplication
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label15.Location = new System.Drawing.Point(99, 203);
+            this.label15.Location = new System.Drawing.Point(99, 210);
             this.label15.Name = "label15";
             this.label15.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.label15.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label15.Size = new System.Drawing.Size(181, 29);
+            this.label15.Size = new System.Drawing.Size(181, 30);
             this.label15.TabIndex = 497;
             this.label15.Text = "مجموع كل الزيارات:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2102,11 +2068,11 @@ namespace MyWorkApplication
             this.sumAll_label.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.sumAll_label.AutoSize = true;
             this.sumAll_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.sumAll_label.Location = new System.Drawing.Point(42, 203);
+            this.sumAll_label.Location = new System.Drawing.Point(42, 210);
             this.sumAll_label.Name = "sumAll_label";
             this.sumAll_label.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.sumAll_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.sumAll_label.Size = new System.Drawing.Size(51, 29);
+            this.sumAll_label.Size = new System.Drawing.Size(51, 30);
             this.sumAll_label.TabIndex = 498;
             this.sumAll_label.Text = "0.0";
             this.sumAll_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2147,7 +2113,7 @@ namespace MyWorkApplication
             this.MP_dataGridView.EnableHeadersVisualStyles = false;
             this.MP_dataGridView.FilterAndSortEnabled = true;
             this.MP_dataGridView.GridColor = System.Drawing.Color.Black;
-            this.MP_dataGridView.Location = new System.Drawing.Point(289, 332);
+            this.MP_dataGridView.Location = new System.Drawing.Point(289, 328);
             this.MP_dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.MP_dataGridView.Name = "MP_dataGridView";
             this.MP_dataGridView.ReadOnly = true;
@@ -2164,7 +2130,7 @@ namespace MyWorkApplication
             this.MP_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.MP_dataGridView.RowTemplate.Height = 27;
             this.MP_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MP_dataGridView.Size = new System.Drawing.Size(973, 235);
+            this.MP_dataGridView.Size = new System.Drawing.Size(973, 239);
             this.MP_dataGridView.TabIndex = 566;
             this.MP_dataGridView.SortStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.SortEventArgs>(this.dataGridView_SortStringChanged);
             this.MP_dataGridView.FilterStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.FilterEventArgs>(this.dataGridView_FilterStringChanged);
@@ -2189,7 +2155,7 @@ namespace MyWorkApplication
             this.SearchToolBar.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.SearchToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Show_Hide_ToolStrip});
-            this.SearchToolBar.Location = new System.Drawing.Point(289, 300);
+            this.SearchToolBar.Location = new System.Drawing.Point(289, 296);
             this.SearchToolBar.MaximumSize = new System.Drawing.Size(0, 32);
             this.SearchToolBar.MinimumSize = new System.Drawing.Size(0, 32);
             this.SearchToolBar.Name = "SearchToolBar";

@@ -4846,7 +4846,7 @@ namespace MyWorkApplication
                                 sc.Parameters.AddWithValue("@WP_ID" + i, WP_ID);
 
                                 if (Work_dataGridView.Rows[i].Visible == false)
-                                    Query += "DELETE FROM person_workexp WHERE PW_ID = @WP_ID" + i + ";";
+                                    Query += "DELETE FROM person_workexp WHERE ID = @WP_ID" + i + ";";
                                 else
                                 {
                                     Query += "UPDATE person_workexp set Work_ID = @W_Name" + i + "," +
@@ -4857,7 +4857,7 @@ namespace MyWorkApplication
                                   " W_Place = @W_Place" + i + "," +
                                   " W_Contact = @W_Contact" + i + "," +
                                   " W_Salary = @W_Salary" + i + "" +
-                                  " where PW_ID = @WP_ID" + i + ";";
+                                  " where ID = @WP_ID" + i + ";";
                                 }
                             }
                             else
@@ -4905,7 +4905,7 @@ namespace MyWorkApplication
                                     sc.Parameters.AddWithValue("@ExpP_ID" + i, ExpP_ID);
 
                                     if (Exp_dataGridView.Rows[i].Visible == false)
-                                        Query += "DELETE FROM person_workexp WHERE PW_ID = @ExpP_ID" + i + ";";
+                                        Query += "DELETE FROM person_workexp WHERE ID = @ExpP_ID" + i + ";";
                                     else
                                     {
                                         Query += "UPDATE person_workexp set Work_ID = @Exp_Name" + i + "," +
@@ -4917,7 +4917,7 @@ namespace MyWorkApplication
                                                                        " W_Place = @Exp_Place" + i + "," +
                                                                        " W_Contact = @Exp_Contact" + i + "," +
                                                                        " W_CauseOfLoseDescription = @Exp_CauseOfLose" + i + "" +
-                                                                       " where PW_ID = @ExpP_ID" + i + ";";
+                                                                       " where ID = @ExpP_ID" + i + ";";
                                     }
                                 }
                                 else
@@ -5072,12 +5072,12 @@ namespace MyWorkApplication
                                     sc.Parameters.AddWithValue("@PE_ID" + i, PE_ID);
 
                                     if (Education_dataGridView.Rows[i].Visible == false)
-                                        Query += "DELETE FROM person_education WHERE PEdu_ID = @PE_ID" + i + ";";
+                                        Query += "DELETE FROM person_education WHERE ID = @PE_ID" + i + ";";
                                     else
                                     {
                                         Query += "UPDATE person_education set Education_ID = @E_Name" + i + "," +
                                             " Level_ID = @E_Level" + i + "" +
-                                            " where PEdu_ID = @PE_ID" + i + ";";
+                                            " where ID = @PE_ID" + i + ";";
                                     }
                                 }
                                 else
@@ -6072,7 +6072,7 @@ namespace MyWorkApplication
                                     sc.Parameters.AddWithValue("@FP_Exp_ID" + i, FP_Exp_ID);
 
                                     if (FP_Exp_dataGridView.Rows[i].Visible == false)
-                                        Query += "DELETE FROM person_workexp WHERE PW_ID = @FP_Exp_ID" + i + ";";
+                                        Query += "DELETE FROM person_workexp WHERE ID = @FP_Exp_ID" + i + ";";
                                     else
                                     {
                                         if (Convert.ToInt32(FP_Exp_PName) > 0)
@@ -6081,7 +6081,7 @@ namespace MyWorkApplication
                                                 " W_Description = @FP_Exp_WorkDiscription" + i + "," +
                                                 " W_WorkType_ID = @FP_Exp_WorkType" + i + "," +
                                                 " W_Salary = @FP_Exp_Salary" + i + "" +
-                                                " where PW_ID = @FP_Exp_ID" + i + ";";
+                                                " where ID = @FP_Exp_ID" + i + ";";
                                         }
                                         else
                                         {
@@ -6096,7 +6096,7 @@ namespace MyWorkApplication
                                                 " W_Description = @FP_Exp_WorkDiscription" + i + "," +
                                                 " W_WorkType_ID = @FP_Exp_WorkType" + i + "," +
                                                 " W_Salary = @FP_Exp_Salary" + i + "" +
-                                                " where PW_ID = @FP_Exp_ID" + i + ";";
+                                                " where ID = @FP_Exp_ID" + i + ";";
                                         }
                                     }
                                 }
@@ -7173,7 +7173,7 @@ namespace MyWorkApplication
                         for (int i = 0; i < work_dt.Rows.Count; i++)
                         {
                             Work_dataGridView.Rows.Add();
-                            Work_dataGridView.Rows[i].Cells["WP_ID"].Value = work_dt.Rows[i].Field<int?>("PW_ID");
+                            Work_dataGridView.Rows[i].Cells["WP_ID"].Value = work_dt.Rows[i].Field<int?>("ID");
                             Work_dataGridView.Rows[i].Cells["W_Name"].Value = work_dt.Rows[i].Field<int?>("Work_ID");
                             Work_dataGridView.Rows[i].Cells["W_WorkType"].Value = work_dt.Rows[i].Field<int?>("W_WorkType_ID");
                             Work_dataGridView.Rows[i].Cells["W_Description"].Value = work_dt.Rows[i].Field<string>("W_Description");
@@ -7196,7 +7196,7 @@ namespace MyWorkApplication
                         for (int i = 0; i < Exp_dt.Rows.Count; i++)
                         {
                             Exp_dataGridView.Rows.Add();
-                            Exp_dataGridView.Rows[i].Cells["ExpP_ID"].Value = Exp_dt.Rows[i].Field<int?>("PW_ID");
+                            Exp_dataGridView.Rows[i].Cells["ExpP_ID"].Value = Exp_dt.Rows[i].Field<int?>("ID");
                             Exp_dataGridView.Rows[i].Cells["Exp_Name"].Value = Exp_dt.Rows[i].Field<int?>("Work_ID");
                             Exp_dataGridView.Rows[i].Cells["Exp_WorkType"].Value = Exp_dt.Rows[i].Field<int?>("W_WorkType_ID");
                             Exp_dataGridView.Rows[i].Cells["Exp_Description"].Value = Exp_dt.Rows[i].Field<string>("W_Description");
@@ -7322,7 +7322,7 @@ namespace MyWorkApplication
                     for (int i = 0; i < Application_ds.Tables[7].Rows.Count; i++)
                     {
                         Education_dataGridView.Rows.Add();
-                        Education_dataGridView.Rows[i].Cells["PE_ID"].Value = Application_ds.Tables[7].Rows[i].Field<int?>("PEdu_ID");
+                        Education_dataGridView.Rows[i].Cells["PE_ID"].Value = Application_ds.Tables[7].Rows[i].Field<int?>("ID");
                         Education_dataGridView.Rows[i].Cells["E_Level"].Value = Application_ds.Tables[7].Rows[i].Field<int?>("Level_ID");
                         Education_dataGridView.Rows[i].Cells["E_Type"].Value = Application_ds.Tables[7].Rows[i].Field<int?>("Educationtype_ID");
                         // Manually call the CellValueChanged event handler
@@ -7380,7 +7380,7 @@ namespace MyWorkApplication
                     for (int i = 0; i < Application_ds.Tables[11].Rows.Count; i++)
                     {
                         FP_Exp_dataGridView.Rows.Add();
-                        FP_Exp_dataGridView.Rows[i].Cells["FP_Exp_ID"].Value = Application_ds.Tables[11].Rows[i].Field<int?>("PW_ID");
+                        FP_Exp_dataGridView.Rows[i].Cells["FP_Exp_ID"].Value = Application_ds.Tables[11].Rows[i].Field<int?>("ID");
                         FP_Exp_dataGridView.Rows[i].Cells["FP_Exp_PName"].Value = Application_ds.Tables[11].Rows[i].Field<int?>("Person_ID");
                         FP_Exp_dataGridView.Rows[i].Cells["FP_Exp_Relation"].Value = Application_ds.Tables[11].Rows[i].Field<string>("Relation_Name");
                         FP_Exp_dataGridView.Rows[i].Cells["FP_Exp_WorkDiscription"].Value = Application_ds.Tables[11].Rows[i].Field<string>("W_Description");
