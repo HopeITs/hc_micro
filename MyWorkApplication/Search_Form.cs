@@ -3,6 +3,7 @@ using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.Math;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Vml.Office;
+using DocumentFormat.OpenXml.Wordprocessing;
 using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
@@ -21,6 +22,7 @@ using System.Threading;
 using System.Windows.Forms;
 using static Google.Protobuf.Reflection.UninterpretedOption.Types;
 using DataTable = System.Data.DataTable;
+using Settings = MyWorkApplication.Properties.Settings;
 
 namespace MyWorkApplication
 {
@@ -128,27 +130,33 @@ namespace MyWorkApplication
                 Show_MenuItem.DropDown.Closing += Show_MenuItem_Closing;
 
                 searchBy_list = new List<string>();
-                searchBy_list.Add("Applications");
+                searchBy_list.Add("Applications"); //0
                 searchBy_list.Add("Family Members");
+                
                 searchBy_list.Add("Loans and Payments");
                 searchBy_list.Add("Attachments"); 
                 searchBy_list.Add("M&E Visits");
                 searchBy_list.Add("Monitoring Visits(1 to 5)");
                 searchBy_list.Add("Check Lists");
-                searchBy_list.Add("Special Cases");
-                searchBy_list.Add("Materials Required");
-                //searchBy_list.Add("Materials Purchased");
-                searchBy_list.Add("Aid Sources");   //9
-                searchBy_list.Add("Assets");      
-                searchBy_list.Add("Cources");
-                searchBy_list.Add("Educations");
-                searchBy_list.Add("Goals");
+                searchBy_list.Add("Special Cases"); //7
+                
+                searchBy_list.Add("Project Required Materials"); 
+                searchBy_list.Add("Project Power Sources");
+
+                searchBy_list.Add("Home Power Sources"); //10
                 searchBy_list.Add("Relief Aids");
+                searchBy_list.Add("Aid Sources");   
+                searchBy_list.Add("Assets");     
                 searchBy_list.Add("Illnes & Medical Needs");
                 searchBy_list.Add("Losses");
-                searchBy_list.Add("Home Power Sources");
                 searchBy_list.Add("Current Works");
-                searchBy_list.Add("Work Experiences"); //19
+
+                searchBy_list.Add("Work Experiences"); 
+                searchBy_list.Add("Courses");
+                searchBy_list.Add("Educations");
+                searchBy_list.Add("Goals"); //20
+
+                //searchBy_list.Add("Materials Purchased");
 
 
                 for (int i = 0; i < searchBy_list.Count; i++)
@@ -157,7 +165,7 @@ namespace MyWorkApplication
                 bs.ListChanged += bs_ListChanged;
                 Bind_All_ComboBoxes();
 
-                CheckUserPermission();
+                Check_UserPermission();
                 SearchBy_comboBox.SelectedIndex = 0;
             }
             catch (Exception ex)
@@ -166,7 +174,221 @@ namespace MyWorkApplication
             }
         }
 
-        private void CheckUserPermission()
+        #region search and filter functions 
+        private void SearchBy_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Check_Visibility();
+                //MP_dataGridView.RowTemplate.Height = 28;
+
+                tick = 0;
+                timer1.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (tick == 0)
+            {
+                user_mode = false;
+                // Set cursor as hourglass
+                Cursor.Current = Cursors.WaitCursor;
+                bs.Filter = bs.Sort = Original_Filter_String = "";
+                bs.DataSource = null;
+                user_mode = true;
+
+                // applications //
+                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
+                {
+                    bind_Applications();
+                }
+                // families //
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(1))
+                {
+                    FamilyMember_bind();
+                }
+                // Loans //
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(2))
+                {
+                    Loan_bind();
+                }
+                // Attachments //
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(3))
+                {
+                    bind_Images();
+                }
+                // Visits //
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
+                {
+                    bind_Visits();
+                }
+                // New Visit Forms //
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(5))
+                {
+                    bind_NewVisits();
+                }
+                // Check Lists //
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(6))
+                {
+                    bind_CheckList();
+                }
+                // Special Cases //
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(7))
+                {
+                    bind_SpecialCases();
+                }
+                // Materials Required //
+                //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
+                //{
+                //    bind_Materials();
+                //}
+                // Aid Sources //
+                //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
+                //{
+                //    bind_AidSources();
+                //}
+
+                // Materials Purchased //
+                //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
+                //{
+                //    bind_Purchasing();
+                //}
+
+                //P. Project Required Materials
+                //P. Project Power Sources 
+                else if ((SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
+                     || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9)))
+                    bind_project_tables();
+
+                //B. Aid Sources 
+                //B. Assets  //B. Cources     //B. Educations 
+                //B. Goals   //B. Relief Aids //B. Illnes & Medical Needs 
+                //B. Losses  //B. Home Power Sources 
+                //B. Current Works //B. Work Experiences
+                else if ((SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
+                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(11))
+                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(12))
+                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(13))
+                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(14))
+                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(15))
+                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(16))
+                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(17))
+                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(18))
+                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(19))
+                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(20)))
+                    bind_person_tables();
+
+                tick++;
+                // Use of the DataGridViewColumnSelector
+                cs = new DataGridViewColumnSelector(MP_dataGridView);
+                cs.MaxHeight = 100;
+                cs.Width = 150;
+                restore_visible_columns(SearchBy_comboBox.SelectedIndex);
+
+                SearchToolBar.SetColumns(MP_dataGridView.Columns);
+                Bind_Show_Hide_ToolStrip();
+
+                Color_Duplicate_Beneficiaries();
+
+                // Set cursor as default arrow
+                Cursor.Current = Cursors.Default;
+            }
+            else
+            {
+                timer1.Stop();
+            }
+        }
+
+        private void Category_comboBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (user_mode)
+                {
+                    if (Category_comboBox.Text != "" && Category_comboBox.Visible)
+                        SubCategory_bind(Program.getSelectedItems_CheckboxComboBox(Category_comboBox, false));
+
+                    //SearchBy_comboBox_SelectedIndexChanged(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void SubCategory_comboBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (user_mode)
+                {
+                    if (SubCategory_comboBox.Text != "" && SubCategory_comboBox.Visible)
+                        Career_bind(Program.getSelectedItems_CheckboxComboBox(SubCategory_comboBox, false));
+
+                    //SearchBy_comboBox_SelectedIndexChanged(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void Donor_comboBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (user_mode)
+                {
+                    if (Donor_comboBox.Text != "" && Donor_comboBox.Visible)
+                        DonorGroup_bind(Program.getSelectedItems_CheckboxComboBox(Donor_comboBox, false));
+
+                    //SearchBy_comboBox_SelectedIndexChanged(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void Type_comboBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (user_mode)
+                {
+                    if (Type_comboBox.Text != "" && Type_comboBox.Visible)
+                        SubType_bind(Program.getSelectedItems_CheckboxComboBox(Type_comboBox, false));
+
+                    //SearchBy_comboBox_SelectedIndexChanged(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void ApplyFilter_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (user_mode)
+                {
+                    SearchBy_comboBox_SelectedIndexChanged(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #endregion
+
+        private void Check_UserPermission()
         {
             switch (Program.role)
             {
@@ -185,7 +407,7 @@ namespace MyWorkApplication
                     break;
             }
         }
-
+        
         private void Check_Visibility()
         {
             ApplyDateFrom_label.Text = "Apply Date:";
@@ -596,334 +818,10 @@ namespace MyWorkApplication
              
         }
 
-        private void Calculate_ImportExportMoney(string str)
-        {
-            string donor = "";
-            if (Donor_comboBox.Text != "")
-            {
-                //donor = Program.ReplaceQuotation(Donor_comboBox.Text);
-                donor = Program.getSelectedItems_CheckboxComboBox(Donor_comboBox, true);
-            }
-
-            var dt2 = s.Select_Loan_Sum(str, donor);
-            if (dt2.Rows.Count != 0)
-            {
-                Export_sp_label.Text = //"Loans: " +
-                                       (dt2.Rows[0]["Export(SP)"] == DBNull.Value
-                    ? "0"
-                    : Convert.ToDecimal(dt2.Rows[0]["Export(SP)"]).ToString("#,##0"));
-                Export_usd_label.Text =// "Loans($): " +
-                                       (dt2.Rows[0]["Export(USD)"] == DBNull.Value
-                    ? "0"
-                    : Convert.ToDecimal(dt2.Rows[0]["Export(USD)"]).ToString("#,##0"));
-                
-                Import_sp_label.Text = //"Repayments: " +
-                                       (dt2.Rows[0]["Import(SP)"] == DBNull.Value
-                    ? "0"
-                    : Convert.ToDecimal(dt2.Rows[0]["Import(SP)"]).ToString("#,##0"));
-                Import_usd_label.Text =// "Repayments($): " +
-                                       (dt2.Rows[0]["Import(USD)"] == DBNull.Value
-                    ? "0"
-                    : Convert.ToDecimal(dt2.Rows[0]["Import(USD)"]).ToString("#,##0"));
-                 
-                Returned_sp_label.Text = //"Returned: " +
-                                         (dt2.Rows[0]["Returned(SP)"] == DBNull.Value
-                   ? "0"
-                   : Convert.ToDecimal(dt2.Rows[0]["Returned(SP)"]).ToString("#,##0"));
-                Returned_usd_label.Text =// "Returned($): " +
-                                         (dt2.Rows[0]["Returned(USD)"] == DBNull.Value
-                   ? "0"
-                   : Convert.ToDecimal(dt2.Rows[0]["Returned(USD)"]).ToString("#,##0"));
-                 
-                Net_sp_label.Text =// "Net Repayments: " +
-                                   (dt2.Rows[0]["Net(SP)"] == DBNull.Value
-                   ? "0"
-                   : Convert.ToDecimal(dt2.Rows[0]["Net(SP)"]).ToString("#,##0"));
-                Net_usd_label.Text =// "Net Repayments($): " +
-                                    (dt2.Rows[0]["Net(USD)"] == DBNull.Value
-                   ? "0"
-                   : Convert.ToDecimal(dt2.Rows[0]["Net(USD)"]).ToString("#,##0"));
-
-                //NEW
-                RepayLoans_sp_label.Text = //"Repayment Loans: " +
-                                           (dt2.Rows[0]["RepayLoans(SP)"] == DBNull.Value
-                   ? "0"
-                   : Convert.ToDecimal(dt2.Rows[0]["RepayLoans(SP)"]).ToString("#,##0"));
-                RepayLoans_usd_label.Text =// "Repayment Loans($): " +
-                                           (dt2.Rows[0]["RepayLoans(USD)"] == DBNull.Value
-                   ? "0"
-                   : Convert.ToDecimal(dt2.Rows[0]["RepayLoans(USD)"]).ToString("#,##0"));
-
-                Remaining_sp_label.Text = //"Repayment Balance: " +
-                                          (dt2.Rows[0]["Remaining(SP)"] == DBNull.Value
-                    ? "0"
-                    : Convert.ToDecimal(dt2.Rows[0]["Remaining(SP)"]).ToString("#,##0"));
-                Remaining_usd_label.Text =// "Repayment Balance($): " +
-                                          (dt2.Rows[0]["Remaining(USD)"] == DBNull.Value
-                    ? "0"
-                    : Convert.ToDecimal(dt2.Rows[0]["Remaining(USD)"]).ToString("#,##0"));
-            }
-        }
-
-        private void Refresh_button_Click(object sender, EventArgs e)
-        {
-            save_visible_columns(SearchBy_comboBox.SelectedIndex);
-            SearchBy_comboBox_SelectedIndexChanged(sender, e);
-        }
-
-        private void showHideProfileImagesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (show_images)
-                    show_images = false;
-                else show_images = true;
-                SearchBy_comboBox_SelectedIndexChanged(sender, e);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-         
-        private void RequestedFrom_textBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (RequestedFrom_textBox.Text != "")
-                {
-                    RequestedFrom_textBox.Text =
-                        Regex.Replace(string.Format("{0:n" + 4 + "}", Convert.ToDecimal(RequestedFrom_textBox.Text)),
-                            @"[" + NumberFormatInfo.CurrentInfo.NumberDecimalSeparator + "]?0+$", "");
-
-                    RequestedFrom_textBox.SelectionStart = RequestedFrom_textBox.Text.Length;
-                    RequestedFrom_textBox.SelectionLength = 0;
-                }
-
-                if (RequestedTo_textBox.Text != "")
-                {
-                    RequestedTo_textBox.Text =
-                        Regex.Replace(string.Format("{0:n" + 4 + "}", Convert.ToDecimal(RequestedTo_textBox.Text)),
-                            @"[" + NumberFormatInfo.CurrentInfo.NumberDecimalSeparator + "]?0+$", "");
-
-                    RequestedTo_textBox.SelectionStart = RequestedTo_textBox.Text.Length;
-                    RequestedTo_textBox.SelectionLength = 0;
-                }
-
-                if (FundedFrom_textBox.Text != "")
-                {
-                    FundedFrom_textBox.Text =
-                        Regex.Replace(string.Format("{0:n" + 4 + "}", Convert.ToDecimal(FundedFrom_textBox.Text)),
-                            @"[" + NumberFormatInfo.CurrentInfo.NumberDecimalSeparator + "]?0+$", "");
-
-                    FundedFrom_textBox.SelectionStart = FundedFrom_textBox.Text.Length;
-                    FundedFrom_textBox.SelectionLength = 0;
-                }
-
-                if (FundedTo_textBox.Text != "")
-                {
-                    FundedTo_textBox.Text =
-                        Regex.Replace(string.Format("{0:n" + 4 + "}", Convert.ToDecimal(FundedTo_textBox.Text)),
-                            @"[" + NumberFormatInfo.CurrentInfo.NumberDecimalSeparator + "]?0+$", "");
-
-                    FundedTo_textBox.SelectionStart = FundedTo_textBox.Text.Length;
-                    FundedTo_textBox.SelectionLength = 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void RequestedFrom_textBox_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                RequestedAmount_condition = "";
-                if (RequestedFrom_textBox.Text != "" || RequestedTo_textBox.Text != "")
-                {
-                    var NeededFrom = RequestedFrom_textBox.Text.Replace(",", "");
-                    var NeededTo = RequestedTo_textBox.Text.Replace(",", "");
-
-                    double Needed_from_d, Needed_to_d;
-                    if (NeededFrom == "")
-                        Needed_from_d = 0;
-                    else Needed_from_d = Convert.ToDouble(NeededFrom);
-
-                    if (NeededTo == "")
-                        Needed_to_d = 0;
-                    else Needed_to_d = Convert.ToDouble(NeededTo);
-                    RequestedAmount_condition = " and (`MP_RequestedAmount` BETWEEN "
-                        + Needed_from_d + " and " + Needed_to_d + ") ";
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void FundedFrom_textBox_Leave(object sender, EventArgs e)
-        {
-            FundedAmount_condition = "";
-            if (FundedFrom_textBox.Text != "" || FundedTo_textBox.Text != "")
-            {
-                var FinancedFrom = FundedFrom_textBox.Text.Replace(",", "");
-                var FinancedTo = FundedTo_textBox.Text.Replace(",", "");
-
-                double Financed_from_d, Financed_To_d;
-                if (FinancedFrom == "")
-                    Financed_from_d = 0;
-                else Financed_from_d = Convert.ToDouble(FinancedFrom);
-
-                if (FinancedTo == "")
-                    Financed_To_d = 0;
-                else Financed_To_d = Convert.ToDouble(FinancedTo);
-                FundedAmount_condition +=
-                   // " and (L.Loan_Amount BETWEEN " + Financed_from_d + " and " + Financed_To_d + ") ";
-                   @" and ( Round( 
-                        (CASE Currency 
-                        WHEN 'SP'  THEN Loan_Amount / ExchangeRate
-                        WHEN 'USD' THEN Loan_Amount 
-                        END) , 2 ) BETWEEN " + Financed_from_d + " and " + Financed_To_d + ") ";
-
-            }
-        }
-        ///////////////////////////////////////////////////////////////////////////
-
-        private void ApplyDate_checkBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ApplyDate_checkBox.Checked)
-            {
-                ApplyDateFrom_dateTimePicker.Enabled = ApplyDateFrom_label.Enabled
-                    = ApplyDateTo_DateTimePicker.Enabled = true;
-
-                ApplyDateFrom_dateTimePicker_ValueChanged(sender, e);
-            }
-            else
-            {
-                ApplyDate_condition = visitDate_condition = mevisitDate_condition = "";
-                ApplyDateFrom_dateTimePicker.Enabled = ApplyDateFrom_label.Enabled
-                    = ApplyDateTo_DateTimePicker.Enabled = false;
-
-            }
-        }
-
-        private void FundedDate_checkBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (FundedDate_checkBox.Checked)
-            {
-                FundedDateFrom_DateTimePicker.Enabled = FundedDateFrom_label.Enabled
-                    = FundedDateTo_DateTimePicker.Enabled = true;
-                FundedDateFrom_bcDateTimePicker_ValueChanged(sender, e);
-            }
-            else
-            {
-                FundedDate_condition = "";
-                FundedDateFrom_DateTimePicker.Enabled = FundedDateFrom_label.Enabled
-                    = FundedDateTo_DateTimePicker.Enabled = false;
-            }
-        }
-
-        private void LastVisit_checkBox_CheckedChanged(object sender, EventArgs e)
-        {
-            lastvisit_condition = "";
-            if (LastVisit_checkBox.Checked)
-            {
-                lastvisit_condition = @" and mevisit.Date = (SELECT MAX(me.Date) FROM mevisit me WHERE me.Person_ID = P.P_ID ) Group By P.P_ID,MP.MP_ID ";
-            }
-        }
-        /////////////////  #############  /////////////////
-        private void ApplyDateFrom_dateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ApplyDateFrom_dateTimePicker.Value > ApplyDateTo_DateTimePicker.Value)
-                {
-                    ApplyDate_condition = visitDate_condition = mevisitDate_condition = "";
-                    throw new InvalidOperationException("لا يمكن أن يكون تاريخ البداية أكبر من تاريخ النهاية");
-                }
-
-                string beg, end;
-                beg = ApplyDateFrom_dateTimePicker.Value.ToString("yyyy/MM/dd");
-                end = ApplyDateTo_DateTimePicker.Value.ToString("yyyy/MM/dd");
-
-                ApplyDate_condition = " and ( MP_DateOfRequest between '" + beg + "' and '" + end + "' )";
-                visitDate_condition = " and ( visit.Date between '" + beg + "' and '" + end + "' )";
-                mevisitDate_condition = " and ( mevisit.Date between '" + beg + "' and '" + end + "')";
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void FundedDateFrom_bcDateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (FundedDateFrom_DateTimePicker.Value > FundedDateTo_DateTimePicker.Value)
-                    throw new InvalidOperationException("لا يمكن أن يكون تاريخ البداية أكبر من تاريخ النهاية");
-
-                DateTime beg, end;
-                beg = FundedDateFrom_DateTimePicker.Value;
-                end = FundedDateTo_DateTimePicker.Value;
-
-                FundedDate_condition = " and MP_ID in (select MicroProject_ID from loan where " +
-                                       " Loan_DateTaken between '" + beg.Year + "/" + beg.Month + "/" + beg.Day + "' " +
-                                       " and '" + end.Year + "/" + end.Month + "/" + end.Day + "' )";
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void Search_Form_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            save_visible_columns(SearchBy_comboBox.SelectedIndex);
-        }
-
-        //private void ShowHideColumns_button_MouseClick(object sender, MouseEventArgs e)
-        //{
-        //    try
-        //    {
-        //        cs.mDataGridView_MouseClick(sender, e);
-        //    }
-        //    catch(Exception ex)
-        //    { MessageBox.Show(ex.Message); }
-        //} 
-        private void show_hide_button_Click(object sender, EventArgs e)
-        {
-            if (Hided)
-            {
-                Hided = false;
-                if (Settings.Default.theme == "Light")
-                    ShowHide_button.BackgroundImage = Resources.Hide2_L;
-                else ShowHide_button.BackgroundImage = Resources.Hide2_D;
-                Search_panel.Height = PW;
-                ApplyFilter_button.Visible = ApplyFilter_button.Enabled = true;
-            }
-            else
-            {
-                Hided = true;
-                if (Settings.Default.theme == "Light")
-                    ShowHide_button.BackgroundImage = Resources.Show2_L;
-                else ShowHide_button.BackgroundImage = Resources.Show2_D;
-                Search_panel.Height = 0;
-                ApplyFilter_button.Visible = ApplyFilter_button.Enabled = false;
-            }
-        }
-
-
         public void Check_Conditions(string initial_cond)
         {
             condition = "";
-            condition += initial_cond; 
+            condition += initial_cond;
 
             //Fund Type
             if (FundType_comboBox.Text != "" && FundType_comboBox.Visible)
@@ -961,7 +859,7 @@ namespace MyWorkApplication
 
             //MP Status
             if (MP_Status_comboBox.Text != "" && MP_Status_comboBox.Visible)
-            { 
+            {
                 condition += " and state.Name_Ar in ("
                     + Program.getSelectedItems_CheckboxComboBox(MP_Status_comboBox, true) + ")";
             }
@@ -1011,7 +909,7 @@ namespace MyWorkApplication
             {
                 condition += " and maritalstatus.Name in ("
                     + Program.getSelectedItems_CheckboxComboBox(MaritalStatus_comboBox, true) + ")";
-            } 
+            }
 
             //Age 
             if (Age_comboBox.Text != "" && Age_comboBox.Visible)
@@ -1045,7 +943,7 @@ namespace MyWorkApplication
             }
 
             //Apply Date
-            if (ApplyDate_condition != "" 
+            if (ApplyDate_condition != ""
                 && (SearchBy_comboBox.SelectedItem.ToString() != searchBy_list.ElementAt<string>(4))
                 && (SearchBy_comboBox.SelectedItem.ToString() != searchBy_list.ElementAt<string>(5))) //visits
                 condition += ApplyDate_condition;
@@ -1094,11 +992,11 @@ namespace MyWorkApplication
     LEFT JOIN `microprojecttype` on microproject.MP_Type_ID = microprojecttype.ID 
     LEFT JOIN `microprojectsubtype` on microproject.MP_SubType_ID = microprojectsubtype.ID ";
 
-   //, (CASE WHEN state.Name_Ar IN('مغلق','ملغى') 
-   //   THEN CONCAT(
-   //   TIMESTAMPDIFF(YEAR, Loan_DateTaken, mps.Date), ' سنة و ',
-   //   MOD(TIMESTAMPDIFF(MONTH, Loan_DateTaken, mps.Date), 12), ' شهر' )
-   //   ELSE '' END) AS 'مدة_الاستدامة'
+                //, (CASE WHEN state.Name_Ar IN('مغلق','ملغى') 
+                //   THEN CONCAT(
+                //   TIMESTAMPDIFF(YEAR, Loan_DateTaken, mps.Date), ' سنة و ',
+                //   MOD(TIMESTAMPDIFF(MONTH, Loan_DateTaken, mps.Date), 12), ' شهر' )
+                //   ELSE '' END) AS 'مدة_الاستدامة'
 
                 string query1 = @" Select MP_ID as 'رقم المشروع'  
   , CONCAT(P_FirstName, ' ', P_LastName) as 'المستفيد'  
@@ -1267,11 +1165,11 @@ namespace MyWorkApplication
                 MP_dataGridView.Columns["تاريخ التقديم"].DefaultCellStyle.Format = "dd/MM/yyyy";
                 MP_dataGridView.Columns["تاريخ الحالة"].DefaultCellStyle.Format = "dd/MM/yyyy";
                 MP_dataGridView.Columns["مبلغ التمويل"].DefaultCellStyle.Format = "#,##0";
-                 
+
                 MP_dataGridView.Columns["رقم المشروع"].Width = 70;
                 MP_dataGridView.Columns["عدد الحالات"].Width = 50;
 
-                MP_dataGridView.Columns["رقم المشروع"].DefaultCellStyle.Alignment = 
+                MP_dataGridView.Columns["رقم المشروع"].DefaultCellStyle.Alignment =
                     MP_dataGridView.Columns["تاريخ التقديم"].DefaultCellStyle.Alignment =
                     MP_dataGridView.Columns["Category"].DefaultCellStyle.Alignment =
                     MP_dataGridView.Columns["Sub Category"].DefaultCellStyle.Alignment =
@@ -1320,7 +1218,7 @@ namespace MyWorkApplication
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
-         
+
         private void FamilyMember_bind()
         {
             string query = " select p.P_ID as 'رقم الفرد'"
@@ -1441,7 +1339,7 @@ namespace MyWorkApplication
             var dgc1 = MP_dataGridView.Columns["ID"];
             dgc1.Visible = false;
 
-            
+
 
             decimal count = Convert.ToDecimal(s.Count_Distinct_Loan_IDs());
             Count_label.Text = "All: " + count.ToString("#,##0");
@@ -1868,9 +1766,9 @@ namespace MyWorkApplication
         }
 
         private void bind_CheckList()
-        { 
+        {
             try
-            { 
+            {
                 var i_cond = " where Current_State = 1 ";
                 Check_Conditions(i_cond);
 
@@ -1991,87 +1889,6 @@ namespace MyWorkApplication
             }
         }
 
-        private void bind_Materials()
-        {
-            try
-            {
-                var from = @"FROM material 
-          left JOIN `person_microproject` PMP on material.MicroProject_ID = PMP.MicroProject_ID 
-          left JOIN `person` P on PMP.Person_ID = P.P_ID 
-          left JOIN `microproject` MP on MP.MP_ID = PMP.MicroProject_ID   
- 
-          left JOIN `category` C on MP.Category_ID = C.ID 
-          LEFT JOIN `subcategory` sub on MP.SubCategory_ID = sub.ID  
-          LEFT JOIN `career` on MP.Career_ID = career.ID   
-          LEFT JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
-          LEFT JOIN `state` on state.ID = mps.State_ID
-       
-          Left JOIN `donor` on donor.ID = MP.MP_Donor
-          LEFT JOIN `loan` L on L.MicroProject_ID = MP.MP_ID
-          LEFT JOIN `donorgroup` on donorgroup.ID = MP.DonorGroup_ID
-          LEFT JOIN `fundtype` on fundtype.ID = MP.MP_FundType_ID 
-          LEFT JOIN `microprojecttype` on microprojecttype.ID = MP.MP_Type_ID
-          LEFT JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID 
-        ";
-
-                string query = @"SELECT MP_ID as 'رقم المشروع'
-         , CONCAT(P_FirstName, ' ', P_LastName) as 'المستفيد' 
-         , P.P_FatherName as 'اسم الأب'  
-         , P_FullName_en as 'Beneficiary Name'
-        
-         , career.Name as 'المهنة' 
-         , career.Name_en as 'Project Name'  
-
-         , C.Name as 'Category'
-         , sub.Name as 'Sub Category' 
-
-         , material.Name as 'اسم المادة'
-         , material.Comments as 'النوع' 
-         , material.Amount as 'الكمية' 
-         , material.Price as 'سعر القطعة' 
- 
-         , material.ID as 'ID' ";
-
-                var i_cond = " where Current_State = 1 ";
-                Check_Conditions(i_cond);
-
-                query += from + condition;
-                query += " order by material.ID Desc; ";
-
-                Program.buildConnection();
-                MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-                sc.ExecuteNonQuery();
-                MySqlDataAdapter da = new MySqlDataAdapter(sc);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-
-                MP_dataGridView.DataSource = null;
-                MP_dataGridView.Columns.Clear();
-                MP_dataGridView.Rows.Clear();
-                MP_dataGridView.ColumnHeadersVisible = false;
-                MP_dataGridView.RowHeadersVisible = false;
-
-                bs.DataSource = ds.Tables[0];
-                MP_dataGridView.DataSource = bs;
-
-                var dgc1 = MP_dataGridView.Columns["ID"];
-                dgc1.Visible = false;
-
-                MP_dataGridView.Columns["اسم المادة"].Width = 130;
-                MP_dataGridView.Columns["رقم المشروع"].Frozen = true;
-
-                //count rows
-                Count_label.Text = "All: " + ds.Tables[0].Rows.Count.ToString("#,##0");
-
-                MP_dataGridView.ColumnHeadersVisible = true;
-                MP_dataGridView.RowHeadersVisible = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         //private void bind_Purchasing()
         //{
         //    try
@@ -2081,13 +1898,13 @@ namespace MyWorkApplication
         //  left JOIN `person_microproject` PMP on purchasing.MicroProject_ID = PMP.MicroProject_ID 
         //  left JOIN `person` P on PMP.Person_ID = P.P_ID 
         //  left JOIN `microproject` MP on MP.MP_ID = PMP.MicroProject_ID   
- 
+
         //  left JOIN `category` C on MP.Category_ID = C.ID 
         //  LEFT JOIN `subcategory` sub on MP.SubCategory_ID = sub.ID  
         //  LEFT JOIN `career` on MP.Career_ID = career.ID   
         //  LEFT JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
         //  LEFT JOIN `state` on state.ID = mps.State_ID
-       
+
         //  Left JOIN `donor` on donor.ID = MP.MP_Donor
         //  LEFT JOIN `loan` L on L.MicroProject_ID = MP.MP_ID
         //  LEFT JOIN `donorgroup` on donorgroup.ID = MP.DonorGroup_ID
@@ -2100,7 +1917,7 @@ namespace MyWorkApplication
         // , CONCAT(P_FirstName, ' ', P_LastName) as 'المستفيد' 
         // , P.P_FatherName as 'اسم الأب'  
         // , P_FullName_en as 'Beneficiary Name'
-        
+
         // , career.Name as 'المهنة' 
         // , career.Name_en as 'Project Name'  
 
@@ -2116,7 +1933,7 @@ namespace MyWorkApplication
         // ,  InvoiceDate       AS 'تاريخ الفاتورة'
         // ,  InvoiceNumber     AS 'رقم الفاتورة'
         // ,  TraderName        AS 'اسم التاجر'
- 
+
         // ,  purchasing.ID as 'ID' ";
 
         //        var i_cond = " where Current_State = 1 ";
@@ -2159,16 +1976,60 @@ namespace MyWorkApplication
         //    }
         //}
 
-        private void bind_AidSources()
+        private void bind_project_tables()
         {
             try
             {
-                var from = @"FROM person_aidsource 
-          left JOIN `person_microproject` PMP on person_aidsource.Person_ID = PMP.Person_ID and person_aidsource.MicroProject_ID = PMP.MicroProject_ID
+                var i_cond = " where Current_State = 1  ";
+                string tablename = "";
+                string table_query = "";
+
+
+                //Project Power Sources
+                if (SearchBy_comboBox.SelectedItem.ToString() == "Project Power Sources")
+                {
+                    tablename = "microproject_powersource";
+                    table_query = @"
+,(SELECT Name FROM powersource WHERE powersource.ID = mytable.PowerSource_ID LIMIT 1) as 'مصدر الطاقة'
+,mytable.Note as 'شرح المنظومة'
+,mytable.Cost as 'القيمة المدفوعة شهرياً'
+,mytable.Responsability as 'الجهة الممولة'
+    ";
+                }
+
+                //Project Required Materials
+                if (SearchBy_comboBox.SelectedItem.ToString() == "Project Required Materials")
+                {
+                    tablename = "material";
+                    table_query = @"
+ , mytable.Name as 'اسم المادة'
+ , mytable.Comments as 'النوع' 
+ , mytable.Amount as 'الكمية' 
+ , mytable.Price as 'سعر القطعة' 
+    ";
+                }
+
+                //P. project purchasing
+                //            if(tablename == "purchasing")
+                //            {
+                //                table_query = @"
+                // ,  ItemName AS 'اسم المادة'
+                // ,  Brand AS 'الماركة'
+                // ,  (select Name from `purchasingcategory` where purchasingcategory.ID = mytable.ItemCategory_ID limit 1) AS 'فئة المادة'
+                // ,  Quantity AS 'العدد'
+                // ,  Price AS 'السعر'
+                // ,  Currency AS 'نوع العملة'
+                // ,  InvoiceDate AS 'تاريخ الفاتورة'
+                // ,  InvoiceNumber AS 'رقم الفاتورة'
+                // ,  TraderName AS 'اسم التاجر' 
+                //";
+                //            }
+
+                var from = " FROM " + tablename + @" mytable 
+          left JOIN `microproject` MP on mytable.MicroProject_ID = MP.MP_ID  
+          LEFT JOIN `person_microproject` PMP on mytable.MicroProject_ID = PMP.MicroProject_ID  
           left JOIN `person` P on PMP.Person_ID = P.P_ID 
-          left JOIN `microproject` MP on MP.MP_ID = PMP.MicroProject_ID  
-          left JOIN `aidsource` on aidsource.ID = person_aidsource.AidSource_ID 
- 
+
           left JOIN `category` C on MP.Category_ID = C.ID 
           LEFT JOIN `subcategory` sub on MP.SubCategory_ID = sub.ID  
           LEFT JOIN `career` on MP.Career_ID = career.ID   
@@ -2183,29 +2044,23 @@ namespace MyWorkApplication
           LEFT JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID 
         ";
 
-                string query = @"SELECT MP_ID as 'رقم المشروع'
-         , CONCAT(P_FirstName, ' ', P_LastName) as 'المستفيد' 
-         , P.P_FatherName as 'اسم الأب'  
-         , P_FullName_en as 'Beneficiary Name'
-        
-         , career.Name as 'المهنة' 
-         , career.Name_en as 'Project Name'  
+                string query = @" SELECT MP_ID as 'رقم المشروع'
+ , CONCAT(P_FirstName, ' ', P_LastName) as 'المستفيد' 
+ , P.P_FatherName as 'اسم الأب'  
+ , P_FullName_en as 'Beneficiary Name'
+ 
+ , career.Name as 'المهنة' 
+ , career.Name_en as 'Project Name'  
 
-         , C.Name as 'Category'
-         , sub.Name as 'Sub Category' 
+ , C.Name as 'Category'
+ , sub.Name as 'Sub Category' "
+                    + table_query
+                    + @", mytable.ID as 'ID' ";
 
-         , aidsource.Name as 'الجهة الممولة'
-         , person_aidsource.`DateYear` as 'سنة التمويل' 
-         , person_aidsource.`Notes` as 'المواد' 
-
-         , person_aidsource.Person_ID as 'رقم المستفيد'
-         , person_aidsource.ID as 'ID' ";
-
-                var i_cond = " where 1 ";
                 Check_Conditions(i_cond);
 
                 query += from + condition;
-                query += " order by person_aidsource.DateYear Desc; ";
+                query += " order by PMP.MicroProject_ID Desc; ";
 
                 Program.buildConnection();
                 MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
@@ -2226,9 +2081,6 @@ namespace MyWorkApplication
                 var dgc1 = MP_dataGridView.Columns["ID"];
                 dgc1.Visible = false;
 
-                var dgc2 = MP_dataGridView.Columns["رقم المستفيد"];
-                dgc2.Visible = false;
-
                 //count rows
                 Count_label.Text = "All: " + ds.Tables[0].Rows.Count.ToString("#,##0");
 
@@ -2241,11 +2093,160 @@ namespace MyWorkApplication
             }
         }
 
-        private void bind_person_tables(string tablename,bool currentwork)
+        private void bind_person_tables()
         {
             try
             {
-                //left JOIN `person_microproject` PMP on mytable.Person_ID = PMP.Person_ID and mytable.MicroProject_ID = PMP.MicroProject_ID
+                string tablename = "";
+                string table_query = "";
+                var i_cond = " where Current_State = 1 ";
+
+                //Aid Sources
+                if (SearchBy_comboBox.SelectedItem.ToString() == "Aid Sources")
+                {
+                    tablename = "person_aidsource";
+                    table_query = @" 
+, (SELECT Name FROM aidsource WHERE aidsource.ID =`AidSource_ID` LIMIT 1) as 'الجهة الممولة' 
+, mytable.DateYear as 'تاريخ الاستفادة' 
+, mytable.Amount as 'المبلغ'
+, mytable.ProjectType as 'نوع المشروع'
+, mytable.Notes as 'المواد المستفاد منها' ";
+                }
+
+                //Assets
+                if (SearchBy_comboBox.SelectedItem.ToString() == "Assets")
+                {
+                    tablename = "person_asset";
+                    table_query = @"
+, (SELECT Name FROM assettype WHERE assettype.ID = `Asset_Type_ID` LIMIT 1) as 'نوع الملك' 
+, mytable.`Year` as 'سنة الشراء'
+, (SELECT Name FROM asset WHERE asset.ID = `Asset_ID` LIMIT 1) as 'طبيعة الملك'
+, mytable.`Description` as 'وصف الملك'
+, (SELECT Name FROM assetbenefits WHERE assetbenefits.ID = `Asset_Benefits_ID` LIMIT 1) as 'مدى الاستفادة منه' 
+, mytable.`Note` as 'ملاحظات'
+";
+                }
+
+                //Courses
+                if (SearchBy_comboBox.SelectedItem.ToString() == "Courses")
+                {
+                    tablename = "person_course";
+                    table_query = @"
+,(SELECT Name FROM subcategory WHERE subcategory.ID = mytable.`SubCategory_ID` LIMIT 1) as 'نوع الدورة'
+,mytable.`Name` as 'اسم الدورة'
+,mytable.`Place` as 'اسم المعهد'
+,mytable.`Donor` as 'الجهة الممولة'
+,mytable.`Date` as 'تاريخ الدورة'
+";
+                }
+
+                //Educations
+                if (SearchBy_comboBox.SelectedItem.ToString() == "Educations")
+                {
+                    tablename = "person_education";
+                    table_query = @"
+, (SELECT Name FROM educationlevel WHERE educationlevel.ID = `Level_ID` LIMIT 1) as 'التحصيل العلمي'
+, (SELECT educationtype.Name 
+    FROM educationtype 
+    left join education on educationtype.ID = education.Type_ID 
+    WHERE education.ID = mytable.`Education_ID` LIMIT 1) as 'الدرجة العلمية' 
+, (SELECT Name FROM education WHERE education.ID = mytable.`Education_ID` LIMIT 1) as 'الاختصاص' 
+";
+                }
+
+                //Goals
+                if (SearchBy_comboBox.SelectedItem.ToString() == "Goals")
+                {
+                    tablename = "person_goals";
+                    table_query = @",(SELECT Name FROM goal WHERE goal.ID = `Goal_ID` LIMIT 1) as 'الهدف من القرض' ";
+                }
+
+                //Relief Aids
+                if (SearchBy_comboBox.SelectedItem.ToString() == "Relief Aids")
+                {
+                    tablename = "person_help";
+                    table_query = @"
+, (SELECT Name FROM aidsource WHERE aidsource.ID =`AidSource_ID` LIMIT 1) as 'جهة المساعدة'
+, (SELECT Name FROM aid WHERE aid.ID =`Aid_ID` LIMIT 1) as 'نوع المساعدة'
+, (SELECT Name FROM aidperiod WHERE aidperiod.ID =`AidPeriod_ID` LIMIT 1) as 'مدة المساعدة' 
+, mytable.`Notes` as 'ملاحظات'
+";
+                }
+
+                //Illnes & Medical Needs
+                if (SearchBy_comboBox.SelectedItem.ToString() == "Illnes & Medical Needs")
+                {
+                    tablename = "person_illness";
+                    table_query = @"
+, (SELECT Name FROM illness WHERE illness.ID =`Illness_ID` LIMIT 1) as 'الحالة الصحية' 
+, mytable.`Note` as 'وصف المرض'
+, mytable.`Has_MedicalAid` as 'مساعدات طبية'
+, (SELECT Name FROM aidsource WHERE aidsource.ID =`AidSource_ID` LIMIT 1) as 'الجهة المساعدة'
+, (SELECT Name FROM aidperiod WHERE aidperiod.ID =`AidPeriod_ID` LIMIT 1) as 'مدة المساعدة' 
+, (SELECT Name FROM medicalneeds WHERE medicalneeds.ID =`MedicalNeeds_ID` LIMIT 1) as 'احتياجات طبية'
+ ";
+                }
+
+                //Losses
+                if (SearchBy_comboBox.SelectedItem.ToString() == "Losses")
+                {
+                    tablename = "person_loss";
+                    table_query = @"
+ ,(SELECT Name FROM loss WHERE loss.ID = `Loss_ID` LIMIT 1) as 'نوع الخسارة'
+ ,mytable.`Year` as 'سنة الواقعة'
+ ,mytable.`Note` as 'ملاحظات'
+ ";
+                }
+
+                //Home Power Sources
+                if (SearchBy_comboBox.SelectedItem.ToString() == "Home Power Sources")
+                {
+                    tablename = "person_powersource";
+                    table_query = @"
+,(SELECT Name FROM powersource WHERE powersource.ID = mytable.PowerSource_ID LIMIT 1) as 'مصدر الطاقة'
+,mytable.Note as 'شرح المنظومة'
+,mytable.Cost as 'القيمة المدفوعة شهرياً'
+,mytable.Responsability as 'الجهة الممولة'
+ ";
+                }
+
+                //Current Works
+                if (SearchBy_comboBox.SelectedItem.ToString() == "Current Works")
+                {
+                    tablename = "person_workexp";
+                    table_query = @"
+,(SELECT W_Name FROM `work` WHERE `work`.`W_ID` = `Work_ID` LIMIT 1) as 'المهنة'
+,(SELECT Name FROM `worktype` WHERE `worktype`.ID = `W_WorkType_ID` LIMIT 1) as 'طبيعة العمل'
+,`W_Description` as 'وصف العمل'
+,`W_BeginDate` as 'تاريخ البداية' 
+,`W_PlaceState` as 'ملكية العقار'
+,`W_Place` as 'العنوان'
+,`W_Contact`    as 'اسم ورقم صاحب العمل' 
+,`W_Salary` as 'الربح / الراتب'
+ ";
+
+                    i_cond += " and lower(`W_Status`) like 'yes' ";
+                }
+
+                //Work Experiences
+                if (SearchBy_comboBox.SelectedItem.ToString() == "Work Experiences")
+                {
+                    tablename = "person_workexp";
+                    table_query = @"
+,(SELECT W_Name FROM `work` WHERE `work`.`W_ID` = `Work_ID` LIMIT 1) as 'المهنة'
+,(SELECT Name FROM `worktype` WHERE `worktype`.ID = `W_WorkType_ID` LIMIT 1) as 'طبيعة العمل'
+,`W_Description` as 'وصف العمل'
+,`W_BeginDate` as 'تاريخ البداية'
+,`W_EndDate`   as 'تاريخ النهاية'
+,`W_PlaceState` as 'ملكية العقار'
+,`W_Place`     as 'العنوان'
+,`W_Contact`    as 'اسم ورقم صاحب العمل'
+,`W_CauseOfLoseDescription` as 'سبب التوقف'
+ ";
+
+                    i_cond += " and lower(`W_Status`) like 'no' ";
+                }
+
                 var from = " FROM " + tablename + @" mytable 
           left JOIN `person` P on mytable.Person_ID = P.P_ID 
           LEFT JOIN `person_family` on person_family.Person_ID = mytable.Person_ID
@@ -2265,152 +2266,17 @@ namespace MyWorkApplication
           LEFT JOIN `microprojecttype` on microprojecttype.ID = MP.MP_Type_ID
           LEFT JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID 
         ";
-                var i_cond = " where Current_State = 1  ";
-                string table_query = "";
-                
-                //B. aid source
-                if (tablename == "person_aidsource")
-                {
-                    table_query = @" 
-, (SELECT Name FROM aidsource WHERE aidsource.ID =`AidSource_ID` LIMIT 1) as 'الجهة الممولة' 
-, mytable.DateYear as 'تاريخ الاستفادة' 
-, mytable.Amount as 'المبلغ'
-, mytable.ProjectType as 'نوع المشروع'
-, mytable.Notes as 'المواد المستفاد منها' ";
-                }
-                //B. assets
-                if (tablename == "person_asset")
-                {
-                    table_query = @"
-, (SELECT Name FROM assettype WHERE assettype.ID = `Asset_Type_ID` LIMIT 1) as 'نوع الملك' 
-, mytable.`Year` as 'سنة الشراء'
-, (SELECT Name FROM asset WHERE asset.ID = `Asset_ID` LIMIT 1) as 'طبيعة الملك'
-, mytable.`Description` as 'وصف الملك'
-, (SELECT Name FROM assetbenefits WHERE assetbenefits.ID = `Asset_Benefits_ID` LIMIT 1) as 'مدى الاستفادة منه' 
-, mytable.`Note` as 'ملاحظات'
-";
-                }
-                //B. cources
-                if (tablename == "person_course")
-                {
-                    table_query = @"
-,(SELECT Name FROM subcategory WHERE subcategory.ID = mytable.`SubCategory_ID` LIMIT 1) as 'نوع الدورة'
-,mytable.`Name` as 'اسم الدورة'
-,mytable.`Place` as 'اسم المعهد'
-,mytable.`Donor` as 'الجهة الممولة'
-,mytable.`Date` as 'تاريخ الدورة'
-";
-                }
-                //B. educations
-                if (tablename == "person_education")
-                {
-                    table_query = @"
-, (SELECT Name FROM educationlevel WHERE educationlevel.ID = `Level_ID` LIMIT 1) as 'التحصيل العلمي'
-, (SELECT educationtype.Name 
-    FROM educationtype 
-    left join education on educationtype.ID = education.Type_ID 
-    WHERE education.ID = mytable.`Education_ID` LIMIT 1) as 'الدرجة العلمية' 
-, (SELECT Name FROM education WHERE education.ID = mytable.`Education_ID` LIMIT 1) as 'الاختصاص' 
-";
-                }
-                //B. goals
-                if (tablename == "person_goals")
-                {
-                    table_query = @",(SELECT Name FROM goal WHERE goal.ID = `Goal_ID` LIMIT 1) as 'الهدف من القرض' ";
-                }
-                //B. relief aid help
-                if (tablename == "person_help")
-                {
-                    table_query = @"
-, (SELECT Name FROM aidsource WHERE aidsource.ID =`AidSource_ID` LIMIT 1) as 'جهة المساعدة'
-, (SELECT Name FROM aid WHERE aid.ID =`Aid_ID` LIMIT 1) as 'نوع المساعدة'
-, (SELECT Name FROM aidperiod WHERE aidperiod.ID =`AidPeriod_ID` LIMIT 1) as 'مدة المساعدة' 
-, mytable.`Notes` as 'ملاحظات'
-";
-                }
-                //B. illness
-                if (tablename == "person_illness")
-                {
-                    //, `Donor` as ''
-                    table_query = @"
-, (SELECT Name FROM illness WHERE illness.ID =`Illness_ID` LIMIT 1) as 'الحالة الصحية' 
-, mytable.`Note` as 'وصف المرض'
-, mytable.`Has_MedicalAid` as 'مساعدات طبية'
-, (SELECT Name FROM aidsource WHERE aidsource.ID =`AidSource_ID` LIMIT 1) as 'الجهة المساعدة'
-, (SELECT Name FROM aidperiod WHERE aidperiod.ID =`AidPeriod_ID` LIMIT 1) as 'مدة المساعدة' 
-, (SELECT Name FROM medicalneeds WHERE medicalneeds.ID =`MedicalNeeds_ID` LIMIT 1) as 'احتياجات طبية'
- ";
-                }
-                //B. losses
-                if (tablename == "person_loss")
-                {
-                    table_query = @"
- ,(SELECT Name FROM loss WHERE loss.ID = `Loss_ID` LIMIT 1) as 'نوع الخسارة'
- ,mytable.`Year` as 'سنة الواقعة'
- ,mytable.`Note` as 'ملاحظات'
- ";
-                }
-                //B. home power sources
-                if (tablename == "person_powersource")
-                {
-                    table_query = @"
-,(SELECT Name FROM powersource WHERE powersource.ID = mytable.PowerSource_ID LIMIT 1) as 'مصدر الطاقة'
-,mytable.Note as 'شرح المنظومة'
-,mytable.Cost as 'القيمة المدفوعة شهرياً'
-,mytable.Responsability as 'الجهة الممولة'
- ";
-                }
-                //B. current work
-                if (tablename == "person_workexp" && currentwork)
-                {
-                    table_query = @"
-,(SELECT W_Name FROM `work` WHERE `work`.`W_ID` = `Work_ID` LIMIT 1) as 'المهنة'
-,(SELECT Name FROM `worktype` WHERE `worktype`.ID = `W_WorkType_ID` LIMIT 1) as 'طبيعة العمل'
-,`W_Description` as 'وصف العمل'
-,`W_BeginDate` as 'تاريخ البداية' 
-,`W_PlaceState` as 'ملكية العقار'
-,`W_Place` as 'العنوان'
-,`W_Contact`    as 'اسم ورقم صاحب العمل' 
-,`W_Salary` as 'الربح / الراتب'
- ";
-
-                    i_cond += " and lower(`W_Status`) like 'yes' ";
-                }
-                //B. work experiences
-                if (tablename == "person_workexp" && !currentwork)
-                {
-                    table_query = @"
-,(SELECT W_Name FROM `work` WHERE `work`.`W_ID` = `Work_ID` LIMIT 1) as 'المهنة'
-,(SELECT Name FROM `worktype` WHERE `worktype`.ID = `W_WorkType_ID` LIMIT 1) as 'طبيعة العمل'
-,`W_Description` as 'وصف العمل'
-,`W_BeginDate` as 'تاريخ البداية'
-,`W_EndDate`   as 'تاريخ النهاية'
-,`W_PlaceState` as 'ملكية العقار'
-,`W_Place`     as 'العنوان'
-,`W_Contact`    as 'اسم ورقم صاحب العمل'
-,`W_CauseOfLoseDescription` as 'سبب التوقف'
- ";
-
-                    i_cond += " and lower(`W_Status`) like 'no' ";
-                }
-
 
                 string query = @"SELECT PMP.MicroProject_ID as 'رقم المشروع'
  , CONCAT(P_FirstName, ' ', P_LastName) as 'الاسم' 
  , (SELECT Name FROM relation WHERE relation.ID =person_family.Relation_ID LIMIT 1) as 'الصفة' "
- + table_query 
- + @", mytable.Person_ID as 'رقم الشخص'
+                    + table_query
+                    + @", mytable.Person_ID as 'رقم الشخص'
  , mytable.ID as 'ID' ";
-                    
-         //, career.Name as 'المهنة'
-         //, career.Name_en as 'Project Name'
-         //, C.Name as 'Category'
-         //, sub.Name as 'Sub Category' 
 
                 Check_Conditions(i_cond);
 
                 query += from + condition;
-                //query += " GROUP BY mytable.Person_ID ";
                 query += " order by PMP.MicroProject_ID Desc; ";
 
                 Program.buildConnection();
@@ -2446,8 +2312,6 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-
-
 
         private void Bind_All_ComboBoxes()
         {
@@ -2667,148 +2531,345 @@ namespace MyWorkApplication
         }
         #endregion
 
-        #region search and filter functions 
-        private void SearchBy_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void Calculate_ImportExportMoney(string str)
+        {
+            string donor = "";
+            if (Donor_comboBox.Text != "")
+            {
+                //donor = Program.ReplaceQuotation(Donor_comboBox.Text);
+                donor = Program.getSelectedItems_CheckboxComboBox(Donor_comboBox, true);
+            }
+
+            var dt2 = s.Select_Loan_Sum(str, donor);
+            if (dt2.Rows.Count != 0)
+            {
+                Export_sp_label.Text = //"Loans: " +
+                                       (dt2.Rows[0]["Export(SP)"] == DBNull.Value
+                    ? "0"
+                    : Convert.ToDecimal(dt2.Rows[0]["Export(SP)"]).ToString("#,##0"));
+                Export_usd_label.Text =// "Loans($): " +
+                                       (dt2.Rows[0]["Export(USD)"] == DBNull.Value
+                    ? "0"
+                    : Convert.ToDecimal(dt2.Rows[0]["Export(USD)"]).ToString("#,##0"));
+                
+                Import_sp_label.Text = //"Repayments: " +
+                                       (dt2.Rows[0]["Import(SP)"] == DBNull.Value
+                    ? "0"
+                    : Convert.ToDecimal(dt2.Rows[0]["Import(SP)"]).ToString("#,##0"));
+                Import_usd_label.Text =// "Repayments($): " +
+                                       (dt2.Rows[0]["Import(USD)"] == DBNull.Value
+                    ? "0"
+                    : Convert.ToDecimal(dt2.Rows[0]["Import(USD)"]).ToString("#,##0"));
+                 
+                Returned_sp_label.Text = //"Returned: " +
+                                         (dt2.Rows[0]["Returned(SP)"] == DBNull.Value
+                   ? "0"
+                   : Convert.ToDecimal(dt2.Rows[0]["Returned(SP)"]).ToString("#,##0"));
+                Returned_usd_label.Text =// "Returned($): " +
+                                         (dt2.Rows[0]["Returned(USD)"] == DBNull.Value
+                   ? "0"
+                   : Convert.ToDecimal(dt2.Rows[0]["Returned(USD)"]).ToString("#,##0"));
+                 
+                Net_sp_label.Text =// "Net Repayments: " +
+                                   (dt2.Rows[0]["Net(SP)"] == DBNull.Value
+                   ? "0"
+                   : Convert.ToDecimal(dt2.Rows[0]["Net(SP)"]).ToString("#,##0"));
+                Net_usd_label.Text =// "Net Repayments($): " +
+                                    (dt2.Rows[0]["Net(USD)"] == DBNull.Value
+                   ? "0"
+                   : Convert.ToDecimal(dt2.Rows[0]["Net(USD)"]).ToString("#,##0"));
+
+                //NEW
+                RepayLoans_sp_label.Text = //"Repayment Loans: " +
+                                           (dt2.Rows[0]["RepayLoans(SP)"] == DBNull.Value
+                   ? "0"
+                   : Convert.ToDecimal(dt2.Rows[0]["RepayLoans(SP)"]).ToString("#,##0"));
+                RepayLoans_usd_label.Text =// "Repayment Loans($): " +
+                                           (dt2.Rows[0]["RepayLoans(USD)"] == DBNull.Value
+                   ? "0"
+                   : Convert.ToDecimal(dt2.Rows[0]["RepayLoans(USD)"]).ToString("#,##0"));
+
+                Remaining_sp_label.Text = //"Repayment Balance: " +
+                                          (dt2.Rows[0]["Remaining(SP)"] == DBNull.Value
+                    ? "0"
+                    : Convert.ToDecimal(dt2.Rows[0]["Remaining(SP)"]).ToString("#,##0"));
+                Remaining_usd_label.Text =// "Repayment Balance($): " +
+                                          (dt2.Rows[0]["Remaining(USD)"] == DBNull.Value
+                    ? "0"
+                    : Convert.ToDecimal(dt2.Rows[0]["Remaining(USD)"]).ToString("#,##0"));
+            }
+        }
+
+        private void Color_Duplicate_Beneficiaries()
+        {
+            // Check if the column exists
+            if (!MP_dataGridView.Columns.Contains("المستفيد"))
+                return; // Column not found, so exit safely
+
+            //color duplicate rows//
+            var allrows = MP_dataGridView.Rows.OfType<DataGridViewRow>().Reverse().Skip(1);//ignore the last empty line
+            var dupRos = allrows.GroupBy(r => r.Cells["المستفيد"].Value.ToString())
+                                .Where(g => g.Count() > 1)
+                                .SelectMany(r => r.ToList());
+            foreach (var r in dupRos)
+            {
+                r.Cells["المستفيد"].Style.BackColor = System.Drawing.Color.LightCoral;
+                if (Settings.Default.theme == "Light") { }
+                else r.Cells["المستفيد"].Style.ForeColor = System.Drawing.Color.Black;
+            }
+
+        }
+
+        #region textbox checkbox functions change
+        private void RequestedFrom_textBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                Check_Visibility();
-                //MP_dataGridView.RowTemplate.Height = 28;
+                if (RequestedFrom_textBox.Text != "")
+                {
+                    RequestedFrom_textBox.Text =
+                        Regex.Replace(string.Format("{0:n" + 4 + "}", Convert.ToDecimal(RequestedFrom_textBox.Text)),
+                            @"[" + NumberFormatInfo.CurrentInfo.NumberDecimalSeparator + "]?0+$", "");
 
-                tick = 0;
-                timer1.Start();
+                    RequestedFrom_textBox.SelectionStart = RequestedFrom_textBox.Text.Length;
+                    RequestedFrom_textBox.SelectionLength = 0;
+                }
+
+                if (RequestedTo_textBox.Text != "")
+                {
+                    RequestedTo_textBox.Text =
+                        Regex.Replace(string.Format("{0:n" + 4 + "}", Convert.ToDecimal(RequestedTo_textBox.Text)),
+                            @"[" + NumberFormatInfo.CurrentInfo.NumberDecimalSeparator + "]?0+$", "");
+
+                    RequestedTo_textBox.SelectionStart = RequestedTo_textBox.Text.Length;
+                    RequestedTo_textBox.SelectionLength = 0;
+                }
+
+                if (FundedFrom_textBox.Text != "")
+                {
+                    FundedFrom_textBox.Text =
+                        Regex.Replace(string.Format("{0:n" + 4 + "}", Convert.ToDecimal(FundedFrom_textBox.Text)),
+                            @"[" + NumberFormatInfo.CurrentInfo.NumberDecimalSeparator + "]?0+$", "");
+
+                    FundedFrom_textBox.SelectionStart = FundedFrom_textBox.Text.Length;
+                    FundedFrom_textBox.SelectionLength = 0;
+                }
+
+                if (FundedTo_textBox.Text != "")
+                {
+                    FundedTo_textBox.Text =
+                        Regex.Replace(string.Format("{0:n" + 4 + "}", Convert.ToDecimal(FundedTo_textBox.Text)),
+                            @"[" + NumberFormatInfo.CurrentInfo.NumberDecimalSeparator + "]?0+$", "");
+
+                    FundedTo_textBox.SelectionStart = FundedTo_textBox.Text.Length;
+                    FundedTo_textBox.SelectionLength = 0;
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-        private void timer1_Tick(object sender, EventArgs e)
+
+        private void RequestedFrom_textBox_Leave(object sender, EventArgs e)
         {
-            if (tick == 0)
+            try
             {
-                user_mode = false;
-                // Set cursor as hourglass
-                Cursor.Current = Cursors.WaitCursor;
-                bs.Filter = bs.Sort = Original_Filter_String = "";
-                bs.DataSource = null;
-                user_mode = true;
+                RequestedAmount_condition = "";
+                if (RequestedFrom_textBox.Text != "" || RequestedTo_textBox.Text != "")
+                {
+                    var NeededFrom = RequestedFrom_textBox.Text.Replace(",", "");
+                    var NeededTo = RequestedTo_textBox.Text.Replace(",", "");
 
-                // applications //
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
-                {
-                    bind_Applications();
-                }
-                // families //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(1))
-                {
-                    FamilyMember_bind();
-                }
-                // Loans //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(2))
-                {
-                    Loan_bind();
-                }
-                // Attachments //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(3))
-                {
-                    bind_Images();
-                }
-                // Visits //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
-                {
-                    bind_Visits();
-                }
-                // New Visit Forms //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(5))
-                {
-                    bind_NewVisits();
-                }
-                // Check Lists //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(6))
-                {
-                    bind_CheckList();
-                }
-                // Special Cases //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(7))
-                {
-                    bind_SpecialCases();
-                }
-                // Materials Required //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
-                {
-                    bind_Materials();
-                }
-                // Aid Sources //
-                //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
-                //{
-                //    bind_AidSources();
-                //}
-                // Materials Purchased //
-                //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
-                //{
-                //    bind_Purchasing();
-                //}
+                    double Needed_from_d, Needed_to_d;
+                    if (NeededFrom == "")
+                        Needed_from_d = 0;
+                    else Needed_from_d = Convert.ToDouble(NeededFrom);
 
-                //B. Aid Sources 
-                //B. Assets  //B. Cources     //B. Educations 
-                //B. Goals   //B. Relief Aids //B. Illnes & Medical Needs 
-                //B. Losses  //B. Home Power Sources 
-                //B. Current Works //B. Work Experiences
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
-                    bind_person_tables("person_aidsource"   , false);
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
-                    bind_person_tables("person_asset"       , false);
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(11))
-                    bind_person_tables("person_course"      ,false);
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(12))
-                    bind_person_tables("person_education"   ,false);
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(13))
-                    bind_person_tables("person_goals"       ,false);
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(14))
-                    bind_person_tables("person_help"        ,false);
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(15))
-                    bind_person_tables("person_illness"     , false);
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(16))
-                    bind_person_tables("person_loss"        , false);
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(17))
-                    bind_person_tables("person_powersource" , false);
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(18))
-                    bind_person_tables("person_workexp"     , true);
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(19))
-                    bind_person_tables("person_workexp"     , false);
+                    if (NeededTo == "")
+                        Needed_to_d = 0;
+                    else Needed_to_d = Convert.ToDouble(NeededTo);
+                    RequestedAmount_condition = " and (`MP_RequestedAmount` BETWEEN "
+                        + Needed_from_d + " and " + Needed_to_d + ") ";
 
-                tick++;
-                // Use of the DataGridViewColumnSelector
-                cs = new DataGridViewColumnSelector(MP_dataGridView);
-                cs.MaxHeight = 100;
-                cs.Width = 150;
-                restore_visible_columns(SearchBy_comboBox.SelectedIndex);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-                SearchToolBar.SetColumns(MP_dataGridView.Columns);
-                Bind_Show_Hide_ToolStrip();
+        private void FundedFrom_textBox_Leave(object sender, EventArgs e)
+        {
+            FundedAmount_condition = "";
+            if (FundedFrom_textBox.Text != "" || FundedTo_textBox.Text != "")
+            {
+                var FinancedFrom = FundedFrom_textBox.Text.Replace(",", "");
+                var FinancedTo = FundedTo_textBox.Text.Replace(",", "");
 
-                Color_Duplicate_Beneficiaries();
+                double Financed_from_d, Financed_To_d;
+                if (FinancedFrom == "")
+                    Financed_from_d = 0;
+                else Financed_from_d = Convert.ToDouble(FinancedFrom);
 
-                // Set cursor as default arrow
-                Cursor.Current = Cursors.Default;
+                if (FinancedTo == "")
+                    Financed_To_d = 0;
+                else Financed_To_d = Convert.ToDouble(FinancedTo);
+                FundedAmount_condition +=
+                   // " and (L.Loan_Amount BETWEEN " + Financed_from_d + " and " + Financed_To_d + ") ";
+                   @" and ( Round( 
+                        (CASE Currency 
+                        WHEN 'SP'  THEN Loan_Amount / ExchangeRate
+                        WHEN 'USD' THEN Loan_Amount 
+                        END) , 2 ) BETWEEN " + Financed_from_d + " and " + Financed_To_d + ") ";
+
+            }
+        }
+
+        private void ApplyDate_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ApplyDate_checkBox.Checked)
+            {
+                ApplyDateFrom_dateTimePicker.Enabled = ApplyDateFrom_label.Enabled
+                    = ApplyDateTo_DateTimePicker.Enabled = true;
+
+                ApplyDateFrom_dateTimePicker_ValueChanged(sender, e);
             }
             else
             {
-                timer1.Stop();
+                ApplyDate_condition = visitDate_condition = mevisitDate_condition = "";
+                ApplyDateFrom_dateTimePicker.Enabled = ApplyDateFrom_label.Enabled
+                    = ApplyDateTo_DateTimePicker.Enabled = false;
+
             }
         }
 
-        private void Category_comboBox_Leave(object sender, EventArgs e)
+        private void FundedDate_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FundedDate_checkBox.Checked)
+            {
+                FundedDateFrom_DateTimePicker.Enabled = FundedDateFrom_label.Enabled
+                    = FundedDateTo_DateTimePicker.Enabled = true;
+                FundedDateFrom_bcDateTimePicker_ValueChanged(sender, e);
+            }
+            else
+            {
+                FundedDate_condition = "";
+                FundedDateFrom_DateTimePicker.Enabled = FundedDateFrom_label.Enabled
+                    = FundedDateTo_DateTimePicker.Enabled = false;
+            }
+        }
+
+        private void LastVisit_checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            lastvisit_condition = "";
+            if (LastVisit_checkBox.Checked)
+            {
+                lastvisit_condition = @" and mevisit.Date = (SELECT MAX(me.Date) FROM mevisit me WHERE me.Person_ID = P.P_ID ) Group By P.P_ID,MP.MP_ID ";
+            }
+        }
+
+        private void ApplyDateFrom_dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             try
             {
-                if (user_mode)
+                if (ApplyDateFrom_dateTimePicker.Value > ApplyDateTo_DateTimePicker.Value)
                 {
-                    if (Category_comboBox.Text != "" && Category_comboBox.Visible)
-                        SubCategory_bind(Program.getSelectedItems_CheckboxComboBox(Category_comboBox, false));
+                    ApplyDate_condition = visitDate_condition = mevisitDate_condition = "";
+                    throw new InvalidOperationException("لا يمكن أن يكون تاريخ البداية أكبر من تاريخ النهاية");
+                }
 
-                    //SearchBy_comboBox_SelectedIndexChanged(sender, e);
+                string beg, end;
+                beg = ApplyDateFrom_dateTimePicker.Value.ToString("yyyy/MM/dd");
+                end = ApplyDateTo_DateTimePicker.Value.ToString("yyyy/MM/dd");
+
+                ApplyDate_condition = " and ( MP_DateOfRequest between '" + beg + "' and '" + end + "' )";
+                visitDate_condition = " and ( visit.Date between '" + beg + "' and '" + end + "' )";
+                mevisitDate_condition = " and ( mevisit.Date between '" + beg + "' and '" + end + "')";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void FundedDateFrom_bcDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (FundedDateFrom_DateTimePicker.Value > FundedDateTo_DateTimePicker.Value)
+                    throw new InvalidOperationException("لا يمكن أن يكون تاريخ البداية أكبر من تاريخ النهاية");
+
+                DateTime beg, end;
+                beg = FundedDateFrom_DateTimePicker.Value;
+                end = FundedDateTo_DateTimePicker.Value;
+
+                FundedDate_condition = " and MP_ID in (select MicroProject_ID from loan where " +
+                                       " Loan_DateTaken between '" + beg.Year + "/" + beg.Month + "/" + beg.Day + "' " +
+                                       " and '" + end.Year + "/" + end.Month + "/" + end.Day + "' )";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion
+
+        #region button clicks 
+
+        private void show_hide_button_Click(object sender, EventArgs e)
+        {
+            if (Hided)
+            {
+                Hided = false;
+                if (Settings.Default.theme == "Light")
+                    ShowHide_button.BackgroundImage = Resources.Hide2_L;
+                else ShowHide_button.BackgroundImage = Resources.Hide2_D;
+                Search_panel.Height = PW;
+                ApplyFilter_button.Visible = ApplyFilter_button.Enabled = true;
+            }
+            else
+            {
+                Hided = true;
+                if (Settings.Default.theme == "Light")
+                    ShowHide_button.BackgroundImage = Resources.Show2_L;
+                else ShowHide_button.BackgroundImage = Resources.Show2_D;
+                Search_panel.Height = 0;
+                ApplyFilter_button.Visible = ApplyFilter_button.Enabled = false;
+            }
+        }
+        
+        private void Refresh_button_Click(object sender, EventArgs e)
+        {
+            save_visible_columns(SearchBy_comboBox.SelectedIndex);
+            SearchBy_comboBox_SelectedIndexChanged(sender, e);
+        }
+
+        private void Delete_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Program.role != 1 && Program.role != 8) throw new InvalidOperationException("You don't have permession for this action.");
+                var dialogResult = MessageBox.Show("Are you sure you want to delete ??", "Delete",
+                    MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                    Program.buildConnection();
+                    var str = "(" + string.Join(", ",
+                        Array.ConvertAll(PIDs_array, v => v.ToString(CultureInfo.InvariantCulture))) + ")";
+                    var name_str = string.Join(", ",
+                        Array.ConvertAll(P_Names_array, v => v.ToString(CultureInfo.InvariantCulture)));
+
+                    var query = "DELETE FROM `person` WHERE `P_ID` in" + str;
+                    var sc = new MySqlCommand(query, Program.MyConn);
+                    sc.ExecuteNonQuery();
+                    Program.MyConn.Close();
+                    l.Insert_Log("Delete from Persons: " + name_str, "Person", Program.UserName, DateTime.Now);
+                    FamilyMember_bind();
                 }
             }
             catch (Exception ex)
@@ -2816,72 +2877,160 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-        private void SubCategory_comboBox_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                if (user_mode)
-                {
-                    if (SubCategory_comboBox.Text != "" && SubCategory_comboBox.Visible)
-                        Career_bind(Program.getSelectedItems_CheckboxComboBox(SubCategory_comboBox, false));
 
-                    //SearchBy_comboBox_SelectedIndexChanged(sender, e);
-                }
-            }
-            catch (Exception ex)
+        private void ExportToExcel_button_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && SearchBy_comboBox.SelectedIndex == 0)//application
             {
-                MessageBox.Show(ex.Message);
+                System.Windows.Forms.Button btnSender = (System.Windows.Forms.Button)sender;
+                System.Drawing.Point ptLowerLeft = new System.Drawing.Point(0, btnSender.Height);
+                ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
+                exportExcel_contextMenuStrip.Show(ptLowerLeft);
+            }
+            else
+            {
+                ExportToExcel_button_Click(sender, e);
             }
         }
-        private void Donor_comboBox_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                if (user_mode)
-                {
-                    if (Donor_comboBox.Text != "" && Donor_comboBox.Visible)
-                        DonorGroup_bind(Program.getSelectedItems_CheckboxComboBox(Donor_comboBox, false));
 
-                    //SearchBy_comboBox_SelectedIndexChanged(sender, e);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void Type_comboBox_Leave(object sender, EventArgs e)
+        private void ExportToExcel_button_Click(object sender, EventArgs e)
         {
             try
             {
-                if (user_mode)
-                {
-                    if (Type_comboBox.Text != "" && Type_comboBox.Visible)
-                        SubType_bind(Program.getSelectedItems_CheckboxComboBox(Type_comboBox, false));
+                //if Guest - Out of service - lawful - Media//
+                if (Program.role == 4 ||
+                    Program.role == 6 ||
+                    Program.role == 7 ||
+                    Program.role == 9)
+                    throw new InvalidOperationException("Sorry ! You Don't have the permission for this action.");
 
-                    //SearchBy_comboBox_SelectedIndexChanged(sender, e);
-                }
+                Thread myTh = new Thread(SaveCallDialog);
+                myTh.SetApartmentState(ApartmentState.STA);
+                myTh.Start();
+                myTh.Join();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-        private void ApplyFilter_button_Click(object sender, EventArgs e)
+
+        private void export_applications_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                if (user_mode)
-                {
-                    SearchBy_comboBox_SelectedIndexChanged(sender, e);
-                }
+                //if Guest - Out of service - lawful - Media//
+                if (Program.role == 4 ||
+                    Program.role == 6 ||
+                    Program.role == 7 ||
+                    Program.role == 9)
+                    throw new InvalidOperationException("Sorry ! You Don't have the permission for this action.");
+
+                Thread myTh = new Thread(SaveCallDialog_2);
+                myTh.SetApartmentState(ApartmentState.STA);
+                myTh.Start();
+                myTh.Join();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-         
+
+        private void SaveCallDialog()
+        {
+            try
+            {
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                saveFileDialog1.Title = "Save Excel File";
+                saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx";
+                saveFileDialog1.ValidateNames = true;
+
+                var res = saveFileDialog1.ShowDialog();
+                if (res == DialogResult.OK && saveFileDialog1.FileName != "")
+                {
+                    string filename = filename = saveFileDialog1.FileName;
+                    XLWorkbook wb = new XLWorkbook { RightToLeft = true };
+                    DataTable ex_dt = new DataTable();
+
+                    //defaultView gets the visible rows only//
+                    if (bs.DataSource == null)
+                        ex_dt = ((DataTable)MP_dataGridView.DataSource).DefaultView.ToTable();
+                    else ex_dt = ((DataTable)bs.DataSource).DefaultView.ToTable();
+
+                    //Remove invisible columns//
+                    for (var j = 0; j <= MP_dataGridView.ColumnCount - 1; j++)
+                    {
+                        if (MP_dataGridView.Columns[j].Name == "StateHistory") continue;
+                        if (MP_dataGridView.Columns[j].Visible == false)
+                            ex_dt.Columns.Remove(MP_dataGridView.Columns[j].Name.ToString());
+                    }
+                    wb.Worksheets.Add(ex_dt, "Exported from App");
+
+                    wb.SaveAs(filename);
+                    wb.Dispose();
+
+                    Process.Start(filename);
+                }
+                else
+                    return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void SaveCallDialog_2()
+        {
+            try
+            {
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                saveFileDialog1.Title = "Save Excel File";
+                saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx";
+                saveFileDialog1.ValidateNames = true;
+
+                var res = saveFileDialog1.ShowDialog();
+                if (res == DialogResult.OK && saveFileDialog1.FileName != "")
+                {
+                    string filename = filename = saveFileDialog1.FileName;
+                    XLWorkbook wb = new XLWorkbook { RightToLeft = true };
+
+                    //ADD bs.filter to Condition String//
+                    //get visible IDs from datagrid
+                    string mp_cond = " and PMP_ID in (";
+                    for (int i = 0; i < MP_dataGridView.Rows.Count; i++)
+                    {
+                        if (MP_dataGridView.Rows[i].Visible)
+                        {
+                            mp_cond += MP_dataGridView.Rows[i].Cells["ID"].Value.ToString();
+                            mp_cond += ",";
+                        }
+                    }
+                    mp_cond = mp_cond.Remove(mp_cond.Length - 1, 1);
+                    mp_cond += ")";
+
+                    string export_cond = this.condition;
+                    if (bs.Filter != "")
+                        export_cond += mp_cond;
+                     
+                    DataTable ex_dt = s.Application_Details_Procedure(export_cond);
+
+                    wb.Worksheets.Add(ex_dt, "Exported from App");
+
+                    wb.SaveAs(filename);
+                    wb.Dispose();
+
+                    Process.Start(filename);
+                }
+                else
+                    return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         #endregion
 
         #region datagridview functions 
@@ -3338,212 +3487,6 @@ namespace MyWorkApplication
         }
         #endregion
 
-        private void Color_Duplicate_Beneficiaries()
-        {
-            // Check if the column exists
-            if (!MP_dataGridView.Columns.Contains("المستفيد"))
-                return; // Column not found, so exit safely
-
-            //color duplicate rows//
-            var allrows = MP_dataGridView.Rows.OfType<DataGridViewRow>().Reverse().Skip(1);//ignore the last empty line
-            var dupRos = allrows.GroupBy(r => r.Cells["المستفيد"].Value.ToString())
-                                .Where(g => g.Count() > 1)
-                                .SelectMany(r => r.ToList());
-            foreach (var r in dupRos)
-            {
-                r.Cells["المستفيد"].Style.BackColor = System.Drawing.Color.LightCoral;
-                if (Settings.Default.theme == "Light") { }
-                else r.Cells["المستفيد"].Style.ForeColor = System.Drawing.Color.Black;
-            }
-            
-        }
-
-        #region button clicks 
-        private void Delete_button_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Program.role != 1 && Program.role != 8) throw new InvalidOperationException("You don't have permession for this action.");
-                var dialogResult = MessageBox.Show("Are you sure you want to delete ??", "Delete",
-                    MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-
-                    Program.buildConnection();
-                    var str = "(" + string.Join(", ",
-                        Array.ConvertAll(PIDs_array, v => v.ToString(CultureInfo.InvariantCulture))) + ")";
-                    var name_str = string.Join(", ",
-                        Array.ConvertAll(P_Names_array, v => v.ToString(CultureInfo.InvariantCulture)));
-
-                    var query = "DELETE FROM `person` WHERE `P_ID` in" + str;
-                    var sc = new MySqlCommand(query, Program.MyConn);
-                    sc.ExecuteNonQuery();
-                    Program.MyConn.Close();
-                    l.Insert_Log("Delete from Persons: " + name_str, "Person", Program.UserName, DateTime.Now);
-                    FamilyMember_bind();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void ExportToExcel_button_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left && SearchBy_comboBox.SelectedIndex == 0)//application
-            {
-                System.Windows.Forms.Button btnSender = (System.Windows.Forms.Button)sender;
-                System.Drawing.Point ptLowerLeft = new System.Drawing.Point(0, btnSender.Height);
-                ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
-                exportExcel_contextMenuStrip.Show(ptLowerLeft);
-            }
-            else
-            {
-                ExportToExcel_button_Click(sender, e);
-            }
-        }
-
-        private void ExportToExcel_button_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //if Guest - Out of service - lawful - Media//
-                if (Program.role == 4 ||
-                    Program.role == 6 ||
-                    Program.role == 7 ||
-                    Program.role == 9)
-                    throw new InvalidOperationException("Sorry ! You Don't have the permission for this action.");
-
-                Thread myTh = new Thread(SaveCallDialog);
-                myTh.SetApartmentState(ApartmentState.STA);
-                myTh.Start();
-                myTh.Join();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void export_applications_ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //if Guest - Out of service - lawful - Media//
-                if (Program.role == 4 ||
-                    Program.role == 6 ||
-                    Program.role == 7 ||
-                    Program.role == 9)
-                    throw new InvalidOperationException("Sorry ! You Don't have the permission for this action.");
-
-                Thread myTh = new Thread(SaveCallDialog_2);
-                myTh.SetApartmentState(ApartmentState.STA);
-                myTh.Start();
-                myTh.Join();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void SaveCallDialog()
-        {
-            try
-            {
-                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-                saveFileDialog1.Title = "Save Excel File";
-                saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx";
-                saveFileDialog1.ValidateNames = true;
-
-                var res = saveFileDialog1.ShowDialog();
-                if (res == DialogResult.OK && saveFileDialog1.FileName != "")
-                {
-                    string filename = filename = saveFileDialog1.FileName;
-                    XLWorkbook wb = new XLWorkbook { RightToLeft = true };
-                    DataTable ex_dt = new DataTable();
-
-                    //defaultView gets the visible rows only//
-                    if (bs.DataSource == null)
-                        ex_dt = ((DataTable)MP_dataGridView.DataSource).DefaultView.ToTable();
-                    else ex_dt = ((DataTable)bs.DataSource).DefaultView.ToTable();
-
-                    //Remove invisible columns//
-                    for (var j = 0; j <= MP_dataGridView.ColumnCount - 1; j++)
-                    {
-                        if (MP_dataGridView.Columns[j].Name == "StateHistory") continue;
-                        if (MP_dataGridView.Columns[j].Visible == false)
-                            ex_dt.Columns.Remove(MP_dataGridView.Columns[j].Name.ToString());
-                    }
-                    wb.Worksheets.Add(ex_dt, "Exported from App");
-
-                    wb.SaveAs(filename);
-                    wb.Dispose();
-
-                    Process.Start(filename);
-                }
-                else
-                    return;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void SaveCallDialog_2()
-        {
-            try
-            {
-                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-                saveFileDialog1.Title = "Save Excel File";
-                saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx";
-                saveFileDialog1.ValidateNames = true;
-
-                var res = saveFileDialog1.ShowDialog();
-                if (res == DialogResult.OK && saveFileDialog1.FileName != "")
-                {
-                    string filename = filename = saveFileDialog1.FileName;
-                    XLWorkbook wb = new XLWorkbook { RightToLeft = true };
-
-                    //ADD bs.filter to Condition String//
-                    //get visible IDs from datagrid
-                    string mp_cond = " and PMP_ID in (";
-                    for (int i = 0; i < MP_dataGridView.Rows.Count; i++)
-                    {
-                        if (MP_dataGridView.Rows[i].Visible)
-                        {
-                            mp_cond += MP_dataGridView.Rows[i].Cells["ID"].Value.ToString();
-                            mp_cond += ",";
-                        }
-                    }
-                    mp_cond = mp_cond.Remove(mp_cond.Length - 1, 1);
-                    mp_cond += ")";
-
-                    string export_cond = this.condition;
-                    if (bs.Filter != "")
-                        export_cond += mp_cond;
-                     
-                    DataTable ex_dt = s.Application_Details_Procedure(export_cond);
-
-                    wb.Worksheets.Add(ex_dt, "Exported from App");
-
-                    wb.SaveAs(filename);
-                    wb.Dispose();
-
-                    Process.Start(filename);
-                }
-                else
-                    return;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        #endregion
-
         #region mouse hover
 
         private void ExportToExcel_button_MouseEnter(object sender, EventArgs e)
@@ -3619,6 +3562,20 @@ namespace MyWorkApplication
         #endregion
 
         #region right click menu 
+        private void showHideProfileImagesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (show_images)
+                    show_images = false;
+                else show_images = true;
+                SearchBy_comboBox_SelectedIndexChanged(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void refreshPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Refresh_button_Click(sender, e);
@@ -3694,7 +3651,7 @@ namespace MyWorkApplication
         }
         #endregion
 
-        #region show/hide button
+        #region show/hide coulumns button
         private void Show_Hide_ToolStrip_ButtonClick(object sender, EventArgs e)
         {
             try
@@ -3878,6 +3835,12 @@ namespace MyWorkApplication
                 save_visible_columns(index);
             }
         }
+
+        private void Search_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            save_visible_columns(SearchBy_comboBox.SelectedIndex);
+        }
+
         #endregion
 
     }
