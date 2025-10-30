@@ -78,7 +78,7 @@ namespace MyWorkApplication
             this.Count_all_label = new System.Windows.Forms.Label();
             this.Count_funded_label = new System.Windows.Forms.Label();
             this.Search_panel = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.filters_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Type_label = new System.Windows.Forms.Label();
             this.DonorGroup_label = new System.Windows.Forms.Label();
             this.MaritalStatus_label = new System.Windows.Forms.Label();
@@ -139,7 +139,7 @@ namespace MyWorkApplication
             ((System.ComponentModel.ISupportInitialize)(this.results_dataGridView)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.Search_panel.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.filters_tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // chart1
@@ -247,7 +247,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.82353F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.ContextMenuStrip = this.contextMenuStrip1;
             this.tableLayoutPanel1.Controls.Add(this.comboBox1, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.AdvancedSearch_button, 8, 0);
@@ -275,7 +275,7 @@ namespace MyWorkApplication
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox1.ForeColor = System.Drawing.Color.Black;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(771, 5);
+            this.comboBox1.Location = new System.Drawing.Point(768, 5);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(8, 5, 3, 5);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 34);
@@ -293,7 +293,7 @@ namespace MyWorkApplication
             this.AdvancedSearch_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.AdvancedSearch_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.AdvancedSearch_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdvancedSearch_button.Location = new System.Drawing.Point(1078, 2);
+            this.AdvancedSearch_button.Location = new System.Drawing.Point(1075, 2);
             this.AdvancedSearch_button.Margin = new System.Windows.Forms.Padding(0);
             this.AdvancedSearch_button.MaximumSize = new System.Drawing.Size(150, 40);
             this.AdvancedSearch_button.MinimumSize = new System.Drawing.Size(150, 40);
@@ -330,7 +330,7 @@ namespace MyWorkApplication
             this.X_Axis_comboBox.Location = new System.Drawing.Point(118, 5);
             this.X_Axis_comboBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.X_Axis_comboBox.Name = "X_Axis_comboBox";
-            this.X_Axis_comboBox.Size = new System.Drawing.Size(180, 34);
+            this.X_Axis_comboBox.Size = new System.Drawing.Size(179, 34);
             this.X_Axis_comboBox.TabIndex = 439;
             this.X_Axis_comboBox.SelectedIndexChanged += new System.EventHandler(this.X_Axis_comboBox_SelectedIndexChanged);
             // 
@@ -339,7 +339,7 @@ namespace MyWorkApplication
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label1.Location = new System.Drawing.Point(655, 9);
+            this.label1.Location = new System.Drawing.Point(652, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(7, 9, 7, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 26);
@@ -398,7 +398,7 @@ namespace MyWorkApplication
             this.withFunded_checkBox.AutoSize = true;
             this.withFunded_checkBox.Checked = true;
             this.withFunded_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.withFunded_checkBox.Location = new System.Drawing.Point(304, 7);
+            this.withFunded_checkBox.Location = new System.Drawing.Point(303, 7);
             this.withFunded_checkBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.withFunded_checkBox.Name = "withFunded_checkBox";
             this.withFunded_checkBox.Size = new System.Drawing.Size(243, 30);
@@ -420,7 +420,7 @@ namespace MyWorkApplication
             this.ApplyFilter_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ApplyFilter_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ApplyFilter_button.ForeColor = System.Drawing.Color.LightGray;
-            this.ApplyFilter_button.Location = new System.Drawing.Point(968, 5);
+            this.ApplyFilter_button.Location = new System.Drawing.Point(965, 5);
             this.ApplyFilter_button.Margin = new System.Windows.Forms.Padding(0);
             this.ApplyFilter_button.MaximumSize = new System.Drawing.Size(110, 34);
             this.ApplyFilter_button.MinimumSize = new System.Drawing.Size(110, 34);
@@ -442,7 +442,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.41067F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.2735F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.31583F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.ExportToExcel_button, 1, 0);
@@ -492,7 +492,7 @@ namespace MyWorkApplication
             this.Count_all_label.Margin = new System.Windows.Forms.Padding(0);
             this.Count_all_label.Name = "Count_all_label";
             this.Count_all_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Count_all_label.Size = new System.Drawing.Size(182, 26);
+            this.Count_all_label.Size = new System.Drawing.Size(181, 26);
             this.Count_all_label.TabIndex = 476;
             this.Count_all_label.Text = "Count";
             this.Count_all_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -503,11 +503,11 @@ namespace MyWorkApplication
             this.Count_funded_label.AutoSize = true;
             this.Count_funded_label.BackColor = System.Drawing.Color.Transparent;
             this.Count_funded_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Count_funded_label.Location = new System.Drawing.Point(242, 4);
+            this.Count_funded_label.Location = new System.Drawing.Point(241, 4);
             this.Count_funded_label.Margin = new System.Windows.Forms.Padding(0);
             this.Count_funded_label.Name = "Count_funded_label";
             this.Count_funded_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Count_funded_label.Size = new System.Drawing.Size(204, 26);
+            this.Count_funded_label.Size = new System.Drawing.Size(203, 26);
             this.Count_funded_label.TabIndex = 477;
             this.Count_funded_label.Text = "Count";
             this.Count_funded_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -515,7 +515,7 @@ namespace MyWorkApplication
             // Search_panel
             // 
             this.Search_panel.BackColor = System.Drawing.Color.Transparent;
-            this.Search_panel.Controls.Add(this.tableLayoutPanel3);
+            this.Search_panel.Controls.Add(this.filters_tableLayoutPanel);
             this.Search_panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.Search_panel.Location = new System.Drawing.Point(0, 45);
             this.Search_panel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -523,99 +523,99 @@ namespace MyWorkApplication
             this.Search_panel.Size = new System.Drawing.Size(1262, 241);
             this.Search_panel.TabIndex = 416;
             // 
-            // tableLayoutPanel3
+            // filters_tableLayoutPanel
             // 
-            this.tableLayoutPanel3.ColumnCount = 13;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel3.ContextMenuStrip = this.contextMenuStrip1;
-            this.tableLayoutPanel3.Controls.Add(this.Type_label, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.DonorGroup_label, 7, 1);
-            this.tableLayoutPanel3.Controls.Add(this.MaritalStatus_label, 9, 2);
-            this.tableLayoutPanel3.Controls.Add(this.MP_Status_label, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.Donor_label, 3, 1);
-            this.tableLayoutPanel3.Controls.Add(this.P_Parish_label, 9, 1);
-            this.tableLayoutPanel3.Controls.Add(this.Category_label, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.Age_label, 7, 3);
-            this.tableLayoutPanel3.Controls.Add(this.SubCategory_label, 3, 2);
-            this.tableLayoutPanel3.Controls.Add(this.Gender_label, 9, 3);
-            this.tableLayoutPanel3.Controls.Add(this.Career_label, 7, 2);
-            this.tableLayoutPanel3.Controls.Add(this.Partnership_label, 9, 0);
-            this.tableLayoutPanel3.Controls.Add(this.FundType_label, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.SubType_label, 7, 0);
-            this.tableLayoutPanel3.Controls.Add(this.FundType_comboBox, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.Type_comboBox, 5, 0);
-            this.tableLayoutPanel3.Controls.Add(this.SubType_comboBox, 8, 0);
-            this.tableLayoutPanel3.Controls.Add(this.Partnership_comboBox, 11, 0);
-            this.tableLayoutPanel3.Controls.Add(this.MP_Status_comboBox, 2, 1);
-            this.tableLayoutPanel3.Controls.Add(this.Donor_comboBox, 5, 1);
-            this.tableLayoutPanel3.Controls.Add(this.DonorGroup_comboBox, 8, 1);
-            this.tableLayoutPanel3.Controls.Add(this.P_Parish_comboBox, 11, 1);
-            this.tableLayoutPanel3.Controls.Add(this.Category_comboBox, 2, 2);
-            this.tableLayoutPanel3.Controls.Add(this.SubCategory_comboBox, 5, 2);
-            this.tableLayoutPanel3.Controls.Add(this.Career_comboBox, 8, 2);
-            this.tableLayoutPanel3.Controls.Add(this.MaritalStatus_comboBox, 11, 2);
-            this.tableLayoutPanel3.Controls.Add(this.Age_comboBox, 8, 3);
-            this.tableLayoutPanel3.Controls.Add(this.Gender_comboBox, 11, 3);
-            this.tableLayoutPanel3.Controls.Add(this.HomeStreet_label, 1, 3);
-            this.tableLayoutPanel3.Controls.Add(this.HomeStreet_comboBox, 2, 3);
-            this.tableLayoutPanel3.Controls.Add(this.ProjectStreet_label, 3, 3);
-            this.tableLayoutPanel3.Controls.Add(this.ProjectStreet_comboBox, 5, 3);
-            this.tableLayoutPanel3.Controls.Add(this.ApplyDateFrom_label, 1, 6);
-            this.tableLayoutPanel3.Controls.Add(this.FundedDateFrom_label, 7, 6);
-            this.tableLayoutPanel3.Controls.Add(this.FundDate_comboBox, 11, 6);
-            this.tableLayoutPanel3.Controls.Add(this.ApplyDate_comboBox, 5, 6);
-            this.tableLayoutPanel3.Controls.Add(this.ApplyDate_checkBox, 4, 6);
-            this.tableLayoutPanel3.Controls.Add(this.FundedDate_checkBox, 10, 6);
-            this.tableLayoutPanel3.Controls.Add(this.ApplyDateFrom_DateTimePicker, 2, 6);
-            this.tableLayoutPanel3.Controls.Add(this.ApplyDateTo_DateTimePicker, 3, 6);
-            this.tableLayoutPanel3.Controls.Add(this.FundedDateFrom_DateTimePicker, 8, 6);
-            this.tableLayoutPanel3.Controls.Add(this.FundedDateTo_DateTimePicker, 9, 6);
-            this.tableLayoutPanel3.Controls.Add(this.RequestedFrom_label, 1, 7);
-            this.tableLayoutPanel3.Controls.Add(this.FundedFrom_label, 7, 7);
-            this.tableLayoutPanel3.Controls.Add(this.RequestedFrom_textBox, 2, 7);
-            this.tableLayoutPanel3.Controls.Add(this.RequestedTo_textBox, 3, 7);
-            this.tableLayoutPanel3.Controls.Add(this.FundedFrom_textBox, 8, 7);
-            this.tableLayoutPanel3.Controls.Add(this.FundedTo_textBox, 9, 7);
-            this.tableLayoutPanel3.Controls.Add(this.from_label1, 2, 5);
-            this.tableLayoutPanel3.Controls.Add(this.to_label1, 3, 5);
-            this.tableLayoutPanel3.Controls.Add(this.year_label1, 5, 5);
-            this.tableLayoutPanel3.Controls.Add(this.from_label2, 8, 5);
-            this.tableLayoutPanel3.Controls.Add(this.to_label2, 9, 5);
-            this.tableLayoutPanel3.Controls.Add(this.year_label2, 11, 5);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 8;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1262, 241);
-            this.tableLayoutPanel3.TabIndex = 500;
+            this.filters_tableLayoutPanel.ColumnCount = 13;
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.filters_tableLayoutPanel.ContextMenuStrip = this.contextMenuStrip1;
+            this.filters_tableLayoutPanel.Controls.Add(this.Type_label, 3, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.DonorGroup_label, 7, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.MaritalStatus_label, 9, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.MP_Status_label, 1, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.Donor_label, 3, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.P_Parish_label, 9, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.Category_label, 1, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.Age_label, 7, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.SubCategory_label, 3, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.Gender_label, 9, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.Career_label, 7, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.Partnership_label, 9, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundType_label, 1, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.SubType_label, 7, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundType_comboBox, 2, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.Type_comboBox, 5, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.SubType_comboBox, 8, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.Partnership_comboBox, 11, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.MP_Status_comboBox, 2, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.Donor_comboBox, 5, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.DonorGroup_comboBox, 8, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.P_Parish_comboBox, 11, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.Category_comboBox, 2, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.SubCategory_comboBox, 5, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.Career_comboBox, 8, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.MaritalStatus_comboBox, 11, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.Age_comboBox, 8, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.Gender_comboBox, 11, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.HomeStreet_label, 1, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.HomeStreet_comboBox, 2, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.ProjectStreet_label, 3, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.ProjectStreet_comboBox, 5, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.ApplyDateFrom_label, 1, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundedDateFrom_label, 7, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundDate_comboBox, 11, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.ApplyDate_comboBox, 5, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.ApplyDate_checkBox, 4, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundedDate_checkBox, 10, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.ApplyDateFrom_DateTimePicker, 2, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.ApplyDateTo_DateTimePicker, 3, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundedDateFrom_DateTimePicker, 8, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundedDateTo_DateTimePicker, 9, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.RequestedFrom_label, 1, 7);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundedFrom_label, 7, 7);
+            this.filters_tableLayoutPanel.Controls.Add(this.RequestedFrom_textBox, 2, 7);
+            this.filters_tableLayoutPanel.Controls.Add(this.RequestedTo_textBox, 3, 7);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundedFrom_textBox, 8, 7);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundedTo_textBox, 9, 7);
+            this.filters_tableLayoutPanel.Controls.Add(this.from_label1, 2, 5);
+            this.filters_tableLayoutPanel.Controls.Add(this.to_label1, 3, 5);
+            this.filters_tableLayoutPanel.Controls.Add(this.year_label1, 5, 5);
+            this.filters_tableLayoutPanel.Controls.Add(this.from_label2, 8, 5);
+            this.filters_tableLayoutPanel.Controls.Add(this.to_label2, 9, 5);
+            this.filters_tableLayoutPanel.Controls.Add(this.year_label2, 11, 5);
+            this.filters_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filters_tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.filters_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.filters_tableLayoutPanel.Name = "filters_tableLayoutPanel";
+            this.filters_tableLayoutPanel.RowCount = 8;
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.filters_tableLayoutPanel.Size = new System.Drawing.Size(1262, 241);
+            this.filters_tableLayoutPanel.TabIndex = 500;
             // 
             // Type_label
             // 
             this.Type_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Type_label.AutoSize = true;
             this.Type_label.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel3.SetColumnSpan(this.Type_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.Type_label, 2);
             this.Type_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Type_label.Location = new System.Drawing.Point(361, 3);
             this.Type_label.Margin = new System.Windows.Forms.Padding(0);
@@ -641,7 +641,7 @@ namespace MyWorkApplication
             // 
             this.MaritalStatus_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.MaritalStatus_label.AutoSize = true;
-            this.tableLayoutPanel3.SetColumnSpan(this.MaritalStatus_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.MaritalStatus_label, 2);
             this.MaritalStatus_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.MaritalStatus_label.Location = new System.Drawing.Point(969, 69);
             this.MaritalStatus_label.Margin = new System.Windows.Forms.Padding(0);
@@ -666,7 +666,7 @@ namespace MyWorkApplication
             // 
             this.Donor_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Donor_label.AutoSize = true;
-            this.tableLayoutPanel3.SetColumnSpan(this.Donor_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.Donor_label, 2);
             this.Donor_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Donor_label.Location = new System.Drawing.Point(412, 36);
             this.Donor_label.Margin = new System.Windows.Forms.Padding(0);
@@ -679,7 +679,7 @@ namespace MyWorkApplication
             // 
             this.P_Parish_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.P_Parish_label.AutoSize = true;
-            this.tableLayoutPanel3.SetColumnSpan(this.P_Parish_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.P_Parish_label, 2);
             this.P_Parish_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.P_Parish_label.Location = new System.Drawing.Point(1029, 36);
             this.P_Parish_label.Margin = new System.Windows.Forms.Padding(0);
@@ -718,7 +718,7 @@ namespace MyWorkApplication
             this.SubCategory_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.SubCategory_label.AutoSize = true;
             this.SubCategory_label.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel3.SetColumnSpan(this.SubCategory_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.SubCategory_label, 2);
             this.SubCategory_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.SubCategory_label.Location = new System.Drawing.Point(353, 69);
             this.SubCategory_label.Margin = new System.Windows.Forms.Padding(0);
@@ -731,7 +731,7 @@ namespace MyWorkApplication
             // 
             this.Gender_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Gender_label.AutoSize = true;
-            this.tableLayoutPanel3.SetColumnSpan(this.Gender_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.Gender_label, 2);
             this.Gender_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Gender_label.Location = new System.Drawing.Point(1020, 102);
             this.Gender_label.Margin = new System.Windows.Forms.Padding(0);
@@ -758,7 +758,7 @@ namespace MyWorkApplication
             this.Partnership_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Partnership_label.AutoSize = true;
             this.Partnership_label.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel3.SetColumnSpan(this.Partnership_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.Partnership_label, 2);
             this.Partnership_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Partnership_label.Location = new System.Drawing.Point(986, 3);
             this.Partnership_label.Margin = new System.Windows.Forms.Padding(0);
@@ -804,7 +804,7 @@ namespace MyWorkApplication
             this.FundType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FundType_comboBox.ForeColor = System.Drawing.Color.White;
             this.FundType_comboBox.FormattingEnabled = true;
-            this.FundType_comboBox.Location = new System.Drawing.Point(170, 3);
+            this.FundType_comboBox.Location = new System.Drawing.Point(170, 4);
             this.FundType_comboBox.Name = "FundType_comboBox";
             this.FundType_comboBox.Size = new System.Drawing.Size(136, 34);
             this.FundType_comboBox.TabIndex = 598;
@@ -820,7 +820,7 @@ namespace MyWorkApplication
             this.Type_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Type_comboBox.ForeColor = System.Drawing.Color.White;
             this.Type_comboBox.FormattingEnabled = true;
-            this.Type_comboBox.Location = new System.Drawing.Point(479, 3);
+            this.Type_comboBox.Location = new System.Drawing.Point(479, 4);
             this.Type_comboBox.Name = "Type_comboBox";
             this.Type_comboBox.Size = new System.Drawing.Size(136, 34);
             this.Type_comboBox.TabIndex = 599;
@@ -837,7 +837,7 @@ namespace MyWorkApplication
             this.SubType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubType_comboBox.ForeColor = System.Drawing.Color.White;
             this.SubType_comboBox.FormattingEnabled = true;
-            this.SubType_comboBox.Location = new System.Drawing.Point(788, 3);
+            this.SubType_comboBox.Location = new System.Drawing.Point(788, 4);
             this.SubType_comboBox.Name = "SubType_comboBox";
             this.SubType_comboBox.Size = new System.Drawing.Size(136, 34);
             this.SubType_comboBox.TabIndex = 600;
@@ -856,7 +856,7 @@ namespace MyWorkApplication
             this.Partnership_comboBox.Items.AddRange(new object[] {
             "فردي",
             "شراكة"});
-            this.Partnership_comboBox.Location = new System.Drawing.Point(1097, 3);
+            this.Partnership_comboBox.Location = new System.Drawing.Point(1097, 4);
             this.Partnership_comboBox.Name = "Partnership_comboBox";
             this.Partnership_comboBox.Size = new System.Drawing.Size(136, 34);
             this.Partnership_comboBox.TabIndex = 601;
@@ -872,7 +872,7 @@ namespace MyWorkApplication
             this.MP_Status_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MP_Status_comboBox.ForeColor = System.Drawing.Color.White;
             this.MP_Status_comboBox.FormattingEnabled = true;
-            this.MP_Status_comboBox.Location = new System.Drawing.Point(170, 36);
+            this.MP_Status_comboBox.Location = new System.Drawing.Point(170, 37);
             this.MP_Status_comboBox.Name = "MP_Status_comboBox";
             this.MP_Status_comboBox.Size = new System.Drawing.Size(136, 34);
             this.MP_Status_comboBox.TabIndex = 602;
@@ -888,7 +888,7 @@ namespace MyWorkApplication
             this.Donor_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Donor_comboBox.ForeColor = System.Drawing.Color.White;
             this.Donor_comboBox.FormattingEnabled = true;
-            this.Donor_comboBox.Location = new System.Drawing.Point(479, 36);
+            this.Donor_comboBox.Location = new System.Drawing.Point(479, 37);
             this.Donor_comboBox.Name = "Donor_comboBox";
             this.Donor_comboBox.Size = new System.Drawing.Size(136, 34);
             this.Donor_comboBox.TabIndex = 603;
@@ -905,7 +905,7 @@ namespace MyWorkApplication
             this.DonorGroup_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DonorGroup_comboBox.ForeColor = System.Drawing.Color.White;
             this.DonorGroup_comboBox.FormattingEnabled = true;
-            this.DonorGroup_comboBox.Location = new System.Drawing.Point(788, 36);
+            this.DonorGroup_comboBox.Location = new System.Drawing.Point(788, 37);
             this.DonorGroup_comboBox.Name = "DonorGroup_comboBox";
             this.DonorGroup_comboBox.Size = new System.Drawing.Size(136, 34);
             this.DonorGroup_comboBox.TabIndex = 604;
@@ -922,7 +922,7 @@ namespace MyWorkApplication
             this.P_Parish_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Parish_comboBox.ForeColor = System.Drawing.Color.White;
             this.P_Parish_comboBox.FormattingEnabled = true;
-            this.P_Parish_comboBox.Location = new System.Drawing.Point(1097, 36);
+            this.P_Parish_comboBox.Location = new System.Drawing.Point(1097, 37);
             this.P_Parish_comboBox.Name = "P_Parish_comboBox";
             this.P_Parish_comboBox.Size = new System.Drawing.Size(136, 34);
             this.P_Parish_comboBox.TabIndex = 605;
@@ -938,7 +938,7 @@ namespace MyWorkApplication
             this.Category_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Category_comboBox.ForeColor = System.Drawing.Color.White;
             this.Category_comboBox.FormattingEnabled = true;
-            this.Category_comboBox.Location = new System.Drawing.Point(170, 69);
+            this.Category_comboBox.Location = new System.Drawing.Point(170, 70);
             this.Category_comboBox.Name = "Category_comboBox";
             this.Category_comboBox.Size = new System.Drawing.Size(136, 34);
             this.Category_comboBox.TabIndex = 606;
@@ -954,7 +954,7 @@ namespace MyWorkApplication
             this.SubCategory_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubCategory_comboBox.ForeColor = System.Drawing.Color.White;
             this.SubCategory_comboBox.FormattingEnabled = true;
-            this.SubCategory_comboBox.Location = new System.Drawing.Point(479, 69);
+            this.SubCategory_comboBox.Location = new System.Drawing.Point(479, 70);
             this.SubCategory_comboBox.Name = "SubCategory_comboBox";
             this.SubCategory_comboBox.Size = new System.Drawing.Size(136, 34);
             this.SubCategory_comboBox.TabIndex = 607;
@@ -971,7 +971,7 @@ namespace MyWorkApplication
             this.Career_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Career_comboBox.ForeColor = System.Drawing.Color.White;
             this.Career_comboBox.FormattingEnabled = true;
-            this.Career_comboBox.Location = new System.Drawing.Point(788, 69);
+            this.Career_comboBox.Location = new System.Drawing.Point(788, 70);
             this.Career_comboBox.Name = "Career_comboBox";
             this.Career_comboBox.Size = new System.Drawing.Size(136, 34);
             this.Career_comboBox.TabIndex = 608;
@@ -988,7 +988,7 @@ namespace MyWorkApplication
             this.MaritalStatus_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MaritalStatus_comboBox.ForeColor = System.Drawing.Color.White;
             this.MaritalStatus_comboBox.FormattingEnabled = true;
-            this.MaritalStatus_comboBox.Location = new System.Drawing.Point(1097, 69);
+            this.MaritalStatus_comboBox.Location = new System.Drawing.Point(1097, 70);
             this.MaritalStatus_comboBox.Name = "MaritalStatus_comboBox";
             this.MaritalStatus_comboBox.Size = new System.Drawing.Size(136, 34);
             this.MaritalStatus_comboBox.TabIndex = 609;
@@ -1004,7 +1004,7 @@ namespace MyWorkApplication
             this.Age_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Age_comboBox.ForeColor = System.Drawing.Color.White;
             this.Age_comboBox.FormattingEnabled = true;
-            this.Age_comboBox.Location = new System.Drawing.Point(788, 102);
+            this.Age_comboBox.Location = new System.Drawing.Point(788, 103);
             this.Age_comboBox.Name = "Age_comboBox";
             this.Age_comboBox.Size = new System.Drawing.Size(136, 34);
             this.Age_comboBox.TabIndex = 612;
@@ -1023,7 +1023,7 @@ namespace MyWorkApplication
             this.Gender_comboBox.Items.AddRange(new object[] {
             "ذكر",
             "أنثى"});
-            this.Gender_comboBox.Location = new System.Drawing.Point(1097, 102);
+            this.Gender_comboBox.Location = new System.Drawing.Point(1097, 103);
             this.Gender_comboBox.Name = "Gender_comboBox";
             this.Gender_comboBox.Size = new System.Drawing.Size(136, 34);
             this.Gender_comboBox.TabIndex = 613;
@@ -1052,7 +1052,7 @@ namespace MyWorkApplication
             this.HomeStreet_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HomeStreet_comboBox.ForeColor = System.Drawing.Color.White;
             this.HomeStreet_comboBox.FormattingEnabled = true;
-            this.HomeStreet_comboBox.Location = new System.Drawing.Point(170, 102);
+            this.HomeStreet_comboBox.Location = new System.Drawing.Point(170, 103);
             this.HomeStreet_comboBox.Name = "HomeStreet_comboBox";
             this.HomeStreet_comboBox.Size = new System.Drawing.Size(136, 34);
             this.HomeStreet_comboBox.TabIndex = 614;
@@ -1062,7 +1062,7 @@ namespace MyWorkApplication
             this.ProjectStreet_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ProjectStreet_label.AutoSize = true;
             this.ProjectStreet_label.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel3.SetColumnSpan(this.ProjectStreet_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.ProjectStreet_label, 2);
             this.ProjectStreet_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ProjectStreet_label.Location = new System.Drawing.Point(348, 102);
             this.ProjectStreet_label.Margin = new System.Windows.Forms.Padding(0);
@@ -1082,7 +1082,7 @@ namespace MyWorkApplication
             this.ProjectStreet_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProjectStreet_comboBox.ForeColor = System.Drawing.Color.White;
             this.ProjectStreet_comboBox.FormattingEnabled = true;
-            this.ProjectStreet_comboBox.Location = new System.Drawing.Point(479, 102);
+            this.ProjectStreet_comboBox.Location = new System.Drawing.Point(479, 103);
             this.ProjectStreet_comboBox.Name = "ProjectStreet_comboBox";
             this.ProjectStreet_comboBox.Size = new System.Drawing.Size(136, 34);
             this.ProjectStreet_comboBox.TabIndex = 615;
@@ -1122,7 +1122,7 @@ namespace MyWorkApplication
             this.FundDate_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FundDate_comboBox.ForeColor = System.Drawing.Color.White;
             this.FundDate_comboBox.FormattingEnabled = true;
-            this.FundDate_comboBox.Location = new System.Drawing.Point(1097, 175);
+            this.FundDate_comboBox.Location = new System.Drawing.Point(1097, 176);
             this.FundDate_comboBox.Name = "FundDate_comboBox";
             this.FundDate_comboBox.Size = new System.Drawing.Size(136, 34);
             this.FundDate_comboBox.TabIndex = 611;
@@ -1138,7 +1138,7 @@ namespace MyWorkApplication
             this.ApplyDate_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ApplyDate_comboBox.ForeColor = System.Drawing.Color.White;
             this.ApplyDate_comboBox.FormattingEnabled = true;
-            this.ApplyDate_comboBox.Location = new System.Drawing.Point(479, 175);
+            this.ApplyDate_comboBox.Location = new System.Drawing.Point(479, 176);
             this.ApplyDate_comboBox.Name = "ApplyDate_comboBox";
             this.ApplyDate_comboBox.Size = new System.Drawing.Size(136, 34);
             this.ApplyDate_comboBox.TabIndex = 610;
@@ -1431,8 +1431,8 @@ namespace MyWorkApplication
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.Search_panel.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
+            this.filters_tableLayoutPanel.ResumeLayout(false);
+            this.filters_tableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1455,7 +1455,7 @@ namespace MyWorkApplication
         private System.Windows.Forms.Label Gender_label;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel filters_tableLayoutPanel;
         private System.Windows.Forms.Label Age_label;
         private System.Windows.Forms.Label Count_all_label;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;

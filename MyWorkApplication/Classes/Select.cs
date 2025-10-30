@@ -613,6 +613,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
     ,(select count(Pay_Amount) from `payment` where `Loan_ID` = L.Loan_ID and `Pay_IsPaid` like N'Not Paid') as 'الدفعات المستحقة والغير مدفوعة'
 
     ,Loan_Note as 'ملاحظات'
+    ,donor.Name as 'الجهة الممولة'
     ,donorgroup.Name as 'المجموعة'
     ,L.Loan_ReceiptID as 'رقم الإيصال'
     ,L.Loan_ID as 'ID' ";

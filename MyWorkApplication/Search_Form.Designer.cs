@@ -82,7 +82,7 @@ namespace MyWorkApplication
             this.Import_sp_label = new System.Windows.Forms.Label();
             this.Refresh_button = new System.Windows.Forms.Button();
             this.Search_panel = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.filters_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Type_label = new System.Windows.Forms.Label();
             this.DonorGroup_label = new System.Windows.Forms.Label();
             this.MaritalStatus_label = new System.Windows.Forms.Label();
@@ -138,8 +138,8 @@ namespace MyWorkApplication
             this.year_label1 = new System.Windows.Forms.Label();
             this.year_label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.LastVisit_checkBox = new System.Windows.Forms.CheckBox();
             this.ApplyFilter_button = new System.Windows.Forms.Button();
+            this.LastVisit_checkBox = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Returned_sp_label = new System.Windows.Forms.Label();
             this.Returned_usd_label = new System.Windows.Forms.Label();
@@ -188,7 +188,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel2.SuspendLayout();
             this.exportExcel_contextMenuStrip.SuspendLayout();
             this.Search_panel.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.filters_tableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.Financial_tableLayoutPanel.SuspendLayout();
             this.visit_statistics_tableLayoutPanel.SuspendLayout();
@@ -276,9 +276,9 @@ namespace MyWorkApplication
             this.SearchBy_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchBy_comboBox.ForeColor = System.Drawing.Color.Black;
             this.SearchBy_comboBox.FormattingEnabled = true;
-            this.SearchBy_comboBox.Location = new System.Drawing.Point(205, 3);
+            this.SearchBy_comboBox.Location = new System.Drawing.Point(204, 3);
             this.SearchBy_comboBox.Name = "SearchBy_comboBox";
-            this.SearchBy_comboBox.Size = new System.Drawing.Size(371, 35);
+            this.SearchBy_comboBox.Size = new System.Drawing.Size(370, 35);
             this.SearchBy_comboBox.TabIndex = 1;
             this.SearchBy_comboBox.SelectedIndexChanged += new System.EventHandler(this.SearchBy_comboBox_SelectedIndexChanged);
             // 
@@ -287,7 +287,7 @@ namespace MyWorkApplication
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label16.Location = new System.Drawing.Point(100, 8);
+            this.label16.Location = new System.Drawing.Point(99, 8);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(102, 27);
@@ -305,7 +305,7 @@ namespace MyWorkApplication
             this.ShowHide_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ShowHide_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShowHide_button.Location = new System.Drawing.Point(1077, 2);
+            this.ShowHide_button.Location = new System.Drawing.Point(1073, 2);
             this.ShowHide_button.Margin = new System.Windows.Forms.Padding(0);
             this.ShowHide_button.MaximumSize = new System.Drawing.Size(150, 40);
             this.ShowHide_button.MinimumSize = new System.Drawing.Size(150, 40);
@@ -328,7 +328,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.76135F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.93499F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ContextMenuStrip = this.contextMenuStrip1;
             this.tableLayoutPanel2.Controls.Add(this.ExportToExcel_button, 1, 0);
@@ -420,7 +420,7 @@ namespace MyWorkApplication
             this.Selected_label.Margin = new System.Windows.Forms.Padding(0);
             this.Selected_label.Name = "Selected_label";
             this.Selected_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Selected_label.Size = new System.Drawing.Size(200, 27);
+            this.Selected_label.Size = new System.Drawing.Size(199, 27);
             this.Selected_label.TabIndex = 476;
             this.Selected_label.Text = "00000";
             this.Selected_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -431,11 +431,11 @@ namespace MyWorkApplication
             this.Sum_FamilyMembers_label.AutoSize = true;
             this.Sum_FamilyMembers_label.BackColor = System.Drawing.Color.Transparent;
             this.Sum_FamilyMembers_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Sum_FamilyMembers_label.Location = new System.Drawing.Point(430, 3);
+            this.Sum_FamilyMembers_label.Location = new System.Drawing.Point(429, 3);
             this.Sum_FamilyMembers_label.Margin = new System.Windows.Forms.Padding(0);
             this.Sum_FamilyMembers_label.Name = "Sum_FamilyMembers_label";
             this.Sum_FamilyMembers_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Sum_FamilyMembers_label.Size = new System.Drawing.Size(171, 27);
+            this.Sum_FamilyMembers_label.Size = new System.Drawing.Size(170, 27);
             this.Sum_FamilyMembers_label.TabIndex = 482;
             this.Sum_FamilyMembers_label.Text = "00000";
             this.Sum_FamilyMembers_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -453,7 +453,7 @@ namespace MyWorkApplication
             this.Delete_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Delete_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete_button.ForeColor = System.Drawing.Color.White;
-            this.Delete_button.Location = new System.Drawing.Point(1164, 4);
+            this.Delete_button.Location = new System.Drawing.Point(1160, 4);
             this.Delete_button.Margin = new System.Windows.Forms.Padding(10, 1, 3, 1);
             this.Delete_button.MaximumSize = new System.Drawing.Size(42, 26);
             this.Delete_button.MinimumSize = new System.Drawing.Size(42, 26);
@@ -474,7 +474,7 @@ namespace MyWorkApplication
             this.Export_usd_label.Margin = new System.Windows.Forms.Padding(0);
             this.Export_usd_label.Name = "Export_usd_label";
             this.Export_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Export_usd_label.Size = new System.Drawing.Size(178, 24);
+            this.Export_usd_label.Size = new System.Drawing.Size(176, 24);
             this.Export_usd_label.TabIndex = 481;
             this.Export_usd_label.Text = "00,000,000,000";
             this.Export_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -486,11 +486,11 @@ namespace MyWorkApplication
             this.Import_usd_label.AutoSize = true;
             this.Import_usd_label.BackColor = System.Drawing.Color.Transparent;
             this.Import_usd_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Import_usd_label.Location = new System.Drawing.Point(236, 47);
+            this.Import_usd_label.Location = new System.Drawing.Point(234, 47);
             this.Import_usd_label.Margin = new System.Windows.Forms.Padding(0);
             this.Import_usd_label.Name = "Import_usd_label";
             this.Import_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Import_usd_label.Size = new System.Drawing.Size(178, 24);
+            this.Import_usd_label.Size = new System.Drawing.Size(176, 24);
             this.Import_usd_label.TabIndex = 483;
             this.Import_usd_label.Text = "00,000,000,000";
             this.Import_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -506,7 +506,7 @@ namespace MyWorkApplication
             this.Export_sp_label.Margin = new System.Windows.Forms.Padding(0);
             this.Export_sp_label.Name = "Export_sp_label";
             this.Export_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Export_sp_label.Size = new System.Drawing.Size(178, 22);
+            this.Export_sp_label.Size = new System.Drawing.Size(176, 22);
             this.Export_sp_label.TabIndex = 477;
             this.Export_sp_label.Text = "00,000,000,000";
             this.Export_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -518,11 +518,11 @@ namespace MyWorkApplication
             this.Remaining_sp_label.AutoSize = true;
             this.Remaining_sp_label.BackColor = System.Drawing.Color.Transparent;
             this.Remaining_sp_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Remaining_sp_label.Location = new System.Drawing.Point(952, 24);
+            this.Remaining_sp_label.Location = new System.Drawing.Point(942, 24);
             this.Remaining_sp_label.Margin = new System.Windows.Forms.Padding(0);
             this.Remaining_sp_label.Name = "Remaining_sp_label";
             this.Remaining_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Remaining_sp_label.Size = new System.Drawing.Size(178, 22);
+            this.Remaining_sp_label.Size = new System.Drawing.Size(176, 22);
             this.Remaining_sp_label.TabIndex = 480;
             this.Remaining_sp_label.Text = "00,000,000,000";
             this.Remaining_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -533,11 +533,11 @@ namespace MyWorkApplication
             this.Import_sp_label.AutoSize = true;
             this.Import_sp_label.BackColor = System.Drawing.Color.Transparent;
             this.Import_sp_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Import_sp_label.Location = new System.Drawing.Point(236, 24);
+            this.Import_sp_label.Location = new System.Drawing.Point(234, 24);
             this.Import_sp_label.Margin = new System.Windows.Forms.Padding(0);
             this.Import_sp_label.Name = "Import_sp_label";
             this.Import_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Import_sp_label.Size = new System.Drawing.Size(178, 22);
+            this.Import_sp_label.Size = new System.Drawing.Size(176, 22);
             this.Import_sp_label.TabIndex = 478;
             this.Import_sp_label.Text = "00,000,000,000";
             this.Import_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -568,7 +568,7 @@ namespace MyWorkApplication
             // 
             this.Search_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Search_panel.ContextMenuStrip = this.contextMenuStrip1;
-            this.Search_panel.Controls.Add(this.tableLayoutPanel3);
+            this.Search_panel.Controls.Add(this.filters_tableLayoutPanel);
             this.Search_panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.Search_panel.Location = new System.Drawing.Point(0, 44);
             this.Search_panel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -577,99 +577,99 @@ namespace MyWorkApplication
             this.Search_panel.Size = new System.Drawing.Size(1262, 251);
             this.Search_panel.TabIndex = 409;
             // 
-            // tableLayoutPanel3
+            // filters_tableLayoutPanel
             // 
-            this.tableLayoutPanel3.ColumnCount = 12;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel3.ContextMenuStrip = this.contextMenuStrip1;
-            this.tableLayoutPanel3.Controls.Add(this.Type_label, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.DonorGroup_label, 6, 1);
-            this.tableLayoutPanel3.Controls.Add(this.MaritalStatus_label, 8, 2);
-            this.tableLayoutPanel3.Controls.Add(this.MP_Status_label, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.Donor_label, 3, 1);
-            this.tableLayoutPanel3.Controls.Add(this.P_Parish_label, 8, 1);
-            this.tableLayoutPanel3.Controls.Add(this.Category_label, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.Age_label, 6, 3);
-            this.tableLayoutPanel3.Controls.Add(this.SubCategory_label, 3, 2);
-            this.tableLayoutPanel3.Controls.Add(this.Gender_label, 8, 3);
-            this.tableLayoutPanel3.Controls.Add(this.Career_label, 6, 2);
-            this.tableLayoutPanel3.Controls.Add(this.Partnership_label, 8, 0);
-            this.tableLayoutPanel3.Controls.Add(this.FundType_label, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.SubType_label, 6, 0);
-            this.tableLayoutPanel3.Controls.Add(this.FundType_comboBox, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.Type_comboBox, 5, 0);
-            this.tableLayoutPanel3.Controls.Add(this.SubType_comboBox, 7, 0);
-            this.tableLayoutPanel3.Controls.Add(this.Partnership_comboBox, 10, 0);
-            this.tableLayoutPanel3.Controls.Add(this.MP_Status_comboBox, 2, 1);
-            this.tableLayoutPanel3.Controls.Add(this.Donor_comboBox, 5, 1);
-            this.tableLayoutPanel3.Controls.Add(this.DonorGroup_comboBox, 7, 1);
-            this.tableLayoutPanel3.Controls.Add(this.P_Parish_comboBox, 10, 1);
-            this.tableLayoutPanel3.Controls.Add(this.Category_comboBox, 2, 2);
-            this.tableLayoutPanel3.Controls.Add(this.SubCategory_comboBox, 5, 2);
-            this.tableLayoutPanel3.Controls.Add(this.Career_comboBox, 7, 2);
-            this.tableLayoutPanel3.Controls.Add(this.MaritalStatus_comboBox, 10, 2);
-            this.tableLayoutPanel3.Controls.Add(this.Age_comboBox, 7, 3);
-            this.tableLayoutPanel3.Controls.Add(this.Gender_comboBox, 10, 3);
-            this.tableLayoutPanel3.Controls.Add(this.ApplyDateFrom_label, 1, 6);
-            this.tableLayoutPanel3.Controls.Add(this.HomeStreet_label, 1, 3);
-            this.tableLayoutPanel3.Controls.Add(this.HomeStreet_comboBox, 2, 3);
-            this.tableLayoutPanel3.Controls.Add(this.ProjectStreet_label, 3, 3);
-            this.tableLayoutPanel3.Controls.Add(this.ProjectStreet_comboBox, 5, 3);
-            this.tableLayoutPanel3.Controls.Add(this.FundedDateFrom_label, 6, 6);
-            this.tableLayoutPanel3.Controls.Add(this.FundedFrom_label, 6, 7);
-            this.tableLayoutPanel3.Controls.Add(this.RequestedFrom_label, 1, 7);
-            this.tableLayoutPanel3.Controls.Add(this.ApplyDateFrom_dateTimePicker, 2, 6);
-            this.tableLayoutPanel3.Controls.Add(this.ApplyDateTo_DateTimePicker, 3, 6);
-            this.tableLayoutPanel3.Controls.Add(this.ApplyDate_comboBox, 5, 6);
-            this.tableLayoutPanel3.Controls.Add(this.ApplyDate_checkBox, 4, 6);
-            this.tableLayoutPanel3.Controls.Add(this.RequestedFrom_textBox, 2, 7);
-            this.tableLayoutPanel3.Controls.Add(this.RequestedTo_textBox, 3, 7);
-            this.tableLayoutPanel3.Controls.Add(this.from_label1, 2, 5);
-            this.tableLayoutPanel3.Controls.Add(this.to_label1, 3, 5);
-            this.tableLayoutPanel3.Controls.Add(this.FundedDate_checkBox, 9, 6);
-            this.tableLayoutPanel3.Controls.Add(this.from_label2, 7, 5);
-            this.tableLayoutPanel3.Controls.Add(this.to_label2, 8, 5);
-            this.tableLayoutPanel3.Controls.Add(this.FundedDateFrom_DateTimePicker, 7, 6);
-            this.tableLayoutPanel3.Controls.Add(this.FundedDateTo_DateTimePicker, 8, 6);
-            this.tableLayoutPanel3.Controls.Add(this.FundDate_comboBox, 10, 6);
-            this.tableLayoutPanel3.Controls.Add(this.FundedFrom_textBox, 7, 7);
-            this.tableLayoutPanel3.Controls.Add(this.FundedTo_textBox, 8, 7);
-            this.tableLayoutPanel3.Controls.Add(this.year_label1, 5, 5);
-            this.tableLayoutPanel3.Controls.Add(this.year_label2, 10, 5);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tableLayoutPanel3.RowCount = 8;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1262, 251);
-            this.tableLayoutPanel3.TabIndex = 502;
+            this.filters_tableLayoutPanel.ColumnCount = 12;
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.filters_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.filters_tableLayoutPanel.ContextMenuStrip = this.contextMenuStrip1;
+            this.filters_tableLayoutPanel.Controls.Add(this.Type_label, 3, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.DonorGroup_label, 6, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.MaritalStatus_label, 8, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.MP_Status_label, 1, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.Donor_label, 3, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.P_Parish_label, 8, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.Category_label, 1, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.Age_label, 6, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.SubCategory_label, 3, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.Gender_label, 8, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.Career_label, 6, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.Partnership_label, 8, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundType_label, 1, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.SubType_label, 6, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundType_comboBox, 2, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.Type_comboBox, 5, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.SubType_comboBox, 7, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.Partnership_comboBox, 10, 0);
+            this.filters_tableLayoutPanel.Controls.Add(this.MP_Status_comboBox, 2, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.Donor_comboBox, 5, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.DonorGroup_comboBox, 7, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.P_Parish_comboBox, 10, 1);
+            this.filters_tableLayoutPanel.Controls.Add(this.Category_comboBox, 2, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.SubCategory_comboBox, 5, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.Career_comboBox, 7, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.MaritalStatus_comboBox, 10, 2);
+            this.filters_tableLayoutPanel.Controls.Add(this.Age_comboBox, 7, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.Gender_comboBox, 10, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.ApplyDateFrom_label, 1, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.HomeStreet_label, 1, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.HomeStreet_comboBox, 2, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.ProjectStreet_label, 3, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.ProjectStreet_comboBox, 5, 3);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundedDateFrom_label, 6, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundedFrom_label, 6, 7);
+            this.filters_tableLayoutPanel.Controls.Add(this.RequestedFrom_label, 1, 7);
+            this.filters_tableLayoutPanel.Controls.Add(this.ApplyDateFrom_dateTimePicker, 2, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.ApplyDateTo_DateTimePicker, 3, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.ApplyDate_comboBox, 5, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.ApplyDate_checkBox, 4, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.RequestedFrom_textBox, 2, 7);
+            this.filters_tableLayoutPanel.Controls.Add(this.RequestedTo_textBox, 3, 7);
+            this.filters_tableLayoutPanel.Controls.Add(this.from_label1, 2, 5);
+            this.filters_tableLayoutPanel.Controls.Add(this.to_label1, 3, 5);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundedDate_checkBox, 9, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.from_label2, 7, 5);
+            this.filters_tableLayoutPanel.Controls.Add(this.to_label2, 8, 5);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundedDateFrom_DateTimePicker, 7, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundedDateTo_DateTimePicker, 8, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundDate_comboBox, 10, 6);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundedFrom_textBox, 7, 7);
+            this.filters_tableLayoutPanel.Controls.Add(this.FundedTo_textBox, 8, 7);
+            this.filters_tableLayoutPanel.Controls.Add(this.year_label1, 5, 5);
+            this.filters_tableLayoutPanel.Controls.Add(this.year_label2, 10, 5);
+            this.filters_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filters_tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.filters_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.filters_tableLayoutPanel.Name = "filters_tableLayoutPanel";
+            this.filters_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.filters_tableLayoutPanel.RowCount = 8;
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.filters_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.filters_tableLayoutPanel.Size = new System.Drawing.Size(1262, 251);
+            this.filters_tableLayoutPanel.TabIndex = 502;
             // 
             // Type_label
             // 
             this.Type_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Type_label.AutoSize = true;
             this.Type_label.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel3.SetColumnSpan(this.Type_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.Type_label, 2);
             this.Type_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Type_label.Location = new System.Drawing.Point(363, 4);
             this.Type_label.Margin = new System.Windows.Forms.Padding(0);
@@ -695,7 +695,7 @@ namespace MyWorkApplication
             // 
             this.MaritalStatus_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.MaritalStatus_label.AutoSize = true;
-            this.tableLayoutPanel3.SetColumnSpan(this.MaritalStatus_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.MaritalStatus_label, 2);
             this.MaritalStatus_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.MaritalStatus_label.Location = new System.Drawing.Point(958, 74);
             this.MaritalStatus_label.Margin = new System.Windows.Forms.Padding(0);
@@ -720,7 +720,7 @@ namespace MyWorkApplication
             // 
             this.Donor_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Donor_label.AutoSize = true;
-            this.tableLayoutPanel3.SetColumnSpan(this.Donor_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.Donor_label, 2);
             this.Donor_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Donor_label.Location = new System.Drawing.Point(418, 39);
             this.Donor_label.Margin = new System.Windows.Forms.Padding(0);
@@ -733,7 +733,7 @@ namespace MyWorkApplication
             // 
             this.P_Parish_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.P_Parish_label.AutoSize = true;
-            this.tableLayoutPanel3.SetColumnSpan(this.P_Parish_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.P_Parish_label, 2);
             this.P_Parish_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.P_Parish_label.Location = new System.Drawing.Point(1020, 39);
             this.P_Parish_label.Margin = new System.Windows.Forms.Padding(0);
@@ -772,7 +772,7 @@ namespace MyWorkApplication
             this.SubCategory_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.SubCategory_label.AutoSize = true;
             this.SubCategory_label.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel3.SetColumnSpan(this.SubCategory_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.SubCategory_label, 2);
             this.SubCategory_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.SubCategory_label.Location = new System.Drawing.Point(354, 74);
             this.SubCategory_label.Margin = new System.Windows.Forms.Padding(0);
@@ -785,7 +785,7 @@ namespace MyWorkApplication
             // 
             this.Gender_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Gender_label.AutoSize = true;
-            this.tableLayoutPanel3.SetColumnSpan(this.Gender_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.Gender_label, 2);
             this.Gender_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Gender_label.Location = new System.Drawing.Point(1012, 109);
             this.Gender_label.Margin = new System.Windows.Forms.Padding(0);
@@ -812,7 +812,7 @@ namespace MyWorkApplication
             this.Partnership_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Partnership_label.AutoSize = true;
             this.Partnership_label.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel3.SetColumnSpan(this.Partnership_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.Partnership_label, 2);
             this.Partnership_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.Partnership_label.Location = new System.Drawing.Point(974, 4);
             this.Partnership_label.Margin = new System.Windows.Forms.Padding(0);
@@ -1127,7 +1127,7 @@ namespace MyWorkApplication
             this.ProjectStreet_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ProjectStreet_label.AutoSize = true;
             this.ProjectStreet_label.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel3.SetColumnSpan(this.ProjectStreet_label, 2);
+            this.filters_tableLayoutPanel.SetColumnSpan(this.ProjectStreet_label, 2);
             this.ProjectStreet_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ProjectStreet_label.Location = new System.Drawing.Point(351, 109);
             this.ProjectStreet_label.Margin = new System.Windows.Forms.Padding(0);
@@ -1471,7 +1471,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.16274F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 157F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel1.ContextMenuStrip = this.contextMenuStrip1;
             this.tableLayoutPanel1.Controls.Add(this.ShowHide_button, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.label16, 2, 0);
@@ -1488,19 +1488,6 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1262, 44);
             this.tableLayoutPanel1.TabIndex = 496;
             // 
-            // LastVisit_checkBox
-            // 
-            this.LastVisit_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.LastVisit_checkBox.AutoSize = true;
-            this.LastVisit_checkBox.Location = new System.Drawing.Point(839, 6);
-            this.LastVisit_checkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.LastVisit_checkBox.Name = "LastVisit_checkBox";
-            this.LastVisit_checkBox.Size = new System.Drawing.Size(110, 31);
-            this.LastVisit_checkBox.TabIndex = 552;
-            this.LastVisit_checkBox.Text = "Last Visit";
-            this.LastVisit_checkBox.UseVisualStyleBackColor = true;
-            this.LastVisit_checkBox.CheckedChanged += new System.EventHandler(this.LastVisit_checkBox_CheckedChanged);
-            // 
             // ApplyFilter_button
             // 
             this.ApplyFilter_button.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -1513,7 +1500,7 @@ namespace MyWorkApplication
             this.ApplyFilter_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ApplyFilter_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ApplyFilter_button.ForeColor = System.Drawing.Color.LightGray;
-            this.ApplyFilter_button.Location = new System.Drawing.Point(960, 5);
+            this.ApplyFilter_button.Location = new System.Drawing.Point(956, 5);
             this.ApplyFilter_button.Margin = new System.Windows.Forms.Padding(0);
             this.ApplyFilter_button.MaximumSize = new System.Drawing.Size(110, 34);
             this.ApplyFilter_button.MinimumSize = new System.Drawing.Size(110, 34);
@@ -1526,17 +1513,30 @@ namespace MyWorkApplication
             this.ApplyFilter_button.MouseEnter += new System.EventHandler(this.ApplyFilter_button_MouseEnter);
             this.ApplyFilter_button.MouseLeave += new System.EventHandler(this.ApplyFilter_button_MouseLeave);
             // 
+            // LastVisit_checkBox
+            // 
+            this.LastVisit_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.LastVisit_checkBox.AutoSize = true;
+            this.LastVisit_checkBox.Location = new System.Drawing.Point(835, 6);
+            this.LastVisit_checkBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LastVisit_checkBox.Name = "LastVisit_checkBox";
+            this.LastVisit_checkBox.Size = new System.Drawing.Size(110, 31);
+            this.LastVisit_checkBox.TabIndex = 552;
+            this.LastVisit_checkBox.Text = "Last Visit";
+            this.LastVisit_checkBox.UseVisualStyleBackColor = true;
+            this.LastVisit_checkBox.CheckedChanged += new System.EventHandler(this.LastVisit_checkBox_CheckedChanged);
+            // 
             // Returned_sp_label
             // 
             this.Returned_sp_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Returned_sp_label.AutoSize = true;
             this.Returned_sp_label.BackColor = System.Drawing.Color.Transparent;
             this.Returned_sp_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Returned_sp_label.Location = new System.Drawing.Point(415, 24);
+            this.Returned_sp_label.Location = new System.Drawing.Point(411, 24);
             this.Returned_sp_label.Margin = new System.Windows.Forms.Padding(0);
             this.Returned_sp_label.Name = "Returned_sp_label";
             this.Returned_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Returned_sp_label.Size = new System.Drawing.Size(178, 22);
+            this.Returned_sp_label.Size = new System.Drawing.Size(176, 22);
             this.Returned_sp_label.TabIndex = 481;
             this.Returned_sp_label.Text = "00,000,000,000";
             this.Returned_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1548,11 +1548,11 @@ namespace MyWorkApplication
             this.Returned_usd_label.AutoSize = true;
             this.Returned_usd_label.BackColor = System.Drawing.Color.Transparent;
             this.Returned_usd_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Returned_usd_label.Location = new System.Drawing.Point(415, 47);
+            this.Returned_usd_label.Location = new System.Drawing.Point(411, 47);
             this.Returned_usd_label.Margin = new System.Windows.Forms.Padding(0);
             this.Returned_usd_label.Name = "Returned_usd_label";
             this.Returned_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Returned_usd_label.Size = new System.Drawing.Size(178, 24);
+            this.Returned_usd_label.Size = new System.Drawing.Size(176, 24);
             this.Returned_usd_label.TabIndex = 485;
             this.Returned_usd_label.Text = "00,000,000,000";
             this.Returned_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1564,11 +1564,11 @@ namespace MyWorkApplication
             this.Net_sp_label.AutoSize = true;
             this.Net_sp_label.BackColor = System.Drawing.Color.Transparent;
             this.Net_sp_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Net_sp_label.Location = new System.Drawing.Point(594, 24);
+            this.Net_sp_label.Location = new System.Drawing.Point(588, 24);
             this.Net_sp_label.Margin = new System.Windows.Forms.Padding(0);
             this.Net_sp_label.Name = "Net_sp_label";
             this.Net_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Net_sp_label.Size = new System.Drawing.Size(178, 22);
+            this.Net_sp_label.Size = new System.Drawing.Size(176, 22);
             this.Net_sp_label.TabIndex = 482;
             this.Net_sp_label.Text = "00,000,000,000";
             this.Net_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1580,11 +1580,11 @@ namespace MyWorkApplication
             this.Net_usd_label.AutoSize = true;
             this.Net_usd_label.BackColor = System.Drawing.Color.Transparent;
             this.Net_usd_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Net_usd_label.Location = new System.Drawing.Point(594, 47);
+            this.Net_usd_label.Location = new System.Drawing.Point(588, 47);
             this.Net_usd_label.Margin = new System.Windows.Forms.Padding(0);
             this.Net_usd_label.Name = "Net_usd_label";
             this.Net_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Net_usd_label.Size = new System.Drawing.Size(178, 24);
+            this.Net_usd_label.Size = new System.Drawing.Size(176, 24);
             this.Net_usd_label.TabIndex = 486;
             this.Net_usd_label.Text = "00,000,000,000";
             this.Net_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1596,11 +1596,11 @@ namespace MyWorkApplication
             this.RepayLoans_sp_label.AutoSize = true;
             this.RepayLoans_sp_label.BackColor = System.Drawing.Color.Transparent;
             this.RepayLoans_sp_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.RepayLoans_sp_label.Location = new System.Drawing.Point(773, 24);
+            this.RepayLoans_sp_label.Location = new System.Drawing.Point(765, 24);
             this.RepayLoans_sp_label.Margin = new System.Windows.Forms.Padding(0);
             this.RepayLoans_sp_label.Name = "RepayLoans_sp_label";
             this.RepayLoans_sp_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RepayLoans_sp_label.Size = new System.Drawing.Size(178, 22);
+            this.RepayLoans_sp_label.Size = new System.Drawing.Size(176, 22);
             this.RepayLoans_sp_label.TabIndex = 487;
             this.RepayLoans_sp_label.Text = "00,000,000,000";
             this.RepayLoans_sp_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1612,11 +1612,11 @@ namespace MyWorkApplication
             this.RepayLoans_usd_label.AutoSize = true;
             this.RepayLoans_usd_label.BackColor = System.Drawing.Color.Transparent;
             this.RepayLoans_usd_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.RepayLoans_usd_label.Location = new System.Drawing.Point(773, 47);
+            this.RepayLoans_usd_label.Location = new System.Drawing.Point(765, 47);
             this.RepayLoans_usd_label.Margin = new System.Windows.Forms.Padding(0);
             this.RepayLoans_usd_label.Name = "RepayLoans_usd_label";
             this.RepayLoans_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RepayLoans_usd_label.Size = new System.Drawing.Size(178, 24);
+            this.RepayLoans_usd_label.Size = new System.Drawing.Size(176, 24);
             this.RepayLoans_usd_label.TabIndex = 488;
             this.RepayLoans_usd_label.Text = "00,000,000,000";
             this.RepayLoans_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1632,7 +1632,7 @@ namespace MyWorkApplication
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label2.Size = new System.Drawing.Size(178, 22);
+            this.label2.Size = new System.Drawing.Size(176, 22);
             this.label2.TabIndex = 489;
             this.label2.Text = "Loans";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1644,11 +1644,11 @@ namespace MyWorkApplication
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label3.Location = new System.Drawing.Point(236, 1);
+            this.label3.Location = new System.Drawing.Point(234, 1);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label3.Size = new System.Drawing.Size(178, 22);
+            this.label3.Size = new System.Drawing.Size(176, 22);
             this.label3.TabIndex = 490;
             this.label3.Text = "Repayments";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1660,11 +1660,11 @@ namespace MyWorkApplication
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label9.Location = new System.Drawing.Point(415, 1);
+            this.label9.Location = new System.Drawing.Point(411, 1);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label9.Size = new System.Drawing.Size(178, 22);
+            this.label9.Size = new System.Drawing.Size(176, 22);
             this.label9.TabIndex = 491;
             this.label9.Text = "Returned";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1676,11 +1676,11 @@ namespace MyWorkApplication
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label10.Location = new System.Drawing.Point(594, 1);
+            this.label10.Location = new System.Drawing.Point(588, 1);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label10.Size = new System.Drawing.Size(178, 22);
+            this.label10.Size = new System.Drawing.Size(176, 22);
             this.label10.TabIndex = 492;
             this.label10.Text = "Net Repayments";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1692,11 +1692,11 @@ namespace MyWorkApplication
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label12.Location = new System.Drawing.Point(773, 1);
+            this.label12.Location = new System.Drawing.Point(765, 1);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
             this.label12.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label12.Size = new System.Drawing.Size(178, 22);
+            this.label12.Size = new System.Drawing.Size(176, 22);
             this.label12.TabIndex = 493;
             this.label12.Text = "Repayment Loans";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1746,7 +1746,7 @@ namespace MyWorkApplication
             this.Financial_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
             this.Financial_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
             this.Financial_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
-            this.Financial_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
+            this.Financial_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.Financial_tableLayoutPanel.ContextMenuStrip = this.contextMenuStrip1;
             this.Financial_tableLayoutPanel.Controls.Add(this.label14, 0, 1);
             this.Financial_tableLayoutPanel.Controls.Add(this.label17, 0, 2);
@@ -1788,11 +1788,11 @@ namespace MyWorkApplication
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label13.Location = new System.Drawing.Point(952, 1);
+            this.label13.Location = new System.Drawing.Point(942, 1);
             this.label13.Margin = new System.Windows.Forms.Padding(0);
             this.label13.Name = "label13";
             this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label13.Size = new System.Drawing.Size(178, 22);
+            this.label13.Size = new System.Drawing.Size(176, 22);
             this.label13.TabIndex = 494;
             this.label13.Text = "Repayments balance";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1803,11 +1803,11 @@ namespace MyWorkApplication
             this.Remaining_usd_label.AutoSize = true;
             this.Remaining_usd_label.BackColor = System.Drawing.Color.Transparent;
             this.Remaining_usd_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Remaining_usd_label.Location = new System.Drawing.Point(952, 47);
+            this.Remaining_usd_label.Location = new System.Drawing.Point(942, 47);
             this.Remaining_usd_label.Margin = new System.Windows.Forms.Padding(0);
             this.Remaining_usd_label.Name = "Remaining_usd_label";
             this.Remaining_usd_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Remaining_usd_label.Size = new System.Drawing.Size(178, 24);
+            this.Remaining_usd_label.Size = new System.Drawing.Size(176, 24);
             this.Remaining_usd_label.TabIndex = 484;
             this.Remaining_usd_label.Text = "00,000,000,000";
             this.Remaining_usd_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2245,8 +2245,8 @@ namespace MyWorkApplication
             this.tableLayoutPanel2.PerformLayout();
             this.exportExcel_contextMenuStrip.ResumeLayout(false);
             this.Search_panel.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
+            this.filters_tableLayoutPanel.ResumeLayout(false);
+            this.filters_tableLayoutPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.Financial_tableLayoutPanel.ResumeLayout(false);
@@ -2326,7 +2326,7 @@ namespace MyWorkApplication
         private System.Windows.Forms.TextBox FundedFrom_textBox;
         private System.Windows.Forms.TextBox RequestedTo_textBox;
         private System.Windows.Forms.TextBox FundedTo_textBox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel filters_tableLayoutPanel;
         private System.Windows.Forms.Label Type_label;
         private System.Windows.Forms.Label DonorGroup_label;
         private System.Windows.Forms.Label MaritalStatus_label;

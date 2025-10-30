@@ -3627,14 +3627,12 @@ namespace MyWorkApplication
 
         private void clearAllFiltersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Visits_comboBox.Text 
-            Category_comboBox.Text = SubCategory_comboBox.Text = Career_comboBox.Text
-                = Type_comboBox.Text = SubType_comboBox.Text
-                = Partnership_comboBox.Text = FundType_comboBox.Text
-                = MP_Status_comboBox.Text = Donor_comboBox.Text = DonorGroup_comboBox.Text
-                = P_Parish_comboBox.Text = Age_comboBox.Text = Gender_comboBox.Text = MaritalStatus_comboBox.Text
-                = HomeStreet_comboBox.Text = ProjectStreet_comboBox.Text
-                = ApplyDate_comboBox.Text = FundDate_comboBox.Text = "";
+            //clear checkboxComboboxes
+            foreach (System.Windows.Forms.Control ctrl in filters_tableLayoutPanel.Controls)
+            {
+                if (ctrl is PresentationControls.CheckBoxComboBox cb)
+                    cb.ClearSelection();
+            }
 
             RequestedFrom_textBox.Text = RequestedTo_textBox.Text
                 = FundedFrom_textBox.Text = FundedTo_textBox.Text = "";

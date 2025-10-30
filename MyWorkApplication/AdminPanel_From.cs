@@ -2089,11 +2089,13 @@ namespace MyWorkApplication
         }
         private void clearAllFiltersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Type_comboBox.Text = Donor_comboBox.Text = DonorGroup_comboBox.Text
-                = Category_comboBox.Text = SubCategory_comboBox.Text
-                = Career_comboBox.Text = ApplyDate_comboBox.Text = FundDate_comboBox.Text = StateReason_comboBox.Text
-                = P_Parish_comboBox.Text = Age_comboBox.Text = Gender_comboBox.Text = MaritalStatus_comboBox.Text = "";
-            RequestedFrom_textBox.Text = RequestedTo_textBox.Text = FundedFrom_textBox.Text = FundedTo_textBox.Text = "";
+            //clear checkboxComboboxes
+            foreach (System.Windows.Forms.Control ctrl in filters_tableLayoutPanel.Controls)
+            {
+                if (ctrl is PresentationControls.CheckBoxComboBox cb)
+                    cb.ClearSelection();
+            }
+
             State = "";
 
             ApplyDate_condition = FundedDate_condition

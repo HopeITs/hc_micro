@@ -953,8 +953,7 @@ namespace MyWorkApplication
                     ", (select count(DISTINCT microproject.MP_ID) " +
                              inner_from + condition +
                              " and State_ID in (4,5,7,8) " +
-                             " and Current_State = 1 " +
-                " and MP.MP_Donor = microproject.MP_Donor ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
+                             " and MP.MP_Donor = microproject.MP_Donor ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
 
                 var GroupBycondition = " group by donor.Name ";
                 query += from + condition + GroupBycondition + ";";
@@ -994,49 +993,74 @@ namespace MyWorkApplication
         {
             try
             {
-                 
+                condition += " and Loan_Amount is not null ";
                 string query = @"Select case 
+WHEN ExchangeRate = 0 THEN 'ExchangeRate = 0'  
+
+WHEN Round( (CASE Currency 
+    WHEN 'SP'  THEN Loan_Amount / ExchangeRate
+    WHEN 'USD' THEN Loan_Amount 
+    END) , 2 ) <= 0 THEN 'lees or equal to 0' 
+
  WHEN Round( (CASE Currency 
     WHEN 'SP'  THEN Loan_Amount / ExchangeRate
     WHEN 'USD' THEN Loan_Amount 
-    END) , 2 ) BETWEEN 0 AND 1000 THEN '0-1000' 
- WHEN Round( (CASE Currency 
+    END) , 2 ) BETWEEN 1 AND 1000 THEN '1-1000' 
+ 
+WHEN Round( (CASE Currency 
     WHEN 'SP'  THEN Loan_Amount / ExchangeRate
     WHEN 'USD' THEN Loan_Amount 
     END) , 2 ) BETWEEN 1001 AND 2000 THEN '1001-2000' 
+
  WHEN Round( (CASE Currency 
     WHEN 'SP'  THEN Loan_Amount / ExchangeRate
     WHEN 'USD' THEN Loan_Amount 
     END) , 2 ) BETWEEN 2001 AND 3000 THEN '2001-3000' 
+
  WHEN Round( (CASE Currency 
     WHEN 'SP'  THEN Loan_Amount / ExchangeRate
     WHEN 'USD' THEN Loan_Amount 
     END) , 2 ) BETWEEN 3001 AND 4000 THEN '3001-4000' 
+
  WHEN Round( (CASE Currency 
     WHEN 'SP'  THEN Loan_Amount / ExchangeRate
     WHEN 'USD' THEN Loan_Amount 
     END) , 2 ) BETWEEN 4001 AND 5000 THEN '4001-5000' 
+
  WHEN Round( (CASE Currency 
     WHEN 'SP'  THEN Loan_Amount / ExchangeRate
     WHEN 'USD' THEN Loan_Amount 
-    END) , 2 ) BETWEEN 5001 AND 5000 THEN '5001-5000' 
+    END) , 2 ) BETWEEN 5001 AND 6000 THEN '5001-6000' 
+
  WHEN Round( (CASE Currency 
     WHEN 'SP'  THEN Loan_Amount / ExchangeRate
     WHEN 'USD' THEN Loan_Amount 
-    END) , 2 ) BETWEEN 6001 AND 7000 THEN '6001-7000' 
-ELSE '>7000' END as FundAmountRange "
+    END) , 2 ) >6000 THEN 'more than 6000' 
+END as FundAmountRange "
 
                     + ", count(DISTINCT MP_ID) as numOfProjects "
                     + ", (select count(DISTINCT microproject.MP_ID) "
                             + inner_from + condition +
                             " and State_ID in (4,5,7,8) " +
-                            " and Current_State = 1 " +
-                            " and YEAR(L.Loan_Amount) = YEAR(loan.Loan_Amount) ) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
+@" AND (CASE
+            WHEN ExchangeRate = 0 THEN 'ExchangeRate = 0'  
+            WHEN ROUND(CASE Currency WHEN 'SP' THEN Loan_Amount / ExchangeRate WHEN 'USD' THEN Loan_Amount END, 2) <= 0 THEN 'lees or equal to 0'
+            WHEN ROUND(CASE Currency WHEN 'SP' THEN Loan_Amount / ExchangeRate WHEN 'USD' THEN Loan_Amount END, 2) BETWEEN 1 AND 1000 THEN '1-1000'
+            WHEN ROUND(CASE Currency WHEN 'SP' THEN Loan_Amount / ExchangeRate WHEN 'USD' THEN Loan_Amount END, 2) BETWEEN 1001 AND 2000 THEN '1001-2000'
+            WHEN ROUND(CASE Currency WHEN 'SP' THEN Loan_Amount / ExchangeRate WHEN 'USD' THEN Loan_Amount END, 2) BETWEEN 2001 AND 3000 THEN '2001-3000'
+            WHEN ROUND(CASE Currency WHEN 'SP' THEN Loan_Amount / ExchangeRate WHEN 'USD' THEN Loan_Amount END, 2) BETWEEN 3001 AND 4000 THEN '3001-4000'
+            WHEN ROUND(CASE Currency WHEN 'SP' THEN Loan_Amount / ExchangeRate WHEN 'USD' THEN Loan_Amount END, 2) BETWEEN 4001 AND 5000 THEN '4001-5000'
+            WHEN ROUND(CASE Currency WHEN 'SP' THEN Loan_Amount / ExchangeRate WHEN 'USD' THEN Loan_Amount END, 2) BETWEEN 5001 AND 6000 THEN '5001-6000'
+            WHEN ROUND(CASE Currency WHEN 'SP' THEN Loan_Amount / ExchangeRate WHEN 'USD' THEN Loan_Amount END, 2) > 6000 THEN 'more than 6000'
+        END
+   ) = FundAmountRange
+) as numOfFundedProjects "; //مقسمين نفس التقسيمة 
 
                 var GroupBycondition = @" 
     GROUP BY FundAmountRange 
     ORDER BY FIELD(FundAmountRange ,
-    '0-1000', '1001-2000', '2001-3000', '3001-4000', '4001-5000', '5001-6000', '6001-7000', '>7000')";
+'ExchangeRate = 0', 'lees or equal to 0', '1-1000', '1001-2000', '2001-3000', 
+'3001-4000', '4001-5000', '5001-6000', 'more than 6000')";
 
                 query += from + condition + GroupBycondition + ";";
 
@@ -1840,19 +1864,15 @@ END AS SustainabilityRange "
         private void clearAllFiltersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             user_mode = false;
-            FundType_comboBox.Text = Type_comboBox.Text
-                = SubType_comboBox.Text = Partnership_comboBox.Text
-                = MP_Status_comboBox.Text = Donor_comboBox.Text
-                = DonorGroup_comboBox.Text = Career_comboBox.Text
-                = ApplyDate_comboBox.Text = FundDate_comboBox.Text
-                = Category_comboBox.Text = SubCategory_comboBox.Text
-                = P_Parish_comboBox.Text = Age_comboBox.Text
-                = Gender_comboBox.Text = MaritalStatus_comboBox.Text
-                = HomeStreet_comboBox.Text = ProjectStreet_comboBox.Text = "";
-
+            //clear checkboxComboboxes
+            foreach (System.Windows.Forms.Control ctrl in filters_tableLayoutPanel.Controls)
+            {
+                if (ctrl is PresentationControls.CheckBoxComboBox cb)
+                    cb.ClearSelection();
+            }
+            
             FundedDate_checkBox.Checked = ApplyDate_checkBox.Checked = false;
-            //Funded_checkBox.Checked = Requested_checkBox.Checked = 
-
+            
             RequestedFrom_textBox.Text = RequestedTo_textBox.Text
                 = FundedFrom_textBox.Text = FundedTo_textBox.Text = "";
 
