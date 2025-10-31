@@ -398,13 +398,8 @@ namespace MyWorkApplication
                         //amount 
                         if (project_dt.Rows[0]["Loan Amount"] != DBNull.Value)
                         {
-                            var dd = Convert.ToDouble(project_dt.Rows[0]["Loan Amount"].ToString());
-                            if (project_dt.Rows[0]["Currency"].ToString() == "SP")
-                            {
-
-                            }
-
-
+                            var dd = Convert.ToDecimal(project_dt.Rows[0]["Loan Amount"].ToString());
+                            
                             LoanAmount_textBox.Text = dd.ToString();
                             Loan = LoanAmount_textBox.Text;
                         }
@@ -1133,11 +1128,11 @@ namespace MyWorkApplication
 
             // المبلغ الكلي
             var Amount = LoanAmount_textBox.Text.Replace(",", "");
-            var loan_amount = Convert.ToDouble(Amount);
+            var loan_amount = Convert.ToDecimal(Amount);
             // سعر الصرف
-            var exchange_rate = Convert.ToDouble(ExchangeRate_textBox.Text);
+            var exchange_rate = Convert.ToDecimal(ExchangeRate_textBox.Text);
             // المبلغ بالعملة المقابلة
-            var opp_Amount = 0.0;
+            var opp_Amount = loan_amount;
             if (Currency_comboBox.SelectedItem.ToString() == "SP")
                 opp_Amount = loan_amount / exchange_rate;
             else
@@ -1158,7 +1153,7 @@ namespace MyWorkApplication
             Return_amount = Convert.ToDouble(Amount);
 
             // النسبة
-            var rate = Return_amount * 100 / loan_amount;
+            var rate = (decimal)Return_amount * 100 / loan_amount;
              
             // عدد الدفعات الكلي //
             all_pay_count = (decimal)Return_amount / (decimal)payment_amount;

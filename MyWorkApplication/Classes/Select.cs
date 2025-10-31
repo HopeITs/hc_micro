@@ -570,14 +570,14 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
     ,L.Currency as 'عملة القرض'
     ,L.ExchangeRate as 'سعر الصرف'
 
-    ,CASE 
+    ,Round(CASE 
         WHEN Currency = 'SP'  THEN Loan_Amount
         WHEN Currency = 'USD' THEN Loan_Amount * ExchangeRate
-    END AS 'القرض (sp)',
-    CASE 
+    END,2) AS 'القرض (sp)'
+    ,Round(CASE 
         WHEN Currency = 'SP'  THEN Loan_Amount / ExchangeRate
         WHEN Currency = 'USD' THEN Loan_Amount
-    END AS 'القرض (usd)'
+    END,2) AS 'القرض (usd)'
 
     ,Round((L.Loan_ReturnedAmount * 100)/L.Loan_Amount, 2 ) as 'نسبة الاسترجاع' 
     ,L.Loan_ReturnedAmount as 'المبلغ المطلوب استرداده'

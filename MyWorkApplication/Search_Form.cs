@@ -1332,7 +1332,7 @@ namespace MyWorkApplication
                 = MP_dataGridView.Columns["القسط"].DefaultCellStyle.Format
                 = MP_dataGridView.Columns["المبلغ المدفوع"].DefaultCellStyle.Format
                 = MP_dataGridView.Columns["المبلغ المتبقي"].DefaultCellStyle.Format
-                = MP_dataGridView.Columns["المبلغ المطلوب استرداده"].DefaultCellStyle.Format = "#,##0";
+                = MP_dataGridView.Columns["المبلغ المطلوب استرداده"].DefaultCellStyle.Format = "N2";
 
             MP_dataGridView.Columns["عدد الدفعات المتبقية"].DefaultCellStyle.Format = "N1";
 
