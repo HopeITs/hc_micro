@@ -1,6 +1,8 @@
 ﻿using ClosedXML.Excel;
 using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.EMMA;
 using DocumentFormat.OpenXml.Math;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Vml.Office;
 using DocumentFormat.OpenXml.Wordprocessing;
@@ -16,9 +18,11 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 using static Google.Protobuf.Reflection.UninterpretedOption.Types;
 using DataTable = System.Data.DataTable;
@@ -153,8 +157,8 @@ namespace MyWorkApplication
 
                 searchBy_list.Add("Work Experiences"); 
                 searchBy_list.Add("Courses");
-                searchBy_list.Add("Educations");
-                searchBy_list.Add("Goals"); //20
+                searchBy_list.Add("Goals");         
+                searchBy_list.Add("Educations");   //20
 
                 //searchBy_list.Add("Materials Purchased");
 
@@ -265,7 +269,7 @@ namespace MyWorkApplication
                     bind_project_tables();
 
                 //B. Aid Sources 
-                //B. Assets  //B. Cources     //B. Educations 
+                //B. Assets  //B. Cources     
                 //B. Goals   //B. Relief Aids //B. Illnes & Medical Needs 
                 //B. Losses  //B. Home Power Sources 
                 //B. Current Works //B. Work Experiences
@@ -278,9 +282,11 @@ namespace MyWorkApplication
                 || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(16))
                 || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(17))
                 || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(18))
-                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(19))
-                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(20)))
+                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(19)))
                     bind_person_tables();
+                //B. Educations 
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(20))
+                    bind_Educations();
 
                 tick++;
                 // Use of the DataGridViewColumnSelector
@@ -752,6 +758,7 @@ namespace MyWorkApplication
                   || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(17))
                   || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(18))
                   || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(19))
+                  || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(20))
             ) {
                 FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
                     MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
@@ -1221,32 +1228,25 @@ namespace MyWorkApplication
 
         private void FamilyMember_bind()
         {
-            string query = " select p.P_ID as 'رقم الفرد'"
-                         + ",pf.Family_ID as 'رقم العائلة'"
-                         + ",f.F_Number as 'رقم دفتر العائلة'"
-                         + ",CONCAT(P_FirstName, ' ' , P_LastName , ' ابن/ة ', P_FatherName) as 'المستفيد'"
-                         + ",P_MotherName as 'اسم الأم'"
-                         + ",maritalstatus.Name as 'الحالة الاجتماعية'"
-                         + ",relation.Name as 'الصفة'"
-                         + ",personstate.Name as 'الحالة'"
-                         + ",pf.Work_Name as 'العمل'"
-                         + ",p.P_DOB as 'تاريخ الولادة'"
-                         + ",PMP.MicroProject_ID as 'رقم المشروع'"
-                         + ",career.Name as 'المهنة'"
-                         + ",career.Name_en as 'Career'"
+            string query = @" select p.P_ID as 'رقم الفرد'
+, f.F_Number as 'رقم دفتر العائلة'
+, CONCAT(P_FirstName, ' ' , P_LastName) as 'الفرد'
+, P_FatherName as 'اسم الأب'
+, P_MotherName as 'اسم الأم'
 
-                         + @",(select state.Name_Ar from state 
- left join microproject_state mps on state.ID = mps.State_ID
- where mps.MicroProject_ID = PMP.MicroProject_ID 
- and mps.Current_State = 1 limit 1) as 'حالة المشروع'
-    
-                            ,(select mps.Date from microproject_state mps 
- where mps.MicroProject_ID = PMP.MicroProject_ID
- and mps.Current_State = 1 limit 1) as 'تاريخ الحالة' "
+, relation.Name as 'الصفة'
+, p.P_NationalNumber as 'الرقم الوطني'
+, p.P_DOB as 'تاريخ الولادة'
+, personstate.Name as 'حالة الإقامة'
 
-                         + ",pf.P_Provider_ID as 'رقم المستفيد'"
+, case pf.HasWork when 1 then 'نعم' when 0 then 'لا' else '' end as 'يعمل'
+, pf.Work_Name as 'العمل'
 
-                         + @" From `person` p 
+, PMP.MicroProject_ID as 'رقم المشروع'
+, pf.P_Provider_ID as 'رقم المستفيد'
+, pf.Family_ID as 'رقم العائلة'
+
+    From `person` p 
     left join `person_family` pf on p.P_ID = pf.Person_ID  
     left join `family` f on f.F_ID = pf.Family_ID 
     left join `person_microproject` PMP on PMP.Person_ID = p.P_ID 
@@ -1257,9 +1257,6 @@ namespace MyWorkApplication
     left join `career` on career.ID = microproject.Career_ID ";
 
             var i_cond = " where 1 ";
-            //if (family_ID != "") 
-            //    condition   = " where pf.Family_ID like CAST('" + family_ID + "' AS CHAR) "
-            //                + " and mps.Current_State = 1 "; 
             Check_Conditions(i_cond);
             query += condition;
 
@@ -1293,14 +1290,14 @@ namespace MyWorkApplication
             Program.MyConn.Close();
 
             MP_dataGridView.Columns["رقم العائلة"].Width = 60;
-            MP_dataGridView.Columns["رقم دفتر العائلة"].Width = MP_dataGridView.Columns["اسم الأم"].Width =
-                MP_dataGridView.Columns["الصفة"].Width = MP_dataGridView.Columns["الحالة الاجتماعية"].Width = 100;
+            //MP_dataGridView.Columns["رقم دفتر العائلة"].Width = MP_dataGridView.Columns["اسم الأم"].Width =
+            //    MP_dataGridView.Columns["الصفة"].Width = MP_dataGridView.Columns["الحالة الاجتماعية"].Width = 100;
 
             MP_dataGridView.Columns["رقم العائلة"].DefaultCellStyle.Alignment =
-            MP_dataGridView.Columns["الحالة"].DefaultCellStyle.Alignment =
+            //MP_dataGridView.Columns["الحالة"].DefaultCellStyle.Alignment =
                 MP_dataGridView.Columns["رقم دفتر العائلة"].DefaultCellStyle.Alignment =
                     MP_dataGridView.Columns["تاريخ الولادة"].DefaultCellStyle.Alignment =
-                        MP_dataGridView.Columns["الحالة الاجتماعية"].DefaultCellStyle.Alignment =
+                        //MP_dataGridView.Columns["الحالة الاجتماعية"].DefaultCellStyle.Alignment =
                             MP_dataGridView.Columns["الصفة"].DefaultCellStyle.Alignment =
                                     DataGridViewContentAlignment.MiddleCenter;
 
@@ -2140,20 +2137,6 @@ namespace MyWorkApplication
 ";
                 }
 
-                //Educations
-                if (SearchBy_comboBox.SelectedItem.ToString() == "Educations")
-                {
-                    tablename = "person_education";
-                    table_query = @"
-, (SELECT Name FROM educationlevel WHERE educationlevel.ID = `Level_ID` LIMIT 1) as 'التحصيل العلمي'
-, (SELECT educationtype.Name 
-    FROM educationtype 
-    left join education on educationtype.ID = education.Type_ID 
-    WHERE education.ID = mytable.`Education_ID` LIMIT 1) as 'الدرجة العلمية' 
-, (SELECT Name FROM education WHERE education.ID = mytable.`Education_ID` LIMIT 1) as 'الاختصاص' 
-";
-                }
-
                 //Goals
                 if (SearchBy_comboBox.SelectedItem.ToString() == "Goals")
                 {
@@ -2271,7 +2254,7 @@ namespace MyWorkApplication
  , CONCAT(P_FirstName, ' ', P_LastName) as 'الاسم' 
  , (SELECT Name FROM relation WHERE relation.ID =person_family.Relation_ID LIMIT 1) as 'الصفة' "
                     + table_query
-                    + @", mytable.Person_ID as 'رقم الشخص'
+                    + @", mytable.Person_ID as 'رقم الفرد'
  , mytable.ID as 'ID' ";
 
                 Check_Conditions(i_cond);
@@ -2298,7 +2281,7 @@ namespace MyWorkApplication
                 var dgc1 = MP_dataGridView.Columns["ID"];
                 dgc1.Visible = false;
 
-                var dgc2 = MP_dataGridView.Columns["رقم الشخص"];
+                var dgc2 = MP_dataGridView.Columns["رقم الفرد"];
                 dgc2.Visible = false;
 
                 //count rows
@@ -2312,6 +2295,93 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void bind_Educations()
+        {
+            try
+            {
+                var from = @" FROM person_family pf
+  LEFT JOIN person P ON P.P_ID = pf.Person_ID
+  LEFT JOIN person_microproject PMP ON PMP.Person_ID = pf.P_Provider_ID
+  LEFT JOIN person_education pe ON pe.Person_ID = pf.P_Provider_ID
+  left JOIN `microproject` MP on MP.MP_ID = PMP.MicroProject_ID 
+
+  left JOIN `category` C on MP.Category_ID = C.ID 
+  LEFT JOIN `subcategory` sub on MP.SubCategory_ID = sub.ID  
+  LEFT JOIN `career` on MP.Career_ID = career.ID   
+  LEFT JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
+  LEFT JOIN `state` on state.ID = mps.State_ID
+       
+  Left JOIN `donor` on donor.ID = MP.MP_Donor
+  LEFT JOIN `loan` L on L.MicroProject_ID = MP.MP_ID
+  LEFT JOIN `donorgroup` on donorgroup.ID = MP.DonorGroup_ID
+  LEFT JOIN `fundtype` on fundtype.ID = MP.MP_FundType_ID 
+  LEFT JOIN `microprojecttype` on microprojecttype.ID = MP.MP_Type_ID
+  LEFT JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID 
+";
+                //Each subquery uses COALESCE(pf.Education_ID, pe.Education_ID)
+                //              or COALESCE(pf.EducationLevel_ID, pe.Level_ID) so:
+                //If the family member has their own education info → use that.
+                //Otherwise → use the beneficiary’s education info.
+
+                string query = @"SELECT PMP.MicroProject_ID as 'رقم المشروع'
+ , CONCAT(P_FirstName, ' ', P_LastName) as 'الاسم' 
+ , (SELECT Name FROM relation WHERE relation.ID = pf.Relation_ID LIMIT 1) as 'الصفة' 
+ 
+, (SELECT Name FROM educationlevel 
+    WHERE educationlevel.ID = COALESCE(pf.EducationLevel_ID, pe.Level_ID) 
+    LIMIT 1 ) AS 'التحصيل العلمي'
+ 
+,(SELECT et.Name FROM educationtype et
+   LEFT JOIN education e ON et.ID = e.Type_ID
+   WHERE e.ID = COALESCE(pf.Education_ID, pe.Education_ID)
+   LIMIT 1) AS 'الدرجة العلمية'
+
+,(SELECT Name FROM education 
+  WHERE education.ID = COALESCE(pf.Education_ID, pe.Education_ID)
+  LIMIT 1) AS 'الاختصاص'
+
+ , pf.Person_ID as 'رقم الفرد' ";
+
+
+                var i_cond = " where COALESCE(pf.Education_ID, pe.Education_ID) is not null " +
+                    " and Current_State = 1  ";
+                Check_Conditions(i_cond);
+
+                query += from + condition;
+                query += " order by PMP.MicroProject_ID Desc; ";
+                
+                Program.buildConnection();
+                MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
+                sc.ExecuteNonQuery();
+                MySqlDataAdapter da = new MySqlDataAdapter(sc);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+
+                MP_dataGridView.DataSource = null;
+                MP_dataGridView.Columns.Clear();
+                MP_dataGridView.Rows.Clear();
+                MP_dataGridView.ColumnHeadersVisible = false;
+                MP_dataGridView.RowHeadersVisible = false;
+
+                bs.DataSource = ds.Tables[0];
+                MP_dataGridView.DataSource = bs;
+
+                var dgc2 = MP_dataGridView.Columns["رقم الفرد"];
+                dgc2.Visible = false;
+
+                //count rows
+                Count_label.Text = "All: " + ds.Tables[0].Rows.Count.ToString("#,##0");
+
+                MP_dataGridView.ColumnHeadersVisible = true;
+                MP_dataGridView.RowHeadersVisible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
 
         private void Bind_All_ComboBoxes()
         {
@@ -3324,7 +3394,7 @@ namespace MyWorkApplication
                             {
                                 PersonSelectedDataRow = ((DataRowView)MP_dataGridView.SelectedRows[i].DataBoundItem).Row;
                                 PIDs_array[i] = int.Parse(PersonSelectedDataRow["رقم الفرد"].ToString());
-                                P_Names_array[i] = PersonSelectedDataRow["المستفيد"].ToString();
+                                P_Names_array[i] = PersonSelectedDataRow["الفرد"].ToString();
                             }
                         }
 
