@@ -3853,7 +3853,17 @@ namespace MyWorkApplication
                 case 7:  Settings.Default.Search7_Visible_arr = value_str; break;
                 case 8:  Settings.Default.Search8_Visible_arr = value_str; break;
                 case 9:  Settings.Default.Search9_Visible_arr = value_str; break;
-                //case 10: Settings.Default.Search10_Visible_arr = value_str; break;
+                case 10: Settings.Default.Search10_Visible_arr = value_str; break;
+                case 11: Settings.Default.Search11_Visible_arr = value_str; break;
+                case 12: Settings.Default.Search12_Visible_arr = value_str; break;
+                case 13: Settings.Default.Search13_Visible_arr = value_str; break;
+                case 14: Settings.Default.Search14_Visible_arr = value_str; break;
+                case 15: Settings.Default.Search15_Visible_arr = value_str; break;
+                case 16: Settings.Default.Search16_Visible_arr = value_str; break;
+                case 17: Settings.Default.Search17_Visible_arr = value_str; break;
+                case 18: Settings.Default.Search18_Visible_arr = value_str; break;
+                case 19: Settings.Default.Search19_Visible_arr = value_str; break;
+                case 20: Settings.Default.Search20_Visible_arr = value_str; break;
             }  
             Settings.Default.Save();
         }
@@ -3875,7 +3885,17 @@ namespace MyWorkApplication
                     case 7:  saved = Settings.Default.Search7_Visible_arr; break;
                     case 8:  saved = Settings.Default.Search8_Visible_arr; break;
                     case 9:  saved = Settings.Default.Search9_Visible_arr; break;
-                    //case 10: saved = Settings.Default.Search10_Visible_arr; break;
+                    case 10: saved = Settings.Default.Search10_Visible_arr; break;
+                    case 11: saved = Settings.Default.Search11_Visible_arr; break;
+                    case 12: saved = Settings.Default.Search12_Visible_arr; break;
+                    case 13: saved = Settings.Default.Search13_Visible_arr; break;
+                    case 14: saved = Settings.Default.Search14_Visible_arr; break;
+                    case 15: saved = Settings.Default.Search15_Visible_arr; break;
+                    case 16: saved = Settings.Default.Search16_Visible_arr; break;
+                    case 17: saved = Settings.Default.Search17_Visible_arr; break;
+                    case 18: saved = Settings.Default.Search18_Visible_arr; break;
+                    case 19: saved = Settings.Default.Search19_Visible_arr; break;
+                    case 20: saved = Settings.Default.Search20_Visible_arr; break;
                     default: saved = ""; break;
                 }
 

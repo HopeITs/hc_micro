@@ -332,5 +332,125 @@ namespace MyWorkApplication.Properties {
                 this["Search10_Visible_arr"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Search11_Visible_arr {
+            get {
+                return ((string)(this["Search11_Visible_arr"]));
+            }
+            set {
+                this["Search11_Visible_arr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Search12_Visible_arr {
+            get {
+                return ((string)(this["Search12_Visible_arr"]));
+            }
+            set {
+                this["Search12_Visible_arr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Search13_Visible_arr {
+            get {
+                return ((string)(this["Search13_Visible_arr"]));
+            }
+            set {
+                this["Search13_Visible_arr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Search14_Visible_arr {
+            get {
+                return ((string)(this["Search14_Visible_arr"]));
+            }
+            set {
+                this["Search14_Visible_arr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Search15_Visible_arr {
+            get {
+                return ((string)(this["Search15_Visible_arr"]));
+            }
+            set {
+                this["Search15_Visible_arr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Search16_Visible_arr {
+            get {
+                return ((string)(this["Search16_Visible_arr"]));
+            }
+            set {
+                this["Search16_Visible_arr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Search17_Visible_arr {
+            get {
+                return ((string)(this["Search17_Visible_arr"]));
+            }
+            set {
+                this["Search17_Visible_arr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Search18_Visible_arr {
+            get {
+                return ((string)(this["Search18_Visible_arr"]));
+            }
+            set {
+                this["Search18_Visible_arr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Search19_Visible_arr {
+            get {
+                return ((string)(this["Search19_Visible_arr"]));
+            }
+            set {
+                this["Search19_Visible_arr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Search20_Visible_arr {
+            get {
+                return ((string)(this["Search20_Visible_arr"]));
+            }
+            set {
+                this["Search20_Visible_arr"] = value;
+            }
+        }
     }
 }
