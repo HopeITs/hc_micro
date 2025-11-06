@@ -1133,7 +1133,7 @@ namespace MyWorkApplication
             var exchange_rate = Convert.ToDecimal(ExchangeRate_textBox.Text);
             // المبلغ بالعملة المقابلة
             var opp_Amount = loan_amount;
-            if (Currency_comboBox.SelectedItem.ToString() == "SP")
+            if (Currency_comboBox.SelectedItem.ToString() == "SP" && exchange_rate != 0)
                 opp_Amount = loan_amount / exchange_rate;
             else
                 opp_Amount = loan_amount * exchange_rate;
