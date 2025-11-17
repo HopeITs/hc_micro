@@ -661,6 +661,7 @@ namespace MyWorkApplication
             HasHVisit_checkBox.Checked = false;
             HVisitDate_tableLayoutPanel.Enabled = false;
             //time
+            HVisitDate_dateTimePicker.Value = DateTime.Today;
             HVisitTime_textBox.Text = "";
             //visitors
             HVisit_Visitor1_comboBox.SelectedIndex = -1;
@@ -672,6 +673,7 @@ namespace MyWorkApplication
             HasPVisit_checkBox.Checked = false;
             PVisitDate_tableLayoutPanel.Enabled = false;
             //time
+            PVisitDate_dateTimePicker.Value = DateTime.Today;
             PVisitTime_textBox.Text = "";
             //visitors
             PVisit_Visitor1_comboBox.SelectedIndex = -1;
@@ -682,11 +684,36 @@ namespace MyWorkApplication
             ////visitsReport
             VisitsReport_textBox.Text = "";
 
+            //need pro test
+            NeedProTestYes_radioButton.Checked = NeedProTestNo_radioButton.Checked = false;
+            NeedProTestNote_textBox.Text = "";
+
+            //pro test
+            HasProTestYes_radioButton.Checked = HasProTestNo_radioButton.Checked = false;
+            ProTest_Date_dateTimePicker.Value = DateTime.Today;
+            ProTest_Note_textBox.Text = "";
+            ProTest_User_ID_comboBox.SelectedIndex = -1;
+            ProTest_ResultYes_radioButton.Checked = ProTest_ResultNo_radioButton.Checked = false;
+
+            //pro train
+            HasProTrainYes_radioButton.Checked = HasProTrainNo_radioButton.Checked = false;
+            ProTrain_BDate_dateTimePicker.Value = ProTrain_EDate_dateTimePicker.Value = DateTime.Today;
+            ProTrain_Trainer_textBox.Text = ProTrain_Place_textBox.Text 
+                = ProTrain_Note_textBox.Text = ProTrain_Result_textBox.Text = "";
+
+            //mng train
+            HasMngTrainYes_radioButton.Checked = HasMngTrainNo_radioButton.Checked = false;
+            MngTrain_Date_dateTimePicker.Value = DateTime.Today;
+            MngTrain_Trainer_textBox.Text = MngTrain_Place_textBox.Text
+                = MngTrain_Result_textBox.Text = "";
+
             ////team
-            TeamDate_checkBox.Checked = false; 
+            TeamDate_checkBox.Checked = false;
+            TeamDate_dateTimePicker.Value = DateTime.Today;
             ////commity 
-            CommityDate_checkBox.Checked = false; 
-            
+            CommityDate_checkBox.Checked = false;
+            CommityDate_dateTimePicker.Value = DateTime.Today;
+
             //Notes
             Notes_textBox.Text = "";
 
@@ -694,6 +721,7 @@ namespace MyWorkApplication
             RejectMsg_checkBox.Checked = false;
             RejectMsg_tableLayoutPanel.Enabled = false;
             RejectMsg_checkBox.Text = "لم يتم الارسال";
+            
             //sender
             RejectMsgSender_comboBox.SelectedIndex = -1;
             
