@@ -833,21 +833,18 @@ namespace MyWorkApplication
                 .Cells["Pay_RecievedOnDate"].Value;
                 Final_Visit_date = Final_Visit_date.AddDays(7);
 
-                //Send to M&E//
-                if (User_IDs.Count == 0)
-                    throw new InvalidOperationException("لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
-
-                foreach (var u in User_IDs)
-                    userNotification.Insert_UserNotification(Final_Visit_date.ToString("yyyy/MM/dd"), "Visit Closing-" + SubCategory,
+                ////Send to M&E//
+                //if (User_IDs.Count == 0)
+                //    throw new InvalidOperationException("لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
+                //foreach (var u in User_IDs)
+                int u = -1;  
+                userNotification.Insert_UserNotification(Final_Visit_date.ToString("yyyy/MM/dd"), "Visit Closing-" + SubCategory,
                         Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
 
-                //Send to Conmunication//
-                if (Communication_IDs.Count == 0)
-                    throw new InvalidOperationException("لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
-
-                foreach (var u in Communication_IDs)
+                //Send to Conmunication// 
+                foreach (var u1 in Communication_IDs)
                     userNotification.Insert_UserNotification(Final_Visit_date.ToString("yyyy/MM/dd"), "Visit (Trophy)" + SubCategory,
-                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -10);
+                        Person_Name_textBox.Text, MicroProject_ID, u1, Program.userID, -10);
 
                 l.Insert_Log("Insert Closing Visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
                         "Loan", Program.UserName, DateTime.Now);
