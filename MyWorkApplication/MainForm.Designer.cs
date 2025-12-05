@@ -40,6 +40,7 @@
             this.ProjectNumber_label = new System.Windows.Forms.Label();
             this.MP_ID_label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ProfilePicture_pictureBox = new OvalPictureBox();
             this.BottomLine_panel = new System.Windows.Forms.Panel();
             this.TopLine_panel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -140,9 +141,10 @@
             this.AboutUs_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FeedBack_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Manual_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ProfilePicture_pictureBox = new OvalPictureBox();
+            this.koboToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_Large_pictureBox)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -150,7 +152,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Home_panel)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -340,6 +341,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1262, 87);
             this.panel1.TabIndex = 415;
+            // 
+            // ProfilePicture_pictureBox
+            // 
+            this.ProfilePicture_pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ProfilePicture_pictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.ProfilePicture_pictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ProfilePicture_pictureBox.BackgroundImage")));
+            this.ProfilePicture_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ProfilePicture_pictureBox.Location = new System.Drawing.Point(952, 11);
+            this.ProfilePicture_pictureBox.MaximumSize = new System.Drawing.Size(68, 68);
+            this.ProfilePicture_pictureBox.MinimumSize = new System.Drawing.Size(64, 64);
+            this.ProfilePicture_pictureBox.Name = "ProfilePicture_pictureBox";
+            this.ProfilePicture_pictureBox.Size = new System.Drawing.Size(68, 64);
+            this.ProfilePicture_pictureBox.TabIndex = 427;
+            this.ProfilePicture_pictureBox.TabStop = false;
+            this.ProfilePicture_pictureBox.Click += new System.EventHandler(this.ProfilePicture_button_Click);
             // 
             // BottomLine_panel
             // 
@@ -1165,7 +1181,8 @@
             this.helpToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AboutUs_toolStripMenuItem,
             this.FeedBack_toolStripMenuItem,
-            this.Manual_toolStripMenuItem});
+            this.Manual_toolStripMenuItem,
+            this.koboToolStripMenuItem});
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
             this.helpToolStripMenuItem1.Size = new System.Drawing.Size(62, 29);
             this.helpToolStripMenuItem1.Text = "&Help";
@@ -1192,20 +1209,12 @@
             this.Manual_toolStripMenuItem.Text = "Read The Manual";
             this.Manual_toolStripMenuItem.Click += new System.EventHandler(this.readTheManualToolStripMenuItem_Click);
             // 
-            // ProfilePicture_pictureBox
+            // koboToolStripMenuItem
             // 
-            this.ProfilePicture_pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProfilePicture_pictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.ProfilePicture_pictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ProfilePicture_pictureBox.BackgroundImage")));
-            this.ProfilePicture_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ProfilePicture_pictureBox.Location = new System.Drawing.Point(952, 11);
-            this.ProfilePicture_pictureBox.MaximumSize = new System.Drawing.Size(68, 68);
-            this.ProfilePicture_pictureBox.MinimumSize = new System.Drawing.Size(64, 64);
-            this.ProfilePicture_pictureBox.Name = "ProfilePicture_pictureBox";
-            this.ProfilePicture_pictureBox.Size = new System.Drawing.Size(68, 64);
-            this.ProfilePicture_pictureBox.TabIndex = 427;
-            this.ProfilePicture_pictureBox.TabStop = false;
-            this.ProfilePicture_pictureBox.Click += new System.EventHandler(this.ProfilePicture_button_Click);
+            this.koboToolStripMenuItem.Name = "koboToolStripMenuItem";
+            this.koboToolStripMenuItem.Size = new System.Drawing.Size(233, 30);
+            this.koboToolStripMenuItem.Text = "kobo";
+            this.koboToolStripMenuItem.Click += new System.EventHandler(this.koboToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -1232,6 +1241,7 @@
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.Logo_Large_pictureBox)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -1244,7 +1254,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Home_panel)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1361,5 +1370,6 @@
         private System.Windows.Forms.ToolStripMenuItem keyPersonsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem commityMemberToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem purchasingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem koboToolStripMenuItem;
     }
 }

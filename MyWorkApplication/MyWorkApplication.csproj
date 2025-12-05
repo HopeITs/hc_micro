@@ -351,6 +351,8 @@
     <Compile Include="Classes\Encryption.cs" />
     <Compile Include="Classes\Images.cs" />
     <Compile Include="Classes\InputValidationHelpercs.cs" />
+    <Compile Include="Classes\KoboFormConfig.cs" />
+    <Compile Include="Classes\KoboMappers.cs" />
     <Compile Include="Classes\PasswordHelper.cs" />
     <Compile Include="Classes\Purchasing.cs" />
     <Compile Include="Classes\RehabApplication.cs" />
@@ -366,6 +368,7 @@
     <Compile Include="Classes\Statusses.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\VisitRehab.cs" />
+    <Compile Include="Classes\VisitsNew.cs" />
     <Compile Include="Classes\WorkExperience.cs" />
     <Compile Include="Controls\BCDateTimePicker.cs">
       <SubType>Component</SubType>
@@ -491,6 +494,12 @@
     </Compile>
     <Compile Include="QR_Form.Designer.cs">
       <DependentUpon>QR_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReadFromKobo_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReadFromKobo_Form.Designer.cs">
+      <DependentUpon>ReadFromKobo_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Search_Form.cs">
       <SubType>Form</SubType>
@@ -733,6 +742,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QR_Form.resx">
       <DependentUpon>QR_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReadFromKobo_Form.resx">
+      <DependentUpon>ReadFromKobo_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Search_Form.resx">
       <DependentUpon>Search_Form.cs</DependentUpon>

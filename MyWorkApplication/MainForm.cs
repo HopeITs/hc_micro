@@ -1486,7 +1486,21 @@ namespace MyWorkApplication
             }
         }
 
-       
+        private void koboToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form ff = new ReadFromKobo_Form();
+                ff.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+
 
 
 
