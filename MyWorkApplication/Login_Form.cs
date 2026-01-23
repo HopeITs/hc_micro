@@ -49,8 +49,7 @@ namespace MyWorkApplication
             try
             {
                 //Check Expire Date//
-                string today = DateTime.Now.ToString("yyyy/MM/dd");
-                if (today == Resources.Expired_Date)
+                if (DateTime.Today >= DateTime.Parse(Resources.Expired_Date))
                 {
                     MessageBox.Show("Program Expired - Contact Administrator", "Micro Projects", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     program_expired = true;
@@ -315,7 +314,8 @@ namespace MyWorkApplication
             //Program.MyFirstConn.Close();
             //return dt;
 
-            string query = "SELECT Password FROM `user` WHERE UserName = @username";
+            string query = "SELECT Password FROM `user` " +
+                " WHERE UserName = @username and user.UserRoleID <> 6; "; //not out of service
 
             using (var conn = Program.MyFirstConn)
             using (var cmd = new MySqlCommand(query, conn))

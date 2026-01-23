@@ -116,7 +116,7 @@ namespace MyWorkApplication.Classes
                     ", `UserRoleID` as 'Role_ID'" +
 
                     " from `user` left join `role` on user.UserRoleID = role.Role_ID ";
-            var condition = " where 1 ";
+            var condition = " where 1 "; 
             var orderBy = " order by UserName asc ";
 
             if (Name != "")
