@@ -596,6 +596,8 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
         ,0,((L.Loan_Amount * L.Loan_Rate / 100) - (select sum(`Pay_Amount`) from `payment` where `Pay_IsPaid` like N'Paid' and `Loan_ID` = L.Loan_ID))) )
         / L.Loan_PaymentsAmount ) as 'عدد الدفعات المتبقية'
 
+    ,(SELECT `Pay_DueDate` FROM `payment` WHERE `Loan_ID` = L.Loan_ID ORDER BY `payment`.`Pay_DueDate` ASC LIMIT 1) as 'تاريخ أول دفعة للمشروع'    
+    
     ,(SELECT `Pay_RecievedOnDate` FROM `payment` WHERE `Loan_ID` = L.Loan_ID and `Pay_IsPaid` like 'Paid' ORDER BY `payment`.`Pay_RecievedOnDate` DESC LIMIT 1) as 'تاريخ آخر دفعة مدفوعة'
 
     ,(SELECT `Pay_DueDate` FROM `payment` WHERE `Loan_ID` = L.Loan_ID and `Pay_IsPaid` like 'Not Paid'  AND state.Name_ar like 'ممول' ORDER BY `payment`.`Pay_DueDate` DESC LIMIT 1) as 'تاريخ الدفعة المستحقة'
