@@ -1,4 +1,5 @@
 ﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Bibliography;
 using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Properties;
@@ -31,6 +32,9 @@ namespace MyWorkApplication
         string Seen = "0";
         private string Original_Filter_String = "";
         BindingSource bs = new BindingSource();
+
+        string oldCellValue = "";
+        string editableColumnName = "ملاحظات";
 
         public Visits_Schedule_Form(MainForm main_form)
         {
@@ -113,6 +117,17 @@ namespace MyWorkApplication
                 bs.DataSource = dt;
                 MP_dataGridView.DataSource = bs;
 
+                // جعل جميع الأعمدة للقراءة فقط
+                foreach (DataGridViewColumn column in MP_dataGridView.Columns)
+                {
+                    column.ReadOnly = true;
+                }
+                // جعل عمود "ملاحظات" قابل للتعديل
+                if (MP_dataGridView.Columns.Contains("ملاحظات"))
+                {
+                    MP_dataGridView.Columns["ملاحظات"].ReadOnly = false;
+                }
+
                 MP_dataGridView.Columns["التاريخ"].DefaultCellStyle.Format = "yyyy/MM/dd";
 
                 DataGridViewColumn dgC1;
@@ -156,6 +171,7 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
+
 
         private void refreshPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -379,6 +395,66 @@ namespace MyWorkApplication
 
                         refreshPageToolStripMenuItem_Click(sender, e);
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        private void MP_dataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            try
+            {
+                // التحقق إذا كان العمود القابل للتعديل
+                if (MP_dataGridView.Columns[e.ColumnIndex].Name == editableColumnName)
+                {
+                    // حفظ القيمة القديمة قبل التعديل
+                    oldCellValue = MP_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                }
+                else
+                {
+                    e.Cancel = true; // منع التعديل في الأعمدة الأخرى
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void MP_dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // التحقق إذا كان العمود القابل للتعديل
+                if (MP_dataGridView.Columns[e.ColumnIndex].Name != editableColumnName)
+                    return;
+
+                string newValue = MP_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                string ID       = MP_dataGridView.Rows[e.RowIndex].Cells["ID"].Value.ToString();
+
+                // إذا لم يتغير القيمة، لا داعي لعمل شيء
+                if (string.Equals(oldCellValue, newValue))
+                    return;
+
+                // عرض رسالة تأكيد
+                DialogResult result = MessageBox.Show(
+                    $"هل تريد حفظ التعديل؟\n\nمن: {oldCellValue}\nإلى: {newValue}"
+                    , "تأكيد التعديل", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // حفظ التعديل في قاعدة البيانات
+                    noti.Update_Notification_Note(ID, newValue);
+                    l.Insert_Log("Update Visit Note to:"+ newValue + " of Notification ID:"+ID, "UserNotification",Program.UserName,DateTime.Now);
+                }
+                else
+                {
+                    // إرجاع القيمة القديمة
+                    MP_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = oldCellValue;
                 }
             }
             catch (Exception ex)

@@ -153,7 +153,23 @@ namespace MyWorkApplication.Classes
                 Program.MyConn.Close();
             }
         }
-  
+
+        public void Update_Notification_Note(string ID, string Note)
+        {
+
+            Program.buildConnection();
+            string query = "update `user_notification` set `Note` = @Note where `ID` = @ID ;";
+
+            using (var sc = new MySqlCommand(query, Program.MyConn))
+            {
+                sc.Parameters.AddWithValue("@ID", ID);
+                sc.Parameters.AddWithValue("@Note", Note);
+
+                sc.ExecuteNonQuery();
+                Program.MyConn.Close();
+            }
+        }
+
         public bool Has_Notifications(int MicroProject_ID, string Date, string Body, string P_Name, int Pay_ID, string Seen)
         {
             Program.buildConnection();
@@ -202,6 +218,7 @@ namespace MyWorkApplication.Classes
  , user_notification.`P_Name` as 'المستفيد'
  , state.Name_ar as 'حالة المشروع'
  , donor.Name_abb as 'الممول'
+ , microprojecttype.Name as 'نوع المشروع'
 
  , user_notification.`Body` as 'نوع الزيارة'
  , user_notification.`Date` as 'التاريخ'
@@ -224,7 +241,8 @@ namespace MyWorkApplication.Classes
     ELSE 'N/A' END 
  ) as 'حالة الزيارة'
 
- , Pay_ID 
+ , user_notification.Note as 'ملاحظات'
+ , user_notification.Pay_ID 
  
  from `user_notification` 
  left join `microproject` MP on MP.MP_ID = user_notification.MicroProject_ID
@@ -232,6 +250,7 @@ namespace MyWorkApplication.Classes
  left join `person` on person.P_ID = PMP.Person_ID
  LEFT JOIN `street` h_street on person.Street_ID = h_street.ID 
  LEFT join `street` w_street on w_street.ID = MP.MP_Street_ID 
+ LEFT join `microprojecttype` on microprojecttype.ID = MP.MP_Type_ID 
  LEFT JOIN `microproject_state` mps on mps.MicroProject_ID = MP.MP_ID
  Left Join `donor` on donor.ID = MP.MP_Donor
  LEFT JOIN `state` on state.ID = mps.State_ID ";
