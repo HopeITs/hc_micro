@@ -189,6 +189,7 @@ namespace MyWorkApplication
             catch (Exception ex)
             {
                 Console.Write(ex.Message);
+                MyConn.CloseAsync();
                 return false;
             }
         }

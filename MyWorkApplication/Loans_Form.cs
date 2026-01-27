@@ -823,6 +823,52 @@ namespace MyWorkApplication
             MessageBox.Show("تم توليد إشعارات زيارات المراقبة والتقييم الخاصة بهذا المشروع بنجاح");
         }
 
+        private void generate_me_solar_visits_notifications()
+        {
+            try
+            {
+                //Generate Opening Visit + M1 to M5 visits on saving the loan//
+                ///////////////////////////////////////////////////////////////
+
+                // زيارة الافتتاحية مع تاريخ التمويل
+                DateTime OpeningVisit_date = LoanDate_DateTimePicker.Value.AddDays(5);
+
+                //الزيارة الاولى  (M1) بعد الافتتاحية ب 4 أشهر
+                //الزيارة الثانية(M2) بعد الزيارة الأولى ب 4 اشهر
+                //الزيارة الثالثة(M3) بعد الزيارة الثانية ب 4 اشهر
+                //الزيارة الرابعة(M4) بعد الزيارة الثالثة ب 6 اشهر
+                //الزيارة الخامسة(M5) بعد الزيارة الرابعة ب 6 أشهر
+                DateTime M1_Visit_date = OpeningVisit_date.AddMonths(6);
+                DateTime M2_Visit_date = M1_Visit_date.AddMonths(6); 
+
+                //Send to M&E//
+                if (User_IDs.Count == 0)
+                    MessageBox.Show(
+                        "لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
+                else
+                //foreach (var u in User_IDs)
+                {
+                    //send it to user_id = null to save 1 version of notifications
+                    //with pay_id = -21 to know it as visit noti
+                    int u = -1; 
+                    userNotification.Insert_UserNotification(OpeningVisit_date.ToString("yyyy/MM/dd"), "Visit Opening-" + SubCategory + " (Solar)",
+                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+
+                    userNotification.Insert_UserNotification(M1_Visit_date.ToString("yyyy/MM/dd"), "Visit M1-" + SubCategory + " (Solar)",
+                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+                    userNotification.Insert_UserNotification(M2_Visit_date.ToString("yyyy/MM/dd"), "Visit M2-" + SubCategory + " (Solar)",
+                        Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21); 
+
+                }
+                l.Insert_Log("Insert (Solar) Opening Visit / M&E Visits notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
+                        "Loan", Program.UserName, DateTime.Now);
+
+                MessageBox.Show("تم توليد إشعار زيارة الافتتاحية وزيارات المراقبة والتقييم الخاصة بهذا المشروع بنجاح");
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+        }
+
         private void Send_Trophy_Notifications()
         {
             var dialogResult = MessageBox.Show("سيتم إرسال إشعار بالزيارة الختامية للمشروع، هل أنت متأكد من أن المستفيد انتهى من دفع أقساطه؟", "Delete", MessageBoxButtons.YesNo);
@@ -933,6 +979,8 @@ namespace MyWorkApplication
 
                         if (type.Contains("زراع"))
                             generate_me_agricultural_visits_notifications();
+                        else if(type.Contains("طاقة شمسية"))
+                            generate_me_solar_visits_notifications(); 
                         else
                             generate_me_visits_notifications();
                     }

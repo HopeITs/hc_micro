@@ -233,6 +233,9 @@ namespace MyWorkApplication
                         string password = Password_textBox.Text;
                         if(Check_User(username,password)) //user exist
                         { User_In_Database.Add(Centers[i].ToString()); }
+
+                        //IMPORTANT to close first connection
+                        Program.MyConn.Close();
                     }
                 }
 
