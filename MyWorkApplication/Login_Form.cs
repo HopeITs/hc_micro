@@ -235,7 +235,9 @@ namespace MyWorkApplication
                         { User_In_Database.Add(Centers[i].ToString()); }
 
                         //IMPORTANT to close first connection
-                        Program.MyConn.Close();
+                        Program.MyFirstConn.Close();
+                        MySqlConnection.ClearPool(Program.MyFirstConn);
+
                     }
                 }
 

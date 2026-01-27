@@ -79,8 +79,8 @@ namespace MyWorkApplication
             string datalocation;
             if (Properties.Settings.Default.Online)
                 datalocation = "online";
-            else datalocation = "localhost";
-            //else datalocation = "PC-ADMIN";
+            //else datalocation = "localhost";
+            else datalocation = "PC-ADMIN";
 
             OnlineRoot = "ftp://hcsyria.org/micro_images2/";
             OfflineRoot = "ftp://PC-ADMIN/micro_images/";
@@ -179,6 +179,7 @@ namespace MyWorkApplication
             try
             {
                 MyFirstConn = new MySqlConnection(ConnectionString);
+                MySqlConnection.ClearPool(MyFirstConn);
                 if (MyFirstConn.State == System.Data.ConnectionState.Closed)
                 {
                     MyFirstConn.Open();
@@ -189,7 +190,6 @@ namespace MyWorkApplication
             catch (Exception ex)
             {
                 Console.Write(ex.Message);
-                MyConn.CloseAsync();
                 return false;
             }
         }
