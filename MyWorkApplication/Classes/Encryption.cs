@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
@@ -12,7 +14,7 @@ namespace MyWorkApplication.Classes
         private static string password = "5tCzcEL2wS";
         public static string DecryptedData = "";
         private static byte[] entropy = Encoding.Unicode.GetBytes("YZbtvE5nW679sCUFYGxH");
-        private static readonly string fileName = @"Connections.txt";
+        private static readonly string fileName = @"connections_new.txt";
 
         [DllImport("KERNEL32.DLL", EntryPoint = "RtlZeroMemory")]
         public static extern bool ZeroMemory(IntPtr Destination, int Length);

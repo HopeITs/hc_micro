@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI;
 using MyWorkApplication.Classes;
 using PresentationControls;
 using System;
@@ -86,7 +88,8 @@ namespace MyWorkApplication
             OfflineRoot = "ftp://PC-ADMIN/micro_images/";
 
             Encryption.DecryptCredentials(datalocation);
-
+            
+            ConnectionString = "";
             if (selected_database == "Aleppo")
             {
                 ConnectionString = "Database=hcsyria_micro;" + ConnectionString;
@@ -131,20 +134,30 @@ namespace MyWorkApplication
             }
             else
             {
-                ConnectionString = "";
                 OnlineRoot = "";
                 OfflineRoot = "";
             }
+
+            ////On shared hosting, using Pooling=false; in connection string:
+            //Close() really closes
+            //MySQL process disappears immediately
+            //No zombie Sleep connections
+            ConnectionString += ";Pooling=false;";
         }
 
         public static bool buildConnection()
         {
             try
             {
+
                 if (ConnectionString == "") return false;
 
                 MyConn = new MySqlConnection(ConnectionString);
-                if (MyConn.State == ConnectionState.Closed)
+                if(MyConn.State == ConnectionState.Open)
+                {
+                    MyConn.Close();
+                }
+                if(MyConn.State == ConnectionState.Closed)
                 {
                     MyConn.Open();
                     return true;
@@ -157,18 +170,20 @@ namespace MyWorkApplication
                 if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL"))
                 {
                     MessageBox.Show("please check your network and try again", "Login Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    MyConn.CloseAsync();
+                    MySqlConnection.ClearPool(MyConn);
                     return false;
                 }
                 else if (ex.Message.Contains("host"))
                 {
                     MessageBox.Show("please check the server or your network connection and try again", "Login Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    MyConn.CloseAsync();
+                    MySqlConnection.ClearPool(MyConn);
                     return false;
                 }
                 else
                 {
                     MessageBox.Show(ex.Message, "Login Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MySqlConnection.ClearPool(MyConn);
+
                     return false;
                 }
             }
@@ -180,6 +195,10 @@ namespace MyWorkApplication
             {
                 MyFirstConn = new MySqlConnection(ConnectionString);
                 MySqlConnection.ClearPool(MyFirstConn);
+                if (MyFirstConn.State == ConnectionState.Open)
+                {
+                    MyFirstConn.Close();
+                }
                 if (MyFirstConn.State == System.Data.ConnectionState.Closed)
                 {
                     MyFirstConn.Open();

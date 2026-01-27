@@ -62,8 +62,8 @@ namespace MyWorkApplication
                 connection = false;
                 User_In_Database.Clear();
 
-                // By Maher
-                ///FOR MAKE ENCRYPTED FILE JUST PUT THE "Connections.txt" IN THE DEBUGE FOLDER
+                ///FOR MAKE ENCRYPTED FILE 
+                ///JUST PUT THE "Connections.txt" IN THE DEBUGE FOLDER
                 ///THEN UNCOMMENT THE "Encryption.FileEncrypt();"
                 ///THEN COPY the "Connections.txt.aes" TO THE "...\\
                 ///DELETE THE "Connections.txt" FROM DEBUGE
@@ -194,6 +194,10 @@ namespace MyWorkApplication
 
                     if (Program.firstbuildConnection())
                     {
+                        //IMPORTANT to close first connection
+                        Program.MyFirstConn.Close();
+                        MySqlConnection.ClearPool(Program.MyFirstConn);
+
                         connection = true;
 
                         dt = u.Get_Version();
@@ -233,10 +237,6 @@ namespace MyWorkApplication
                         string password = Password_textBox.Text;
                         if(Check_User(username,password)) //user exist
                         { User_In_Database.Add(Centers[i].ToString()); }
-
-                        //IMPORTANT to close first connection
-                        Program.MyFirstConn.Close();
-                        MySqlConnection.ClearPool(Program.MyFirstConn);
 
                     }
                 }
@@ -309,36 +309,29 @@ namespace MyWorkApplication
         }
 
         private bool Check_User(string username, string password)
-        {
-            //string query = "select * from `user` " +
-            //    " where UserName like '" + UserName_textBox.Text + "' " +
-            //    " and Password like '" + Password_textBox.Text + "' ";
-            //MySqlDataAdapter da = new MySqlDataAdapter(query, Program.MyFirstConn);
-            //DataTable dt = new DataTable();
-            //da.Fill(dt);
-            //Program.MyFirstConn.Close();
-            //return dt;
-
+        {  
             string query = "SELECT Password FROM `user` " +
                 " WHERE UserName = @username and user.UserRoleID <> 6; "; //not out of service
 
             using (var conn = Program.MyFirstConn)
-            using (var cmd = new MySqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@username", username);
-                if (conn.State != ConnectionState.Open)
-                    conn.Open();
-
-                using (var reader = cmd.ExecuteReader())
+                using (var cmd = new MySqlCommand(query, conn))
                 {
-                    if (reader.Read())
+                    cmd.Parameters.AddWithValue("@username", username);
+                    if (conn.State != ConnectionState.Open)
+                        conn.Open();
+
+                    using (var reader = cmd.ExecuteReader())
                     {
-                        string storedHash = reader.GetString("Password");   
-                        return PasswordHelper.VerifyPassword(password, storedHash);
+                        if (reader.Read())
+                        {
+                            string storedHash = reader.GetString("Password");
+                            conn.Close();
+                            return PasswordHelper.VerifyPassword(password, storedHash);
+                        }
                     }
-                } 
-            }
-            return false; // user not found or password incorrect
+                    conn.Close();
+                }
+           return false; // user not found or password incorrect
         }
 
         private void Set_Properties()
