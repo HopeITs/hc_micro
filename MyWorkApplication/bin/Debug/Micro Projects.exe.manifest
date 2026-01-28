@@ -3,7 +3,7 @@
   <asmv1:assemblyIdentity name="Micro Projects.exe" version="2.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Micro Projects" version="4.0.0.30" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Micro Projects" version="4.0.0.31" language="neutral" processorArchitecture="msil" />
     <commandLine file="Micro Projects.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -211,13 +211,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Micro Projects.exe" size="13228544">
-      <assemblyIdentity name="Micro Projects" version="4.0.0.30" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="Micro Projects" version="4.0.0.31" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>viCu6kaxSE+kc+Roe+QXARUXfJstR85mUTr0clfWxuA=</dsig:DigestValue>
+        <dsig:DigestValue>VY2xnwbL++Jz8hE4I0ZOtO/LP1oPhbQUZKyji90XEgc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
