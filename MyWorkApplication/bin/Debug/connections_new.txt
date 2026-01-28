@@ -1,10 +1,10 @@
-[online];Server=mysql.s807.sureserver.com;Port=3306;Uid=judy;Password=DAda1994@;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True
+[online];Server=mysql.s807.sureserver.com;Port=3306;Uid=micro;Password=Center2018Hope;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True
 [localhost];datasource=localhost;port=3306;username=jj;password=pp;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True
 [PC-ADMIN];datasource=PC-ADMIN;port=3306;username=jj;password=pp;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True
 [OfflineRoot];ftp://PC-ADMIN
 [RemoteRoot];\\PC-ADMIN\MicroDocs
-[OnlineserversName];judy
-[OnlineserversPassword];DAda1994@
+[OnlineserversName];micro
+[OnlineserversPassword];Center2018Hope
 [OfflineserversName];Admin
 [OfflineserversPassword];admin54321
 [RemotelyName];PC-ADMIN

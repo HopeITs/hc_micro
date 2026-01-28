@@ -431,7 +431,7 @@ namespace MyWorkApplication.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 31/12/2026.
+        ///   Looks up a localized string similar to 31-12-2026.
         /// </summary>
         internal static string Expired_Date {
             get {

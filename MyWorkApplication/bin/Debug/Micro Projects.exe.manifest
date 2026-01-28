@@ -217,7 +217,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>X8xodJ9zLqyBvkjllTiHtliqCNrG45Ug4aSXzKLqNRs=</dsig:DigestValue>
+        <dsig:DigestValue>viCu6kaxSE+kc+Roe+QXARUXfJstR85mUTr0clfWxuA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -407,13 +407,13 @@
       <dsig:DigestValue>Dz9i9N1jWWUW3MX6ASGopQWloHpR3N76SHLnPpDZ7og=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Micro Projects.exe.config" size="6803">
+  <file name="Micro Projects.exe.config" size="6804">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>RLm26qhmQxt0P+1LLuTYZdZaFWQv3vnpilTyR9eWTp8=</dsig:DigestValue>
+      <dsig:DigestValue>cdswAcV9ZN9PNpmOYDQpUKunok+EbDC8kBaS11EkI00=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\backgroun0221.jpg" size="619571">

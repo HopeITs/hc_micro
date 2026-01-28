@@ -117,6 +117,7 @@ namespace MyWorkApplication.Classes
         public static void DecryptCredentials(string datalocation)
         {
 
+            Program.ConnectionString = "";
             if (DecryptedData == "") FileDecrypt();
 
             int Name_start = DecryptedData.IndexOf(datalocation);

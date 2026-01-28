@@ -89,7 +89,6 @@ namespace MyWorkApplication
 
             Encryption.DecryptCredentials(datalocation);
             
-            ConnectionString = "";
             if (selected_database == "Aleppo")
             {
                 ConnectionString = "Database=hcsyria_micro;" + ConnectionString;
