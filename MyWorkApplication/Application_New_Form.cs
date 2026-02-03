@@ -6037,13 +6037,31 @@ namespace MyWorkApplication
                         }
                     }
 
-                    Query += " Update person set" +
-                        " P_NumOfMembers = (SELECT COUNT(person_family.PF_ID) FROM person_family where person_family.P_Provider_ID = @Person_ID)," +
-                        " P_NumAtHome = (SELECT COUNT(person_family.PF_ID)" +
-                        " FROM person_family LEFT JOIN person on person.P_ID = person_family.Person_ID" +
-                        " LEFT JOIN personstate on personstate.ID = person.P_State_ID" +
-                        " where personstate.Type = 'Active' and person_family.P_Provider_ID =  @Person_ID)" +
-                        " where person.P_ID = @Person_ID;";
+                    //Query += " Update person set" +
+                    //    " P_NumOfMembers = (SELECT COUNT(person_family.PF_ID) FROM person_family where person_family.P_Provider_ID = @Person_ID)," +
+                    //    " P_NumAtHome = (SELECT COUNT(person_family.PF_ID)" +
+                    //    " FROM person_family LEFT JOIN person on person.P_ID = person_family.Person_ID" +
+                    //    " LEFT JOIN personstate on personstate.ID = person.P_State_ID" +
+                    //    " where personstate.Type = 'Active' and person_family.P_Provider_ID =  @Person_ID)" +
+                    //    " where person.P_ID = @Person_ID;";
+                    Query += " UPDATE person p " +
+                            " LEFT JOIN ( " +
+                            "   SELECT P_Provider_ID, COUNT(*) AS total_members " +
+                            "   FROM person_family " +
+                            "   GROUP BY P_Provider_ID " +
+                            ") m ON m.P_Provider_ID = p.P_ID " +
+                            " LEFT JOIN ( " +
+                            "   SELECT pf.P_Provider_ID, COUNT(*) AS active_members " +
+                            "   FROM person_family pf " +
+                            "   JOIN person p2 ON p2.P_ID = pf.Person_ID " +
+                            "   JOIN personstate ps ON ps.ID = p2.P_State_ID " +
+                            "   WHERE ps.Type = 'Active' " +
+                            "   GROUP BY pf.P_Provider_ID " +
+                            ") a ON a.P_Provider_ID = p.P_ID " +
+                            " SET p.P_NumOfMembers = IFNULL(m.total_members, 0), " +
+                            "     p.P_NumAtHome    = IFNULL(a.active_members, 0) " +
+                            " WHERE p.P_ID = @Person_ID;";
+
                 }
 
                 if (ApplicationState == "project")
