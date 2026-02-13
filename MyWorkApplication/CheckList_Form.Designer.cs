@@ -30,22 +30,22 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckList_Form));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Main_panel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.Delete_button = new System.Windows.Forms.Button();
@@ -68,16 +68,9 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.MainHeader5_label = new System.Windows.Forms.Label();
             this.commity_dataGridView = new System.Windows.Forms.DataGridView();
-            this.C_Checklist_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.C_Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_Opinion = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.C_Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.C_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.CommityDate_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.CommityDate_checkBox = new System.Windows.Forms.CheckBox();
@@ -85,16 +78,9 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.MainHeader4_label = new System.Windows.Forms.Label();
             this.team_dataGridView = new System.Windows.Forms.DataGridView();
-            this.T_Checklist_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.T_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.T_Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T_Opinion = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.T_Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.T_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.T_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.T_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.TeamDate_checkBox = new System.Windows.Forms.CheckBox();
             this.TeamDate_dateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -189,16 +175,8 @@
             this.MainHeader1_label = new System.Windows.Forms.Label();
             this.Person_Name_label = new System.Windows.Forms.Label();
             this.keyperson_dataGridView = new System.Windows.Forms.DataGridView();
-            this.K_Checklist_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.K_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.K_NameNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.K_Name = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.K_RoleNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.K_Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.K_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.K_DeleteRow = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.K_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.K_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MainHeader2_label = new System.Windows.Forms.Label();
             this.MicroProject_ID_textBox = new System.Windows.Forms.TextBox();
             this.MicroProject_ID_label = new System.Windows.Forms.Label();
@@ -214,6 +192,50 @@
             this.Visits_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.payments_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.attachments_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_Checklist_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.T_Checklist_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.T_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.T_Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.T_Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.T_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.T_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.T_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.K_Checklist_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.K_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.K_NameNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.K_RoleNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.K_Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.K_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.K_InDataBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.K_IsDirty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Main_panel.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel19.SuspendLayout();
@@ -438,6 +460,8 @@
             this.RejectMsgSender_comboBox.Name = "RejectMsgSender_comboBox";
             this.RejectMsgSender_comboBox.Size = new System.Drawing.Size(148, 30);
             this.RejectMsgSender_comboBox.TabIndex = 3;
+            this.RejectMsgSender_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.RejectMsgSender_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // RejectMsg_Date_dateTimePicker
             // 
@@ -639,10 +663,10 @@
             this.commity_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.commity_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.commity_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.commity_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.commity_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.commity_dataGridView.ColumnHeadersHeight = 70;
             this.commity_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.commity_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -657,14 +681,14 @@
             this.C_InDataBase,
             this.C_IsDirty});
             this.tableLayoutPanel3.SetColumnSpan(this.commity_dataGridView, 4);
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.commity_dataGridView.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.commity_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.commity_dataGridView.EnableHeadersVisualStyles = false;
             this.commity_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.commity_dataGridView.Location = new System.Drawing.Point(3, 124);
@@ -672,13 +696,13 @@
             this.commity_dataGridView.MultiSelect = false;
             this.commity_dataGridView.Name = "commity_dataGridView";
             this.commity_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Rubik", 10.8F);
-            this.commity_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rubik", 10.8F);
+            this.commity_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.commity_dataGridView.RowHeadersVisible = false;
             this.commity_dataGridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.commity_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.commity_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.commity_dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.commity_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.commity_dataGridView.RowTemplate.DividerHeight = 1;
@@ -691,21 +715,6 @@
             this.commity_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.commity_dataGridView_CellPainting);
             this.commity_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.keyperson_dataGridView_DataError);
             // 
-            // C_Checklist_ID
-            // 
-            this.C_Checklist_ID.HeaderText = "C_Checklist_ID";
-            this.C_Checklist_ID.MinimumWidth = 6;
-            this.C_Checklist_ID.Name = "C_Checklist_ID";
-            this.C_Checklist_ID.Visible = false;
-            // 
-            // C_ID
-            // 
-            this.C_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.C_ID.HeaderText = "C_ID";
-            this.C_ID.MinimumWidth = 6;
-            this.C_ID.Name = "C_ID";
-            this.C_ID.Visible = false;
-            // 
             // C_Name
             // 
             this.C_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -717,15 +726,6 @@
             this.C_Name.Name = "C_Name";
             this.C_Name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.C_Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // C_Position
-            // 
-            this.C_Position.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.C_Position.FillWeight = 35F;
-            this.C_Position.HeaderText = "المنصب";
-            this.C_Position.MinimumWidth = 35;
-            this.C_Position.Name = "C_Position";
-            this.C_Position.ReadOnly = true;
             // 
             // C_Opinion
             // 
@@ -744,22 +744,6 @@
             this.C_Opinion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.C_Opinion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // C_Notes
-            // 
-            this.C_Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.C_Notes.FillWeight = 70F;
-            this.C_Notes.HeaderText = "السبب";
-            this.C_Notes.MinimumWidth = 70;
-            this.C_Notes.Name = "C_Notes";
-            // 
-            // C_Date
-            // 
-            this.C_Date.FillWeight = 30F;
-            this.C_Date.HeaderText = "التاريخ";
-            this.C_Date.MinimumWidth = 30;
-            this.C_Date.Name = "C_Date";
-            this.C_Date.ReadOnly = true;
-            // 
             // C_DeleteRow
             // 
             this.C_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -769,21 +753,6 @@
             this.C_DeleteRow.MinimumWidth = 50;
             this.C_DeleteRow.Name = "C_DeleteRow";
             this.C_DeleteRow.Width = 50;
-            // 
-            // C_InDataBase
-            // 
-            this.C_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.C_InDataBase.HeaderText = "C_InDataBase";
-            this.C_InDataBase.MinimumWidth = 6;
-            this.C_InDataBase.Name = "C_InDataBase";
-            this.C_InDataBase.Visible = false;
-            // 
-            // C_IsDirty
-            // 
-            this.C_IsDirty.HeaderText = "C_IsDirty";
-            this.C_IsDirty.MinimumWidth = 6;
-            this.C_IsDirty.Name = "C_IsDirty";
-            this.C_IsDirty.Visible = false;
             // 
             // tableLayoutPanel4
             // 
@@ -894,10 +863,10 @@
             this.team_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.team_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.team_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.team_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.team_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.team_dataGridView.ColumnHeadersHeight = 70;
             this.team_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.team_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -912,14 +881,14 @@
             this.T_InDataBase,
             this.T_IsDirty});
             this.tableLayoutPanel7.SetColumnSpan(this.team_dataGridView, 4);
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.team_dataGridView.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.team_dataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.team_dataGridView.EnableHeadersVisualStyles = false;
             this.team_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.team_dataGridView.Location = new System.Drawing.Point(3, 124);
@@ -927,13 +896,13 @@
             this.team_dataGridView.MultiSelect = false;
             this.team_dataGridView.Name = "team_dataGridView";
             this.team_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Rubik", 10.8F);
-            this.team_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Rubik", 10.8F);
+            this.team_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.team_dataGridView.RowHeadersVisible = false;
             this.team_dataGridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.team_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.team_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.team_dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.team_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.team_dataGridView.RowTemplate.DividerHeight = 1;
@@ -946,24 +915,6 @@
             this.team_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.team_dataGridView_CellPainting);
             this.team_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.keyperson_dataGridView_DataError);
             // 
-            // T_Checklist_ID
-            // 
-            this.T_Checklist_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.T_Checklist_ID.FillWeight = 10F;
-            this.T_Checklist_ID.HeaderText = "T_Checklist_ID";
-            this.T_Checklist_ID.MinimumWidth = 6;
-            this.T_Checklist_ID.Name = "T_Checklist_ID";
-            this.T_Checklist_ID.Visible = false;
-            // 
-            // T_ID
-            // 
-            this.T_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.T_ID.FillWeight = 10F;
-            this.T_ID.HeaderText = "T_ID";
-            this.T_ID.MinimumWidth = 6;
-            this.T_ID.Name = "T_ID";
-            this.T_ID.Visible = false;
-            // 
             // T_Name
             // 
             this.T_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -975,17 +926,6 @@
             this.T_Name.Name = "T_Name";
             this.T_Name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.T_Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // T_Position
-            // 
-            this.T_Position.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.T_Position.FillWeight = 35F;
-            this.T_Position.HeaderText = "المنصب";
-            this.T_Position.MinimumWidth = 35;
-            this.T_Position.Name = "T_Position";
-            this.T_Position.ReadOnly = true;
-            this.T_Position.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.T_Position.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // T_Opinion
             // 
@@ -1004,23 +944,6 @@
             this.T_Opinion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.T_Opinion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // T_Notes
-            // 
-            this.T_Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.T_Notes.FillWeight = 60F;
-            this.T_Notes.HeaderText = "السبب";
-            this.T_Notes.MinimumWidth = 60;
-            this.T_Notes.Name = "T_Notes";
-            // 
-            // T_Date
-            // 
-            this.T_Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.T_Date.FillWeight = 30F;
-            this.T_Date.HeaderText = "التاريخ";
-            this.T_Date.MinimumWidth = 30;
-            this.T_Date.Name = "T_Date";
-            this.T_Date.ReadOnly = true;
-            // 
             // T_DeleteRow
             // 
             this.T_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -1030,23 +953,6 @@
             this.T_DeleteRow.MinimumWidth = 50;
             this.T_DeleteRow.Name = "T_DeleteRow";
             this.T_DeleteRow.Width = 50;
-            // 
-            // T_InDataBase
-            // 
-            this.T_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.T_InDataBase.FillWeight = 10F;
-            this.T_InDataBase.HeaderText = "T_InDataBase";
-            this.T_InDataBase.MinimumWidth = 6;
-            this.T_InDataBase.Name = "T_InDataBase";
-            this.T_InDataBase.Visible = false;
-            // 
-            // T_IsDirty
-            // 
-            this.T_IsDirty.FillWeight = 10F;
-            this.T_IsDirty.HeaderText = "T_IsDirty";
-            this.T_IsDirty.MinimumWidth = 6;
-            this.T_IsDirty.Name = "T_IsDirty";
-            this.T_IsDirty.Visible = false;
             // 
             // tableLayoutPanel2
             // 
@@ -1765,6 +1671,8 @@
             this.ProTest_User_ID_comboBox.Name = "ProTest_User_ID_comboBox";
             this.ProTest_User_ID_comboBox.Size = new System.Drawing.Size(152, 30);
             this.ProTest_User_ID_comboBox.TabIndex = 4;
+            this.ProTest_User_ID_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.ProTest_User_ID_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // GreyLable4_label
             // 
@@ -2144,6 +2052,8 @@
             this.HVisit_Visitor1_comboBox.Name = "HVisit_Visitor1_comboBox";
             this.HVisit_Visitor1_comboBox.Size = new System.Drawing.Size(150, 30);
             this.HVisit_Visitor1_comboBox.TabIndex = 5;
+            this.HVisit_Visitor1_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.HVisit_Visitor1_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // HVisit_Visitor2_comboBox
             // 
@@ -2161,6 +2071,8 @@
             this.HVisit_Visitor2_comboBox.Name = "HVisit_Visitor2_comboBox";
             this.HVisit_Visitor2_comboBox.Size = new System.Drawing.Size(153, 30);
             this.HVisit_Visitor2_comboBox.TabIndex = 6;
+            this.HVisit_Visitor2_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.HVisit_Visitor2_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // HVisitNote_textBox
             // 
@@ -2314,6 +2226,8 @@
             this.PVisit_Visitor1_comboBox.Name = "PVisit_Visitor1_comboBox";
             this.PVisit_Visitor1_comboBox.Size = new System.Drawing.Size(150, 30);
             this.PVisit_Visitor1_comboBox.TabIndex = 12;
+            this.PVisit_Visitor1_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.PVisit_Visitor1_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // PVisit_Visitor2_comboBox
             // 
@@ -2331,6 +2245,8 @@
             this.PVisit_Visitor2_comboBox.Name = "PVisit_Visitor2_comboBox";
             this.PVisit_Visitor2_comboBox.Size = new System.Drawing.Size(153, 30);
             this.PVisit_Visitor2_comboBox.TabIndex = 13;
+            this.PVisit_Visitor2_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.PVisit_Visitor2_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // PVisitNote_textBox
             // 
@@ -2514,21 +2430,21 @@
             this.NeedEvaluation_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.NeedEvaluation_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NeedEvaluation_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NeedEvaluation_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NeedEvaluation_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.NeedEvaluation_dataGridView.ColumnHeadersHeight = 70;
             this.NeedEvaluation_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.tableLayoutPanel10.SetColumnSpan(this.NeedEvaluation_dataGridView, 4);
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NeedEvaluation_dataGridView.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NeedEvaluation_dataGridView.DefaultCellStyle = dataGridViewCellStyle10;
             this.NeedEvaluation_dataGridView.EnableHeadersVisualStyles = false;
             this.NeedEvaluation_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.NeedEvaluation_dataGridView.Location = new System.Drawing.Point(3, 84);
@@ -2537,12 +2453,12 @@
             this.NeedEvaluation_dataGridView.Name = "NeedEvaluation_dataGridView";
             this.NeedEvaluation_dataGridView.ReadOnly = true;
             this.NeedEvaluation_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Rubik", 10.8F);
-            this.NeedEvaluation_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Rubik", 10.8F);
+            this.NeedEvaluation_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.NeedEvaluation_dataGridView.RowHeadersVisible = false;
             this.NeedEvaluation_dataGridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NeedEvaluation_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NeedEvaluation_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.NeedEvaluation_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.NeedEvaluation_dataGridView.RowTemplate.DividerHeight = 1;
             this.NeedEvaluation_dataGridView.RowTemplate.Height = 35;
@@ -2632,10 +2548,10 @@
             this.keyperson_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.keyperson_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.keyperson_dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.keyperson_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.keyperson_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.keyperson_dataGridView.ColumnHeadersHeight = 70;
             this.keyperson_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.keyperson_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2650,14 +2566,14 @@
             this.K_InDataBase,
             this.K_IsDirty});
             this.tableLayoutPanel14.SetColumnSpan(this.keyperson_dataGridView, 5);
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle46.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Rubik", 10.8F);
-            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.keyperson_dataGridView.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Rubik", 10.8F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.keyperson_dataGridView.DefaultCellStyle = dataGridViewCellStyle14;
             this.keyperson_dataGridView.EnableHeadersVisualStyles = false;
             this.keyperson_dataGridView.GridColor = System.Drawing.Color.DarkGray;
             this.keyperson_dataGridView.Location = new System.Drawing.Point(3, 297);
@@ -2665,13 +2581,13 @@
             this.keyperson_dataGridView.MultiSelect = false;
             this.keyperson_dataGridView.Name = "keyperson_dataGridView";
             this.keyperson_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Rubik", 10.8F);
-            this.keyperson_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Rubik", 10.8F);
+            this.keyperson_dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.keyperson_dataGridView.RowHeadersVisible = false;
             this.keyperson_dataGridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.keyperson_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.keyperson_dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.keyperson_dataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.keyperson_dataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.keyperson_dataGridView.RowTemplate.DividerHeight = 1;
@@ -2685,32 +2601,6 @@
             this.keyperson_dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.keyperson_dataGridView_CellPainting);
             this.keyperson_dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.keyperson_dataGridView_DataError);
             // 
-            // K_Checklist_ID
-            // 
-            this.K_Checklist_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.K_Checklist_ID.FillWeight = 10F;
-            this.K_Checklist_ID.HeaderText = "K_Checklist_ID";
-            this.K_Checklist_ID.MinimumWidth = 6;
-            this.K_Checklist_ID.Name = "K_Checklist_ID";
-            this.K_Checklist_ID.Visible = false;
-            // 
-            // K_ID
-            // 
-            this.K_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.K_ID.FillWeight = 10F;
-            this.K_ID.HeaderText = "K_ID";
-            this.K_ID.MinimumWidth = 6;
-            this.K_ID.Name = "K_ID";
-            this.K_ID.Visible = false;
-            // 
-            // K_NameNotes
-            // 
-            this.K_NameNotes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.K_NameNotes.FillWeight = 30F;
-            this.K_NameNotes.HeaderText = "الاسم";
-            this.K_NameNotes.MinimumWidth = 45;
-            this.K_NameNotes.Name = "K_NameNotes";
-            // 
             // K_Name
             // 
             this.K_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -2722,31 +2612,6 @@
             this.K_Name.Name = "K_Name";
             this.K_Name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // K_RoleNotes
-            // 
-            this.K_RoleNotes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.K_RoleNotes.FillWeight = 30F;
-            this.K_RoleNotes.HeaderText = "الدور";
-            this.K_RoleNotes.MinimumWidth = 45;
-            this.K_RoleNotes.Name = "K_RoleNotes";
-            // 
-            // K_Notes
-            // 
-            this.K_Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.K_Notes.FillWeight = 75F;
-            this.K_Notes.HeaderText = "الرأي";
-            this.K_Notes.MinimumWidth = 100;
-            this.K_Notes.Name = "K_Notes";
-            // 
-            // K_Date
-            // 
-            this.K_Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.K_Date.FillWeight = 30F;
-            this.K_Date.HeaderText = "التاريخ";
-            this.K_Date.MinimumWidth = 30;
-            this.K_Date.Name = "K_Date";
-            this.K_Date.ReadOnly = true;
-            // 
             // K_DeleteRow
             // 
             this.K_DeleteRow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -2756,24 +2621,6 @@
             this.K_DeleteRow.MinimumWidth = 50;
             this.K_DeleteRow.Name = "K_DeleteRow";
             this.K_DeleteRow.Width = 50;
-            // 
-            // K_InDataBase
-            // 
-            this.K_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.K_InDataBase.FillWeight = 10F;
-            this.K_InDataBase.HeaderText = "K_InDataBase";
-            this.K_InDataBase.MinimumWidth = 6;
-            this.K_InDataBase.Name = "K_InDataBase";
-            this.K_InDataBase.Visible = false;
-            // 
-            // K_IsDirty
-            // 
-            this.K_IsDirty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.K_IsDirty.FillWeight = 10F;
-            this.K_IsDirty.HeaderText = "K_IsDirty";
-            this.K_IsDirty.MinimumWidth = 6;
-            this.K_IsDirty.Name = "K_IsDirty";
-            this.K_IsDirty.Visible = false;
             // 
             // MainHeader2_label
             // 
@@ -2898,7 +2745,9 @@
             this.Beneficiary_comboBox.Name = "Beneficiary_comboBox";
             this.Beneficiary_comboBox.Size = new System.Drawing.Size(273, 30);
             this.Beneficiary_comboBox.TabIndex = 2;
+            this.Beneficiary_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.Beneficiary_comboBox.SelectedIndexChanged += new System.EventHandler(this.Beneficiary_comboBox_SelectedIndexChanged);
+            this.Beneficiary_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // partners_button
             // 
@@ -2950,6 +2799,384 @@
             this.attachments_toolStripMenuItem.Size = new System.Drawing.Size(201, 24);
             this.attachments_toolStripMenuItem.Text = "Show Attachments";
             this.attachments_toolStripMenuItem.Click += new System.EventHandler(this.attachment_toolStripMenuItem3_Click);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "C_Checklist_ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.HeaderText = "C_ID";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.FillWeight = 35F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "المنصب";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 35;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.FillWeight = 70F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "السبب";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 70;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.FillWeight = 30F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "التاريخ";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 30;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 198;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.HeaderText = "C_InDataBase";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "C_IsDirty";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Visible = false;
+            this.dataGridViewTextBoxColumn7.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn8.FillWeight = 10F;
+            this.dataGridViewTextBoxColumn8.HeaderText = "T_Checklist_ID";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn9.FillWeight = 10F;
+            this.dataGridViewTextBoxColumn9.HeaderText = "T_ID";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn10.FillWeight = 35F;
+            this.dataGridViewTextBoxColumn10.HeaderText = "المنصب";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 35;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn11.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn11.HeaderText = "السبب";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 60;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn12.FillWeight = 30F;
+            this.dataGridViewTextBoxColumn12.HeaderText = "التاريخ";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 30;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn13.FillWeight = 10F;
+            this.dataGridViewTextBoxColumn13.HeaderText = "T_InDataBase";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.FillWeight = 10F;
+            this.dataGridViewTextBoxColumn14.HeaderText = "T_IsDirty";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Visible = false;
+            this.dataGridViewTextBoxColumn14.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn15.FillWeight = 10F;
+            this.dataGridViewTextBoxColumn15.HeaderText = "K_Checklist_ID";
+            this.dataGridViewTextBoxColumn15.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn16.FillWeight = 10F;
+            this.dataGridViewTextBoxColumn16.HeaderText = "K_ID";
+            this.dataGridViewTextBoxColumn16.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn17.FillWeight = 30F;
+            this.dataGridViewTextBoxColumn17.HeaderText = "الاسم";
+            this.dataGridViewTextBoxColumn17.MinimumWidth = 45;
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn18.FillWeight = 30F;
+            this.dataGridViewTextBoxColumn18.HeaderText = "الدور";
+            this.dataGridViewTextBoxColumn18.MinimumWidth = 45;
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn19.FillWeight = 75F;
+            this.dataGridViewTextBoxColumn19.HeaderText = "الرأي";
+            this.dataGridViewTextBoxColumn19.MinimumWidth = 100;
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn20.FillWeight = 30F;
+            this.dataGridViewTextBoxColumn20.HeaderText = "التاريخ";
+            this.dataGridViewTextBoxColumn20.MinimumWidth = 30;
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn21.FillWeight = 10F;
+            this.dataGridViewTextBoxColumn21.HeaderText = "K_InDataBase";
+            this.dataGridViewTextBoxColumn21.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn22.FillWeight = 10F;
+            this.dataGridViewTextBoxColumn22.HeaderText = "K_IsDirty";
+            this.dataGridViewTextBoxColumn22.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.Visible = false;
+            // 
+            // C_Checklist_ID
+            // 
+            this.C_Checklist_ID.HeaderText = "C_Checklist_ID";
+            this.C_Checklist_ID.MinimumWidth = 6;
+            this.C_Checklist_ID.Name = "C_Checklist_ID";
+            this.C_Checklist_ID.Visible = false;
+            // 
+            // C_ID
+            // 
+            this.C_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.C_ID.HeaderText = "C_ID";
+            this.C_ID.MinimumWidth = 6;
+            this.C_ID.Name = "C_ID";
+            this.C_ID.Visible = false;
+            // 
+            // C_Position
+            // 
+            this.C_Position.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.C_Position.FillWeight = 35F;
+            this.C_Position.HeaderText = "المنصب";
+            this.C_Position.MinimumWidth = 35;
+            this.C_Position.Name = "C_Position";
+            this.C_Position.ReadOnly = true;
+            // 
+            // C_Notes
+            // 
+            this.C_Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.C_Notes.FillWeight = 70F;
+            this.C_Notes.HeaderText = "السبب";
+            this.C_Notes.MinimumWidth = 70;
+            this.C_Notes.Name = "C_Notes";
+            // 
+            // C_Date
+            // 
+            this.C_Date.FillWeight = 30F;
+            this.C_Date.HeaderText = "التاريخ";
+            this.C_Date.MinimumWidth = 30;
+            this.C_Date.Name = "C_Date";
+            this.C_Date.ReadOnly = true;
+            // 
+            // C_InDataBase
+            // 
+            this.C_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.C_InDataBase.HeaderText = "C_InDataBase";
+            this.C_InDataBase.MinimumWidth = 6;
+            this.C_InDataBase.Name = "C_InDataBase";
+            this.C_InDataBase.Visible = false;
+            // 
+            // C_IsDirty
+            // 
+            this.C_IsDirty.HeaderText = "C_IsDirty";
+            this.C_IsDirty.MinimumWidth = 6;
+            this.C_IsDirty.Name = "C_IsDirty";
+            this.C_IsDirty.Visible = false;
+            // 
+            // T_Checklist_ID
+            // 
+            this.T_Checklist_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.T_Checklist_ID.FillWeight = 10F;
+            this.T_Checklist_ID.HeaderText = "T_Checklist_ID";
+            this.T_Checklist_ID.MinimumWidth = 6;
+            this.T_Checklist_ID.Name = "T_Checklist_ID";
+            this.T_Checklist_ID.Visible = false;
+            // 
+            // T_ID
+            // 
+            this.T_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.T_ID.FillWeight = 10F;
+            this.T_ID.HeaderText = "T_ID";
+            this.T_ID.MinimumWidth = 6;
+            this.T_ID.Name = "T_ID";
+            this.T_ID.Visible = false;
+            // 
+            // T_Position
+            // 
+            this.T_Position.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.T_Position.FillWeight = 35F;
+            this.T_Position.HeaderText = "المنصب";
+            this.T_Position.MinimumWidth = 35;
+            this.T_Position.Name = "T_Position";
+            this.T_Position.ReadOnly = true;
+            this.T_Position.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.T_Position.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // T_Notes
+            // 
+            this.T_Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.T_Notes.FillWeight = 60F;
+            this.T_Notes.HeaderText = "السبب";
+            this.T_Notes.MinimumWidth = 60;
+            this.T_Notes.Name = "T_Notes";
+            // 
+            // T_Date
+            // 
+            this.T_Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.T_Date.FillWeight = 30F;
+            this.T_Date.HeaderText = "التاريخ";
+            this.T_Date.MinimumWidth = 30;
+            this.T_Date.Name = "T_Date";
+            this.T_Date.ReadOnly = true;
+            // 
+            // T_InDataBase
+            // 
+            this.T_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.T_InDataBase.FillWeight = 10F;
+            this.T_InDataBase.HeaderText = "T_InDataBase";
+            this.T_InDataBase.MinimumWidth = 6;
+            this.T_InDataBase.Name = "T_InDataBase";
+            this.T_InDataBase.Visible = false;
+            // 
+            // T_IsDirty
+            // 
+            this.T_IsDirty.FillWeight = 10F;
+            this.T_IsDirty.HeaderText = "T_IsDirty";
+            this.T_IsDirty.MinimumWidth = 6;
+            this.T_IsDirty.Name = "T_IsDirty";
+            this.T_IsDirty.Visible = false;
+            // 
+            // K_Checklist_ID
+            // 
+            this.K_Checklist_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.K_Checklist_ID.FillWeight = 10F;
+            this.K_Checklist_ID.HeaderText = "K_Checklist_ID";
+            this.K_Checklist_ID.MinimumWidth = 6;
+            this.K_Checklist_ID.Name = "K_Checklist_ID";
+            this.K_Checklist_ID.Visible = false;
+            // 
+            // K_ID
+            // 
+            this.K_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.K_ID.FillWeight = 10F;
+            this.K_ID.HeaderText = "K_ID";
+            this.K_ID.MinimumWidth = 6;
+            this.K_ID.Name = "K_ID";
+            this.K_ID.Visible = false;
+            // 
+            // K_NameNotes
+            // 
+            this.K_NameNotes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.K_NameNotes.FillWeight = 30F;
+            this.K_NameNotes.HeaderText = "الاسم";
+            this.K_NameNotes.MinimumWidth = 45;
+            this.K_NameNotes.Name = "K_NameNotes";
+            // 
+            // K_RoleNotes
+            // 
+            this.K_RoleNotes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.K_RoleNotes.FillWeight = 30F;
+            this.K_RoleNotes.HeaderText = "الدور";
+            this.K_RoleNotes.MinimumWidth = 45;
+            this.K_RoleNotes.Name = "K_RoleNotes";
+            // 
+            // K_Notes
+            // 
+            this.K_Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.K_Notes.FillWeight = 75F;
+            this.K_Notes.HeaderText = "الرأي";
+            this.K_Notes.MinimumWidth = 100;
+            this.K_Notes.Name = "K_Notes";
+            // 
+            // K_Date
+            // 
+            this.K_Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.K_Date.FillWeight = 30F;
+            this.K_Date.HeaderText = "التاريخ";
+            this.K_Date.MinimumWidth = 30;
+            this.K_Date.Name = "K_Date";
+            this.K_Date.ReadOnly = true;
+            // 
+            // K_InDataBase
+            // 
+            this.K_InDataBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.K_InDataBase.FillWeight = 10F;
+            this.K_InDataBase.HeaderText = "K_InDataBase";
+            this.K_InDataBase.MinimumWidth = 6;
+            this.K_InDataBase.Name = "K_InDataBase";
+            this.K_InDataBase.Visible = false;
+            // 
+            // K_IsDirty
+            // 
+            this.K_IsDirty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.K_IsDirty.FillWeight = 10F;
+            this.K_IsDirty.HeaderText = "K_IsDirty";
+            this.K_IsDirty.MinimumWidth = 6;
+            this.K_IsDirty.Name = "K_IsDirty";
+            this.K_IsDirty.Visible = false;
             // 
             // CheckList_Form
             // 
@@ -3193,5 +3420,27 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel RejectMsg_flowLayoutPanel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
     }
 }

@@ -82,6 +82,9 @@ namespace MyWorkApplication
 
                 Bind_Gridview_ComboBox();
 
+                Stop_ComboBox_Scrolling();
+                Stop_Highlighting_Combobox();
+
                 Update_Mode = false;
 
                 if (MicroProject_ID != -1)
@@ -189,6 +192,88 @@ namespace MyWorkApplication
             {
                 e.Handled = true;
             }
+        }
+        #endregion
+
+        #region combobox functions
+        private void ComboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0)
+                return;
+
+            // Draw the background.
+            e.DrawBackground();
+            SolidBrush brush = new SolidBrush(Color.FromArgb(189, 189, 189));
+            if (e.Index >= 0)
+            {
+                if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                {
+                    e.Graphics.FillRectangle(brush, e.Bounds);
+                }
+
+                ComboBox comboBox = (ComboBox)sender;
+                string text = comboBox.GetItemText(comboBox.Items[e.Index]);
+
+                // Choose text color based on theme
+                Brush textBrush = (Properties.Settings.Default.theme == "Light") ? Brushes.Black : Brushes.LightGray;
+
+                // Set up RTL text alignment
+                StringFormat sf = new StringFormat
+                {
+                    Alignment = StringAlignment.Far, // Right-aligned
+                    LineAlignment = StringAlignment.Center,
+                    FormatFlags = StringFormatFlags.DirectionRightToLeft
+                };
+
+                // Draw the RTL text
+                e.Graphics.DrawString(text, e.Font, textBrush, e.Bounds, sf);
+            }
+            e.DrawFocusRectangle();
+        }
+
+        private void comboBox_Leave(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            if (!string.IsNullOrWhiteSpace(cb.Text))
+            {
+                int resultIndex = -1;
+                resultIndex = cb.FindStringExact(cb.Text);
+                if (resultIndex == -1)
+                {
+                    MessageBox.Show("انتبه! لا يوجد مثل هذا الخيار، احرص أن تختار قيمة موجودة", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    cb.Text = "";
+                    cb.Focus();
+                }
+            }
+        }
+
+        void comboBox_MouseWheel(object sender, MouseEventArgs e)
+        {
+            ((HandledMouseEventArgs)e).Handled = true;
+        }
+
+        private void Stop_ComboBox_Scrolling()
+        {
+            //////////////////// handle auto scrolling for all comboBoxes //////////////////////
+            Beneficiary_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            HVisit_Visitor1_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            HVisit_Visitor2_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            ProTest_User_ID_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            PVisit_Visitor1_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            PVisit_Visitor2_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            RejectMsgSender_comboBox.MouseWheel += new MouseEventHandler(comboBox_MouseWheel);
+            ///////////////////////////////////////////////////////////////////////////////////////
+        }
+
+        private void Stop_Highlighting_Combobox()
+        {
+            Beneficiary_comboBox.SelectionLength = 0; Beneficiary_comboBox.SelectionStart = Beneficiary_comboBox.Text.Length;
+            HVisit_Visitor1_comboBox.SelectionLength = 0; HVisit_Visitor1_comboBox.SelectionStart = HVisit_Visitor1_comboBox.Text.Length;
+            HVisit_Visitor2_comboBox.SelectionLength = 0; HVisit_Visitor2_comboBox.SelectionStart = HVisit_Visitor2_comboBox.Text.Length;
+            ProTest_User_ID_comboBox.SelectionLength = 0; ProTest_User_ID_comboBox.SelectionStart = ProTest_User_ID_comboBox.Text.Length;
+            PVisit_Visitor1_comboBox.SelectionLength = 0; PVisit_Visitor1_comboBox.SelectionStart = PVisit_Visitor1_comboBox.Text.Length;
+            PVisit_Visitor2_comboBox.SelectionLength = 0; PVisit_Visitor2_comboBox.SelectionStart = PVisit_Visitor2_comboBox.Text.Length;
+            RejectMsgSender_comboBox.SelectionLength = 0; RejectMsgSender_comboBox.SelectionStart = RejectMsgSender_comboBox.Text.Length;
         }
         #endregion
 
