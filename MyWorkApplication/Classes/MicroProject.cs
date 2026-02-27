@@ -21,7 +21,7 @@ namespace MyWorkApplication.Classes
                 + "(select ID from `state` where Name_ar like N'" + State + "')" + ","
                 + "N'" + StateDate + "'" + ");";
 
-            if (State == "منتهي" || State == "منسحب" || State == "ملغى")
+            if (State == "منسحب" || State == "ملغى")
                 query += " UPDATE user_notification set `Seen` = 1 WHERE user_notification.MicroProject_ID = " + MicroProject_ID + ";";
 
             Program.buildConnection();

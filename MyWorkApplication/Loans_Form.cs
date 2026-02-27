@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using DocumentFormat.OpenXml.Drawing.Charts;
+using MySql.Data.MySqlClient;
 using MyWorkApplication.Classes;
 using MyWorkApplication.Controls;
 using MyWorkApplication.Properties;
@@ -10,6 +11,7 @@ using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using DataTable = System.Data.DataTable;
 
 namespace MyWorkApplication
 {
@@ -871,28 +873,25 @@ namespace MyWorkApplication
 
         private void Send_Trophy_Notifications()
         {
-            var dialogResult = MessageBox.Show("سيتم إرسال إشعار بالزيارة الختامية للمشروع، هل أنت متأكد من أن المستفيد انتهى من دفع أقساطه؟", "Delete", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show("سيتم إرسال إشعار تحضير براءة الذمة للمستفيد، هل أنت متأكد من أن المستفيد انتهى من دفع أقساطه؟", "Delete", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                //زيارة الختام بعد أسبوع من تاريخ آخر دفعة
-                var Final_Visit_date = (DateTime)Payment_dataGridView.Rows[Payment_dataGridView.RowCount - 2]
-                .Cells["Pay_RecievedOnDate"].Value;
-                Final_Visit_date = Final_Visit_date.AddDays(7);
-
-                ////Send to M&E//
-                //if (User_IDs.Count == 0)
-                //    throw new InvalidOperationException("لا يوجد مستخدمين لإرسال إشعار الزيارة لهم، يرجى تحديد أدوار المستخدمين والمحاولة لاحقاً");
-                //foreach (var u in User_IDs)
+                ////زيارة الختام بعد أسبوع من تاريخ آخر دفعة
+                //براءة الذمة فورا بعد يوم من تاريخ اخر قسط
+                //هي بدال الزيارة الختامية
+                var Clearance_date = (DateTime)Payment_dataGridView.Rows[Payment_dataGridView.RowCount - 2].Cells["Pay_RecievedOnDate"].Value;
+                Clearance_date = Clearance_date.AddDays(1);
+                 
                 int u = -1;  
-                userNotification.Insert_UserNotification(Final_Visit_date.ToString("yyyy/MM/dd"), "Visit Closing-" + SubCategory,
+                userNotification.Insert_UserNotification(Clearance_date.ToString("yyyy/MM/dd"), "براءة الذمة (Clearance)", // -SubCategory
                         Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
 
                 //Send to Conmunication// 
                 foreach (var u1 in Communication_IDs)
-                    userNotification.Insert_UserNotification(Final_Visit_date.ToString("yyyy/MM/dd"), "Visit (Trophy)" + SubCategory,
+                    userNotification.Insert_UserNotification(Clearance_date.ToString("yyyy/MM/dd"), "Visit (Trophy)" + SubCategory,
                         Person_Name_textBox.Text, MicroProject_ID, u1, Program.userID, -10);
 
-                l.Insert_Log("Insert Closing Visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
+                l.Insert_Log("Insert Clearance notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
                         "Loan", Program.UserName, DateTime.Now);
             }
         }
@@ -1133,6 +1132,9 @@ namespace MyWorkApplication
                     // => اذا كان المتبقي اقل من نص دفعة
                     if (Paid2 == "Paid" && RemainOfReturned_label.BackColor == Color.FromArgb(190, 23, 23))
                     {
+                        //change project state to منتهي
+                        mp.Update_Project_State(MicroProject_ID, "منتهي", DateTime.Now.ToString("yyyy-MM-dd"));
+
                         Send_Trophy_Notifications();
                     }
                 }
