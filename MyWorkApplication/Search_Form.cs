@@ -1236,6 +1236,7 @@ namespace MyWorkApplication
 
 , relation.Name as 'الصفة'
 , p.P_NationalNumber as 'الرقم الوطني'
+, p.P_Sex as 'الجنس'
 , p.P_DOB as 'تاريخ الولادة'
 , personstate.Name as 'حالة الإقامة'
 
