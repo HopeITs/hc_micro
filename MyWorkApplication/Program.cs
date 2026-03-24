@@ -125,12 +125,12 @@ namespace MyWorkApplication
                 OnlineRoot += "lebanon";
                 OfflineRoot += "lebanon";
             }
-            else if (selected_database == "PTS Aleppo")
-            {
-                ConnectionString = "Database=hcsyria_micro_pts_aleppo;" + ConnectionString;
-                OnlineRoot += "pts aleppo";
-                OfflineRoot += "pts aleppo";
-            }
+            //else if (selected_database == "PTS Aleppo")
+            //{
+            //    ConnectionString = "Database=hcsyria_micro_pts_aleppo;" + ConnectionString;
+            //    OnlineRoot += "pts aleppo";
+            //    OfflineRoot += "pts aleppo";
+            //}
             else
             {
                 OnlineRoot = "";
