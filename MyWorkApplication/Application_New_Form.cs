@@ -5499,6 +5499,11 @@ namespace MyWorkApplication
                             MessageBox.Show("الرجاء التأكد من إدخال المواليد في جميع الأسطر في قسم أفراد العائلة", "Error");
                             return;
                         }
+                        else if (FamilyMember_dataGridView.Rows[i].Cells["P_Sex"].Value == null || FamilyMember_dataGridView.Rows[i].Cells["P_Sex"].Value.ToString() == "")
+                        {
+                            MessageBox.Show("الرجاء التأكد من إدخال الجنس في جميع الأسطر في قسم أفراد العائلة", "Error");
+                            return;
+                        }
                         else if (FamilyMember_dataGridView.Rows[i].Cells["P_State"].Value == null || FamilyMember_dataGridView.Rows[i].Cells["P_State"].Value.ToString() == "")
                         {
                             MessageBox.Show("الرجاء التأكد من إدخال حالة الإقامة في جميع الأسطر في قسم أفراد العائلة", "Error");
@@ -5969,6 +5974,8 @@ namespace MyWorkApplication
                             string FP_FatherName = FamilyMember_dataGridView.Rows[i].Cells["P_FatherName"].Value?.ToString() ?? "";
                             string FP_Relation = FamilyMember_dataGridView.Rows[i].Cells["P_Relation"].Value?.ToString() ?? "";
                             string FP_NationalNumber = FamilyMember_dataGridView.Rows[i].Cells["P_NationalNumber"].Value?.ToString() ?? "";
+                            string FP_Sex = FamilyMember_dataGridView.Rows[i].Cells["P_Sex"].Value?.ToString() ?? "";
+
                             DateTime FP_DOB = Convert.ToDateTime(DateTime.ParseExact(FamilyMember_dataGridView.Rows[i].Cells["P_DOB"].Value?.ToString() ?? "", "yyyy", CultureInfo.InvariantCulture));
                             string FP_State = FamilyMember_dataGridView.Rows[i].Cells["P_State"].Value?.ToString() ?? "";
                             string FP_HasWork = "";
@@ -5990,6 +5997,7 @@ namespace MyWorkApplication
                             sc.Parameters.AddWithValue("@FP_Relation" + i, string.IsNullOrEmpty(FP_Relation) ? (object)DBNull.Value : FP_Relation);
                             sc.Parameters.AddWithValue("@FP_NationalNumber" + i, FP_NationalNumber);
                             sc.Parameters.AddWithValue("@FP_DOB" + i, FP_DOB == null ? (object)DBNull.Value : FP_DOB);
+                            sc.Parameters.AddWithValue("@FP_Sex" + i, FP_Sex);
                             sc.Parameters.AddWithValue("@FP_State" + i, string.IsNullOrEmpty(FP_State) ? (object)DBNull.Value : FP_State);
                             sc.Parameters.AddWithValue("@FP_HasWork" + i, FP_HasWork);
                             sc.Parameters.AddWithValue("@FP_EducationLevel" + i, string.IsNullOrEmpty(FP_EducationLevel) ? (object)DBNull.Value : FP_EducationLevel);
@@ -6014,8 +6022,11 @@ namespace MyWorkApplication
                                 else
                                 {
                                     Query += "Update person set P_FirstName = @FP_FirstName" + i + ", P_LastName = @FP_LastName" + i + "," +
-                                        "P_FatherName = @FP_FatherName" + i + ", P_NationalNumber = @FP_NationalNumber" + i + ", P_DOB = @FP_DOB" + i + ",P_State_ID = @FP_State" + i + "" +
-                                            " Where P_ID = @FPerson_ID" + i + ";";
+                                        "P_FatherName = @FP_FatherName" + i + ", P_NationalNumber = @FP_NationalNumber" + i 
+                                        + ", P_DOB = @FP_DOB" + i 
+                                        + ", P_Sex = @FP_Sex" + i 
+                                        + ",P_State_ID = @FP_State" + i + "" 
+                                        + " Where P_ID = @FPerson_ID" + i + ";";
 
                                     Query += "Update person_family set Relation_ID = @FP_Relation" + i + ", EducationLevel_ID = @FP_EducationLevel" + i + ", Education_ID = @FP_E_Name" + i + ", HasWork =  @FP_HasWork" + i + "" +
                                         " Where PF_ID = @PF_ID" + i + ";";
@@ -6023,8 +6034,8 @@ namespace MyWorkApplication
                             }
                             else
                             {
-                                Query += "INSERT INTO person (P_FirstName, P_LastName, P_FatherName, P_NationalNumber, P_DOB, P_State_ID, IsProjectOwner)" +
-                                    " VALUES (@FP_FirstName" + i + ", @FP_LastName" + i + ", @FP_FatherName" + i + ", @FP_NationalNumber" + i + ", @FP_DOB" + i + ", @FP_State" + i + ", 'No');";
+                                Query += "INSERT INTO person (P_FirstName, P_LastName, P_FatherName, P_NationalNumber, P_DOB, P_Sex, P_State_ID, IsProjectOwner)" +
+                                    " VALUES (@FP_FirstName" + i + ", @FP_LastName" + i + ", @FP_FatherName" + i + ", @FP_NationalNumber" + i + ", @FP_DOB" + i + ", @FP_Sex" + i + ", @FP_State" + i + ", 'No');";
 
                                 Query += "Set @FPerson_ID" + i + " =  LAST_INSERT_ID();";
 
@@ -7259,6 +7270,8 @@ namespace MyWorkApplication
                                 FamilyMember_dataGridView.Rows[i].Cells["P_LastName"].Value = selected_dt.Rows[i].Field<string>("P_LastName");
                                 FamilyMember_dataGridView.Rows[i].Cells["P_FatherName"].Value = selected_dt.Rows[i].Field<string>("P_FatherName");
                                 FamilyMember_dataGridView.Rows[i].Cells["P_Relation"].Value = selected_dt.Rows[i].Field<int?>("Relation_ID");
+                                FamilyMember_dataGridView.Rows[i].Cells["P_Sex"].Value = selected_dt.Rows[i].Field<string>("P_Sex");
+
                                 if (selected_dt.Rows[i]["P_DOB"] != DBNull.Value)
                                 {
                                     FamilyMember_dataGridView.Rows[i].Cells["P_DOB"].Value = selected_dt.Rows[i].Field<DateTime>("P_DOB").ToString("yyyy");

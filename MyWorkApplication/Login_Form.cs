@@ -43,7 +43,7 @@ namespace MyWorkApplication
         DataTable User_info = new DataTable(); 
         //ADD ANY NEW CENTER HERE AFTER CREATE ITS DATABASE
         List<string> Centers = new List<string> { 
-            "Aleppo", "Homs", "Damascus", "Latakia", "AlWadi", "Lebanon", "PTS Aleppo" }; 
+            "Aleppo", "Homs", "Damascus", "Latakia", "AlWadi", "Lebanon"}; //, "PTS Aleppo"  
 
         private void Login_Form_Load(object sender, EventArgs e)
         {

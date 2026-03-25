@@ -65,7 +65,7 @@ namespace MyWorkApplication.Classes
             query += " select person_workexp.ID, person_workexp.Work_ID,person_workexp.W_Description, person_workexp.W_WorkType_ID, person_workexp.W_BeginDate, person_workexp.W_EndDate, person_workexp.W_PlaceState, person_workexp.W_Place, person_workexp.W_Contact, person_workexp.W_Salary, person_workexp.W_CauseOfLoseDescription, person_workexp.W_Status" +
                 " from person_workexp where Person_ID = @Person_ID;";
 
-            query += " select family.F_ID, family.F_Number, person_family.PF_ID, person_family.Person_ID, person.P_FirstName, person.P_LastName, person.P_FatherName, person.P_DOB, person.P_NationalNumber, person.P_State_ID," +
+            query += " select family.F_ID, family.F_Number, person_family.PF_ID, person_family.Person_ID, person.P_FirstName, person.P_LastName, person.P_FatherName, person.P_DOB, person.P_Sex, person.P_NationalNumber, person.P_State_ID," +
                 "  person_family.Relation_ID, person_family.EducationLevel_ID, person_family.Education_ID, person.P_NationalNumber, education.Type_ID as 'Education_Type_ID', person_family.HasWork," +
                 " person.P_NumAtHome, person.P_NumOfMembers" +
                 " from person_family left join person on person.P_ID = person_family.Person_ID" +
