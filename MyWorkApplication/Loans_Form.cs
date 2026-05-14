@@ -687,16 +687,16 @@ namespace MyWorkApplication
                 // زيارة الافتتاحية مع تاريخ التمويل
                 DateTime OpeningVisit_date = LoanDate_DateTimePicker.Value.AddDays(5);
 
-                //الزيارة الاولى  (M1) بعد الافتتاحية ب 4 أشهر
-                //الزيارة الثانية(M2) بعد الزيارة الأولى ب 4 اشهر
-                //الزيارة الثالثة(M3) بعد الزيارة الثانية ب 4 اشهر
-                //الزيارة الرابعة(M4) بعد الزيارة الثالثة ب 6 اشهر
-                //الزيارة الخامسة(M5) بعد الزيارة الرابعة ب 6 أشهر
-                DateTime M1_Visit_date = OpeningVisit_date.AddMonths(4);
-                DateTime M2_Visit_date = M1_Visit_date.AddMonths(4);
-                DateTime M3_Visit_date = M2_Visit_date.AddMonths(4);
-                DateTime M4_Visit_date = M3_Visit_date.AddMonths(6);
-                DateTime M5_Visit_date = M4_Visit_date.AddMonths(6);
+                //الزيارة الاولى  (M1) بعد الافتتاحية ب 6 أشهر
+                //الزيارة الثانية(M2) بعد الزيارة الأولى ب 6 اشهر
+                //الزيارة الثالثة(M3) بعد الزيارة الثانية ب 6 اشهر
+                //تم حذف زيارة
+                //تم تسمية اخر زيارة ب النهائية
+                DateTime M1_Visit_date = OpeningVisit_date.AddMonths(6);
+                DateTime M2_Visit_date = M1_Visit_date.AddMonths(6);
+                DateTime M3_Visit_date = M2_Visit_date.AddMonths(6);
+                DateTime Final_Visit_date = M3_Visit_date.AddMonths(6);
+                //DateTime M5_Visit_date = M4_Visit_date.AddMonths(6);
 
                 //Send to M&E//
                 if (User_IDs.Count == 0)
@@ -719,16 +719,16 @@ namespace MyWorkApplication
                             userNotification.Insert_UserNotification(OpeningVisit_date.ToString("yyyy/MM/dd"), "Visit Opening-" + SubCategory,
                                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
 
-                            userNotification.Insert_UserNotification(M1_Visit_date.ToString("yyyy/MM/dd"), "Visit M1-" + SubCategory,
+                            userNotification.Insert_UserNotification(M1_Visit_date.ToString("yyyy/MM/dd")   , "Visit M1-" + SubCategory,
                                 Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                            userNotification.Insert_UserNotification(M2_Visit_date.ToString("yyyy/MM/dd"), "Visit M2-" + SubCategory,
+                            userNotification.Insert_UserNotification(M2_Visit_date.ToString("yyyy/MM/dd")   , "Visit M2-" + SubCategory,
                                 Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                            userNotification.Insert_UserNotification(M3_Visit_date.ToString("yyyy/MM/dd"), "Visit M3-" + SubCategory,
+                            userNotification.Insert_UserNotification(M3_Visit_date.ToString("yyyy/MM/dd")   , "Visit M3-" + SubCategory,
                                 Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                            userNotification.Insert_UserNotification(M4_Visit_date.ToString("yyyy/MM/dd"), "Visit M4-" + SubCategory,
+                            userNotification.Insert_UserNotification(Final_Visit_date.ToString("yyyy/MM/dd"), "Visit MFinal-" + SubCategory,
                                 Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
-                            userNotification.Insert_UserNotification(M5_Visit_date.ToString("yyyy/MM/dd"), "Visit M5-" + SubCategory,
-                                Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
+                            //userNotification.Insert_UserNotification(M5_Visit_date.ToString("yyyy/MM/dd"), "Visit M5-" + SubCategory,
+                            //    Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
                     }
                 }
                 l.Insert_Log("Insert Opening Visit / M&E Visits notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ",
@@ -837,9 +837,6 @@ namespace MyWorkApplication
 
                 //الزيارة الاولى  (M1) بعد الافتتاحية ب 4 أشهر
                 //الزيارة الثانية(M2) بعد الزيارة الأولى ب 4 اشهر
-                //الزيارة الثالثة(M3) بعد الزيارة الثانية ب 4 اشهر
-                //الزيارة الرابعة(M4) بعد الزيارة الثالثة ب 6 اشهر
-                //الزيارة الخامسة(M5) بعد الزيارة الرابعة ب 6 أشهر
                 DateTime M1_Visit_date = OpeningVisit_date.AddMonths(6);
                 DateTime M2_Visit_date = M1_Visit_date.AddMonths(6); 
 
