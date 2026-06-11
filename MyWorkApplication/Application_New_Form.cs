@@ -4516,13 +4516,13 @@ namespace MyWorkApplication
                             " Values (Concat('Update Beneficiary:',@P_FirstName, ' ', @P_LastName, ' ', 'in the project:', @MicroProject_ID), 'Person', @Log_User, @Log_Date, '0');";
                     }
 
-                    sc.Parameters.AddWithValue("@P_FirstName", P_FirstName);
-                    sc.Parameters.AddWithValue("@P_LastName", P_LastName);
+                    sc.Parameters.AddWithValue("@P_FirstName", Program.CleanSpaces(P_FirstName));
+                    sc.Parameters.AddWithValue("@P_LastName" , Program.CleanSpaces(P_LastName));
                     sc.Parameters.AddWithValue("@P_Sex", P_Sex);
                     sc.Parameters.AddWithValue("@PersonType", PersonType);
-                    sc.Parameters.AddWithValue("@P_FullName_En", P_FullName_En);
-                    sc.Parameters.AddWithValue("@P_FatherName", P_FatherName);
-                    sc.Parameters.AddWithValue("@P_MotherName", P_MotherName);
+                    sc.Parameters.AddWithValue("@P_FullName_En", Program.CleanSpaces(P_FullName_En));
+                    sc.Parameters.AddWithValue("@P_FatherName" , Program.CleanSpaces(P_FatherName));
+                    sc.Parameters.AddWithValue("@P_MotherName" , Program.CleanSpaces(P_MotherName));
                     sc.Parameters.AddWithValue("@P_Registration", P_Registration);
                     sc.Parameters.AddWithValue("@P_NationalNum", P_NationalNum);
                     sc.Parameters.AddWithValue("@P_DOB", P_DOB == null ? (object)DBNull.Value : P_DOB);
@@ -5991,9 +5991,9 @@ namespace MyWorkApplication
                             string FP_EducationType = FamilyMember_dataGridView.Rows[i].Cells["P_EducationType"].Value?.ToString() ?? "";
                             string FP_E_Name = FamilyMember_dataGridView.Rows[i].Cells["P_E_Name"].Value?.ToString() ?? "";
 
-                            sc.Parameters.AddWithValue("@FP_FirstName" + i, FP_FirstName);
-                            sc.Parameters.AddWithValue("@FP_LastName" + i, FP_LastName);
-                            sc.Parameters.AddWithValue("@FP_FatherName" + i, FP_FatherName);
+                            sc.Parameters.AddWithValue("@FP_FirstName" + i , Program.CleanSpaces(FP_FirstName));
+                            sc.Parameters.AddWithValue("@FP_LastName" + i  , Program.CleanSpaces(FP_LastName));
+                            sc.Parameters.AddWithValue("@FP_FatherName" + i, Program.CleanSpaces(FP_FatherName));
                             sc.Parameters.AddWithValue("@FP_Relation" + i, string.IsNullOrEmpty(FP_Relation) ? (object)DBNull.Value : FP_Relation);
                             sc.Parameters.AddWithValue("@FP_NationalNumber" + i, FP_NationalNumber);
                             sc.Parameters.AddWithValue("@FP_DOB" + i, FP_DOB == null ? (object)DBNull.Value : FP_DOB);

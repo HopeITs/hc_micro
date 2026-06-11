@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -55,6 +56,15 @@ namespace MyWorkApplication
         {
             value = value.Replace("'", "''");
             return value;
+        }
+        public static string CleanSpaces(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return string.Empty;
+
+            // \s+ تعني البحث عن فراغ واحد أو أكثر، واستبداله بفراغ واحد فقط
+            // Trim() تزيل الفراغات من البداية والنهاية
+            return Regex.Replace(text, @"\s+", " ").Trim();
         }
 
         public static string getSelectedItems_CheckboxComboBox(CheckBoxComboBox cbox, bool with_cotation)
