@@ -496,6 +496,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
  left join `person_microproject` on person_microproject.Person_ID = person.P_ID 
  where person_microproject.PersonType like 'شريك' AND loan.MicroProject_ID = person_microproject.MicroProject_ID LIMIT 1),'') as 'الشريك'
 
+, loan.Currency as 'العملة'
 ,`Pay_Amount` as 'القسط' 
 ,`Pay_DueDate` as 'تاريخ الاستحقاق' 
 ,`Pay_RecievedOnDate` as 'تاريخ الدفع الفعلي' 
