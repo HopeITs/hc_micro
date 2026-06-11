@@ -173,6 +173,7 @@ namespace MyWorkApplication
 
 ,P_DOB as 'المواليد'  
 ,P.P_Mobile as 'الموبايل' 
+,P.P_Mobile2 as '2الموبايل' 
 
 ,career.Name    as 'المهنة'
 ,career.Name_en as 'Career'

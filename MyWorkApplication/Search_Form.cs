@@ -1074,8 +1074,9 @@ namespace MyWorkApplication
  , P_HomeAddress as 'العنوان' 
  , P_RegistrationPlace as 'القيد' 
  , P_NationalNumber as 'الرقم الوطني' 
- , P_Mobile as 'الموبايل' 
-  
+ , P_Mobile  as 'الموبايل' 
+ , P_Mobile2 as 'الموبايل2' 
+
  ,  IFNULL(P_NumOfMembers,0) as 'عدد أفراد العائلة'
  ,  IFNULL(P_NumAtHome,0) as 'عدد أفراد المقيمين في المنزل'
 
