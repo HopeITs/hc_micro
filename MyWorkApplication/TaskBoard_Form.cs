@@ -190,13 +190,13 @@ namespace MyWorkApplication
                             else if (col_index == "21") row = tasks_users_dt.Select("Task like 'M1'");
                             else if (col_index == "22") row = tasks_users_dt.Select("Task like 'M2'");
                             else if (col_index == "23") row = tasks_users_dt.Select("Task like 'M3'");
-                            else if (col_index == "24") row = tasks_users_dt.Select("Task like 'M4'");
-                            else if (col_index == "25") row = tasks_users_dt.Select("Task like 'M5'");
-                            else if (col_index == "26") row = tasks_users_dt.Select("Task like 'Closing Visit'");
-                            else if (col_index == "27") row = tasks_users_dt.Select("Task like 'تصوير الزيارة الختامية'");
-                            else if (col_index == "28") row = tasks_users_dt.Select("Task like 'Video Captured'");
-                            else if (col_index == "29") row = tasks_users_dt.Select("Task like 'Video Edited'");
-                            else if (col_index == "30") row = tasks_users_dt.Select("Task like 'Video Uploaded'");
+                            else if (col_index == "24") row = tasks_users_dt.Select("Task like 'MFinal'");
+                            //else if (col_index == "25") row = tasks_users_dt.Select("Task like 'M5'");
+                            else if (col_index == "25") row = tasks_users_dt.Select("Task like 'Clearance'");
+                            else if (col_index == "26") row = tasks_users_dt.Select("Task like 'تصوير الزيارة الختامية'");
+                            else if (col_index == "27") row = tasks_users_dt.Select("Task like 'Video Captured'");
+                            else if (col_index == "28") row = tasks_users_dt.Select("Task like 'Video Edited'");
+                            else if (col_index == "29") row = tasks_users_dt.Select("Task like 'Video Uploaded'");
 
                             if (row == null || row.Length == 0) lbl.Text = "";
                             else lbl.Text = row[0].Field<string>("Username");
@@ -296,10 +296,9 @@ namespace MyWorkApplication
 ,(SELECT State From `task_microproject` where MicroProject_ID = PMP.MicroProject_ID and Task_ID = 26 limit 1)AS 'M1'
 ,(SELECT State From `task_microproject` where MicroProject_ID = PMP.MicroProject_ID and Task_ID = 27 limit 1)AS 'M2'
 ,(SELECT State From `task_microproject` where MicroProject_ID = PMP.MicroProject_ID and Task_ID = 28 limit 1)AS 'M3'
-,(SELECT State From `task_microproject` where MicroProject_ID = PMP.MicroProject_ID and Task_ID = 29 limit 1)AS 'M4'
-,(SELECT State From `task_microproject` where MicroProject_ID = PMP.MicroProject_ID and Task_ID = 30 limit 1)AS 'M5'
+,(SELECT State From `task_microproject` where MicroProject_ID = PMP.MicroProject_ID and Task_ID = 29 limit 1)AS 'MFinal'
 
-,(SELECT State From `task_microproject` where MicroProject_ID = PMP.MicroProject_ID and Task_ID = 31 limit 1)AS 'Closing Visit'
+,(SELECT State From `task_microproject` where MicroProject_ID = PMP.MicroProject_ID and Task_ID = 31 limit 1)AS 'Clearance'
 ,(SELECT State From `task_microproject` where MicroProject_ID = PMP.MicroProject_ID and Task_ID = 48 limit 1)AS 'تصوير الزيارة الختامية'
 
 ,( SELECT State From `task_microproject` where MicroProject_ID = PMP.MicroProject_ID and Task_ID = 36 limit 1)AS 'Video Captured'
@@ -893,14 +892,14 @@ namespace MyWorkApplication
                                 else if (col_index == "21") col_name = "M1";
                                 else if (col_index == "22") col_name = "M2";
                                 else if (col_index == "23") col_name = "M3";
-                                else if (col_index == "24") col_name = "M4";
-                                else if (col_index == "25") col_name = "M5";
-                                else if (col_index == "26") col_name = "Closing Visit";
-                                else if (col_index == "27") col_name = "تصوير الزيارة الختامية";
+                                else if (col_index == "24") col_name = "MFinal";
+                                //else if (col_index == "25") col_name = "M5";
+                                else if (col_index == "25") col_name = "Clearance";
+                                else if (col_index == "26") col_name = "تصوير الزيارة الختامية";
 
-                                else if (col_index == "28") col_name = "Video Captured";
-                                else if (col_index == "29") col_name = "Video Edited";
-                                else if (col_index == "30") col_name = "Video Uploaded";
+                                else if (col_index == "27") col_name = "Video Captured";
+                                else if (col_index == "28") col_name = "Video Edited";
+                                else if (col_index == "29") col_name = "Video Uploaded";
 
                                 var filter = "";
 
