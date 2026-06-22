@@ -1152,7 +1152,7 @@ namespace MyWorkApplication
             {  
                 pre_data = "";
                 //3a talab tony // حالة المشروع
-                if (e.ColumnIndex == 26)
+                if (e.ColumnIndex == 25)
                     pre_data = MP_dataGridView.Rows[e.RowIndex].Cells["حالة المشروع"].Value.ToString();
             }
             catch (Exception ex)
@@ -1180,7 +1180,7 @@ namespace MyWorkApplication
                     var Updated_col_name = "";
 
                     // حالة المشروع
-                    if (e.ColumnIndex == 24) // if we update just the 
+                    if (e.ColumnIndex == 25) // if we update just the 
                     {
                         var state = -1;
                         string edited_column = MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString();
@@ -1289,7 +1289,7 @@ namespace MyWorkApplication
                         Updated_col_name = "Mobile:" + MP_dataGridView.Rows[r].Cells["الموبايل"].Value;
                     }
                     // وصف المشروع - المبلغ المطلوب
-                    else if (e.ColumnIndex == 12 || e.ColumnIndex == 14)
+                    else if (e.ColumnIndex == 13 || e.ColumnIndex == 15)
                     {
                         query = "update `microproject` set" +
                                 " MP_Name = N'" + MP_dataGridView.Rows[r].Cells["وصف المشروع"].Value + "'," +
@@ -1300,7 +1300,7 @@ namespace MyWorkApplication
                         Updated_col_name = "Project Name/Requested money";
                     }
                     // ملاحظات المشروع
-                    else if (e.ColumnIndex == 22)
+                    else if (e.ColumnIndex == 23)
                     {
                         query = "update `microproject` set MP_Note = N'" +
                                 replaceQuotation(MP_dataGridView.Rows[r].Cells["ملاحظات المشروع"].Value.ToString()) + "' "
@@ -1309,7 +1309,7 @@ namespace MyWorkApplication
                         Updated_col_name = "Comments";
                     }
                     //دورة تدريبية 
-                    else if (e.ColumnIndex == 23)
+                    else if (e.ColumnIndex == 24)
                     {
                         query = "update `person` set" +
                                 " P_MaristesCourse = N'" + replaceQuotation(MP_dataGridView.Rows[r].Cells["دورة تدريبية"].Value.ToString()) +
@@ -1317,7 +1317,7 @@ namespace MyWorkApplication
                         Updated_col_name = "Maristes Course";
                     }
                     // سبب الحالة - ملاحظة الحالة
-                    else if (e.ColumnIndex == 25 || e.ColumnIndex == 26)
+                    else if (e.ColumnIndex == 26 || e.ColumnIndex == 27)
                     {
                         string edited_column = MP_dataGridView.Rows[r].Cells["حالة المشروع"].Value.ToString();
                         query = " update microproject_state set "
@@ -1330,7 +1330,7 @@ namespace MyWorkApplication
                         Updated_col_name = "State Reason:" + MP_dataGridView.Rows[r].Cells["سبب الحالة"].Value;
                     }
                     // الجهة الممولة
-                    else if (e.ColumnIndex == 27)
+                    else if (e.ColumnIndex == 28)
                     {
                         string edited_column = Program.ReplaceQuotation(
                             MP_dataGridView.Rows[r].Cells["الجهة الممولة"].Value.ToString());
@@ -1382,7 +1382,7 @@ namespace MyWorkApplication
                         Updated_col_name = "Donor:" + edited_column;
                     }
                     // تبديل المشروع
-                    else if (e.ColumnIndex == 28)
+                    else if (e.ColumnIndex == 29)
                     {
                         query = "update `microproject` set" +
                                 " IsContentUpdated = " + (MP_dataGridView.Rows[r].Cells["تبديل المشروع"].Value.ToString() == "نعم" ? 1 : 0) +

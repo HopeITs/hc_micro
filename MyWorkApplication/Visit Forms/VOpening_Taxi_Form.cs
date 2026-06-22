@@ -563,9 +563,9 @@ namespace MyWorkApplication.Visit_Forms
                         "user_notification visit", Program.UserName, DateTime.Now);
                     //////////////////////////////////////////////////////////////////////////////////////////   
 
-                    MessageBox.Show("سيتم توليد إشعارات زيارات المراقبة والتقييم وذلك حسب تاريخ زيارة الافتتاحية التالية");
-                    noti.Delete_Notification(MicroProject_ID, "", "Visit M%", Person_Name_textBox.Text, -1);
-                    l.Insert_Log("Delete visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ", "Visit", Program.UserName, DateTime.Now);
+                    //MessageBox.Show("سيتم توليد إشعارات زيارات المراقبة والتقييم وذلك حسب تاريخ زيارة الافتتاحية التالية");
+                    //noti.Delete_Notification(MicroProject_ID, "", "Visit M%", Person_Name_textBox.Text, -1);
+                    //l.Insert_Log("Delete visit notifications of:" + MicroProject_ID + " : " + Person_Name_textBox.Text + " ", "Visit", Program.UserName, DateTime.Now);
 
                     //generate_me_visits_notifications();
                 }
