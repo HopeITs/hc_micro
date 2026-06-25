@@ -28,6 +28,7 @@ namespace MyWorkApplication.Classes
                 + ", microproject.MP_SubType_ID as 'SubType_ID'"
                 + ", microproject.SubCategory_ID as 'SubCategory_ID'"
                 + ", microproject.Career_ID as 'Career_ID'"
+                + ", microproject.MP_Speciality as 'Speciality'"
                 + ", microproject.MP_Profit_Description as 'Profit_Description'"
                 + ", microproject.MP_PaperUser_ID as 'PaperUser_ID'"
                 + ", (select user.UserName from user where UserID = microproject.MP_ProgramUser_ID) as 'ProgramUser'"

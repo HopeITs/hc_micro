@@ -1021,6 +1021,7 @@ namespace MyWorkApplication
  , career.Name_en as 'Career'
  , career.Name    as 'المهنة'
  , MP_Name as 'وصف المشروع'   
+ , MP_Speciality as 'الاختصاص'   
 
  , C.Name 'Category' 
  , sub.Name as 'Sub Category'

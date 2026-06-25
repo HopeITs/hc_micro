@@ -1829,7 +1829,10 @@ namespace MyWorkApplication
 
 
         #region Project_ISDirty
-        string MP_RequestedAmount_textBox_original, MP_Name_textBox_original, P_MobileReadable_textBox_original, MPID_textBox_original, P_FullName_textBox_original;
+        string MP_RequestedAmount_textBox_original, MP_Name_textBox_original
+            , MP_Speciality_textBox_original
+            , P_MobileReadable_textBox_original, MPID_textBox_original
+            , P_FullName_textBox_original;
 
         private void MP_Name_textBox_Enter(object sender, EventArgs e)
         {
@@ -1849,6 +1852,34 @@ namespace MyWorkApplication
                 if (UserMode)
                 {
                     if (MP_Name_textBox_original != MP_Name_textBox.Text)
+                        IsDirty_Data["Project_ISDirty"] = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+
+        }
+
+        private void MP_Speciality_textBox_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                MP_Speciality_textBox_original = MP_Speciality_textBox.Text;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
+            }
+        }
+        private void MP_Speciality_textBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (UserMode)
+                {
+                    if (MP_Speciality_textBox_original != MP_Speciality_textBox.Text)
                         IsDirty_Data["Project_ISDirty"] = true;
                 }
             }
@@ -4031,7 +4062,7 @@ namespace MyWorkApplication
 
 
             #region Project
-            string MP_ID = "", MP_Name = "", RequestedAmount = "", LoanType = "";
+            string MP_ID = "", MP_Name = "", MP_Speciality = "", RequestedAmount = "", LoanType = "";
             int SubCategory = -1, Career = -1, Type = -1, SubType = -1;
             DateTime ApplyDate = new DateTime();
 
@@ -4109,6 +4140,7 @@ namespace MyWorkApplication
                 SubType = int.Parse(SubType_comboBox.SelectedValue.ToString());
 
                 MP_Name = MP_Name_textBox.Text;
+                MP_Speciality = MP_Speciality_textBox.Text;
 
 
                 if (Loan_radioButton.Checked)
@@ -4120,8 +4152,8 @@ namespace MyWorkApplication
 
                 if (MicroProject_ID <= 0)
                 {
-                    Query += " insert into microproject (MP_ID, MP_DateOfRequest, MP_Name, MP_RequestedAmount, MP_FundType_ID, MP_Type_ID, MP_SubType_ID, Category_ID, SubCategory_ID, Career_ID, ApplicationState, MP_ProgramUser_ID)" +
-                        " Values (@MP_ID, @ApplyDate, @MP_Name, @RequestedAmount, (select id from fundtype where fundtype.name = @LoanType), @Type, @SubType, (select Category_ID from subcategory where subcategory.id = @SubCategory) ,@SubCategory, @Career, @ApplicationState, @ProgramUser_ID);";
+                    Query += " insert into microproject (MP_ID, MP_DateOfRequest, MP_Name, MP_RequestedAmount, MP_FundType_ID, MP_Type_ID, MP_SubType_ID, Category_ID, SubCategory_ID, Career_ID, MP_Speciality, ApplicationState, MP_ProgramUser_ID)" +
+                        " Values (@MP_ID, @ApplyDate, @MP_Name, @RequestedAmount, (select id from fundtype where fundtype.name = @LoanType), @Type, @SubType, (select Category_ID from subcategory where subcategory.id = @SubCategory) ,@SubCategory, @Career,@MP_Speciality, @ApplicationState, @ProgramUser_ID);";
 
                     Query += " SET @MicroProject_ID = @MP_ID;";
 
@@ -4149,7 +4181,7 @@ namespace MyWorkApplication
                     Query += "update microproject set MP_DateOfRequest = @ApplyDate, MP_Name = @MP_Name" +
                         ",MP_RequestedAmount = @RequestedAmount, MP_FundType_ID = (select id from fundtype where fundtype.name = @LoanType), MP_Type_ID = @Type," +
                         " MP_SubType_ID = @SubType, Category_ID = (select Category_ID from subcategory where subcategory.id = @SubCategory)," +
-                        " SubCategory_ID = @SubCategory, Career_ID = @Career, ApplicationState =@ApplicationState where MP_ID = @MicroProject_ID;";
+                        " SubCategory_ID = @SubCategory, Career_ID = @Career, MP_Speciality = @MP_Speciality, ApplicationState =@ApplicationState where MP_ID = @MicroProject_ID;";
                 }
 
 
@@ -4182,6 +4214,7 @@ namespace MyWorkApplication
                 sc.Parameters.AddWithValue("@Type", Type == -1 ? (object)DBNull.Value : Type);
                 sc.Parameters.AddWithValue("@SubType", SubType == -1 ? (object)DBNull.Value : SubType);
                 sc.Parameters.AddWithValue("@MP_Name", MP_Name);
+                sc.Parameters.AddWithValue("@MP_Speciality", MP_Speciality);
                 sc.Parameters.AddWithValue("@LoanType", LoanType);
                 sc.Parameters.AddWithValue("@RequestedAmount", RequestedAmount);
                 sc.Parameters.AddWithValue("@FullName", P_FullName_textBox.Text);
@@ -6764,6 +6797,8 @@ namespace MyWorkApplication
                     ApplyDate_bcDateTimePicker.Value = Convert.ToDateTime(Application_ds.Tables[0].Rows[0].Field<DateTime>("Date Of Request").ToString());
                 }
                 MP_Name_textBox.Text = Application_ds.Tables[0].Rows[0].Field<string>("Project Name");
+                MP_Speciality_textBox.Text = Application_ds.Tables[0].Rows[0].Field<string>("Speciality");
+
                 Type_comboBox.SelectedValue = Application_ds.Tables[0].Rows[0].Field<int?>("Type_ID") ?? -1;
                 SubType_comboBox.SelectedValue = Application_ds.Tables[0].Rows[0].Field<int?>("SubType_ID") ?? -1;
                 MP_RequestedAmount_textBox.Text = Application_ds.Tables[0].Rows[0].Field<double?>("Requested Amount")?.ToString() ?? "";
