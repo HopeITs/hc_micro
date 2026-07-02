@@ -32,7 +32,7 @@ namespace MyWorkApplication
         public static string theme = "Light";
         public static int role = -1;
         public static int userID = -1;
-        public static string selected_database = "";
+        public static string selected_database = "Homs";
         public static string UserName = "";
         public static string Password = "";
 
@@ -92,7 +92,7 @@ namespace MyWorkApplication
             if (Properties.Settings.Default.Online)
                 datalocation = "online";
             else datalocation = "localhost";
-            //else datalocation = "PC-ADMIN";
+            // else datalocation = "PC-ADMIN";
 
             OnlineRoot = "ftp://hcsyria.org/micro_images2/";
             OfflineRoot = "ftp://PC-ADMIN/micro_images/";
