@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Spreadsheet;
+using Microsoft.Office.Interop.Word;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
 using MyWorkApplication.Classes;
@@ -7,9 +8,13 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.Xml;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using static ClosedXML.Excel.XLPredefinedFormat;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MyWorkApplication
 {
@@ -23,7 +28,7 @@ namespace MyWorkApplication
 
         //CHARSET=utf8 for recognizing Arabic in c#
         public static string ConnectionString = ""; //PC-ADMIN        
-        public static MySqlConnection MyConn;       //HC-JUDY
+        public static MySqlConnection MyConn;
         public static MySqlConnection MyFirstConn;
         public static string Selected_Date = "";
         public static List<string> User_In_Database;
@@ -32,18 +37,13 @@ namespace MyWorkApplication
         public static string theme = "Light";
         public static int role = -1;
         public static int userID = -1;
-        public static string selected_database = "Homs";
+        public static string selected_database = "";
         public static string UserName = "";
         public static string Password = "";
 
-        //public static string OfflineRoot, RemoteRoot, OnlineRoot;
-        //public static Tuple<string, string, string> RemotelyCredentials;
-        //public static Tuple<string, string> OfflineserversCredentials;
-        //public static Tuple<string, string> OnlineserversCredentials;
-
-        //From Sary
         public static string OnlineRoot;
         public static string OfflineRoot;
+
         public static Tuple<string, string> OnlineserversCredentials = new Tuple<string, string>("judy", "DAda1994@");
         public static Tuple<string, string> OfflineserversCredentials = new Tuple<string, string>("Admin", "admin54321");
 
@@ -85,20 +85,28 @@ namespace MyWorkApplication
             return selected;
         }
 
+        public static string server = "";
+
         public static void set_ConnectionString()
         {
             //Added for the new encryption
-            string datalocation;
+            //string datalocation;
+            //if (Properties.Settings.Default.Online)
+            //    datalocation = "mysql.s1893.sureserver.com";
+            //else datalocation = "localhost";
+            //// else datalocation = "PC-ADMIN";
+            //Encryption.DecryptCredentials(datalocation);
+
+            Program.ConnectionString = "";
             if (Properties.Settings.Default.Online)
-                datalocation = "online";
-            else datalocation = "localhost";
-            // else datalocation = "PC-ADMIN";
+                Program.ConnectionString = "Server=mysql.s1893.sureserver.com;Port=3308;Uid=micro;Password=Center2018Hope;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True;Pooling=false;";
+            else
+                //Program.ConnectionString = "Server=PC-ADMIN;Port=3306;Uid=jj;Password=pp;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True;Pooling=false;";
+                Program.ConnectionString = "server=localhost;Port=3306;Uid=jj;Password=pp;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True;";
 
             OnlineRoot = "ftp://hcsyria.org/micro_images2/";
             OfflineRoot = "ftp://PC-ADMIN/micro_images/";
 
-            Encryption.DecryptCredentials(datalocation);
-            
             if (selected_database == "Aleppo")
             {
                 ConnectionString = "Database=hcsyria_micro;" + ConnectionString;
@@ -135,23 +143,12 @@ namespace MyWorkApplication
                 OnlineRoot += "lebanon";
                 OfflineRoot += "lebanon";
             }
-            //else if (selected_database == "PTS Aleppo")
-            //{
-            //    ConnectionString = "Database=hcsyria_micro_pts_aleppo;" + ConnectionString;
-            //    OnlineRoot += "pts aleppo";
-            //    OfflineRoot += "pts aleppo";
-            //}
             else
             {
                 OnlineRoot = "";
                 OfflineRoot = "";
             }
 
-            ////On shared hosting, using Pooling=false; in connection string:
-            //Close() really closes
-            //MySQL process disappears immediately
-            //No zombie Sleep connections
-            ConnectionString += ";Pooling=false;";
         }
 
         public static bool buildConnection()
@@ -233,8 +230,8 @@ namespace MyWorkApplication
         [STAThread]
         private static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            System.Windows.Forms.Application.EnableVisualStyles();
+            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
             Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
 
             close_app = false;
@@ -246,7 +243,7 @@ namespace MyWorkApplication
             }
             else close_app = true;
 
-            Application.Run(new MainForm());
+            System.Windows.Forms.Application.Run(new MainForm());
 
         }
 
