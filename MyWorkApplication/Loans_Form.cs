@@ -878,7 +878,15 @@ namespace MyWorkApplication
                 //هي بدال الزيارة الختامية
                 var Clearance_date = (DateTime)Payment_dataGridView.Rows[Payment_dataGridView.RowCount - 2].Cells["Pay_RecievedOnDate"].Value;
                 Clearance_date = Clearance_date.AddDays(1);
-                 
+
+
+                //check if has trofy before generating new one
+                if(userNotification.Has_Notifications(MicroProject_ID, Clearance_date.ToString("yyyy/MM/dd"), "براءة الذمة (Clearance)", "", -21, ""))
+                {
+                    MessageBox.Show("هذا المشروع يملك اشعار لبراءة الذمة لذلك لن يتم توليد اشعار ثان.");
+                    return;
+                }    
+
                 int u = -1;  
                 userNotification.Insert_UserNotification(Clearance_date.ToString("yyyy/MM/dd"), "براءة الذمة (Clearance)", // -SubCategory
                         Person_Name_textBox.Text, MicroProject_ID, u, Program.userID, -21);
