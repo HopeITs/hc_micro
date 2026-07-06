@@ -101,8 +101,8 @@ namespace MyWorkApplication
             if (Properties.Settings.Default.Online)
                 Program.ConnectionString = "Server=mysql.s1893.sureserver.com;Port=3308;Uid=micro;Password=Center2018Hope;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True;Pooling=false;";
             else
-                //Program.ConnectionString = "Server=PC-ADMIN;Port=3306;Uid=jj;Password=pp;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True;Pooling=false;";
-                Program.ConnectionString = "server=localhost;Port=3306;Uid=jj;Password=pp;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True;";
+                Program.ConnectionString = "Server=PC-ADMIN;Port=3306;Uid=jj;Password=pp;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True;Pooling=false;";
+                // Program.ConnectionString = "server=localhost;Port=3306;Uid=jj;Password=pp;Convert Zero Datetime=True;CHARSET=utf8;Connect Timeout=21600;Allow User Variables=True;";
 
             OnlineRoot = "ftp://hcsyria.org/micro_images2/";
             OfflineRoot = "ftp://PC-ADMIN/micro_images/";
