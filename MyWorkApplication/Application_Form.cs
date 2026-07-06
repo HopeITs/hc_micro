@@ -5929,29 +5929,32 @@ where f.F_Number like '" + FamilyNum_textBox1.Text + "' and pf.Relation like 'م
                 if (Save_MP_ID_button.BackgroundImage == Properties.Resources.Unchecked || MicroProject_ID == -1)
                     throw new InvalidOperationException("لا يمكن الحفظ قبل حجز رقم المشروع! الرجاء حفظ رقم المشروع ثم إعادة المحاولة..");
 
-                ////////////////  Insert Person ///////////////////////
-                if (P_DOB_textBox.Text != "" && (DateTime.Now.Year - Convert.ToInt32(P_DOB_textBox.Text) < 18)) // منع ادخال استمارة قاصرين
-                    throw new InvalidOperationException("لا يمكن الحفظ لأن المستفيد تحت السن القانوني");
-
-                if (P_FirstName_textBox.Text == "" || P_LastName_textBox.Text == "" || P_FatherName_textBox.Text == ""
-                    || P_NationalNum_textBox.Text == "" || P_NumAtHome_textBox.Text == "" || P_Parish_comboBox.Text == "")
-                    throw new InvalidOperationException("لا يمكن الحفظ بوجود خلايا فارغة، يُرجى التأكد من كافة البيانات والمحاولة مرة أخرى.");
-
-                if (P_Sex_comboBox.Text == "ذكر"
-                    && !MilitarySingle_radioButton.Checked && !MilitaryNow_radioButton.Checked
-                    && !MilitaryFinished_radioButton.Checked && !MilitaryDelayed_radioButton.Checked
-                    && !MilitaryExempt_radioButton.Checked)
-                    throw new InvalidOperationException("لا يمكن الحفظ قبل حفط حالة خدمة العلم للمستفيد، الرجاء التأكد من المعلومة والمحاولة مرة أخرى.");
-
-                if (FamilyNum_textBox1.Text == "")
+                // PARTIAL-SAVE: RESTORE VALIDATION — remove Update_Mode guard to require all fields on every save
+                if (!Update_Mode)
                 {
-                    string msg = "لن يتم حفظ معلومات أفراد العائلة أو الزوج/ة لأنه لا يوجد رقم دفتر عائلة";
-                    msg += Environment.NewLine;
-                    msg += "الرجاء كتابة أي معلومة أو رقم لامكانية ادخال كل أفراد العائلة بشكل صحيح";
-                    throw new InvalidOperationException(msg);
+                    if (P_DOB_textBox.Text != "" && (DateTime.Now.Year - Convert.ToInt32(P_DOB_textBox.Text) < 18)) // منع ادخال استمارة قاصرين
+                        throw new InvalidOperationException("لا يمكن الحفظ لأن المستفيد تحت السن القانوني");
+
+                    if (P_FirstName_textBox.Text == "" || P_LastName_textBox.Text == "" || P_FatherName_textBox.Text == ""
+                        || P_NationalNum_textBox.Text == "" || P_NumAtHome_textBox.Text == "" || P_Parish_comboBox.Text == "")
+                        throw new InvalidOperationException("لا يمكن الحفظ بوجود خلايا فارغة، يُرجى التأكد من كافة البيانات والمحاولة مرة أخرى.");
+
+                    if (P_Sex_comboBox.Text == "ذكر"
+                        && !MilitarySingle_radioButton.Checked && !MilitaryNow_radioButton.Checked
+                        && !MilitaryFinished_radioButton.Checked && !MilitaryDelayed_radioButton.Checked
+                        && !MilitaryExempt_radioButton.Checked)
+                        throw new InvalidOperationException("لا يمكن الحفظ قبل حفط حالة خدمة العلم للمستفيد، الرجاء التأكد من المعلومة والمحاولة مرة أخرى.");
+
+                    if (FamilyNum_textBox1.Text == "")
+                    {
+                        string msg = "لن يتم حفظ معلومات أفراد العائلة أو الزوج/ة لأنه لا يوجد رقم دفتر عائلة";
+                        msg += Environment.NewLine;
+                        msg += "الرجاء كتابة أي معلومة أو رقم لامكانية ادخال كل أفراد العائلة بشكل صحيح";
+                        throw new InvalidOperationException(msg);
+                    }
                 }
 
-                //احتمال يكونوا حافظين المشروع فقط (حاجزين رقم ومامدخلين مستفيد أبدا
+                ////////////////  Insert Person ///////////////////////
                 // أي اننا في مود التعديل ولكن رقم المستفيد -1
                 if (!Update_Mode || (Person_ID == -1 && Update_Mode))
                 {
