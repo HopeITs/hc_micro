@@ -793,10 +793,10 @@ namespace MyWorkApplication
                 = MngTrain_Result_textBox.Text = "";
 
             ////team
-            TeamDate_checkBox.Checked = false;
+            TeamDate_checkBox.Checked = true;
             TeamDate_dateTimePicker.Value = DateTime.Today;
             ////commity 
-            CommityDate_checkBox.Checked = false;
+            CommityDate_checkBox.Checked = true;
             CommityDate_dateTimePicker.Value = DateTime.Today;
 
             //Notes
@@ -1372,28 +1372,40 @@ namespace MyWorkApplication
                 return false;
             }
 
-            if (HasProfTest_tableLayoutPanel.Enabled && 
-                    (ProTest_Note_textBox.Text == "" 
-                    || ProTest_User_ID_comboBox.SelectedIndex == -1) )
+            if (HasProTestYes_radioButton.Checked)
             {
-                MessageBox.Show("يُرجى استكمال معلومات الفحص المهني.", "Error");
-                return false;
+                if (HasProfTest_tableLayoutPanel.Enabled &&
+                        (ProTest_Note_textBox.Text == ""
+                        || ProTest_User_ID_comboBox.SelectedIndex == -1))
+                {
+                    MessageBox.Show("يُرجى استكمال معلومات الفحص المهني.", "Error");
+                    return false;
+                }
             }
-            if (HasProTrain_tableLayoutPanel.Enabled &&
-                    (ProTrain_Trainer_textBox.Text == ""
-                    || ProTrain_Place_textBox.Text == ""
-                    || ProTrain_Note_textBox.Text  == "") )
+
+            if (HasProTrainYes_radioButton.Checked)
             {
-                MessageBox.Show("يُرجى استكمال معلومات التدريب المهني.", "Error");
-                return false;
+                if (HasProTrain_tableLayoutPanel.Enabled &&
+                        (ProTrain_Trainer_textBox.Text == ""
+                        || ProTrain_Place_textBox.Text == ""
+                        || ProTrain_Note_textBox.Text == ""))
+                {
+                    MessageBox.Show("يُرجى استكمال معلومات التدريب المهني.", "Error");
+                    return false;
+                }
             }
-            if (HasMngTrain_tableLayoutPanel.Enabled &&
-                (MngTrain_Trainer_textBox.Text == ""
-                || MngTrain_Place_textBox.Text == "") )
-                    {
-                        MessageBox.Show("يُرجى استكمال معلومات التدريب الإداري.", "Error");
-                        return false;
-                    }
+
+            if (HasMngTrainYes_radioButton.Checked)
+            {
+                if (HasMngTrain_tableLayoutPanel.Enabled &&
+                    (MngTrain_Trainer_textBox.Text == ""
+                    || MngTrain_Place_textBox.Text == ""))
+                {
+                    MessageBox.Show("يُرجى استكمال معلومات التدريب الإداري.", "Error");
+                    return false;
+                }
+            }
+
 
             if (RejectMsg_checkBox.Checked &&
                 (RejectMsgSender_comboBox.SelectedIndex == -1) )
@@ -1663,7 +1675,10 @@ namespace MyWorkApplication
             try
             {
                 if (Person_ID != -1 && MicroProject_ID != -1)
-                { 
+                {
+                    //save before print
+                    Save_button_Click(sender, e);
+
                     dt4444 = cl.Print_Checklist_Procedure(Person_ID.ToString());
 
                     Thread myTh = new Thread(SaveCallDialog_2);
