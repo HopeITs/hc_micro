@@ -7784,6 +7784,26 @@ namespace MyWorkApplication
             }
         }
 
+        private void P_Sex_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (P_Sex_comboBox.Text == "ذكر" && ApplicationState != "zero")
+            {
+                Military_flowLayoutPanel.Visible =
+                MilitaryNote_textBox.Visible =
+                MilitaryNote_label.Visible =
+                flowLayoutPanel23.Visible =
+                flowLayoutPanel6.Visible = true;
+            }
+            else
+            {
+                Military_flowLayoutPanel.Visible =
+                MilitaryNote_textBox.Visible =
+                MilitaryNote_label.Visible =
+                flowLayoutPanel23.Visible =
+                flowLayoutPanel6.Visible = false;
+            }
+        }
+
         private bool Check_MicroProject_ID(string MP_ID)
         {
             try

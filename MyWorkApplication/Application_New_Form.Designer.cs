@@ -821,12 +821,12 @@ namespace MyWorkApplication
             // 
             this.P_MobileReadable_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_MobileReadable_textBox.BackColor = System.Drawing.Color.White;
-            this.P_MobileReadable_textBox.Location = new System.Drawing.Point(580, 148);
+            this.P_MobileReadable_textBox.Location = new System.Drawing.Point(579, 146);
             this.P_MobileReadable_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_MobileReadable_textBox.Name = "P_MobileReadable_textBox";
             this.P_MobileReadable_textBox.ReadOnly = true;
             this.P_MobileReadable_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.P_MobileReadable_textBox.Size = new System.Drawing.Size(225, 24);
+            this.P_MobileReadable_textBox.Size = new System.Drawing.Size(224, 28);
             this.P_MobileReadable_textBox.TabIndex = 526;
             this.P_MobileReadable_textBox.TabStop = false;
             this.P_MobileReadable_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -836,10 +836,10 @@ namespace MyWorkApplication
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label3.Location = new System.Drawing.Point(425, 151);
+            this.label3.Location = new System.Drawing.Point(416, 148);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(41, 18);
+            this.label3.Size = new System.Drawing.Size(49, 24);
             this.label3.TabIndex = 513;
             this.label3.Text = "المهنة:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -849,10 +849,10 @@ namespace MyWorkApplication
             this.label80.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label80.AutoSize = true;
             this.label80.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label80.Location = new System.Drawing.Point(870, 151);
+            this.label80.Location = new System.Drawing.Point(852, 148);
             this.label80.Name = "label80";
             this.label80.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label80.Size = new System.Drawing.Size(65, 18);
+            this.label80.Size = new System.Drawing.Size(80, 24);
             this.label80.TabIndex = 527;
             this.label80.Text = "رقم الجوّال:";
             this.label80.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -863,11 +863,11 @@ namespace MyWorkApplication
             this.MPID_textBox.BackColor = System.Drawing.Color.White;
             this.MPID_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.MPID_textBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.MPID_textBox.Location = new System.Drawing.Point(104, 107);
+            this.MPID_textBox.Location = new System.Drawing.Point(104, 105);
             this.MPID_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MPID_textBox.Name = "MPID_textBox";
             this.MPID_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MPID_textBox.Size = new System.Drawing.Size(237, 24);
+            this.MPID_textBox.Size = new System.Drawing.Size(236, 28);
             this.MPID_textBox.TabIndex = 1;
             this.MPID_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.MPID_textBox.Enter += new System.EventHandler(this.MPID_textBox_Enter);
@@ -878,11 +878,11 @@ namespace MyWorkApplication
             this.P_FullName_En_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_FullName_En_textBox.BackColor = System.Drawing.Color.White;
             this.t3_tableLayoutPanel.SetColumnSpan(this.P_FullName_En_textBox, 4);
-            this.P_FullName_En_textBox.Location = new System.Drawing.Point(3, 138);
+            this.P_FullName_En_textBox.Location = new System.Drawing.Point(3, 136);
             this.P_FullName_En_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_FullName_En_textBox.Name = "P_FullName_En_textBox";
             this.P_FullName_En_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_FullName_En_textBox.Size = new System.Drawing.Size(536, 24);
+            this.P_FullName_En_textBox.Size = new System.Drawing.Size(533, 28);
             this.P_FullName_En_textBox.TabIndex = 21;
             this.P_FullName_En_textBox.Enter += new System.EventHandler(this.P_FullName_En_textBox_Enter);
             this.P_FullName_En_textBox.Leave += new System.EventHandler(this.P_FullName_En_textBox_Leave);
@@ -892,10 +892,10 @@ namespace MyWorkApplication
             this.label62.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label62.AutoSize = true;
             this.label62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label62.Location = new System.Drawing.Point(860, 110);
+            this.label62.Location = new System.Drawing.Point(842, 107);
             this.label62.Name = "label62";
             this.label62.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label62.Size = new System.Drawing.Size(75, 18);
+            this.label62.Size = new System.Drawing.Size(90, 24);
             this.label62.TabIndex = 263;
             this.label62.Text = "الاسم الثلاثي:";
             this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -960,7 +960,7 @@ namespace MyWorkApplication
             this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.First_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.First_tableLayoutPanel.Size = new System.Drawing.Size(1095, 436);
+            this.First_tableLayoutPanel.Size = new System.Drawing.Size(1091, 436);
             this.First_tableLayoutPanel.TabIndex = 1;
             this.First_tableLayoutPanel.TabStop = true;
             // 
@@ -977,7 +977,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(104, 389);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(831, 44);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(828, 44);
             this.flowLayoutPanel2.TabIndex = 563;
             // 
             // label71
@@ -986,11 +986,11 @@ namespace MyWorkApplication
             this.label71.AutoSize = true;
             this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label71.Location = new System.Drawing.Point(749, 0);
+            this.label71.Location = new System.Drawing.Point(732, 0);
             this.label71.Margin = new System.Windows.Forms.Padding(0);
             this.label71.Name = "label71";
             this.label71.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label71.Size = new System.Drawing.Size(82, 15);
+            this.label71.Size = new System.Drawing.Size(96, 18);
             this.label71.TabIndex = 267;
             this.label71.Text = "*نوع المشروع:";
             this.label71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1001,11 +1001,11 @@ namespace MyWorkApplication
             this.label72.AutoSize = true;
             this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label72.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label72.Location = new System.Drawing.Point(524, 0);
+            this.label72.Location = new System.Drawing.Point(453, 0);
             this.label72.Margin = new System.Windows.Forms.Padding(0);
             this.label72.Name = "label72";
             this.label72.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label72.Size = new System.Drawing.Size(225, 15);
+            this.label72.Size = new System.Drawing.Size(279, 18);
             this.label72.TabIndex = 268;
             this.label72.Text = "مشروع صغير - مشروع زراعي - طاقة شمسية - ترميم";
             this.label72.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1016,11 +1016,11 @@ namespace MyWorkApplication
             this.label78.AutoSize = true;
             this.label78.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label78.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label78.Location = new System.Drawing.Point(432, 0);
+            this.label78.Location = new System.Drawing.Point(344, 0);
             this.label78.Margin = new System.Windows.Forms.Padding(0);
             this.label78.Name = "label78";
             this.label78.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label78.Size = new System.Drawing.Size(92, 15);
+            this.label78.Size = new System.Drawing.Size(109, 18);
             this.label78.TabIndex = 269;
             this.label78.Text = "*طبيعة المشروع:";
             this.label78.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1031,11 +1031,11 @@ namespace MyWorkApplication
             this.label82.AutoSize = true;
             this.label82.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label82.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label82.Location = new System.Drawing.Point(318, 0);
+            this.label82.Location = new System.Drawing.Point(204, 0);
             this.label82.Margin = new System.Windows.Forms.Padding(0);
             this.label82.Name = "label82";
             this.label82.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label82.Size = new System.Drawing.Size(114, 15);
+            this.label82.Size = new System.Drawing.Size(140, 18);
             this.label82.TabIndex = 270;
             this.label82.Text = "مشروع جديد - مشروع قائم";
             this.label82.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1045,10 +1045,10 @@ namespace MyWorkApplication
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label1.Location = new System.Drawing.Point(391, 110);
+            this.label1.Location = new System.Drawing.Point(373, 107);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(75, 18);
+            this.label1.Size = new System.Drawing.Size(92, 24);
             this.label1.TabIndex = 512;
             this.label1.Text = "رقم المشروع:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1058,10 +1058,10 @@ namespace MyWorkApplication
             this.Type_lable.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Type_lable.AutoSize = true;
             this.Type_lable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Type_lable.Location = new System.Drawing.Point(389, 233);
+            this.Type_lable.Location = new System.Drawing.Point(370, 230);
             this.Type_lable.Name = "Type_lable";
             this.Type_lable.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Type_lable.Size = new System.Drawing.Size(77, 18);
+            this.Type_lable.Size = new System.Drawing.Size(95, 24);
             this.Type_lable.TabIndex = 262;
             this.Type_lable.Text = "نوع المشروع:";
             this.Type_lable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1076,11 +1076,11 @@ namespace MyWorkApplication
             this.Type_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Type_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Type_comboBox.FormattingEnabled = true;
-            this.Type_comboBox.Location = new System.Drawing.Point(104, 232);
+            this.Type_comboBox.Location = new System.Drawing.Point(104, 231);
             this.Type_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Type_comboBox.Name = "Type_comboBox";
             this.Type_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Type_comboBox.Size = new System.Drawing.Size(237, 25);
+            this.Type_comboBox.Size = new System.Drawing.Size(236, 29);
             this.Type_comboBox.TabIndex = 6;
             this.Type_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.Type_comboBox.SelectionChangeCommitted += new System.EventHandler(this.ProjectArea_Combobox_SelectionChangeCommitted);
@@ -1093,10 +1093,10 @@ namespace MyWorkApplication
             this.label74.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label74.AutoSize = true;
             this.label74.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label74.Location = new System.Drawing.Point(862, 233);
+            this.label74.Location = new System.Drawing.Point(842, 230);
             this.label74.Name = "label74";
             this.label74.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label74.Size = new System.Drawing.Size(73, 18);
+            this.label74.Size = new System.Drawing.Size(90, 24);
             this.label74.TabIndex = 258;
             this.label74.Text = "تاريخ الطلب:";
             this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1109,12 +1109,12 @@ namespace MyWorkApplication
             this.ApplyDate_bcDateTimePicker.CustomFormat = "yyyy/MM/dd";
             this.ApplyDate_bcDateTimePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ApplyDate_bcDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(580, 230);
+            this.ApplyDate_bcDateTimePicker.Location = new System.Drawing.Point(579, 228);
             this.ApplyDate_bcDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ApplyDate_bcDateTimePicker.Name = "ApplyDate_bcDateTimePicker";
             this.ApplyDate_bcDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ApplyDate_bcDateTimePicker.RightToLeftLayout = true;
-            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(225, 24);
+            this.ApplyDate_bcDateTimePicker.Size = new System.Drawing.Size(224, 28);
             this.ApplyDate_bcDateTimePicker.TabIndex = 5;
             this.ApplyDate_bcDateTimePicker.ValueChanged += new System.EventHandler(this.ApplyDate_bcDateTimePicker_ValueChanged);
             // 
@@ -1123,10 +1123,10 @@ namespace MyWorkApplication
             this.label79.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label79.AutoSize = true;
             this.label79.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label79.Location = new System.Drawing.Point(845, 274);
+            this.label79.Location = new System.Drawing.Point(821, 271);
             this.label79.Name = "label79";
             this.label79.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label79.Size = new System.Drawing.Size(90, 18);
+            this.label79.Size = new System.Drawing.Size(111, 24);
             this.label79.TabIndex = 262;
             this.label79.Text = "وصف المشروع:";
             this.label79.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1136,10 +1136,10 @@ namespace MyWorkApplication
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label4.Location = new System.Drawing.Point(378, 274);
+            this.label4.Location = new System.Drawing.Point(358, 271);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(88, 18);
+            this.label4.Size = new System.Drawing.Size(107, 24);
             this.label4.TabIndex = 535;
             this.label4.Text = "طبيعة المشروع:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1154,11 +1154,11 @@ namespace MyWorkApplication
             this.SubType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.SubType_comboBox.FormattingEnabled = true;
-            this.SubType_comboBox.Location = new System.Drawing.Point(104, 273);
+            this.SubType_comboBox.Location = new System.Drawing.Point(104, 272);
             this.SubType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubType_comboBox.Name = "SubType_comboBox";
             this.SubType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubType_comboBox.Size = new System.Drawing.Size(237, 25);
+            this.SubType_comboBox.Size = new System.Drawing.Size(236, 29);
             this.SubType_comboBox.TabIndex = 8;
             this.SubType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.SubType_comboBox.SelectionChangeCommitted += new System.EventHandler(this.ProjectArea_Combobox_SelectionChangeCommitted);
@@ -1176,7 +1176,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(831, 35);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(828, 35);
             this.tableLayoutPanel1.TabIndex = 563;
             // 
             // flowLayoutPanel1
@@ -1192,7 +1192,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.tableLayoutPanel1.SetRowSpan(this.flowLayoutPanel1, 2);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(825, 29);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(822, 29);
             this.flowLayoutPanel1.TabIndex = 541;
             // 
             // label7
@@ -1201,11 +1201,11 @@ namespace MyWorkApplication
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label7.Location = new System.Drawing.Point(734, 0);
+            this.label7.Location = new System.Drawing.Point(713, 0);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(91, 15);
+            this.label7.Size = new System.Drawing.Size(109, 18);
             this.label7.TabIndex = 263;
             this.label7.Text = "*وصف المشروع:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1216,11 +1216,11 @@ namespace MyWorkApplication
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label11.Location = new System.Drawing.Point(444, 0);
+            this.label11.Location = new System.Drawing.Point(353, 0);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
             this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label11.Size = new System.Drawing.Size(290, 15);
+            this.label11.Size = new System.Drawing.Size(360, 18);
             this.label11.TabIndex = 264;
             this.label11.Text = "يتم كتابة المشروع (ورشة خياطة جينز - ورشة نجارة عربي - ماكينة...)";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1231,11 +1231,11 @@ namespace MyWorkApplication
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label16.Location = new System.Drawing.Point(376, 0);
+            this.label16.Location = new System.Drawing.Point(272, 0);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
             this.label16.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label16.Size = new System.Drawing.Size(68, 15);
+            this.label16.Size = new System.Drawing.Size(81, 18);
             this.label16.TabIndex = 265;
             this.label16.Text = "*اسم المهنة:";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1246,11 +1246,11 @@ namespace MyWorkApplication
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label17.Location = new System.Drawing.Point(171, 0);
+            this.label17.Location = new System.Drawing.Point(20, 0);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
             this.label17.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label17.Size = new System.Drawing.Size(205, 15);
+            this.label17.Size = new System.Drawing.Size(252, 18);
             this.label17.TabIndex = 266;
             this.label17.Text = "يؤخذ من البرنامج بالعربي والإنجليزي بشكل موحّّد";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1272,7 +1272,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(237, 39);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(236, 39);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // SubCategory_comboBox
@@ -1285,11 +1285,11 @@ namespace MyWorkApplication
             this.SubCategory_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubCategory_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.SubCategory_comboBox.FormattingEnabled = true;
-            this.SubCategory_comboBox.Location = new System.Drawing.Point(121, 9);
+            this.SubCategory_comboBox.Location = new System.Drawing.Point(121, 8);
             this.SubCategory_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubCategory_comboBox.Name = "SubCategory_comboBox";
             this.SubCategory_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubCategory_comboBox.Size = new System.Drawing.Size(113, 25);
+            this.SubCategory_comboBox.Size = new System.Drawing.Size(112, 29);
             this.SubCategory_comboBox.TabIndex = 2;
             this.SubCategory_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.SubCategory_comboBox.SelectionChangeCommitted += new System.EventHandler(this.ProjectArea_Combobox_SelectionChangeCommitted);
@@ -1307,11 +1307,11 @@ namespace MyWorkApplication
             this.Career_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Career_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Career_comboBox.FormattingEnabled = true;
-            this.Career_comboBox.Location = new System.Drawing.Point(3, 9);
+            this.Career_comboBox.Location = new System.Drawing.Point(3, 8);
             this.Career_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Career_comboBox.Name = "Career_comboBox";
             this.Career_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Career_comboBox.Size = new System.Drawing.Size(112, 25);
+            this.Career_comboBox.Size = new System.Drawing.Size(112, 29);
             this.Career_comboBox.TabIndex = 3;
             this.Career_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.Career_comboBox.SelectionChangeCommitted += new System.EventHandler(this.ProjectArea_Combobox_SelectionChangeCommitted);
@@ -1329,14 +1329,14 @@ namespace MyWorkApplication
             this.tableLayoutPanel11.Controls.Add(this.Download_button, 1, 1);
             this.tableLayoutPanel11.Controls.Add(this.PersonPicture_pictureBox, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(941, 100);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(938, 100);
             this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 2;
             this.First_tableLayoutPanel.SetRowSpan(this.tableLayoutPanel11, 7);
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.16832F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.83168F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(151, 285);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(150, 285);
             this.tableLayoutPanel11.TabIndex = 540;
             // 
             // AddImage_button
@@ -1424,7 +1424,7 @@ namespace MyWorkApplication
             this.PersonPicture_pictureBox.Image = global::MyWorkApplication.Properties.Resources.User;
             this.PersonPicture_pictureBox.Location = new System.Drawing.Point(3, 3);
             this.PersonPicture_pictureBox.Name = "PersonPicture_pictureBox";
-            this.PersonPicture_pictureBox.Size = new System.Drawing.Size(145, 231);
+            this.PersonPicture_pictureBox.Size = new System.Drawing.Size(144, 231);
             this.PersonPicture_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PersonPicture_pictureBox.TabIndex = 539;
             this.PersonPicture_pictureBox.TabStop = false;
@@ -1435,12 +1435,12 @@ namespace MyWorkApplication
             this.img_contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.download_toolStripMenuItem1});
             this.img_contextMenuStrip.Name = "img_contextMenuStrip";
-            this.img_contextMenuStrip.Size = new System.Drawing.Size(129, 26);
+            this.img_contextMenuStrip.Size = new System.Drawing.Size(148, 28);
             // 
             // download_toolStripMenuItem1
             // 
             this.download_toolStripMenuItem1.Name = "download_toolStripMenuItem1";
-            this.download_toolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
+            this.download_toolStripMenuItem1.Size = new System.Drawing.Size(147, 24);
             this.download_toolStripMenuItem1.Text = "Download";
             this.download_toolStripMenuItem1.Click += new System.EventHandler(this.download_toolStripMenuItem1_Click_1);
             // 
@@ -1448,12 +1448,12 @@ namespace MyWorkApplication
             // 
             this.P_FullName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_FullName_textBox.BackColor = System.Drawing.Color.White;
-            this.P_FullName_textBox.Location = new System.Drawing.Point(580, 107);
+            this.P_FullName_textBox.Location = new System.Drawing.Point(579, 105);
             this.P_FullName_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_FullName_textBox.Name = "P_FullName_textBox";
             this.P_FullName_textBox.ReadOnly = true;
             this.P_FullName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_FullName_textBox.Size = new System.Drawing.Size(225, 24);
+            this.P_FullName_textBox.Size = new System.Drawing.Size(224, 28);
             this.P_FullName_textBox.TabIndex = 564;
             this.P_FullName_textBox.TabStop = false;
             // 
@@ -1462,10 +1462,10 @@ namespace MyWorkApplication
             this.FundType_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.FundType_label.AutoSize = true;
             this.FundType_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.FundType_label.Location = new System.Drawing.Point(866, 315);
+            this.FundType_label.Location = new System.Drawing.Point(846, 312);
             this.FundType_label.Name = "FundType_label";
             this.FundType_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.FundType_label.Size = new System.Drawing.Size(69, 18);
+            this.FundType_label.Size = new System.Drawing.Size(86, 24);
             this.FundType_label.TabIndex = 565;
             this.FundType_label.Text = "نوع التمويل:";
             this.FundType_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1478,20 +1478,20 @@ namespace MyWorkApplication
             this.FundType_flowLayoutPanel.Controls.Add(this.Loan_radioButton);
             this.FundType_flowLayoutPanel.Controls.Add(this.Grant_radioButton);
             this.FundType_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FundType_flowLayoutPanel.Location = new System.Drawing.Point(580, 307);
+            this.FundType_flowLayoutPanel.Location = new System.Drawing.Point(579, 307);
             this.FundType_flowLayoutPanel.Name = "FundType_flowLayoutPanel";
-            this.FundType_flowLayoutPanel.Size = new System.Drawing.Size(225, 35);
+            this.FundType_flowLayoutPanel.Size = new System.Drawing.Size(224, 35);
             this.FundType_flowLayoutPanel.TabIndex = 9;
             // 
             // Loan_radioButton
             // 
             this.Loan_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Loan_radioButton.AutoSize = true;
-            this.Loan_radioButton.Location = new System.Drawing.Point(169, 4);
+            this.Loan_radioButton.Location = new System.Drawing.Point(155, 4);
             this.Loan_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Loan_radioButton.Name = "Loan_radioButton";
             this.Loan_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Loan_radioButton.Size = new System.Drawing.Size(53, 22);
+            this.Loan_radioButton.Size = new System.Drawing.Size(66, 28);
             this.Loan_radioButton.TabIndex = 8;
             this.Loan_radioButton.TabStop = true;
             this.Loan_radioButton.Text = "قرض";
@@ -1502,11 +1502,11 @@ namespace MyWorkApplication
             // 
             this.Grant_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Grant_radioButton.AutoSize = true;
-            this.Grant_radioButton.Location = new System.Drawing.Point(113, 4);
+            this.Grant_radioButton.Location = new System.Drawing.Point(89, 4);
             this.Grant_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Grant_radioButton.Name = "Grant_radioButton";
             this.Grant_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Grant_radioButton.Size = new System.Drawing.Size(50, 22);
+            this.Grant_radioButton.Size = new System.Drawing.Size(60, 28);
             this.Grant_radioButton.TabIndex = 9;
             this.Grant_radioButton.TabStop = true;
             this.Grant_radioButton.Text = "منحة";
@@ -1518,10 +1518,10 @@ namespace MyWorkApplication
             this.MP_RequestedAmount_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.MP_RequestedAmount_label.AutoSize = true;
             this.MP_RequestedAmount_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.MP_RequestedAmount_label.Location = new System.Drawing.Point(381, 315);
+            this.MP_RequestedAmount_label.Location = new System.Drawing.Point(360, 312);
             this.MP_RequestedAmount_label.Name = "MP_RequestedAmount_label";
             this.MP_RequestedAmount_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MP_RequestedAmount_label.Size = new System.Drawing.Size(85, 18);
+            this.MP_RequestedAmount_label.Size = new System.Drawing.Size(105, 24);
             this.MP_RequestedAmount_label.TabIndex = 569;
             this.MP_RequestedAmount_label.Text = "المبلغ المطلوب:";
             this.MP_RequestedAmount_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1530,11 +1530,11 @@ namespace MyWorkApplication
             // 
             this.MP_RequestedAmount_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.MP_RequestedAmount_textBox.BackColor = System.Drawing.Color.White;
-            this.MP_RequestedAmount_textBox.Location = new System.Drawing.Point(104, 312);
+            this.MP_RequestedAmount_textBox.Location = new System.Drawing.Point(104, 310);
             this.MP_RequestedAmount_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MP_RequestedAmount_textBox.Name = "MP_RequestedAmount_textBox";
             this.MP_RequestedAmount_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MP_RequestedAmount_textBox.Size = new System.Drawing.Size(237, 24);
+            this.MP_RequestedAmount_textBox.Size = new System.Drawing.Size(236, 28);
             this.MP_RequestedAmount_textBox.TabIndex = 10;
             this.MP_RequestedAmount_textBox.Enter += new System.EventHandler(this.MP_RequestedAmount_textBox_Enter);
             this.MP_RequestedAmount_textBox.Leave += new System.EventHandler(this.MP_RequestedAmount_textBox_Leave);
@@ -1543,11 +1543,11 @@ namespace MyWorkApplication
             // 
             this.ImageLocation_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ImageLocation_textBox.BackColor = System.Drawing.Color.White;
-            this.ImageLocation_textBox.Location = new System.Drawing.Point(941, 399);
+            this.ImageLocation_textBox.Location = new System.Drawing.Point(938, 397);
             this.ImageLocation_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ImageLocation_textBox.Name = "ImageLocation_textBox";
             this.ImageLocation_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ImageLocation_textBox.Size = new System.Drawing.Size(151, 24);
+            this.ImageLocation_textBox.Size = new System.Drawing.Size(150, 28);
             this.ImageLocation_textBox.TabIndex = 572;
             this.ImageLocation_textBox.TabStop = false;
             this.ImageLocation_textBox.Visible = false;
@@ -1579,11 +1579,11 @@ namespace MyWorkApplication
             // 
             this.MP_Name_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.MP_Name_textBox.BackColor = System.Drawing.Color.White;
-            this.MP_Name_textBox.Location = new System.Drawing.Point(580, 271);
+            this.MP_Name_textBox.Location = new System.Drawing.Point(579, 269);
             this.MP_Name_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MP_Name_textBox.Name = "MP_Name_textBox";
             this.MP_Name_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MP_Name_textBox.Size = new System.Drawing.Size(225, 24);
+            this.MP_Name_textBox.Size = new System.Drawing.Size(224, 28);
             this.MP_Name_textBox.TabIndex = 7;
             this.MP_Name_textBox.Enter += new System.EventHandler(this.MP_Name_textBox_Enter);
             this.MP_Name_textBox.Leave += new System.EventHandler(this.MP_Name_textBox_Leave);
@@ -1596,12 +1596,12 @@ namespace MyWorkApplication
             this.First_tableLayoutPanel.SetColumnSpan(this.SubHeader1_label, 9);
             this.SubHeader1_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.SubHeader1_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader1_label.Location = new System.Drawing.Point(3, 55);
+            this.SubHeader1_label.Location = new System.Drawing.Point(3, 48);
             this.SubHeader1_label.Name = "SubHeader1_label";
             this.SubHeader1_label.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.SubHeader1_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.First_tableLayoutPanel.SetRowSpan(this.SubHeader1_label, 2);
-            this.SubHeader1_label.Size = new System.Drawing.Size(1089, 44);
+            this.SubHeader1_label.Size = new System.Drawing.Size(1085, 51);
             this.SubHeader1_label.TabIndex = 538;
             this.SubHeader1_label.Text = "استمارة المشروع";
             this.SubHeader1_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1611,10 +1611,10 @@ namespace MyWorkApplication
             this.label128.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label128.AutoSize = true;
             this.label128.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label128.Location = new System.Drawing.Point(397, 192);
+            this.label128.Location = new System.Drawing.Point(380, 189);
             this.label128.Name = "label128";
             this.label128.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label128.Size = new System.Drawing.Size(69, 18);
+            this.label128.Size = new System.Drawing.Size(85, 24);
             this.label128.TabIndex = 573;
             this.label128.Text = "الاختصاص:";
             this.label128.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1623,11 +1623,11 @@ namespace MyWorkApplication
             // 
             this.MP_Speciality_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.MP_Speciality_textBox.BackColor = System.Drawing.Color.White;
-            this.MP_Speciality_textBox.Location = new System.Drawing.Point(104, 189);
+            this.MP_Speciality_textBox.Location = new System.Drawing.Point(104, 187);
             this.MP_Speciality_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MP_Speciality_textBox.Name = "MP_Speciality_textBox";
             this.MP_Speciality_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MP_Speciality_textBox.Size = new System.Drawing.Size(237, 24);
+            this.MP_Speciality_textBox.Size = new System.Drawing.Size(236, 28);
             this.MP_Speciality_textBox.TabIndex = 4;
             this.MP_Speciality_textBox.Enter += new System.EventHandler(this.MP_Speciality_textBox_Enter);
             this.MP_Speciality_textBox.Leave += new System.EventHandler(this.MP_Speciality_textBox_Leave);
@@ -1637,11 +1637,11 @@ namespace MyWorkApplication
             this.ContentUpdated_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ContentUpdated_checkBox.AutoSize = true;
             this.ContentUpdated_checkBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ContentUpdated_checkBox.Location = new System.Drawing.Point(791, 194);
+            this.ContentUpdated_checkBox.Location = new System.Drawing.Point(786, 193);
             this.ContentUpdated_checkBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ContentUpdated_checkBox.Name = "ContentUpdated_checkBox";
             this.ContentUpdated_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ContentUpdated_checkBox.Size = new System.Drawing.Size(15, 14);
+            this.ContentUpdated_checkBox.Size = new System.Drawing.Size(18, 17);
             this.ContentUpdated_checkBox.TabIndex = 3;
             this.ContentUpdated_checkBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.ContentUpdated_checkBox, "هل تم تبديل المشروع؟");
@@ -1653,10 +1653,10 @@ namespace MyWorkApplication
             this.label129.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label129.AutoSize = true;
             this.label129.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label129.Location = new System.Drawing.Point(847, 192);
+            this.label129.Location = new System.Drawing.Point(824, 189);
             this.label129.Name = "label129";
             this.label129.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label129.Size = new System.Drawing.Size(88, 18);
+            this.label129.Size = new System.Drawing.Size(108, 24);
             this.label129.TabIndex = 575;
             this.label129.Text = "تبديل المشروع؟";
             this.label129.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1667,11 +1667,11 @@ namespace MyWorkApplication
             this.label76.AutoSize = true;
             this.label76.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label76.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label76.Location = new System.Drawing.Point(415, 0);
+            this.label76.Location = new System.Drawing.Point(258, 0);
             this.label76.Margin = new System.Windows.Forms.Padding(0);
             this.label76.Name = "label76";
             this.label76.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label76.Size = new System.Drawing.Size(571, 15);
+            this.label76.Size = new System.Drawing.Size(707, 18);
             this.label76.TabIndex = 264;
             this.label76.Text = "على الاستمارة والبرنامج بحسب ملف الحاجة (عازب - متزوج مخطوب - مطلّّق أو منفصل - م" +
     "طلّّق منفصل مع عائلته - أرمل - أرمل مع عائلته)";
@@ -1683,11 +1683,11 @@ namespace MyWorkApplication
             this.label73.AutoSize = true;
             this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label73.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label73.Location = new System.Drawing.Point(986, 0);
+            this.label73.Location = new System.Drawing.Point(965, 0);
             this.label73.Margin = new System.Windows.Forms.Padding(0);
             this.label73.Name = "label73";
             this.label73.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label73.Size = new System.Drawing.Size(103, 15);
+            this.label73.Size = new System.Drawing.Size(120, 18);
             this.label73.TabIndex = 263;
             this.label73.Text = "*الحالة الاجتماعية:";
             this.label73.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1697,10 +1697,10 @@ namespace MyWorkApplication
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label18.Location = new System.Drawing.Point(1002, 521);
+            this.label18.Location = new System.Drawing.Point(979, 518);
             this.label18.Name = "label18";
             this.label18.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label18.Size = new System.Drawing.Size(90, 18);
+            this.label18.Size = new System.Drawing.Size(109, 24);
             this.label18.TabIndex = 531;
             this.label18.Text = "المنطقة (القرية):";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1714,11 +1714,11 @@ namespace MyWorkApplication
             this.t3_tableLayoutPanel.SetColumnSpan(this.MainHeader1_label, 8);
             this.MainHeader1_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.MainHeader1_label.ForeColor = System.Drawing.Color.White;
-            this.MainHeader1_label.Location = new System.Drawing.Point(3, 36);
+            this.MainHeader1_label.Location = new System.Drawing.Point(3, 31);
             this.MainHeader1_label.Name = "MainHeader1_label";
             this.MainHeader1_label.Padding = new System.Windows.Forms.Padding(3);
             this.MainHeader1_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MainHeader1_label.Size = new System.Drawing.Size(1089, 30);
+            this.MainHeader1_label.Size = new System.Drawing.Size(1085, 35);
             this.MainHeader1_label.TabIndex = 498;
             this.MainHeader1_label.Text = "المعلومات الشخصية لمقدّم الطلب:";
             this.MainHeader1_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1734,7 +1734,7 @@ namespace MyWorkApplication
             this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.31328F));
             this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0826F));
-            this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 172F));
+            this.t3_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 173F));
             this.t3_tableLayoutPanel.Controls.Add(this.P_HomeStateNote_label, 4, 16);
             this.t3_tableLayoutPanel.Controls.Add(this.label81, 7, 16);
             this.t3_tableLayoutPanel.Controls.Add(this.label18, 7, 15);
@@ -1818,7 +1818,7 @@ namespace MyWorkApplication
             this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.262935F));
             this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.262935F));
             this.t3_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.262935F));
-            this.t3_tableLayoutPanel.Size = new System.Drawing.Size(1095, 775);
+            this.t3_tableLayoutPanel.Size = new System.Drawing.Size(1091, 775);
             this.t3_tableLayoutPanel.TabIndex = 17;
             // 
             // P_HomeStateNote_label
@@ -1826,10 +1826,10 @@ namespace MyWorkApplication
             this.P_HomeStateNote_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.P_HomeStateNote_label.AutoSize = true;
             this.P_HomeStateNote_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_HomeStateNote_label.Location = new System.Drawing.Point(620, 557);
+            this.P_HomeStateNote_label.Location = new System.Drawing.Point(604, 554);
             this.P_HomeStateNote_label.Name = "P_HomeStateNote_label";
             this.P_HomeStateNote_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HomeStateNote_label.Size = new System.Drawing.Size(59, 18);
+            this.P_HomeStateNote_label.Size = new System.Drawing.Size(72, 24);
             this.P_HomeStateNote_label.TabIndex = 529;
             this.P_HomeStateNote_label.Text = "ملاحظات:";
             this.P_HomeStateNote_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1839,10 +1839,10 @@ namespace MyWorkApplication
             this.label81.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label81.AutoSize = true;
             this.label81.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label81.Location = new System.Drawing.Point(1019, 557);
+            this.label81.Location = new System.Drawing.Point(999, 554);
             this.label81.Name = "label81";
             this.label81.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label81.Size = new System.Drawing.Size(73, 18);
+            this.label81.Size = new System.Drawing.Size(89, 24);
             this.label81.TabIndex = 522;
             this.label81.Text = "ملكية المنزل:";
             this.label81.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1852,10 +1852,10 @@ namespace MyWorkApplication
             this.label32.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label32.AutoSize = true;
             this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label32.Location = new System.Drawing.Point(1020, 105);
+            this.label32.Location = new System.Drawing.Point(1000, 102);
             this.label32.Name = "label32";
             this.label32.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label32.Size = new System.Drawing.Size(72, 18);
+            this.label32.Size = new System.Drawing.Size(88, 24);
             this.label32.TabIndex = 539;
             this.label32.Text = "الاسم (AR):";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1864,11 +1864,11 @@ namespace MyWorkApplication
             // 
             this.P_FirstName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_FirstName_textBox.BackColor = System.Drawing.Color.White;
-            this.P_FirstName_textBox.Location = new System.Drawing.Point(763, 102);
+            this.P_FirstName_textBox.Location = new System.Drawing.Point(760, 100);
             this.P_FirstName_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_FirstName_textBox.Name = "P_FirstName_textBox";
             this.P_FirstName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_FirstName_textBox.Size = new System.Drawing.Size(154, 24);
+            this.P_FirstName_textBox.Size = new System.Drawing.Size(153, 28);
             this.P_FirstName_textBox.TabIndex = 17;
             this.P_FirstName_textBox.Enter += new System.EventHandler(this.P_FirstName_textBox_Enter);
             this.P_FirstName_textBox.Leave += new System.EventHandler(this.P_FirstName_textBox_Leave);
@@ -1878,10 +1878,10 @@ namespace MyWorkApplication
             this.label52.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label52.AutoSize = true;
             this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label52.Location = new System.Drawing.Point(584, 521);
+            this.label52.Location = new System.Drawing.Point(560, 518);
             this.label52.Name = "label52";
             this.label52.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label52.Size = new System.Drawing.Size(95, 18);
+            this.label52.Size = new System.Drawing.Size(116, 24);
             this.label52.TabIndex = 513;
             this.label52.Text = "العنوان التفصيلي:";
             this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1891,10 +1891,10 @@ namespace MyWorkApplication
             this.label34.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label34.AutoSize = true;
             this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label34.Location = new System.Drawing.Point(606, 105);
+            this.label34.Location = new System.Drawing.Point(586, 102);
             this.label34.Name = "label34";
             this.label34.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label34.Size = new System.Drawing.Size(73, 18);
+            this.label34.Size = new System.Drawing.Size(90, 24);
             this.label34.TabIndex = 540;
             this.label34.Text = "الكنية (AR):";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1903,11 +1903,11 @@ namespace MyWorkApplication
             // 
             this.P_FatherName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_FatherName_textBox.BackColor = System.Drawing.Color.White;
-            this.P_FatherName_textBox.Location = new System.Drawing.Point(763, 174);
+            this.P_FatherName_textBox.Location = new System.Drawing.Point(760, 172);
             this.P_FatherName_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_FatherName_textBox.Name = "P_FatherName_textBox";
             this.P_FatherName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_FatherName_textBox.Size = new System.Drawing.Size(154, 24);
+            this.P_FatherName_textBox.Size = new System.Drawing.Size(153, 28);
             this.P_FatherName_textBox.TabIndex = 22;
             this.P_FatherName_textBox.Enter += new System.EventHandler(this.P_FatherName_textBox_Enter);
             this.P_FatherName_textBox.Leave += new System.EventHandler(this.P_FatherName_textBox_Leave);
@@ -1917,10 +1917,10 @@ namespace MyWorkApplication
             this.label35.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label35.AutoSize = true;
             this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label35.Location = new System.Drawing.Point(257, 105);
+            this.label35.Location = new System.Drawing.Point(245, 102);
             this.label35.Name = "label35";
             this.label35.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label35.Size = new System.Drawing.Size(43, 18);
+            this.label35.Size = new System.Drawing.Size(54, 24);
             this.label35.TabIndex = 541;
             this.label35.Text = "الجنس:";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1929,11 +1929,11 @@ namespace MyWorkApplication
             // 
             this.P_LastName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_LastName_textBox.BackColor = System.Drawing.Color.White;
-            this.P_LastName_textBox.Location = new System.Drawing.Point(382, 102);
+            this.P_LastName_textBox.Location = new System.Drawing.Point(380, 100);
             this.P_LastName_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_LastName_textBox.Name = "P_LastName_textBox";
             this.P_LastName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_LastName_textBox.Size = new System.Drawing.Size(157, 24);
+            this.P_LastName_textBox.Size = new System.Drawing.Size(156, 28);
             this.P_LastName_textBox.TabIndex = 18;
             this.P_LastName_textBox.Enter += new System.EventHandler(this.P_LastName_textBox_Enter);
             this.P_LastName_textBox.Leave += new System.EventHandler(this.P_LastName_textBox_Leave);
@@ -1950,13 +1950,14 @@ namespace MyWorkApplication
             this.P_Sex_comboBox.Items.AddRange(new object[] {
             "ذكر",
             "أنثى"});
-            this.P_Sex_comboBox.Location = new System.Drawing.Point(3, 103);
+            this.P_Sex_comboBox.Location = new System.Drawing.Point(3, 102);
             this.P_Sex_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_Sex_comboBox.Name = "P_Sex_comboBox";
             this.P_Sex_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Sex_comboBox.Size = new System.Drawing.Size(155, 25);
+            this.P_Sex_comboBox.Size = new System.Drawing.Size(154, 29);
             this.P_Sex_comboBox.TabIndex = 19;
             this.P_Sex_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
+            this.P_Sex_comboBox.SelectedIndexChanged += new System.EventHandler(this.P_Sex_comboBox_SelectedIndexChanged);
             this.P_Sex_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
             this.P_Sex_comboBox.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
@@ -1965,10 +1966,10 @@ namespace MyWorkApplication
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label13.Location = new System.Drawing.Point(1035, 177);
+            this.label13.Location = new System.Drawing.Point(1020, 174);
             this.label13.Name = "label13";
             this.label13.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label13.Size = new System.Drawing.Size(57, 18);
+            this.label13.Size = new System.Drawing.Size(68, 24);
             this.label13.TabIndex = 542;
             this.label13.Text = "اسم الأب:";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1978,10 +1979,10 @@ namespace MyWorkApplication
             this.label41.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label41.AutoSize = true;
             this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label41.Location = new System.Drawing.Point(628, 177);
+            this.label41.Location = new System.Drawing.Point(616, 174);
             this.label41.Name = "label41";
             this.label41.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label41.Size = new System.Drawing.Size(51, 18);
+            this.label41.Size = new System.Drawing.Size(60, 24);
             this.label41.TabIndex = 543;
             this.label41.Text = "اسم الأم:";
             this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1991,11 +1992,11 @@ namespace MyWorkApplication
             this.P_Address_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_Address_textBox.BackColor = System.Drawing.Color.White;
             this.t3_tableLayoutPanel.SetColumnSpan(this.P_Address_textBox, 4);
-            this.P_Address_textBox.Location = new System.Drawing.Point(3, 518);
+            this.P_Address_textBox.Location = new System.Drawing.Point(3, 516);
             this.P_Address_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Address_textBox.Name = "P_Address_textBox";
             this.P_Address_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Address_textBox.Size = new System.Drawing.Size(536, 24);
+            this.P_Address_textBox.Size = new System.Drawing.Size(533, 28);
             this.P_Address_textBox.TabIndex = 35;
             this.P_Address_textBox.Enter += new System.EventHandler(this.P_Address_textBox_Enter);
             this.P_Address_textBox.Leave += new System.EventHandler(this.P_Address_textBox_Leave);
@@ -2005,11 +2006,11 @@ namespace MyWorkApplication
             this.P_MotherName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_MotherName_textBox.BackColor = System.Drawing.Color.White;
             this.t3_tableLayoutPanel.SetColumnSpan(this.P_MotherName_textBox, 4);
-            this.P_MotherName_textBox.Location = new System.Drawing.Point(3, 174);
+            this.P_MotherName_textBox.Location = new System.Drawing.Point(3, 172);
             this.P_MotherName_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_MotherName_textBox.Name = "P_MotherName_textBox";
             this.P_MotherName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_MotherName_textBox.Size = new System.Drawing.Size(536, 24);
+            this.P_MotherName_textBox.Size = new System.Drawing.Size(533, 28);
             this.P_MotherName_textBox.TabIndex = 23;
             this.P_MotherName_textBox.Enter += new System.EventHandler(this.P_MotherName_textBox_Enter);
             this.P_MotherName_textBox.Leave += new System.EventHandler(this.P_MotherName_textBox_Leave);
@@ -2019,10 +2020,10 @@ namespace MyWorkApplication
             this.P_Registration_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.P_Registration_label.AutoSize = true;
             this.P_Registration_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_Registration_label.Location = new System.Drawing.Point(1024, 213);
+            this.P_Registration_label.Location = new System.Drawing.Point(1007, 210);
             this.P_Registration_label.Name = "P_Registration_label";
             this.P_Registration_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Registration_label.Size = new System.Drawing.Size(68, 18);
+            this.P_Registration_label.Size = new System.Drawing.Size(81, 24);
             this.P_Registration_label.TabIndex = 554;
             this.P_Registration_label.Text = "القيد/الأمانة:";
             this.P_Registration_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2031,11 +2032,11 @@ namespace MyWorkApplication
             // 
             this.P_Registration_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_Registration_textBox.BackColor = System.Drawing.Color.White;
-            this.P_Registration_textBox.Location = new System.Drawing.Point(763, 210);
+            this.P_Registration_textBox.Location = new System.Drawing.Point(760, 208);
             this.P_Registration_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Registration_textBox.Name = "P_Registration_textBox";
             this.P_Registration_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Registration_textBox.Size = new System.Drawing.Size(154, 24);
+            this.P_Registration_textBox.Size = new System.Drawing.Size(153, 28);
             this.P_Registration_textBox.TabIndex = 24;
             this.P_Registration_textBox.Enter += new System.EventHandler(this.P_Registration_textBox_Enter);
             this.P_Registration_textBox.Leave += new System.EventHandler(this.P_Registration_textBox_Leave);
@@ -2045,10 +2046,10 @@ namespace MyWorkApplication
             this.label42.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label42.AutoSize = true;
             this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label42.Location = new System.Drawing.Point(605, 213);
+            this.label42.Location = new System.Drawing.Point(585, 210);
             this.label42.Name = "label42";
             this.label42.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label42.Size = new System.Drawing.Size(74, 18);
+            this.label42.Size = new System.Drawing.Size(91, 24);
             this.label42.TabIndex = 544;
             this.label42.Text = "الرقم الوطني:";
             this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2058,11 +2059,11 @@ namespace MyWorkApplication
             this.P_NationalNum_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_NationalNum_textBox.BackColor = System.Drawing.Color.White;
             this.t3_tableLayoutPanel.SetColumnSpan(this.P_NationalNum_textBox, 4);
-            this.P_NationalNum_textBox.Location = new System.Drawing.Point(3, 210);
+            this.P_NationalNum_textBox.Location = new System.Drawing.Point(3, 208);
             this.P_NationalNum_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_NationalNum_textBox.Name = "P_NationalNum_textBox";
             this.P_NationalNum_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_NationalNum_textBox.Size = new System.Drawing.Size(536, 24);
+            this.P_NationalNum_textBox.Size = new System.Drawing.Size(533, 28);
             this.P_NationalNum_textBox.TabIndex = 25;
             this.P_NationalNum_textBox.Enter += new System.EventHandler(this.P_NationalNum_textBox_Enter);
             this.P_NationalNum_textBox.Leave += new System.EventHandler(this.P_NationalNum_textBox_Leave);
@@ -2072,10 +2073,10 @@ namespace MyWorkApplication
             this.label54.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label54.AutoSize = true;
             this.label54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label54.Location = new System.Drawing.Point(1045, 249);
+            this.label54.Location = new System.Drawing.Point(1031, 246);
             this.label54.Name = "label54";
             this.label54.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label54.Size = new System.Drawing.Size(47, 18);
+            this.label54.Size = new System.Drawing.Size(57, 24);
             this.label54.TabIndex = 545;
             this.label54.Text = "المواليد:";
             this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2084,12 +2085,12 @@ namespace MyWorkApplication
             // 
             this.P_DOB_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_DOB_textBox.BackColor = System.Drawing.Color.White;
-            this.P_DOB_textBox.Location = new System.Drawing.Point(763, 246);
+            this.P_DOB_textBox.Location = new System.Drawing.Point(760, 244);
             this.P_DOB_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_DOB_textBox.MaxLength = 4;
             this.P_DOB_textBox.Name = "P_DOB_textBox";
             this.P_DOB_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_DOB_textBox.Size = new System.Drawing.Size(154, 24);
+            this.P_DOB_textBox.Size = new System.Drawing.Size(153, 28);
             this.P_DOB_textBox.TabIndex = 26;
             this.P_DOB_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.P_DOB_textBox.Enter += new System.EventHandler(this.P_DOB_textBox_Enter);
@@ -2100,10 +2101,10 @@ namespace MyWorkApplication
             this.label63.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label63.AutoSize = true;
             this.label63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label63.Location = new System.Drawing.Point(583, 249);
+            this.label63.Location = new System.Drawing.Point(561, 246);
             this.label63.Name = "label63";
             this.label63.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label63.Size = new System.Drawing.Size(96, 18);
+            this.label63.Size = new System.Drawing.Size(115, 24);
             this.label63.TabIndex = 546;
             this.label63.Text = "الحالة الاجتماعية:";
             this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2118,11 +2119,11 @@ namespace MyWorkApplication
             this.P_MaritalState_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.P_MaritalState_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_MaritalState_comboBox.FormattingEnabled = true;
-            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(3, 247);
+            this.P_MaritalState_comboBox.Location = new System.Drawing.Point(3, 246);
             this.P_MaritalState_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.P_MaritalState_comboBox.Name = "P_MaritalState_comboBox";
             this.P_MaritalState_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_MaritalState_comboBox.Size = new System.Drawing.Size(536, 25);
+            this.P_MaritalState_comboBox.Size = new System.Drawing.Size(533, 29);
             this.P_MaritalState_comboBox.TabIndex = 27;
             this.P_MaritalState_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.P_MaritalState_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
@@ -2133,11 +2134,11 @@ namespace MyWorkApplication
             this.P_HomeStateNote_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_HomeStateNote_textBox.BackColor = System.Drawing.Color.White;
             this.t3_tableLayoutPanel.SetColumnSpan(this.P_HomeStateNote_textBox, 4);
-            this.P_HomeStateNote_textBox.Location = new System.Drawing.Point(3, 554);
+            this.P_HomeStateNote_textBox.Location = new System.Drawing.Point(3, 552);
             this.P_HomeStateNote_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_HomeStateNote_textBox.Name = "P_HomeStateNote_textBox";
             this.P_HomeStateNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HomeStateNote_textBox.Size = new System.Drawing.Size(536, 24);
+            this.P_HomeStateNote_textBox.Size = new System.Drawing.Size(533, 28);
             this.P_HomeStateNote_textBox.TabIndex = 37;
             this.P_HomeStateNote_textBox.Enter += new System.EventHandler(this.P_HomeStateNote_textBox_Enter);
             this.P_HomeStateNote_textBox.Leave += new System.EventHandler(this.P_HomeStateNote_textBox_Leave);
@@ -2155,7 +2156,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 587);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(1089, 30);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(1085, 30);
             this.flowLayoutPanel5.TabIndex = 563;
             // 
             // label37
@@ -2164,11 +2165,11 @@ namespace MyWorkApplication
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label37.Location = new System.Drawing.Point(1010, 0);
+            this.label37.Location = new System.Drawing.Point(992, 0);
             this.label37.Margin = new System.Windows.Forms.Padding(0);
             this.label37.Name = "label37";
             this.label37.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label37.Size = new System.Drawing.Size(79, 15);
+            this.label37.Size = new System.Drawing.Size(93, 18);
             this.label37.TabIndex = 263;
             this.label37.Text = "*ملكية المنزل:";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2179,11 +2180,11 @@ namespace MyWorkApplication
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label38.Location = new System.Drawing.Point(860, 0);
+            this.label38.Location = new System.Drawing.Point(807, 0);
             this.label38.Margin = new System.Windows.Forms.Padding(0);
             this.label38.Name = "label38";
             this.label38.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label38.Size = new System.Drawing.Size(150, 15);
+            this.label38.Size = new System.Drawing.Size(185, 18);
             this.label38.TabIndex = 264;
             this.label38.Text = "ملك - إيجار - إعارة - فروغ - ورثة.";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2194,11 +2195,11 @@ namespace MyWorkApplication
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label43.Location = new System.Drawing.Point(775, 0);
+            this.label43.Location = new System.Drawing.Point(705, 0);
             this.label43.Margin = new System.Windows.Forms.Padding(0);
             this.label43.Name = "label43";
             this.label43.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label43.Size = new System.Drawing.Size(85, 15);
+            this.label43.Size = new System.Drawing.Size(102, 18);
             this.label43.TabIndex = 267;
             this.label43.Text = "*في الملاحظات:";
             this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2209,11 +2210,11 @@ namespace MyWorkApplication
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label44.Location = new System.Drawing.Point(334, 0);
+            this.label44.Location = new System.Drawing.Point(154, 0);
             this.label44.Margin = new System.Windows.Forms.Padding(0);
             this.label44.Name = "label44";
             this.label44.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label44.Size = new System.Drawing.Size(441, 15);
+            this.label44.Size = new System.Drawing.Size(551, 18);
             this.label44.TabIndex = 268;
             this.label44.Text = "يتم تعبئة قيمة الإيجار في حال المنزل إيجار أو اصحاب المنزل في حال الإعارة أو تاري" +
     "خ الشراء في حال الملك.";
@@ -2229,11 +2230,11 @@ namespace MyWorkApplication
             this.Street_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Street_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Street_comboBox.FormattingEnabled = true;
-            this.Street_comboBox.Location = new System.Drawing.Point(763, 519);
+            this.Street_comboBox.Location = new System.Drawing.Point(760, 518);
             this.Street_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.Street_comboBox.Name = "Street_comboBox";
             this.Street_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Street_comboBox.Size = new System.Drawing.Size(154, 25);
+            this.Street_comboBox.Size = new System.Drawing.Size(153, 29);
             this.Street_comboBox.TabIndex = 34;
             this.Street_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.Street_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
@@ -2249,11 +2250,11 @@ namespace MyWorkApplication
             this.P_HomeType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_HomeType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_HomeType_comboBox.FormattingEnabled = true;
-            this.P_HomeType_comboBox.Location = new System.Drawing.Point(763, 555);
+            this.P_HomeType_comboBox.Location = new System.Drawing.Point(760, 554);
             this.P_HomeType_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_HomeType_comboBox.Name = "P_HomeType_comboBox";
             this.P_HomeType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HomeType_comboBox.Size = new System.Drawing.Size(154, 25);
+            this.P_HomeType_comboBox.Size = new System.Drawing.Size(153, 29);
             this.P_HomeType_comboBox.TabIndex = 36;
             this.P_HomeType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.P_HomeType_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
@@ -2263,11 +2264,11 @@ namespace MyWorkApplication
             // 
             this.P_Mobile2_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_Mobile2_textBox.BackColor = System.Drawing.Color.White;
-            this.P_Mobile2_textBox.Location = new System.Drawing.Point(3, 482);
+            this.P_Mobile2_textBox.Location = new System.Drawing.Point(3, 480);
             this.P_Mobile2_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Mobile2_textBox.Name = "P_Mobile2_textBox";
             this.P_Mobile2_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Mobile2_textBox.Size = new System.Drawing.Size(155, 24);
+            this.P_Mobile2_textBox.Size = new System.Drawing.Size(154, 28);
             this.P_Mobile2_textBox.TabIndex = 33;
             this.P_Mobile2_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.P_Mobile2_textBox.Enter += new System.EventHandler(this.P_Mobile2_textBox_Enter);
@@ -2286,10 +2287,10 @@ namespace MyWorkApplication
             this.Military_flowLayoutPanel.Controls.Add(this.MilitaryNow_radioButton);
             this.Military_flowLayoutPanel.Controls.Add(this.MilitaryDelayed_radioButton);
             this.Military_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.Military_flowLayoutPanel.Location = new System.Drawing.Point(685, 659);
+            this.Military_flowLayoutPanel.Location = new System.Drawing.Point(682, 659);
             this.Military_flowLayoutPanel.Name = "Military_flowLayoutPanel";
             this.t3_tableLayoutPanel.SetRowSpan(this.Military_flowLayoutPanel, 2);
-            this.Military_flowLayoutPanel.Size = new System.Drawing.Size(407, 66);
+            this.Military_flowLayoutPanel.Size = new System.Drawing.Size(406, 66);
             this.Military_flowLayoutPanel.TabIndex = 38;
             this.Military_flowLayoutPanel.TabStop = true;
             // 
@@ -2298,10 +2299,10 @@ namespace MyWorkApplication
             this.Military_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Military_label.AutoSize = true;
             this.Military_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Military_label.Location = new System.Drawing.Point(342, 6);
+            this.Military_label.Location = new System.Drawing.Point(328, 6);
             this.Military_label.Name = "Military_label";
             this.Military_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Military_label.Size = new System.Drawing.Size(62, 18);
+            this.Military_label.Size = new System.Drawing.Size(75, 24);
             this.Military_label.TabIndex = 492;
             this.Military_label.Text = "خدمة العلم:";
             this.Military_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2312,11 +2313,11 @@ namespace MyWorkApplication
             this.MilitarySingle_radioButton.AutoSize = true;
             this.MilitarySingle_radioButton.BackColor = System.Drawing.Color.Transparent;
             this.MilitarySingle_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.MilitarySingle_radioButton.Location = new System.Drawing.Point(287, 4);
+            this.MilitarySingle_radioButton.Location = new System.Drawing.Point(262, 4);
             this.MilitarySingle_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MilitarySingle_radioButton.Name = "MilitarySingle_radioButton";
             this.MilitarySingle_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MilitarySingle_radioButton.Size = new System.Drawing.Size(49, 22);
+            this.MilitarySingle_radioButton.Size = new System.Drawing.Size(60, 28);
             this.MilitarySingle_radioButton.TabIndex = 39;
             this.MilitarySingle_radioButton.TabStop = true;
             this.MilitarySingle_radioButton.Text = "وحيد";
@@ -2329,11 +2330,11 @@ namespace MyWorkApplication
             this.MilitaryFinished_radioButton.AutoSize = true;
             this.MilitaryFinished_radioButton.BackColor = System.Drawing.Color.Transparent;
             this.MilitaryFinished_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.MilitaryFinished_radioButton.Location = new System.Drawing.Point(225, 4);
+            this.MilitaryFinished_radioButton.Location = new System.Drawing.Point(188, 4);
             this.MilitaryFinished_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MilitaryFinished_radioButton.Name = "MilitaryFinished_radioButton";
             this.MilitaryFinished_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MilitaryFinished_radioButton.Size = new System.Drawing.Size(56, 22);
+            this.MilitaryFinished_radioButton.Size = new System.Drawing.Size(68, 28);
             this.MilitaryFinished_radioButton.TabIndex = 40;
             this.MilitaryFinished_radioButton.TabStop = true;
             this.MilitaryFinished_radioButton.Text = "مسرّح";
@@ -2346,11 +2347,11 @@ namespace MyWorkApplication
             this.MilitaryExempt_radioButton.AutoSize = true;
             this.MilitaryExempt_radioButton.BackColor = System.Drawing.Color.Transparent;
             this.MilitaryExempt_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.MilitaryExempt_radioButton.Location = new System.Drawing.Point(147, 4);
+            this.MilitaryExempt_radioButton.Location = new System.Drawing.Point(95, 4);
             this.MilitaryExempt_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MilitaryExempt_radioButton.Name = "MilitaryExempt_radioButton";
             this.MilitaryExempt_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MilitaryExempt_radioButton.Size = new System.Drawing.Size(72, 22);
+            this.MilitaryExempt_radioButton.Size = new System.Drawing.Size(87, 28);
             this.MilitaryExempt_radioButton.TabIndex = 41;
             this.MilitaryExempt_radioButton.TabStop = true;
             this.MilitaryExempt_radioButton.Text = "معفى/بدل";
@@ -2363,11 +2364,11 @@ namespace MyWorkApplication
             this.MilitaryNow_radioButton.AutoSize = true;
             this.MilitaryNow_radioButton.BackColor = System.Drawing.Color.Transparent;
             this.MilitaryNow_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.MilitaryNow_radioButton.Location = new System.Drawing.Point(75, 4);
+            this.MilitaryNow_radioButton.Location = new System.Drawing.Point(10, 4);
             this.MilitaryNow_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MilitaryNow_radioButton.Name = "MilitaryNow_radioButton";
             this.MilitaryNow_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MilitaryNow_radioButton.Size = new System.Drawing.Size(66, 22);
+            this.MilitaryNow_radioButton.Size = new System.Drawing.Size(79, 28);
             this.MilitaryNow_radioButton.TabIndex = 42;
             this.MilitaryNow_radioButton.TabStop = true;
             this.MilitaryNow_radioButton.Text = "عسكري";
@@ -2380,11 +2381,11 @@ namespace MyWorkApplication
             this.MilitaryDelayed_radioButton.AutoSize = true;
             this.MilitaryDelayed_radioButton.BackColor = System.Drawing.Color.Transparent;
             this.MilitaryDelayed_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.MilitaryDelayed_radioButton.Location = new System.Drawing.Point(15, 4);
+            this.MilitaryDelayed_radioButton.Location = new System.Drawing.Point(337, 40);
             this.MilitaryDelayed_radioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MilitaryDelayed_radioButton.Name = "MilitaryDelayed_radioButton";
             this.MilitaryDelayed_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MilitaryDelayed_radioButton.Size = new System.Drawing.Size(54, 22);
+            this.MilitaryDelayed_radioButton.Size = new System.Drawing.Size(66, 28);
             this.MilitaryDelayed_radioButton.TabIndex = 43;
             this.MilitaryDelayed_radioButton.TabStop = true;
             this.MilitaryDelayed_radioButton.Text = "مؤجّل";
@@ -2402,7 +2403,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 407);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1089, 30);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1085, 30);
             this.flowLayoutPanel3.TabIndex = 562;
             // 
             // label15
@@ -2411,11 +2412,11 @@ namespace MyWorkApplication
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label15.Location = new System.Drawing.Point(1036, 0);
+            this.label15.Location = new System.Drawing.Point(1022, 0);
             this.label15.Margin = new System.Windows.Forms.Padding(0);
             this.label15.Name = "label15";
             this.label15.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label15.Size = new System.Drawing.Size(53, 15);
+            this.label15.Size = new System.Drawing.Size(63, 18);
             this.label15.TabIndex = 263;
             this.label15.Text = "*ملاحظة:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2426,11 +2427,11 @@ namespace MyWorkApplication
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label12.Location = new System.Drawing.Point(760, 0);
+            this.label12.Location = new System.Drawing.Point(673, 0);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
             this.label12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label12.Size = new System.Drawing.Size(276, 15);
+            this.label12.Size = new System.Drawing.Size(349, 18);
             this.label12.TabIndex = 264;
             this.label12.Text = "إمكانية إضافة أكثر من اسم كاهن ,أكثر من هيئة وسيطة على البرنامج";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2449,7 +2450,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 279);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.t3_tableLayoutPanel.SetRowSpan(this.flowLayoutPanel4, 2);
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(1089, 50);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(1085, 50);
             this.flowLayoutPanel4.TabIndex = 541;
             // 
             // label26
@@ -2458,11 +2459,11 @@ namespace MyWorkApplication
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label26.Location = new System.Drawing.Point(318, 0);
+            this.label26.Location = new System.Drawing.Point(153, 0);
             this.label26.Margin = new System.Windows.Forms.Padding(0, 0, 50, 0);
             this.label26.Name = "label26";
             this.label26.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label26.Size = new System.Drawing.Size(47, 15);
+            this.label26.Size = new System.Drawing.Size(55, 18);
             this.label26.TabIndex = 265;
             this.label26.Text = "*الصفة:";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2473,11 +2474,11 @@ namespace MyWorkApplication
             this.label70.AutoSize = true;
             this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label70.Location = new System.Drawing.Point(255, 0);
+            this.label70.Location = new System.Drawing.Point(75, 0);
             this.label70.Margin = new System.Windows.Forms.Padding(0);
             this.label70.Name = "label70";
             this.label70.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label70.Size = new System.Drawing.Size(63, 15);
+            this.label70.Size = new System.Drawing.Size(78, 18);
             this.label70.TabIndex = 266;
             this.label70.Text = "مستفيد- شريك";
             this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2494,11 +2495,11 @@ namespace MyWorkApplication
             this.PersonType_comboBox.Items.AddRange(new object[] {
             "مستفيد",
             "شريك"});
-            this.PersonType_comboBox.Location = new System.Drawing.Point(763, 139);
+            this.PersonType_comboBox.Location = new System.Drawing.Point(760, 138);
             this.PersonType_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PersonType_comboBox.Name = "PersonType_comboBox";
             this.PersonType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PersonType_comboBox.Size = new System.Drawing.Size(154, 25);
+            this.PersonType_comboBox.Size = new System.Drawing.Size(153, 29);
             this.PersonType_comboBox.TabIndex = 20;
             this.PersonType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.PersonType_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
@@ -2509,10 +2510,10 @@ namespace MyWorkApplication
             this.PersonType_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.PersonType_label.AutoSize = true;
             this.PersonType_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.PersonType_label.Location = new System.Drawing.Point(1050, 141);
+            this.PersonType_label.Location = new System.Drawing.Point(1037, 138);
             this.PersonType_label.Name = "PersonType_label";
             this.PersonType_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PersonType_label.Size = new System.Drawing.Size(42, 18);
+            this.PersonType_label.Size = new System.Drawing.Size(51, 24);
             this.PersonType_label.TabIndex = 566;
             this.PersonType_label.Text = "الصفة:";
             this.PersonType_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2522,10 +2523,10 @@ namespace MyWorkApplication
             this.P_FullName_En_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.P_FullName_En_label.AutoSize = true;
             this.P_FullName_En_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_FullName_En_label.Location = new System.Drawing.Point(569, 141);
+            this.P_FullName_En_label.Location = new System.Drawing.Point(542, 138);
             this.P_FullName_En_label.Name = "P_FullName_En_label";
             this.P_FullName_En_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_FullName_En_label.Size = new System.Drawing.Size(110, 18);
+            this.P_FullName_En_label.Size = new System.Drawing.Size(134, 24);
             this.P_FullName_En_label.TabIndex = 551;
             this.P_FullName_En_label.Text = "الاسم والكنية (EN):";
             this.P_FullName_En_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2536,10 +2537,10 @@ namespace MyWorkApplication
             this.P_Mobile2_label.AutoEllipsis = true;
             this.P_Mobile2_label.AutoSize = true;
             this.P_Mobile2_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_Mobile2_label.Location = new System.Drawing.Point(179, 485);
+            this.P_Mobile2_label.Location = new System.Drawing.Point(199, 476);
             this.P_Mobile2_label.Name = "P_Mobile2_label";
             this.P_Mobile2_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Mobile2_label.Size = new System.Drawing.Size(121, 18);
+            this.P_Mobile2_label.Size = new System.Drawing.Size(100, 36);
             this.P_Mobile2_label.TabIndex = 557;
             this.P_Mobile2_label.Text = "جوّّال أحد أفراد العائلة:";
             this.P_Mobile2_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2549,10 +2550,10 @@ namespace MyWorkApplication
             this.label29.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label29.AutoSize = true;
             this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label29.Location = new System.Drawing.Point(606, 485);
+            this.label29.Location = new System.Drawing.Point(586, 482);
             this.label29.Name = "label29";
             this.label29.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label29.Size = new System.Drawing.Size(73, 18);
+            this.label29.Size = new System.Drawing.Size(90, 24);
             this.label29.TabIndex = 488;
             this.label29.Text = "رقم الأرضي:";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2561,11 +2562,11 @@ namespace MyWorkApplication
             // 
             this.P_HomeTel_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_HomeTel_textBox.BackColor = System.Drawing.Color.White;
-            this.P_HomeTel_textBox.Location = new System.Drawing.Point(382, 482);
+            this.P_HomeTel_textBox.Location = new System.Drawing.Point(380, 480);
             this.P_HomeTel_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_HomeTel_textBox.Name = "P_HomeTel_textBox";
             this.P_HomeTel_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HomeTel_textBox.Size = new System.Drawing.Size(157, 24);
+            this.P_HomeTel_textBox.Size = new System.Drawing.Size(156, 28);
             this.P_HomeTel_textBox.TabIndex = 32;
             this.P_HomeTel_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.P_HomeTel_textBox.Enter += new System.EventHandler(this.P_HomeTel_textBox_Enter);
@@ -2575,11 +2576,11 @@ namespace MyWorkApplication
             // 
             this.P_Mobile_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_Mobile_textBox.BackColor = System.Drawing.Color.White;
-            this.P_Mobile_textBox.Location = new System.Drawing.Point(763, 482);
+            this.P_Mobile_textBox.Location = new System.Drawing.Point(760, 480);
             this.P_Mobile_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Mobile_textBox.Name = "P_Mobile_textBox";
             this.P_Mobile_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.P_Mobile_textBox.Size = new System.Drawing.Size(154, 24);
+            this.P_Mobile_textBox.Size = new System.Drawing.Size(153, 28);
             this.P_Mobile_textBox.TabIndex = 31;
             this.P_Mobile_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.P_Mobile_textBox.Enter += new System.EventHandler(this.P_Mobile_textBox_Enter);
@@ -2590,10 +2591,10 @@ namespace MyWorkApplication
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label5.Location = new System.Drawing.Point(1047, 485);
+            this.label5.Location = new System.Drawing.Point(1033, 482);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(45, 18);
+            this.label5.Size = new System.Drawing.Size(55, 24);
             this.label5.TabIndex = 489;
             this.label5.Text = "الجوّال:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2607,9 +2608,9 @@ namespace MyWorkApplication
             this.flowLayoutPanel23.Controls.Add(this.label75);
             this.flowLayoutPanel23.Controls.Add(this.label87);
             this.flowLayoutPanel23.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel23.Location = new System.Drawing.Point(685, 731);
+            this.flowLayoutPanel23.Location = new System.Drawing.Point(682, 731);
             this.flowLayoutPanel23.Name = "flowLayoutPanel23";
-            this.flowLayoutPanel23.Size = new System.Drawing.Size(407, 41);
+            this.flowLayoutPanel23.Size = new System.Drawing.Size(406, 41);
             this.flowLayoutPanel23.TabIndex = 564;
             // 
             // label75
@@ -2618,11 +2619,11 @@ namespace MyWorkApplication
             this.label75.AutoSize = true;
             this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label75.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label75.Location = new System.Drawing.Point(338, 0);
+            this.label75.Location = new System.Drawing.Point(326, 0);
             this.label75.Margin = new System.Windows.Forms.Padding(0);
             this.label75.Name = "label75";
             this.label75.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label75.Size = new System.Drawing.Size(69, 15);
+            this.label75.Size = new System.Drawing.Size(80, 18);
             this.label75.TabIndex = 263;
             this.label75.Text = "*خدمة العلم:";
             this.label75.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2633,11 +2634,11 @@ namespace MyWorkApplication
             this.label87.AutoSize = true;
             this.label87.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label87.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label87.Location = new System.Drawing.Point(170, 0);
+            this.label87.Location = new System.Drawing.Point(120, 0);
             this.label87.Margin = new System.Windows.Forms.Padding(0);
             this.label87.Name = "label87";
             this.label87.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label87.Size = new System.Drawing.Size(168, 15);
+            this.label87.Size = new System.Drawing.Size(206, 18);
             this.label87.TabIndex = 264;
             this.label87.Text = "وحيد - مسرّح - عسكري - معفى - مؤجل";
             this.label87.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2652,7 +2653,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel13.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel13.Location = new System.Drawing.Point(3, 731);
             this.flowLayoutPanel13.Name = "flowLayoutPanel13";
-            this.flowLayoutPanel13.Size = new System.Drawing.Size(155, 41);
+            this.flowLayoutPanel13.Size = new System.Drawing.Size(154, 41);
             this.flowLayoutPanel13.TabIndex = 47;
             this.flowLayoutPanel13.TabStop = true;
             // 
@@ -2662,11 +2663,11 @@ namespace MyWorkApplication
             this.P_MilitaryInWar_Yes_radioButton.AutoSize = true;
             this.P_MilitaryInWar_Yes_radioButton.BackColor = System.Drawing.Color.Transparent;
             this.P_MilitaryInWar_Yes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_MilitaryInWar_Yes_radioButton.Location = new System.Drawing.Point(99, 3);
+            this.P_MilitaryInWar_Yes_radioButton.Location = new System.Drawing.Point(90, 3);
             this.P_MilitaryInWar_Yes_radioButton.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
             this.P_MilitaryInWar_Yes_radioButton.Name = "P_MilitaryInWar_Yes_radioButton";
             this.P_MilitaryInWar_Yes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_MilitaryInWar_Yes_radioButton.Size = new System.Drawing.Size(41, 22);
+            this.P_MilitaryInWar_Yes_radioButton.Size = new System.Drawing.Size(49, 28);
             this.P_MilitaryInWar_Yes_radioButton.TabIndex = 1;
             this.P_MilitaryInWar_Yes_radioButton.TabStop = true;
             this.P_MilitaryInWar_Yes_radioButton.Text = "نعم";
@@ -2679,11 +2680,11 @@ namespace MyWorkApplication
             this.P_MilitaryInWar_No_radioButton.AutoSize = true;
             this.P_MilitaryInWar_No_radioButton.BackColor = System.Drawing.Color.Transparent;
             this.P_MilitaryInWar_No_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_MilitaryInWar_No_radioButton.Location = new System.Drawing.Point(47, 3);
+            this.P_MilitaryInWar_No_radioButton.Location = new System.Drawing.Point(31, 3);
             this.P_MilitaryInWar_No_radioButton.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
             this.P_MilitaryInWar_No_radioButton.Name = "P_MilitaryInWar_No_radioButton";
             this.P_MilitaryInWar_No_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_MilitaryInWar_No_radioButton.Size = new System.Drawing.Size(34, 22);
+            this.P_MilitaryInWar_No_radioButton.Size = new System.Drawing.Size(41, 28);
             this.P_MilitaryInWar_No_radioButton.TabIndex = 2;
             this.P_MilitaryInWar_No_radioButton.TabStop = true;
             this.P_MilitaryInWar_No_radioButton.Text = "لا";
@@ -2697,10 +2698,10 @@ namespace MyWorkApplication
             this.label119.AutoSize = true;
             this.t3_tableLayoutPanel.SetColumnSpan(this.label119, 4);
             this.label119.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label119.Location = new System.Drawing.Point(367, 742);
+            this.label119.Location = new System.Drawing.Point(291, 739);
             this.label119.Name = "label119";
             this.label119.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label119.Size = new System.Drawing.Size(312, 18);
+            this.label119.Size = new System.Drawing.Size(385, 24);
             this.label119.TabIndex = 537;
             this.label119.Text = "هل تمت الخدمة خلال فترة الحرب (ما بين 2011 و 2024) ؟";
             this.label119.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2710,10 +2711,10 @@ namespace MyWorkApplication
             this.Military_label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Military_label2.AutoSize = true;
             this.Military_label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Military_label2.Location = new System.Drawing.Point(615, 701);
+            this.Military_label2.Location = new System.Drawing.Point(600, 698);
             this.Military_label2.Name = "Military_label2";
             this.Military_label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Military_label2.Size = new System.Drawing.Size(64, 18);
+            this.Military_label2.Size = new System.Drawing.Size(76, 24);
             this.Military_label2.TabIndex = 525;
             this.Military_label2.Text = "مدّّة الخدمة:";
             this.Military_label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2722,11 +2723,11 @@ namespace MyWorkApplication
             // 
             this.Military_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Military_textBox.BackColor = System.Drawing.Color.White;
-            this.Military_textBox.Location = new System.Drawing.Point(382, 698);
+            this.Military_textBox.Location = new System.Drawing.Point(380, 696);
             this.Military_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.Military_textBox.Name = "Military_textBox";
             this.Military_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Military_textBox.Size = new System.Drawing.Size(157, 24);
+            this.Military_textBox.Size = new System.Drawing.Size(156, 28);
             this.Military_textBox.TabIndex = 44;
             this.Military_textBox.Enter += new System.EventHandler(this.Military_textBox_Enter);
             this.Military_textBox.Leave += new System.EventHandler(this.Military_textBox_Leave);
@@ -2736,10 +2737,10 @@ namespace MyWorkApplication
             this.Military_Date_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Military_Date_checkBox.AutoSize = true;
             this.Military_Date_checkBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Military_Date_checkBox.Location = new System.Drawing.Point(200, 699);
+            this.Military_Date_checkBox.Location = new System.Drawing.Point(178, 696);
             this.Military_Date_checkBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Military_Date_checkBox.Name = "Military_Date_checkBox";
-            this.Military_Date_checkBox.Size = new System.Drawing.Size(101, 22);
+            this.Military_Date_checkBox.Size = new System.Drawing.Size(122, 28);
             this.Military_Date_checkBox.TabIndex = 45;
             this.Military_Date_checkBox.Text = ":تاريخ التسريح";
             this.Military_Date_checkBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2751,10 +2752,10 @@ namespace MyWorkApplication
             this.Military_Date_dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Military_Date_dateTimePicker.CustomFormat = "dd/MM/yyyy";
             this.Military_Date_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Military_Date_dateTimePicker.Location = new System.Drawing.Point(3, 698);
+            this.Military_Date_dateTimePicker.Location = new System.Drawing.Point(3, 696);
             this.Military_Date_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Military_Date_dateTimePicker.Name = "Military_Date_dateTimePicker";
-            this.Military_Date_dateTimePicker.Size = new System.Drawing.Size(155, 24);
+            this.Military_Date_dateTimePicker.Size = new System.Drawing.Size(154, 28);
             this.Military_Date_dateTimePicker.TabIndex = 46;
             this.Military_Date_dateTimePicker.Visible = false;
             this.Military_Date_dateTimePicker.ValueChanged += new System.EventHandler(this.Military_Date_dateTimePicker_ValueChanged);
@@ -2764,11 +2765,11 @@ namespace MyWorkApplication
             this.MilitaryNote_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.MilitaryNote_textBox.BackColor = System.Drawing.Color.White;
             this.t3_tableLayoutPanel.SetColumnSpan(this.MilitaryNote_textBox, 4);
-            this.MilitaryNote_textBox.Location = new System.Drawing.Point(3, 662);
+            this.MilitaryNote_textBox.Location = new System.Drawing.Point(3, 660);
             this.MilitaryNote_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.MilitaryNote_textBox.Name = "MilitaryNote_textBox";
             this.MilitaryNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MilitaryNote_textBox.Size = new System.Drawing.Size(536, 24);
+            this.MilitaryNote_textBox.Size = new System.Drawing.Size(533, 28);
             this.MilitaryNote_textBox.TabIndex = 265;
             this.MilitaryNote_textBox.Enter += new System.EventHandler(this.MilitaryNote_textBox_Enter);
             this.MilitaryNote_textBox.Leave += new System.EventHandler(this.MilitaryNote_textBox_Leave);
@@ -2778,10 +2779,10 @@ namespace MyWorkApplication
             this.MilitaryNote_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.MilitaryNote_label.AutoSize = true;
             this.MilitaryNote_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.MilitaryNote_label.Location = new System.Drawing.Point(584, 665);
+            this.MilitaryNote_label.Location = new System.Drawing.Point(561, 662);
             this.MilitaryNote_label.Name = "MilitaryNote_label";
             this.MilitaryNote_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MilitaryNote_label.Size = new System.Drawing.Size(95, 18);
+            this.MilitaryNote_label.Size = new System.Drawing.Size(115, 24);
             this.MilitaryNote_label.TabIndex = 526;
             this.MilitaryNote_label.Text = "ملاحظات الخدمة:";
             this.MilitaryNote_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2791,10 +2792,10 @@ namespace MyWorkApplication
             this.label77.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label77.AutoSize = true;
             this.label77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label77.Location = new System.Drawing.Point(1042, 341);
+            this.label77.Location = new System.Drawing.Point(1028, 338);
             this.label77.Name = "label77";
             this.label77.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label77.Size = new System.Drawing.Size(50, 18);
+            this.label77.Size = new System.Drawing.Size(60, 24);
             this.label77.TabIndex = 261;
             this.label77.Text = "الطائفة :";
             this.label77.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2809,11 +2810,11 @@ namespace MyWorkApplication
             this.P_Parish_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Parish_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Parish_comboBox.FormattingEnabled = true;
-            this.P_Parish_comboBox.Location = new System.Drawing.Point(763, 339);
+            this.P_Parish_comboBox.Location = new System.Drawing.Point(760, 338);
             this.P_Parish_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Parish_comboBox.Name = "P_Parish_comboBox";
             this.P_Parish_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Parish_comboBox.Size = new System.Drawing.Size(154, 25);
+            this.P_Parish_comboBox.Size = new System.Drawing.Size(153, 29);
             this.P_Parish_comboBox.TabIndex = 28;
             this.P_Parish_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.P_Parish_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
@@ -2824,10 +2825,10 @@ namespace MyWorkApplication
             this.P_IntermidiaryName_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.P_IntermidiaryName_label.AutoSize = true;
             this.P_IntermidiaryName_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_IntermidiaryName_label.Location = new System.Drawing.Point(595, 341);
+            this.P_IntermidiaryName_label.Location = new System.Drawing.Point(575, 338);
             this.P_IntermidiaryName_label.Name = "P_IntermidiaryName_label";
             this.P_IntermidiaryName_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_IntermidiaryName_label.Size = new System.Drawing.Size(84, 18);
+            this.P_IntermidiaryName_label.Size = new System.Drawing.Size(101, 24);
             this.P_IntermidiaryName_label.TabIndex = 500;
             this.P_IntermidiaryName_label.Text = "الهيئة الوسيطة:";
             this.P_IntermidiaryName_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2836,11 +2837,11 @@ namespace MyWorkApplication
             // 
             this.P_IntermidiaryName_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_IntermidiaryName_textBox.BackColor = System.Drawing.Color.White;
-            this.P_IntermidiaryName_textBox.Location = new System.Drawing.Point(382, 338);
+            this.P_IntermidiaryName_textBox.Location = new System.Drawing.Point(380, 336);
             this.P_IntermidiaryName_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_IntermidiaryName_textBox.Name = "P_IntermidiaryName_textBox";
             this.P_IntermidiaryName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_IntermidiaryName_textBox.Size = new System.Drawing.Size(157, 24);
+            this.P_IntermidiaryName_textBox.Size = new System.Drawing.Size(156, 28);
             this.P_IntermidiaryName_textBox.TabIndex = 29;
             this.P_IntermidiaryName_textBox.Enter += new System.EventHandler(this.P_IntermidiaryName_textBox_Enter);
             this.P_IntermidiaryName_textBox.Leave += new System.EventHandler(this.P_IntermidiaryName_textBox_Leave);
@@ -2866,7 +2867,7 @@ namespace MyWorkApplication
             this.t3_tableLayoutPanel.SetRowSpan(this.P_Priest_tableLayoutPanel, 2);
             this.P_Priest_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.P_Priest_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.P_Priest_tableLayoutPanel.Size = new System.Drawing.Size(303, 72);
+            this.P_Priest_tableLayoutPanel.Size = new System.Drawing.Size(302, 72);
             this.P_Priest_tableLayoutPanel.TabIndex = 29;
             this.P_Priest_tableLayoutPanel.TabStop = true;
             // 
@@ -2875,10 +2876,10 @@ namespace MyWorkApplication
             this.label127.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label127.AutoSize = true;
             this.label127.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label127.Location = new System.Drawing.Point(248, 42);
+            this.label127.Location = new System.Drawing.Point(236, 39);
             this.label127.Name = "label127";
             this.label127.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label127.Size = new System.Drawing.Size(52, 18);
+            this.label127.Size = new System.Drawing.Size(63, 24);
             this.label127.TabIndex = 557;
             this.label127.Text = "الكاهن2:";
             this.label127.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2893,11 +2894,11 @@ namespace MyWorkApplication
             this.P_Priest2_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Priest2_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Priest2_comboBox.FormattingEnabled = true;
-            this.P_Priest2_comboBox.Location = new System.Drawing.Point(3, 41);
+            this.P_Priest2_comboBox.Location = new System.Drawing.Point(3, 40);
             this.P_Priest2_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Priest2_comboBox.Name = "P_Priest2_comboBox";
             this.P_Priest2_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Priest2_comboBox.Size = new System.Drawing.Size(157, 25);
+            this.P_Priest2_comboBox.Size = new System.Drawing.Size(157, 29);
             this.P_Priest2_comboBox.TabIndex = 30;
             this.P_Priest2_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.P_Priest2_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
@@ -2908,10 +2909,10 @@ namespace MyWorkApplication
             this.P_Priest_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.P_Priest_label.AutoSize = true;
             this.P_Priest_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_Priest_label.Location = new System.Drawing.Point(256, 8);
+            this.P_Priest_label.Location = new System.Drawing.Point(246, 5);
             this.P_Priest_label.Name = "P_Priest_label";
             this.P_Priest_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Priest_label.Size = new System.Drawing.Size(44, 18);
+            this.P_Priest_label.Size = new System.Drawing.Size(53, 24);
             this.P_Priest_label.TabIndex = 556;
             this.P_Priest_label.Text = "الكاهن:";
             this.P_Priest_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2926,11 +2927,11 @@ namespace MyWorkApplication
             this.P_Priest_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.P_Priest_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.P_Priest_comboBox.FormattingEnabled = true;
-            this.P_Priest_comboBox.Location = new System.Drawing.Point(3, 6);
+            this.P_Priest_comboBox.Location = new System.Drawing.Point(3, 5);
             this.P_Priest_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_Priest_comboBox.Name = "P_Priest_comboBox";
             this.P_Priest_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_Priest_comboBox.Size = new System.Drawing.Size(157, 25);
+            this.P_Priest_comboBox.Size = new System.Drawing.Size(157, 29);
             this.P_Priest_comboBox.TabIndex = 29;
             this.P_Priest_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.P_Priest_comboBox.SelectionChangeCommitted += new System.EventHandler(this.P_Area_comboBox_SelectionChangeCommitted);
@@ -2998,7 +2999,7 @@ namespace MyWorkApplication
             this.FamilyMember_dataGridView.RowTemplate.DividerHeight = 1;
             this.FamilyMember_dataGridView.RowTemplate.Height = 35;
             this.FamilyMember_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.FamilyMember_dataGridView.Size = new System.Drawing.Size(1089, 314);
+            this.FamilyMember_dataGridView.Size = new System.Drawing.Size(1085, 314);
             this.FamilyMember_dataGridView.TabIndex = 78;
             this.FamilyMember_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.FamilyMember_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -3200,7 +3201,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1089, 86);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1085, 86);
             this.tableLayoutPanel8.TabIndex = 564;
             // 
             // flowLayoutPanel7
@@ -3213,7 +3214,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(1083, 22);
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(1079, 22);
             this.flowLayoutPanel7.TabIndex = 541;
             // 
             // label30
@@ -3222,11 +3223,11 @@ namespace MyWorkApplication
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label30.Location = new System.Drawing.Point(1008, 0);
+            this.label30.Location = new System.Drawing.Point(991, 0);
             this.label30.Margin = new System.Windows.Forms.Padding(0);
             this.label30.Name = "label30";
             this.label30.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label30.Size = new System.Drawing.Size(75, 15);
+            this.label30.Size = new System.Drawing.Size(88, 18);
             this.label30.TabIndex = 263;
             this.label30.Text = "*حالة الإقامة:";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3237,11 +3238,11 @@ namespace MyWorkApplication
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label36.Location = new System.Drawing.Point(578, 0);
+            this.label36.Location = new System.Drawing.Point(463, 0);
             this.label36.Margin = new System.Windows.Forms.Padding(0);
             this.label36.Name = "label36";
             this.label36.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label36.Size = new System.Drawing.Size(430, 15);
+            this.label36.Size = new System.Drawing.Size(528, 18);
             this.label36.TabIndex = 264;
             this.label36.Text = "حالة الإقامة: على الاستمارة والبرنامج (مقيم - مسافر- متوفي- مفقود- متزوج - سجين -" +
     "عسكري -غير مقيم) ";
@@ -3256,7 +3257,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 31);
             this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(1083, 22);
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(1079, 22);
             this.flowLayoutPanel8.TabIndex = 564;
             // 
             // label46
@@ -3265,11 +3266,11 @@ namespace MyWorkApplication
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label46.Location = new System.Drawing.Point(514, 0);
+            this.label46.Location = new System.Drawing.Point(392, 0);
             this.label46.Margin = new System.Windows.Forms.Padding(0);
             this.label46.Name = "label46";
             this.label46.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label46.Size = new System.Drawing.Size(569, 15);
+            this.label46.Size = new System.Drawing.Size(687, 18);
             this.label46.TabIndex = 269;
             this.label46.Text = "*يتم تسجيل جميع الأفراد الساكنة في المنزل مهما كانت صفتهم كما يتم تسجيل أسماء أفر" +
     "اد العائلة مهما كانت إقامتهم.";
@@ -3287,7 +3288,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 59);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(1083, 24);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(1079, 24);
             this.flowLayoutPanel6.TabIndex = 563;
             // 
             // label40
@@ -3296,11 +3297,11 @@ namespace MyWorkApplication
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label40.Location = new System.Drawing.Point(988, 0);
+            this.label40.Location = new System.Drawing.Point(966, 0);
             this.label40.Margin = new System.Windows.Forms.Padding(0);
             this.label40.Name = "label40";
             this.label40.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label40.Size = new System.Drawing.Size(95, 15);
+            this.label40.Size = new System.Drawing.Size(113, 18);
             this.label40.TabIndex = 267;
             this.label40.Text = "*التحصيل العلمي:";
             this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3311,11 +3312,11 @@ namespace MyWorkApplication
             this.label45.AutoSize = true;
             this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label45.Location = new System.Drawing.Point(872, 0);
+            this.label45.Location = new System.Drawing.Point(825, 0);
             this.label45.Margin = new System.Windows.Forms.Padding(0);
             this.label45.Name = "label45";
             this.label45.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label45.Size = new System.Drawing.Size(116, 15);
+            this.label45.Size = new System.Drawing.Size(141, 18);
             this.label45.TabIndex = 268;
             this.label45.Text = "طالب - متخرج - غير متعلم";
             this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3326,11 +3327,11 @@ namespace MyWorkApplication
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label49.Location = new System.Drawing.Point(783, 0);
+            this.label49.Location = new System.Drawing.Point(722, 0);
             this.label49.Margin = new System.Windows.Forms.Padding(0);
             this.label49.Name = "label49";
             this.label49.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label49.Size = new System.Drawing.Size(89, 15);
+            this.label49.Size = new System.Drawing.Size(103, 18);
             this.label49.TabIndex = 269;
             this.label49.Text = "*الدرجة العلمية:";
             this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3341,11 +3342,11 @@ namespace MyWorkApplication
             this.label59.AutoSize = true;
             this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label59.Location = new System.Drawing.Point(531, 0);
+            this.label59.Location = new System.Drawing.Point(411, 0);
             this.label59.Margin = new System.Windows.Forms.Padding(0);
             this.label59.Name = "label59";
             this.label59.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label59.Size = new System.Drawing.Size(252, 15);
+            this.label59.Size = new System.Drawing.Size(311, 18);
             this.label59.TabIndex = 270;
             this.label59.Text = "تعليم أساسي- معهد -إجازة جامعية – دبلوم – ماجستير -دكتوراه";
             this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3354,11 +3355,11 @@ namespace MyWorkApplication
             // 
             this.P_WorkYears_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_WorkYears_textBox.BackColor = System.Drawing.Color.White;
-            this.P_WorkYears_textBox.Location = new System.Drawing.Point(3, 6);
+            this.P_WorkYears_textBox.Location = new System.Drawing.Point(3, 4);
             this.P_WorkYears_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_WorkYears_textBox.Name = "P_WorkYears_textBox";
             this.P_WorkYears_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_WorkYears_textBox.Size = new System.Drawing.Size(809, 24);
+            this.P_WorkYears_textBox.Size = new System.Drawing.Size(805, 28);
             this.P_WorkYears_textBox.TabIndex = 52;
             this.P_WorkYears_textBox.Enter += new System.EventHandler(this.P_WorkYears_textBox_Enter);
             this.P_WorkYears_textBox.Leave += new System.EventHandler(this.P_WorkYears_textBox_Leave);
@@ -3368,10 +3369,10 @@ namespace MyWorkApplication
             this.P_DebtsAmount_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.P_DebtsAmount_label.AutoSize = true;
             this.P_DebtsAmount_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_DebtsAmount_label.Location = new System.Drawing.Point(674, 13);
+            this.P_DebtsAmount_label.Location = new System.Drawing.Point(663, 10);
             this.P_DebtsAmount_label.Name = "P_DebtsAmount_label";
             this.P_DebtsAmount_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_DebtsAmount_label.Size = new System.Drawing.Size(39, 18);
+            this.P_DebtsAmount_label.Size = new System.Drawing.Size(48, 24);
             this.P_DebtsAmount_label.TabIndex = 545;
             this.P_DebtsAmount_label.Text = "المبلغ:";
             this.P_DebtsAmount_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3429,7 +3430,7 @@ namespace MyWorkApplication
             this.t10_tableLayoutPanel.SetRowSpan(this.AidSource_dataGridView, 4);
             this.AidSource_dataGridView.RowTemplate.Height = 35;
             this.AidSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.AidSource_dataGridView.Size = new System.Drawing.Size(1089, 180);
+            this.AidSource_dataGridView.Size = new System.Drawing.Size(1085, 180);
             this.AidSource_dataGridView.TabIndex = 89;
             this.AidSource_dataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.AidSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
@@ -3544,10 +3545,10 @@ namespace MyWorkApplication
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label6.Location = new System.Drawing.Point(235, 5);
+            this.label6.Location = new System.Drawing.Point(212, 5);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(83, 18);
+            this.label6.Size = new System.Drawing.Size(104, 24);
             this.label6.TabIndex = 537;
             this.label6.Text = "هل لديك ديون؟";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3592,33 +3593,33 @@ namespace MyWorkApplication
             this.showChecklistToolStripMenuItem,
             this.addNotesToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 124);
             // 
             // Visits_toolStripMenuItem
             // 
             this.Visits_toolStripMenuItem.Name = "Visits_toolStripMenuItem";
-            this.Visits_toolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.Visits_toolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.Visits_toolStripMenuItem.Text = "Show Visits";
             this.Visits_toolStripMenuItem.Click += new System.EventHandler(this.visits_toolStripMenuItem1_Click);
             // 
             // payments_toolStripMenuItem
             // 
             this.payments_toolStripMenuItem.Name = "payments_toolStripMenuItem";
-            this.payments_toolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.payments_toolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.payments_toolStripMenuItem.Text = "Show Payments";
             this.payments_toolStripMenuItem.Click += new System.EventHandler(this.payments_toolStripMenuItem2_Click);
             // 
             // attachments_toolStripMenuItem
             // 
             this.attachments_toolStripMenuItem.Name = "attachments_toolStripMenuItem";
-            this.attachments_toolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.attachments_toolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.attachments_toolStripMenuItem.Text = "Show Attachments";
             this.attachments_toolStripMenuItem.Click += new System.EventHandler(this.attachments_toolStripMenuItem3_Click);
             // 
             // showChecklistToolStripMenuItem
             // 
             this.showChecklistToolStripMenuItem.Name = "showChecklistToolStripMenuItem";
-            this.showChecklistToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.showChecklistToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.showChecklistToolStripMenuItem.Text = "Show Checklist";
             this.showChecklistToolStripMenuItem.Click += new System.EventHandler(this.showChecklistToolStripMenuItem_Click);
             // 
@@ -3626,7 +3627,7 @@ namespace MyWorkApplication
             // 
             this.addNotesToolStripMenuItem.Name = "addNotesToolStripMenuItem";
             this.addNotesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.addNotesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.addNotesToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.addNotesToolStripMenuItem.Text = "Add Notes";
             this.addNotesToolStripMenuItem.Click += new System.EventHandler(this.addNotesToolStripMenuItem_Click);
             // 
@@ -3638,7 +3639,7 @@ namespace MyWorkApplication
             this.final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.19126F));
             this.final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.80874F));
             this.final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 297F));
+            this.final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             this.final_tableLayoutPanel.Controls.Add(this.PaperApplicationUser_comboBox, 4, 0);
             this.final_tableLayoutPanel.Controls.Add(this.label27, 5, 0);
             this.final_tableLayoutPanel.Controls.Add(this.tableLayoutPanel4, 0, 2);
@@ -3656,7 +3657,7 @@ namespace MyWorkApplication
             this.final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.final_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.final_tableLayoutPanel.Size = new System.Drawing.Size(1095, 220);
+            this.final_tableLayoutPanel.Size = new System.Drawing.Size(1091, 220);
             this.final_tableLayoutPanel.TabIndex = 100;
             this.final_tableLayoutPanel.TabStop = true;
             // 
@@ -3669,11 +3670,11 @@ namespace MyWorkApplication
             this.PaperApplicationUser_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.PaperApplicationUser_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaperApplicationUser_comboBox.FormattingEnabled = true;
-            this.PaperApplicationUser_comboBox.Location = new System.Drawing.Point(639, 11);
+            this.PaperApplicationUser_comboBox.Location = new System.Drawing.Point(635, 10);
             this.PaperApplicationUser_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PaperApplicationUser_comboBox.Name = "PaperApplicationUser_comboBox";
             this.PaperApplicationUser_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PaperApplicationUser_comboBox.Size = new System.Drawing.Size(153, 25);
+            this.PaperApplicationUser_comboBox.Size = new System.Drawing.Size(152, 29);
             this.PaperApplicationUser_comboBox.TabIndex = 101;
             this.PaperApplicationUser_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.PaperApplicationUser_comboBox.SelectionChangeCommitted += new System.EventHandler(this.PaperApplicationUser_comboBox_SelectionChangeCommitted);
@@ -3685,11 +3686,11 @@ namespace MyWorkApplication
             this.label27.AutoEllipsis = true;
             this.label27.AutoSize = true;
             this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label27.Location = new System.Drawing.Point(976, 13);
+            this.label27.Location = new System.Drawing.Point(946, 10);
             this.label27.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label27.Name = "label27";
             this.label27.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label27.Size = new System.Drawing.Size(116, 18);
+            this.label27.Size = new System.Drawing.Size(142, 24);
             this.label27.TabIndex = 564;
             this.label27.Text = "مسجّل الطلب (ورقياً):";
             // 
@@ -3719,7 +3720,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel4.RowCount = 1;
             this.final_tableLayoutPanel.SetRowSpan(this.tableLayoutPanel4, 2);
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1089, 80);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1085, 80);
             this.tableLayoutPanel4.TabIndex = 102;
             this.tableLayoutPanel4.TabStop = true;
             // 
@@ -3736,7 +3737,7 @@ namespace MyWorkApplication
             this.Save_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Save_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Save_button.Location = new System.Drawing.Point(617, 4);
+            this.Save_button.Location = new System.Drawing.Point(615, 4);
             this.Save_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Save_button.MaximumSize = new System.Drawing.Size(125, 40);
             this.Save_button.MinimumSize = new System.Drawing.Size(125, 40);
@@ -3762,7 +3763,7 @@ namespace MyWorkApplication
             this.AddPartner_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddPartner_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.AddPartner_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.AddPartner_button.Location = new System.Drawing.Point(752, 4);
+            this.AddPartner_button.Location = new System.Drawing.Point(750, 4);
             this.AddPartner_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddPartner_button.MaximumSize = new System.Drawing.Size(125, 40);
             this.AddPartner_button.MinimumSize = new System.Drawing.Size(125, 40);
@@ -3788,7 +3789,7 @@ namespace MyWorkApplication
             this.AddExtention_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddExtention_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.AddExtention_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.AddExtention_button.Location = new System.Drawing.Point(212, 4);
+            this.AddExtention_button.Location = new System.Drawing.Point(210, 4);
             this.AddExtention_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddExtention_button.MaximumSize = new System.Drawing.Size(125, 40);
             this.AddExtention_button.MinimumSize = new System.Drawing.Size(125, 40);
@@ -3812,7 +3813,7 @@ namespace MyWorkApplication
             this.Delete_MP_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Delete_MP_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete_MP_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Delete_MP_button.Location = new System.Drawing.Point(347, 4);
+            this.Delete_MP_button.Location = new System.Drawing.Point(345, 4);
             this.Delete_MP_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Delete_MP_button.MaximumSize = new System.Drawing.Size(125, 40);
             this.Delete_MP_button.MinimumSize = new System.Drawing.Size(125, 40);
@@ -3836,7 +3837,7 @@ namespace MyWorkApplication
             this.FullApp_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.FullApp_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FullApp_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.FullApp_button.Location = new System.Drawing.Point(482, 4);
+            this.FullApp_button.Location = new System.Drawing.Point(480, 4);
             this.FullApp_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FullApp_button.MaximumSize = new System.Drawing.Size(125, 40);
             this.FullApp_button.MinimumSize = new System.Drawing.Size(125, 40);
@@ -3855,11 +3856,11 @@ namespace MyWorkApplication
             this.label33.AutoEllipsis = true;
             this.label33.AutoSize = true;
             this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label33.Location = new System.Drawing.Point(442, 13);
+            this.label33.Location = new System.Drawing.Point(439, 10);
             this.label33.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label33.Name = "label33";
             this.label33.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label33.Size = new System.Drawing.Size(155, 18);
+            this.label33.Size = new System.Drawing.Size(189, 24);
             this.label33.TabIndex = 561;
             this.label33.Text = "مسجّل الطلب (على البرنامج):";
             // 
@@ -3868,11 +3869,11 @@ namespace MyWorkApplication
             this.CreatedBy_User_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.CreatedBy_User_label.AutoSize = true;
             this.CreatedBy_User_label.BackColor = System.Drawing.Color.Transparent;
-            this.CreatedBy_User_label.Location = new System.Drawing.Point(399, 13);
+            this.CreatedBy_User_label.Location = new System.Drawing.Point(386, 10);
             this.CreatedBy_User_label.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreatedBy_User_label.MaximumSize = new System.Drawing.Size(310, 36);
             this.CreatedBy_User_label.Name = "CreatedBy_User_label";
-            this.CreatedBy_User_label.Size = new System.Drawing.Size(37, 18);
+            this.CreatedBy_User_label.Size = new System.Drawing.Size(47, 24);
             this.CreatedBy_User_label.TabIndex = 563;
             this.CreatedBy_User_label.Text = "user";
             this.CreatedBy_User_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3883,11 +3884,11 @@ namespace MyWorkApplication
             this.Visitors_label.AutoEllipsis = true;
             this.Visitors_label.AutoSize = true;
             this.Visitors_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Visitors_label.Location = new System.Drawing.Point(162, 13);
+            this.Visitors_label.Location = new System.Drawing.Point(161, 10);
             this.Visitors_label.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Visitors_label.Name = "Visitors_label";
             this.Visitors_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Visitors_label.Size = new System.Drawing.Size(97, 18);
+            this.Visitors_label.Size = new System.Drawing.Size(119, 24);
             this.Visitors_label.TabIndex = 560;
             this.Visitors_label.Text = "تم التعديل من قبل:";
             // 
@@ -3896,11 +3897,11 @@ namespace MyWorkApplication
             this.EditedBy_User_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.EditedBy_User_label.AutoSize = true;
             this.EditedBy_User_label.BackColor = System.Drawing.Color.Transparent;
-            this.EditedBy_User_label.Location = new System.Drawing.Point(119, 13);
+            this.EditedBy_User_label.Location = new System.Drawing.Point(108, 10);
             this.EditedBy_User_label.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EditedBy_User_label.MaximumSize = new System.Drawing.Size(310, 36);
             this.EditedBy_User_label.Name = "EditedBy_User_label";
-            this.EditedBy_User_label.Size = new System.Drawing.Size(37, 18);
+            this.EditedBy_User_label.Size = new System.Drawing.Size(47, 24);
             this.EditedBy_User_label.TabIndex = 565;
             this.EditedBy_User_label.Text = "user";
             this.EditedBy_User_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3925,7 +3926,7 @@ namespace MyWorkApplication
             this.t12_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.46154F));
             this.t12_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.t12_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t12_tableLayoutPanel.Size = new System.Drawing.Size(1095, 163);
+            this.t12_tableLayoutPanel.Size = new System.Drawing.Size(1091, 163);
             this.t12_tableLayoutPanel.TabIndex = 98;
             this.t12_tableLayoutPanel.TabStop = true;
             // 
@@ -3942,7 +3943,7 @@ namespace MyWorkApplication
             this.MP_SimpleProfit2_textBox.Name = "MP_SimpleProfit2_textBox";
             this.MP_SimpleProfit2_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.t12_tableLayoutPanel.SetRowSpan(this.MP_SimpleProfit2_textBox, 2);
-            this.MP_SimpleProfit2_textBox.Size = new System.Drawing.Size(1089, 79);
+            this.MP_SimpleProfit2_textBox.Size = new System.Drawing.Size(1085, 79);
             this.MP_SimpleProfit2_textBox.TabIndex = 99;
             this.MP_SimpleProfit2_textBox.Enter += new System.EventHandler(this.MP_SimpleProfit2_textBox_Enter);
             this.MP_SimpleProfit2_textBox.Leave += new System.EventHandler(this.MP_SimpleProfit2_textBox_Leave);
@@ -3953,11 +3954,11 @@ namespace MyWorkApplication
             this.label100.AutoSize = true;
             this.t12_tableLayoutPanel.SetColumnSpan(this.label100, 5);
             this.label100.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label100.Location = new System.Drawing.Point(999, 28);
+            this.label100.Location = new System.Drawing.Point(976, 25);
             this.label100.Margin = new System.Windows.Forms.Padding(3);
             this.label100.Name = "label100";
             this.label100.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label100.Size = new System.Drawing.Size(93, 18);
+            this.label100.Size = new System.Drawing.Size(112, 24);
             this.label100.TabIndex = 585;
             this.label100.Text = "معلومات إضافيّّة:";
             this.label100.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4000,7 +4001,7 @@ namespace MyWorkApplication
             this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.374801F));
             this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.374801F));
             this.t11_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t11_tableLayoutPanel.Size = new System.Drawing.Size(1095, 595);
+            this.t11_tableLayoutPanel.Size = new System.Drawing.Size(1091, 595);
             this.t11_tableLayoutPanel.TabIndex = 545;
             // 
             // SubHeader10_label
@@ -4009,10 +4010,10 @@ namespace MyWorkApplication
             this.SubHeader10_label.AutoSize = true;
             this.SubHeader10_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader10_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader10_label.Location = new System.Drawing.Point(237, 46);
+            this.SubHeader10_label.Location = new System.Drawing.Point(236, 44);
             this.SubHeader10_label.Name = "SubHeader10_label";
             this.SubHeader10_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader10_label.Size = new System.Drawing.Size(635, 24);
+            this.SubHeader10_label.Size = new System.Drawing.Size(633, 29);
             this.SubHeader10_label.TabIndex = 498;
             this.SubHeader10_label.Text = "مصادر المساعدة";
             this.SubHeader10_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4026,7 +4027,7 @@ namespace MyWorkApplication
             this.P_HasIncomeSource_flowLayoutPanel.Controls.Add(this.P_HasHelpSourceYes_radioButton);
             this.P_HasIncomeSource_flowLayoutPanel.Location = new System.Drawing.Point(3, 42);
             this.P_HasIncomeSource_flowLayoutPanel.Name = "P_HasIncomeSource_flowLayoutPanel";
-            this.P_HasIncomeSource_flowLayoutPanel.Size = new System.Drawing.Size(228, 33);
+            this.P_HasIncomeSource_flowLayoutPanel.Size = new System.Drawing.Size(227, 33);
             this.P_HasIncomeSource_flowLayoutPanel.TabIndex = 95;
             this.P_HasIncomeSource_flowLayoutPanel.TabStop = true;
             // 
@@ -4039,7 +4040,7 @@ namespace MyWorkApplication
             this.P_HasHelpSourceNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
             this.P_HasHelpSourceNo_radioButton.Name = "P_HasHelpSourceNo_radioButton";
             this.P_HasHelpSourceNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasHelpSourceNo_radioButton.Size = new System.Drawing.Size(61, 22);
+            this.P_HasHelpSourceNo_radioButton.Size = new System.Drawing.Size(75, 28);
             this.P_HasHelpSourceNo_radioButton.TabIndex = 4;
             this.P_HasHelpSourceNo_radioButton.TabStop = true;
             this.P_HasHelpSourceNo_radioButton.Text = "لا يوجد";
@@ -4052,11 +4053,11 @@ namespace MyWorkApplication
             this.P_HasHelpSourceYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.P_HasHelpSourceYes_radioButton.AutoSize = true;
             this.P_HasHelpSourceYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasHelpSourceYes_radioButton.Location = new System.Drawing.Point(86, 5);
+            this.P_HasHelpSourceYes_radioButton.Location = new System.Drawing.Point(100, 5);
             this.P_HasHelpSourceYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.P_HasHelpSourceYes_radioButton.Name = "P_HasHelpSourceYes_radioButton";
             this.P_HasHelpSourceYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasHelpSourceYes_radioButton.Size = new System.Drawing.Size(49, 22);
+            this.P_HasHelpSourceYes_radioButton.Size = new System.Drawing.Size(60, 28);
             this.P_HasHelpSourceYes_radioButton.TabIndex = 3;
             this.P_HasHelpSourceYes_radioButton.TabStop = true;
             this.P_HasHelpSourceYes_radioButton.Text = "يوجد";
@@ -4112,7 +4113,7 @@ namespace MyWorkApplication
             this.t11_tableLayoutPanel.SetRowSpan(this.HelpSource_dataGridView, 3);
             this.HelpSource_dataGridView.RowTemplate.Height = 35;
             this.HelpSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.HelpSource_dataGridView.Size = new System.Drawing.Size(1089, 109);
+            this.HelpSource_dataGridView.Size = new System.Drawing.Size(1085, 109);
             this.HelpSource_dataGridView.TabIndex = 96;
             this.HelpSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.HelpSource_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -4209,10 +4210,10 @@ namespace MyWorkApplication
             this.SubHeader11_label.AutoSize = true;
             this.SubHeader11_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader11_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader11_label.Location = new System.Drawing.Point(237, 303);
+            this.SubHeader11_label.Location = new System.Drawing.Point(236, 301);
             this.SubHeader11_label.Name = "SubHeader11_label";
             this.SubHeader11_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader11_label.Size = new System.Drawing.Size(635, 24);
+            this.SubHeader11_label.Size = new System.Drawing.Size(633, 29);
             this.SubHeader11_label.TabIndex = 499;
             this.SubHeader11_label.Text = "مصادر الطاقة في المنزل";
             this.SubHeader11_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4267,7 +4268,7 @@ namespace MyWorkApplication
             this.t11_tableLayoutPanel.SetRowSpan(this.HomePowerSource_dataGridView, 5);
             this.HomePowerSource_dataGridView.RowTemplate.Height = 35;
             this.HomePowerSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.HomePowerSource_dataGridView.Size = new System.Drawing.Size(1089, 187);
+            this.HomePowerSource_dataGridView.Size = new System.Drawing.Size(1085, 187);
             this.HomePowerSource_dataGridView.TabIndex = 97;
             this.HomePowerSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.HomePowerSource_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -4367,7 +4368,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel18.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel18.Location = new System.Drawing.Point(3, 553);
             this.flowLayoutPanel18.Name = "flowLayoutPanel18";
-            this.flowLayoutPanel18.Size = new System.Drawing.Size(1089, 39);
+            this.flowLayoutPanel18.Size = new System.Drawing.Size(1085, 39);
             this.flowLayoutPanel18.TabIndex = 572;
             // 
             // label89
@@ -4376,11 +4377,11 @@ namespace MyWorkApplication
             this.label89.AutoSize = true;
             this.label89.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label89.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label89.Location = new System.Drawing.Point(1005, 0);
+            this.label89.Location = new System.Drawing.Point(984, 0);
             this.label89.Margin = new System.Windows.Forms.Padding(0);
             this.label89.Name = "label89";
             this.label89.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label89.Size = new System.Drawing.Size(84, 15);
+            this.label89.Size = new System.Drawing.Size(101, 18);
             this.label89.TabIndex = 263;
             this.label89.Text = "*مصادر الطاقة:";
             this.label89.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4391,11 +4392,11 @@ namespace MyWorkApplication
             this.label90.AutoSize = true;
             this.label90.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label90.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label90.Location = new System.Drawing.Point(710, 0);
+            this.label90.Location = new System.Drawing.Point(617, 0);
             this.label90.Margin = new System.Windows.Forms.Padding(0);
             this.label90.Name = "label90";
             this.label90.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label90.Size = new System.Drawing.Size(295, 15);
+            this.label90.Size = new System.Drawing.Size(367, 18);
             this.label90.TabIndex = 264;
             this.label90.Text = "كهرباء دولة - أمبيرات - طاقة شمسيّّة - مولدات - ليدّّات - بطاريّّة وأنفرتر";
             this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4406,11 +4407,11 @@ namespace MyWorkApplication
             this.label124.AutoSize = true;
             this.label124.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label124.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label124.Location = new System.Drawing.Point(625, 0);
+            this.label124.Location = new System.Drawing.Point(519, 0);
             this.label124.Margin = new System.Windows.Forms.Padding(0);
             this.label124.Name = "label124";
             this.label124.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label124.Size = new System.Drawing.Size(85, 15);
+            this.label124.Size = new System.Drawing.Size(98, 18);
             this.label124.TabIndex = 267;
             this.label124.Text = "*الجهة المموّلة:";
             this.label124.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4421,11 +4422,11 @@ namespace MyWorkApplication
             this.label125.AutoSize = true;
             this.label125.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label125.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label125.Location = new System.Drawing.Point(517, 0);
+            this.label125.Location = new System.Drawing.Point(385, 0);
             this.label125.Margin = new System.Windows.Forms.Padding(0);
             this.label125.Name = "label125";
             this.label125.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label125.Size = new System.Drawing.Size(108, 15);
+            this.label125.Size = new System.Drawing.Size(134, 18);
             this.label125.TabIndex = 268;
             this.label125.Text = "شخصي، جمعية، قرض...";
             this.label125.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4448,7 +4449,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel28.Location = new System.Drawing.Point(3, 218);
             this.flowLayoutPanel28.Name = "flowLayoutPanel28";
             this.t11_tableLayoutPanel.SetRowSpan(this.flowLayoutPanel28, 2);
-            this.flowLayoutPanel28.Size = new System.Drawing.Size(1089, 55);
+            this.flowLayoutPanel28.Size = new System.Drawing.Size(1085, 55);
             this.flowLayoutPanel28.TabIndex = 573;
             // 
             // label107
@@ -4457,11 +4458,11 @@ namespace MyWorkApplication
             this.label107.AutoSize = true;
             this.label107.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label107.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label107.Location = new System.Drawing.Point(1004, 0);
+            this.label107.Location = new System.Drawing.Point(985, 0);
             this.label107.Margin = new System.Windows.Forms.Padding(0);
             this.label107.Name = "label107";
             this.label107.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label107.Size = new System.Drawing.Size(85, 15);
+            this.label107.Size = new System.Drawing.Size(100, 18);
             this.label107.TabIndex = 265;
             this.label107.Text = "*جهة المساعدة:";
             this.label107.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4472,11 +4473,11 @@ namespace MyWorkApplication
             this.label112.AutoSize = true;
             this.label112.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label112.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label112.Location = new System.Drawing.Point(853, 0);
+            this.label112.Location = new System.Drawing.Point(796, 0);
             this.label112.Margin = new System.Windows.Forms.Padding(0);
             this.label112.Name = "label112";
             this.label112.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label112.Size = new System.Drawing.Size(151, 15);
+            this.label112.Size = new System.Drawing.Size(189, 18);
             this.label112.TabIndex = 266;
             this.label112.Text = "كاريتاس - يسوعيّّة - غوبا - أقارب...";
             this.label112.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4487,11 +4488,11 @@ namespace MyWorkApplication
             this.label113.AutoSize = true;
             this.label113.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label113.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label113.Location = new System.Drawing.Point(770, 0);
+            this.label113.Location = new System.Drawing.Point(698, 0);
             this.label113.Margin = new System.Windows.Forms.Padding(0);
             this.label113.Name = "label113";
             this.label113.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label113.Size = new System.Drawing.Size(83, 15);
+            this.label113.Size = new System.Drawing.Size(98, 18);
             this.label113.TabIndex = 267;
             this.label113.Text = "*نوع المساعدة:";
             this.label113.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4502,11 +4503,11 @@ namespace MyWorkApplication
             this.label114.AutoSize = true;
             this.label114.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label114.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label114.Location = new System.Drawing.Point(401, 0);
+            this.label114.Location = new System.Drawing.Point(235, 0);
             this.label114.Margin = new System.Windows.Forms.Padding(0);
             this.label114.Name = "label114";
             this.label114.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label114.Size = new System.Drawing.Size(369, 15);
+            this.label114.Size = new System.Drawing.Size(463, 18);
             this.label114.TabIndex = 268;
             this.label114.Text = "سلة غذائية- سلة منظّّفات - بدل طاقة - رواتب مسنين - بدل محروقات - ترميم - وجبة طع" +
     "ام...";
@@ -4518,11 +4519,11 @@ namespace MyWorkApplication
             this.label115.AutoSize = true;
             this.label115.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label115.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label115.Location = new System.Drawing.Point(320, 0);
+            this.label115.Location = new System.Drawing.Point(139, 0);
             this.label115.Margin = new System.Windows.Forms.Padding(0);
             this.label115.Name = "label115";
             this.label115.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label115.Size = new System.Drawing.Size(81, 15);
+            this.label115.Size = new System.Drawing.Size(96, 18);
             this.label115.TabIndex = 269;
             this.label115.Text = "*مدّّة المساعدة:";
             this.label115.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4533,11 +4534,11 @@ namespace MyWorkApplication
             this.label116.AutoSize = true;
             this.label116.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label116.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label116.Location = new System.Drawing.Point(148, 0);
+            this.label116.Location = new System.Drawing.Point(870, 18);
             this.label116.Margin = new System.Windows.Forms.Padding(0);
             this.label116.Name = "label116";
             this.label116.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label116.Size = new System.Drawing.Size(172, 15);
+            this.label116.Size = new System.Drawing.Size(215, 18);
             this.label116.TabIndex = 270;
             this.label116.Text = "شهرياًً - مرة كل 6 أشهر -مرة في السنة...";
             this.label116.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4548,11 +4549,11 @@ namespace MyWorkApplication
             this.label117.AutoSize = true;
             this.label117.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label117.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label117.Location = new System.Drawing.Point(87, 0);
+            this.label117.Location = new System.Drawing.Point(797, 18);
             this.label117.Margin = new System.Windows.Forms.Padding(0);
             this.label117.Name = "label117";
             this.label117.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label117.Size = new System.Drawing.Size(61, 15);
+            this.label117.Size = new System.Drawing.Size(73, 18);
             this.label117.TabIndex = 271;
             this.label117.Text = "*ملاحظات:";
             this.label117.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4563,11 +4564,11 @@ namespace MyWorkApplication
             this.label118.AutoSize = true;
             this.label118.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label118.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label118.Location = new System.Drawing.Point(980, 15);
+            this.label118.Location = new System.Drawing.Point(662, 18);
             this.label118.Margin = new System.Windows.Forms.Padding(0);
             this.label118.Name = "label118";
             this.label118.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label118.Size = new System.Drawing.Size(109, 15);
+            this.label118.Size = new System.Drawing.Size(135, 18);
             this.label118.TabIndex = 272;
             this.label118.Text = "يمكن تسجيل صلة القرابة.";
             this.label118.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4578,7 +4579,7 @@ namespace MyWorkApplication
             this.t10_tableLayoutPanel.ColumnCount = 3;
             this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 151F));
+            this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
             this.t10_tableLayoutPanel.Controls.Add(this.SubHeader9_label, 1, 1);
             this.t10_tableLayoutPanel.Controls.Add(this.AidSource_dataGridView, 0, 3);
             this.t10_tableLayoutPanel.Controls.Add(this.P_HasAidSource_flowLayoutPanel, 0, 1);
@@ -4600,7 +4601,7 @@ namespace MyWorkApplication
             this.t10_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.t10_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.t10_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.t10_tableLayoutPanel.Size = new System.Drawing.Size(1095, 396);
+            this.t10_tableLayoutPanel.Size = new System.Drawing.Size(1091, 396);
             this.t10_tableLayoutPanel.TabIndex = 544;
             // 
             // SubHeader9_label
@@ -4609,10 +4610,10 @@ namespace MyWorkApplication
             this.SubHeader9_label.AutoSize = true;
             this.SubHeader9_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader9_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader9_label.Location = new System.Drawing.Point(239, 58);
+            this.SubHeader9_label.Location = new System.Drawing.Point(237, 56);
             this.SubHeader9_label.Name = "SubHeader9_label";
             this.SubHeader9_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader9_label.Size = new System.Drawing.Size(702, 24);
+            this.SubHeader9_label.Size = new System.Drawing.Size(698, 29);
             this.SubHeader9_label.TabIndex = 498;
             this.SubHeader9_label.Text = "الاستفادة من جهة أخرى (من مشروع صغير)";
             this.SubHeader9_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4626,7 +4627,7 @@ namespace MyWorkApplication
             this.P_HasAidSource_flowLayoutPanel.Controls.Add(this.P_HasAidSourceYes_radioButton);
             this.P_HasAidSource_flowLayoutPanel.Location = new System.Drawing.Point(3, 50);
             this.P_HasAidSource_flowLayoutPanel.Name = "P_HasAidSource_flowLayoutPanel";
-            this.P_HasAidSource_flowLayoutPanel.Size = new System.Drawing.Size(230, 41);
+            this.P_HasAidSource_flowLayoutPanel.Size = new System.Drawing.Size(228, 41);
             this.P_HasAidSource_flowLayoutPanel.TabIndex = 88;
             this.P_HasAidSource_flowLayoutPanel.TabStop = true;
             // 
@@ -4639,7 +4640,7 @@ namespace MyWorkApplication
             this.P_HasAidSourceNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
             this.P_HasAidSourceNo_radioButton.Name = "P_HasAidSourceNo_radioButton";
             this.P_HasAidSourceNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasAidSourceNo_radioButton.Size = new System.Drawing.Size(61, 22);
+            this.P_HasAidSourceNo_radioButton.Size = new System.Drawing.Size(75, 28);
             this.P_HasAidSourceNo_radioButton.TabIndex = 4;
             this.P_HasAidSourceNo_radioButton.TabStop = true;
             this.P_HasAidSourceNo_radioButton.Text = "لا يوجد";
@@ -4652,11 +4653,11 @@ namespace MyWorkApplication
             this.P_HasAidSourceYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.P_HasAidSourceYes_radioButton.AutoSize = true;
             this.P_HasAidSourceYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasAidSourceYes_radioButton.Location = new System.Drawing.Point(86, 5);
+            this.P_HasAidSourceYes_radioButton.Location = new System.Drawing.Point(100, 5);
             this.P_HasAidSourceYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.P_HasAidSourceYes_radioButton.Name = "P_HasAidSourceYes_radioButton";
             this.P_HasAidSourceYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasAidSourceYes_radioButton.Size = new System.Drawing.Size(49, 22);
+            this.P_HasAidSourceYes_radioButton.Size = new System.Drawing.Size(60, 28);
             this.P_HasAidSourceYes_radioButton.TabIndex = 3;
             this.P_HasAidSourceYes_radioButton.TabStop = true;
             this.P_HasAidSourceYes_radioButton.Text = "يوجد";
@@ -4689,7 +4690,7 @@ namespace MyWorkApplication
             this.P_Debts_tableLayoutPanel.Name = "P_Debts_tableLayoutPanel";
             this.P_Debts_tableLayoutPanel.RowCount = 1;
             this.P_Debts_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.P_Debts_tableLayoutPanel.Size = new System.Drawing.Size(1089, 45);
+            this.P_Debts_tableLayoutPanel.Size = new System.Drawing.Size(1085, 45);
             this.P_Debts_tableLayoutPanel.TabIndex = 91;
             this.P_Debts_tableLayoutPanel.TabStop = true;
             // 
@@ -4697,11 +4698,11 @@ namespace MyWorkApplication
             // 
             this.P_DebtsAmount_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_DebtsAmount_textBox.BackColor = System.Drawing.Color.White;
-            this.P_DebtsAmount_textBox.Location = new System.Drawing.Point(454, 10);
+            this.P_DebtsAmount_textBox.Location = new System.Drawing.Point(452, 8);
             this.P_DebtsAmount_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_DebtsAmount_textBox.Name = "P_DebtsAmount_textBox";
             this.P_DebtsAmount_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_DebtsAmount_textBox.Size = new System.Drawing.Size(179, 24);
+            this.P_DebtsAmount_textBox.Size = new System.Drawing.Size(179, 28);
             this.P_DebtsAmount_textBox.TabIndex = 93;
             this.P_DebtsAmount_textBox.Enter += new System.EventHandler(this.P_DebtsAmount_textBox_Enter);
             this.P_DebtsAmount_textBox.Leave += new System.EventHandler(this.P_DebtsAmount_textBox_Leave);
@@ -4711,10 +4712,10 @@ namespace MyWorkApplication
             this.P_DebtsNote_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.P_DebtsNote_label.AutoSize = true;
             this.P_DebtsNote_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_DebtsNote_label.Location = new System.Drawing.Point(359, 13);
+            this.P_DebtsNote_label.Location = new System.Drawing.Point(348, 10);
             this.P_DebtsNote_label.Name = "P_DebtsNote_label";
             this.P_DebtsNote_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_DebtsNote_label.Size = new System.Drawing.Size(43, 18);
+            this.P_DebtsNote_label.Size = new System.Drawing.Size(52, 24);
             this.P_DebtsNote_label.TabIndex = 547;
             this.P_DebtsNote_label.Text = "السبب:";
             this.P_DebtsNote_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4723,11 +4724,11 @@ namespace MyWorkApplication
             // 
             this.P_DebtsNote_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_DebtsNote_textBox.BackColor = System.Drawing.Color.White;
-            this.P_DebtsNote_textBox.Location = new System.Drawing.Point(3, 10);
+            this.P_DebtsNote_textBox.Location = new System.Drawing.Point(3, 8);
             this.P_DebtsNote_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.P_DebtsNote_textBox.Name = "P_DebtsNote_textBox";
             this.P_DebtsNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_DebtsNote_textBox.Size = new System.Drawing.Size(319, 24);
+            this.P_DebtsNote_textBox.Size = new System.Drawing.Size(317, 28);
             this.P_DebtsNote_textBox.TabIndex = 94;
             this.P_DebtsNote_textBox.Enter += new System.EventHandler(this.P_DebtsNote_textBox_Enter);
             this.P_DebtsNote_textBox.Leave += new System.EventHandler(this.P_DebtsNote_textBox_Leave);
@@ -4741,9 +4742,9 @@ namespace MyWorkApplication
             this.P_HasDebts_flowLayoutPanel.Controls.Add(this.P_HasDebtsYes_radioButton);
             this.P_HasDebts_flowLayoutPanel.Controls.Add(this.P_HasDebtsNo_radioButton);
             this.P_HasDebts_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.P_HasDebts_flowLayoutPanel.Location = new System.Drawing.Point(765, 3);
+            this.P_HasDebts_flowLayoutPanel.Location = new System.Drawing.Point(763, 3);
             this.P_HasDebts_flowLayoutPanel.Name = "P_HasDebts_flowLayoutPanel";
-            this.P_HasDebts_flowLayoutPanel.Size = new System.Drawing.Size(321, 39);
+            this.P_HasDebts_flowLayoutPanel.Size = new System.Drawing.Size(319, 39);
             this.P_HasDebts_flowLayoutPanel.TabIndex = 92;
             this.P_HasDebts_flowLayoutPanel.TabStop = true;
             // 
@@ -4753,11 +4754,11 @@ namespace MyWorkApplication
             this.P_HasDebtsYes_radioButton.AutoSize = true;
             this.P_HasDebtsYes_radioButton.BackColor = System.Drawing.Color.Transparent;
             this.P_HasDebtsYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_HasDebtsYes_radioButton.Location = new System.Drawing.Point(176, 3);
+            this.P_HasDebtsYes_radioButton.Location = new System.Drawing.Point(145, 3);
             this.P_HasDebtsYes_radioButton.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
             this.P_HasDebtsYes_radioButton.Name = "P_HasDebtsYes_radioButton";
             this.P_HasDebtsYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasDebtsYes_radioButton.Size = new System.Drawing.Size(41, 22);
+            this.P_HasDebtsYes_radioButton.Size = new System.Drawing.Size(49, 28);
             this.P_HasDebtsYes_radioButton.TabIndex = 1;
             this.P_HasDebtsYes_radioButton.TabStop = true;
             this.P_HasDebtsYes_radioButton.Text = "نعم";
@@ -4770,11 +4771,11 @@ namespace MyWorkApplication
             this.P_HasDebtsNo_radioButton.AutoSize = true;
             this.P_HasDebtsNo_radioButton.BackColor = System.Drawing.Color.Transparent;
             this.P_HasDebtsNo_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.P_HasDebtsNo_radioButton.Location = new System.Drawing.Point(124, 3);
+            this.P_HasDebtsNo_radioButton.Location = new System.Drawing.Point(86, 3);
             this.P_HasDebtsNo_radioButton.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
             this.P_HasDebtsNo_radioButton.Name = "P_HasDebtsNo_radioButton";
             this.P_HasDebtsNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasDebtsNo_radioButton.Size = new System.Drawing.Size(34, 22);
+            this.P_HasDebtsNo_radioButton.Size = new System.Drawing.Size(41, 28);
             this.P_HasDebtsNo_radioButton.TabIndex = 2;
             this.P_HasDebtsNo_radioButton.TabStop = true;
             this.P_HasDebtsNo_radioButton.Text = "لا";
@@ -4786,11 +4787,11 @@ namespace MyWorkApplication
             this.label55.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label55.AutoSize = true;
             this.label55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label55.Location = new System.Drawing.Point(1033, 316);
+            this.label55.Location = new System.Drawing.Point(1016, 313);
             this.label55.Margin = new System.Windows.Forms.Padding(3);
             this.label55.Name = "label55";
             this.label55.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label55.Size = new System.Drawing.Size(59, 18);
+            this.label55.Size = new System.Drawing.Size(72, 24);
             this.label55.TabIndex = 586;
             this.label55.Text = "ملاحظات:";
             this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4800,11 +4801,11 @@ namespace MyWorkApplication
             this.P_AidSourceNote_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_AidSourceNote_textBox.BackColor = System.Drawing.Color.White;
             this.t10_tableLayoutPanel.SetColumnSpan(this.P_AidSourceNote_textBox, 2);
-            this.P_AidSourceNote_textBox.Location = new System.Drawing.Point(0, 313);
+            this.P_AidSourceNote_textBox.Location = new System.Drawing.Point(0, 311);
             this.P_AidSourceNote_textBox.Margin = new System.Windows.Forms.Padding(0);
             this.P_AidSourceNote_textBox.Name = "P_AidSourceNote_textBox";
             this.P_AidSourceNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_AidSourceNote_textBox.Size = new System.Drawing.Size(944, 24);
+            this.P_AidSourceNote_textBox.Size = new System.Drawing.Size(938, 28);
             this.P_AidSourceNote_textBox.TabIndex = 90;
             this.P_AidSourceNote_textBox.Enter += new System.EventHandler(this.MP_OtherDonors_textBox_Enter);
             this.P_AidSourceNote_textBox.Leave += new System.EventHandler(this.MP_OtherDonors_textBox_Leave);
@@ -4871,7 +4872,7 @@ namespace MyWorkApplication
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761906F));
             this.t9_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761908F));
-            this.t9_tableLayoutPanel.Size = new System.Drawing.Size(1095, 1305);
+            this.t9_tableLayoutPanel.Size = new System.Drawing.Size(1091, 1305);
             this.t9_tableLayoutPanel.TabIndex = 80;
             // 
             // Loss_dataGridView
@@ -4929,7 +4930,7 @@ namespace MyWorkApplication
             this.Loss_dataGridView.RowTemplate.Height = 35;
             this.Loss_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Loss_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Loss_dataGridView.Size = new System.Drawing.Size(1089, 184);
+            this.Loss_dataGridView.Size = new System.Drawing.Size(1085, 184);
             this.Loss_dataGridView.TabIndex = 83;
             this.Loss_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Loss_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -5035,7 +5036,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel21.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel21.Location = new System.Drawing.Point(3, 933);
             this.flowLayoutPanel21.Name = "flowLayoutPanel21";
-            this.flowLayoutPanel21.Size = new System.Drawing.Size(1089, 24);
+            this.flowLayoutPanel21.Size = new System.Drawing.Size(1085, 24);
             this.flowLayoutPanel21.TabIndex = 542;
             // 
             // label60
@@ -5044,11 +5045,11 @@ namespace MyWorkApplication
             this.label60.AutoSize = true;
             this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label60.Location = new System.Drawing.Point(1008, 0);
+            this.label60.Location = new System.Drawing.Point(989, 0);
             this.label60.Margin = new System.Windows.Forms.Padding(0);
             this.label60.Name = "label60";
             this.label60.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label60.Size = new System.Drawing.Size(81, 15);
+            this.label60.Size = new System.Drawing.Size(96, 18);
             this.label60.TabIndex = 263;
             this.label60.Text = "*مدة المساعدة:";
             this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5059,11 +5060,11 @@ namespace MyWorkApplication
             this.label61.AutoSize = true;
             this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label61.Location = new System.Drawing.Point(669, 0);
+            this.label61.Location = new System.Drawing.Point(562, 0);
             this.label61.Margin = new System.Windows.Forms.Padding(0);
             this.label61.Name = "label61";
             this.label61.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label61.Size = new System.Drawing.Size(339, 15);
+            this.label61.Size = new System.Drawing.Size(427, 18);
             this.label61.TabIndex = 264;
             this.label61.Text = "شهرياًً - مرة كل شهرين - كل ستة أشهر - مرة سنوياًً - مرة وا حدة - يومياًً - أسبوع" +
     "ياًً.";
@@ -5075,11 +5076,11 @@ namespace MyWorkApplication
             this.label64.AutoSize = true;
             this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label64.Location = new System.Drawing.Point(580, 0);
+            this.label64.Location = new System.Drawing.Point(455, 0);
             this.label64.Margin = new System.Windows.Forms.Padding(0);
             this.label64.Name = "label64";
             this.label64.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label64.Size = new System.Drawing.Size(89, 15);
+            this.label64.Size = new System.Drawing.Size(107, 18);
             this.label64.TabIndex = 265;
             this.label64.Text = "*احتياجات طبية:";
             this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5090,11 +5091,11 @@ namespace MyWorkApplication
             this.label65.AutoSize = true;
             this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label65.Location = new System.Drawing.Point(324, 0);
+            this.label65.Location = new System.Drawing.Point(138, 0);
             this.label65.Margin = new System.Windows.Forms.Padding(0);
             this.label65.Name = "label65";
             this.label65.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label65.Size = new System.Drawing.Size(256, 15);
+            this.label65.Size = new System.Drawing.Size(317, 18);
             this.label65.TabIndex = 266;
             this.label65.Text = "كرسي متحرك -سماعات اذن -جهاز رزاز -فرشة طبية – سرير ";
             this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5111,7 +5112,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 283);
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(1089, 30);
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(1085, 30);
             this.flowLayoutPanel9.TabIndex = 565;
             // 
             // label99
@@ -5120,11 +5121,11 @@ namespace MyWorkApplication
             this.label99.AutoSize = true;
             this.label99.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label99.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label99.Location = new System.Drawing.Point(794, 0);
+            this.label99.Location = new System.Drawing.Point(731, 0);
             this.label99.Margin = new System.Windows.Forms.Padding(0);
             this.label99.Name = "label99";
             this.label99.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label99.Size = new System.Drawing.Size(295, 15);
+            this.label99.Size = new System.Drawing.Size(354, 18);
             this.label99.TabIndex = 272;
             this.label99.Text = "*يُُسجّّل في هذا الجدول فقط الأفراد الذين يعملون والمقيمون. ";
             this.label99.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5135,11 +5136,11 @@ namespace MyWorkApplication
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label48.Location = new System.Drawing.Point(718, 0);
+            this.label48.Location = new System.Drawing.Point(640, 0);
             this.label48.Margin = new System.Windows.Forms.Padding(0);
             this.label48.Name = "label48";
             this.label48.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label48.Size = new System.Drawing.Size(76, 15);
+            this.label48.Size = new System.Drawing.Size(91, 18);
             this.label48.TabIndex = 271;
             this.label48.Text = "*طبيعة العمل:";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5150,11 +5151,11 @@ namespace MyWorkApplication
             this.label47.AutoSize = true;
             this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label47.Location = new System.Drawing.Point(304, 0);
+            this.label47.Location = new System.Drawing.Point(122, 0);
             this.label47.Margin = new System.Windows.Forms.Padding(0);
             this.label47.Name = "label47";
             this.label47.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label47.Size = new System.Drawing.Size(414, 15);
+            this.label47.Size = new System.Drawing.Size(518, 18);
             this.label47.TabIndex = 270;
             this.label47.Text = "حسب ملف الحاجة (صاحب العمل - شريك - صانع - موظّّف قطّّاع عام - موظّّفف قطّّاع خاص" +
     " - لا يعمل)";
@@ -5166,10 +5167,10 @@ namespace MyWorkApplication
             this.SubHeader6_label.AutoSize = true;
             this.SubHeader6_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader6_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader6_label.Location = new System.Drawing.Point(222, 342);
+            this.SubHeader6_label.Location = new System.Drawing.Point(221, 339);
             this.SubHeader6_label.Name = "SubHeader6_label";
             this.SubHeader6_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader6_label.Size = new System.Drawing.Size(651, 24);
+            this.SubHeader6_label.Size = new System.Drawing.Size(648, 29);
             this.SubHeader6_label.TabIndex = 547;
             this.SubHeader6_label.Text = "الخسارات التي تعرّّض لها المستفيد أو أحد أفراد عائلته";
             this.SubHeader6_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5185,7 +5186,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel14.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel14.Location = new System.Drawing.Point(3, 593);
             this.flowLayoutPanel14.Name = "flowLayoutPanel14";
-            this.flowLayoutPanel14.Size = new System.Drawing.Size(1089, 24);
+            this.flowLayoutPanel14.Size = new System.Drawing.Size(1085, 24);
             this.flowLayoutPanel14.TabIndex = 567;
             // 
             // label23
@@ -5194,11 +5195,11 @@ namespace MyWorkApplication
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label23.Location = new System.Drawing.Point(1002, 0);
+            this.label23.Location = new System.Drawing.Point(982, 0);
             this.label23.Margin = new System.Windows.Forms.Padding(0);
             this.label23.Name = "label23";
             this.label23.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label23.Size = new System.Drawing.Size(87, 15);
+            this.label23.Size = new System.Drawing.Size(103, 18);
             this.label23.TabIndex = 263;
             this.label23.Text = "*أنواع الخسارة:";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5209,11 +5210,11 @@ namespace MyWorkApplication
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label24.Location = new System.Drawing.Point(712, 0);
+            this.label24.Location = new System.Drawing.Point(626, 0);
             this.label24.Margin = new System.Windows.Forms.Padding(0);
             this.label24.Name = "label24";
             this.label24.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label24.Size = new System.Drawing.Size(290, 15);
+            this.label24.Size = new System.Drawing.Size(356, 18);
             this.label24.TabIndex = 264;
             this.label24.Text = "بحسب ملف الحاجة (بشريّّة - عقار - مركبة - عسكري - عمل - لايوجد)";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5278,7 +5279,7 @@ namespace MyWorkApplication
             this.Illness_dataGridView.RowTemplate.Height = 35;
             this.Illness_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Illness_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Illness_dataGridView.Size = new System.Drawing.Size(1089, 184);
+            this.Illness_dataGridView.Size = new System.Drawing.Size(1085, 184);
             this.Illness_dataGridView.TabIndex = 85;
             this.Illness_dataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.Illness_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
@@ -5427,7 +5428,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel15.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel15.Location = new System.Drawing.Point(3, 903);
             this.flowLayoutPanel15.Name = "flowLayoutPanel15";
-            this.flowLayoutPanel15.Size = new System.Drawing.Size(1089, 24);
+            this.flowLayoutPanel15.Size = new System.Drawing.Size(1085, 24);
             this.flowLayoutPanel15.TabIndex = 569;
             // 
             // label68
@@ -5436,11 +5437,11 @@ namespace MyWorkApplication
             this.label68.AutoSize = true;
             this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label68.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label68.Location = new System.Drawing.Point(1001, 0);
+            this.label68.Location = new System.Drawing.Point(982, 0);
             this.label68.Margin = new System.Windows.Forms.Padding(0);
             this.label68.Name = "label68";
             this.label68.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label68.Size = new System.Drawing.Size(88, 15);
+            this.label68.Size = new System.Drawing.Size(103, 18);
             this.label68.TabIndex = 263;
             this.label68.Text = "*الحالة الصحيّّة:";
             this.label68.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5451,11 +5452,11 @@ namespace MyWorkApplication
             this.label69.AutoSize = true;
             this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label69.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label69.Location = new System.Drawing.Point(597, 0);
+            this.label69.Location = new System.Drawing.Point(480, 0);
             this.label69.Margin = new System.Windows.Forms.Padding(0);
             this.label69.Name = "label69";
             this.label69.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label69.Size = new System.Drawing.Size(404, 15);
+            this.label69.Size = new System.Drawing.Size(502, 18);
             this.label69.TabIndex = 264;
             this.label69.Text = "مرض مزمن - عمل جرا حي إسعافي - إعاقة جزئيّّة - أمراض خبيثة / مستعصية - إعاقة كليّ" +
     "ّة / عقليّّة.";
@@ -5470,7 +5471,7 @@ namespace MyWorkApplication
             this.P_HasIllness_flowLayoutPanel.Controls.Add(this.P_HasIllnessYes_radioButton);
             this.P_HasIllness_flowLayoutPanel.Location = new System.Drawing.Point(3, 643);
             this.P_HasIllness_flowLayoutPanel.Name = "P_HasIllness_flowLayoutPanel";
-            this.P_HasIllness_flowLayoutPanel.Size = new System.Drawing.Size(213, 42);
+            this.P_HasIllness_flowLayoutPanel.Size = new System.Drawing.Size(212, 42);
             this.P_HasIllness_flowLayoutPanel.TabIndex = 84;
             this.P_HasIllness_flowLayoutPanel.TabStop = true;
             // 
@@ -5483,7 +5484,7 @@ namespace MyWorkApplication
             this.P_HasIllnessNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
             this.P_HasIllnessNo_radioButton.Name = "P_HasIllnessNo_radioButton";
             this.P_HasIllnessNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasIllnessNo_radioButton.Size = new System.Drawing.Size(61, 22);
+            this.P_HasIllnessNo_radioButton.Size = new System.Drawing.Size(75, 28);
             this.P_HasIllnessNo_radioButton.TabIndex = 4;
             this.P_HasIllnessNo_radioButton.TabStop = true;
             this.P_HasIllnessNo_radioButton.Text = "لا يوجد";
@@ -5496,11 +5497,11 @@ namespace MyWorkApplication
             this.P_HasIllnessYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.P_HasIllnessYes_radioButton.AutoSize = true;
             this.P_HasIllnessYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasIllnessYes_radioButton.Location = new System.Drawing.Point(86, 5);
+            this.P_HasIllnessYes_radioButton.Location = new System.Drawing.Point(100, 5);
             this.P_HasIllnessYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.P_HasIllnessYes_radioButton.Name = "P_HasIllnessYes_radioButton";
             this.P_HasIllnessYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasIllnessYes_radioButton.Size = new System.Drawing.Size(49, 22);
+            this.P_HasIllnessYes_radioButton.Size = new System.Drawing.Size(60, 28);
             this.P_HasIllnessYes_radioButton.TabIndex = 3;
             this.P_HasIllnessYes_radioButton.TabStop = true;
             this.P_HasIllnessYes_radioButton.Text = "يوجد";
@@ -5527,7 +5528,7 @@ namespace MyWorkApplication
             this.P_HasAssetsNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
             this.P_HasAssetsNo_radioButton.Name = "P_HasAssetsNo_radioButton";
             this.P_HasAssetsNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasAssetsNo_radioButton.Size = new System.Drawing.Size(61, 22);
+            this.P_HasAssetsNo_radioButton.Size = new System.Drawing.Size(75, 28);
             this.P_HasAssetsNo_radioButton.TabIndex = 4;
             this.P_HasAssetsNo_radioButton.TabStop = true;
             this.P_HasAssetsNo_radioButton.Text = "لا يوجد";
@@ -5540,11 +5541,11 @@ namespace MyWorkApplication
             this.P_HasAssetsYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.P_HasAssetsYes_radioButton.AutoSize = true;
             this.P_HasAssetsYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasAssetsYes_radioButton.Location = new System.Drawing.Point(86, 5);
+            this.P_HasAssetsYes_radioButton.Location = new System.Drawing.Point(100, 5);
             this.P_HasAssetsYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.P_HasAssetsYes_radioButton.Name = "P_HasAssetsYes_radioButton";
             this.P_HasAssetsYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasAssetsYes_radioButton.Size = new System.Drawing.Size(49, 22);
+            this.P_HasAssetsYes_radioButton.Size = new System.Drawing.Size(60, 28);
             this.P_HasAssetsYes_radioButton.TabIndex = 3;
             this.P_HasAssetsYes_radioButton.TabStop = true;
             this.P_HasAssetsYes_radioButton.Text = "يوجد";
@@ -5569,7 +5570,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel16.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel16.Location = new System.Drawing.Point(3, 1243);
             this.flowLayoutPanel16.Name = "flowLayoutPanel16";
-            this.flowLayoutPanel16.Size = new System.Drawing.Size(1089, 59);
+            this.flowLayoutPanel16.Size = new System.Drawing.Size(1085, 59);
             this.flowLayoutPanel16.TabIndex = 571;
             // 
             // label85
@@ -5578,11 +5579,11 @@ namespace MyWorkApplication
             this.label85.AutoSize = true;
             this.label85.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label85.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label85.Location = new System.Drawing.Point(1024, 0);
+            this.label85.Location = new System.Drawing.Point(1009, 0);
             this.label85.Margin = new System.Windows.Forms.Padding(0);
             this.label85.Name = "label85";
             this.label85.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label85.Size = new System.Drawing.Size(65, 15);
+            this.label85.Size = new System.Drawing.Size(76, 18);
             this.label85.TabIndex = 265;
             this.label85.Text = "*نوع الملك:";
             this.label85.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5593,11 +5594,11 @@ namespace MyWorkApplication
             this.label86.AutoSize = true;
             this.label86.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label86.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label86.Location = new System.Drawing.Point(603, 0);
+            this.label86.Location = new System.Drawing.Point(492, 0);
             this.label86.Margin = new System.Windows.Forms.Padding(0);
             this.label86.Name = "label86";
             this.label86.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label86.Size = new System.Drawing.Size(421, 15);
+            this.label86.Size = new System.Drawing.Size(517, 18);
             this.label86.TabIndex = 266;
             this.label86.Text = "بحسب ملف الحاجة (منزل - مركبة - أرض زراعية مستثمرة/غير مستثمرة - عقار مؤجر - منزل" +
     " القرية).";
@@ -5609,11 +5610,11 @@ namespace MyWorkApplication
             this.label105.AutoSize = true;
             this.label105.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label105.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label105.Location = new System.Drawing.Point(528, 0);
+            this.label105.Location = new System.Drawing.Point(403, 0);
             this.label105.Margin = new System.Windows.Forms.Padding(0);
             this.label105.Name = "label105";
             this.label105.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label105.Size = new System.Drawing.Size(75, 15);
+            this.label105.Size = new System.Drawing.Size(89, 18);
             this.label105.TabIndex = 269;
             this.label105.Text = "*طبيعة الملك:";
             this.label105.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5624,11 +5625,11 @@ namespace MyWorkApplication
             this.label106.AutoSize = true;
             this.label106.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label106.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label106.Location = new System.Drawing.Point(389, 0);
+            this.label106.Location = new System.Drawing.Point(229, 0);
             this.label106.Margin = new System.Windows.Forms.Padding(0);
             this.label106.Name = "label106";
             this.label106.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label106.Size = new System.Drawing.Size(139, 15);
+            this.label106.Size = new System.Drawing.Size(174, 18);
             this.label106.TabIndex = 270;
             this.label106.Text = "ورثة - إعارة - وقف كنسي - ملك.";
             this.label106.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5639,11 +5640,11 @@ namespace MyWorkApplication
             this.label101.AutoSize = true;
             this.label101.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label101.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label101.Location = new System.Drawing.Point(245, 0);
+            this.label101.Location = new System.Drawing.Point(55, 0);
             this.label101.Margin = new System.Windows.Forms.Padding(0);
             this.label101.Name = "label101";
             this.label101.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label101.Size = new System.Drawing.Size(144, 15);
+            this.label101.Size = new System.Drawing.Size(174, 18);
             this.label101.TabIndex = 267;
             this.label101.Text = "*يُُسجّّل فقط الأملاك الإضافية";
             this.label101.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5654,11 +5655,11 @@ namespace MyWorkApplication
             this.label103.AutoSize = true;
             this.label103.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label103.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label103.Location = new System.Drawing.Point(48, 0);
+            this.label103.Location = new System.Drawing.Point(840, 18);
             this.label103.Margin = new System.Windows.Forms.Padding(0);
             this.label103.Name = "label103";
             this.label103.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label103.Size = new System.Drawing.Size(197, 15);
+            this.label103.Size = new System.Drawing.Size(245, 18);
             this.label103.TabIndex = 268;
             this.label103.Text = "(لايتم تسجيل منزله الذي يسكنه ومكان عمله هنا)";
             this.label103.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5669,11 +5670,11 @@ namespace MyWorkApplication
             this.label83.AutoSize = true;
             this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label83.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label83.Location = new System.Drawing.Point(1015, 15);
+            this.label83.Location = new System.Drawing.Point(751, 18);
             this.label83.Margin = new System.Windows.Forms.Padding(0);
             this.label83.Name = "label83";
             this.label83.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label83.Size = new System.Drawing.Size(74, 15);
+            this.label83.Size = new System.Drawing.Size(89, 18);
             this.label83.TabIndex = 263;
             this.label83.Text = "*وصف الملك:";
             this.label83.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5684,11 +5685,11 @@ namespace MyWorkApplication
             this.label84.AutoSize = true;
             this.label84.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label84.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label84.Location = new System.Drawing.Point(828, 15);
+            this.label84.Location = new System.Drawing.Point(519, 18);
             this.label84.Margin = new System.Windows.Forms.Padding(0);
             this.label84.Name = "label84";
             this.label84.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label84.Size = new System.Drawing.Size(187, 15);
+            this.label84.Size = new System.Drawing.Size(232, 18);
             this.label84.TabIndex = 264;
             this.label84.Text = "موديل المركبة - تاريخ كرت السيارة - عنوان.";
             this.label84.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5753,7 +5754,7 @@ namespace MyWorkApplication
             this.Assets_dataGridView.RowTemplate.Height = 35;
             this.Assets_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Assets_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Assets_dataGridView.Size = new System.Drawing.Size(1089, 184);
+            this.Assets_dataGridView.Size = new System.Drawing.Size(1085, 184);
             this.Assets_dataGridView.TabIndex = 87;
             this.Assets_dataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.Assets_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
@@ -5893,10 +5894,10 @@ namespace MyWorkApplication
             this.SubHeader15_label.AutoSize = true;
             this.SubHeader15_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader15_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader15_label.Location = new System.Drawing.Point(222, 32);
+            this.SubHeader15_label.Location = new System.Drawing.Point(221, 29);
             this.SubHeader15_label.Name = "SubHeader15_label";
             this.SubHeader15_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader15_label.Size = new System.Drawing.Size(651, 24);
+            this.SubHeader15_label.Size = new System.Drawing.Size(648, 29);
             this.SubHeader15_label.TabIndex = 587;
             this.SubHeader15_label.Text = "طبيعة عمل عائلة المستفيد";
             this.SubHeader15_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5955,7 +5956,7 @@ namespace MyWorkApplication
             this.FP_Exp_dataGridView.RowTemplate.Height = 35;
             this.FP_Exp_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.FP_Exp_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.FP_Exp_dataGridView.Size = new System.Drawing.Size(1089, 184);
+            this.FP_Exp_dataGridView.Size = new System.Drawing.Size(1085, 184);
             this.FP_Exp_dataGridView.TabIndex = 81;
             this.FP_Exp_dataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.FP_Exp_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
@@ -6046,10 +6047,10 @@ namespace MyWorkApplication
             this.SubHeader7_label.AutoSize = true;
             this.SubHeader7_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader7_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader7_label.Location = new System.Drawing.Point(222, 652);
+            this.SubHeader7_label.Location = new System.Drawing.Point(221, 649);
             this.SubHeader7_label.Name = "SubHeader7_label";
             this.SubHeader7_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader7_label.Size = new System.Drawing.Size(651, 24);
+            this.SubHeader7_label.Size = new System.Drawing.Size(648, 29);
             this.SubHeader7_label.TabIndex = 568;
             this.SubHeader7_label.Text = "الحالات المرضيّّة للمستفيد أو أحّّد أفراد عائلته";
             this.SubHeader7_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6060,10 +6061,10 @@ namespace MyWorkApplication
             this.SubHeader8_label.AutoSize = true;
             this.SubHeader8_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader8_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader8_label.Location = new System.Drawing.Point(222, 992);
+            this.SubHeader8_label.Location = new System.Drawing.Point(221, 989);
             this.SubHeader8_label.Name = "SubHeader8_label";
             this.SubHeader8_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader8_label.Size = new System.Drawing.Size(651, 24);
+            this.SubHeader8_label.Size = new System.Drawing.Size(648, 29);
             this.SubHeader8_label.TabIndex = 570;
             this.SubHeader8_label.Text = "أملاك المستفيد وعائلته";
             this.SubHeader8_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6077,7 +6078,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel22.Controls.Add(this.P_HasLossesYes_radioButton);
             this.flowLayoutPanel22.Location = new System.Drawing.Point(3, 333);
             this.flowLayoutPanel22.Name = "flowLayoutPanel22";
-            this.flowLayoutPanel22.Size = new System.Drawing.Size(213, 42);
+            this.flowLayoutPanel22.Size = new System.Drawing.Size(212, 42);
             this.flowLayoutPanel22.TabIndex = 82;
             this.flowLayoutPanel22.TabStop = true;
             // 
@@ -6090,7 +6091,7 @@ namespace MyWorkApplication
             this.P_HasLossesNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
             this.P_HasLossesNo_radioButton.Name = "P_HasLossesNo_radioButton";
             this.P_HasLossesNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasLossesNo_radioButton.Size = new System.Drawing.Size(61, 22);
+            this.P_HasLossesNo_radioButton.Size = new System.Drawing.Size(75, 28);
             this.P_HasLossesNo_radioButton.TabIndex = 4;
             this.P_HasLossesNo_radioButton.TabStop = true;
             this.P_HasLossesNo_radioButton.Text = "لا يوجد";
@@ -6103,11 +6104,11 @@ namespace MyWorkApplication
             this.P_HasLossesYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.P_HasLossesYes_radioButton.AutoSize = true;
             this.P_HasLossesYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasLossesYes_radioButton.Location = new System.Drawing.Point(86, 5);
+            this.P_HasLossesYes_radioButton.Location = new System.Drawing.Point(100, 5);
             this.P_HasLossesYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.P_HasLossesYes_radioButton.Name = "P_HasLossesYes_radioButton";
             this.P_HasLossesYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasLossesYes_radioButton.Size = new System.Drawing.Size(49, 22);
+            this.P_HasLossesYes_radioButton.Size = new System.Drawing.Size(60, 28);
             this.P_HasLossesYes_radioButton.TabIndex = 3;
             this.P_HasLossesYes_radioButton.TabStop = true;
             this.P_HasLossesYes_radioButton.Text = "يوجد";
@@ -6140,7 +6141,7 @@ namespace MyWorkApplication
             this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.t4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t4_tableLayoutPanel.Size = new System.Drawing.Size(1095, 428);
+            this.t4_tableLayoutPanel.Size = new System.Drawing.Size(1091, 428);
             this.t4_tableLayoutPanel.TabIndex = 77;
             this.t4_tableLayoutPanel.TabStop = true;
             // 
@@ -6165,7 +6166,7 @@ namespace MyWorkApplication
             this.t21_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.t21_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.t21_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.t21_tableLayoutPanel.Size = new System.Drawing.Size(1095, 187);
+            this.t21_tableLayoutPanel.Size = new System.Drawing.Size(1091, 187);
             this.t21_tableLayoutPanel.TabIndex = 74;
             // 
             // tableLayoutPanel9
@@ -6183,7 +6184,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.18182F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.18182F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 268F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 269F));
             this.tableLayoutPanel9.Controls.Add(this.label9, 7, 0);
             this.tableLayoutPanel9.Controls.Add(this.P_NumOfMembers_textBox, 6, 0);
             this.tableLayoutPanel9.Controls.Add(this.label21, 4, 0);
@@ -6195,7 +6196,7 @@ namespace MyWorkApplication
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(1089, 43);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(1085, 43);
             this.tableLayoutPanel9.TabIndex = 75;
             this.tableLayoutPanel9.TabStop = true;
             // 
@@ -6205,10 +6206,10 @@ namespace MyWorkApplication
             this.label9.AutoEllipsis = true;
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label9.Location = new System.Drawing.Point(994, 12);
+            this.label9.Location = new System.Drawing.Point(972, 9);
             this.label9.Name = "label9";
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label9.Size = new System.Drawing.Size(92, 18);
+            this.label9.Size = new System.Drawing.Size(110, 24);
             this.label9.TabIndex = 554;
             this.label9.Text = "عدد أفراد العائلة:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6217,12 +6218,12 @@ namespace MyWorkApplication
             // 
             this.P_NumOfMembers_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_NumOfMembers_textBox.BackColor = System.Drawing.Color.White;
-            this.P_NumOfMembers_textBox.Location = new System.Drawing.Point(738, 9);
+            this.P_NumOfMembers_textBox.Location = new System.Drawing.Point(736, 7);
             this.P_NumOfMembers_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_NumOfMembers_textBox.Name = "P_NumOfMembers_textBox";
             this.P_NumOfMembers_textBox.ReadOnly = true;
             this.P_NumOfMembers_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_NumOfMembers_textBox.Size = new System.Drawing.Size(76, 24);
+            this.P_NumOfMembers_textBox.Size = new System.Drawing.Size(76, 28);
             this.P_NumOfMembers_textBox.TabIndex = 1;
             // 
             // label21
@@ -6231,10 +6232,10 @@ namespace MyWorkApplication
             this.label21.AutoEllipsis = true;
             this.label21.AutoSize = true;
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label21.Location = new System.Drawing.Point(496, 12);
+            this.label21.Location = new System.Drawing.Point(461, 9);
             this.label21.Name = "label21";
             this.label21.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label21.Size = new System.Drawing.Size(154, 18);
+            this.label21.Size = new System.Drawing.Size(187, 24);
             this.label21.TabIndex = 555;
             this.label21.Text = "عدد أفراد المقيمين في المنزل:";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6244,10 +6245,10 @@ namespace MyWorkApplication
             this.label50.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label50.AutoSize = true;
             this.label50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label50.Location = new System.Drawing.Point(185, 12);
+            this.label50.Location = new System.Drawing.Point(164, 9);
             this.label50.Name = "label50";
             this.label50.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label50.Size = new System.Drawing.Size(86, 18);
+            this.label50.Size = new System.Drawing.Size(105, 24);
             this.label50.TabIndex = 553;
             this.label50.Text = "رقم دفتر العائلة:";
             this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6256,11 +6257,11 @@ namespace MyWorkApplication
             // 
             this.FamilyNum_textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.FamilyNum_textBox1.BackColor = System.Drawing.Color.White;
-            this.FamilyNum_textBox1.Location = new System.Drawing.Point(3, 9);
+            this.FamilyNum_textBox1.Location = new System.Drawing.Point(3, 7);
             this.FamilyNum_textBox1.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.FamilyNum_textBox1.Name = "FamilyNum_textBox1";
             this.FamilyNum_textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.FamilyNum_textBox1.Size = new System.Drawing.Size(118, 24);
+            this.FamilyNum_textBox1.Size = new System.Drawing.Size(116, 28);
             this.FamilyNum_textBox1.TabIndex = 3;
             this.FamilyNum_textBox1.TextChanged += new System.EventHandler(this.FamilyNum_textBox1_TextChanged);
             this.FamilyNum_textBox1.Enter += new System.EventHandler(this.FamilyNum_textBox1_Enter);
@@ -6270,12 +6271,12 @@ namespace MyWorkApplication
             // 
             this.P_NumAtHome_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.P_NumAtHome_textBox.BackColor = System.Drawing.Color.White;
-            this.P_NumAtHome_textBox.Location = new System.Drawing.Point(359, 9);
+            this.P_NumAtHome_textBox.Location = new System.Drawing.Point(357, 7);
             this.P_NumAtHome_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.P_NumAtHome_textBox.Name = "P_NumAtHome_textBox";
             this.P_NumAtHome_textBox.ReadOnly = true;
             this.P_NumAtHome_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_NumAtHome_textBox.Size = new System.Drawing.Size(76, 24);
+            this.P_NumAtHome_textBox.Size = new System.Drawing.Size(76, 28);
             this.P_NumAtHome_textBox.TabIndex = 2;
             // 
             // flowLayoutPanel17
@@ -6292,7 +6293,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel17.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel17.Location = new System.Drawing.Point(3, 143);
             this.flowLayoutPanel17.Name = "flowLayoutPanel17";
-            this.flowLayoutPanel17.Size = new System.Drawing.Size(1089, 41);
+            this.flowLayoutPanel17.Size = new System.Drawing.Size(1085, 41);
             this.flowLayoutPanel17.TabIndex = 76;
             this.flowLayoutPanel17.TabStop = true;
             // 
@@ -6301,10 +6302,10 @@ namespace MyWorkApplication
             this.label56.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label56.AutoSize = true;
             this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label56.Location = new System.Drawing.Point(937, 5);
+            this.label56.Location = new System.Drawing.Point(901, 5);
             this.label56.Name = "label56";
             this.label56.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label56.Size = new System.Drawing.Size(149, 18);
+            this.label56.Size = new System.Drawing.Size(181, 24);
             this.label56.TabIndex = 579;
             this.label56.Text = "هل تسكن معك عائلة أخرى؟";
             this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6315,11 +6316,11 @@ namespace MyWorkApplication
             this.P_LiveWithFamily_radioButton.AutoSize = true;
             this.P_LiveWithFamily_radioButton.BackColor = System.Drawing.Color.Transparent;
             this.P_LiveWithFamily_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.P_LiveWithFamily_radioButton.Location = new System.Drawing.Point(878, 3);
+            this.P_LiveWithFamily_radioButton.Location = new System.Drawing.Point(834, 3);
             this.P_LiveWithFamily_radioButton.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
             this.P_LiveWithFamily_radioButton.Name = "P_LiveWithFamily_radioButton";
             this.P_LiveWithFamily_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_LiveWithFamily_radioButton.Size = new System.Drawing.Size(41, 22);
+            this.P_LiveWithFamily_radioButton.Size = new System.Drawing.Size(49, 28);
             this.P_LiveWithFamily_radioButton.TabIndex = 1;
             this.P_LiveWithFamily_radioButton.TabStop = true;
             this.P_LiveWithFamily_radioButton.Text = "نعم";
@@ -6332,11 +6333,11 @@ namespace MyWorkApplication
             this.P_NotLiveWithFamily_radioButton.AutoSize = true;
             this.P_NotLiveWithFamily_radioButton.BackColor = System.Drawing.Color.Transparent;
             this.P_NotLiveWithFamily_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.P_NotLiveWithFamily_radioButton.Location = new System.Drawing.Point(826, 3);
+            this.P_NotLiveWithFamily_radioButton.Location = new System.Drawing.Point(775, 3);
             this.P_NotLiveWithFamily_radioButton.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
             this.P_NotLiveWithFamily_radioButton.Name = "P_NotLiveWithFamily_radioButton";
             this.P_NotLiveWithFamily_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_NotLiveWithFamily_radioButton.Size = new System.Drawing.Size(34, 22);
+            this.P_NotLiveWithFamily_radioButton.Size = new System.Drawing.Size(41, 28);
             this.P_NotLiveWithFamily_radioButton.TabIndex = 2;
             this.P_NotLiveWithFamily_radioButton.TabStop = true;
             this.P_NotLiveWithFamily_radioButton.Text = "لا";
@@ -6348,10 +6349,10 @@ namespace MyWorkApplication
             this.LiveWithFamily_Note_Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.LiveWithFamily_Note_Label.AutoSize = true;
             this.LiveWithFamily_Note_Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.LiveWithFamily_Note_Label.Location = new System.Drawing.Point(774, 5);
+            this.LiveWithFamily_Note_Label.Location = new System.Drawing.Point(712, 5);
             this.LiveWithFamily_Note_Label.Name = "LiveWithFamily_Note_Label";
             this.LiveWithFamily_Note_Label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LiveWithFamily_Note_Label.Size = new System.Drawing.Size(46, 18);
+            this.LiveWithFamily_Note_Label.Size = new System.Drawing.Size(57, 24);
             this.LiveWithFamily_Note_Label.TabIndex = 582;
             this.LiveWithFamily_Note_Label.Text = "من هي:";
             this.LiveWithFamily_Note_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6360,11 +6361,11 @@ namespace MyWorkApplication
             // 
             this.LiveWithFamily_Note_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LiveWithFamily_Note_textBox.BackColor = System.Drawing.Color.White;
-            this.LiveWithFamily_Note_textBox.Location = new System.Drawing.Point(150, 2);
+            this.LiveWithFamily_Note_textBox.Location = new System.Drawing.Point(88, 3);
             this.LiveWithFamily_Note_textBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.LiveWithFamily_Note_textBox.Name = "LiveWithFamily_Note_textBox";
             this.LiveWithFamily_Note_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LiveWithFamily_Note_textBox.Size = new System.Drawing.Size(618, 24);
+            this.LiveWithFamily_Note_textBox.Size = new System.Drawing.Size(618, 28);
             this.LiveWithFamily_Note_textBox.TabIndex = 3;
             this.LiveWithFamily_Note_textBox.Enter += new System.EventHandler(this.LiveWithFamily_Note_textBox_Enter);
             this.LiveWithFamily_Note_textBox.Leave += new System.EventHandler(this.LiveWithFamily_Note_textBox_Leave);
@@ -6378,11 +6379,11 @@ namespace MyWorkApplication
             this.t21_tableLayoutPanel.SetColumnSpan(this.MainHeader3_label, 3);
             this.MainHeader3_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.MainHeader3_label.ForeColor = System.Drawing.Color.White;
-            this.MainHeader3_label.Location = new System.Drawing.Point(3, 45);
+            this.MainHeader3_label.Location = new System.Drawing.Point(3, 40);
             this.MainHeader3_label.Name = "MainHeader3_label";
             this.MainHeader3_label.Padding = new System.Windows.Forms.Padding(3);
             this.MainHeader3_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MainHeader3_label.Size = new System.Drawing.Size(1089, 30);
+            this.MainHeader3_label.Size = new System.Drawing.Size(1085, 35);
             this.MainHeader3_label.TabIndex = 546;
             this.MainHeader3_label.Text = "معلومات عائلة المستفيد";
             this.MainHeader3_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6453,7 +6454,7 @@ namespace MyWorkApplication
             this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.703567F));
             this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.703567F));
             this.t20_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.703567F));
-            this.t20_tableLayoutPanel.Size = new System.Drawing.Size(1095, 1188);
+            this.t20_tableLayoutPanel.Size = new System.Drawing.Size(1091, 1188);
             this.t20_tableLayoutPanel.TabIndex = 58;
             // 
             // Agreement5_flowLayoutPanel
@@ -6465,7 +6466,7 @@ namespace MyWorkApplication
             this.Agreement5_flowLayoutPanel.Controls.Add(this.Agreement5_Yes_radioButton);
             this.Agreement5_flowLayoutPanel.Location = new System.Drawing.Point(3, 799);
             this.Agreement5_flowLayoutPanel.Name = "Agreement5_flowLayoutPanel";
-            this.Agreement5_flowLayoutPanel.Size = new System.Drawing.Size(213, 36);
+            this.Agreement5_flowLayoutPanel.Size = new System.Drawing.Size(212, 36);
             this.Agreement5_flowLayoutPanel.TabIndex = 72;
             // 
             // Agreement5_No_radioButton
@@ -6477,7 +6478,7 @@ namespace MyWorkApplication
             this.Agreement5_No_radioButton.Margin = new System.Windows.Forms.Padding(5);
             this.Agreement5_No_radioButton.Name = "Agreement5_No_radioButton";
             this.Agreement5_No_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement5_No_radioButton.Size = new System.Drawing.Size(34, 22);
+            this.Agreement5_No_radioButton.Size = new System.Drawing.Size(41, 28);
             this.Agreement5_No_radioButton.TabIndex = 4;
             this.Agreement5_No_radioButton.TabStop = true;
             this.Agreement5_No_radioButton.Text = "لا";
@@ -6490,11 +6491,11 @@ namespace MyWorkApplication
             this.Agreement5_Yes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Agreement5_Yes_radioButton.AutoSize = true;
             this.Agreement5_Yes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Agreement5_Yes_radioButton.Location = new System.Drawing.Point(59, 5);
+            this.Agreement5_Yes_radioButton.Location = new System.Drawing.Point(66, 5);
             this.Agreement5_Yes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.Agreement5_Yes_radioButton.Name = "Agreement5_Yes_radioButton";
             this.Agreement5_Yes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement5_Yes_radioButton.Size = new System.Drawing.Size(41, 22);
+            this.Agreement5_Yes_radioButton.Size = new System.Drawing.Size(49, 28);
             this.Agreement5_Yes_radioButton.TabIndex = 3;
             this.Agreement5_Yes_radioButton.TabStop = true;
             this.Agreement5_Yes_radioButton.Text = "نعم";
@@ -6555,7 +6556,7 @@ namespace MyWorkApplication
             this.Materials_dataGridView.RowTemplate.Height = 45;
             this.Materials_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Materials_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Materials_dataGridView.Size = new System.Drawing.Size(1089, 202);
+            this.Materials_dataGridView.Size = new System.Drawing.Size(1085, 202);
             this.Materials_dataGridView.TabIndex = 73;
             this.Materials_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Materials_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -6646,7 +6647,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel27.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel27.Location = new System.Drawing.Point(3, 169);
             this.flowLayoutPanel27.Name = "flowLayoutPanel27";
-            this.flowLayoutPanel27.Size = new System.Drawing.Size(1089, 36);
+            this.flowLayoutPanel27.Size = new System.Drawing.Size(1085, 36);
             this.flowLayoutPanel27.TabIndex = 596;
             // 
             // label110
@@ -6655,11 +6656,11 @@ namespace MyWorkApplication
             this.label110.AutoSize = true;
             this.label110.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label110.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label110.Location = new System.Drawing.Point(1016, 0);
+            this.label110.Location = new System.Drawing.Point(1001, 0);
             this.label110.Margin = new System.Windows.Forms.Padding(0);
             this.label110.Name = "label110";
             this.label110.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label110.Size = new System.Drawing.Size(73, 15);
+            this.label110.Size = new System.Drawing.Size(84, 18);
             this.label110.TabIndex = 263;
             this.label110.Text = "*ملكيّّة العقار";
             this.label110.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6670,11 +6671,11 @@ namespace MyWorkApplication
             this.label111.AutoSize = true;
             this.label111.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label111.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label111.Location = new System.Drawing.Point(622, 0);
+            this.label111.Location = new System.Drawing.Point(513, 0);
             this.label111.Margin = new System.Windows.Forms.Padding(0);
             this.label111.Name = "label111";
             this.label111.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label111.Size = new System.Drawing.Size(394, 15);
+            this.label111.Size = new System.Drawing.Size(488, 18);
             this.label111.TabIndex = 264;
             this.label111.Text = "ملك - إيجار - إعارة - فروغ - ورثة (في حال المشروع جديد ولا يملك المستفيد مكان يسج" +
     "ل ايجار).";
@@ -6687,11 +6688,11 @@ namespace MyWorkApplication
             this.label126.AutoSize = true;
             this.t20_tableLayoutPanel.SetColumnSpan(this.label126, 2);
             this.label126.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label126.Location = new System.Drawing.Point(524, 808);
+            this.label126.Location = new System.Drawing.Point(387, 805);
             this.label126.Margin = new System.Windows.Forms.Padding(3);
             this.label126.Name = "label126";
             this.label126.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label126.Size = new System.Drawing.Size(568, 18);
+            this.label126.Size = new System.Drawing.Size(701, 24);
             this.label126.TabIndex = 608;
             this.label126.Text = "هل لديك مانع من أن نقوم بتصويرك (صور-فيديو) خلال إجراءات التمويل وذلك للتوثيق بعد" +
     " الموافقة على المشروع؟";
@@ -6705,9 +6706,9 @@ namespace MyWorkApplication
             this.t20_tableLayoutPanel.SetColumnSpan(this.flowLayoutPanel24, 2);
             this.flowLayoutPanel24.Controls.Add(this.label98);
             this.flowLayoutPanel24.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel24.Location = new System.Drawing.Point(222, 1135);
+            this.flowLayoutPanel24.Location = new System.Drawing.Point(221, 1135);
             this.flowLayoutPanel24.Name = "flowLayoutPanel24";
-            this.flowLayoutPanel24.Size = new System.Drawing.Size(870, 50);
+            this.flowLayoutPanel24.Size = new System.Drawing.Size(867, 50);
             this.flowLayoutPanel24.TabIndex = 614;
             // 
             // label98
@@ -6716,11 +6717,11 @@ namespace MyWorkApplication
             this.label98.AutoSize = true;
             this.label98.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label98.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label98.Location = new System.Drawing.Point(321, 0);
+            this.label98.Location = new System.Drawing.Point(209, 0);
             this.label98.Margin = new System.Windows.Forms.Padding(0);
             this.label98.Name = "label98";
             this.label98.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label98.Size = new System.Drawing.Size(549, 15);
+            this.label98.Size = new System.Drawing.Size(658, 18);
             this.label98.TabIndex = 263;
             this.label98.Text = "*في حال المطلوب مادة او مادتين يتم تسجيلهم (يجب تسجيل جميع المواد المطلوبة مهما ب" +
     "لغ عددها على البرنامج)";
@@ -6731,7 +6732,7 @@ namespace MyWorkApplication
             this.OverallSyrian_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.OverallSyrian_label.BackColor = System.Drawing.Color.White;
-            this.OverallSyrian_label.Location = new System.Drawing.Point(4, 1136);
+            this.OverallSyrian_label.Location = new System.Drawing.Point(3, 1136);
             this.OverallSyrian_label.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.OverallSyrian_label.MaximumSize = new System.Drawing.Size(310, 36);
             this.OverallSyrian_label.Name = "OverallSyrian_label";
@@ -6766,7 +6767,7 @@ namespace MyWorkApplication
             this.t20_tableLayoutPanel.SetRowSpan(this.s6_tableLayoutPanel, 2);
             this.s6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.s6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.s6_tableLayoutPanel.Size = new System.Drawing.Size(1089, 82);
+            this.s6_tableLayoutPanel.Size = new System.Drawing.Size(1085, 82);
             this.s6_tableLayoutPanel.TabIndex = 59;
             this.s6_tableLayoutPanel.TabStop = true;
             // 
@@ -6774,11 +6775,11 @@ namespace MyWorkApplication
             // 
             this.MP_PlaceAddress_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.MP_PlaceAddress_textBox.BackColor = System.Drawing.Color.White;
-            this.MP_PlaceAddress_textBox.Location = new System.Drawing.Point(368, 49);
+            this.MP_PlaceAddress_textBox.Location = new System.Drawing.Point(366, 47);
             this.MP_PlaceAddress_textBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MP_PlaceAddress_textBox.Name = "MP_PlaceAddress_textBox";
             this.MP_PlaceAddress_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MP_PlaceAddress_textBox.Size = new System.Drawing.Size(355, 24);
+            this.MP_PlaceAddress_textBox.Size = new System.Drawing.Size(354, 28);
             this.MP_PlaceAddress_textBox.TabIndex = 61;
             this.MP_PlaceAddress_textBox.Enter += new System.EventHandler(this.MP_PlaceAddress_textBox_Enter);
             this.MP_PlaceAddress_textBox.Leave += new System.EventHandler(this.MP_PlaceAddress_textBox_Leave);
@@ -6787,11 +6788,11 @@ namespace MyWorkApplication
             // 
             this.MP_PlaceNote_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.MP_PlaceNote_textBox.BackColor = System.Drawing.Color.White;
-            this.MP_PlaceNote_textBox.Location = new System.Drawing.Point(4, 49);
+            this.MP_PlaceNote_textBox.Location = new System.Drawing.Point(4, 47);
             this.MP_PlaceNote_textBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.MP_PlaceNote_textBox.Name = "MP_PlaceNote_textBox";
             this.MP_PlaceNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MP_PlaceNote_textBox.Size = new System.Drawing.Size(357, 24);
+            this.MP_PlaceNote_textBox.Size = new System.Drawing.Size(355, 28);
             this.MP_PlaceNote_textBox.TabIndex = 62;
             this.MP_PlaceNote_textBox.Enter += new System.EventHandler(this.MP_PlaceNote_textBox_Enter);
             this.MP_PlaceNote_textBox.Leave += new System.EventHandler(this.MP_PlaceNote_textBox_Leave);
@@ -6806,11 +6807,11 @@ namespace MyWorkApplication
             this.MP_PlaceType_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MP_PlaceType_comboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.MP_PlaceType_comboBox.FormattingEnabled = true;
-            this.MP_PlaceType_comboBox.Location = new System.Drawing.Point(730, 50);
+            this.MP_PlaceType_comboBox.Location = new System.Drawing.Point(727, 49);
             this.MP_PlaceType_comboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.MP_PlaceType_comboBox.Name = "MP_PlaceType_comboBox";
             this.MP_PlaceType_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MP_PlaceType_comboBox.Size = new System.Drawing.Size(355, 25);
+            this.MP_PlaceType_comboBox.Size = new System.Drawing.Size(354, 29);
             this.MP_PlaceType_comboBox.TabIndex = 60;
             this.MP_PlaceType_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ComboBox_DrawItem);
             this.MP_PlaceType_comboBox.SelectionChangeCommitted += new System.EventHandler(this.MP_PlaceType_comboBox_SelectionChangeCommitted);
@@ -6822,10 +6823,10 @@ namespace MyWorkApplication
             this.label109.AutoSize = true;
             this.label109.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
             this.label109.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label109.Location = new System.Drawing.Point(4, 11);
+            this.label109.Location = new System.Drawing.Point(4, 8);
             this.label109.Name = "label109";
             this.label109.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label109.Size = new System.Drawing.Size(357, 18);
+            this.label109.Size = new System.Drawing.Size(355, 24);
             this.label109.TabIndex = 504;
             this.label109.Text = "ملاحظات";
             this.label109.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6836,10 +6837,10 @@ namespace MyWorkApplication
             this.label108.AutoSize = true;
             this.label108.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
             this.label108.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label108.Location = new System.Drawing.Point(368, 11);
+            this.label108.Location = new System.Drawing.Point(366, 8);
             this.label108.Name = "label108";
             this.label108.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label108.Size = new System.Drawing.Size(355, 18);
+            this.label108.Size = new System.Drawing.Size(354, 24);
             this.label108.TabIndex = 503;
             this.label108.Text = "العنوان / إن وجد";
             this.label108.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6850,10 +6851,10 @@ namespace MyWorkApplication
             this.s6_label.AutoSize = true;
             this.s6_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
             this.s6_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.s6_label.Location = new System.Drawing.Point(730, 11);
+            this.s6_label.Location = new System.Drawing.Point(727, 8);
             this.s6_label.Name = "s6_label";
             this.s6_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.s6_label.Size = new System.Drawing.Size(355, 18);
+            this.s6_label.Size = new System.Drawing.Size(354, 24);
             this.s6_label.TabIndex = 502;
             this.s6_label.Text = "ملكية عقار المشروع";
             this.s6_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6867,11 +6868,11 @@ namespace MyWorkApplication
             this.t20_tableLayoutPanel.SetColumnSpan(this.MainHeader4_label, 3);
             this.MainHeader4_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.MainHeader4_label.ForeColor = System.Drawing.Color.White;
-            this.MainHeader4_label.Location = new System.Drawing.Point(3, 32);
+            this.MainHeader4_label.Location = new System.Drawing.Point(3, 27);
             this.MainHeader4_label.Name = "MainHeader4_label";
             this.MainHeader4_label.Padding = new System.Windows.Forms.Padding(3);
             this.MainHeader4_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MainHeader4_label.Size = new System.Drawing.Size(1089, 30);
+            this.MainHeader4_label.Size = new System.Drawing.Size(1085, 35);
             this.MainHeader4_label.TabIndex = 547;
             this.MainHeader4_label.Text = "معلومات خاصة بالمشروع";
             this.MainHeader4_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6882,10 +6883,10 @@ namespace MyWorkApplication
             this.SubHeader12_label.AutoSize = true;
             this.SubHeader12_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader12_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader12_label.Location = new System.Drawing.Point(222, 259);
+            this.SubHeader12_label.Location = new System.Drawing.Point(221, 256);
             this.SubHeader12_label.Name = "SubHeader12_label";
             this.SubHeader12_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader12_label.Size = new System.Drawing.Size(651, 24);
+            this.SubHeader12_label.Size = new System.Drawing.Size(648, 29);
             this.SubHeader12_label.TabIndex = 597;
             this.SubHeader12_label.Text = "مصادر الطاقة في المشروع (في حال قائم)";
             this.SubHeader12_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -6943,7 +6944,7 @@ namespace MyWorkApplication
             this.PowerSource_dataGridView.RowTemplate.Height = 35;
             this.PowerSource_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.PowerSource_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.PowerSource_dataGridView.Size = new System.Drawing.Size(1089, 118);
+            this.PowerSource_dataGridView.Size = new System.Drawing.Size(1085, 118);
             this.PowerSource_dataGridView.TabIndex = 63;
             this.PowerSource_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.PowerSource_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -7044,7 +7045,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel20.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel20.Location = new System.Drawing.Point(3, 421);
             this.flowLayoutPanel20.Name = "flowLayoutPanel20";
-            this.flowLayoutPanel20.Size = new System.Drawing.Size(1089, 36);
+            this.flowLayoutPanel20.Size = new System.Drawing.Size(1085, 36);
             this.flowLayoutPanel20.TabIndex = 599;
             // 
             // label93
@@ -7053,11 +7054,11 @@ namespace MyWorkApplication
             this.label93.AutoSize = true;
             this.label93.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label93.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label93.Location = new System.Drawing.Point(1005, 0);
+            this.label93.Location = new System.Drawing.Point(984, 0);
             this.label93.Margin = new System.Windows.Forms.Padding(0);
             this.label93.Name = "label93";
             this.label93.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label93.Size = new System.Drawing.Size(84, 15);
+            this.label93.Size = new System.Drawing.Size(101, 18);
             this.label93.TabIndex = 263;
             this.label93.Text = "*مصادر الطاقة:";
             this.label93.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7068,11 +7069,11 @@ namespace MyWorkApplication
             this.label94.AutoSize = true;
             this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label94.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label94.Location = new System.Drawing.Point(715, 0);
+            this.label94.Location = new System.Drawing.Point(623, 0);
             this.label94.Margin = new System.Windows.Forms.Padding(0);
             this.label94.Name = "label94";
             this.label94.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label94.Size = new System.Drawing.Size(290, 15);
+            this.label94.Size = new System.Drawing.Size(361, 18);
             this.label94.TabIndex = 264;
             this.label94.Text = "كهرباء دولة - أمبيرات - طاقة شمسيّّة - بطاريّّة وأنفرتر - ليدات - مولدة.";
             this.label94.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7083,11 +7084,11 @@ namespace MyWorkApplication
             this.label122.AutoSize = true;
             this.label122.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label122.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label122.Location = new System.Drawing.Point(630, 0);
+            this.label122.Location = new System.Drawing.Point(525, 0);
             this.label122.Margin = new System.Windows.Forms.Padding(0);
             this.label122.Name = "label122";
             this.label122.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label122.Size = new System.Drawing.Size(85, 15);
+            this.label122.Size = new System.Drawing.Size(98, 18);
             this.label122.TabIndex = 265;
             this.label122.Text = "*الجهة المموّلة:";
             this.label122.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7098,11 +7099,11 @@ namespace MyWorkApplication
             this.label123.AutoSize = true;
             this.label123.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label123.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label123.Location = new System.Drawing.Point(522, 0);
+            this.label123.Location = new System.Drawing.Point(391, 0);
             this.label123.Margin = new System.Windows.Forms.Padding(0);
             this.label123.Name = "label123";
             this.label123.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label123.Size = new System.Drawing.Size(108, 15);
+            this.label123.Size = new System.Drawing.Size(134, 18);
             this.label123.TabIndex = 266;
             this.label123.Text = "شخصي، جمعية، قرض...";
             this.label123.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7113,11 +7114,11 @@ namespace MyWorkApplication
             this.label92.AutoSize = true;
             this.t20_tableLayoutPanel.SetColumnSpan(this.label92, 3);
             this.label92.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label92.Location = new System.Drawing.Point(506, 472);
+            this.label92.Location = new System.Drawing.Point(382, 469);
             this.label92.Margin = new System.Windows.Forms.Padding(3);
             this.label92.Name = "label92";
             this.label92.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label92.Size = new System.Drawing.Size(586, 18);
+            this.label92.Size = new System.Drawing.Size(706, 24);
             this.label92.TabIndex = 601;
             this.label92.Text = "ماهي الاستطاعة التي أنت بحاجة اليها لتشغيل المعدات؟ (يتم التسجيل للمشروع الجديد و" +
     "القائم بواحدة الأمبير أو الواط)";
@@ -7127,10 +7128,10 @@ namespace MyWorkApplication
             // 
             this.AmperNumber_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.AmperNumber_textBox.BackColor = System.Drawing.Color.White;
-            this.AmperNumber_textBox.Location = new System.Drawing.Point(879, 511);
+            this.AmperNumber_textBox.Location = new System.Drawing.Point(875, 509);
             this.AmperNumber_textBox.Name = "AmperNumber_textBox";
             this.AmperNumber_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AmperNumber_textBox.Size = new System.Drawing.Size(213, 24);
+            this.AmperNumber_textBox.Size = new System.Drawing.Size(213, 28);
             this.AmperNumber_textBox.TabIndex = 64;
             this.AmperNumber_textBox.Text = "0";
             this.AmperNumber_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -7145,9 +7146,9 @@ namespace MyWorkApplication
             this.flowLayoutPanel19.Controls.Add(this.IsAmper_radioButton);
             this.flowLayoutPanel19.Controls.Add(this.IsWatt_radioButton);
             this.flowLayoutPanel19.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel19.Location = new System.Drawing.Point(222, 505);
+            this.flowLayoutPanel19.Location = new System.Drawing.Point(221, 505);
             this.flowLayoutPanel19.Name = "flowLayoutPanel19";
-            this.flowLayoutPanel19.Size = new System.Drawing.Size(651, 36);
+            this.flowLayoutPanel19.Size = new System.Drawing.Size(648, 36);
             this.flowLayoutPanel19.TabIndex = 65;
             this.flowLayoutPanel19.TabStop = true;
             // 
@@ -7156,11 +7157,11 @@ namespace MyWorkApplication
             this.IsAmper_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.IsAmper_radioButton.AutoSize = true;
             this.IsAmper_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.IsAmper_radioButton.Location = new System.Drawing.Point(595, 5);
+            this.IsAmper_radioButton.Location = new System.Drawing.Point(582, 5);
             this.IsAmper_radioButton.Margin = new System.Windows.Forms.Padding(5);
             this.IsAmper_radioButton.Name = "IsAmper_radioButton";
             this.IsAmper_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.IsAmper_radioButton.Size = new System.Drawing.Size(51, 22);
+            this.IsAmper_radioButton.Size = new System.Drawing.Size(61, 28);
             this.IsAmper_radioButton.TabIndex = 66;
             this.IsAmper_radioButton.TabStop = true;
             this.IsAmper_radioButton.Text = "أمبير";
@@ -7173,11 +7174,11 @@ namespace MyWorkApplication
             this.IsWatt_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.IsWatt_radioButton.AutoSize = true;
             this.IsWatt_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.IsWatt_radioButton.Location = new System.Drawing.Point(545, 5);
+            this.IsWatt_radioButton.Location = new System.Drawing.Point(523, 5);
             this.IsWatt_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.IsWatt_radioButton.Name = "IsWatt_radioButton";
             this.IsWatt_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.IsWatt_radioButton.Size = new System.Drawing.Size(45, 22);
+            this.IsWatt_radioButton.Size = new System.Drawing.Size(54, 28);
             this.IsWatt_radioButton.TabIndex = 67;
             this.IsWatt_radioButton.TabStop = true;
             this.IsWatt_radioButton.Text = "واط";
@@ -7191,10 +7192,10 @@ namespace MyWorkApplication
             this.SubHeader14_label.AutoSize = true;
             this.SubHeader14_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader14_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader14_label.Location = new System.Drawing.Point(222, 595);
+            this.SubHeader14_label.Location = new System.Drawing.Point(221, 592);
             this.SubHeader14_label.Name = "SubHeader14_label";
             this.SubHeader14_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader14_label.Size = new System.Drawing.Size(651, 24);
+            this.SubHeader14_label.Size = new System.Drawing.Size(648, 29);
             this.SubHeader14_label.TabIndex = 603;
             this.SubHeader14_label.Text = "موافقات";
             this.SubHeader14_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7206,11 +7207,11 @@ namespace MyWorkApplication
             this.label22.AutoSize = true;
             this.t20_tableLayoutPanel.SetColumnSpan(this.label22, 2);
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label22.Location = new System.Drawing.Point(687, 640);
+            this.label22.Location = new System.Drawing.Point(596, 637);
             this.label22.Margin = new System.Windows.Forms.Padding(3);
             this.label22.Name = "label22";
             this.label22.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label22.Size = new System.Drawing.Size(405, 18);
+            this.label22.Size = new System.Drawing.Size(492, 24);
             this.label22.TabIndex = 604;
             this.label22.Text = "هل لديك مانع من القيام بزيارات المتابعة الدورية في حال الموافقة على المشروع؟";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7222,11 +7223,11 @@ namespace MyWorkApplication
             this.label20.AutoSize = true;
             this.t20_tableLayoutPanel.SetColumnSpan(this.label20, 2);
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label20.Location = new System.Drawing.Point(520, 682);
+            this.label20.Location = new System.Drawing.Point(396, 679);
             this.label20.Margin = new System.Windows.Forms.Padding(3);
             this.label20.Name = "label20";
             this.label20.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label20.Size = new System.Drawing.Size(572, 18);
+            this.label20.Size = new System.Drawing.Size(692, 24);
             this.label20.TabIndex = 605;
             this.label20.Text = "هل لديك مانع في السؤال عنك أثناء فترة دراسة المشروع؟ (خبرتك - حاجتك - سمعتك - أمل" +
     "اكك - إدارتك المشروع)";
@@ -7239,11 +7240,11 @@ namespace MyWorkApplication
             this.label19.AutoSize = true;
             this.t20_tableLayoutPanel.SetColumnSpan(this.label19, 2);
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label19.Location = new System.Drawing.Point(599, 724);
+            this.label19.Location = new System.Drawing.Point(484, 721);
             this.label19.Margin = new System.Windows.Forms.Padding(3);
             this.label19.Name = "label19";
             this.label19.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label19.Size = new System.Drawing.Size(493, 18);
+            this.label19.Size = new System.Drawing.Size(604, 24);
             this.label19.TabIndex = 606;
             this.label19.Text = "هل لديك مانع من إجراء فحص تقني لمعرفة مدى خبرتك في مجال مهنتك؟ (بالنسبة للمشروع ا" +
     "لجديد)";
@@ -7258,7 +7259,7 @@ namespace MyWorkApplication
             this.Agreement1_flowLayoutPanel.Controls.Add(this.Agreement1_Yes_radioButton);
             this.Agreement1_flowLayoutPanel.Location = new System.Drawing.Point(3, 631);
             this.Agreement1_flowLayoutPanel.Name = "Agreement1_flowLayoutPanel";
-            this.Agreement1_flowLayoutPanel.Size = new System.Drawing.Size(213, 36);
+            this.Agreement1_flowLayoutPanel.Size = new System.Drawing.Size(212, 36);
             this.Agreement1_flowLayoutPanel.TabIndex = 68;
             // 
             // Agreement1_No_radioButton
@@ -7270,7 +7271,7 @@ namespace MyWorkApplication
             this.Agreement1_No_radioButton.Margin = new System.Windows.Forms.Padding(5);
             this.Agreement1_No_radioButton.Name = "Agreement1_No_radioButton";
             this.Agreement1_No_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement1_No_radioButton.Size = new System.Drawing.Size(34, 22);
+            this.Agreement1_No_radioButton.Size = new System.Drawing.Size(41, 28);
             this.Agreement1_No_radioButton.TabIndex = 4;
             this.Agreement1_No_radioButton.TabStop = true;
             this.Agreement1_No_radioButton.Text = "لا";
@@ -7283,11 +7284,11 @@ namespace MyWorkApplication
             this.Agreement1_Yes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Agreement1_Yes_radioButton.AutoSize = true;
             this.Agreement1_Yes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Agreement1_Yes_radioButton.Location = new System.Drawing.Point(59, 5);
+            this.Agreement1_Yes_radioButton.Location = new System.Drawing.Point(66, 5);
             this.Agreement1_Yes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.Agreement1_Yes_radioButton.Name = "Agreement1_Yes_radioButton";
             this.Agreement1_Yes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement1_Yes_radioButton.Size = new System.Drawing.Size(41, 22);
+            this.Agreement1_Yes_radioButton.Size = new System.Drawing.Size(49, 28);
             this.Agreement1_Yes_radioButton.TabIndex = 3;
             this.Agreement1_Yes_radioButton.TabStop = true;
             this.Agreement1_Yes_radioButton.Text = "نعم";
@@ -7304,7 +7305,7 @@ namespace MyWorkApplication
             this.Agreement2_flowLayoutPanel.Controls.Add(this.Agreement2_Yes_radioButton);
             this.Agreement2_flowLayoutPanel.Location = new System.Drawing.Point(3, 673);
             this.Agreement2_flowLayoutPanel.Name = "Agreement2_flowLayoutPanel";
-            this.Agreement2_flowLayoutPanel.Size = new System.Drawing.Size(213, 36);
+            this.Agreement2_flowLayoutPanel.Size = new System.Drawing.Size(212, 36);
             this.Agreement2_flowLayoutPanel.TabIndex = 69;
             // 
             // Agreement2_No_radioButton
@@ -7316,7 +7317,7 @@ namespace MyWorkApplication
             this.Agreement2_No_radioButton.Margin = new System.Windows.Forms.Padding(5);
             this.Agreement2_No_radioButton.Name = "Agreement2_No_radioButton";
             this.Agreement2_No_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement2_No_radioButton.Size = new System.Drawing.Size(34, 22);
+            this.Agreement2_No_radioButton.Size = new System.Drawing.Size(41, 28);
             this.Agreement2_No_radioButton.TabIndex = 4;
             this.Agreement2_No_radioButton.TabStop = true;
             this.Agreement2_No_radioButton.Text = "لا";
@@ -7329,11 +7330,11 @@ namespace MyWorkApplication
             this.Agreement2_Yes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Agreement2_Yes_radioButton.AutoSize = true;
             this.Agreement2_Yes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Agreement2_Yes_radioButton.Location = new System.Drawing.Point(59, 5);
+            this.Agreement2_Yes_radioButton.Location = new System.Drawing.Point(66, 5);
             this.Agreement2_Yes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.Agreement2_Yes_radioButton.Name = "Agreement2_Yes_radioButton";
             this.Agreement2_Yes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement2_Yes_radioButton.Size = new System.Drawing.Size(41, 22);
+            this.Agreement2_Yes_radioButton.Size = new System.Drawing.Size(49, 28);
             this.Agreement2_Yes_radioButton.TabIndex = 3;
             this.Agreement2_Yes_radioButton.TabStop = true;
             this.Agreement2_Yes_radioButton.Text = "نعم";
@@ -7350,7 +7351,7 @@ namespace MyWorkApplication
             this.Agreement3_flowLayoutPanel.Controls.Add(this.Agreement3_Yes_radioButton);
             this.Agreement3_flowLayoutPanel.Location = new System.Drawing.Point(3, 715);
             this.Agreement3_flowLayoutPanel.Name = "Agreement3_flowLayoutPanel";
-            this.Agreement3_flowLayoutPanel.Size = new System.Drawing.Size(213, 36);
+            this.Agreement3_flowLayoutPanel.Size = new System.Drawing.Size(212, 36);
             this.Agreement3_flowLayoutPanel.TabIndex = 70;
             // 
             // Agreement3_No_radioButton
@@ -7362,7 +7363,7 @@ namespace MyWorkApplication
             this.Agreement3_No_radioButton.Margin = new System.Windows.Forms.Padding(5);
             this.Agreement3_No_radioButton.Name = "Agreement3_No_radioButton";
             this.Agreement3_No_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement3_No_radioButton.Size = new System.Drawing.Size(34, 22);
+            this.Agreement3_No_radioButton.Size = new System.Drawing.Size(41, 28);
             this.Agreement3_No_radioButton.TabIndex = 4;
             this.Agreement3_No_radioButton.TabStop = true;
             this.Agreement3_No_radioButton.Text = "لا";
@@ -7375,11 +7376,11 @@ namespace MyWorkApplication
             this.Agreement3_Yes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Agreement3_Yes_radioButton.AutoSize = true;
             this.Agreement3_Yes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Agreement3_Yes_radioButton.Location = new System.Drawing.Point(59, 5);
+            this.Agreement3_Yes_radioButton.Location = new System.Drawing.Point(66, 5);
             this.Agreement3_Yes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.Agreement3_Yes_radioButton.Name = "Agreement3_Yes_radioButton";
             this.Agreement3_Yes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement3_Yes_radioButton.Size = new System.Drawing.Size(41, 22);
+            this.Agreement3_Yes_radioButton.Size = new System.Drawing.Size(49, 28);
             this.Agreement3_Yes_radioButton.TabIndex = 3;
             this.Agreement3_Yes_radioButton.TabStop = true;
             this.Agreement3_Yes_radioButton.Text = "نعم";
@@ -7393,10 +7394,10 @@ namespace MyWorkApplication
             this.SubHeader13_label.AutoSize = true;
             this.SubHeader13_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader13_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader13_label.Location = new System.Drawing.Point(222, 889);
+            this.SubHeader13_label.Location = new System.Drawing.Point(221, 886);
             this.SubHeader13_label.Name = "SubHeader13_label";
             this.SubHeader13_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader13_label.Size = new System.Drawing.Size(651, 24);
+            this.SubHeader13_label.Size = new System.Drawing.Size(648, 29);
             this.SubHeader13_label.TabIndex = 612;
             this.SubHeader13_label.Text = "مقترح الميزانية";
             this.SubHeader13_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7408,11 +7409,11 @@ namespace MyWorkApplication
             this.label25.AutoSize = true;
             this.t20_tableLayoutPanel.SetColumnSpan(this.label25, 2);
             this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label25.Location = new System.Drawing.Point(644, 766);
+            this.label25.Location = new System.Drawing.Point(541, 763);
             this.label25.Margin = new System.Windows.Forms.Padding(3);
             this.label25.Name = "label25";
             this.label25.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label25.Size = new System.Drawing.Size(448, 18);
+            this.label25.Size = new System.Drawing.Size(547, 24);
             this.label25.TabIndex = 607;
             this.label25.Text = "هل لديك مانع من حضور دورة تدريبية على المهارات الإدارية بعد الموافقة على المشروع؟" +
     "";
@@ -7427,7 +7428,7 @@ namespace MyWorkApplication
             this.Agreement4_flowLayoutPanel.Controls.Add(this.Agreement4_Yes_radioButton);
             this.Agreement4_flowLayoutPanel.Location = new System.Drawing.Point(3, 757);
             this.Agreement4_flowLayoutPanel.Name = "Agreement4_flowLayoutPanel";
-            this.Agreement4_flowLayoutPanel.Size = new System.Drawing.Size(213, 36);
+            this.Agreement4_flowLayoutPanel.Size = new System.Drawing.Size(212, 36);
             this.Agreement4_flowLayoutPanel.TabIndex = 71;
             // 
             // Agreement4_No_radioButton
@@ -7439,7 +7440,7 @@ namespace MyWorkApplication
             this.Agreement4_No_radioButton.Margin = new System.Windows.Forms.Padding(5);
             this.Agreement4_No_radioButton.Name = "Agreement4_No_radioButton";
             this.Agreement4_No_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement4_No_radioButton.Size = new System.Drawing.Size(34, 22);
+            this.Agreement4_No_radioButton.Size = new System.Drawing.Size(41, 28);
             this.Agreement4_No_radioButton.TabIndex = 4;
             this.Agreement4_No_radioButton.TabStop = true;
             this.Agreement4_No_radioButton.Text = "لا";
@@ -7452,11 +7453,11 @@ namespace MyWorkApplication
             this.Agreement4_Yes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Agreement4_Yes_radioButton.AutoSize = true;
             this.Agreement4_Yes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Agreement4_Yes_radioButton.Location = new System.Drawing.Point(59, 5);
+            this.Agreement4_Yes_radioButton.Location = new System.Drawing.Point(66, 5);
             this.Agreement4_Yes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.Agreement4_Yes_radioButton.Name = "Agreement4_Yes_radioButton";
             this.Agreement4_Yes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Agreement4_Yes_radioButton.Size = new System.Drawing.Size(41, 22);
+            this.Agreement4_Yes_radioButton.Size = new System.Drawing.Size(49, 28);
             this.Agreement4_Yes_radioButton.TabIndex = 3;
             this.Agreement4_Yes_radioButton.TabStop = true;
             this.Agreement4_Yes_radioButton.Text = "نعم";
@@ -7538,7 +7539,7 @@ namespace MyWorkApplication
             this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.t8_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.t8_tableLayoutPanel.Size = new System.Drawing.Size(1095, 606);
+            this.t8_tableLayoutPanel.Size = new System.Drawing.Size(1091, 606);
             this.t8_tableLayoutPanel.TabIndex = 540;
             // 
             // P_HasEducation_flowLayoutPanel
@@ -7550,7 +7551,7 @@ namespace MyWorkApplication
             this.P_HasEducation_flowLayoutPanel.Controls.Add(this.P_HasEducationYes_radioButton);
             this.P_HasEducation_flowLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.P_HasEducation_flowLayoutPanel.Name = "P_HasEducation_flowLayoutPanel";
-            this.P_HasEducation_flowLayoutPanel.Size = new System.Drawing.Size(230, 34);
+            this.P_HasEducation_flowLayoutPanel.Size = new System.Drawing.Size(229, 34);
             this.P_HasEducation_flowLayoutPanel.TabIndex = 54;
             this.P_HasEducation_flowLayoutPanel.TabStop = true;
             // 
@@ -7563,7 +7564,7 @@ namespace MyWorkApplication
             this.P_HasEducationNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
             this.P_HasEducationNo_radioButton.Name = "P_HasEducationNo_radioButton";
             this.P_HasEducationNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasEducationNo_radioButton.Size = new System.Drawing.Size(73, 22);
+            this.P_HasEducationNo_radioButton.Size = new System.Drawing.Size(89, 28);
             this.P_HasEducationNo_radioButton.TabIndex = 4;
             this.P_HasEducationNo_radioButton.TabStop = true;
             this.P_HasEducationNo_radioButton.Text = "غير متعلّم";
@@ -7576,11 +7577,11 @@ namespace MyWorkApplication
             this.P_HasEducationYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.P_HasEducationYes_radioButton.AutoSize = true;
             this.P_HasEducationYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasEducationYes_radioButton.Location = new System.Drawing.Point(98, 5);
+            this.P_HasEducationYes_radioButton.Location = new System.Drawing.Point(114, 5);
             this.P_HasEducationYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.P_HasEducationYes_radioButton.Name = "P_HasEducationYes_radioButton";
             this.P_HasEducationYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasEducationYes_radioButton.Size = new System.Drawing.Size(50, 22);
+            this.P_HasEducationYes_radioButton.Size = new System.Drawing.Size(60, 28);
             this.P_HasEducationYes_radioButton.TabIndex = 3;
             this.P_HasEducationYes_radioButton.TabStop = true;
             this.P_HasEducationYes_radioButton.Text = "متعلّم";
@@ -7646,7 +7647,7 @@ namespace MyWorkApplication
             this.Course_dataGridView.RowTemplate.Height = 35;
             this.Course_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Course_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Course_dataGridView.Size = new System.Drawing.Size(1089, 152);
+            this.Course_dataGridView.Size = new System.Drawing.Size(1085, 152);
             this.Course_dataGridView.TabIndex = 57;
             this.Course_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Course_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -7770,7 +7771,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel12.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel12.Location = new System.Drawing.Point(3, 523);
             this.flowLayoutPanel12.Name = "flowLayoutPanel12";
-            this.flowLayoutPanel12.Size = new System.Drawing.Size(1089, 34);
+            this.flowLayoutPanel12.Size = new System.Drawing.Size(1085, 34);
             this.flowLayoutPanel12.TabIndex = 566;
             // 
             // label67
@@ -7779,11 +7780,11 @@ namespace MyWorkApplication
             this.label67.AutoSize = true;
             this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label67.Location = new System.Drawing.Point(1010, 0);
+            this.label67.Location = new System.Drawing.Point(992, 0);
             this.label67.Margin = new System.Windows.Forms.Padding(0);
             this.label67.Name = "label67";
             this.label67.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label67.Size = new System.Drawing.Size(79, 15);
+            this.label67.Size = new System.Drawing.Size(93, 18);
             this.label67.TabIndex = 263;
             this.label67.Text = "*نوع الدورات:";
             this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7794,11 +7795,11 @@ namespace MyWorkApplication
             this.label66.AutoSize = true;
             this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label66.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label66.Location = new System.Drawing.Point(678, 0);
+            this.label66.Location = new System.Drawing.Point(585, 0);
             this.label66.Margin = new System.Windows.Forms.Padding(0);
             this.label66.Name = "label66";
             this.label66.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label66.Size = new System.Drawing.Size(332, 15);
+            this.label66.Size = new System.Drawing.Size(407, 18);
             this.label66.TabIndex = 264;
             this.label66.Text = "بحسب الفئات التي لدينا في البرنامج (Media - Medical - Music - Craft..)";
             this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7809,11 +7810,11 @@ namespace MyWorkApplication
             this.label96.AutoSize = true;
             this.label96.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label96.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label96.Location = new System.Drawing.Point(593, 0);
+            this.label96.Location = new System.Drawing.Point(487, 0);
             this.label96.Margin = new System.Windows.Forms.Padding(0);
             this.label96.Name = "label96";
             this.label96.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label96.Size = new System.Drawing.Size(85, 15);
+            this.label96.Size = new System.Drawing.Size(98, 18);
             this.label96.TabIndex = 265;
             this.label96.Text = "*الجهة المموّلة:";
             this.label96.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7824,11 +7825,11 @@ namespace MyWorkApplication
             this.label97.AutoSize = true;
             this.label97.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label97.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label97.Location = new System.Drawing.Point(441, 0);
+            this.label97.Location = new System.Drawing.Point(295, 0);
             this.label97.Margin = new System.Windows.Forms.Padding(0);
             this.label97.Name = "label97";
             this.label97.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label97.Size = new System.Drawing.Size(152, 15);
+            this.label97.Size = new System.Drawing.Size(192, 18);
             this.label97.TabIndex = 266;
             this.label97.Text = "اسم جمعيّّة - قرض بنك - تمويل ذاتي.";
             this.label97.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7839,10 +7840,10 @@ namespace MyWorkApplication
             this.SubHeader4_label.AutoSize = true;
             this.SubHeader4_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader4_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader4_label.Location = new System.Drawing.Point(239, 8);
+            this.SubHeader4_label.Location = new System.Drawing.Point(238, 5);
             this.SubHeader4_label.Name = "SubHeader4_label";
             this.SubHeader4_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader4_label.Size = new System.Drawing.Size(633, 24);
+            this.SubHeader4_label.Size = new System.Drawing.Size(631, 29);
             this.SubHeader4_label.TabIndex = 53;
             this.SubHeader4_label.Text = "التحصيل العلمي";
             this.SubHeader4_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7903,7 +7904,7 @@ namespace MyWorkApplication
             this.Education_dataGridView.RowTemplate.Height = 35;
             this.Education_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Education_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Education_dataGridView.Size = new System.Drawing.Size(1089, 152);
+            this.Education_dataGridView.Size = new System.Drawing.Size(1085, 152);
             this.Education_dataGridView.TabIndex = 55;
             this.Education_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Education_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -8014,7 +8015,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel11.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 223);
             this.flowLayoutPanel11.Name = "flowLayoutPanel11";
-            this.flowLayoutPanel11.Size = new System.Drawing.Size(1089, 34);
+            this.flowLayoutPanel11.Size = new System.Drawing.Size(1085, 34);
             this.flowLayoutPanel11.TabIndex = 565;
             // 
             // label58
@@ -8023,11 +8024,11 @@ namespace MyWorkApplication
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label58.Location = new System.Drawing.Point(994, 0);
+            this.label58.Location = new System.Drawing.Point(972, 0);
             this.label58.Margin = new System.Windows.Forms.Padding(0);
             this.label58.Name = "label58";
             this.label58.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label58.Size = new System.Drawing.Size(95, 15);
+            this.label58.Size = new System.Drawing.Size(113, 18);
             this.label58.TabIndex = 263;
             this.label58.Text = "*التحصيل العلمي:";
             this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8038,11 +8039,11 @@ namespace MyWorkApplication
             this.label57.AutoSize = true;
             this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label57.Location = new System.Drawing.Point(892, 0);
+            this.label57.Location = new System.Drawing.Point(846, 0);
             this.label57.Margin = new System.Windows.Forms.Padding(0);
             this.label57.Name = "label57";
             this.label57.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label57.Size = new System.Drawing.Size(102, 15);
+            this.label57.Size = new System.Drawing.Size(126, 18);
             this.label57.TabIndex = 264;
             this.label57.Text = "طالب - متخرّج - متوقف";
             this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8053,11 +8054,11 @@ namespace MyWorkApplication
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label28.Location = new System.Drawing.Point(803, 0);
+            this.label28.Location = new System.Drawing.Point(743, 0);
             this.label28.Margin = new System.Windows.Forms.Padding(0);
             this.label28.Name = "label28";
             this.label28.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label28.Size = new System.Drawing.Size(89, 15);
+            this.label28.Size = new System.Drawing.Size(103, 18);
             this.label28.TabIndex = 265;
             this.label28.Text = "*الدرجة العلمية:";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8068,11 +8069,11 @@ namespace MyWorkApplication
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label31.Location = new System.Drawing.Point(649, 0);
+            this.label31.Location = new System.Drawing.Point(551, 0);
             this.label31.Margin = new System.Windows.Forms.Padding(0);
             this.label31.Name = "label31";
             this.label31.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label31.Size = new System.Drawing.Size(154, 15);
+            this.label31.Size = new System.Drawing.Size(192, 18);
             this.label31.TabIndex = 266;
             this.label31.Text = "تعليم أساسي - جامعة - دراسات عليا.";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8083,11 +8084,11 @@ namespace MyWorkApplication
             this.label91.AutoSize = true;
             this.label91.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label91.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label91.Location = new System.Drawing.Point(579, 0);
+            this.label91.Location = new System.Drawing.Point(467, 0);
             this.label91.Margin = new System.Windows.Forms.Padding(0);
             this.label91.Name = "label91";
             this.label91.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label91.Size = new System.Drawing.Size(70, 15);
+            this.label91.Size = new System.Drawing.Size(84, 18);
             this.label91.TabIndex = 267;
             this.label91.Text = "*الاختصاص:";
             this.label91.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8098,11 +8099,11 @@ namespace MyWorkApplication
             this.label95.AutoSize = true;
             this.label95.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label95.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label95.Location = new System.Drawing.Point(447, 0);
+            this.label95.Location = new System.Drawing.Point(301, 0);
             this.label95.Margin = new System.Windows.Forms.Padding(0);
             this.label95.Name = "label95";
             this.label95.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label95.Size = new System.Drawing.Size(132, 15);
+            this.label95.Size = new System.Drawing.Size(166, 18);
             this.label95.TabIndex = 268;
             this.label95.Text = "ممكن تسجيل الى أي صف متعلم";
             this.label95.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8113,10 +8114,10 @@ namespace MyWorkApplication
             this.SubHeader5_label.AutoSize = true;
             this.SubHeader5_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader5_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader5_label.Location = new System.Drawing.Point(239, 308);
+            this.SubHeader5_label.Location = new System.Drawing.Point(238, 305);
             this.SubHeader5_label.Name = "SubHeader5_label";
             this.SubHeader5_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader5_label.Size = new System.Drawing.Size(633, 24);
+            this.SubHeader5_label.Size = new System.Drawing.Size(631, 29);
             this.SubHeader5_label.TabIndex = 555;
             this.SubHeader5_label.Text = "الدورات المتّّبعة";
             this.SubHeader5_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8130,7 +8131,7 @@ namespace MyWorkApplication
             this.P_HasCourses_flowLayoutPanel.Controls.Add(this.P_HasCoursesYes_radioButton);
             this.P_HasCourses_flowLayoutPanel.Location = new System.Drawing.Point(3, 303);
             this.P_HasCourses_flowLayoutPanel.Name = "P_HasCourses_flowLayoutPanel";
-            this.P_HasCourses_flowLayoutPanel.Size = new System.Drawing.Size(230, 34);
+            this.P_HasCourses_flowLayoutPanel.Size = new System.Drawing.Size(229, 34);
             this.P_HasCourses_flowLayoutPanel.TabIndex = 56;
             this.P_HasCourses_flowLayoutPanel.TabStop = true;
             // 
@@ -8143,7 +8144,7 @@ namespace MyWorkApplication
             this.P_HasCoursesNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
             this.P_HasCoursesNo_radioButton.Name = "P_HasCoursesNo_radioButton";
             this.P_HasCoursesNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasCoursesNo_radioButton.Size = new System.Drawing.Size(61, 22);
+            this.P_HasCoursesNo_radioButton.Size = new System.Drawing.Size(75, 28);
             this.P_HasCoursesNo_radioButton.TabIndex = 4;
             this.P_HasCoursesNo_radioButton.TabStop = true;
             this.P_HasCoursesNo_radioButton.Text = "لا يوجد";
@@ -8156,11 +8157,11 @@ namespace MyWorkApplication
             this.P_HasCoursesYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.P_HasCoursesYes_radioButton.AutoSize = true;
             this.P_HasCoursesYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasCoursesYes_radioButton.Location = new System.Drawing.Point(86, 5);
+            this.P_HasCoursesYes_radioButton.Location = new System.Drawing.Point(100, 5);
             this.P_HasCoursesYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.P_HasCoursesYes_radioButton.Name = "P_HasCoursesYes_radioButton";
             this.P_HasCoursesYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasCoursesYes_radioButton.Size = new System.Drawing.Size(49, 22);
+            this.P_HasCoursesYes_radioButton.Size = new System.Drawing.Size(60, 28);
             this.P_HasCoursesYes_radioButton.TabIndex = 3;
             this.P_HasCoursesYes_radioButton.TabStop = true;
             this.P_HasCoursesYes_radioButton.Text = "يوجد";
@@ -8184,7 +8185,7 @@ namespace MyWorkApplication
             this.t7_tableLayoutPanel.RowCount = 2;
             this.t7_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.t7_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.t7_tableLayoutPanel.Size = new System.Drawing.Size(1095, 74);
+            this.t7_tableLayoutPanel.Size = new System.Drawing.Size(1091, 74);
             this.t7_tableLayoutPanel.TabIndex = 51;
             this.t7_tableLayoutPanel.TabStop = true;
             // 
@@ -8194,10 +8195,10 @@ namespace MyWorkApplication
             this.label2.AutoEllipsis = true;
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label2.Location = new System.Drawing.Point(864, 9);
+            this.label2.Location = new System.Drawing.Point(854, 0);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(228, 18);
+            this.label2.Size = new System.Drawing.Size(234, 37);
             this.label2.TabIndex = 505;
             this.label2.Text = "عدد سنوات الخبرة في مجال المشروع المقدّّم:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8227,7 +8228,7 @@ namespace MyWorkApplication
             this.t6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.t6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.118541F));
             this.t6_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.10942F));
-            this.t6_tableLayoutPanel.Size = new System.Drawing.Size(1095, 349);
+            this.t6_tableLayoutPanel.Size = new System.Drawing.Size(1091, 349);
             this.t6_tableLayoutPanel.TabIndex = 49;
             this.t6_tableLayoutPanel.TabStop = true;
             // 
@@ -8237,10 +8238,10 @@ namespace MyWorkApplication
             this.SubHeader3_label.AutoSize = true;
             this.SubHeader3_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader3_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader3_label.Location = new System.Drawing.Point(222, 8);
+            this.SubHeader3_label.Location = new System.Drawing.Point(221, 6);
             this.SubHeader3_label.Name = "SubHeader3_label";
             this.SubHeader3_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader3_label.Size = new System.Drawing.Size(651, 24);
+            this.SubHeader3_label.Size = new System.Drawing.Size(648, 29);
             this.SubHeader3_label.TabIndex = 507;
             this.SubHeader3_label.Text = "الخبرات العملية السابقة:";
             this.SubHeader3_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8259,7 +8260,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel10.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 298);
             this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(1089, 48);
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(1085, 48);
             this.flowLayoutPanel10.TabIndex = 564;
             // 
             // label53
@@ -8268,11 +8269,11 @@ namespace MyWorkApplication
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label53.Location = new System.Drawing.Point(1013, 0);
+            this.label53.Location = new System.Drawing.Point(994, 0);
             this.label53.Margin = new System.Windows.Forms.Padding(0);
             this.label53.Name = "label53";
             this.label53.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label53.Size = new System.Drawing.Size(76, 15);
+            this.label53.Size = new System.Drawing.Size(91, 18);
             this.label53.TabIndex = 263;
             this.label53.Text = "*طبيعة العمل:";
             this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8283,11 +8284,11 @@ namespace MyWorkApplication
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label51.Location = new System.Drawing.Point(600, 0);
+            this.label51.Location = new System.Drawing.Point(476, 0);
             this.label51.Margin = new System.Windows.Forms.Padding(0);
             this.label51.Name = "label51";
             this.label51.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label51.Size = new System.Drawing.Size(413, 15);
+            this.label51.Size = new System.Drawing.Size(518, 18);
             this.label51.TabIndex = 264;
             this.label51.Text = "بحسب ملف الحاجة (صا حب العمل - شريك - صانع - موظّّف قطّّاع عام - موظّّف قطّّاع خا" +
     "ص - لايعمل)";
@@ -8299,11 +8300,11 @@ namespace MyWorkApplication
             this.label88.AutoSize = true;
             this.label88.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label88.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label88.Location = new System.Drawing.Point(333, 0);
+            this.label88.Location = new System.Drawing.Point(158, 0);
             this.label88.Margin = new System.Windows.Forms.Padding(0);
             this.label88.Name = "label88";
             this.label88.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label88.Size = new System.Drawing.Size(267, 15);
+            this.label88.Size = new System.Drawing.Size(318, 18);
             this.label88.TabIndex = 265;
             this.label88.Text = "*تاريخ البداية والنهاية يُُسجّّل كرقم فقط مثلاًً (2025):";
             this.label88.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8314,11 +8315,11 @@ namespace MyWorkApplication
             this.label120.AutoSize = true;
             this.label120.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label120.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label120.Location = new System.Drawing.Point(258, 0);
+            this.label120.Location = new System.Drawing.Point(67, 0);
             this.label120.Margin = new System.Windows.Forms.Padding(0);
             this.label120.Name = "label120";
             this.label120.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label120.Size = new System.Drawing.Size(75, 15);
+            this.label120.Size = new System.Drawing.Size(91, 18);
             this.label120.TabIndex = 266;
             this.label120.Text = "*وصف العمل:";
             this.label120.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8329,11 +8330,11 @@ namespace MyWorkApplication
             this.label121.AutoSize = true;
             this.label121.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label121.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label121.Location = new System.Drawing.Point(826, 15);
+            this.label121.Location = new System.Drawing.Point(756, 18);
             this.label121.Margin = new System.Windows.Forms.Padding(0);
             this.label121.Name = "label121";
             this.label121.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label121.Size = new System.Drawing.Size(263, 15);
+            this.label121.Size = new System.Drawing.Size(329, 18);
             this.label121.TabIndex = 267;
             this.label121.Text = "الاختصاص بالمهنة (ورشة جينز - ورشة خياطة - طبيب أسنان..)";
             this.label121.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8393,7 +8394,7 @@ namespace MyWorkApplication
             this.t6_tableLayoutPanel.SetRowSpan(this.Exp_dataGridView, 6);
             this.Exp_dataGridView.RowTemplate.Height = 35;
             this.Exp_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Exp_dataGridView.Size = new System.Drawing.Size(1089, 226);
+            this.Exp_dataGridView.Size = new System.Drawing.Size(1085, 226);
             this.Exp_dataGridView.TabIndex = 50;
             this.Exp_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Exp_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -8545,7 +8546,7 @@ namespace MyWorkApplication
             this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.71988F));
             this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.71988F));
             this.t5_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.71988F));
-            this.t5_tableLayoutPanel.Size = new System.Drawing.Size(1095, 385);
+            this.t5_tableLayoutPanel.Size = new System.Drawing.Size(1091, 385);
             this.t5_tableLayoutPanel.TabIndex = 47;
             this.t5_tableLayoutPanel.TabStop = true;
             // 
@@ -8558,11 +8559,11 @@ namespace MyWorkApplication
             this.t5_tableLayoutPanel.SetColumnSpan(this.MainHeader2_label, 3);
             this.MainHeader2_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.MainHeader2_label.ForeColor = System.Drawing.Color.White;
-            this.MainHeader2_label.Location = new System.Drawing.Point(3, 54);
+            this.MainHeader2_label.Location = new System.Drawing.Point(3, 49);
             this.MainHeader2_label.Name = "MainHeader2_label";
             this.MainHeader2_label.Padding = new System.Windows.Forms.Padding(3);
             this.MainHeader2_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MainHeader2_label.Size = new System.Drawing.Size(1089, 30);
+            this.MainHeader2_label.Size = new System.Drawing.Size(1085, 35);
             this.MainHeader2_label.TabIndex = 506;
             this.MainHeader2_label.Text = "الخبرات العمليّّة والتحصيل العلمي";
             this.MainHeader2_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8624,7 +8625,7 @@ namespace MyWorkApplication
             this.Work_dataGridView.RowTemplate.Height = 35;
             this.Work_dataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Work_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Work_dataGridView.Size = new System.Drawing.Size(1089, 167);
+            this.Work_dataGridView.Size = new System.Drawing.Size(1085, 167);
             this.Work_dataGridView.TabIndex = 48;
             this.Work_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.Work_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -8748,10 +8749,10 @@ namespace MyWorkApplication
             this.SubHeader2_label.AutoSize = true;
             this.SubHeader2_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader2_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader2_label.Location = new System.Drawing.Point(222, 119);
+            this.SubHeader2_label.Location = new System.Drawing.Point(221, 117);
             this.SubHeader2_label.Name = "SubHeader2_label";
             this.SubHeader2_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader2_label.Size = new System.Drawing.Size(651, 24);
+            this.SubHeader2_label.Size = new System.Drawing.Size(648, 29);
             this.SubHeader2_label.TabIndex = 498;
             this.SubHeader2_label.Text = "الخبرات العملية الحاليّة:";
             this.SubHeader2_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8765,7 +8766,7 @@ namespace MyWorkApplication
             this.P_HasWork_flowLayoutPanel.Controls.Add(this.P_HasWorkYes_radioButton);
             this.P_HasWork_flowLayoutPanel.Location = new System.Drawing.Point(3, 117);
             this.P_HasWork_flowLayoutPanel.Name = "P_HasWork_flowLayoutPanel";
-            this.P_HasWork_flowLayoutPanel.Size = new System.Drawing.Size(213, 29);
+            this.P_HasWork_flowLayoutPanel.Size = new System.Drawing.Size(212, 29);
             this.P_HasWork_flowLayoutPanel.TabIndex = 507;
             this.P_HasWork_flowLayoutPanel.TabStop = true;
             // 
@@ -8778,7 +8779,7 @@ namespace MyWorkApplication
             this.P_HasWorkNo_radioButton.Margin = new System.Windows.Forms.Padding(5);
             this.P_HasWorkNo_radioButton.Name = "P_HasWorkNo_radioButton";
             this.P_HasWorkNo_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasWorkNo_radioButton.Size = new System.Drawing.Size(62, 22);
+            this.P_HasWorkNo_radioButton.Size = new System.Drawing.Size(75, 28);
             this.P_HasWorkNo_radioButton.TabIndex = 4;
             this.P_HasWorkNo_radioButton.TabStop = true;
             this.P_HasWorkNo_radioButton.Text = "لا يعمل";
@@ -8791,11 +8792,11 @@ namespace MyWorkApplication
             this.P_HasWorkYes_radioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.P_HasWorkYes_radioButton.AutoSize = true;
             this.P_HasWorkYes_radioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.P_HasWorkYes_radioButton.Location = new System.Drawing.Point(87, 5);
+            this.P_HasWorkYes_radioButton.Location = new System.Drawing.Point(100, 5);
             this.P_HasWorkYes_radioButton.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.P_HasWorkYes_radioButton.Name = "P_HasWorkYes_radioButton";
             this.P_HasWorkYes_radioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_HasWorkYes_radioButton.Size = new System.Drawing.Size(50, 22);
+            this.P_HasWorkYes_radioButton.Size = new System.Drawing.Size(60, 28);
             this.P_HasWorkYes_radioButton.TabIndex = 3;
             this.P_HasWorkYes_radioButton.TabStop = true;
             this.P_HasWorkYes_radioButton.Text = "يعمل";
@@ -8850,7 +8851,7 @@ namespace MyWorkApplication
             this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
             this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
             this.t2_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
-            this.t2_tableLayoutPanel.Size = new System.Drawing.Size(1095, 969);
+            this.t2_tableLayoutPanel.Size = new System.Drawing.Size(1091, 969);
             this.t2_tableLayoutPanel.TabIndex = 12;
             this.t2_tableLayoutPanel.TabStop = true;
             // 
@@ -8867,7 +8868,7 @@ namespace MyWorkApplication
             this.P_Loss_textBox.Name = "P_Loss_textBox";
             this.P_Loss_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.t2_tableLayoutPanel.SetRowSpan(this.P_Loss_textBox, 4);
-            this.P_Loss_textBox.Size = new System.Drawing.Size(1089, 146);
+            this.P_Loss_textBox.Size = new System.Drawing.Size(1085, 146);
             this.P_Loss_textBox.TabIndex = 12;
             this.P_Loss_textBox.Enter += new System.EventHandler(this.P_Loss_textBox_Enter);
             this.P_Loss_textBox.Leave += new System.EventHandler(this.P_Loss_textBox_Leave);
@@ -8879,10 +8880,10 @@ namespace MyWorkApplication
             this.t2_tableLayoutPanel.SetColumnSpan(this.label10, 2);
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label10.Location = new System.Drawing.Point(756, 618);
+            this.label10.Location = new System.Drawing.Point(696, 616);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label10.Size = new System.Drawing.Size(336, 18);
+            this.label10.Size = new System.Drawing.Size(392, 22);
             this.label10.TabIndex = 559;
             this.label10.Text = "كيف ترى أن هذا المشروع سوف يحقّّق رغباتك وأهدافك؟";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8900,7 +8901,7 @@ namespace MyWorkApplication
             this.P_GoalHow_textBox.Name = "P_GoalHow_textBox";
             this.P_GoalHow_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.t2_tableLayoutPanel.SetRowSpan(this.P_GoalHow_textBox, 3);
-            this.P_GoalHow_textBox.Size = new System.Drawing.Size(1089, 106);
+            this.P_GoalHow_textBox.Size = new System.Drawing.Size(1085, 106);
             this.P_GoalHow_textBox.TabIndex = 15;
             this.P_GoalHow_textBox.Enter += new System.EventHandler(this.P_GoalHow_textBox_Enter);
             this.P_GoalHow_textBox.Leave += new System.EventHandler(this.P_GoalHow_textBox_Leave);
@@ -8918,7 +8919,7 @@ namespace MyWorkApplication
             this.P_OtherNotes_textBox.Name = "P_OtherNotes_textBox";
             this.P_OtherNotes_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.t2_tableLayoutPanel.SetRowSpan(this.P_OtherNotes_textBox, 3);
-            this.P_OtherNotes_textBox.Size = new System.Drawing.Size(1089, 125);
+            this.P_OtherNotes_textBox.Size = new System.Drawing.Size(1085, 125);
             this.P_OtherNotes_textBox.TabIndex = 16;
             this.P_OtherNotes_textBox.Enter += new System.EventHandler(this.P_OtherNotes_textBox_Enter);
             this.P_OtherNotes_textBox.Leave += new System.EventHandler(this.P_OtherNotes_textBox_Leave);
@@ -8934,7 +8935,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel25.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel25.Location = new System.Drawing.Point(3, 41);
             this.flowLayoutPanel25.Name = "flowLayoutPanel25";
-            this.flowLayoutPanel25.Size = new System.Drawing.Size(1089, 32);
+            this.flowLayoutPanel25.Size = new System.Drawing.Size(1085, 32);
             this.flowLayoutPanel25.TabIndex = 564;
             // 
             // label39
@@ -8943,11 +8944,11 @@ namespace MyWorkApplication
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label39.Location = new System.Drawing.Point(998, 0);
+            this.label39.Location = new System.Drawing.Point(980, 0);
             this.label39.Margin = new System.Windows.Forms.Padding(0);
             this.label39.Name = "label39";
             this.label39.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label39.Size = new System.Drawing.Size(91, 18);
+            this.label39.Size = new System.Drawing.Size(105, 22);
             this.label39.TabIndex = 513;
             this.label39.Text = "قصة المستفيد:";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -8958,11 +8959,11 @@ namespace MyWorkApplication
             this.label104.AutoSize = true;
             this.label104.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label104.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label104.Location = new System.Drawing.Point(512, 1);
+            this.label104.Location = new System.Drawing.Point(374, 2);
             this.label104.Margin = new System.Windows.Forms.Padding(0);
             this.label104.Name = "label104";
             this.label104.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label104.Size = new System.Drawing.Size(486, 15);
+            this.label104.Size = new System.Drawing.Size(606, 18);
             this.label104.TabIndex = 270;
             this.label104.Text = "(الإصغاء الكامل دون الحكم وتحليل تفاصيل القصّّة وعدم مقاطعته مع إمكانية السؤال عن" +
     " التفاصيل التي تحتاج إلى توضيح)";
@@ -8979,7 +8980,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel26.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel26.Location = new System.Drawing.Point(3, 269);
             this.flowLayoutPanel26.Name = "flowLayoutPanel26";
-            this.flowLayoutPanel26.Size = new System.Drawing.Size(1089, 32);
+            this.flowLayoutPanel26.Size = new System.Drawing.Size(1085, 32);
             this.flowLayoutPanel26.TabIndex = 565;
             // 
             // label8
@@ -8988,11 +8989,11 @@ namespace MyWorkApplication
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label8.Location = new System.Drawing.Point(932, 0);
+            this.label8.Location = new System.Drawing.Point(901, 0);
             this.label8.Margin = new System.Windows.Forms.Padding(0);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label8.Size = new System.Drawing.Size(157, 18);
+            this.label8.Size = new System.Drawing.Size(184, 22);
             this.label8.TabIndex = 553;
             this.label8.Text = "هدف المستفيد من القرض:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -9003,11 +9004,11 @@ namespace MyWorkApplication
             this.label102.AutoSize = true;
             this.label102.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label102.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label102.Location = new System.Drawing.Point(711, 1);
+            this.label102.Location = new System.Drawing.Point(629, 2);
             this.label102.Margin = new System.Windows.Forms.Padding(0);
             this.label102.Name = "label102";
             this.label102.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label102.Size = new System.Drawing.Size(221, 15);
+            this.label102.Size = new System.Drawing.Size(272, 18);
             this.label102.TabIndex = 270;
             this.label102.Text = "(وهي رغبات المستفيد التي يريد تحقيقها من المشروع)";
             this.label102.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -9019,10 +9020,10 @@ namespace MyWorkApplication
             this.t2_tableLayoutPanel.SetColumnSpan(this.label14, 2);
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label14.Location = new System.Drawing.Point(957, 808);
+            this.label14.Location = new System.Drawing.Point(931, 806);
             this.label14.Name = "label14";
             this.label14.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label14.Size = new System.Drawing.Size(135, 18);
+            this.label14.Size = new System.Drawing.Size(157, 22);
             this.label14.TabIndex = 561;
             this.label14.Text = "ملاحظات مقدّّم الطلب:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -9040,7 +9041,7 @@ namespace MyWorkApplication
             this.P_Goal_textBox.Name = "P_Goal_textBox";
             this.P_Goal_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.t2_tableLayoutPanel.SetRowSpan(this.P_Goal_textBox, 2);
-            this.P_Goal_textBox.Size = new System.Drawing.Size(1089, 70);
+            this.P_Goal_textBox.Size = new System.Drawing.Size(1085, 70);
             this.P_Goal_textBox.TabIndex = 13;
             this.P_Goal_textBox.Enter += new System.EventHandler(this.P_Goal_textBox_Enter);
             this.P_Goal_textBox.Leave += new System.EventHandler(this.P_Goal_textBox_Leave);
@@ -9054,10 +9055,10 @@ namespace MyWorkApplication
             this.P_Goals_panel.BackColor = System.Drawing.Color.Honeydew;
             this.t2_tableLayoutPanel.SetColumnSpan(this.P_Goals_panel, 3);
             this.P_Goals_panel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.P_Goals_panel.Location = new System.Drawing.Point(210, 421);
+            this.P_Goals_panel.Location = new System.Drawing.Point(209, 421);
             this.P_Goals_panel.Name = "P_Goals_panel";
             this.t2_tableLayoutPanel.SetRowSpan(this.P_Goals_panel, 4);
-            this.P_Goals_panel.Size = new System.Drawing.Size(882, 146);
+            this.P_Goals_panel.Size = new System.Drawing.Size(879, 146);
             this.P_Goals_panel.TabIndex = 14;
             this.P_Goals_panel.TabStop = true;
             // 
@@ -9068,19 +9069,19 @@ namespace MyWorkApplication
             this.delete_person_ToolStripMenuItem,
             this.delete_project_person_ToolStripMenuItem});
             this.delete_contextMenuStrip.Name = "delete_contextMenuStrip";
-            this.delete_contextMenuStrip.Size = new System.Drawing.Size(205, 48);
+            this.delete_contextMenuStrip.Size = new System.Drawing.Size(247, 52);
             // 
             // delete_person_ToolStripMenuItem
             // 
             this.delete_person_ToolStripMenuItem.Name = "delete_person_ToolStripMenuItem";
-            this.delete_person_ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.delete_person_ToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.delete_person_ToolStripMenuItem.Text = "حذف المستفيد فقط";
             this.delete_person_ToolStripMenuItem.Click += new System.EventHandler(this.delete_person_ToolStripMenuItem_Click);
             // 
             // delete_project_person_ToolStripMenuItem
             // 
             this.delete_project_person_ToolStripMenuItem.Name = "delete_project_person_ToolStripMenuItem";
-            this.delete_project_person_ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.delete_project_person_ToolStripMenuItem.Size = new System.Drawing.Size(246, 24);
             this.delete_project_person_ToolStripMenuItem.Text = "حذف الاستمارة بشكل كامل";
             this.delete_project_person_ToolStripMenuItem.Click += new System.EventHandler(this.delete_all_project_ToolStripMenuItem_Click);
             // 
@@ -10007,7 +10008,7 @@ namespace MyWorkApplication
             // 
             // Application_New_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1262, 673);
