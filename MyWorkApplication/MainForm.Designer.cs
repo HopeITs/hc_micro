@@ -123,6 +123,7 @@
             this.VResults_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VStatistics_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SpecialCase_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ProfessionMeetings_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.Search_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Statistics_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1023,7 +1024,8 @@
             this.VDates_toolStripMenuItem,
             this.VResults_toolStripMenuItem,
             this.VStatistics_toolStripMenuItem,
-            this.SpecialCase_toolStripMenuItem});
+            this.SpecialCase_toolStripMenuItem,
+            this.ProfessionMeetings_toolStripMenuItem});
             this.mEToolStripMenuItem1.Name = "mEToolStripMenuItem1";
             this.mEToolStripMenuItem1.ShowShortcutKeys = false;
             this.mEToolStripMenuItem1.Size = new System.Drawing.Size(57, 29);
@@ -1063,7 +1065,14 @@
             this.SpecialCase_toolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.SpecialCase_toolStripMenuItem.Text = "New Special Case";
             this.SpecialCase_toolStripMenuItem.Click += new System.EventHandler(this.specialCaseToolStripMenuItem_Click);
-            // 
+            //
+            // ProfessionMeetings_toolStripMenuItem
+            //
+            this.ProfessionMeetings_toolStripMenuItem.Name = "ProfessionMeetings_toolStripMenuItem";
+            this.ProfessionMeetings_toolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.ProfessionMeetings_toolStripMenuItem.Text = "Profession Meetings";
+            this.ProfessionMeetings_toolStripMenuItem.Click += new System.EventHandler(this.professionMeetingsToolStripMenuItem_Click);
+            //
             // toolsToolStripMenuItem1
             // 
             this.toolsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1333,6 +1342,7 @@
         private System.Windows.Forms.ToolStripMenuItem VResults_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem VStatistics_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SpecialCase_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ProfessionMeetings_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem Search_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Statistics_toolStripMenuItem;

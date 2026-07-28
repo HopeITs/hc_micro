@@ -439,6 +439,12 @@
     <Compile Include="Loans_Form.Designer.cs">
       <DependentUpon>Loans_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProfessionMeetings_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfessionMeetings_Form.Designer.cs">
+      <DependentUpon>ProfessionMeetings_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -742,6 +748,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Notification_Box.resx">
       <DependentUpon>Notification_Box.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfessionMeetings_Form.resx">
+      <DependentUpon>ProfessionMeetings_Form.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="SpecialCase_Form.resx">

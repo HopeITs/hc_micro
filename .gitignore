@@ -4,3 +4,5 @@
 bin/
 bin/Debug
 obj/
+.agents/
+public-codex-skills/

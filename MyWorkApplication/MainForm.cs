@@ -373,6 +373,7 @@ namespace MyWorkApplication
                             ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[3], Keys.Alt | Keys.R);//v results
                             ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[4], Keys.Alt | Keys.T); //visitors statistics
                             ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[5], Keys.Alt | Keys.S);//v specialcase
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[6], Keys.None);//profession meetings
 
                             // -------------------------------------------------------------------- 
 
@@ -420,6 +421,7 @@ namespace MyWorkApplication
                             ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[3], Keys.Alt | Keys.R);//v results
                             HideMenuItemWithShortcut((ToolStripMenuItem)mEItems[4]); //visitors statistics
                             ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[5], Keys.Alt | Keys.S);//v specialcase
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[6], Keys.None);//profession meetings
 
                             // -------------------------------------------------------------------- 
 
@@ -700,6 +702,19 @@ namespace MyWorkApplication
             {
                 Form form = new SpecialCase_Form(this);
                 showNewTab(form, "Special Case", 0);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void professionMeetingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form form = new ProfessionMeetings_Form(this);
+                showNewTab(form, "Profession Meetings", 0);
             }
             catch (Exception ex)
             {
