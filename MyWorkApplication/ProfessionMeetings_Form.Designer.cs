@@ -17,28 +17,11 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfessionMeetings_Form));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -57,6 +40,24 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -149,10 +150,7 @@
             this.countOption15_other_textBox = new System.Windows.Forms.TextBox();
             this.question27_label = new System.Windows.Forms.Label();
             this.season_dataGridView = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.season_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.season_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.season_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seasonDelete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.question28_label = new System.Windows.Forms.Label();
             this.guild_check_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.guild_checkBox1 = new System.Windows.Forms.CheckBox();
@@ -187,8 +185,7 @@
             this.section32_details_label = new System.Windows.Forms.Label();
             this.question33_label = new System.Windows.Forms.Label();
             this.equipment_dataGridView = new System.Windows.Forms.DataGridView();
-            this.equipment_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipment_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipmentDelete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.question34_label = new System.Windows.Forms.Label();
             this.question39_label = new System.Windows.Forms.Label();
             this.memo3_richTextBox = new System.Windows.Forms.RichTextBox();
@@ -198,9 +195,7 @@
             this.section42_details_label = new System.Windows.Forms.Label();
             this.question43_label = new System.Windows.Forms.Label();
             this.challenges_dataGridView = new System.Windows.Forms.DataGridView();
-            this.challenges_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.challenges_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.challenges_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.challengesDelete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.section44_label = new System.Windows.Forms.Label();
             this.section45_details_label = new System.Windows.Forms.Label();
             this.question46_label = new System.Windows.Forms.Label();
@@ -217,24 +212,20 @@
             this.memo6_richTextBox = new System.Windows.Forms.RichTextBox();
             this.question52_label = new System.Windows.Forms.Label();
             this.participant1_dataGridView = new System.Windows.Forms.DataGridView();
-            this.participant1_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant1_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant1_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant1_dataGridView_column0 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.participant1Delete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.question53_label = new System.Windows.Forms.Label();
             this.participant2_dataGridView = new System.Windows.Forms.DataGridView();
-            this.participant2_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant2_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant2_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant2_dataGridView_column0 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.participant2Delete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.question54_label = new System.Windows.Forms.Label();
             this.participant3_dataGridView = new System.Windows.Forms.DataGridView();
-            this.participant3_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant3_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant3_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant3_dataGridView_column0 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.participant3Delete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.question55_label = new System.Windows.Forms.Label();
             this.participant4_dataGridView = new System.Windows.Forms.DataGridView();
-            this.participant4_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant4_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant4_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant4_dataGridView_column0 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.participant4Delete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.countOptions5_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.countOption35_label = new System.Windows.Forms.Label();
             this.countOption16_numericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -249,8 +240,8 @@
             this.minutesContent_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.section56_label = new System.Windows.Forms.Label();
             this.attendees_dataGridView = new System.Windows.Forms.DataGridView();
-            this.attendees_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attendees_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attendeesProject_dataGridView_column = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.attendeesDelete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.question57_label = new System.Windows.Forms.Label();
             this.memo7_richTextBox = new System.Windows.Forms.RichTextBox();
             this.question58_label = new System.Windows.Forms.Label();
@@ -282,7 +273,9 @@
             this.marketing_other_checkBox = new System.Windows.Forms.CheckBox();
             this.meetingInfo_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.profession_label = new System.Windows.Forms.Label();
-            this.profession_textBox = new System.Windows.Forms.TextBox();
+            this.professionSelector_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.professionSubCategory_comboBox = new System.Windows.Forms.ComboBox();
+            this.professionCareer_comboBox = new System.Windows.Forms.ComboBox();
             this.meetingDate_label = new System.Windows.Forms.Label();
             this.place_label = new System.Windows.Forms.Label();
             this.place_textBox = new System.Windows.Forms.TextBox();
@@ -297,7 +290,6 @@
             this.programRegistrar_textBox = new System.Windows.Forms.TextBox();
             this.editedBy_label = new System.Windows.Forms.Label();
             this.editedBy_textBox = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new MyWorkApplication.Classes.BCDateTimePicker();
             this.attendanceCount_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.title_label = new System.Windows.Forms.Label();
             this.mainLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -320,6 +312,26 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePicker1 = new MyWorkApplication.Classes.BCDateTimePicker();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.season_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.season_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.season_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipment_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipment_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.challenges_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.challenges_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.challenges_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant1_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant1_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant2_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant2_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant3_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant3_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant4_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant4_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attendees_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attendees_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -402,6 +414,7 @@
             this.marketing_checkRow20_flowLayoutPanel.SuspendLayout();
             this.marketing_checkRow21_flowLayoutPanel.SuspendLayout();
             this.meetingInfo_tableLayoutPanel.SuspendLayout();
+            this.professionSelector_tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.invitedCount_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.absenceCount_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attendanceCount_numericUpDown)).BeginInit();
@@ -568,7 +581,7 @@
             this.surveyContent_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.surveyContent_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.surveyContent_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.surveyContent_tableLayoutPanel.Size = new System.Drawing.Size(939, 4563);
+            this.surveyContent_tableLayoutPanel.Size = new System.Drawing.Size(939, 4653);
             this.surveyContent_tableLayoutPanel.TabIndex = 0;
             this.surveyContent_tableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.surveyContent_tableLayoutPanel_Paint);
             // 
@@ -1017,7 +1030,7 @@
             this.question17_label.Size = new System.Drawing.Size(939, 28);
             this.question17_label.TabIndex = 10;
             this.question17_label.Text = "4. ماهي الفئة المستهدفة او الزبائن الأساسيين لخدمات ومنتجات هذه المهنة في الوقت ا" +
-    "لحالي؟";
+    "لحالي؟ ";
             this.question17_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // targetAudience_check_tableLayoutPanel
@@ -1034,8 +1047,7 @@
             this.targetAudience_check_tableLayoutPanel.Controls.Add(this.targetAudience_checkRow8_flowLayoutPanel, 0, 7);
             this.targetAudience_check_tableLayoutPanel.Controls.Add(this.targetAudience_checkRow9_flowLayoutPanel, 0, 8);
             this.targetAudience_check_tableLayoutPanel.Controls.Add(this.targetAudience_checkRow10_flowLayoutPanel, 0, 9);
-            this.targetAudience_check_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.targetAudience_check_tableLayoutPanel.Location = new System.Drawing.Point(559, 504);
+            this.targetAudience_check_tableLayoutPanel.Location = new System.Drawing.Point(186, 504);
             this.targetAudience_check_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.targetAudience_check_tableLayoutPanel.Name = "targetAudience_check_tableLayoutPanel";
             this.targetAudience_check_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1050,7 +1062,7 @@
             this.targetAudience_check_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.targetAudience_check_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.targetAudience_check_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.targetAudience_check_tableLayoutPanel.Size = new System.Drawing.Size(360, 290);
+            this.targetAudience_check_tableLayoutPanel.Size = new System.Drawing.Size(733, 290);
             this.targetAudience_check_tableLayoutPanel.TabIndex = 11;
             // 
             // targetAudience_checkRow1_flowLayoutPanel
@@ -1059,11 +1071,11 @@
             this.targetAudience_checkRow1_flowLayoutPanel.AutoSize = true;
             this.targetAudience_checkRow1_flowLayoutPanel.Controls.Add(this.targetAudience_checkBox1);
             this.targetAudience_checkRow1_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.targetAudience_checkRow1_flowLayoutPanel.Location = new System.Drawing.Point(244, 2);
+            this.targetAudience_checkRow1_flowLayoutPanel.Location = new System.Drawing.Point(379, 2);
             this.targetAudience_checkRow1_flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.targetAudience_checkRow1_flowLayoutPanel.Name = "targetAudience_checkRow1_flowLayoutPanel";
             this.targetAudience_checkRow1_flowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkRow1_flowLayoutPanel.Size = new System.Drawing.Size(116, 25);
+            this.targetAudience_checkRow1_flowLayoutPanel.Size = new System.Drawing.Size(354, 25);
             this.targetAudience_checkRow1_flowLayoutPanel.TabIndex = 0;
             // 
             // targetAudience_checkBox1
@@ -1073,9 +1085,9 @@
             this.targetAudience_checkBox1.Location = new System.Drawing.Point(3, 3);
             this.targetAudience_checkBox1.Name = "targetAudience_checkBox1";
             this.targetAudience_checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkBox1.Size = new System.Drawing.Size(110, 22);
+            this.targetAudience_checkBox1.Size = new System.Drawing.Size(348, 22);
             this.targetAudience_checkBox1.TabIndex = 0;
-            this.targetAudience_checkBox1.Text = "الأفراد والعائلات";
+            this.targetAudience_checkBox1.Text = "الأفراد والعائلات: (البيع المباشر للاستهلاك الشخصي أو المنزلي)";
             // 
             // targetAudience_checkRow2_flowLayoutPanel
             // 
@@ -1083,11 +1095,11 @@
             this.targetAudience_checkRow2_flowLayoutPanel.AutoSize = true;
             this.targetAudience_checkRow2_flowLayoutPanel.Controls.Add(this.targetAudience_checkBox2);
             this.targetAudience_checkRow2_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.targetAudience_checkRow2_flowLayoutPanel.Location = new System.Drawing.Point(242, 31);
+            this.targetAudience_checkRow2_flowLayoutPanel.Location = new System.Drawing.Point(318, 31);
             this.targetAudience_checkRow2_flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.targetAudience_checkRow2_flowLayoutPanel.Name = "targetAudience_checkRow2_flowLayoutPanel";
             this.targetAudience_checkRow2_flowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkRow2_flowLayoutPanel.Size = new System.Drawing.Size(118, 25);
+            this.targetAudience_checkRow2_flowLayoutPanel.Size = new System.Drawing.Size(415, 25);
             this.targetAudience_checkRow2_flowLayoutPanel.TabIndex = 1;
             // 
             // targetAudience_checkBox2
@@ -1097,9 +1109,9 @@
             this.targetAudience_checkBox2.Location = new System.Drawing.Point(3, 3);
             this.targetAudience_checkBox2.Name = "targetAudience_checkBox2";
             this.targetAudience_checkBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkBox2.Size = new System.Drawing.Size(112, 22);
+            this.targetAudience_checkBox2.Size = new System.Drawing.Size(409, 22);
             this.targetAudience_checkBox2.TabIndex = 0;
-            this.targetAudience_checkBox2.Text = "المحلات التجارية";
+            this.targetAudience_checkBox2.Text = "المحلات التجارية (المفرق): (توريد المنتجات لتُعرض وتُباع في محلات أخرى)";
             // 
             // targetAudience_checkRow3_flowLayoutPanel
             // 
@@ -1107,11 +1119,11 @@
             this.targetAudience_checkRow3_flowLayoutPanel.AutoSize = true;
             this.targetAudience_checkRow3_flowLayoutPanel.Controls.Add(this.targetAudience_checkBox3);
             this.targetAudience_checkRow3_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.targetAudience_checkRow3_flowLayoutPanel.Location = new System.Drawing.Point(209, 60);
+            this.targetAudience_checkRow3_flowLayoutPanel.Location = new System.Drawing.Point(283, 60);
             this.targetAudience_checkRow3_flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.targetAudience_checkRow3_flowLayoutPanel.Name = "targetAudience_checkRow3_flowLayoutPanel";
             this.targetAudience_checkRow3_flowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkRow3_flowLayoutPanel.Size = new System.Drawing.Size(151, 25);
+            this.targetAudience_checkRow3_flowLayoutPanel.Size = new System.Drawing.Size(450, 25);
             this.targetAudience_checkRow3_flowLayoutPanel.TabIndex = 2;
             // 
             // targetAudience_checkBox3
@@ -1121,9 +1133,9 @@
             this.targetAudience_checkBox3.Location = new System.Drawing.Point(3, 3);
             this.targetAudience_checkBox3.Name = "targetAudience_checkBox3";
             this.targetAudience_checkBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkBox3.Size = new System.Drawing.Size(145, 22);
+            this.targetAudience_checkBox3.Size = new System.Drawing.Size(444, 22);
             this.targetAudience_checkBox3.TabIndex = 0;
-            this.targetAudience_checkBox3.Text = "ورشات ومهنيون آخرون";
+            this.targetAudience_checkBox3.Text = "ورشات ومهنيون آخرون: (تقديم خدمات أو منتجات وسيطة تكمل عمل حرفيين آخرين)";
             // 
             // targetAudience_checkRow4_flowLayoutPanel
             // 
@@ -1131,11 +1143,11 @@
             this.targetAudience_checkRow4_flowLayoutPanel.AutoSize = true;
             this.targetAudience_checkRow4_flowLayoutPanel.Controls.Add(this.targetAudience_checkBox4);
             this.targetAudience_checkRow4_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.targetAudience_checkRow4_flowLayoutPanel.Location = new System.Drawing.Point(221, 89);
+            this.targetAudience_checkRow4_flowLayoutPanel.Location = new System.Drawing.Point(287, 89);
             this.targetAudience_checkRow4_flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.targetAudience_checkRow4_flowLayoutPanel.Name = "targetAudience_checkRow4_flowLayoutPanel";
             this.targetAudience_checkRow4_flowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkRow4_flowLayoutPanel.Size = new System.Drawing.Size(139, 25);
+            this.targetAudience_checkRow4_flowLayoutPanel.Size = new System.Drawing.Size(446, 25);
             this.targetAudience_checkRow4_flowLayoutPanel.TabIndex = 3;
             // 
             // targetAudience_checkBox4
@@ -1145,9 +1157,9 @@
             this.targetAudience_checkBox4.Location = new System.Drawing.Point(3, 3);
             this.targetAudience_checkBox4.Name = "targetAudience_checkBox4";
             this.targetAudience_checkBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkBox4.Size = new System.Drawing.Size(133, 22);
+            this.targetAudience_checkBox4.Size = new System.Drawing.Size(440, 22);
             this.targetAudience_checkBox4.TabIndex = 0;
-            this.targetAudience_checkBox4.Text = "الشركات والمؤسسات";
+            this.targetAudience_checkBox4.Text = "الشركات والمؤسسات: (مثل توريد الطلبات للمطاعم، المدارس، المكاتب، أو المعامل)";
             // 
             // targetAudience_checkRow5_flowLayoutPanel
             // 
@@ -1155,11 +1167,11 @@
             this.targetAudience_checkRow5_flowLayoutPanel.AutoSize = true;
             this.targetAudience_checkRow5_flowLayoutPanel.Controls.Add(this.targetAudience_checkBox5);
             this.targetAudience_checkRow5_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.targetAudience_checkRow5_flowLayoutPanel.Location = new System.Drawing.Point(212, 118);
+            this.targetAudience_checkRow5_flowLayoutPanel.Location = new System.Drawing.Point(400, 118);
             this.targetAudience_checkRow5_flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.targetAudience_checkRow5_flowLayoutPanel.Name = "targetAudience_checkRow5_flowLayoutPanel";
             this.targetAudience_checkRow5_flowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkRow5_flowLayoutPanel.Size = new System.Drawing.Size(148, 25);
+            this.targetAudience_checkRow5_flowLayoutPanel.Size = new System.Drawing.Size(333, 25);
             this.targetAudience_checkRow5_flowLayoutPanel.TabIndex = 4;
             // 
             // targetAudience_checkBox5
@@ -1169,9 +1181,9 @@
             this.targetAudience_checkBox5.Location = new System.Drawing.Point(3, 3);
             this.targetAudience_checkBox5.Name = "targetAudience_checkBox5";
             this.targetAudience_checkBox5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkBox5.Size = new System.Drawing.Size(142, 22);
+            this.targetAudience_checkBox5.Size = new System.Drawing.Size(327, 22);
             this.targetAudience_checkBox5.TabIndex = 0;
-            this.targetAudience_checkBox5.Text = "تجار الجملة والموزعون";
+            this.targetAudience_checkBox5.Text = "تجار الجملة والموزعون: (البيع بكميات كبيرة بغرض التوزيع)";
             // 
             // targetAudience_checkRow6_flowLayoutPanel
             // 
@@ -1179,11 +1191,11 @@
             this.targetAudience_checkRow6_flowLayoutPanel.AutoSize = true;
             this.targetAudience_checkRow6_flowLayoutPanel.Controls.Add(this.targetAudience_checkBox6);
             this.targetAudience_checkRow6_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.targetAudience_checkRow6_flowLayoutPanel.Location = new System.Drawing.Point(223, 147);
+            this.targetAudience_checkRow6_flowLayoutPanel.Location = new System.Drawing.Point(432, 147);
             this.targetAudience_checkRow6_flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.targetAudience_checkRow6_flowLayoutPanel.Name = "targetAudience_checkRow6_flowLayoutPanel";
             this.targetAudience_checkRow6_flowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkRow6_flowLayoutPanel.Size = new System.Drawing.Size(137, 25);
+            this.targetAudience_checkRow6_flowLayoutPanel.Size = new System.Drawing.Size(301, 25);
             this.targetAudience_checkRow6_flowLayoutPanel.TabIndex = 5;
             // 
             // targetAudience_checkBox6
@@ -1193,9 +1205,9 @@
             this.targetAudience_checkBox6.Location = new System.Drawing.Point(3, 3);
             this.targetAudience_checkBox6.Name = "targetAudience_checkBox6";
             this.targetAudience_checkBox6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkBox6.Size = new System.Drawing.Size(131, 22);
+            this.targetAudience_checkBox6.Size = new System.Drawing.Size(295, 22);
             this.targetAudience_checkBox6.TabIndex = 0;
-            this.targetAudience_checkBox6.Text = "أبناء الحي أو المنطقة";
+            this.targetAudience_checkBox6.Text = "أبناء الحي أو المنطقة الجغرافية المحيطة بشكل أساسي";
             // 
             // targetAudience_checkRow7_flowLayoutPanel
             // 
@@ -1203,11 +1215,11 @@
             this.targetAudience_checkRow7_flowLayoutPanel.AutoSize = true;
             this.targetAudience_checkRow7_flowLayoutPanel.Controls.Add(this.targetAudience_checkBox7);
             this.targetAudience_checkRow7_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.targetAudience_checkRow7_flowLayoutPanel.Location = new System.Drawing.Point(211, 176);
+            this.targetAudience_checkRow7_flowLayoutPanel.Location = new System.Drawing.Point(336, 176);
             this.targetAudience_checkRow7_flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.targetAudience_checkRow7_flowLayoutPanel.Name = "targetAudience_checkRow7_flowLayoutPanel";
             this.targetAudience_checkRow7_flowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkRow7_flowLayoutPanel.Size = new System.Drawing.Size(149, 25);
+            this.targetAudience_checkRow7_flowLayoutPanel.Size = new System.Drawing.Size(397, 25);
             this.targetAudience_checkRow7_flowLayoutPanel.TabIndex = 6;
             // 
             // targetAudience_checkBox7
@@ -1217,9 +1229,9 @@
             this.targetAudience_checkBox7.Location = new System.Drawing.Point(3, 3);
             this.targetAudience_checkBox7.Name = "targetAudience_checkBox7";
             this.targetAudience_checkBox7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkBox7.Size = new System.Drawing.Size(143, 22);
+            this.targetAudience_checkBox7.Size = new System.Drawing.Size(391, 22);
             this.targetAudience_checkBox7.TabIndex = 0;
-            this.targetAudience_checkBox7.Text = "زبائن من خارج المنطقة";
+            this.targetAudience_checkBox7.Text = "زبائن من خارج المنطقة (يعتمد على التسويق ووسائل التواصل الاجتماعي)";
             // 
             // targetAudience_checkRow8_flowLayoutPanel
             // 
@@ -1227,7 +1239,7 @@
             this.targetAudience_checkRow8_flowLayoutPanel.AutoSize = true;
             this.targetAudience_checkRow8_flowLayoutPanel.Controls.Add(this.targetAudience_checkBox8);
             this.targetAudience_checkRow8_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.targetAudience_checkRow8_flowLayoutPanel.Location = new System.Drawing.Point(297, 205);
+            this.targetAudience_checkRow8_flowLayoutPanel.Location = new System.Drawing.Point(670, 205);
             this.targetAudience_checkRow8_flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.targetAudience_checkRow8_flowLayoutPanel.Name = "targetAudience_checkRow8_flowLayoutPanel";
             this.targetAudience_checkRow8_flowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1251,7 +1263,7 @@
             this.targetAudience_checkRow9_flowLayoutPanel.AutoSize = true;
             this.targetAudience_checkRow9_flowLayoutPanel.Controls.Add(this.targetAudience_checkBox9);
             this.targetAudience_checkRow9_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.targetAudience_checkRow9_flowLayoutPanel.Location = new System.Drawing.Point(275, 234);
+            this.targetAudience_checkRow9_flowLayoutPanel.Location = new System.Drawing.Point(648, 234);
             this.targetAudience_checkRow9_flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.targetAudience_checkRow9_flowLayoutPanel.Name = "targetAudience_checkRow9_flowLayoutPanel";
             this.targetAudience_checkRow9_flowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1275,11 +1287,11 @@
             this.targetAudience_checkRow10_flowLayoutPanel.AutoSize = true;
             this.targetAudience_checkRow10_flowLayoutPanel.Controls.Add(this.targetAudience_other_checkBox);
             this.targetAudience_checkRow10_flowLayoutPanel.Controls.Add(this.targetAudience_other_textBox);
-            this.targetAudience_checkRow10_flowLayoutPanel.Location = new System.Drawing.Point(11, 263);
+            this.targetAudience_checkRow10_flowLayoutPanel.Location = new System.Drawing.Point(305, 263);
             this.targetAudience_checkRow10_flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.targetAudience_checkRow10_flowLayoutPanel.Name = "targetAudience_checkRow10_flowLayoutPanel";
             this.targetAudience_checkRow10_flowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkRow10_flowLayoutPanel.Size = new System.Drawing.Size(349, 25);
+            this.targetAudience_checkRow10_flowLayoutPanel.Size = new System.Drawing.Size(428, 25);
             this.targetAudience_checkRow10_flowLayoutPanel.TabIndex = 9;
             // 
             // targetAudience_other_checkBox
@@ -1289,10 +1301,10 @@
             this.targetAudience_other_checkBox.Location = new System.Drawing.Point(279, 3);
             this.targetAudience_other_checkBox.Name = "targetAudience_other_checkBox";
             this.targetAudience_other_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_other_checkBox.Size = new System.Drawing.Size(67, 22);
+            this.targetAudience_other_checkBox.Size = new System.Drawing.Size(146, 22);
             this.targetAudience_other_checkBox.TabIndex = 0;
             this.targetAudience_other_checkBox.Tag = this.targetAudience_other_textBox;
-            this.targetAudience_other_checkBox.Text = "غير ذلك";
+            this.targetAudience_other_checkBox.Text = "غير ذلك (يرجى التحديد)";
             this.targetAudience_other_checkBox.CheckedChanged += new System.EventHandler(this.OtherCheckBox_CheckedChanged);
             // 
             // targetAudience_other_textBox
@@ -1317,7 +1329,7 @@
             this.question18_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.question18_label.Size = new System.Drawing.Size(939, 28);
             this.question18_label.TabIndex = 12;
-            this.question18_label.Text = "5. ماهي أكثر الخدمات أو المنتجات طلبا من قبل الزبائن في هذه المهنة حاليا؟";
+            this.question18_label.Text = "5. ماهي أكثر الخدمات أو المنتجات طلبا من قبل الزبائن في هذه المهنة حاليا؟ ";
             this.question18_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // memo1_richTextBox
@@ -1405,7 +1417,7 @@
             this.competitionSevereReason_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.competitionSevereReason_label.Size = new System.Drawing.Size(47, 32);
             this.competitionSevereReason_label.TabIndex = 2;
-            this.competitionSevereReason_label.Text = "السبب";
+            this.competitionSevereReason_label.Text = "السبب:";
             this.competitionSevereReason_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // competitionSevereReason_textBox
@@ -1443,7 +1455,7 @@
             this.competitionMediumReason_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.competitionMediumReason_label.Size = new System.Drawing.Size(47, 32);
             this.competitionMediumReason_label.TabIndex = 6;
-            this.competitionMediumReason_label.Text = "السبب";
+            this.competitionMediumReason_label.Text = "السبب:";
             this.competitionMediumReason_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // competitionMediumReason_textBox
@@ -1481,7 +1493,7 @@
             this.competitionWeakReason_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.competitionWeakReason_label.Size = new System.Drawing.Size(47, 32);
             this.competitionWeakReason_label.TabIndex = 10;
-            this.competitionWeakReason_label.Text = "السبب";
+            this.competitionWeakReason_label.Text = "السبب:";
             this.competitionWeakReason_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // competitionWeakReason_textBox
@@ -1533,7 +1545,7 @@
             this.question20_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.question20_label.Size = new System.Drawing.Size(939, 28);
             this.question20_label.TabIndex = 16;
-            this.question20_label.Text = "7. ما هو العامل الأهم والأكثر تأثيرا لجذب الزبائن في هذه المهنة؟";
+            this.question20_label.Text = "7. ما هو العامل الأهم والأكثر تأثيرا لجذب الزبائن في هذه المهنة؟ ";
             this.question20_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // countOptions4_tableLayoutPanel
@@ -1776,7 +1788,8 @@
             this.Column1,
             this.season_dataGridView_column0,
             this.season_dataGridView_column1,
-            this.season_dataGridView_column2});
+            this.season_dataGridView_column2,
+            this.seasonDelete_dataGridView_column});
             this.season_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.season_dataGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.season_dataGridView.Location = new System.Drawing.Point(20, 1398);
@@ -1787,31 +1800,19 @@
             this.season_dataGridView.Size = new System.Drawing.Size(899, 135);
             this.season_dataGridView.TabIndex = 19;
             // 
-            // Column1
+            // seasonDelete_dataGridView_column
             // 
-            this.Column1.HeaderText = "العدد";
-            this.Column1.Name = "Column1";
-            // 
-            // season_dataGridView_column0
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.season_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle1;
-            this.season_dataGridView_column0.HeaderText = "من";
-            this.season_dataGridView_column0.Name = "season_dataGridView_column0";
-            // 
-            // season_dataGridView_column1
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.season_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.season_dataGridView_column1.HeaderText = "إلى";
-            this.season_dataGridView_column1.Name = "season_dataGridView_column1";
-            // 
-            // season_dataGridView_column2
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.season_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.season_dataGridView_column2.HeaderText = "السبب";
-            this.season_dataGridView_column2.Name = "season_dataGridView_column2";
+            this.seasonDelete_dataGridView_column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.seasonDelete_dataGridView_column.FillWeight = 10F;
+            this.seasonDelete_dataGridView_column.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.seasonDelete_dataGridView_column.HeaderText = " ";
+            this.seasonDelete_dataGridView_column.MinimumWidth = 50;
+            this.seasonDelete_dataGridView_column.Name = "seasonDelete_dataGridView_column";
+            this.seasonDelete_dataGridView_column.ReadOnly = true;
+            this.seasonDelete_dataGridView_column.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.seasonDelete_dataGridView_column.Text = "Delete";
+            this.seasonDelete_dataGridView_column.UseColumnTextForButtonValue = true;
+            this.seasonDelete_dataGridView_column.Width = 50;
             // 
             // question28_label
             // 
@@ -1823,8 +1824,8 @@
             this.question28_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.question28_label.Size = new System.Drawing.Size(939, 28);
             this.question28_label.TabIndex = 20;
-            this.question28_label.Text = "9. هل توجد نقابة رسمية للمهنة، ومن هم الأشخاص الذين يعتبرون مرجعية أو شيوخ الكار " +
-    "في منطقتكم؟";
+            this.question28_label.Text = "9. هل توجد نقابة رسمية للمهنة، ومن هم الأشخاص الذين يعتبرون مرجعية أو \"شيوخ الكار" +
+    "\" في منطقتكم؟";
             this.question28_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guild_check_tableLayoutPanel
@@ -1952,8 +1953,7 @@
             this.question29_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.question29_label.Size = new System.Drawing.Size(939, 28);
             this.question29_label.TabIndex = 22;
-            this.question29_label.Text = "10. ماهي أفضل الماركات المتوفرة حاليا بالسوق للمعدات والآلات المستخدمة في المهنة؟" +
-    "";
+            this.question29_label.Text = "10. ماهي أفضل الماركات المتوفرة حاليا بالسوق للمعدات وآلات المستخدمة في المهنة؟";
             this.question29_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // memo2_richTextBox
@@ -1983,7 +1983,7 @@
             this.question30_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.question30_label.Size = new System.Drawing.Size(939, 28);
             this.question30_label.TabIndex = 24;
-            this.question30_label.Text = "11. ما هي الوسائل الأساسية التي تعتمدها حاليا لجذب الزبائن وزيادة عددهم؟";
+            this.question30_label.Text = "11. ما هي الوسائل الأساسية التي تعتمدها حاليا لجذب الزبائن وزيادة عددهم؟ ";
             this.question30_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // marketing_check_tableLayoutPanel
@@ -2051,7 +2051,7 @@
             this.marketingOption1_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.marketingOption1_label.Size = new System.Drawing.Size(256, 28);
             this.marketingOption1_label.TabIndex = 3;
-            this.marketingOption1_label.Text = "السمعة الطيبة وتوصيات الزبائن الحاليين";
+            this.marketingOption1_label.Text = "السمعة الطيبة وتوصيات الزبائن الحاليين.";
             this.marketingOption1_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // marketingOption2_numericUpDown
@@ -2079,7 +2079,7 @@
             this.marketingOption2_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.marketingOption2_label.Size = new System.Drawing.Size(256, 28);
             this.marketingOption2_label.TabIndex = 5;
-            this.marketingOption2_label.Text = "موقع المحل أو الورشة";
+            this.marketingOption2_label.Text = "موقع المحل أو الورشة (الاعتماد على حركة المارة).";
             this.marketingOption2_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // marketingOption3_numericUpDown
@@ -2107,7 +2107,7 @@
             this.marketingOption3_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.marketingOption3_label.Size = new System.Drawing.Size(256, 28);
             this.marketingOption3_label.TabIndex = 7;
-            this.marketingOption3_label.Text = "العلاقات الشخصية والمعارف";
+            this.marketingOption3_label.Text = "العلاقات الشخصية والمعارف.";
             this.marketingOption3_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // marketingOption4_numericUpDown
@@ -2135,7 +2135,7 @@
             this.marketingOption4_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.marketingOption4_label.Size = new System.Drawing.Size(256, 28);
             this.marketingOption4_label.TabIndex = 9;
-            this.marketingOption4_label.Text = "وسائل التواصل الاجتماعي";
+            this.marketingOption4_label.Text = "وسائل التواصل الاجتماعي (فيسبوك، إنستغرام، مجموعات واتساب...).";
             this.marketingOption4_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // marketingOption5_numericUpDown
@@ -2163,7 +2163,7 @@
             this.marketingOption5_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.marketingOption5_label.Size = new System.Drawing.Size(256, 28);
             this.marketingOption5_label.TabIndex = 11;
-            this.marketingOption5_label.Text = "تقديم عروض خاصة أو حسومات أو أسعار منافسة";
+            this.marketingOption5_label.Text = "تقديم عروض خاصة، حسومات، أو أسعار منافسة.";
             this.marketingOption5_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // marketingOption6_numericUpDown
@@ -2191,7 +2191,7 @@
             this.marketingOption6_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.marketingOption6_label.Size = new System.Drawing.Size(256, 28);
             this.marketingOption6_label.TabIndex = 13;
-            this.marketingOption6_label.Text = "التعاون والتشبيك مع مهنيين وحرفيين آخرين";
+            this.marketingOption6_label.Text = "التعاون والتشبيك مع مهنيين وحرفيين آخرين.";
             this.marketingOption6_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // marketingOption7_numericUpDown
@@ -2219,7 +2219,7 @@
             this.marketingOption7_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.marketingOption7_label.Size = new System.Drawing.Size(256, 28);
             this.marketingOption7_label.TabIndex = 15;
-            this.marketingOption7_label.Text = "الإعلانات التقليدية";
+            this.marketingOption7_label.Text = "الإعلانات التقليدية (توزيع كروت، ملصقات، إعلانات طرقية).";
             this.marketingOption7_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // marketingOption8_numericUpDown
@@ -2246,7 +2246,7 @@
             this.marketingOption8_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.marketingOption8_label.Size = new System.Drawing.Size(66, 28);
             this.marketingOption8_label.TabIndex = 17;
-            this.marketingOption8_label.Text = "غير ذلك";
+            this.marketingOption8_label.Text = "غير ذلك (يرجى التحديد)";
             this.marketingOption8_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // marketing_other_textBox
@@ -2302,7 +2302,7 @@
             this.question33_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.question33_label.Size = new System.Drawing.Size(939, 28);
             this.question33_label.TabIndex = 28;
-            this.question33_label.Text = "12. ماهي المعدات الأساسية للبدء بالمهنة، مع ذكر المعدات الحديثة في حال وجدت؟";
+            this.question33_label.Text = "12. ماهي المعدات الأساسية للبدء بالمهنة (مع ذكر المعدات الحديثة في حال وجد)؟";
             this.question33_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // equipment_dataGridView
@@ -2313,7 +2313,8 @@
             this.equipment_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.equipment_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.equipment_dataGridView_column0,
-            this.equipment_dataGridView_column1});
+            this.equipment_dataGridView_column1,
+            this.equipmentDelete_dataGridView_column});
             this.equipment_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.equipment_dataGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.equipment_dataGridView.Location = new System.Drawing.Point(20, 2329);
@@ -2324,19 +2325,19 @@
             this.equipment_dataGridView.Size = new System.Drawing.Size(899, 210);
             this.equipment_dataGridView.TabIndex = 29;
             // 
-            // equipment_dataGridView_column0
+            // equipmentDelete_dataGridView_column
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.equipment_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle4;
-            this.equipment_dataGridView_column0.HeaderText = "الاختصاص";
-            this.equipment_dataGridView_column0.Name = "equipment_dataGridView_column0";
-            // 
-            // equipment_dataGridView_column1
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.equipment_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.equipment_dataGridView_column1.HeaderText = "المعدات";
-            this.equipment_dataGridView_column1.Name = "equipment_dataGridView_column1";
+            this.equipmentDelete_dataGridView_column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.equipmentDelete_dataGridView_column.FillWeight = 10F;
+            this.equipmentDelete_dataGridView_column.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.equipmentDelete_dataGridView_column.HeaderText = " ";
+            this.equipmentDelete_dataGridView_column.MinimumWidth = 50;
+            this.equipmentDelete_dataGridView_column.Name = "equipmentDelete_dataGridView_column";
+            this.equipmentDelete_dataGridView_column.ReadOnly = true;
+            this.equipmentDelete_dataGridView_column.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.equipmentDelete_dataGridView_column.Text = "Delete";
+            this.equipmentDelete_dataGridView_column.UseColumnTextForButtonValue = true;
+            this.equipmentDelete_dataGridView_column.Width = 50;
             // 
             // question34_label
             // 
@@ -2348,7 +2349,7 @@
             this.question34_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.question34_label.Size = new System.Drawing.Size(939, 28);
             this.question34_label.TabIndex = 30;
-            this.question34_label.Text = "13. ماهي التجهيزات الإضافية المطلوبة لافتتاح المشروع غير المعدات؟";
+            this.question34_label.Text = "13. ماهي التجهيزات الإضافية المطلوبة لافتتاح المشروع غير المعدات؟ ";
             this.question34_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // question39_label
@@ -2391,8 +2392,8 @@
             this.question40_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.question40_label.Size = new System.Drawing.Size(939, 28);
             this.question40_label.TabIndex = 34;
-            this.question40_label.Text = "15. ما هي أبرز التقنيات، المواد، الأساليب الجديدة، أو البرامج التي دخلت على هذه ا" +
-    "لمهنة خلال السنوات الأخيرة؟";
+            this.question40_label.Text = "15. ما هي أبرز التقنيات (المواد- أساليب الجديدة- برامج) التي دخلت على هذه المهنة " +
+    "خلال السنوات الأخيرة؟";
             this.question40_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // memo4_richTextBox
@@ -2437,8 +2438,7 @@
             this.section42_details_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.section42_details_label.Size = new System.Drawing.Size(939, 42);
             this.section42_details_label.TabIndex = 37;
-            this.section42_details_label.Text = "يسلط هذا المحور الضوء على أبرز الصعوبات التي تواجه عملك يوميا، ويفسح المجال لمشار" +
-    "كتنا حلولك المقترحة بناء على خبرتك العملية.";
+            this.section42_details_label.Text = resources.GetString("section42_details_label.Text");
             this.section42_details_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // question43_label
@@ -2463,7 +2463,8 @@
             this.challenges_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.challenges_dataGridView_column0,
             this.challenges_dataGridView_column1,
-            this.challenges_dataGridView_column2});
+            this.challenges_dataGridView_column2,
+            this.challengesDelete_dataGridView_column});
             this.challenges_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.challenges_dataGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.challenges_dataGridView.Location = new System.Drawing.Point(20, 3119);
@@ -2471,29 +2472,22 @@
             this.challenges_dataGridView.Name = "challenges_dataGridView";
             this.challenges_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.challenges_dataGridView.RowHeadersVisible = false;
-            this.challenges_dataGridView.Size = new System.Drawing.Size(899, 180);
+            this.challenges_dataGridView.Size = new System.Drawing.Size(899, 270);
             this.challenges_dataGridView.TabIndex = 40;
             // 
-            // challenges_dataGridView_column0
+            // challengesDelete_dataGridView_column
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.challenges_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle6;
-            this.challenges_dataGridView_column0.HeaderText = "التحدي";
-            this.challenges_dataGridView_column0.Name = "challenges_dataGridView_column0";
-            // 
-            // challenges_dataGridView_column1
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.challenges_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.challenges_dataGridView_column1.HeaderText = "العدد";
-            this.challenges_dataGridView_column1.Name = "challenges_dataGridView_column1";
-            // 
-            // challenges_dataGridView_column2
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.challenges_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle8;
-            this.challenges_dataGridView_column2.HeaderText = "اقتراحات الحلول";
-            this.challenges_dataGridView_column2.Name = "challenges_dataGridView_column2";
+            this.challengesDelete_dataGridView_column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.challengesDelete_dataGridView_column.FillWeight = 10F;
+            this.challengesDelete_dataGridView_column.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.challengesDelete_dataGridView_column.HeaderText = " ";
+            this.challengesDelete_dataGridView_column.MinimumWidth = 50;
+            this.challengesDelete_dataGridView_column.Name = "challengesDelete_dataGridView_column";
+            this.challengesDelete_dataGridView_column.ReadOnly = true;
+            this.challengesDelete_dataGridView_column.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.challengesDelete_dataGridView_column.Text = "Delete";
+            this.challengesDelete_dataGridView_column.UseColumnTextForButtonValue = true;
+            this.challengesDelete_dataGridView_column.Width = 50;
             // 
             // section44_label
             // 
@@ -2501,7 +2495,7 @@
             this.section44_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.section44_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.section44_label.ForeColor = System.Drawing.Color.White;
-            this.section44_label.Location = new System.Drawing.Point(0, 3333);
+            this.section44_label.Location = new System.Drawing.Point(0, 3423);
             this.section44_label.Margin = new System.Windows.Forms.Padding(0, 16, 0, 8);
             this.section44_label.Name = "section44_label";
             this.section44_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2514,7 +2508,7 @@
             // 
             this.section45_details_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.section45_details_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.section45_details_label.Location = new System.Drawing.Point(0, 3379);
+            this.section45_details_label.Location = new System.Drawing.Point(0, 3469);
             this.section45_details_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.section45_details_label.Name = "section45_details_label";
             this.section45_details_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2528,13 +2522,13 @@
             // 
             this.question46_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question46_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question46_label.Location = new System.Drawing.Point(0, 3433);
+            this.question46_label.Location = new System.Drawing.Point(0, 3523);
             this.question46_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question46_label.Name = "question46_label";
             this.question46_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.question46_label.Size = new System.Drawing.Size(939, 28);
             this.question46_label.TabIndex = 43;
-            this.question46_label.Text = "17. ما هو الأسلوب الأفضل لتعليم وتدريب أساسيات المهنة؟";
+            this.question46_label.Text = "17. ما هو الأسلوب الأفضل لتعليم وتدريب أساسيات المهنة؟ ";
             this.question46_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // countOptions6_tableLayoutPanel
@@ -2552,7 +2546,7 @@
             this.countOptions6_tableLayoutPanel.Controls.Add(this.countOption22_numericUpDown, 3, 1);
             this.countOptions6_tableLayoutPanel.Controls.Add(this.countOption50_label, 0, 1);
             this.countOptions6_tableLayoutPanel.Controls.Add(this.countOption23_numericUpDown, 1, 1);
-            this.countOptions6_tableLayoutPanel.Location = new System.Drawing.Point(339, 3469);
+            this.countOptions6_tableLayoutPanel.Location = new System.Drawing.Point(339, 3559);
             this.countOptions6_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.countOptions6_tableLayoutPanel.Name = "countOptions6_tableLayoutPanel";
             this.countOptions6_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2682,7 +2676,7 @@
             // 
             this.question51_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question51_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question51_label.Location = new System.Drawing.Point(0, 3547);
+            this.question51_label.Location = new System.Drawing.Point(0, 3637);
             this.question51_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question51_label.Name = "question51_label";
             this.question51_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2698,7 +2692,7 @@
             this.memo6_richTextBox.DetectUrls = false;
             this.memo6_richTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.memo6_richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.memo6_richTextBox.Location = new System.Drawing.Point(20, 3597);
+            this.memo6_richTextBox.Location = new System.Drawing.Point(20, 3687);
             this.memo6_richTextBox.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.memo6_richTextBox.Name = "memo6_richTextBox";
             this.memo6_richTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2713,7 +2707,7 @@
             // 
             this.question52_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question52_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question52_label.Location = new System.Drawing.Point(0, 3709);
+            this.question52_label.Location = new System.Drawing.Point(0, 3799);
             this.question52_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question52_label.Name = "question52_label";
             this.question52_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2731,10 +2725,11 @@
             this.participant1_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.participant1_dataGridView_column0,
             this.participant1_dataGridView_column1,
-            this.participant1_dataGridView_column2});
+            this.participant1_dataGridView_column2,
+            this.participant1Delete_dataGridView_column});
             this.participant1_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.participant1_dataGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.participant1_dataGridView.Location = new System.Drawing.Point(20, 3745);
+            this.participant1_dataGridView.Location = new System.Drawing.Point(20, 3835);
             this.participant1_dataGridView.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.participant1_dataGridView.Name = "participant1_dataGridView";
             this.participant1_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2746,28 +2741,30 @@
             // 
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.participant1_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle9;
+            this.participant1_dataGridView_column0.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.participant1_dataGridView_column0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.participant1_dataGridView_column0.HeaderText = "رقم المشروع";
             this.participant1_dataGridView_column0.Name = "participant1_dataGridView_column0";
             // 
-            // participant1_dataGridView_column1
+            // participant1Delete_dataGridView_column
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant1_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle10;
-            this.participant1_dataGridView_column1.HeaderText = "اسم المستفيد";
-            this.participant1_dataGridView_column1.Name = "participant1_dataGridView_column1";
-            // 
-            // participant1_dataGridView_column2
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant1_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle11;
-            this.participant1_dataGridView_column2.HeaderText = "الاختصاص";
-            this.participant1_dataGridView_column2.Name = "participant1_dataGridView_column2";
+            this.participant1Delete_dataGridView_column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.participant1Delete_dataGridView_column.FillWeight = 10F;
+            this.participant1Delete_dataGridView_column.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.participant1Delete_dataGridView_column.HeaderText = " ";
+            this.participant1Delete_dataGridView_column.MinimumWidth = 50;
+            this.participant1Delete_dataGridView_column.Name = "participant1Delete_dataGridView_column";
+            this.participant1Delete_dataGridView_column.ReadOnly = true;
+            this.participant1Delete_dataGridView_column.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.participant1Delete_dataGridView_column.Text = "Delete";
+            this.participant1Delete_dataGridView_column.UseColumnTextForButtonValue = true;
+            this.participant1Delete_dataGridView_column.Width = 50;
             // 
             // question53_label
             // 
             this.question53_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question53_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question53_label.Location = new System.Drawing.Point(0, 3921);
+            this.question53_label.Location = new System.Drawing.Point(0, 4011);
             this.question53_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question53_label.Name = "question53_label";
             this.question53_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2785,10 +2782,11 @@
             this.participant2_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.participant2_dataGridView_column0,
             this.participant2_dataGridView_column1,
-            this.participant2_dataGridView_column2});
+            this.participant2_dataGridView_column2,
+            this.participant2Delete_dataGridView_column});
             this.participant2_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.participant2_dataGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.participant2_dataGridView.Location = new System.Drawing.Point(20, 3957);
+            this.participant2_dataGridView.Location = new System.Drawing.Point(20, 4047);
             this.participant2_dataGridView.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.participant2_dataGridView.Name = "participant2_dataGridView";
             this.participant2_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2800,35 +2798,37 @@
             // 
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.participant2_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle12;
+            this.participant2_dataGridView_column0.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.participant2_dataGridView_column0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.participant2_dataGridView_column0.HeaderText = "رقم المشروع";
             this.participant2_dataGridView_column0.Name = "participant2_dataGridView_column0";
             // 
-            // participant2_dataGridView_column1
+            // participant2Delete_dataGridView_column
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant2_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle13;
-            this.participant2_dataGridView_column1.HeaderText = "اسم المستفيد";
-            this.participant2_dataGridView_column1.Name = "participant2_dataGridView_column1";
-            // 
-            // participant2_dataGridView_column2
-            // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant2_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle14;
-            this.participant2_dataGridView_column2.HeaderText = "الاختصاص";
-            this.participant2_dataGridView_column2.Name = "participant2_dataGridView_column2";
+            this.participant2Delete_dataGridView_column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.participant2Delete_dataGridView_column.FillWeight = 10F;
+            this.participant2Delete_dataGridView_column.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.participant2Delete_dataGridView_column.HeaderText = " ";
+            this.participant2Delete_dataGridView_column.MinimumWidth = 50;
+            this.participant2Delete_dataGridView_column.Name = "participant2Delete_dataGridView_column";
+            this.participant2Delete_dataGridView_column.ReadOnly = true;
+            this.participant2Delete_dataGridView_column.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.participant2Delete_dataGridView_column.Text = "Delete";
+            this.participant2Delete_dataGridView_column.UseColumnTextForButtonValue = true;
+            this.participant2Delete_dataGridView_column.Width = 50;
             // 
             // question54_label
             // 
             this.question54_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question54_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question54_label.Location = new System.Drawing.Point(0, 4133);
+            this.question54_label.Location = new System.Drawing.Point(0, 4223);
             this.question54_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question54_label.Name = "question54_label";
             this.question54_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.question54_label.Size = new System.Drawing.Size(939, 42);
             this.question54_label.TabIndex = 51;
-            this.question54_label.Text = "21. من لديه الرغبة في الانضمام إلى دورة تدريبية تهدف إلى تطوير مهارات الإدارة الم" +
-    "الية والقانونية والتسويقية لإدارة مشروعك الحالي؟";
+            this.question54_label.Text = "21. من لديه الرغبة في الانضمام إلى دورة تدريبية تهدف إلى تطوير مهارته في الإدارة " +
+    "المالية والقانونية والتسويقية لإدارة مشروعك الحالي؟ ";
             this.question54_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // participant3_dataGridView
@@ -2840,10 +2840,11 @@
             this.participant3_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.participant3_dataGridView_column0,
             this.participant3_dataGridView_column1,
-            this.participant3_dataGridView_column2});
+            this.participant3_dataGridView_column2,
+            this.participant3Delete_dataGridView_column});
             this.participant3_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.participant3_dataGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.participant3_dataGridView.Location = new System.Drawing.Point(20, 4183);
+            this.participant3_dataGridView.Location = new System.Drawing.Point(20, 4273);
             this.participant3_dataGridView.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.participant3_dataGridView.Name = "participant3_dataGridView";
             this.participant3_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2855,34 +2856,37 @@
             // 
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.participant3_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle15;
+            this.participant3_dataGridView_column0.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.participant3_dataGridView_column0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.participant3_dataGridView_column0.HeaderText = "رقم المشروع";
             this.participant3_dataGridView_column0.Name = "participant3_dataGridView_column0";
             // 
-            // participant3_dataGridView_column1
+            // participant3Delete_dataGridView_column
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant3_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle16;
-            this.participant3_dataGridView_column1.HeaderText = "اسم المستفيد";
-            this.participant3_dataGridView_column1.Name = "participant3_dataGridView_column1";
-            // 
-            // participant3_dataGridView_column2
-            // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant3_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle17;
-            this.participant3_dataGridView_column2.HeaderText = "الاختصاص";
-            this.participant3_dataGridView_column2.Name = "participant3_dataGridView_column2";
+            this.participant3Delete_dataGridView_column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.participant3Delete_dataGridView_column.FillWeight = 10F;
+            this.participant3Delete_dataGridView_column.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.participant3Delete_dataGridView_column.HeaderText = " ";
+            this.participant3Delete_dataGridView_column.MinimumWidth = 50;
+            this.participant3Delete_dataGridView_column.Name = "participant3Delete_dataGridView_column";
+            this.participant3Delete_dataGridView_column.ReadOnly = true;
+            this.participant3Delete_dataGridView_column.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.participant3Delete_dataGridView_column.Text = "Delete";
+            this.participant3Delete_dataGridView_column.UseColumnTextForButtonValue = true;
+            this.participant3Delete_dataGridView_column.Width = 50;
             // 
             // question55_label
             // 
             this.question55_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question55_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question55_label.Location = new System.Drawing.Point(0, 4359);
+            this.question55_label.Location = new System.Drawing.Point(0, 4449);
             this.question55_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question55_label.Name = "question55_label";
             this.question55_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.question55_label.Size = new System.Drawing.Size(939, 28);
             this.question55_label.TabIndex = 53;
-            this.question55_label.Text = "22. من لديه الرغبة للمشاركة في بازار أو معرض من تنظيم المركز؟";
+            this.question55_label.Text = "22. من لديه الرغبة للمشاركة في بازار أو معرض من تنظيم المركز؟ يُسأل في حال تتناسب" +
+    " فكرة المعرض مع المهنة";
             this.question55_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // participant4_dataGridView
@@ -2894,10 +2898,11 @@
             this.participant4_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.participant4_dataGridView_column0,
             this.participant4_dataGridView_column1,
-            this.participant4_dataGridView_column2});
+            this.participant4_dataGridView_column2,
+            this.participant4Delete_dataGridView_column});
             this.participant4_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.participant4_dataGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.participant4_dataGridView.Location = new System.Drawing.Point(20, 4395);
+            this.participant4_dataGridView.Location = new System.Drawing.Point(20, 4485);
             this.participant4_dataGridView.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.participant4_dataGridView.Name = "participant4_dataGridView";
             this.participant4_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2909,22 +2914,24 @@
             // 
             dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.participant4_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle18;
+            this.participant4_dataGridView_column0.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.participant4_dataGridView_column0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.participant4_dataGridView_column0.HeaderText = "رقم المشروع";
             this.participant4_dataGridView_column0.Name = "participant4_dataGridView_column0";
             // 
-            // participant4_dataGridView_column1
+            // participant4Delete_dataGridView_column
             // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant4_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle19;
-            this.participant4_dataGridView_column1.HeaderText = "اسم المستفيد";
-            this.participant4_dataGridView_column1.Name = "participant4_dataGridView_column1";
-            // 
-            // participant4_dataGridView_column2
-            // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant4_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle20;
-            this.participant4_dataGridView_column2.HeaderText = "الاختصاص";
-            this.participant4_dataGridView_column2.Name = "participant4_dataGridView_column2";
+            this.participant4Delete_dataGridView_column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.participant4Delete_dataGridView_column.FillWeight = 10F;
+            this.participant4Delete_dataGridView_column.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.participant4Delete_dataGridView_column.HeaderText = " ";
+            this.participant4Delete_dataGridView_column.MinimumWidth = 50;
+            this.participant4Delete_dataGridView_column.Name = "participant4Delete_dataGridView_column";
+            this.participant4Delete_dataGridView_column.ReadOnly = true;
+            this.participant4Delete_dataGridView_column.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.participant4Delete_dataGridView_column.Text = "Delete";
+            this.participant4Delete_dataGridView_column.UseColumnTextForButtonValue = true;
+            this.participant4Delete_dataGridView_column.Width = 50;
             // 
             // countOptions5_tableLayoutPanel
             // 
@@ -3090,7 +3097,7 @@
             this.minutes_scrollPanel.Name = "minutes_scrollPanel";
             this.minutes_scrollPanel.Padding = new System.Windows.Forms.Padding(24, 28, 24, 18);
             this.minutes_scrollPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.minutes_scrollPanel.Size = new System.Drawing.Size(1004, 527);
+            this.minutes_scrollPanel.Size = new System.Drawing.Size(1004, 532);
             this.minutes_scrollPanel.TabIndex = 0;
             // 
             // minutesContent_tableLayoutPanel
@@ -3154,8 +3161,10 @@
             this.attendees_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.attendees_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.attendees_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.attendeesProject_dataGridView_column,
             this.attendees_dataGridView_column0,
-            this.attendees_dataGridView_column1});
+            this.attendees_dataGridView_column1,
+            this.attendeesDelete_dataGridView_column});
             this.attendees_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.attendees_dataGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.attendees_dataGridView.Location = new System.Drawing.Point(20, 58);
@@ -3166,19 +3175,26 @@
             this.attendees_dataGridView.Size = new System.Drawing.Size(899, 220);
             this.attendees_dataGridView.TabIndex = 1;
             // 
-            // attendees_dataGridView_column0
+            // attendeesProject_dataGridView_column
             // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.attendees_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle21;
-            this.attendees_dataGridView_column0.HeaderText = "اسم المستفيد";
-            this.attendees_dataGridView_column0.Name = "attendees_dataGridView_column0";
+            this.attendeesProject_dataGridView_column.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.attendeesProject_dataGridView_column.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.attendeesProject_dataGridView_column.HeaderText = "رقم المشروع";
+            this.attendeesProject_dataGridView_column.Name = "attendeesProject_dataGridView_column";
             // 
-            // attendees_dataGridView_column1
+            // attendeesDelete_dataGridView_column
             // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.attendees_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle22;
-            this.attendees_dataGridView_column1.HeaderText = "الاختصاص";
-            this.attendees_dataGridView_column1.Name = "attendees_dataGridView_column1";
+            this.attendeesDelete_dataGridView_column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.attendeesDelete_dataGridView_column.FillWeight = 10F;
+            this.attendeesDelete_dataGridView_column.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.attendeesDelete_dataGridView_column.HeaderText = " ";
+            this.attendeesDelete_dataGridView_column.MinimumWidth = 50;
+            this.attendeesDelete_dataGridView_column.Name = "attendeesDelete_dataGridView_column";
+            this.attendeesDelete_dataGridView_column.ReadOnly = true;
+            this.attendeesDelete_dataGridView_column.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.attendeesDelete_dataGridView_column.Text = "Delete";
+            this.attendeesDelete_dataGridView_column.UseColumnTextForButtonValue = true;
+            this.attendeesDelete_dataGridView_column.Width = 50;
             // 
             // question57_label
             // 
@@ -3397,9 +3413,9 @@
             this.marketing_checkBox1.Location = new System.Drawing.Point(3, 3);
             this.marketing_checkBox1.Name = "marketing_checkBox1";
             this.marketing_checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.marketing_checkBox1.Size = new System.Drawing.Size(227, 22);
+            this.marketing_checkBox1.Size = new System.Drawing.Size(231, 22);
             this.marketing_checkBox1.TabIndex = 0;
-            this.marketing_checkBox1.Text = "السمعة الطيبة وتوصيات الزبائن الحاليين";
+            this.marketing_checkBox1.Text = "السمعة الطيبة وتوصيات الزبائن الحاليين.";
             // 
             // marketing_checkRow15_flowLayoutPanel
             // 
@@ -3422,9 +3438,9 @@
             this.marketing_checkBox2.Location = new System.Drawing.Point(3, 3);
             this.marketing_checkBox2.Name = "marketing_checkBox2";
             this.marketing_checkBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.marketing_checkBox2.Size = new System.Drawing.Size(136, 22);
+            this.marketing_checkBox2.Size = new System.Drawing.Size(281, 22);
             this.marketing_checkBox2.TabIndex = 0;
-            this.marketing_checkBox2.Text = "موقع المحل أو الورشة";
+            this.marketing_checkBox2.Text = "موقع المحل أو الورشة (الاعتماد على حركة المارة).";
             // 
             // marketing_checkRow16_flowLayoutPanel
             // 
@@ -3447,9 +3463,9 @@
             this.marketing_checkBox3.Location = new System.Drawing.Point(3, 3);
             this.marketing_checkBox3.Name = "marketing_checkBox3";
             this.marketing_checkBox3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.marketing_checkBox3.Size = new System.Drawing.Size(171, 22);
+            this.marketing_checkBox3.Size = new System.Drawing.Size(175, 22);
             this.marketing_checkBox3.TabIndex = 0;
-            this.marketing_checkBox3.Text = "العلاقات الشخصية والمعارف";
+            this.marketing_checkBox3.Text = "العلاقات الشخصية والمعارف.";
             // 
             // marketing_checkRow17_flowLayoutPanel
             // 
@@ -3472,9 +3488,9 @@
             this.marketing_checkBox4.Location = new System.Drawing.Point(3, 3);
             this.marketing_checkBox4.Name = "marketing_checkBox4";
             this.marketing_checkBox4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.marketing_checkBox4.Size = new System.Drawing.Size(159, 22);
+            this.marketing_checkBox4.Size = new System.Drawing.Size(377, 22);
             this.marketing_checkBox4.TabIndex = 0;
-            this.marketing_checkBox4.Text = "وسائل التواصل الاجتماعي";
+            this.marketing_checkBox4.Text = "وسائل التواصل الاجتماعي (فيسبوك، إنستغرام، مجموعات واتساب...).";
             // 
             // marketing_checkRow18_flowLayoutPanel
             // 
@@ -3499,7 +3515,7 @@
             this.marketing_checkBox5.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.marketing_checkBox5.Size = new System.Drawing.Size(272, 22);
             this.marketing_checkBox5.TabIndex = 0;
-            this.marketing_checkBox5.Text = "تقديم عروض خاصة أو حسومات أو أسعار منافسة";
+            this.marketing_checkBox5.Text = "تقديم عروض خاصة، حسومات، أو أسعار منافسة.";
             // 
             // marketing_checkRow19_flowLayoutPanel
             // 
@@ -3522,9 +3538,9 @@
             this.marketing_checkBox6.Location = new System.Drawing.Point(3, 3);
             this.marketing_checkBox6.Name = "marketing_checkBox6";
             this.marketing_checkBox6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.marketing_checkBox6.Size = new System.Drawing.Size(242, 22);
+            this.marketing_checkBox6.Size = new System.Drawing.Size(246, 22);
             this.marketing_checkBox6.TabIndex = 0;
-            this.marketing_checkBox6.Text = "التعاون والتشبيك مع مهنيين وحرفيين آخرين";
+            this.marketing_checkBox6.Text = "التعاون والتشبيك مع مهنيين وحرفيين آخرين.";
             // 
             // marketing_checkRow20_flowLayoutPanel
             // 
@@ -3547,9 +3563,9 @@
             this.marketing_checkBox7.Location = new System.Drawing.Point(3, 3);
             this.marketing_checkBox7.Name = "marketing_checkBox7";
             this.marketing_checkBox7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.marketing_checkBox7.Size = new System.Drawing.Size(116, 22);
+            this.marketing_checkBox7.Size = new System.Drawing.Size(329, 22);
             this.marketing_checkBox7.TabIndex = 0;
-            this.marketing_checkBox7.Text = "الإعلانات التقليدية";
+            this.marketing_checkBox7.Text = "الإعلانات التقليدية (توزيع كروت، ملصقات، إعلانات طرقية).";
             // 
             // marketing_checkRow21_flowLayoutPanel
             // 
@@ -3569,13 +3585,13 @@
             this.marketing_other_checkBox.AutoSize = true;
             this.marketing_other_checkBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.marketing_other_checkBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.marketing_other_checkBox.Location = new System.Drawing.Point(279, 3);
+            this.marketing_other_checkBox.Location = new System.Drawing.Point(200, 3);
             this.marketing_other_checkBox.Name = "marketing_other_checkBox";
             this.marketing_other_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.marketing_other_checkBox.Size = new System.Drawing.Size(67, 22);
+            this.marketing_other_checkBox.Size = new System.Drawing.Size(146, 22);
             this.marketing_other_checkBox.TabIndex = 0;
             this.marketing_other_checkBox.Tag = this.marketing_other_textBox;
-            this.marketing_other_checkBox.Text = "غير ذلك";
+            this.marketing_other_checkBox.Text = "غير ذلك (يرجى التحديد)";
             this.marketing_other_checkBox.CheckedChanged += new System.EventHandler(this.OtherCheckBox_CheckedChanged);
             // 
             // meetingInfo_tableLayoutPanel
@@ -3588,7 +3604,7 @@
             this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11F));
             this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.33333F));
             this.meetingInfo_tableLayoutPanel.Controls.Add(this.profession_label, 0, 0);
-            this.meetingInfo_tableLayoutPanel.Controls.Add(this.profession_textBox, 1, 0);
+            this.meetingInfo_tableLayoutPanel.Controls.Add(this.professionSelector_tableLayoutPanel, 1, 0);
             this.meetingInfo_tableLayoutPanel.Controls.Add(this.meetingDate_label, 2, 0);
             this.meetingInfo_tableLayoutPanel.Controls.Add(this.place_label, 4, 0);
             this.meetingInfo_tableLayoutPanel.Controls.Add(this.place_textBox, 5, 0);
@@ -3628,16 +3644,60 @@
             this.profession_label.Text = "المهنة:";
             this.profession_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // profession_textBox
+            // professionSelector_tableLayoutPanel
             // 
-            this.profession_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.profession_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.profession_textBox.Location = new System.Drawing.Point(683, 6);
-            this.profession_textBox.Name = "profession_textBox";
-            this.profession_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.profession_textBox.Size = new System.Drawing.Size(221, 24);
-            this.profession_textBox.TabIndex = 1;
-            this.profession_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.professionSelector_tableLayoutPanel.ColumnCount = 2;
+            this.professionSelector_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.professionSelector_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.professionSelector_tableLayoutPanel.Controls.Add(this.professionSubCategory_comboBox, 1, 0);
+            this.professionSelector_tableLayoutPanel.Controls.Add(this.professionCareer_comboBox, 0, 0);
+            this.professionSelector_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.professionSelector_tableLayoutPanel.Location = new System.Drawing.Point(683, 0);
+            this.professionSelector_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.professionSelector_tableLayoutPanel.Name = "professionSelector_tableLayoutPanel";
+            this.professionSelector_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.professionSelector_tableLayoutPanel.RowCount = 1;
+            this.professionSelector_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.professionSelector_tableLayoutPanel.Size = new System.Drawing.Size(221, 37);
+            this.professionSelector_tableLayoutPanel.TabIndex = 1;
+            // 
+            // professionSubCategory_comboBox
+            // 
+            this.professionSubCategory_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.professionSubCategory_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.professionSubCategory_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.professionSubCategory_comboBox.BackColor = System.Drawing.Color.White;
+            this.professionSubCategory_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.professionSubCategory_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.professionSubCategory_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.professionSubCategory_comboBox.FormattingEnabled = true;
+            this.professionSubCategory_comboBox.Location = new System.Drawing.Point(113, 6);
+            this.professionSubCategory_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.professionSubCategory_comboBox.Name = "professionSubCategory_comboBox";
+            this.professionSubCategory_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.professionSubCategory_comboBox.Size = new System.Drawing.Size(105, 25);
+            this.professionSubCategory_comboBox.TabIndex = 0;
+            this.professionSubCategory_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.professionSubCategory_comboBox_DrawItem);
+            this.professionSubCategory_comboBox.SelectedIndexChanged += new System.EventHandler(this.professionSubCategory_comboBox_SelectedIndexChanged);
+            // 
+            // professionCareer_comboBox
+            // 
+            this.professionCareer_comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.professionCareer_comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.professionCareer_comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.professionCareer_comboBox.BackColor = System.Drawing.Color.White;
+            this.professionCareer_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.professionCareer_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.professionCareer_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.professionCareer_comboBox.FormattingEnabled = true;
+            this.professionCareer_comboBox.Location = new System.Drawing.Point(3, 6);
+            this.professionCareer_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.professionCareer_comboBox.Name = "professionCareer_comboBox";
+            this.professionCareer_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.professionCareer_comboBox.Size = new System.Drawing.Size(104, 25);
+            this.professionCareer_comboBox.TabIndex = 1;
+            this.professionCareer_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.professionCareer_comboBox_DrawItem);
+            this.professionCareer_comboBox.SelectedIndexChanged += new System.EventHandler(this.professionCareer_comboBox_SelectedIndexChanged);
             // 
             // meetingDate_label
             // 
@@ -3812,23 +3872,6 @@
             this.editedBy_textBox.Size = new System.Drawing.Size(225, 24);
             this.editedBy_textBox.TabIndex = 17;
             this.editedBy_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.BackColor = System.Drawing.Color.White;
-            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.Black;
-            this.dateTimePicker1.CustomFormat = "yyyy/MM/dd";
-            this.dateTimePicker1.ForeColor = System.Drawing.Color.Black;
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(345, 6);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dateTimePicker1.RightToLeftLayout = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(221, 24);
-            this.dateTimePicker1.TabIndex = 3;
             // 
             // attendanceCount_numericUpDown
             // 
@@ -4027,6 +4070,154 @@
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.Width = 299;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker1.BackColor = System.Drawing.Color.White;
+            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.Black;
+            this.dateTimePicker1.CustomFormat = "yyyy/MM/dd";
+            this.dateTimePicker1.ForeColor = System.Drawing.Color.Black;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(345, 6);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dateTimePicker1.RightToLeftLayout = true;
+            this.dateTimePicker1.Size = new System.Drawing.Size(221, 24);
+            this.dateTimePicker1.TabIndex = 3;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "العدد";
+            this.Column1.Name = "Column1";
+            // 
+            // season_dataGridView_column0
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.season_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle1;
+            this.season_dataGridView_column0.HeaderText = "من";
+            this.season_dataGridView_column0.Name = "season_dataGridView_column0";
+            // 
+            // season_dataGridView_column1
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.season_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.season_dataGridView_column1.HeaderText = "إلى";
+            this.season_dataGridView_column1.Name = "season_dataGridView_column1";
+            // 
+            // season_dataGridView_column2
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.season_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.season_dataGridView_column2.HeaderText = "السبب";
+            this.season_dataGridView_column2.Name = "season_dataGridView_column2";
+            // 
+            // equipment_dataGridView_column0
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.equipment_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle4;
+            this.equipment_dataGridView_column0.HeaderText = "الاختصاص";
+            this.equipment_dataGridView_column0.Name = "equipment_dataGridView_column0";
+            // 
+            // equipment_dataGridView_column1
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.equipment_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.equipment_dataGridView_column1.HeaderText = "المعدات";
+            this.equipment_dataGridView_column1.Name = "equipment_dataGridView_column1";
+            // 
+            // challenges_dataGridView_column0
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.challenges_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle6;
+            this.challenges_dataGridView_column0.HeaderText = "التحدي";
+            this.challenges_dataGridView_column0.Name = "challenges_dataGridView_column0";
+            // 
+            // challenges_dataGridView_column1
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.challenges_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.challenges_dataGridView_column1.HeaderText = "العدد";
+            this.challenges_dataGridView_column1.Name = "challenges_dataGridView_column1";
+            // 
+            // challenges_dataGridView_column2
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.challenges_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle8;
+            this.challenges_dataGridView_column2.HeaderText = "اقتراحات الحلول";
+            this.challenges_dataGridView_column2.Name = "challenges_dataGridView_column2";
+            // 
+            // participant1_dataGridView_column1
+            // 
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant1_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle10;
+            this.participant1_dataGridView_column1.HeaderText = "اسم المستفيد";
+            this.participant1_dataGridView_column1.Name = "participant1_dataGridView_column1";
+            // 
+            // participant1_dataGridView_column2
+            // 
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant1_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle11;
+            this.participant1_dataGridView_column2.HeaderText = "الاختصاص";
+            this.participant1_dataGridView_column2.Name = "participant1_dataGridView_column2";
+            // 
+            // participant2_dataGridView_column1
+            // 
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant2_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle13;
+            this.participant2_dataGridView_column1.HeaderText = "اسم المستفيد";
+            this.participant2_dataGridView_column1.Name = "participant2_dataGridView_column1";
+            // 
+            // participant2_dataGridView_column2
+            // 
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant2_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle14;
+            this.participant2_dataGridView_column2.HeaderText = "الاختصاص";
+            this.participant2_dataGridView_column2.Name = "participant2_dataGridView_column2";
+            // 
+            // participant3_dataGridView_column1
+            // 
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant3_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle16;
+            this.participant3_dataGridView_column1.HeaderText = "اسم المستفيد";
+            this.participant3_dataGridView_column1.Name = "participant3_dataGridView_column1";
+            // 
+            // participant3_dataGridView_column2
+            // 
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant3_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle17;
+            this.participant3_dataGridView_column2.HeaderText = "الاختصاص";
+            this.participant3_dataGridView_column2.Name = "participant3_dataGridView_column2";
+            // 
+            // participant4_dataGridView_column1
+            // 
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant4_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle19;
+            this.participant4_dataGridView_column1.HeaderText = "اسم المستفيد";
+            this.participant4_dataGridView_column1.Name = "participant4_dataGridView_column1";
+            // 
+            // participant4_dataGridView_column2
+            // 
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant4_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle20;
+            this.participant4_dataGridView_column2.HeaderText = "الاختصاص";
+            this.participant4_dataGridView_column2.Name = "participant4_dataGridView_column2";
+            // 
+            // attendees_dataGridView_column0
+            // 
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.attendees_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle21;
+            this.attendees_dataGridView_column0.HeaderText = "اسم المستفيد";
+            this.attendees_dataGridView_column0.Name = "attendees_dataGridView_column0";
+            // 
+            // attendees_dataGridView_column1
+            // 
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.attendees_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle22;
+            this.attendees_dataGridView_column1.HeaderText = "الاختصاص";
+            this.attendees_dataGridView_column1.Name = "attendees_dataGridView_column1";
+            // 
             // dataGridViewTextBoxColumn20
             // 
             dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -4177,6 +4368,7 @@
             this.marketing_checkRow21_flowLayoutPanel.PerformLayout();
             this.meetingInfo_tableLayoutPanel.ResumeLayout(false);
             this.meetingInfo_tableLayoutPanel.PerformLayout();
+            this.professionSelector_tableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.invitedCount_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.absenceCount_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attendanceCount_numericUpDown)).EndInit();
@@ -4330,6 +4522,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn challenges_dataGridView_column0;
         private System.Windows.Forms.DataGridViewTextBoxColumn challenges_dataGridView_column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn challenges_dataGridView_column2;
+        private System.Windows.Forms.DataGridViewButtonColumn challengesDelete_dataGridView_column;
         private System.Windows.Forms.Label section44_label;
         private System.Windows.Forms.Label section45_details_label;
         private System.Windows.Forms.Label question46_label;
@@ -4340,31 +4533,37 @@
         private System.Windows.Forms.RichTextBox memo6_richTextBox;
         private System.Windows.Forms.Label question52_label;
         private System.Windows.Forms.DataGridView participant1_dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn participant1_dataGridView_column0;
+        private System.Windows.Forms.DataGridViewComboBoxColumn participant1_dataGridView_column0;
         private System.Windows.Forms.DataGridViewTextBoxColumn participant1_dataGridView_column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn participant1_dataGridView_column2;
+        private System.Windows.Forms.DataGridViewButtonColumn participant1Delete_dataGridView_column;
         private System.Windows.Forms.Label question53_label;
         private System.Windows.Forms.DataGridView participant2_dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn participant2_dataGridView_column0;
+        private System.Windows.Forms.DataGridViewComboBoxColumn participant2_dataGridView_column0;
         private System.Windows.Forms.DataGridViewTextBoxColumn participant2_dataGridView_column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn participant2_dataGridView_column2;
+        private System.Windows.Forms.DataGridViewButtonColumn participant2Delete_dataGridView_column;
         private System.Windows.Forms.Label question54_label;
         private System.Windows.Forms.DataGridView participant3_dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn participant3_dataGridView_column0;
+        private System.Windows.Forms.DataGridViewComboBoxColumn participant3_dataGridView_column0;
         private System.Windows.Forms.DataGridViewTextBoxColumn participant3_dataGridView_column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn participant3_dataGridView_column2;
+        private System.Windows.Forms.DataGridViewButtonColumn participant3Delete_dataGridView_column;
         private System.Windows.Forms.Label question55_label;
         private System.Windows.Forms.DataGridView participant4_dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn participant4_dataGridView_column0;
+        private System.Windows.Forms.DataGridViewComboBoxColumn participant4_dataGridView_column0;
         private System.Windows.Forms.DataGridViewTextBoxColumn participant4_dataGridView_column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn participant4_dataGridView_column2;
+        private System.Windows.Forms.DataGridViewButtonColumn participant4Delete_dataGridView_column;
         private System.Windows.Forms.TabPage minutes_tabPage;
         private System.Windows.Forms.Panel minutes_scrollPanel;
         private System.Windows.Forms.TableLayoutPanel minutesContent_tableLayoutPanel;
         private System.Windows.Forms.Label section56_label;
         private System.Windows.Forms.DataGridView attendees_dataGridView;
+        private System.Windows.Forms.DataGridViewComboBoxColumn attendeesProject_dataGridView_column;
         private System.Windows.Forms.DataGridViewTextBoxColumn attendees_dataGridView_column0;
         private System.Windows.Forms.DataGridViewTextBoxColumn attendees_dataGridView_column1;
+        private System.Windows.Forms.DataGridViewButtonColumn attendeesDelete_dataGridView_column;
         private System.Windows.Forms.Label question57_label;
         private System.Windows.Forms.RichTextBox memo7_richTextBox;
         private System.Windows.Forms.Label question58_label;
@@ -4377,7 +4576,9 @@
         private System.Windows.Forms.RichTextBox memo11_richTextBox;
         private System.Windows.Forms.TableLayoutPanel meetingInfo_tableLayoutPanel;
         private System.Windows.Forms.Label profession_label;
-        private System.Windows.Forms.TextBox profession_textBox;
+        private System.Windows.Forms.TableLayoutPanel professionSelector_tableLayoutPanel;
+        private System.Windows.Forms.ComboBox professionSubCategory_comboBox;
+        private System.Windows.Forms.ComboBox professionCareer_comboBox;
         private System.Windows.Forms.Label meetingDate_label;
         private System.Windows.Forms.Label place_label;
         private System.Windows.Forms.TextBox place_textBox;
@@ -4411,8 +4612,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn season_dataGridView_column0;
         private System.Windows.Forms.DataGridViewTextBoxColumn season_dataGridView_column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn season_dataGridView_column2;
+        private System.Windows.Forms.DataGridViewButtonColumn seasonDelete_dataGridView_column;
         private System.Windows.Forms.DataGridViewTextBoxColumn equipment_dataGridView_column0;
         private System.Windows.Forms.DataGridViewTextBoxColumn equipment_dataGridView_column1;
+        private System.Windows.Forms.DataGridViewButtonColumn equipmentDelete_dataGridView_column;
         private System.Windows.Forms.TextBox countOption15_other_textBox;
         private System.Windows.Forms.Label competitionSevere_label;
         private System.Windows.Forms.Label competitionSevereReason_label;
