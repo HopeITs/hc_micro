@@ -156,6 +156,7 @@ namespace MyWorkApplication
                             else if (db1.Equals("hcsyria_micro_d")) project = "Micro Project - Damascus";
                             else if (db1.Equals("hcsyria_micro_l")) project = "Micro Project - Latakia";
                             else if (db1.Equals("hcsyria_micro_w")) project = "Micro Project - AlWadi";
+                            else if (db1.Equals("hcsyria_micro_id")) project = "Micro Project - Idleb";
                             else if (db1.Equals("hcsyria_micro_lb")) project = "Micro Project - Lebanon";
                             else if (db1.Equals("hcsyria_micro_pts_aleppo")) project = "Micro Project - PTS Aleppo ";
                             else if (db1.Equals("hcsyria_disc_h")) project = "DISC - Homs";
