@@ -145,8 +145,9 @@
             this.countOption13_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.countOption25_label = new System.Windows.Forms.Label();
             this.countOption14_numericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.countOption26_label = new System.Windows.Forms.Label();
+            this.countOption15_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.countOption15_numericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.countOption26_label = new System.Windows.Forms.Label();
             this.countOption15_other_textBox = new System.Windows.Forms.TextBox();
             this.question27_label = new System.Windows.Forms.Label();
             this.season_dataGridView = new System.Windows.Forms.DataGridView();
@@ -178,6 +179,7 @@
             this.marketingOption6_label = new System.Windows.Forms.Label();
             this.marketingOption7_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.marketingOption7_label = new System.Windows.Forms.Label();
+            this.marketing_checkRow21_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.marketingOption8_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.marketingOption8_label = new System.Windows.Forms.Label();
             this.marketing_other_textBox = new System.Windows.Forms.TextBox();
@@ -269,7 +271,6 @@
             this.marketing_checkBox6 = new System.Windows.Forms.CheckBox();
             this.marketing_checkRow20_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.marketing_checkBox7 = new System.Windows.Forms.CheckBox();
-            this.marketing_checkRow21_flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.marketing_other_checkBox = new System.Windows.Forms.CheckBox();
             this.meetingInfo_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.profession_label = new System.Windows.Forms.Label();
@@ -293,6 +294,8 @@
             this.attendanceCount_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.title_label = new System.Windows.Forms.Label();
             this.mainLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.saveButtons_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.Save_button = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -373,6 +376,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.countOption12_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.countOption13_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.countOption14_numericUpDown)).BeginInit();
+            this.countOption15_flowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countOption15_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.season_dataGridView)).BeginInit();
             this.guild_check_tableLayoutPanel.SuspendLayout();
@@ -384,6 +388,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.marketingOption5_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.marketingOption6_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.marketingOption7_numericUpDown)).BeginInit();
+            this.marketing_checkRow21_flowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.marketingOption8_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipment_dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.challenges_dataGridView)).BeginInit();
@@ -412,13 +417,13 @@
             this.marketing_checkRow18_flowLayoutPanel.SuspendLayout();
             this.marketing_checkRow19_flowLayoutPanel.SuspendLayout();
             this.marketing_checkRow20_flowLayoutPanel.SuspendLayout();
-            this.marketing_checkRow21_flowLayoutPanel.SuspendLayout();
             this.meetingInfo_tableLayoutPanel.SuspendLayout();
             this.professionSelector_tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.invitedCount_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.absenceCount_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attendanceCount_numericUpDown)).BeginInit();
             this.mainLayoutPanel.SuspendLayout();
+            this.saveButtons_tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // content_tabControl
@@ -432,7 +437,7 @@
             this.content_tabControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.content_tabControl.RightToLeftLayout = true;
             this.content_tabControl.SelectedIndex = 0;
-            this.content_tabControl.Size = new System.Drawing.Size(1018, 564);
+            this.content_tabControl.Size = new System.Drawing.Size(1018, 508);
             this.content_tabControl.TabIndex = 2;
             // 
             // survey_tabPage
@@ -442,7 +447,7 @@
             this.survey_tabPage.Name = "survey_tabPage";
             this.survey_tabPage.Padding = new System.Windows.Forms.Padding(3);
             this.survey_tabPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.survey_tabPage.Size = new System.Drawing.Size(1010, 533);
+            this.survey_tabPage.Size = new System.Drawing.Size(1010, 477);
             this.survey_tabPage.TabIndex = 0;
             this.survey_tabPage.Text = "الاستبيان";
             this.survey_tabPage.UseVisualStyleBackColor = true;
@@ -457,7 +462,7 @@
             this.survey_scrollPanel.Name = "survey_scrollPanel";
             this.survey_scrollPanel.Padding = new System.Windows.Forms.Padding(24, 28, 24, 18);
             this.survey_scrollPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.survey_scrollPanel.Size = new System.Drawing.Size(1004, 527);
+            this.survey_scrollPanel.Size = new System.Drawing.Size(1004, 471);
             this.survey_scrollPanel.TabIndex = 0;
             // 
             // surveyContent_tableLayoutPanel
@@ -581,7 +586,7 @@
             this.surveyContent_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.surveyContent_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.surveyContent_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.surveyContent_tableLayoutPanel.Size = new System.Drawing.Size(939, 4653);
+            this.surveyContent_tableLayoutPanel.Size = new System.Drawing.Size(939, 4689);
             this.surveyContent_tableLayoutPanel.TabIndex = 0;
             this.surveyContent_tableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.surveyContent_tableLayoutPanel_Paint);
             // 
@@ -678,7 +683,7 @@
             this.countOption1_numericUpDown.Name = "countOption1_numericUpDown";
             this.countOption1_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption1_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption1_numericUpDown.TabIndex = 1;
+            this.countOption1_numericUpDown.TabIndex = 2;
             this.countOption1_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // countOption5_label
@@ -707,7 +712,7 @@
             this.countOption2_numericUpDown.Name = "countOption2_numericUpDown";
             this.countOption2_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption2_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption2_numericUpDown.TabIndex = 3;
+            this.countOption2_numericUpDown.TabIndex = 1;
             this.countOption2_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // countOption6_label
@@ -736,7 +741,7 @@
             this.countOption3_numericUpDown.Name = "countOption3_numericUpDown";
             this.countOption3_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption3_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption3_numericUpDown.TabIndex = 5;
+            this.countOption3_numericUpDown.TabIndex = 0;
             this.countOption3_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // question7_label
@@ -803,7 +808,7 @@
             this.countOption4_numericUpDown.Name = "countOption4_numericUpDown";
             this.countOption4_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption4_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption4_numericUpDown.TabIndex = 1;
+            this.countOption4_numericUpDown.TabIndex = 2;
             this.countOption4_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // countOption9_label
@@ -832,7 +837,7 @@
             this.countOption5_numericUpDown.Name = "countOption5_numericUpDown";
             this.countOption5_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption5_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption5_numericUpDown.TabIndex = 3;
+            this.countOption5_numericUpDown.TabIndex = 1;
             this.countOption5_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // countOption10_label
@@ -861,7 +866,7 @@
             this.countOption6_numericUpDown.Name = "countOption6_numericUpDown";
             this.countOption6_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption6_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption6_numericUpDown.TabIndex = 5;
+            this.countOption6_numericUpDown.TabIndex = 0;
             this.countOption6_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // question11_label
@@ -929,7 +934,7 @@
             this.countOption7_numericUpDown.Name = "countOption7_numericUpDown";
             this.countOption7_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption7_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption7_numericUpDown.TabIndex = 1;
+            this.countOption7_numericUpDown.TabIndex = 2;
             this.countOption7_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // countOption13_label
@@ -958,7 +963,7 @@
             this.countOption8_numericUpDown.Name = "countOption8_numericUpDown";
             this.countOption8_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption8_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption8_numericUpDown.TabIndex = 3;
+            this.countOption8_numericUpDown.TabIndex = 1;
             this.countOption8_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // countOption14_label
@@ -987,7 +992,7 @@
             this.countOption9_numericUpDown.Name = "countOption9_numericUpDown";
             this.countOption9_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption9_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption9_numericUpDown.TabIndex = 5;
+            this.countOption9_numericUpDown.TabIndex = 0;
             this.countOption9_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // section15_label
@@ -1287,18 +1292,18 @@
             this.targetAudience_checkRow10_flowLayoutPanel.AutoSize = true;
             this.targetAudience_checkRow10_flowLayoutPanel.Controls.Add(this.targetAudience_other_checkBox);
             this.targetAudience_checkRow10_flowLayoutPanel.Controls.Add(this.targetAudience_other_textBox);
-            this.targetAudience_checkRow10_flowLayoutPanel.Location = new System.Drawing.Point(305, 263);
+            this.targetAudience_checkRow10_flowLayoutPanel.Location = new System.Drawing.Point(210, 263);
             this.targetAudience_checkRow10_flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.targetAudience_checkRow10_flowLayoutPanel.Name = "targetAudience_checkRow10_flowLayoutPanel";
             this.targetAudience_checkRow10_flowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.targetAudience_checkRow10_flowLayoutPanel.Size = new System.Drawing.Size(428, 25);
+            this.targetAudience_checkRow10_flowLayoutPanel.Size = new System.Drawing.Size(523, 25);
             this.targetAudience_checkRow10_flowLayoutPanel.TabIndex = 9;
             // 
             // targetAudience_other_checkBox
             // 
             this.targetAudience_other_checkBox.AutoSize = true;
             this.targetAudience_other_checkBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.targetAudience_other_checkBox.Location = new System.Drawing.Point(279, 3);
+            this.targetAudience_other_checkBox.Location = new System.Drawing.Point(374, 3);
             this.targetAudience_other_checkBox.Name = "targetAudience_other_checkBox";
             this.targetAudience_other_checkBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.targetAudience_other_checkBox.Size = new System.Drawing.Size(146, 22);
@@ -1314,7 +1319,7 @@
             this.targetAudience_other_textBox.Margin = new System.Windows.Forms.Padding(12, 2, 4, 2);
             this.targetAudience_other_textBox.Name = "targetAudience_other_textBox";
             this.targetAudience_other_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.targetAudience_other_textBox.Size = new System.Drawing.Size(260, 24);
+            this.targetAudience_other_textBox.Size = new System.Drawing.Size(355, 24);
             this.targetAudience_other_textBox.TabIndex = 1;
             this.targetAudience_other_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.targetAudience_other_textBox.Visible = false;
@@ -1429,7 +1434,7 @@
             this.competitionSevereReason_textBox.Name = "competitionSevereReason_textBox";
             this.competitionSevereReason_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.competitionSevereReason_textBox.Size = new System.Drawing.Size(611, 24);
-            this.competitionSevereReason_textBox.TabIndex = 3;
+            this.competitionSevereReason_textBox.TabIndex = 1;
             this.competitionSevereReason_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // competitionMedium_label
@@ -1467,7 +1472,7 @@
             this.competitionMediumReason_textBox.Name = "competitionMediumReason_textBox";
             this.competitionMediumReason_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.competitionMediumReason_textBox.Size = new System.Drawing.Size(611, 24);
-            this.competitionMediumReason_textBox.TabIndex = 7;
+            this.competitionMediumReason_textBox.TabIndex = 3;
             this.competitionMediumReason_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // competitionWeak_label
@@ -1505,7 +1510,7 @@
             this.competitionWeakReason_textBox.Name = "competitionWeakReason_textBox";
             this.competitionWeakReason_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.competitionWeakReason_textBox.Size = new System.Drawing.Size(611, 24);
-            this.competitionWeakReason_textBox.TabIndex = 11;
+            this.competitionWeakReason_textBox.TabIndex = 5;
             this.competitionWeakReason_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // numericUpDown1
@@ -1514,7 +1519,7 @@
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.numericUpDown1.Size = new System.Drawing.Size(47, 24);
-            this.numericUpDown1.TabIndex = 12;
+            this.numericUpDown1.TabIndex = 0;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numericUpDown2
@@ -1523,7 +1528,7 @@
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.numericUpDown2.Size = new System.Drawing.Size(47, 24);
-            this.numericUpDown2.TabIndex = 13;
+            this.numericUpDown2.TabIndex = 2;
             this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numericUpDown3
@@ -1532,7 +1537,7 @@
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.numericUpDown3.Size = new System.Drawing.Size(47, 24);
-            this.numericUpDown3.TabIndex = 14;
+            this.numericUpDown3.TabIndex = 4;
             this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // question20_label
@@ -1564,10 +1569,7 @@
             this.countOptions4_tableLayoutPanel.Controls.Add(this.countOption13_numericUpDown, 0, 3);
             this.countOptions4_tableLayoutPanel.Controls.Add(this.countOption25_label, 0, 4);
             this.countOptions4_tableLayoutPanel.Controls.Add(this.countOption14_numericUpDown, 0, 4);
-            this.countOptions4_tableLayoutPanel.Controls.Add(this.countOption26_label, 0, 5);
-            this.countOptions4_tableLayoutPanel.Controls.Add(this.countOption15_numericUpDown, 0, 5);
-            this.countOptions4_tableLayoutPanel.Controls.Add(this.countOption15_other_textBox, 2, 5);
-            this.countOptions4_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.countOptions4_tableLayoutPanel.Controls.Add(this.countOption15_flowLayoutPanel, 0, 5);
             this.countOptions4_tableLayoutPanel.Location = new System.Drawing.Point(339, 1158);
             this.countOptions4_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.countOptions4_tableLayoutPanel.Name = "countOptions4_tableLayoutPanel";
@@ -1579,7 +1581,7 @@
             this.countOptions4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.countOptions4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.countOptions4_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.countOptions4_tableLayoutPanel.Size = new System.Drawing.Size(580, 168);
+            this.countOptions4_tableLayoutPanel.Size = new System.Drawing.Size(580, 190);
             this.countOptions4_tableLayoutPanel.TabIndex = 17;
             // 
             // countOption21_label
@@ -1722,22 +1724,24 @@
             this.countOption14_numericUpDown.TabIndex = 9;
             this.countOption14_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // countOption26_label
+            // countOption15_flowLayoutPanel
             // 
-            this.countOption26_label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.countOption26_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.countOption26_label.Location = new System.Drawing.Point(373, 140);
-            this.countOption26_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.countOption26_label.Name = "countOption26_label";
-            this.countOption26_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.countOption26_label.Size = new System.Drawing.Size(145, 28);
-            this.countOption26_label.TabIndex = 10;
-            this.countOption26_label.Text = "غير ذلك";
-            this.countOption26_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.countOption15_flowLayoutPanel.AutoSize = true;
+            this.countOptions4_tableLayoutPanel.SetColumnSpan(this.countOption15_flowLayoutPanel, 3);
+            this.countOption15_flowLayoutPanel.Controls.Add(this.countOption15_numericUpDown);
+            this.countOption15_flowLayoutPanel.Controls.Add(this.countOption26_label);
+            this.countOption15_flowLayoutPanel.Controls.Add(this.countOption15_other_textBox);
+            this.countOption15_flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.countOption15_flowLayoutPanel.Location = new System.Drawing.Point(97, 142);
+            this.countOption15_flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.countOption15_flowLayoutPanel.Name = "countOption15_flowLayoutPanel";
+            this.countOption15_flowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.countOption15_flowLayoutPanel.Size = new System.Drawing.Size(483, 46);
+            this.countOption15_flowLayoutPanel.TabIndex = 10;
             // 
             // countOption15_numericUpDown
             // 
-            this.countOption15_numericUpDown.Location = new System.Drawing.Point(529, 144);
+            this.countOption15_numericUpDown.Location = new System.Drawing.Point(432, 4);
             this.countOption15_numericUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.countOption15_numericUpDown.Maximum = new decimal(new int[] {
             10000,
@@ -1747,28 +1751,40 @@
             this.countOption15_numericUpDown.Name = "countOption15_numericUpDown";
             this.countOption15_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption15_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption15_numericUpDown.TabIndex = 11;
+            this.countOption15_numericUpDown.TabIndex = 0;
             this.countOption15_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.countOption15_numericUpDown.ValueChanged += new System.EventHandler(this.countOption15_numericUpDown_ValueChanged);
             // 
+            // countOption26_label
+            // 
+            this.countOption26_label.AutoSize = true;
+            this.countOption26_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.countOption26_label.Location = new System.Drawing.Point(376, 3);
+            this.countOption26_label.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            this.countOption26_label.Name = "countOption26_label";
+            this.countOption26_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.countOption26_label.Size = new System.Drawing.Size(48, 18);
+            this.countOption26_label.TabIndex = 10;
+            this.countOption26_label.Text = "غير ذلك";
+            this.countOption26_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // countOption15_other_textBox
             // 
-            this.countOption15_other_textBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.countOption15_other_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.countOption15_other_textBox.HideSelection = false;
-            this.countOption15_other_textBox.Location = new System.Drawing.Point(4, 142);
-            this.countOption15_other_textBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.countOption15_other_textBox.Location = new System.Drawing.Point(4, 2);
+            this.countOption15_other_textBox.Margin = new System.Windows.Forms.Padding(8, 2, 4, 2);
             this.countOption15_other_textBox.Name = "countOption15_other_textBox";
             this.countOption15_other_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.countOption15_other_textBox.Size = new System.Drawing.Size(361, 24);
-            this.countOption15_other_textBox.TabIndex = 12;
+            this.countOption15_other_textBox.Size = new System.Drawing.Size(360, 24);
+            this.countOption15_other_textBox.TabIndex = 1;
             this.countOption15_other_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // question27_label
             // 
             this.question27_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question27_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question27_label.Location = new System.Drawing.Point(0, 1348);
+            this.question27_label.Location = new System.Drawing.Point(0, 1370);
             this.question27_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question27_label.Name = "question27_label";
             this.question27_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1792,7 +1808,7 @@
             this.seasonDelete_dataGridView_column});
             this.season_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.season_dataGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.season_dataGridView.Location = new System.Drawing.Point(20, 1398);
+            this.season_dataGridView.Location = new System.Drawing.Point(20, 1420);
             this.season_dataGridView.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.season_dataGridView.Name = "season_dataGridView";
             this.season_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1818,7 +1834,7 @@
             // 
             this.question28_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question28_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question28_label.Location = new System.Drawing.Point(0, 1559);
+            this.question28_label.Location = new System.Drawing.Point(0, 1581);
             this.question28_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question28_label.Name = "question28_label";
             this.question28_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1842,7 +1858,7 @@
             this.guild_check_tableLayoutPanel.Controls.Add(this.guildReferences_textBox, 2, 1);
             this.guild_check_tableLayoutPanel.Controls.Add(this.guild_checkBox3, 0, 2);
             this.guild_check_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guild_check_tableLayoutPanel.Location = new System.Drawing.Point(179, 1595);
+            this.guild_check_tableLayoutPanel.Location = new System.Drawing.Point(179, 1617);
             this.guild_check_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.guild_check_tableLayoutPanel.Name = "guild_check_tableLayoutPanel";
             this.guild_check_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1947,13 +1963,14 @@
             // 
             this.question29_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question29_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question29_label.Location = new System.Drawing.Point(0, 1755);
+            this.question29_label.Location = new System.Drawing.Point(0, 1777);
             this.question29_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question29_label.Name = "question29_label";
             this.question29_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.question29_label.Size = new System.Drawing.Size(939, 28);
             this.question29_label.TabIndex = 22;
-            this.question29_label.Text = "10. ماهي أفضل الماركات المتوفرة حاليا بالسوق للمعدات وآلات المستخدمة في المهنة؟";
+            this.question29_label.Text = "10. ماهي أفضل الماركات المتوفرة حاليا بالسوق للمعدات والآلات المستخدمة في المهنة؟" +
+    "";
             this.question29_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // memo2_richTextBox
@@ -1962,7 +1979,7 @@
             this.memo2_richTextBox.DetectUrls = false;
             this.memo2_richTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.memo2_richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.memo2_richTextBox.Location = new System.Drawing.Point(20, 1791);
+            this.memo2_richTextBox.Location = new System.Drawing.Point(20, 1813);
             this.memo2_richTextBox.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.memo2_richTextBox.Name = "memo2_richTextBox";
             this.memo2_richTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1977,7 +1994,7 @@
             // 
             this.question30_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question30_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question30_label.Location = new System.Drawing.Point(0, 1903);
+            this.question30_label.Location = new System.Drawing.Point(0, 1925);
             this.question30_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question30_label.Name = "question30_label";
             this.question30_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1989,9 +2006,9 @@
             // marketing_check_tableLayoutPanel
             // 
             this.marketing_check_tableLayoutPanel.ColumnCount = 3;
-            this.marketing_check_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.5F));
-            this.marketing_check_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.86842F));
-            this.marketing_check_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.63158F));
+            this.marketing_check_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.marketing_check_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 395F));
+            this.marketing_check_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 309F));
             this.marketing_check_tableLayoutPanel.Controls.Add(this.marketingOption1_numericUpDown, 0, 0);
             this.marketing_check_tableLayoutPanel.Controls.Add(this.marketingOption1_label, 1, 0);
             this.marketing_check_tableLayoutPanel.Controls.Add(this.marketingOption2_numericUpDown, 0, 1);
@@ -2006,11 +2023,8 @@
             this.marketing_check_tableLayoutPanel.Controls.Add(this.marketingOption6_label, 1, 5);
             this.marketing_check_tableLayoutPanel.Controls.Add(this.marketingOption7_numericUpDown, 0, 6);
             this.marketing_check_tableLayoutPanel.Controls.Add(this.marketingOption7_label, 1, 6);
-            this.marketing_check_tableLayoutPanel.Controls.Add(this.marketingOption8_numericUpDown, 0, 7);
-            this.marketing_check_tableLayoutPanel.Controls.Add(this.marketingOption8_label, 1, 7);
-            this.marketing_check_tableLayoutPanel.Controls.Add(this.marketing_other_textBox, 2, 7);
-            this.marketing_check_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.marketing_check_tableLayoutPanel.Location = new System.Drawing.Point(159, 1939);
+            this.marketing_check_tableLayoutPanel.Controls.Add(this.marketing_checkRow21_flowLayoutPanel, 0, 7);
+            this.marketing_check_tableLayoutPanel.Location = new System.Drawing.Point(159, 1961);
             this.marketing_check_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.marketing_check_tableLayoutPanel.Name = "marketing_check_tableLayoutPanel";
             this.marketing_check_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2023,7 +2037,8 @@
             this.marketing_check_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.marketing_check_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.marketing_check_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.marketing_check_tableLayoutPanel.Size = new System.Drawing.Size(760, 224);
+            this.marketing_check_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.marketing_check_tableLayoutPanel.Size = new System.Drawing.Size(760, 238);
             this.marketing_check_tableLayoutPanel.TabIndex = 25;
             // 
             // marketingOption1_numericUpDown
@@ -2045,11 +2060,11 @@
             // 
             this.marketingOption1_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.marketingOption1_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.marketingOption1_label.Location = new System.Drawing.Point(443, 0);
+            this.marketingOption1_label.Location = new System.Drawing.Point(313, 0);
             this.marketingOption1_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.marketingOption1_label.Name = "marketingOption1_label";
             this.marketingOption1_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.marketingOption1_label.Size = new System.Drawing.Size(256, 28);
+            this.marketingOption1_label.Size = new System.Drawing.Size(387, 28);
             this.marketingOption1_label.TabIndex = 3;
             this.marketingOption1_label.Text = "السمعة الطيبة وتوصيات الزبائن الحاليين.";
             this.marketingOption1_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2073,11 +2088,11 @@
             // 
             this.marketingOption2_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.marketingOption2_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.marketingOption2_label.Location = new System.Drawing.Point(443, 28);
+            this.marketingOption2_label.Location = new System.Drawing.Point(313, 28);
             this.marketingOption2_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.marketingOption2_label.Name = "marketingOption2_label";
             this.marketingOption2_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.marketingOption2_label.Size = new System.Drawing.Size(256, 28);
+            this.marketingOption2_label.Size = new System.Drawing.Size(387, 28);
             this.marketingOption2_label.TabIndex = 5;
             this.marketingOption2_label.Text = "موقع المحل أو الورشة (الاعتماد على حركة المارة).";
             this.marketingOption2_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2101,11 +2116,11 @@
             // 
             this.marketingOption3_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.marketingOption3_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.marketingOption3_label.Location = new System.Drawing.Point(443, 56);
+            this.marketingOption3_label.Location = new System.Drawing.Point(313, 56);
             this.marketingOption3_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.marketingOption3_label.Name = "marketingOption3_label";
             this.marketingOption3_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.marketingOption3_label.Size = new System.Drawing.Size(256, 28);
+            this.marketingOption3_label.Size = new System.Drawing.Size(387, 28);
             this.marketingOption3_label.TabIndex = 7;
             this.marketingOption3_label.Text = "العلاقات الشخصية والمعارف.";
             this.marketingOption3_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2129,11 +2144,11 @@
             // 
             this.marketingOption4_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.marketingOption4_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.marketingOption4_label.Location = new System.Drawing.Point(443, 84);
+            this.marketingOption4_label.Location = new System.Drawing.Point(313, 84);
             this.marketingOption4_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.marketingOption4_label.Name = "marketingOption4_label";
             this.marketingOption4_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.marketingOption4_label.Size = new System.Drawing.Size(256, 28);
+            this.marketingOption4_label.Size = new System.Drawing.Size(387, 28);
             this.marketingOption4_label.TabIndex = 9;
             this.marketingOption4_label.Text = "وسائل التواصل الاجتماعي (فيسبوك، إنستغرام، مجموعات واتساب...).";
             this.marketingOption4_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2157,11 +2172,11 @@
             // 
             this.marketingOption5_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.marketingOption5_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.marketingOption5_label.Location = new System.Drawing.Point(443, 112);
+            this.marketingOption5_label.Location = new System.Drawing.Point(313, 112);
             this.marketingOption5_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.marketingOption5_label.Name = "marketingOption5_label";
             this.marketingOption5_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.marketingOption5_label.Size = new System.Drawing.Size(256, 28);
+            this.marketingOption5_label.Size = new System.Drawing.Size(387, 28);
             this.marketingOption5_label.TabIndex = 11;
             this.marketingOption5_label.Text = "تقديم عروض خاصة، حسومات، أو أسعار منافسة.";
             this.marketingOption5_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2185,11 +2200,11 @@
             // 
             this.marketingOption6_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.marketingOption6_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.marketingOption6_label.Location = new System.Drawing.Point(443, 140);
+            this.marketingOption6_label.Location = new System.Drawing.Point(313, 140);
             this.marketingOption6_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.marketingOption6_label.Name = "marketingOption6_label";
             this.marketingOption6_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.marketingOption6_label.Size = new System.Drawing.Size(256, 28);
+            this.marketingOption6_label.Size = new System.Drawing.Size(387, 28);
             this.marketingOption6_label.TabIndex = 13;
             this.marketingOption6_label.Text = "التعاون والتشبيك مع مهنيين وحرفيين آخرين.";
             this.marketingOption6_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2213,18 +2228,33 @@
             // 
             this.marketingOption7_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.marketingOption7_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.marketingOption7_label.Location = new System.Drawing.Point(443, 168);
+            this.marketingOption7_label.Location = new System.Drawing.Point(313, 168);
             this.marketingOption7_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.marketingOption7_label.Name = "marketingOption7_label";
             this.marketingOption7_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.marketingOption7_label.Size = new System.Drawing.Size(256, 28);
+            this.marketingOption7_label.Size = new System.Drawing.Size(387, 28);
             this.marketingOption7_label.TabIndex = 15;
             this.marketingOption7_label.Text = "الإعلانات التقليدية (توزيع كروت، ملصقات، إعلانات طرقية).";
             this.marketingOption7_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // marketing_checkRow21_flowLayoutPanel
+            // 
+            this.marketing_checkRow21_flowLayoutPanel.AutoSize = true;
+            this.marketing_check_tableLayoutPanel.SetColumnSpan(this.marketing_checkRow21_flowLayoutPanel, 3);
+            this.marketing_checkRow21_flowLayoutPanel.Controls.Add(this.marketingOption8_numericUpDown);
+            this.marketing_checkRow21_flowLayoutPanel.Controls.Add(this.marketingOption8_label);
+            this.marketing_checkRow21_flowLayoutPanel.Controls.Add(this.marketing_other_textBox);
+            this.marketing_checkRow21_flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.marketing_checkRow21_flowLayoutPanel.Location = new System.Drawing.Point(267, 198);
+            this.marketing_checkRow21_flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.marketing_checkRow21_flowLayoutPanel.Name = "marketing_checkRow21_flowLayoutPanel";
+            this.marketing_checkRow21_flowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.marketing_checkRow21_flowLayoutPanel.Size = new System.Drawing.Size(493, 38);
+            this.marketing_checkRow21_flowLayoutPanel.TabIndex = 15;
+            // 
             // marketingOption8_numericUpDown
             // 
-            this.marketingOption8_numericUpDown.Location = new System.Drawing.Point(709, 200);
+            this.marketingOption8_numericUpDown.Location = new System.Drawing.Point(442, 4);
             this.marketingOption8_numericUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.marketingOption8_numericUpDown.Maximum = new decimal(new int[] {
             10000,
@@ -2234,31 +2264,31 @@
             this.marketingOption8_numericUpDown.Name = "marketingOption8_numericUpDown";
             this.marketingOption8_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.marketingOption8_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.marketingOption8_numericUpDown.TabIndex = 16;
+            this.marketingOption8_numericUpDown.TabIndex = 0;
             this.marketingOption8_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // marketingOption8_label
             // 
+            this.marketingOption8_label.AutoSize = true;
             this.marketingOption8_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.marketingOption8_label.Location = new System.Drawing.Point(633, 196);
-            this.marketingOption8_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.marketingOption8_label.Location = new System.Drawing.Point(386, 3);
+            this.marketingOption8_label.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
             this.marketingOption8_label.Name = "marketingOption8_label";
             this.marketingOption8_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.marketingOption8_label.Size = new System.Drawing.Size(66, 28);
+            this.marketingOption8_label.Size = new System.Drawing.Size(48, 18);
             this.marketingOption8_label.TabIndex = 17;
-            this.marketingOption8_label.Text = "غير ذلك (يرجى التحديد)";
+            this.marketingOption8_label.Text = "غير ذلك";
             this.marketingOption8_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // marketing_other_textBox
             // 
-            this.marketing_other_textBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.marketing_other_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.marketing_other_textBox.HideSelection = false;
-            this.marketing_other_textBox.Location = new System.Drawing.Point(44, 198);
-            this.marketing_other_textBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.marketing_other_textBox.Location = new System.Drawing.Point(4, 2);
+            this.marketing_other_textBox.Margin = new System.Windows.Forms.Padding(8, 2, 4, 2);
             this.marketing_other_textBox.Name = "marketing_other_textBox";
             this.marketing_other_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.marketing_other_textBox.Size = new System.Drawing.Size(391, 24);
+            this.marketing_other_textBox.Size = new System.Drawing.Size(370, 24);
             this.marketing_other_textBox.TabIndex = 1;
             this.marketing_other_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.marketing_other_textBox.TextChanged += new System.EventHandler(this.marketing_other_textBox_TextChanged);
@@ -2269,7 +2299,7 @@
             this.section31_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.section31_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.section31_label.ForeColor = System.Drawing.Color.White;
-            this.section31_label.Location = new System.Drawing.Point(0, 2193);
+            this.section31_label.Location = new System.Drawing.Point(0, 2229);
             this.section31_label.Margin = new System.Windows.Forms.Padding(0, 16, 0, 8);
             this.section31_label.Name = "section31_label";
             this.section31_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2282,7 +2312,7 @@
             // 
             this.section32_details_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.section32_details_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.section32_details_label.Location = new System.Drawing.Point(0, 2239);
+            this.section32_details_label.Location = new System.Drawing.Point(0, 2275);
             this.section32_details_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.section32_details_label.Name = "section32_details_label";
             this.section32_details_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2296,7 +2326,7 @@
             // 
             this.question33_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question33_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question33_label.Location = new System.Drawing.Point(0, 2293);
+            this.question33_label.Location = new System.Drawing.Point(0, 2329);
             this.question33_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question33_label.Name = "question33_label";
             this.question33_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2317,7 +2347,7 @@
             this.equipmentDelete_dataGridView_column});
             this.equipment_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.equipment_dataGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.equipment_dataGridView.Location = new System.Drawing.Point(20, 2329);
+            this.equipment_dataGridView.Location = new System.Drawing.Point(20, 2365);
             this.equipment_dataGridView.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.equipment_dataGridView.Name = "equipment_dataGridView";
             this.equipment_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2343,7 +2373,7 @@
             // 
             this.question34_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question34_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question34_label.Location = new System.Drawing.Point(0, 2565);
+            this.question34_label.Location = new System.Drawing.Point(0, 2601);
             this.question34_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question34_label.Name = "question34_label";
             this.question34_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2356,7 +2386,7 @@
             // 
             this.question39_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question39_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question39_label.Location = new System.Drawing.Point(0, 2679);
+            this.question39_label.Location = new System.Drawing.Point(0, 2715);
             this.question39_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question39_label.Name = "question39_label";
             this.question39_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2371,7 +2401,7 @@
             this.memo3_richTextBox.DetectUrls = false;
             this.memo3_richTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.memo3_richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.memo3_richTextBox.Location = new System.Drawing.Point(20, 2715);
+            this.memo3_richTextBox.Location = new System.Drawing.Point(20, 2751);
             this.memo3_richTextBox.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.memo3_richTextBox.Name = "memo3_richTextBox";
             this.memo3_richTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2386,7 +2416,7 @@
             // 
             this.question40_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question40_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question40_label.Location = new System.Drawing.Point(0, 2827);
+            this.question40_label.Location = new System.Drawing.Point(0, 2863);
             this.question40_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question40_label.Name = "question40_label";
             this.question40_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2402,7 +2432,7 @@
             this.memo4_richTextBox.DetectUrls = false;
             this.memo4_richTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.memo4_richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.memo4_richTextBox.Location = new System.Drawing.Point(20, 2863);
+            this.memo4_richTextBox.Location = new System.Drawing.Point(20, 2899);
             this.memo4_richTextBox.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.memo4_richTextBox.Name = "memo4_richTextBox";
             this.memo4_richTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2419,7 +2449,7 @@
             this.section41_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.section41_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.section41_label.ForeColor = System.Drawing.Color.White;
-            this.section41_label.Location = new System.Drawing.Point(0, 2983);
+            this.section41_label.Location = new System.Drawing.Point(0, 3019);
             this.section41_label.Margin = new System.Windows.Forms.Padding(0, 16, 0, 8);
             this.section41_label.Name = "section41_label";
             this.section41_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2432,7 +2462,7 @@
             // 
             this.section42_details_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.section42_details_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.section42_details_label.Location = new System.Drawing.Point(0, 3029);
+            this.section42_details_label.Location = new System.Drawing.Point(0, 3065);
             this.section42_details_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.section42_details_label.Name = "section42_details_label";
             this.section42_details_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2445,7 +2475,7 @@
             // 
             this.question43_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question43_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question43_label.Location = new System.Drawing.Point(0, 3083);
+            this.question43_label.Location = new System.Drawing.Point(0, 3119);
             this.question43_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question43_label.Name = "question43_label";
             this.question43_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2467,7 +2497,7 @@
             this.challengesDelete_dataGridView_column});
             this.challenges_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.challenges_dataGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.challenges_dataGridView.Location = new System.Drawing.Point(20, 3119);
+            this.challenges_dataGridView.Location = new System.Drawing.Point(20, 3155);
             this.challenges_dataGridView.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.challenges_dataGridView.Name = "challenges_dataGridView";
             this.challenges_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2495,7 +2525,7 @@
             this.section44_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.section44_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.section44_label.ForeColor = System.Drawing.Color.White;
-            this.section44_label.Location = new System.Drawing.Point(0, 3423);
+            this.section44_label.Location = new System.Drawing.Point(0, 3459);
             this.section44_label.Margin = new System.Windows.Forms.Padding(0, 16, 0, 8);
             this.section44_label.Name = "section44_label";
             this.section44_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2508,7 +2538,7 @@
             // 
             this.section45_details_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.section45_details_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.section45_details_label.Location = new System.Drawing.Point(0, 3469);
+            this.section45_details_label.Location = new System.Drawing.Point(0, 3505);
             this.section45_details_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.section45_details_label.Name = "section45_details_label";
             this.section45_details_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2522,7 +2552,7 @@
             // 
             this.question46_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question46_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question46_label.Location = new System.Drawing.Point(0, 3523);
+            this.question46_label.Location = new System.Drawing.Point(0, 3559);
             this.question46_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question46_label.Name = "question46_label";
             this.question46_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2546,7 +2576,7 @@
             this.countOptions6_tableLayoutPanel.Controls.Add(this.countOption22_numericUpDown, 3, 1);
             this.countOptions6_tableLayoutPanel.Controls.Add(this.countOption50_label, 0, 1);
             this.countOptions6_tableLayoutPanel.Controls.Add(this.countOption23_numericUpDown, 1, 1);
-            this.countOptions6_tableLayoutPanel.Location = new System.Drawing.Point(339, 3559);
+            this.countOptions6_tableLayoutPanel.Location = new System.Drawing.Point(339, 3595);
             this.countOptions6_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.countOptions6_tableLayoutPanel.Name = "countOptions6_tableLayoutPanel";
             this.countOptions6_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2611,7 +2641,7 @@
             this.countOption21_numericUpDown.Name = "countOption21_numericUpDown";
             this.countOption21_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption21_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption21_numericUpDown.TabIndex = 3;
+            this.countOption21_numericUpDown.TabIndex = 0;
             this.countOption21_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // countOption49_label
@@ -2640,7 +2670,7 @@
             this.countOption22_numericUpDown.Name = "countOption22_numericUpDown";
             this.countOption22_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption22_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption22_numericUpDown.TabIndex = 5;
+            this.countOption22_numericUpDown.TabIndex = 2;
             this.countOption22_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // countOption50_label
@@ -2669,14 +2699,14 @@
             this.countOption23_numericUpDown.Name = "countOption23_numericUpDown";
             this.countOption23_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption23_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption23_numericUpDown.TabIndex = 7;
+            this.countOption23_numericUpDown.TabIndex = 3;
             this.countOption23_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // question51_label
             // 
             this.question51_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question51_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question51_label.Location = new System.Drawing.Point(0, 3637);
+            this.question51_label.Location = new System.Drawing.Point(0, 3673);
             this.question51_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question51_label.Name = "question51_label";
             this.question51_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2692,7 +2722,7 @@
             this.memo6_richTextBox.DetectUrls = false;
             this.memo6_richTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.memo6_richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.memo6_richTextBox.Location = new System.Drawing.Point(20, 3687);
+            this.memo6_richTextBox.Location = new System.Drawing.Point(20, 3723);
             this.memo6_richTextBox.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.memo6_richTextBox.Name = "memo6_richTextBox";
             this.memo6_richTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2707,7 +2737,7 @@
             // 
             this.question52_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question52_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question52_label.Location = new System.Drawing.Point(0, 3799);
+            this.question52_label.Location = new System.Drawing.Point(0, 3835);
             this.question52_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question52_label.Name = "question52_label";
             this.question52_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2729,13 +2759,14 @@
             this.participant1Delete_dataGridView_column});
             this.participant1_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.participant1_dataGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.participant1_dataGridView.Location = new System.Drawing.Point(20, 3835);
+            this.participant1_dataGridView.Location = new System.Drawing.Point(20, 3871);
             this.participant1_dataGridView.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.participant1_dataGridView.Name = "participant1_dataGridView";
             this.participant1_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.participant1_dataGridView.RowHeadersVisible = false;
             this.participant1_dataGridView.Size = new System.Drawing.Size(899, 150);
             this.participant1_dataGridView.TabIndex = 48;
+            this.participant1_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellClick);
             // 
             // participant1_dataGridView_column0
             // 
@@ -2764,7 +2795,7 @@
             // 
             this.question53_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question53_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question53_label.Location = new System.Drawing.Point(0, 4011);
+            this.question53_label.Location = new System.Drawing.Point(0, 4047);
             this.question53_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question53_label.Name = "question53_label";
             this.question53_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2786,7 +2817,7 @@
             this.participant2Delete_dataGridView_column});
             this.participant2_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.participant2_dataGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.participant2_dataGridView.Location = new System.Drawing.Point(20, 4047);
+            this.participant2_dataGridView.Location = new System.Drawing.Point(20, 4083);
             this.participant2_dataGridView.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.participant2_dataGridView.Name = "participant2_dataGridView";
             this.participant2_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2821,7 +2852,7 @@
             // 
             this.question54_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question54_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question54_label.Location = new System.Drawing.Point(0, 4223);
+            this.question54_label.Location = new System.Drawing.Point(0, 4259);
             this.question54_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question54_label.Name = "question54_label";
             this.question54_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2844,7 +2875,7 @@
             this.participant3Delete_dataGridView_column});
             this.participant3_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.participant3_dataGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.participant3_dataGridView.Location = new System.Drawing.Point(20, 4273);
+            this.participant3_dataGridView.Location = new System.Drawing.Point(20, 4309);
             this.participant3_dataGridView.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.participant3_dataGridView.Name = "participant3_dataGridView";
             this.participant3_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2879,7 +2910,7 @@
             // 
             this.question55_label.Dock = System.Windows.Forms.DockStyle.Top;
             this.question55_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.question55_label.Location = new System.Drawing.Point(0, 4449);
+            this.question55_label.Location = new System.Drawing.Point(0, 4485);
             this.question55_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question55_label.Name = "question55_label";
             this.question55_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2902,7 +2933,7 @@
             this.participant4Delete_dataGridView_column});
             this.participant4_dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.participant4_dataGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.participant4_dataGridView.Location = new System.Drawing.Point(20, 4485);
+            this.participant4_dataGridView.Location = new System.Drawing.Point(20, 4521);
             this.participant4_dataGridView.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.participant4_dataGridView.Name = "participant4_dataGridView";
             this.participant4_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2949,7 +2980,7 @@
             this.countOptions5_tableLayoutPanel.Controls.Add(this.countOption19_numericUpDown, 3, 1);
             this.countOptions5_tableLayoutPanel.Controls.Add(this.countOption17_numericUpDown, 3, 0);
             this.countOptions5_tableLayoutPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.countOptions5_tableLayoutPanel.Location = new System.Drawing.Point(339, 2601);
+            this.countOptions5_tableLayoutPanel.Location = new System.Drawing.Point(339, 2637);
             this.countOptions5_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.countOptions5_tableLayoutPanel.Name = "countOptions5_tableLayoutPanel";
             this.countOptions5_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -3027,7 +3058,7 @@
             this.countOption18_numericUpDown.Name = "countOption18_numericUpDown";
             this.countOption18_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption18_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption18_numericUpDown.TabIndex = 5;
+            this.countOption18_numericUpDown.TabIndex = 3;
             this.countOption18_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // countOption38_label
@@ -3056,7 +3087,7 @@
             this.countOption19_numericUpDown.Name = "countOption19_numericUpDown";
             this.countOption19_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption19_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption19_numericUpDown.TabIndex = 7;
+            this.countOption19_numericUpDown.TabIndex = 2;
             this.countOption19_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // countOption17_numericUpDown
@@ -3072,7 +3103,7 @@
             this.countOption17_numericUpDown.Name = "countOption17_numericUpDown";
             this.countOption17_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countOption17_numericUpDown.Size = new System.Drawing.Size(47, 24);
-            this.countOption17_numericUpDown.TabIndex = 3;
+            this.countOption17_numericUpDown.TabIndex = 0;
             this.countOption17_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // minutes_tabPage
@@ -3082,7 +3113,7 @@
             this.minutes_tabPage.Name = "minutes_tabPage";
             this.minutes_tabPage.Padding = new System.Windows.Forms.Padding(3);
             this.minutes_tabPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.minutes_tabPage.Size = new System.Drawing.Size(1010, 533);
+            this.minutes_tabPage.Size = new System.Drawing.Size(1010, 477);
             this.minutes_tabPage.TabIndex = 1;
             this.minutes_tabPage.Text = "محضر الاجتماع";
             this.minutes_tabPage.UseVisualStyleBackColor = true;
@@ -3097,7 +3128,7 @@
             this.minutes_scrollPanel.Name = "minutes_scrollPanel";
             this.minutes_scrollPanel.Padding = new System.Windows.Forms.Padding(24, 28, 24, 18);
             this.minutes_scrollPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.minutes_scrollPanel.Size = new System.Drawing.Size(1004, 532);
+            this.minutes_scrollPanel.Size = new System.Drawing.Size(1004, 473);
             this.minutes_scrollPanel.TabIndex = 0;
             // 
             // minutesContent_tableLayoutPanel
@@ -3567,19 +3598,6 @@
             this.marketing_checkBox7.TabIndex = 0;
             this.marketing_checkBox7.Text = "الإعلانات التقليدية (توزيع كروت، ملصقات، إعلانات طرقية).";
             // 
-            // marketing_checkRow21_flowLayoutPanel
-            // 
-            this.marketing_checkRow21_flowLayoutPanel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.marketing_checkRow21_flowLayoutPanel.AutoSize = true;
-            this.marketing_checkRow21_flowLayoutPanel.Controls.Add(this.marketing_other_checkBox);
-            this.marketing_checkRow21_flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.marketing_checkRow21_flowLayoutPanel.Location = new System.Drawing.Point(11, 227);
-            this.marketing_checkRow21_flowLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.marketing_checkRow21_flowLayoutPanel.Name = "marketing_checkRow21_flowLayoutPanel";
-            this.marketing_checkRow21_flowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.marketing_checkRow21_flowLayoutPanel.Size = new System.Drawing.Size(349, 28);
-            this.marketing_checkRow21_flowLayoutPanel.TabIndex = 7;
-            // 
             // marketing_other_checkBox
             // 
             this.marketing_other_checkBox.AutoSize = true;
@@ -3908,17 +3926,55 @@
             this.mainLayoutPanel.Controls.Add(this.title_label, 0, 0);
             this.mainLayoutPanel.Controls.Add(this.meetingInfo_tableLayoutPanel, 0, 1);
             this.mainLayoutPanel.Controls.Add(this.content_tabControl, 0, 2);
+            this.mainLayoutPanel.Controls.Add(this.saveButtons_tableLayoutPanel, 0, 3);
             this.mainLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.mainLayoutPanel.Name = "mainLayoutPanel";
             this.mainLayoutPanel.Padding = new System.Windows.Forms.Padding(80, 18, 80, 10);
             this.mainLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.mainLayoutPanel.RowCount = 3;
+            this.mainLayoutPanel.RowCount = 4;
             this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 118F));
             this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.mainLayoutPanel.Size = new System.Drawing.Size(1184, 785);
             this.mainLayoutPanel.TabIndex = 0;
+            // 
+            // saveButtons_tableLayoutPanel
+            // 
+            this.saveButtons_tableLayoutPanel.ColumnCount = 3;
+            this.saveButtons_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.saveButtons_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.saveButtons_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.saveButtons_tableLayoutPanel.Controls.Add(this.Save_button, 1, 0);
+            this.saveButtons_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.saveButtons_tableLayoutPanel.Location = new System.Drawing.Point(83, 722);
+            this.saveButtons_tableLayoutPanel.Name = "saveButtons_tableLayoutPanel";
+            this.saveButtons_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.saveButtons_tableLayoutPanel.RowCount = 1;
+            this.saveButtons_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.saveButtons_tableLayoutPanel.Size = new System.Drawing.Size(1018, 50);
+            this.saveButtons_tableLayoutPanel.TabIndex = 3;
+            // 
+            // Save_button
+            // 
+            this.Save_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Save_button.BackColor = System.Drawing.Color.Transparent;
+            this.Save_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.Save2_D;
+            this.Save_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Save_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Save_button.FlatAppearance.BorderSize = 0;
+            this.Save_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.Save_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Save_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Save_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Save_button.ForeColor = System.Drawing.Color.Black;
+            this.Save_button.Location = new System.Drawing.Point(462, 4);
+            this.Save_button.Name = "Save_button";
+            this.Save_button.Size = new System.Drawing.Size(95, 42);
+            this.Save_button.TabIndex = 0;
+            this.Save_button.UseVisualStyleBackColor = false;
+            this.Save_button.Click += new System.EventHandler(this.Save_button_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -4315,6 +4371,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.countOption12_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.countOption13_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.countOption14_numericUpDown)).EndInit();
+            this.countOption15_flowLayoutPanel.ResumeLayout(false);
+            this.countOption15_flowLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countOption15_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.season_dataGridView)).EndInit();
             this.guild_check_tableLayoutPanel.ResumeLayout(false);
@@ -4328,6 +4386,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.marketingOption5_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.marketingOption6_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.marketingOption7_numericUpDown)).EndInit();
+            this.marketing_checkRow21_flowLayoutPanel.ResumeLayout(false);
+            this.marketing_checkRow21_flowLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.marketingOption8_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipment_dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.challenges_dataGridView)).EndInit();
@@ -4364,8 +4424,6 @@
             this.marketing_checkRow19_flowLayoutPanel.PerformLayout();
             this.marketing_checkRow20_flowLayoutPanel.ResumeLayout(false);
             this.marketing_checkRow20_flowLayoutPanel.PerformLayout();
-            this.marketing_checkRow21_flowLayoutPanel.ResumeLayout(false);
-            this.marketing_checkRow21_flowLayoutPanel.PerformLayout();
             this.meetingInfo_tableLayoutPanel.ResumeLayout(false);
             this.meetingInfo_tableLayoutPanel.PerformLayout();
             this.professionSelector_tableLayoutPanel.ResumeLayout(false);
@@ -4373,6 +4431,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.absenceCount_numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attendanceCount_numericUpDown)).EndInit();
             this.mainLayoutPanel.ResumeLayout(false);
+            this.saveButtons_tableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -4452,6 +4511,7 @@
         private System.Windows.Forms.NumericUpDown countOption14_numericUpDown;
         private System.Windows.Forms.Label countOption26_label;
         private System.Windows.Forms.NumericUpDown countOption15_numericUpDown;
+        private System.Windows.Forms.FlowLayoutPanel countOption15_flowLayoutPanel;
         private System.Windows.Forms.Label question27_label;
         private System.Windows.Forms.DataGridView season_dataGridView;
         private System.Windows.Forms.Label question28_label;
@@ -4596,6 +4656,8 @@
         private System.Windows.Forms.TextBox editedBy_textBox;
         private System.Windows.Forms.Label title_label;
         private System.Windows.Forms.TableLayoutPanel mainLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel saveButtons_tableLayoutPanel;
+        private System.Windows.Forms.Button Save_button;
         private System.Windows.Forms.Label countOption47_label;
         private System.Windows.Forms.Label countOption48_label;
         private System.Windows.Forms.Label countOption49_label;
