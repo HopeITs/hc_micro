@@ -1065,14 +1065,14 @@
             this.SpecialCase_toolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.SpecialCase_toolStripMenuItem.Text = "New Special Case";
             this.SpecialCase_toolStripMenuItem.Click += new System.EventHandler(this.specialCaseToolStripMenuItem_Click);
-            //
+            // 
             // ProfessionMeetings_toolStripMenuItem
-            //
+            // 
             this.ProfessionMeetings_toolStripMenuItem.Name = "ProfessionMeetings_toolStripMenuItem";
             this.ProfessionMeetings_toolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.ProfessionMeetings_toolStripMenuItem.Text = "Profession Meetings";
             this.ProfessionMeetings_toolStripMenuItem.Click += new System.EventHandler(this.professionMeetingsToolStripMenuItem_Click);
-            //
+            // 
             // toolsToolStripMenuItem1
             // 
             this.toolsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1183,7 +1183,6 @@
             this.NationalNum_toolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.NationalNum_toolStripMenuItem.Text = "Check ID Number";
             this.NationalNum_toolStripMenuItem.Click += new System.EventHandler(this.checkIDNumberToolStripMenuItem_Click);
-            // 
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {

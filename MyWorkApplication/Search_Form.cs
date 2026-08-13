@@ -159,6 +159,7 @@ namespace MyWorkApplication
                 searchBy_list.Add("Courses");
                 searchBy_list.Add("Goals");         
                 searchBy_list.Add("Educations");   //20
+                searchBy_list.Add("Profession Meetings"); //21
 
                 //searchBy_list.Add("Materials Purchased");
 
@@ -287,6 +288,8 @@ namespace MyWorkApplication
                 //B. Educations 
                 else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(20))
                     bind_Educations();
+                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(21))
+                    bind_ProfessionMeetings();
 
                 tick++;
                 // Use of the DataGridViewColumnSelector
@@ -787,6 +790,42 @@ namespace MyWorkApplication
                     FundedDateTo_DateTimePicker.Visible =
                     ApplyDate_checkBox.Visible = FundedDate_checkBox.Visible = true;
                 //Requested_checkBox.Visible = Funded_checkBox.Visible = 
+            }
+
+            // Profession Meetings
+            else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(21))
+            {
+                FundType_comboBox.Visible = Type_comboBox.Visible = SubType_comboBox.Visible = Partnership_comboBox.Visible =
+                    MP_Status_comboBox.Visible = Donor_comboBox.Visible = DonorGroup_comboBox.Visible =
+                    FundDate_comboBox.Visible = ApplyDate_comboBox.Visible =
+                    P_Parish_comboBox.Visible = Age_comboBox.Visible =
+                    Gender_comboBox.Visible = MaritalStatus_comboBox.Visible =
+                    HomeStreet_comboBox.Visible = ProjectStreet_comboBox.Visible
+                    = false;
+
+                Category_comboBox.Visible = SubCategory_comboBox.Visible = Career_comboBox.Visible = true;
+
+                FundType_label.Visible = Type_label.Visible = SubType_label.Visible = Partnership_label.Visible
+                    = MP_Status_label.Visible = Donor_label.Visible = DonorGroup_label.Visible
+                    = FundedDateFrom_label.Visible
+                    = P_Parish_label.Visible = Age_label.Visible = Gender_label.Visible = MaritalStatus_label.Visible
+                    = HomeStreet_label.Visible = ProjectStreet_label.Visible
+                    = false;
+
+                Category_label.Visible = SubCategory_label.Visible = Career_label.Visible = true;
+
+                RequestedFrom_textBox.Visible = RequestedTo_textBox.Visible =
+                    RequestedFrom_label.Visible =
+                    FundedFrom_textBox.Visible = FundedTo_textBox.Visible =
+                    FundedFrom_label.Visible =
+                    FundedDateFrom_DateTimePicker.Visible =
+                    FundedDateTo_DateTimePicker.Visible =
+                    FundedDate_checkBox.Visible = false;
+
+                ApplyDateFrom_label.Text = "Meeting Date:";
+                ApplyDateFrom_label.Visible = ApplyDateFrom_dateTimePicker.Visible =
+                    ApplyDateTo_DateTimePicker.Visible =
+                    ApplyDate_checkBox.Visible = true;
             }
 
             // Materials Purchased //
@@ -2385,6 +2424,92 @@ namespace MyWorkApplication
             }
         }
 
+        private void bind_ProfessionMeetings()
+        {
+            try
+            {
+                string condition = " WHERE 1 = 1 ";
+
+                if (Category_comboBox.Text != "" && Category_comboBox.Visible)
+                    condition += " and C.Name in (" + Program.getSelectedItems_CheckboxComboBox(Category_comboBox, true) + ")";
+
+                if (SubCategory_comboBox.Text != "" && SubCategory_comboBox.Visible)
+                    condition += " and sub.Name in (" + Program.getSelectedItems_CheckboxComboBox(SubCategory_comboBox, true) + ")";
+
+                if (Career_comboBox.Text != "" && Career_comboBox.Visible)
+                    condition += " and career.Name in (" + Program.getSelectedItems_CheckboxComboBox(Career_comboBox, true) + ")";
+
+                if (ApplyDate_checkBox.Checked)
+                {
+                    string beg = ApplyDateFrom_dateTimePicker.Value.ToString("yyyy/MM/dd");
+                    string end = ApplyDateTo_DateTimePicker.Value.ToString("yyyy/MM/dd");
+                    condition += " and ( pm.MeetingDate between '" + beg + "' and '" + end + "' )";
+                }
+
+                string query = @"
+SELECT pm.ID AS 'رقم الاجتماع',
+       pm.MeetingDate AS 'تاريخ الاجتماع',
+       IFNULL(career.Name, '') AS 'المهنة',
+       IFNULL(sub.Name, '') AS 'التصنيف',
+       IFNULL(C.Name, '') AS 'الفئة',
+       IFNULL(pm.Place, '') AS 'المكان',
+       IFNULL(pm.InvitedCount, 0) AS 'عدد المدعوين',
+       IFNULL(pm.AttendanceCount, 0) AS 'عدد الحضور',
+       IFNULL(pm.AbsenceCount, 0) AS 'عدد الغياب',
+       IFNULL(paperUser.UserName, '') AS 'مسجل الاستمارة على الورق',
+       IFNULL(programUser.UserName, '') AS 'مسجل الاستمارة على البرنامج',
+       IFNULL(editorUser.UserName, '') AS 'تم التعديل من قبل'
+FROM profession_meeting pm
+LEFT JOIN career ON career.ID = pm.Career_ID
+LEFT JOIN subcategory sub ON sub.ID = pm.SubCategory_ID
+LEFT JOIN category C ON C.ID = sub.Category_ID
+LEFT JOIN `user` paperUser ON paperUser.UserID = pm.PaperRegistrar_UserID
+LEFT JOIN `user` programUser ON programUser.UserID = pm.ProgramRegistrar_UserID
+LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
+                    + condition +
+@" ORDER BY pm.MeetingDate DESC, pm.ID DESC;";
+
+                Program.buildConnection();
+                MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
+                sc.ExecuteNonQuery();
+                MySqlDataAdapter da = new MySqlDataAdapter(sc);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+
+                MP_dataGridView.DataSource = null;
+                MP_dataGridView.Columns.Clear();
+                MP_dataGridView.Rows.Clear();
+                MP_dataGridView.ColumnHeadersVisible = false;
+                MP_dataGridView.RowHeadersVisible = false;
+
+                bs.DataSource = ds.Tables[0];
+                MP_dataGridView.DataSource = bs;
+
+                if (MP_dataGridView.Columns.Contains("تاريخ الاجتماع"))
+                    MP_dataGridView.Columns["تاريخ الاجتماع"].DefaultCellStyle.Format = "dd/MM/yyyy";
+
+                foreach (DataGridViewColumn column in MP_dataGridView.Columns)
+                {
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+
+                Count_label.Text = "Meetings Count: " + ds.Tables[0].Rows.Count.ToString("#,##0");
+
+                MP_dataGridView.ColumnHeadersVisible = true;
+                MP_dataGridView.RowHeadersVisible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (Program.MyConn.State == ConnectionState.Open)
+                    Program.MyConn.Close();
+            }
+        }
+
 
         private void Bind_All_ComboBoxes()
         {
@@ -3547,8 +3672,22 @@ namespace MyWorkApplication
                 if (MP_dataGridView.DataSource != null && MP_dataGridView.Rows.Count != 0)
                 {
                     BindingSource f_bs = (BindingSource)MP_dataGridView.DataSource;
-                    DataTable filtered_dt = ((DataTable)f_bs.DataSource).DefaultView.ToTable(true, "رقم المشروع");
-                    Count_label.Text = "Projects Count: " + filtered_dt.Rows.Count.ToString("#,##0");
+                    DataTable filtered_dt;
+
+                    if (MP_dataGridView.Columns.Contains("رقم الاجتماع"))
+                    {
+                        filtered_dt = ((DataTable)f_bs.DataSource).DefaultView.ToTable(true, "رقم الاجتماع");
+                        Count_label.Text = "Meetings Count: " + filtered_dt.Rows.Count.ToString("#,##0");
+                    }
+                    else if (MP_dataGridView.Columns.Contains("رقم المشروع"))
+                    {
+                        filtered_dt = ((DataTable)f_bs.DataSource).DefaultView.ToTable(true, "رقم المشروع");
+                        Count_label.Text = "Projects Count: " + filtered_dt.Rows.Count.ToString("#,##0");
+                    }
+                    else
+                    {
+                        Count_label.Text = "All: " + MP_dataGridView.Rows.Count.ToString("#,##0");
+                    }
                 }
 
                 Color_Duplicate_Beneficiaries();
