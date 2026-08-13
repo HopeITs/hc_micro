@@ -17,11 +17,29 @@
 
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfessionMeetings_Form));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -40,24 +58,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -151,6 +151,10 @@
             this.countOption15_other_textBox = new System.Windows.Forms.TextBox();
             this.question27_label = new System.Windows.Forms.Label();
             this.season_dataGridView = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.season_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.season_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.season_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seasonDelete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.question28_label = new System.Windows.Forms.Label();
             this.guild_check_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -187,6 +191,8 @@
             this.section32_details_label = new System.Windows.Forms.Label();
             this.question33_label = new System.Windows.Forms.Label();
             this.equipment_dataGridView = new System.Windows.Forms.DataGridView();
+            this.equipment_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipment_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.equipmentDelete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.question34_label = new System.Windows.Forms.Label();
             this.question39_label = new System.Windows.Forms.Label();
@@ -197,6 +203,9 @@
             this.section42_details_label = new System.Windows.Forms.Label();
             this.question43_label = new System.Windows.Forms.Label();
             this.challenges_dataGridView = new System.Windows.Forms.DataGridView();
+            this.challenges_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.challenges_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.challenges_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.challengesDelete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.section44_label = new System.Windows.Forms.Label();
             this.section45_details_label = new System.Windows.Forms.Label();
@@ -215,18 +224,26 @@
             this.question52_label = new System.Windows.Forms.Label();
             this.participant1_dataGridView = new System.Windows.Forms.DataGridView();
             this.participant1_dataGridView_column0 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.participant1_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant1_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.participant1Delete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.question53_label = new System.Windows.Forms.Label();
             this.participant2_dataGridView = new System.Windows.Forms.DataGridView();
             this.participant2_dataGridView_column0 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.participant2_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant2_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.participant2Delete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.question54_label = new System.Windows.Forms.Label();
             this.participant3_dataGridView = new System.Windows.Forms.DataGridView();
             this.participant3_dataGridView_column0 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.participant3_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant3_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.participant3Delete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.question55_label = new System.Windows.Forms.Label();
             this.participant4_dataGridView = new System.Windows.Forms.DataGridView();
             this.participant4_dataGridView_column0 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.participant4_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participant4_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.participant4Delete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.countOptions5_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.countOption35_label = new System.Windows.Forms.Label();
@@ -243,6 +260,8 @@
             this.section56_label = new System.Windows.Forms.Label();
             this.attendees_dataGridView = new System.Windows.Forms.DataGridView();
             this.attendeesProject_dataGridView_column = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.attendees_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attendees_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.attendeesDelete_dataGridView_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.question57_label = new System.Windows.Forms.Label();
             this.memo7_richTextBox = new System.Windows.Forms.RichTextBox();
@@ -291,6 +310,7 @@
             this.programRegistrar_textBox = new System.Windows.Forms.TextBox();
             this.editedBy_label = new System.Windows.Forms.Label();
             this.editedBy_textBox = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new MyWorkApplication.Classes.BCDateTimePicker();
             this.attendanceCount_numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.title_label = new System.Windows.Forms.Label();
             this.mainLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -315,26 +335,6 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimePicker1 = new MyWorkApplication.Classes.BCDateTimePicker();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.season_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.season_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.season_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipment_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipment_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.challenges_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.challenges_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.challenges_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant1_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant1_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant2_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant2_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant3_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant3_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant4_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participant4_dataGridView_column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attendees_dataGridView_column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attendees_dataGridView_column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1816,6 +1816,32 @@
             this.season_dataGridView.Size = new System.Drawing.Size(899, 135);
             this.season_dataGridView.TabIndex = 19;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "العدد";
+            this.Column1.Name = "Column1";
+            // 
+            // season_dataGridView_column0
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.season_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle1;
+            this.season_dataGridView_column0.HeaderText = "من";
+            this.season_dataGridView_column0.Name = "season_dataGridView_column0";
+            // 
+            // season_dataGridView_column1
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.season_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.season_dataGridView_column1.HeaderText = "إلى";
+            this.season_dataGridView_column1.Name = "season_dataGridView_column1";
+            // 
+            // season_dataGridView_column2
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.season_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.season_dataGridView_column2.HeaderText = "السبب";
+            this.season_dataGridView_column2.Name = "season_dataGridView_column2";
+            // 
             // seasonDelete_dataGridView_column
             // 
             this.seasonDelete_dataGridView_column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -2355,6 +2381,20 @@
             this.equipment_dataGridView.Size = new System.Drawing.Size(899, 210);
             this.equipment_dataGridView.TabIndex = 29;
             // 
+            // equipment_dataGridView_column0
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.equipment_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle4;
+            this.equipment_dataGridView_column0.HeaderText = "الاختصاص";
+            this.equipment_dataGridView_column0.Name = "equipment_dataGridView_column0";
+            // 
+            // equipment_dataGridView_column1
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.equipment_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.equipment_dataGridView_column1.HeaderText = "المعدات";
+            this.equipment_dataGridView_column1.Name = "equipment_dataGridView_column1";
+            // 
             // equipmentDelete_dataGridView_column
             // 
             this.equipmentDelete_dataGridView_column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -2504,6 +2544,27 @@
             this.challenges_dataGridView.RowHeadersVisible = false;
             this.challenges_dataGridView.Size = new System.Drawing.Size(899, 270);
             this.challenges_dataGridView.TabIndex = 40;
+            // 
+            // challenges_dataGridView_column0
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.challenges_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle6;
+            this.challenges_dataGridView_column0.HeaderText = "التحدي";
+            this.challenges_dataGridView_column0.Name = "challenges_dataGridView_column0";
+            // 
+            // challenges_dataGridView_column1
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.challenges_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.challenges_dataGridView_column1.HeaderText = "العدد";
+            this.challenges_dataGridView_column1.Name = "challenges_dataGridView_column1";
+            // 
+            // challenges_dataGridView_column2
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.challenges_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle8;
+            this.challenges_dataGridView_column2.HeaderText = "اقتراحات الحلول";
+            this.challenges_dataGridView_column2.Name = "challenges_dataGridView_column2";
             // 
             // challengesDelete_dataGridView_column
             // 
@@ -2766,7 +2827,7 @@
             this.participant1_dataGridView.RowHeadersVisible = false;
             this.participant1_dataGridView.Size = new System.Drawing.Size(899, 150);
             this.participant1_dataGridView.TabIndex = 48;
-            this.participant1_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellClick);
+            this.participant1_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.ParticipantDataGridView_CellValueChanged);
             // 
             // participant1_dataGridView_column0
             // 
@@ -2776,6 +2837,20 @@
             this.participant1_dataGridView_column0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.participant1_dataGridView_column0.HeaderText = "رقم المشروع";
             this.participant1_dataGridView_column0.Name = "participant1_dataGridView_column0";
+            // 
+            // participant1_dataGridView_column1
+            // 
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant1_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle10;
+            this.participant1_dataGridView_column1.HeaderText = "اسم المستفيد";
+            this.participant1_dataGridView_column1.Name = "participant1_dataGridView_column1";
+            // 
+            // participant1_dataGridView_column2
+            // 
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant1_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle11;
+            this.participant1_dataGridView_column2.HeaderText = "الاختصاص";
+            this.participant1_dataGridView_column2.Name = "participant1_dataGridView_column2";
             // 
             // participant1Delete_dataGridView_column
             // 
@@ -2833,6 +2908,20 @@
             this.participant2_dataGridView_column0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.participant2_dataGridView_column0.HeaderText = "رقم المشروع";
             this.participant2_dataGridView_column0.Name = "participant2_dataGridView_column0";
+            // 
+            // participant2_dataGridView_column1
+            // 
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant2_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle13;
+            this.participant2_dataGridView_column1.HeaderText = "اسم المستفيد";
+            this.participant2_dataGridView_column1.Name = "participant2_dataGridView_column1";
+            // 
+            // participant2_dataGridView_column2
+            // 
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant2_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle14;
+            this.participant2_dataGridView_column2.HeaderText = "الاختصاص";
+            this.participant2_dataGridView_column2.Name = "participant2_dataGridView_column2";
             // 
             // participant2Delete_dataGridView_column
             // 
@@ -2892,6 +2981,20 @@
             this.participant3_dataGridView_column0.HeaderText = "رقم المشروع";
             this.participant3_dataGridView_column0.Name = "participant3_dataGridView_column0";
             // 
+            // participant3_dataGridView_column1
+            // 
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant3_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle16;
+            this.participant3_dataGridView_column1.HeaderText = "اسم المستفيد";
+            this.participant3_dataGridView_column1.Name = "participant3_dataGridView_column1";
+            // 
+            // participant3_dataGridView_column2
+            // 
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant3_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle17;
+            this.participant3_dataGridView_column2.HeaderText = "الاختصاص";
+            this.participant3_dataGridView_column2.Name = "participant3_dataGridView_column2";
+            // 
             // participant3Delete_dataGridView_column
             // 
             this.participant3Delete_dataGridView_column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -2949,6 +3052,20 @@
             this.participant4_dataGridView_column0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.participant4_dataGridView_column0.HeaderText = "رقم المشروع";
             this.participant4_dataGridView_column0.Name = "participant4_dataGridView_column0";
+            // 
+            // participant4_dataGridView_column1
+            // 
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant4_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle19;
+            this.participant4_dataGridView_column1.HeaderText = "اسم المستفيد";
+            this.participant4_dataGridView_column1.Name = "participant4_dataGridView_column1";
+            // 
+            // participant4_dataGridView_column2
+            // 
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.participant4_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle20;
+            this.participant4_dataGridView_column2.HeaderText = "الاختصاص";
+            this.participant4_dataGridView_column2.Name = "participant4_dataGridView_column2";
             // 
             // participant4Delete_dataGridView_column
             // 
@@ -3128,7 +3245,7 @@
             this.minutes_scrollPanel.Name = "minutes_scrollPanel";
             this.minutes_scrollPanel.Padding = new System.Windows.Forms.Padding(24, 28, 24, 18);
             this.minutes_scrollPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.minutes_scrollPanel.Size = new System.Drawing.Size(1004, 473);
+            this.minutes_scrollPanel.Size = new System.Drawing.Size(1004, 471);
             this.minutes_scrollPanel.TabIndex = 0;
             // 
             // minutesContent_tableLayoutPanel
@@ -3212,6 +3329,20 @@
             this.attendeesProject_dataGridView_column.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.attendeesProject_dataGridView_column.HeaderText = "رقم المشروع";
             this.attendeesProject_dataGridView_column.Name = "attendeesProject_dataGridView_column";
+            // 
+            // attendees_dataGridView_column0
+            // 
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.attendees_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle21;
+            this.attendees_dataGridView_column0.HeaderText = "اسم المستفيد";
+            this.attendees_dataGridView_column0.Name = "attendees_dataGridView_column0";
+            // 
+            // attendees_dataGridView_column1
+            // 
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.attendees_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle22;
+            this.attendees_dataGridView_column1.HeaderText = "الاختصاص";
+            this.attendees_dataGridView_column1.Name = "attendees_dataGridView_column1";
             // 
             // attendeesDelete_dataGridView_column
             // 
@@ -3836,7 +3967,7 @@
             this.paperRegistrar_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.paperRegistrar_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.paperRegistrar_comboBox.FormattingEnabled = true;
-            this.paperRegistrar_comboBox.Location = new System.Drawing.Point(683, 80);
+            this.paperRegistrar_comboBox.Location = new System.Drawing.Point(683, 81);
             this.paperRegistrar_comboBox.Name = "paperRegistrar_comboBox";
             this.paperRegistrar_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.paperRegistrar_comboBox.Size = new System.Drawing.Size(221, 25);
@@ -3890,6 +4021,23 @@
             this.editedBy_textBox.Size = new System.Drawing.Size(225, 24);
             this.editedBy_textBox.TabIndex = 17;
             this.editedBy_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker1.BackColor = System.Drawing.Color.White;
+            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.Black;
+            this.dateTimePicker1.CustomFormat = "yyyy/MM/dd";
+            this.dateTimePicker1.ForeColor = System.Drawing.Color.Black;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(345, 6);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dateTimePicker1.RightToLeftLayout = true;
+            this.dateTimePicker1.Size = new System.Drawing.Size(221, 24);
+            this.dateTimePicker1.TabIndex = 3;
             // 
             // attendanceCount_numericUpDown
             // 
@@ -4125,154 +4273,6 @@
             this.dataGridViewTextBoxColumn19.HeaderText = "رقم المشروع";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.Width = 299;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.BackColor = System.Drawing.Color.White;
-            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.Black;
-            this.dateTimePicker1.CustomFormat = "yyyy/MM/dd";
-            this.dateTimePicker1.ForeColor = System.Drawing.Color.Black;
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(345, 6);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dateTimePicker1.RightToLeftLayout = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(221, 24);
-            this.dateTimePicker1.TabIndex = 3;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "العدد";
-            this.Column1.Name = "Column1";
-            // 
-            // season_dataGridView_column0
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.season_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle1;
-            this.season_dataGridView_column0.HeaderText = "من";
-            this.season_dataGridView_column0.Name = "season_dataGridView_column0";
-            // 
-            // season_dataGridView_column1
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.season_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.season_dataGridView_column1.HeaderText = "إلى";
-            this.season_dataGridView_column1.Name = "season_dataGridView_column1";
-            // 
-            // season_dataGridView_column2
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.season_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.season_dataGridView_column2.HeaderText = "السبب";
-            this.season_dataGridView_column2.Name = "season_dataGridView_column2";
-            // 
-            // equipment_dataGridView_column0
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.equipment_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle4;
-            this.equipment_dataGridView_column0.HeaderText = "الاختصاص";
-            this.equipment_dataGridView_column0.Name = "equipment_dataGridView_column0";
-            // 
-            // equipment_dataGridView_column1
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.equipment_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.equipment_dataGridView_column1.HeaderText = "المعدات";
-            this.equipment_dataGridView_column1.Name = "equipment_dataGridView_column1";
-            // 
-            // challenges_dataGridView_column0
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.challenges_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle6;
-            this.challenges_dataGridView_column0.HeaderText = "التحدي";
-            this.challenges_dataGridView_column0.Name = "challenges_dataGridView_column0";
-            // 
-            // challenges_dataGridView_column1
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.challenges_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.challenges_dataGridView_column1.HeaderText = "العدد";
-            this.challenges_dataGridView_column1.Name = "challenges_dataGridView_column1";
-            // 
-            // challenges_dataGridView_column2
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.challenges_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle8;
-            this.challenges_dataGridView_column2.HeaderText = "اقتراحات الحلول";
-            this.challenges_dataGridView_column2.Name = "challenges_dataGridView_column2";
-            // 
-            // participant1_dataGridView_column1
-            // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant1_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle10;
-            this.participant1_dataGridView_column1.HeaderText = "اسم المستفيد";
-            this.participant1_dataGridView_column1.Name = "participant1_dataGridView_column1";
-            // 
-            // participant1_dataGridView_column2
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant1_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle11;
-            this.participant1_dataGridView_column2.HeaderText = "الاختصاص";
-            this.participant1_dataGridView_column2.Name = "participant1_dataGridView_column2";
-            // 
-            // participant2_dataGridView_column1
-            // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant2_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle13;
-            this.participant2_dataGridView_column1.HeaderText = "اسم المستفيد";
-            this.participant2_dataGridView_column1.Name = "participant2_dataGridView_column1";
-            // 
-            // participant2_dataGridView_column2
-            // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant2_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle14;
-            this.participant2_dataGridView_column2.HeaderText = "الاختصاص";
-            this.participant2_dataGridView_column2.Name = "participant2_dataGridView_column2";
-            // 
-            // participant3_dataGridView_column1
-            // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant3_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle16;
-            this.participant3_dataGridView_column1.HeaderText = "اسم المستفيد";
-            this.participant3_dataGridView_column1.Name = "participant3_dataGridView_column1";
-            // 
-            // participant3_dataGridView_column2
-            // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant3_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle17;
-            this.participant3_dataGridView_column2.HeaderText = "الاختصاص";
-            this.participant3_dataGridView_column2.Name = "participant3_dataGridView_column2";
-            // 
-            // participant4_dataGridView_column1
-            // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant4_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle19;
-            this.participant4_dataGridView_column1.HeaderText = "اسم المستفيد";
-            this.participant4_dataGridView_column1.Name = "participant4_dataGridView_column1";
-            // 
-            // participant4_dataGridView_column2
-            // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.participant4_dataGridView_column2.DefaultCellStyle = dataGridViewCellStyle20;
-            this.participant4_dataGridView_column2.HeaderText = "الاختصاص";
-            this.participant4_dataGridView_column2.Name = "participant4_dataGridView_column2";
-            // 
-            // attendees_dataGridView_column0
-            // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.attendees_dataGridView_column0.DefaultCellStyle = dataGridViewCellStyle21;
-            this.attendees_dataGridView_column0.HeaderText = "اسم المستفيد";
-            this.attendees_dataGridView_column0.Name = "attendees_dataGridView_column0";
-            // 
-            // attendees_dataGridView_column1
-            // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.attendees_dataGridView_column1.DefaultCellStyle = dataGridViewCellStyle22;
-            this.attendees_dataGridView_column1.HeaderText = "الاختصاص";
-            this.attendees_dataGridView_column1.Name = "attendees_dataGridView_column1";
             // 
             // dataGridViewTextBoxColumn20
             // 

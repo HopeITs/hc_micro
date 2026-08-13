@@ -203,6 +203,9 @@ namespace MyWorkApplication
                         || form.Name == "Loans_Form")
                         theme.ApplicationNew_ToNight(form);
 
+                    if (form.Name == "ProfessionMeetings_Form")
+                        ((ProfessionMeetings_Form)form).Check_Theme();
+
                     if (form.Name == "AdminPanel_From") theme.AdminPanel_ToNight(form, false);
 
                     if (form.Name == "VOpening_Other_Form" || form.Name == "VOpening_Taxi_Form" ||
@@ -258,6 +261,9 @@ namespace MyWorkApplication
                          || form.Name == "SpecialCase_Form" || form.Name == "Purchasing_Form"
                          || form.Name == "Loans_Form")
                         theme.ApplicationNew_ToLight(form);
+
+                    if (form.Name == "ProfessionMeetings_Form")
+                        ((ProfessionMeetings_Form)form).Check_Theme();
 
                     if (form.Name == "AdminPanel_From") theme.AdminPanel_ToLight(form, false);
 

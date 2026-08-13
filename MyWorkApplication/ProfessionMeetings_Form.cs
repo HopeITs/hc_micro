@@ -21,7 +21,6 @@ namespace MyWorkApplication
         private readonly Dictionary<string, int> questionIds = new Dictionary<string, int>();
         private readonly Dictionary<string, int> optionIds = new Dictionary<string, int>();
         private readonly Dictionary<string, int> userIdsByName = new Dictionary<string, int>();
-        private readonly Color accentColor = Color.FromArgb(165, 54, 48);
 
         public ProfessionMeetings_Form()
             : this(null)
@@ -33,7 +32,7 @@ namespace MyWorkApplication
             this.mainForm = mainForm;
             InitializeComponent();
             PopulateDefaultChallengeRows();
-            ConfigureDataGridViewsForRtlEditing();
+            ConfigureDataGridViews();
         }
 
         private void ProfessionMeetings_Form_Load(object sender, EventArgs e)
@@ -50,8 +49,8 @@ namespace MyWorkApplication
                 ApplyTheme();
                 PopulateProfessionComboBox();
                 UpdateGuildDetailsVisibility();
-                ConfigureDataGridViewsForRtlEditing();
                 ConfigureParticipantProjectGrids();
+                ConfigureDataGridViews();
                 PopulateRegistrarFields();
                 BeginInvoke((MethodInvoker)ResetInitialScrollPosition);
             }
@@ -59,6 +58,12 @@ namespace MyWorkApplication
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public void Check_Theme()
+        {
+            ApplyTheme();
+            ConfigureDataGridViews();
         }
 
         private void ResetInitialScrollPosition()
@@ -75,24 +80,32 @@ namespace MyWorkApplication
             try
             {
                 NewTheme newTheme = new NewTheme();
-                if (Settings.Default.theme == "Light")
-                    newTheme.ApplicationNew_ToLight(this);
-                else
+                if (Settings.Default.theme == "Dark")
                     newTheme.ApplicationNew_ToNight(this);
+                else
+                    newTheme.ApplicationNew_ToLight(this);
 
-                ApplyConsistentAccentColor();
+                ApplyApplicationNewStyle();
             }
             catch
             {
-                BackColor = Color.FromArgb(240, 240, 240);
-                ForeColor = Color.FromArgb(60, 60, 60);
-                ApplyConsistentAccentColor();
+                ApplyApplicationNewStyle();
             }
         }
 
-        private void ApplyConsistentAccentColor()
+        private void ApplyApplicationNewStyle()
         {
-            title_label.ForeColor = accentColor;
+            bool lightTheme = Settings.Default.theme == "Light";
+            Color formBackColor = lightTheme ? NewTheme.light_grey1 : NewTheme.light_grey3;
+            Color textColor = lightTheme ? NewTheme.light_grey4 : NewTheme.light_white;
+            Color inputBackColor = lightTheme ? NewTheme.light_white : NewTheme.dark_grey2;
+            Color inputForeColor = lightTheme ? NewTheme.light_grey4 : NewTheme.light_white;
+
+            BackColor = formBackColor;
+            ForeColor = textColor;
+            ApplyApplicationNewStyleToControl(mainLayoutPanel, formBackColor, textColor, inputBackColor, inputForeColor);
+
+            title_label.ForeColor = lightTheme ? NewTheme.light_red : NewTheme.light_white;
 
             Label[] headerLabels =
             {
@@ -111,9 +124,59 @@ namespace MyWorkApplication
 
             foreach (Label headerLabel in headerLabels)
             {
-                headerLabel.BackColor = accentColor;
-                headerLabel.ForeColor = Color.White;
+                headerLabel.BackColor = lightTheme ? NewTheme.light_red : NewTheme.light_grey2;
+                headerLabel.ForeColor = lightTheme ? NewTheme.light_white : NewTheme.dark_grey2;
             }
+
+            Save_button.BackgroundImage = lightTheme ? Resources.Save2_D : Resources.Save2_L;
+            Save_button.ForeColor = lightTheme ? NewTheme.light_grey4 : NewTheme.light_white;
+        }
+
+        private void ApplyApplicationNewStyleToControl(Control control, Color backColor, Color foreColor, Color inputBackColor, Color inputForeColor)
+        {
+            if (control == null)
+                return;
+
+            if (control is TabControl)
+            {
+                control.BackColor = backColor;
+                control.ForeColor = foreColor;
+            }
+            else if (control is Panel || control is TableLayoutPanel || control is FlowLayoutPanel || control is TabPage)
+            {
+                control.BackColor = backColor;
+                control.ForeColor = foreColor;
+            }
+            else if (control is Label || control is CheckBox || control is RadioButton)
+            {
+                control.ForeColor = foreColor;
+                if (control.BackColor != NewTheme.light_red && control.BackColor != NewTheme.light_grey2)
+                    control.BackColor = Color.Transparent;
+            }
+            else if (control is Button)
+            {
+                control.ForeColor = foreColor;
+            }
+            else if (control is TextBox || control is ComboBox || control is RichTextBox || control is NumericUpDown)
+            {
+                control.BackColor = inputBackColor;
+                control.ForeColor = inputForeColor;
+            }
+            else if (control is DateTimePicker)
+            {
+                DateTimePicker dateTimePicker = control as DateTimePicker;
+                dateTimePicker.BackColor = inputBackColor;
+                dateTimePicker.ForeColor = inputForeColor;
+                dateTimePicker.CalendarForeColor = inputForeColor;
+                dateTimePicker.CalendarMonthBackground = inputBackColor;
+            }
+            else if (control is DataGridView)
+            {
+                ApplyApplicationNewDataGridViewStyle(control as DataGridView);
+            }
+
+            foreach (Control child in control.Controls)
+                ApplyApplicationNewStyleToControl(child, backColor, foreColor, inputBackColor, inputForeColor);
         }
 
         private void PopulateRegistrarFields()
@@ -183,8 +246,11 @@ namespace MyWorkApplication
                 return;
 
             bool selected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
-            Color backColor = selected ? Color.FromArgb(217, 216, 214) : comboBox.BackColor;
-            Color foreColor = Color.Black;
+            bool lightTheme = Settings.Default.theme == "Light";
+            Color backColor = selected
+                ? (lightTheme ? NewTheme.light_grey2 : NewTheme.light_grey3)
+                : comboBox.BackColor;
+            Color foreColor = lightTheme ? NewTheme.light_grey4 : NewTheme.light_white;
 
             using (SolidBrush backBrush = new SolidBrush(backColor))
                 e.Graphics.FillRectangle(backBrush, e.Bounds);
@@ -399,11 +465,13 @@ namespace MyWorkApplication
             {
                 grid.CurrentCellDirtyStateChanged -= ParticipantDataGridView_CurrentCellDirtyStateChanged;
                 grid.CellValueChanged -= ParticipantDataGridView_CellValueChanged;
+                grid.CellEndEdit -= ParticipantDataGridView_CellEndEdit;
                 grid.EditingControlShowing -= ParticipantDataGridView_EditingControlShowing;
                 grid.CellContentClick -= ParticipantDataGridView_CellContentClick;
                 grid.DataError -= ParticipantDataGridView_DataError;
                 grid.CurrentCellDirtyStateChanged += ParticipantDataGridView_CurrentCellDirtyStateChanged;
                 grid.CellValueChanged += ParticipantDataGridView_CellValueChanged;
+                grid.CellEndEdit += ParticipantDataGridView_CellEndEdit;
                 grid.EditingControlShowing += ParticipantDataGridView_EditingControlShowing;
                 grid.CellContentClick += ParticipantDataGridView_CellContentClick;
                 grid.DataError += ParticipantDataGridView_DataError;
@@ -432,10 +500,7 @@ namespace MyWorkApplication
                 projectColumn.ValueMember = "ProjectId";
                 projectColumn.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
                 projectColumn.FlatStyle = FlatStyle.Flat;
-                projectColumn.DefaultCellStyle.BackColor = Color.White;
-                projectColumn.DefaultCellStyle.ForeColor = Color.Black;
-                projectColumn.DefaultCellStyle.SelectionBackColor = Color.FromArgb(217, 216, 214);
-                projectColumn.DefaultCellStyle.SelectionForeColor = Color.Black;
+                ApplyApplicationNewGridCellStyle(projectColumn.DefaultCellStyle);
             }
         }
 
@@ -477,7 +542,12 @@ namespace MyWorkApplication
 
         private void ParticipantDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            UpdateParticipantProjectRowFromCell(sender as DataGridView, e.RowIndex, e.ColumnIndex);
+        }
 
+        private void ParticipantDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            UpdateParticipantProjectRowFromCell(sender as DataGridView, e.RowIndex, e.ColumnIndex);
         }
 
         private void ParticipantDataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -497,48 +567,32 @@ namespace MyWorkApplication
 
         private void ParticipantProjectComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            CommitParticipantProjectSelection(sender as DataGridViewComboBoxEditingControl);
-        }
-
-        private void CommitParticipantProjectSelection(DataGridViewComboBoxEditingControl comboBox)
-        {
-            if (comboBox == null || comboBox.EditingControlDataGridView == null || fillingParticipantProjectRow)
-                return;
-
-            DataGridView grid = comboBox.EditingControlDataGridView;
-            if (grid.CurrentCell == null || grid.CurrentCell.ColumnIndex != 0)
-                return;
-
-            int rowIndex = grid.CurrentCell.RowIndex;
-            object selectedProjectId = GetSelectedProjectId(comboBox);
-            if (selectedProjectId == null)
+            DataGridViewComboBoxEditingControl comboBox = sender as DataGridViewComboBoxEditingControl;
+            DataGridView grid = comboBox == null ? null : comboBox.EditingControlDataGridView;
+            if (grid == null || grid.CurrentCell == null || grid.CurrentCell.ColumnIndex != 0)
                 return;
 
             comboBox.EditingControlValueChanged = true;
-            grid.CurrentCell.Value = selectedProjectId;
             grid.NotifyCurrentCellDirty(true);
             grid.CommitEdit(DataGridViewDataErrorContexts.Commit);
-            grid.EndEdit();
-
-            QueueFillParticipantProjectRow(grid, rowIndex, selectedProjectId);
         }
 
-        private object GetSelectedProjectId(ComboBox comboBox)
+        private void UpdateParticipantProjectRowFromCell(DataGridView grid, int rowIndex, int columnIndex)
         {
-            if (comboBox == null)
-                return null;
+            if (fillingParticipantProjectRow || grid == null || rowIndex < 0 || columnIndex != 0)
+                return;
 
-            if (comboBox.SelectedValue != null && comboBox.SelectedValue.GetType() != typeof(DataRowView))
-                return comboBox.SelectedValue;
+            if (rowIndex >= grid.Rows.Count || grid.Rows[rowIndex].IsNewRow)
+                return;
 
-            DataRowView rowView = comboBox.SelectedItem as DataRowView;
-            if (rowView != null && rowView.Row.Table.Columns.Contains("ProjectId"))
-                return rowView["ProjectId"];
+            object selectedProjectId = grid.Rows[rowIndex].Cells[0].Value;
+            if (selectedProjectId == null || string.IsNullOrWhiteSpace(selectedProjectId.ToString()))
+            {
+                ResetParticipantDependentCells(grid.Rows[rowIndex]);
+                return;
+            }
 
-            if (!string.IsNullOrWhiteSpace(comboBox.Text))
-                return comboBox.Text.Trim();
-
-            return null;
+            QueueFillParticipantProjectRow(grid, rowIndex, selectedProjectId);
         }
 
         private void ParticipantDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -628,23 +682,15 @@ namespace MyWorkApplication
                     beneficiaryCell.ValueMember = "ID";
                     beneficiaryCell.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
                     beneficiaryCell.FlatStyle = FlatStyle.Flat;
-                    beneficiaryCell.Style.BackColor = Color.White;
-                    beneficiaryCell.Style.ForeColor = Color.Black;
-                    beneficiaryCell.Style.SelectionBackColor = Color.FromArgb(217, 216, 214);
-                    beneficiaryCell.Style.SelectionForeColor = Color.Black;
+                    ApplyApplicationNewGridCellStyle(beneficiaryCell.Style);
                     row.Cells[1] = beneficiaryCell;
                     row.Cells[1].Value = beneficiaries.Rows[0]["ID"];
                     row.Cells[1].Tag = null;
                 }
 
-                row.Cells[0].Style.BackColor = Color.White;
-                row.Cells[0].Style.ForeColor = Color.Black;
-                row.Cells[0].Style.SelectionBackColor = Color.FromArgb(217, 216, 214);
-                row.Cells[0].Style.SelectionForeColor = Color.Black;
-                row.Cells[2].Style.BackColor = Color.White;
-                row.Cells[2].Style.ForeColor = Color.Black;
-                row.Cells[2].Style.SelectionBackColor = Color.FromArgb(217, 216, 214);
-                row.Cells[2].Style.SelectionForeColor = Color.Black;
+                ApplyApplicationNewGridCellStyle(row.Cells[0].Style);
+                ApplyApplicationNewGridCellStyle(row.Cells[2].Style);
+                grid.InvalidateRow(rowIndex);
             }
             finally
             {
@@ -657,10 +703,7 @@ namespace MyWorkApplication
             if (grid == null || rowIndex < 0 || rowIndex >= grid.Rows.Count)
                 return;
 
-            if (grid.IsHandleCreated)
-            {
-                    FillParticipantProjectRow(grid, rowIndex, selectedProjectId);
-            }
+            FillParticipantProjectRow(grid, rowIndex, selectedProjectId);
         }
 
         private void ResetParticipantDependentCells(DataGridViewRow row)
@@ -668,16 +711,10 @@ namespace MyWorkApplication
             row.Cells[1] = new DataGridViewTextBoxCell();
             row.Cells[1].Value = string.Empty;
             row.Cells[1].Tag = null;
-            row.Cells[1].Style.BackColor = Color.White;
-            row.Cells[1].Style.ForeColor = Color.Black;
-            row.Cells[1].Style.SelectionBackColor = Color.FromArgb(217, 216, 214);
-            row.Cells[1].Style.SelectionForeColor = Color.Black;
+            ApplyApplicationNewGridCellStyle(row.Cells[1].Style);
 
             row.Cells[2].Value = string.Empty;
-            row.Cells[2].Style.BackColor = Color.White;
-            row.Cells[2].Style.ForeColor = Color.Black;
-            row.Cells[2].Style.SelectionBackColor = Color.FromArgb(217, 216, 214);
-            row.Cells[2].Style.SelectionForeColor = Color.Black;
+            ApplyApplicationNewGridCellStyle(row.Cells[2].Style);
         }
 
         private DataRow FindProjectRow(int projectId)
@@ -713,12 +750,8 @@ namespace MyWorkApplication
                 challenges_dataGridView.Rows.Add(challenge, string.Empty, string.Empty);
         }
 
-        private void ConfigureDataGridViewsForRtlEditing()
+        private void ConfigureDataGridViews()
         {
-            Color selectionBackColor = Color.FromArgb(217, 216, 214);
-            Color alternateSelectionBackColor = Color.FromArgb(216, 217, 214);
-            Color selectionForeColor = Color.Black;
-
             DataGridView[] grids =
             {
                 season_dataGridView,
@@ -735,68 +768,41 @@ namespace MyWorkApplication
             {
                 grid.RightToLeft = RightToLeft.Yes;
                 grid.EditMode = DataGridViewEditMode.EditOnEnter;
-                grid.GridColor = Color.FromArgb(64, 64, 64);
                 grid.EnableHeadersVisualStyles = false;
-                grid.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                grid.DefaultCellStyle.BackColor = Color.White;
-                grid.DefaultCellStyle.ForeColor = Color.Black;
-                grid.DefaultCellStyle.SelectionBackColor = selectionBackColor;
-                grid.DefaultCellStyle.SelectionForeColor = selectionForeColor;
-                grid.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                grid.RowsDefaultCellStyle.BackColor = Color.White;
-                grid.RowsDefaultCellStyle.ForeColor = Color.Black;
-                grid.RowsDefaultCellStyle.SelectionBackColor = selectionBackColor;
-                grid.RowsDefaultCellStyle.SelectionForeColor = selectionForeColor;
-                grid.AlternatingRowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                grid.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
-                grid.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
-                grid.AlternatingRowsDefaultCellStyle.SelectionBackColor = alternateSelectionBackColor;
-                grid.AlternatingRowsDefaultCellStyle.SelectionForeColor = selectionForeColor;
-                grid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                grid.ColumnHeadersDefaultCellStyle.SelectionBackColor = selectionBackColor;
-                grid.ColumnHeadersDefaultCellStyle.SelectionForeColor = selectionForeColor;
-                grid.RowHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                grid.RowHeadersDefaultCellStyle.SelectionBackColor = selectionBackColor;
-                grid.RowHeadersDefaultCellStyle.SelectionForeColor = selectionForeColor;
-                grid.RowTemplate.DefaultCellStyle.SelectionBackColor = selectionBackColor;
-                grid.RowTemplate.DefaultCellStyle.SelectionForeColor = selectionForeColor;
+                ApplyApplicationNewDataGridViewStyle(grid);
 
                 foreach (DataGridViewColumn column in grid.Columns)
                 {
                     column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                    column.DefaultCellStyle.BackColor = Color.White;
-                    column.DefaultCellStyle.ForeColor = Color.Black;
-                    column.DefaultCellStyle.SelectionBackColor = selectionBackColor;
-                    column.DefaultCellStyle.SelectionForeColor = selectionForeColor;
+                    ApplyApplicationNewGridCellStyle(column.DefaultCellStyle);
                     column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                    column.HeaderCell.Style.SelectionBackColor = selectionBackColor;
-                    column.HeaderCell.Style.SelectionForeColor = selectionForeColor;
+                    ApplyApplicationNewGridCellStyle(column.HeaderCell.Style);
                 }
 
-                grid.CellClick -= DataGridView_CellClick;
-                grid.CellEnter -= DataGridView_CellEnter;
+                grid.CellClick -= dataGridView_CellClick;
+                grid.CellEnter -= dataGridView_CellEnter;
                 grid.CellContentClick -= ParticipantDataGridView_CellContentClick;
                 grid.CellPainting -= DataGridView_DeleteButtonCellPainting;
-                grid.EditingControlShowing -= DataGridView_EditingControlShowing;
-                grid.CellClick += DataGridView_CellClick;
-                grid.CellEnter += DataGridView_CellEnter;
+                grid.EditingControlShowing -= dataGridView_EditingControlShowing;
+                grid.CellClick += dataGridView_CellClick;
+                grid.CellEnter += dataGridView_CellEnter;
                 grid.CellContentClick += ParticipantDataGridView_CellContentClick;
                 grid.CellPainting += DataGridView_DeleteButtonCellPainting;
-                grid.EditingControlShowing += DataGridView_EditingControlShowing;
+                grid.EditingControlShowing += dataGridView_EditingControlShowing;
             }
         }
 
-        private void DataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        private void dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             ApplyRtlToGridEditingControl(e.Control);
         }
 
-        private void DataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             StartRtlCellEdit(sender as DataGridView, e.RowIndex, e.ColumnIndex);
         }
 
-        private void DataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             StartRtlCellEdit(sender as DataGridView, e.RowIndex, e.ColumnIndex);
         }
@@ -828,9 +834,10 @@ namespace MyWorkApplication
             ComboBox comboBox = control as ComboBox;
             if (comboBox != null)
             {
+                bool lightTheme = Settings.Default.theme == "Light";
                 comboBox.RightToLeft = RightToLeft.Yes;
-                comboBox.BackColor = Color.White;
-                comboBox.ForeColor = Color.Black;
+                comboBox.BackColor = lightTheme ? NewTheme.light_white : NewTheme.dark_grey2;
+                comboBox.ForeColor = lightTheme ? NewTheme.light_grey4 : NewTheme.light_white;
                 return;
             }
 
@@ -838,9 +845,10 @@ namespace MyWorkApplication
             if (textBox == null)
                 return;
 
+            bool isLightTheme = Settings.Default.theme == "Light";
             textBox.RightToLeft = RightToLeft.Yes;
-            textBox.BackColor = Color.White;
-            textBox.ForeColor = Color.Black;
+            textBox.BackColor = isLightTheme ? NewTheme.light_white : NewTheme.dark_grey2;
+            textBox.ForeColor = isLightTheme ? NewTheme.light_grey4 : NewTheme.light_white;
             textBox.TextAlign = HorizontalAlignment.Left;
             textBox.SelectionStart = 0;
             textBox.SelectionLength = 0;
@@ -989,6 +997,58 @@ namespace MyWorkApplication
                 if (Program.MyConn.State == ConnectionState.Open)
                     Program.MyConn.Close();
             }
+        }
+
+        private void ApplyApplicationNewDataGridViewStyle(DataGridView grid)
+        {
+            if (grid == null)
+                return;
+
+            bool lightTheme = Settings.Default.theme == "Light";
+            Color backColor = lightTheme ? NewTheme.light_white : NewTheme.dark_grey2;
+            Color foreColor = lightTheme ? NewTheme.light_grey4 : NewTheme.light_white;
+            Color gridColor = lightTheme ? NewTheme.light_grey3 : NewTheme.light_grey2;
+
+            grid.BackgroundColor = backColor;
+            grid.GridColor = gridColor;
+            grid.ForeColor = foreColor;
+
+            grid.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            grid.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            grid.AlternatingRowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            grid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            grid.RowHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+
+            ApplyApplicationNewGridCellStyle(grid.DefaultCellStyle);
+            ApplyApplicationNewGridCellStyle(grid.RowsDefaultCellStyle);
+            ApplyApplicationNewGridCellStyle(grid.AlternatingRowsDefaultCellStyle);
+            ApplyApplicationNewGridCellStyle(grid.ColumnHeadersDefaultCellStyle);
+            ApplyApplicationNewGridCellStyle(grid.RowHeadersDefaultCellStyle);
+            ApplyApplicationNewGridCellStyle(grid.RowTemplate.DefaultCellStyle);
+
+            foreach (DataGridViewColumn column in grid.Columns)
+            {
+                ApplyApplicationNewGridCellStyle(column.DefaultCellStyle);
+                ApplyApplicationNewGridCellStyle(column.HeaderCell.Style);
+            }
+
+            foreach (DataGridViewRow row in grid.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                    ApplyApplicationNewGridCellStyle(cell.Style);
+            }
+        }
+
+        private void ApplyApplicationNewGridCellStyle(DataGridViewCellStyle style)
+        {
+            if (style == null)
+                return;
+
+            bool lightTheme = Settings.Default.theme == "Light";
+            style.BackColor = lightTheme ? NewTheme.light_white : NewTheme.dark_grey2;
+            style.ForeColor = lightTheme ? NewTheme.light_grey4 : NewTheme.light_white;
+            style.SelectionBackColor = lightTheme ? NewTheme.light_grey2 : NewTheme.light_grey3;
+            style.SelectionForeColor = lightTheme ? NewTheme.light_grey4 : NewTheme.light_white;
         }
 
         private bool ValidateBeforeSave()
