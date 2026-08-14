@@ -20,11 +20,13 @@ namespace MyWorkApplication
         private bool updatingGuildOptions;
         private bool loadingProfessionProjects;
         private bool fillingParticipantProjectRow;
+        private bool refreshingParticipantOptions;
         private DataSet professionDataSet;
         private DataTable professionProjectsTable;
         private readonly Dictionary<string, int> questionIds = new Dictionary<string, int>();
         private readonly Dictionary<string, int> optionIds = new Dictionary<string, int>();
         private readonly Dictionary<string, int> userIdsByName = new Dictionary<string, int>();
+        private readonly Dictionary<int, DataTable> projectBeneficiaries = new Dictionary<int, DataTable>();
 
         public ProfessionMeetings_Form()
             : this(null)
@@ -170,6 +172,9 @@ namespace MyWorkApplication
 
         private void SetProfessionMeetingDirty()
         {
+            if (refreshingParticipantOptions)
+                return;
+
             if (userMode)
                 professionMeeting_IsDirty = true;
         }
@@ -475,6 +480,14 @@ namespace MyWorkApplication
             return table;
         }
 
+        private DataTable CreateBeneficiaryLookupTable()
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Name", typeof(string));
+            return table;
+        }
+
         private DataSet GetProfessionDataSet()
         {
             Program.buildConnection();
@@ -534,6 +547,7 @@ namespace MyWorkApplication
             try
             {
                 BindCareerComboBox(professionSubCategory_comboBox.SelectedValue.ToString());
+                projectBeneficiaries.Clear();
                 professionProjectsTable = CreateProjectLookupTable();
                 ConfigureProjectComboColumns(professionProjectsTable);
                 ClearParticipantProjectRows();
@@ -561,6 +575,7 @@ namespace MyWorkApplication
             try
             {
                 professionProjectsTable = GetProjectsByProfession(professionId);
+                LoadProfessionBeneficiaries(professionId);
                 ConfigureProjectComboColumns(professionProjectsTable);
                 ClearParticipantProjectRows();
             }
@@ -597,8 +612,73 @@ namespace MyWorkApplication
             }
         }
 
+        private void LoadProfessionBeneficiaries(int professionId)
+        {
+            projectBeneficiaries.Clear();
+
+            if (professionProjectsTable != null)
+            {
+                foreach (DataRow row in professionProjectsTable.Rows)
+                {
+                    int emptyProjectId;
+                    if (int.TryParse(GetStringValue(row, "ProjectId"), out emptyProjectId))
+                        projectBeneficiaries[emptyProjectId] = CreateBeneficiaryLookupTable();
+                }
+            }
+
+            Program.buildConnection();
+            try
+            {
+                string query = @"
+                        SELECT person_microproject.MicroProject_ID AS ProjectId,
+                               person.P_ID AS ID,
+                               CONCAT(P_FirstName, ' ', P_LastName, ' ابن/ة ', P_FatherName) AS Name
+                        FROM person_microproject
+                        LEFT JOIN person ON person.P_ID = person_microproject.Person_ID
+                        LEFT JOIN microproject MP ON MP.MP_ID = person_microproject.MicroProject_ID
+                        WHERE MP.Career_ID = @CareerId
+                        ORDER BY Name ASC";
+
+                MySqlCommand command = new MySqlCommand(query, Program.MyConn);
+                command.Parameters.AddWithValue("@CareerId", professionId);
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                foreach (DataRow row in table.Rows)
+                {
+                    int projectId;
+                    int personId;
+                    if (!int.TryParse(GetStringValue(row, "ProjectId"), out projectId) ||
+                        !int.TryParse(GetStringValue(row, "ID"), out personId))
+                        continue;
+
+                    if (!projectBeneficiaries.ContainsKey(projectId))
+                        projectBeneficiaries[projectId] = CreateBeneficiaryLookupTable();
+
+                    projectBeneficiaries[projectId].Rows.Add(personId, GetStringValue(row, "Name"));
+                }
+            }
+            finally
+            {
+                Program.MyConn.Close();
+            }
+        }
+
         private DataTable GetProjectBeneficiaries(int projectId)
         {
+            if (projectBeneficiaries.ContainsKey(projectId))
+                return projectBeneficiaries[projectId];
+
+            DataTable beneficiaries = LoadProjectBeneficiaries(projectId);
+            projectBeneficiaries[projectId] = beneficiaries;
+            return beneficiaries;
+        }
+
+        private DataTable LoadProjectBeneficiaries(int projectId)
+        {
+            DataTable beneficiaries = CreateBeneficiaryLookupTable();
             Program.buildConnection();
             try
             {
@@ -616,7 +696,17 @@ namespace MyWorkApplication
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
-                return table;
+
+                foreach (DataRow row in table.Rows)
+                {
+                    int personId;
+                    if (!int.TryParse(GetStringValue(row, "ID"), out personId))
+                        continue;
+
+                    beneficiaries.Rows.Add(personId, GetStringValue(row, "Name"));
+                }
+
+                return beneficiaries;
             }
             finally
             {
@@ -639,12 +729,14 @@ namespace MyWorkApplication
             {
                 grid.CurrentCellDirtyStateChanged -= ParticipantDataGridView_CurrentCellDirtyStateChanged;
                 grid.CellValueChanged -= ParticipantDataGridView_CellValueChanged;
+                grid.CellBeginEdit -= ParticipantDataGridView_CellBeginEdit;
                 grid.CellEndEdit -= ParticipantDataGridView_CellEndEdit;
                 grid.EditingControlShowing -= ParticipantDataGridView_EditingControlShowing;
                 grid.CellContentClick -= ParticipantDataGridView_CellContentClick;
                 grid.DataError -= ParticipantDataGridView_DataError;
                 grid.CurrentCellDirtyStateChanged += ParticipantDataGridView_CurrentCellDirtyStateChanged;
                 grid.CellValueChanged += ParticipantDataGridView_CellValueChanged;
+                grid.CellBeginEdit += ParticipantDataGridView_CellBeginEdit;
                 grid.CellEndEdit += ParticipantDataGridView_CellEndEdit;
                 grid.EditingControlShowing += ParticipantDataGridView_EditingControlShowing;
                 grid.CellContentClick += ParticipantDataGridView_CellContentClick;
@@ -669,13 +761,77 @@ namespace MyWorkApplication
                 if (projectColumn == null)
                     continue;
 
-                projectColumn.DataSource = projects == null ? CreateProjectLookupTable() : projects.Copy();
-                projectColumn.DisplayMember = "ProjectId";
-                projectColumn.ValueMember = "ProjectId";
+                object[] projectItems = GetProjectIdItems(projects);
+
+                projectColumn.DataSource = null;
+                projectColumn.DisplayMember = string.Empty;
+                projectColumn.ValueMember = string.Empty;
+                projectColumn.Items.Clear();
+                projectColumn.Items.AddRange(projectItems);
                 projectColumn.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
                 projectColumn.FlatStyle = FlatStyle.Flat;
                 ApplyApplicationNewGridCellStyle(projectColumn.DefaultCellStyle);
+
+                foreach (DataGridViewRow row in grid.Rows)
+                    SetParticipantProjectCellItems(row.Cells[0] as DataGridViewComboBoxCell, projectItems);
             }
+        }
+
+        private object[] GetProjectIdItems(DataTable projects)
+        {
+            List<object> projectItems = new List<object>();
+            if (projects == null)
+                return projectItems.ToArray();
+
+            foreach (DataRow row in projects.Rows)
+            {
+                int projectId;
+                if (!int.TryParse(GetStringValue(row, "ProjectId"), out projectId))
+                    continue;
+
+                if (!projectItems.Contains(projectId))
+                    projectItems.Add(projectId);
+            }
+
+            return projectItems.ToArray();
+        }
+
+        private void SetParticipantProjectCellItems(DataGridViewComboBoxCell projectCell, object[] projectItems)
+        {
+            if (projectCell == null)
+                return;
+
+            object currentValue = NormalizeProjectValue(projectItems, projectCell.Value);
+
+            projectCell.DataSource = null;
+            projectCell.DisplayMember = string.Empty;
+            projectCell.ValueMember = string.Empty;
+            projectCell.Items.Clear();
+            projectCell.Items.AddRange(projectItems);
+            projectCell.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
+            projectCell.FlatStyle = FlatStyle.Flat;
+            ApplyApplicationNewGridCellStyle(projectCell.Style);
+
+            if (!Equals(projectCell.Value, currentValue))
+                projectCell.Value = currentValue;
+        }
+
+        private object NormalizeProjectValue(object[] projectItems, object value)
+        {
+            if (value == null || projectItems == null)
+                return null;
+
+            int projectId;
+            if (!int.TryParse(value.ToString(), out projectId))
+                return null;
+
+            foreach (object projectItem in projectItems)
+            {
+                if (projectItem != null && projectItem.ToString() == projectId.ToString())
+                    return projectId;
+            }
+
+            return null;
         }
 
         private void ClearParticipantProjectRows()
@@ -696,6 +852,7 @@ namespace MyWorkApplication
                     if (row.IsNewRow)
                         continue;
 
+                    row.Tag = null;
                     row.Cells[0].Value = null;
                     row.Cells[1] = new DataGridViewTextBoxCell();
                     row.Cells[1].Value = string.Empty;
@@ -706,7 +863,7 @@ namespace MyWorkApplication
 
         private void ParticipantDataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
-            if (fillingParticipantProjectRow)
+            if (fillingParticipantProjectRow || refreshingParticipantOptions)
                 return;
 
             DataGridView grid = sender as DataGridView;
@@ -724,6 +881,219 @@ namespace MyWorkApplication
             UpdateParticipantProjectRowFromCell(sender as DataGridView, e.RowIndex, e.ColumnIndex);
         }
 
+        private void ParticipantDataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (fillingParticipantProjectRow || refreshingParticipantOptions)
+                return;
+
+            DataGridView grid = sender as DataGridView;
+            if (grid == null || e.RowIndex < 0 || e.RowIndex >= grid.Rows.Count)
+                return;
+
+            if (e.ColumnIndex == 0)
+                RefreshParticipantProjectCellOptions(grid, e.RowIndex);
+            else if (e.ColumnIndex == 1)
+                RefreshParticipantPersonCellOptions(grid, e.RowIndex);
+        }
+
+        private void RefreshParticipantProjectCellOptions(DataGridView grid, int rowIndex)
+        {
+            DataGridViewComboBoxCell projectCell = grid.Rows[rowIndex].Cells[0] as DataGridViewComboBoxCell;
+            if (projectCell == null)
+                return;
+
+            refreshingParticipantOptions = true;
+            try
+            {
+                SetParticipantProjectCellItems(projectCell, GetAvailableProjectItems(grid, rowIndex));
+            }
+            catch
+            {
+            }
+            finally
+            {
+                refreshingParticipantOptions = false;
+            }
+        }
+
+        private void RefreshParticipantPersonCellOptions(DataGridView grid, int rowIndex)
+        {
+            DataGridViewRow row = grid.Rows[rowIndex];
+            DataGridViewComboBoxCell personCell = row.Cells[1] as DataGridViewComboBoxCell;
+            if (personCell == null)
+                return;
+
+            int projectId;
+            if (row.Cells[0].Value == null || !int.TryParse(row.Cells[0].Value.ToString(), out projectId))
+                return;
+
+            refreshingParticipantOptions = true;
+            try
+            {
+                DataTable beneficiaries = GetAvailableBeneficiaries(grid, rowIndex, projectId, GetParticipantPersonKey(row));
+                object currentValue = NormalizeBeneficiaryValue(beneficiaries, personCell.Value);
+
+                personCell.DataSource = beneficiaries;
+                personCell.DisplayMember = "Name";
+                personCell.ValueMember = "ID";
+                personCell.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
+                personCell.FlatStyle = FlatStyle.Flat;
+                ApplyApplicationNewGridCellStyle(personCell.Style);
+
+                if (!Equals(personCell.Value, currentValue))
+                    personCell.Value = currentValue;
+            }
+            catch
+            {
+            }
+            finally
+            {
+                refreshingParticipantOptions = false;
+            }
+        }
+
+        private object NormalizeBeneficiaryValue(DataTable beneficiaries, object value)
+        {
+            if (beneficiaries == null || value == null)
+                return null;
+
+            int personId;
+            if (!int.TryParse(value.ToString(), out personId))
+                return null;
+
+            foreach (DataRow row in beneficiaries.Rows)
+            {
+                if (GetStringValue(row, "ID") == personId.ToString())
+                    return personId;
+            }
+
+            return null;
+        }
+
+        private object[] GetAvailableProjectItems(DataGridView grid, int rowIndex)
+        {
+            List<object> availableProjects = new List<object>();
+            if (professionProjectsTable == null)
+                return availableProjects.ToArray();
+
+            string currentProjectId = GetParticipantCellKey(grid.Rows[rowIndex].Cells[0]);
+            List<string> usedProjectIds = GetUsedParticipantProjectIds(grid, rowIndex);
+            List<string> usedPersonIds = GetUsedParticipantPersonIds(grid, rowIndex);
+
+            foreach (DataRow row in professionProjectsTable.Rows)
+            {
+                string projectKey = GetStringValue(row, "ProjectId");
+                if (projectKey != currentProjectId && !HasAvailableBeneficiary(projectKey, usedProjectIds, usedPersonIds))
+                    continue;
+
+                int projectId;
+                if (!int.TryParse(projectKey, out projectId) || availableProjects.Contains(projectId))
+                    continue;
+
+                availableProjects.Add(projectId);
+            }
+
+            return availableProjects.ToArray();
+        }
+
+        private bool HasAvailableBeneficiary(string projectKey, List<string> usedProjectIds, List<string> usedPersonIds)
+        {
+            int projectId;
+            if (!int.TryParse(projectKey, out projectId))
+                return false;
+
+            DataTable beneficiaries = GetProjectBeneficiaries(projectId);
+            if (beneficiaries == null || beneficiaries.Rows.Count == 0)
+                return !usedProjectIds.Contains(projectKey);
+
+            foreach (DataRow row in beneficiaries.Rows)
+            {
+                string personId = GetStringValue(row, "ID");
+                if (string.IsNullOrWhiteSpace(personId))
+                    continue;
+
+                if (!usedPersonIds.Contains(personId))
+                    return true;
+            }
+
+            return false;
+        }
+
+        private DataTable GetAvailableBeneficiaries(DataGridView grid, int rowIndex, int projectId, string currentPersonId)
+        {
+            DataTable beneficiaries = GetProjectBeneficiaries(projectId);
+            DataTable availableBeneficiaries = beneficiaries.Clone();
+            List<string> usedPersonIds = GetUsedParticipantPersonIds(grid, rowIndex);
+
+            foreach (DataRow row in beneficiaries.Rows)
+            {
+                string personId = GetStringValue(row, "ID");
+                if (usedPersonIds.Contains(personId) && personId != currentPersonId)
+                    continue;
+
+                availableBeneficiaries.ImportRow(row);
+            }
+
+            return availableBeneficiaries;
+        }
+
+        private List<string> GetUsedParticipantProjectIds(DataGridView grid, int excludedRowIndex)
+        {
+            List<string> usedProjectIds = new List<string>();
+
+            for (int i = 0; i < grid.Rows.Count; i++)
+            {
+                if (i == excludedRowIndex || grid.Rows[i].IsNewRow)
+                    continue;
+
+                string projectId = GetParticipantCellKey(grid.Rows[i].Cells[0]);
+                if (!string.IsNullOrWhiteSpace(projectId) && !usedProjectIds.Contains(projectId))
+                    usedProjectIds.Add(projectId);
+            }
+
+            return usedProjectIds;
+        }
+
+        private List<string> GetUsedParticipantPersonIds(DataGridView grid, int excludedRowIndex)
+        {
+            List<string> usedPersonIds = new List<string>();
+
+            for (int i = 0; i < grid.Rows.Count; i++)
+            {
+                if (i == excludedRowIndex || grid.Rows[i].IsNewRow)
+                    continue;
+
+                string personId = GetParticipantPersonKey(grid.Rows[i]);
+                if (!string.IsNullOrWhiteSpace(personId) && !usedPersonIds.Contains(personId))
+                    usedPersonIds.Add(personId);
+            }
+
+            return usedPersonIds;
+        }
+
+        private string GetParticipantCellKey(DataGridViewCell cell)
+        {
+            if (cell == null || cell.Value == null)
+                return string.Empty;
+
+            return cell.Value.ToString().Trim();
+        }
+
+        private string GetParticipantPersonKey(DataGridViewRow row)
+        {
+            if (row == null)
+                return string.Empty;
+
+            DataGridViewCell personCell = row.Cells[1];
+            if (personCell is DataGridViewComboBoxCell)
+                return GetParticipantCellKey(personCell);
+
+            if (personCell.Tag != null)
+                return personCell.Tag.ToString().Trim();
+
+            return string.Empty;
+        }
+
         private void ParticipantDataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             DataGridViewComboBoxEditingControl comboBox = e.Control as DataGridViewComboBoxEditingControl;
@@ -731,11 +1101,6 @@ namespace MyWorkApplication
                 return;
 
             comboBox.SelectionChangeCommitted -= ParticipantProjectComboBox_SelectionChangeCommitted;
-
-            DataGridView grid = sender as DataGridView;
-            if (grid == null || grid.CurrentCell == null || grid.CurrentCell.ColumnIndex != 0)
-                return;
-
             comboBox.SelectionChangeCommitted += ParticipantProjectComboBox_SelectionChangeCommitted;
         }
 
@@ -743,26 +1108,38 @@ namespace MyWorkApplication
         {
             DataGridViewComboBoxEditingControl comboBox = sender as DataGridViewComboBoxEditingControl;
             DataGridView grid = comboBox == null ? null : comboBox.EditingControlDataGridView;
-            if (grid == null || grid.CurrentCell == null || grid.CurrentCell.ColumnIndex != 0)
+            if (grid == null || grid.CurrentCell == null)
                 return;
+
+            int columnIndex = grid.CurrentCell.ColumnIndex;
+            if (columnIndex != 0 && columnIndex != 1)
+                return;
+
+            int rowIndex = grid.CurrentCell.RowIndex;
+            object selectedValue = comboBox.SelectedValue ?? comboBox.SelectedItem;
 
             comboBox.EditingControlValueChanged = true;
             grid.NotifyCurrentCellDirty(true);
             grid.CommitEdit(DataGridViewDataErrorContexts.Commit);
+
+            if (columnIndex == 0)
+                QueueFillParticipantProjectRow(grid, rowIndex, selectedValue);
         }
 
         private void UpdateParticipantProjectRowFromCell(DataGridView grid, int rowIndex, int columnIndex)
         {
-            if (fillingParticipantProjectRow || grid == null || rowIndex < 0 || columnIndex != 0)
+            if (fillingParticipantProjectRow || refreshingParticipantOptions || grid == null || rowIndex < 0 || columnIndex != 0)
                 return;
 
-            if (rowIndex >= grid.Rows.Count || grid.Rows[rowIndex].IsNewRow)
+            if (rowIndex >= grid.Rows.Count)
                 return;
 
             object selectedProjectId = grid.Rows[rowIndex].Cells[0].Value;
             if (selectedProjectId == null || string.IsNullOrWhiteSpace(selectedProjectId.ToString()))
             {
-                ResetParticipantDependentCells(grid.Rows[rowIndex]);
+                if (!grid.Rows[rowIndex].IsNewRow)
+                    ResetParticipantDependentCells(grid.Rows[rowIndex]);
+
                 return;
             }
 
@@ -812,6 +1189,11 @@ namespace MyWorkApplication
 
         private void FillParticipantProjectRow(DataGridView grid, int rowIndex, object selectedProjectId)
         {
+            FillParticipantProjectRow(grid, rowIndex, selectedProjectId, null);
+        }
+
+        private void FillParticipantProjectRow(DataGridView grid, int rowIndex, object selectedProjectId, int? preferredPersonId)
+        {
             if (grid == null || rowIndex < 0 || rowIndex >= grid.Rows.Count)
                 return;
 
@@ -830,19 +1212,24 @@ namespace MyWorkApplication
                     row.Cells[0].Value = selectedProjectId;
                 }
 
-                ResetParticipantDependentCells(row);
-
-                if (row.Cells[0].Value == null)
-                    return;
-
                 int projectId;
-                if (!int.TryParse(row.Cells[0].Value.ToString(), out projectId))
+                if (row.Cells[0].Value == null ||
+                    !int.TryParse(row.Cells[0].Value.ToString(), out projectId))
+                {
+                    ResetParticipantDependentCells(row);
                     return;
+                }
+
+                if (!preferredPersonId.HasValue && IsParticipantRowFilledFor(row, projectId))
+                    return;
+
+                ResetParticipantDependentCells(row);
 
                 DataRow projectRow = FindProjectRow(projectId);
                 row.Cells[2].Value = projectRow == null ? string.Empty : projectRow["ProjectSpeciality"].ToString();
 
-                DataTable beneficiaries = GetProjectBeneficiaries(projectId);
+                string preferredPersonKey = preferredPersonId.HasValue ? preferredPersonId.Value.ToString() : string.Empty;
+                DataTable beneficiaries = GetAvailableBeneficiaries(grid, rowIndex, projectId, preferredPersonKey);
                 if (beneficiaries.Rows.Count == 0)
                 {
                     row.Cells[1].Value = string.Empty;
@@ -858,10 +1245,11 @@ namespace MyWorkApplication
                     beneficiaryCell.FlatStyle = FlatStyle.Flat;
                     ApplyApplicationNewGridCellStyle(beneficiaryCell.Style);
                     row.Cells[1] = beneficiaryCell;
-                    row.Cells[1].Value = beneficiaries.Rows[0]["ID"];
+                    row.Cells[1].Value = FindBeneficiaryValue(beneficiaries, preferredPersonKey);
                     row.Cells[1].Tag = null;
                 }
 
+                row.Tag = projectId;
                 ApplyApplicationNewGridCellStyle(row.Cells[0].Style);
                 ApplyApplicationNewGridCellStyle(row.Cells[2].Style);
                 grid.InvalidateRow(rowIndex);
@@ -872,16 +1260,49 @@ namespace MyWorkApplication
             }
         }
 
+        private object FindBeneficiaryValue(DataTable beneficiaries, string preferredPersonId)
+        {
+            if (beneficiaries == null || beneficiaries.Rows.Count == 0)
+                return null;
+
+            if (!string.IsNullOrWhiteSpace(preferredPersonId))
+            {
+                object preferredValue = NormalizeBeneficiaryValue(beneficiaries, preferredPersonId);
+                if (preferredValue != null)
+                    return preferredValue;
+            }
+
+            return NormalizeBeneficiaryValue(beneficiaries, GetStringValue(beneficiaries.Rows[0], "ID"));
+        }
+
         private void QueueFillParticipantProjectRow(DataGridView grid, int rowIndex, object selectedProjectId)
         {
-            if (grid == null || rowIndex < 0 || rowIndex >= grid.Rows.Count)
+            if (grid == null || rowIndex < 0 || grid.IsDisposed || !grid.IsHandleCreated)
                 return;
 
-            FillParticipantProjectRow(grid, rowIndex, selectedProjectId);
+            grid.BeginInvoke((MethodInvoker)delegate
+            {
+                try
+                {
+                    if (grid.IsDisposed || rowIndex >= grid.Rows.Count)
+                        return;
+
+                    FillParticipantProjectRow(grid, rowIndex, selectedProjectId);
+                }
+                catch
+                {
+                }
+            });
+        }
+
+        private bool IsParticipantRowFilledFor(DataGridViewRow row, int projectId)
+        {
+            return row != null && row.Tag != null && row.Tag.ToString() == projectId.ToString();
         }
 
         private void ResetParticipantDependentCells(DataGridViewRow row)
         {
+            row.Tag = null;
             row.Cells[1] = new DataGridViewTextBoxCell();
             row.Cells[1].Value = string.Empty;
             row.Cells[1].Tag = null;
@@ -1009,7 +1430,9 @@ namespace MyWorkApplication
             if (comboBox != null)
             {
                 bool lightTheme = Settings.Default.theme == "Light";
-                comboBox.RightToLeft = RightToLeft.Yes;
+                if (comboBox.RightToLeft != RightToLeft.Yes)
+                    comboBox.RightToLeft = RightToLeft.Yes;
+
                 comboBox.BackColor = lightTheme ? NewTheme.light_white : NewTheme.dark_grey2;
                 comboBox.ForeColor = lightTheme ? NewTheme.light_grey4 : NewTheme.light_white;
                 return;
@@ -1408,9 +1831,15 @@ ORDER BY Section_ID;";
                 SetComboBoxSelectedValue(professionCareer_comboBox, careerId);
 
                 if (careerId.HasValue)
+                {
                     professionProjectsTable = GetProjectsByProfession(careerId.Value);
+                    LoadProfessionBeneficiaries(careerId.Value);
+                }
                 else
+                {
                     professionProjectsTable = CreateProjectLookupTable();
+                    projectBeneficiaries.Clear();
+                }
 
                 ConfigureProjectComboColumns(professionProjectsTable);
             }
@@ -1620,11 +2049,14 @@ ORDER BY Section_ID;";
             DataGridViewRow row = grid.Rows[rowIndex];
 
             if (projectId.HasValue)
-                FillParticipantProjectRow(grid, rowIndex, projectId.Value);
+                FillParticipantProjectRow(grid, rowIndex, projectId.Value, personId);
 
-            if (personId.HasValue && row.Cells[1] is DataGridViewComboBoxCell)
+            DataGridViewComboBoxCell personCell = row.Cells[1] as DataGridViewComboBoxCell;
+            if (personId.HasValue && personCell != null)
             {
-                row.Cells[1].Value = personId.Value;
+                object personValue = NormalizeBeneficiaryValue(personCell.DataSource as DataTable, personId.Value);
+                if (personValue != null)
+                    personCell.Value = personValue;
             }
             else
             {
