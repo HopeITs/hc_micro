@@ -316,6 +316,7 @@
             this.mainLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.saveButtons_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Save_button = new System.Windows.Forms.Button();
+            this.DeleteMeeting_button = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -4100,11 +4101,13 @@
             // 
             // saveButtons_tableLayoutPanel
             // 
-            this.saveButtons_tableLayoutPanel.ColumnCount = 3;
-            this.saveButtons_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
-            this.saveButtons_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.saveButtons_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.saveButtons_tableLayoutPanel.ColumnCount = 4;
+            this.saveButtons_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.saveButtons_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.saveButtons_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.saveButtons_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.saveButtons_tableLayoutPanel.Controls.Add(this.Save_button, 1, 0);
+            this.saveButtons_tableLayoutPanel.Controls.Add(this.DeleteMeeting_button, 2, 0);
             this.saveButtons_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.saveButtons_tableLayoutPanel.Location = new System.Drawing.Point(83, 722);
             this.saveButtons_tableLayoutPanel.Name = "saveButtons_tableLayoutPanel";
@@ -4133,6 +4136,29 @@
             this.Save_button.TabIndex = 0;
             this.Save_button.UseVisualStyleBackColor = false;
             this.Save_button.Click += new System.EventHandler(this.Save_button_Click);
+            // 
+            // DeleteMeeting_button
+            // 
+            this.DeleteMeeting_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DeleteMeeting_button.BackColor = System.Drawing.Color.Transparent;
+            this.DeleteMeeting_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.Delete2_D;
+            this.DeleteMeeting_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.DeleteMeeting_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.DeleteMeeting_button.FlatAppearance.BorderSize = 0;
+            this.DeleteMeeting_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.DeleteMeeting_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.DeleteMeeting_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.DeleteMeeting_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteMeeting_button.ForeColor = System.Drawing.Color.Black;
+            this.DeleteMeeting_button.Location = new System.Drawing.Point(651, 4);
+            this.DeleteMeeting_button.Name = "DeleteMeeting_button";
+            this.DeleteMeeting_button.Size = new System.Drawing.Size(95, 42);
+            this.DeleteMeeting_button.TabIndex = 1;
+            this.DeleteMeeting_button.UseVisualStyleBackColor = false;
+            this.DeleteMeeting_button.Visible = false;
+            this.DeleteMeeting_button.Click += new System.EventHandler(this.DeleteMeeting_button_Click);
+            this.DeleteMeeting_button.MouseEnter += new System.EventHandler(this.DeleteMeeting_button_MouseEnter);
+            this.DeleteMeeting_button.MouseLeave += new System.EventHandler(this.DeleteMeeting_button_MouseLeave);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -4666,6 +4692,7 @@
         private System.Windows.Forms.TableLayoutPanel mainLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel saveButtons_tableLayoutPanel;
         private System.Windows.Forms.Button Save_button;
+        private System.Windows.Forms.Button DeleteMeeting_button;
         private System.Windows.Forms.Label countOption47_label;
         private System.Windows.Forms.Label countOption48_label;
         private System.Windows.Forms.Label countOption49_label;

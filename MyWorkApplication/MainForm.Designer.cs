@@ -1069,8 +1069,8 @@
             // ProfessionMeetings_toolStripMenuItem
             // 
             this.ProfessionMeetings_toolStripMenuItem.Name = "ProfessionMeetings_toolStripMenuItem";
-            this.ProfessionMeetings_toolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.ProfessionMeetings_toolStripMenuItem.Text = "Profession Meetings";
+            this.ProfessionMeetings_toolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.ProfessionMeetings_toolStripMenuItem.Text = "New Profession Meeting";
             this.ProfessionMeetings_toolStripMenuItem.Click += new System.EventHandler(this.professionMeetingsToolStripMenuItem_Click);
             // 
             // toolsToolStripMenuItem1

@@ -21,6 +21,7 @@ namespace MyWorkApplication
         private bool loadingProfessionProjects;
         private bool fillingParticipantProjectRow;
         private bool refreshingParticipantOptions;
+        private bool professionMeetingDeleted;
         private DataSet professionDataSet;
         private DataTable professionProjectsTable;
         private readonly Dictionary<string, int> questionIds = new Dictionary<string, int>();
@@ -75,6 +76,7 @@ namespace MyWorkApplication
                 BeginInvoke((MethodInvoker)delegate
                 {
                     ResetInitialScrollPosition();
+                    UpdateDeleteButtonVisibility();
                     ResetProfessionMeetingDirty();
                     userMode = true;
                 });
@@ -97,6 +99,9 @@ namespace MyWorkApplication
             {
                 if (e.CloseReason == CloseReason.UserClosing)
                 {
+                    if (professionMeetingDeleted)
+                        return;
+
                     CommitProfessionMeetingGridEdits();
 
                     if (professionMeeting_IsDirty)
@@ -320,6 +325,9 @@ namespace MyWorkApplication
 
             Save_button.BackgroundImage = lightTheme ? Resources.Save2_D : Resources.Save2_L;
             Save_button.ForeColor = lightTheme ? NewTheme.light_grey4 : NewTheme.light_white;
+            DeleteMeeting_button.BackgroundImage = lightTheme ? Resources.Delete2_D : Resources.Delete2_L;
+            DeleteMeeting_button.ForeColor = lightTheme ? NewTheme.light_grey4 : NewTheme.light_white;
+            UpdateDeleteButtonVisibility();
         }
 
         private void ApplyApplicationNewStyleToControl(Control control, Color backColor, Color foreColor, Color inputBackColor, Color inputForeColor)
@@ -1564,6 +1572,19 @@ namespace MyWorkApplication
                 memo.SelectionAlignment = HorizontalAlignment.Right;
         }
 
+        private void SetProfessionMeetingUpdateMode(int meetingId)
+        {
+            currentMeetingId = meetingId;
+            updateMode = meetingId > 0;
+            UpdateDeleteButtonVisibility();
+        }
+
+        private void UpdateDeleteButtonVisibility()
+        {
+            if (DeleteMeeting_button != null)
+                DeleteMeeting_button.Visible = updateMode && currentMeetingId > 0;
+        }
+
         private void Save_button_Click(object sender, EventArgs e)
         {
             bool suppressGridCommitDirty = updateMode && !professionMeeting_IsDirty && !HasCurrentDirtyGridCell();
@@ -1610,8 +1631,7 @@ namespace MyWorkApplication
                     else
                     {
                         meetingId = InsertProfessionMeeting(transaction);
-                        currentMeetingId = meetingId;
-                        updateMode = true;
+                        SetProfessionMeetingUpdateMode(meetingId);
                     }
 
                     SaveSurveyAnswers(transaction, meetingId);
@@ -1620,6 +1640,7 @@ namespace MyWorkApplication
                 }
 
                 Program.MyConn.Close();
+                UpdateDeleteButtonVisibility();
                 ResetProfessionMeetingDirty();
 
                 try
@@ -1644,6 +1665,65 @@ namespace MyWorkApplication
             }
         }
 
+        private void DeleteMeeting_button_Click(object sender, EventArgs e)
+        {
+            if (!updateMode || currentMeetingId <= 0)
+            {
+                MessageBox.Show("لا يمكن حذف اللقاء قبل حفظه");
+                return;
+            }
+
+            DialogResult dialogResult = MessageBox.Show("هل أنت متأكد أنك تريد حذف لقاء المهن بشكل كامل؟", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult != DialogResult.Yes)
+                return;
+
+            try
+            {
+                Program.buildConnection();
+                using (MySqlTransaction transaction = Program.MyConn.BeginTransaction())
+                {
+                    DeleteProfessionMeetingDetails(transaction, currentMeetingId);
+                    ExecuteNonQuery(transaction, "DELETE FROM profession_meeting WHERE ID = @MeetingId;", Parameter("@MeetingId", currentMeetingId));
+                    transaction.Commit();
+                }
+
+                Program.MyConn.Close();
+
+                try
+                {
+                    Log log = new Log();
+                    log.Insert_Log("Delete profession meeting:" + currentMeetingId, "Profession Meeting", Program.UserName, DateTime.Now);
+                }
+                catch
+                {
+                }
+
+                professionMeetingDeleted = true;
+                MessageBox.Show("تم حذف لقاء المهن بنجاح");
+                SetProfessionMeetingUpdateMode(-1);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (Program.MyConn.State == ConnectionState.Open)
+                    Program.MyConn.Close();
+            }
+        }
+
+        private void DeleteMeeting_button_MouseEnter(object sender, EventArgs e)
+        {
+            DeleteMeeting_button.BackgroundImage = Settings.Default.theme == "Light" ? Resources.Delete2_L : Resources.Delete2_D;
+        }
+
+        private void DeleteMeeting_button_MouseLeave(object sender, EventArgs e)
+        {
+            DeleteMeeting_button.BackgroundImage = Settings.Default.theme == "Light" ? Resources.Delete2_D : Resources.Delete2_L;
+        }
+
         private void LoadProfessionMeeting(int meetingId)
         {
             if (meetingId <= 0)
@@ -1655,8 +1735,7 @@ namespace MyWorkApplication
                 if (dataSet.Tables.Count == 0 || dataSet.Tables[0].Rows.Count == 0)
                 {
                     MessageBox.Show("Profession meeting was not found");
-                    updateMode = false;
-                    currentMeetingId = -1;
+                    SetProfessionMeetingUpdateMode(-1);
                     return;
                 }
 
@@ -1676,8 +1755,7 @@ namespace MyWorkApplication
                 LoadAttendeeRows(dataSet.Tables[9]);
                 LoadMinuteRows(dataSet.Tables[10]);
 
-                currentMeetingId = meetingId;
-                updateMode = true;
+                SetProfessionMeetingUpdateMode(meetingId);
                 UpdateGuildDetailsVisibility();
                 ConfigureDataGridViews();
             }
