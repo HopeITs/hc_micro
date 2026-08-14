@@ -51,7 +51,20 @@ namespace MyWorkApplication.Classes
             else visualState = ComboBoxState.Disabled;
 
             g.FillRectangle(bkgBrush, 0, 0, ClientRectangle.Width, ClientRectangle.Height);
-            g.DrawString(Text, Font, ForeBrush, ClientRectangle.Width / 3, 2);
+            if (Convert.ToString(Tag) == "CenterText")
+            {
+                TextRenderer.DrawText(
+                    g,
+                    Text,
+                    Font,
+                    ClientRectangle,
+                    ((SolidBrush)ForeBrush).Color,
+                    TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.SingleLine);
+            }
+            else
+            {
+                g.DrawString(Text, Font, ForeBrush, ClientRectangle.Width / 3, 2);
+            }
 
             ComboBoxRenderer.DrawDropDownButton(g, dropDownRectangle, visualState);
 

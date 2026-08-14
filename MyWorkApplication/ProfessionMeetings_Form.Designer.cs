@@ -437,7 +437,7 @@
             this.content_tabControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.content_tabControl.RightToLeftLayout = true;
             this.content_tabControl.SelectedIndex = 0;
-            this.content_tabControl.Size = new System.Drawing.Size(1018, 508);
+            this.content_tabControl.Size = new System.Drawing.Size(1185, 508);
             this.content_tabControl.TabIndex = 2;
             // 
             // survey_tabPage
@@ -447,7 +447,7 @@
             this.survey_tabPage.Name = "survey_tabPage";
             this.survey_tabPage.Padding = new System.Windows.Forms.Padding(3);
             this.survey_tabPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.survey_tabPage.Size = new System.Drawing.Size(1010, 477);
+            this.survey_tabPage.Size = new System.Drawing.Size(1177, 477);
             this.survey_tabPage.TabIndex = 0;
             this.survey_tabPage.Text = "الاستبيان";
             this.survey_tabPage.UseVisualStyleBackColor = true;
@@ -462,7 +462,7 @@
             this.survey_scrollPanel.Name = "survey_scrollPanel";
             this.survey_scrollPanel.Padding = new System.Windows.Forms.Padding(24, 28, 24, 18);
             this.survey_scrollPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.survey_scrollPanel.Size = new System.Drawing.Size(1004, 471);
+            this.survey_scrollPanel.Size = new System.Drawing.Size(1171, 471);
             this.survey_scrollPanel.TabIndex = 0;
             // 
             // surveyContent_tableLayoutPanel
@@ -586,7 +586,7 @@
             this.surveyContent_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.surveyContent_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.surveyContent_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.surveyContent_tableLayoutPanel.Size = new System.Drawing.Size(939, 4689);
+            this.surveyContent_tableLayoutPanel.Size = new System.Drawing.Size(1106, 4689);
             this.surveyContent_tableLayoutPanel.TabIndex = 0;
             this.surveyContent_tableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.surveyContent_tableLayoutPanel_Paint);
             // 
@@ -600,7 +600,7 @@
             this.section1_label.Margin = new System.Windows.Forms.Padding(0, 16, 0, 8);
             this.section1_label.Name = "section1_label";
             this.section1_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.section1_label.Size = new System.Drawing.Size(939, 30);
+            this.section1_label.Size = new System.Drawing.Size(1106, 30);
             this.section1_label.TabIndex = 0;
             this.section1_label.Text = "المحور الأول: الخبرة والممارسة المهنية";
             this.section1_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -613,7 +613,7 @@
             this.section2_details_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.section2_details_label.Name = "section2_details_label";
             this.section2_details_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.section2_details_label.Size = new System.Drawing.Size(939, 42);
+            this.section2_details_label.Size = new System.Drawing.Size(1106, 42);
             this.section2_details_label.TabIndex = 1;
             this.section2_details_label.Text = "يهدف هذا المحور الى فهم المسيرة المهنية وكيفية اكتساب الخبرة وتقييم المدة الزمنية" +
     " اللازمة لتدريب اشخاص جدد ليصبحوا مستقلين في هذه المهنة.";
@@ -627,7 +627,7 @@
             this.question3_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question3_label.Name = "question3_label";
             this.question3_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question3_label.Size = new System.Drawing.Size(939, 28);
+            this.question3_label.Size = new System.Drawing.Size(1106, 28);
             this.question3_label.TabIndex = 2;
             this.question3_label.Text = "1. كيف بدأت تعلم المهنة واكتساب خبرتك؟";
             this.question3_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -648,7 +648,7 @@
             this.countOptions1_tableLayoutPanel.Controls.Add(this.countOption6_label, 4, 0);
             this.countOptions1_tableLayoutPanel.Controls.Add(this.countOption3_numericUpDown, 5, 0);
             this.countOptions1_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.countOptions1_tableLayoutPanel.Location = new System.Drawing.Point(299, 152);
+            this.countOptions1_tableLayoutPanel.Location = new System.Drawing.Point(466, 152);
             this.countOptions1_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.countOptions1_tableLayoutPanel.Name = "countOptions1_tableLayoutPanel";
             this.countOptions1_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -752,7 +752,7 @@
             this.question7_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question7_label.Name = "question7_label";
             this.question7_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question7_label.Size = new System.Drawing.Size(939, 28);
+            this.question7_label.Size = new System.Drawing.Size(1106, 28);
             this.question7_label.TabIndex = 4;
             this.question7_label.Text = "2. كم عدد السنوات التي قمت فيها بممارسة هذه المهنة؟";
             this.question7_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -773,7 +773,7 @@
             this.countOptions2_tableLayoutPanel.Controls.Add(this.countOption10_label, 4, 0);
             this.countOptions2_tableLayoutPanel.Controls.Add(this.countOption6_numericUpDown, 5, 0);
             this.countOptions2_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.countOptions2_tableLayoutPanel.Location = new System.Drawing.Point(299, 238);
+            this.countOptions2_tableLayoutPanel.Location = new System.Drawing.Point(466, 238);
             this.countOptions2_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.countOptions2_tableLayoutPanel.Name = "countOptions2_tableLayoutPanel";
             this.countOptions2_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -877,7 +877,7 @@
             this.question11_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question11_label.Name = "question11_label";
             this.question11_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question11_label.Size = new System.Drawing.Size(939, 28);
+            this.question11_label.Size = new System.Drawing.Size(1106, 28);
             this.question11_label.TabIndex = 6;
             this.question11_label.Text = "3. ما هو الوقت المطلوب لتعلم أساسيات هذه المهنة نظريا وعمليا ويصبح المتدرب قادر ع" +
     "لى فتح مشروع؟";
@@ -899,7 +899,7 @@
             this.countOptions3_tableLayoutPanel.Controls.Add(this.countOption14_label, 4, 0);
             this.countOptions3_tableLayoutPanel.Controls.Add(this.countOption9_numericUpDown, 5, 0);
             this.countOptions3_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.countOptions3_tableLayoutPanel.Location = new System.Drawing.Point(299, 324);
+            this.countOptions3_tableLayoutPanel.Location = new System.Drawing.Point(466, 324);
             this.countOptions3_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.countOptions3_tableLayoutPanel.Name = "countOptions3_tableLayoutPanel";
             this.countOptions3_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1005,7 +1005,7 @@
             this.section15_label.Margin = new System.Windows.Forms.Padding(0, 16, 0, 8);
             this.section15_label.Name = "section15_label";
             this.section15_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.section15_label.Size = new System.Drawing.Size(939, 30);
+            this.section15_label.Size = new System.Drawing.Size(1106, 30);
             this.section15_label.TabIndex = 8;
             this.section15_label.Text = "المحور الثاني: دراسة السوق والبيئة التنافسية";
             this.section15_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1018,7 +1018,7 @@
             this.section16_details_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.section16_details_label.Name = "section16_details_label";
             this.section16_details_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.section16_details_label.Size = new System.Drawing.Size(939, 28);
+            this.section16_details_label.Size = new System.Drawing.Size(1106, 28);
             this.section16_details_label.TabIndex = 9;
             this.section16_details_label.Text = "يركز هذا المحور على دراسة طبيعة السوق المحلي وتحديد الزبائن المستهدفين وتقييم مست" +
     "وى المنافسة وفهم أوقات الذروة.";
@@ -1032,7 +1032,7 @@
             this.question17_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question17_label.Name = "question17_label";
             this.question17_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question17_label.Size = new System.Drawing.Size(939, 28);
+            this.question17_label.Size = new System.Drawing.Size(1106, 28);
             this.question17_label.TabIndex = 10;
             this.question17_label.Text = "4. ماهي الفئة المستهدفة او الزبائن الأساسيين لخدمات ومنتجات هذه المهنة في الوقت ا" +
     "لحالي؟ ";
@@ -1052,7 +1052,7 @@
             this.targetAudience_check_tableLayoutPanel.Controls.Add(this.targetAudience_checkRow8_flowLayoutPanel, 0, 7);
             this.targetAudience_check_tableLayoutPanel.Controls.Add(this.targetAudience_checkRow9_flowLayoutPanel, 0, 8);
             this.targetAudience_check_tableLayoutPanel.Controls.Add(this.targetAudience_checkRow10_flowLayoutPanel, 0, 9);
-            this.targetAudience_check_tableLayoutPanel.Location = new System.Drawing.Point(186, 504);
+            this.targetAudience_check_tableLayoutPanel.Location = new System.Drawing.Point(353, 504);
             this.targetAudience_check_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.targetAudience_check_tableLayoutPanel.Name = "targetAudience_check_tableLayoutPanel";
             this.targetAudience_check_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1332,7 +1332,7 @@
             this.question18_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question18_label.Name = "question18_label";
             this.question18_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question18_label.Size = new System.Drawing.Size(939, 28);
+            this.question18_label.Size = new System.Drawing.Size(1106, 28);
             this.question18_label.TabIndex = 12;
             this.question18_label.Text = "5. ماهي أكثر الخدمات أو المنتجات طلبا من قبل الزبائن في هذه المهنة حاليا؟ ";
             this.question18_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1348,7 +1348,7 @@
             this.memo1_richTextBox.Name = "memo1_richTextBox";
             this.memo1_richTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.memo1_richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.memo1_richTextBox.Size = new System.Drawing.Size(899, 86);
+            this.memo1_richTextBox.Size = new System.Drawing.Size(1066, 86);
             this.memo1_richTextBox.TabIndex = 13;
             this.memo1_richTextBox.Text = "";
             this.memo1_richTextBox.Enter += new System.EventHandler(this.Memo_Enter);
@@ -1362,7 +1362,7 @@
             this.question19_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question19_label.Name = "question19_label";
             this.question19_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question19_label.Size = new System.Drawing.Size(939, 28);
+            this.question19_label.Size = new System.Drawing.Size(1106, 28);
             this.question19_label.TabIndex = 14;
             this.question19_label.Text = "6. كيف تقيم مستوى المنافسة في هذه المهنة ضمن منطقتك الجغرافية؟ ولماذا؟";
             this.question19_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1388,7 +1388,7 @@
             this.competitionOptions_tableLayoutPanel.Controls.Add(this.numericUpDown2, 0, 1);
             this.competitionOptions_tableLayoutPanel.Controls.Add(this.numericUpDown3, 0, 2);
             this.competitionOptions_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.competitionOptions_tableLayoutPanel.Location = new System.Drawing.Point(69, 1000);
+            this.competitionOptions_tableLayoutPanel.Location = new System.Drawing.Point(236, 1000);
             this.competitionOptions_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 18);
             this.competitionOptions_tableLayoutPanel.Name = "competitionOptions_tableLayoutPanel";
             this.competitionOptions_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1548,7 +1548,7 @@
             this.question20_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question20_label.Name = "question20_label";
             this.question20_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question20_label.Size = new System.Drawing.Size(939, 28);
+            this.question20_label.Size = new System.Drawing.Size(1106, 28);
             this.question20_label.TabIndex = 16;
             this.question20_label.Text = "7. ما هو العامل الأهم والأكثر تأثيرا لجذب الزبائن في هذه المهنة؟ ";
             this.question20_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1570,7 +1570,7 @@
             this.countOptions4_tableLayoutPanel.Controls.Add(this.countOption25_label, 0, 4);
             this.countOptions4_tableLayoutPanel.Controls.Add(this.countOption14_numericUpDown, 0, 4);
             this.countOptions4_tableLayoutPanel.Controls.Add(this.countOption15_flowLayoutPanel, 0, 5);
-            this.countOptions4_tableLayoutPanel.Location = new System.Drawing.Point(339, 1158);
+            this.countOptions4_tableLayoutPanel.Location = new System.Drawing.Point(506, 1158);
             this.countOptions4_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.countOptions4_tableLayoutPanel.Name = "countOptions4_tableLayoutPanel";
             this.countOptions4_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1788,7 +1788,7 @@
             this.question27_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question27_label.Name = "question27_label";
             this.question27_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question27_label.Size = new System.Drawing.Size(939, 42);
+            this.question27_label.Size = new System.Drawing.Size(1106, 42);
             this.question27_label.TabIndex = 18;
             this.question27_label.Text = "8. بناء على طبيعة عملكم وأوقات الذروة، ما هي الأوقات أو المواسم الأنسب خلال العام" +
     " للتمويل وشراء المعدات والملحقات للمهنة؟ وما السبب؟";
@@ -1813,7 +1813,7 @@
             this.season_dataGridView.Name = "season_dataGridView";
             this.season_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.season_dataGridView.RowHeadersVisible = false;
-            this.season_dataGridView.Size = new System.Drawing.Size(899, 135);
+            this.season_dataGridView.Size = new System.Drawing.Size(1066, 135);
             this.season_dataGridView.TabIndex = 19;
             // 
             // Column1
@@ -1864,7 +1864,7 @@
             this.question28_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question28_label.Name = "question28_label";
             this.question28_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question28_label.Size = new System.Drawing.Size(939, 28);
+            this.question28_label.Size = new System.Drawing.Size(1106, 28);
             this.question28_label.TabIndex = 20;
             this.question28_label.Text = "9. هل توجد نقابة رسمية للمهنة، ومن هم الأشخاص الذين يعتبرون مرجعية أو \"شيوخ الكار" +
     "\" في منطقتكم؟";
@@ -1884,7 +1884,7 @@
             this.guild_check_tableLayoutPanel.Controls.Add(this.guildReferences_textBox, 2, 1);
             this.guild_check_tableLayoutPanel.Controls.Add(this.guild_checkBox3, 0, 2);
             this.guild_check_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guild_check_tableLayoutPanel.Location = new System.Drawing.Point(179, 1617);
+            this.guild_check_tableLayoutPanel.Location = new System.Drawing.Point(346, 1617);
             this.guild_check_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.guild_check_tableLayoutPanel.Name = "guild_check_tableLayoutPanel";
             this.guild_check_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1993,7 +1993,7 @@
             this.question29_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question29_label.Name = "question29_label";
             this.question29_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question29_label.Size = new System.Drawing.Size(939, 28);
+            this.question29_label.Size = new System.Drawing.Size(1106, 28);
             this.question29_label.TabIndex = 22;
             this.question29_label.Text = "10. ماهي أفضل الماركات المتوفرة حاليا بالسوق للمعدات والآلات المستخدمة في المهنة؟" +
     "";
@@ -2010,7 +2010,7 @@
             this.memo2_richTextBox.Name = "memo2_richTextBox";
             this.memo2_richTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.memo2_richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.memo2_richTextBox.Size = new System.Drawing.Size(899, 86);
+            this.memo2_richTextBox.Size = new System.Drawing.Size(1066, 86);
             this.memo2_richTextBox.TabIndex = 23;
             this.memo2_richTextBox.Text = "";
             this.memo2_richTextBox.Enter += new System.EventHandler(this.Memo_Enter);
@@ -2024,7 +2024,7 @@
             this.question30_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question30_label.Name = "question30_label";
             this.question30_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question30_label.Size = new System.Drawing.Size(939, 28);
+            this.question30_label.Size = new System.Drawing.Size(1106, 28);
             this.question30_label.TabIndex = 24;
             this.question30_label.Text = "11. ما هي الوسائل الأساسية التي تعتمدها حاليا لجذب الزبائن وزيادة عددهم؟ ";
             this.question30_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2050,7 +2050,7 @@
             this.marketing_check_tableLayoutPanel.Controls.Add(this.marketingOption7_numericUpDown, 0, 6);
             this.marketing_check_tableLayoutPanel.Controls.Add(this.marketingOption7_label, 1, 6);
             this.marketing_check_tableLayoutPanel.Controls.Add(this.marketing_checkRow21_flowLayoutPanel, 0, 7);
-            this.marketing_check_tableLayoutPanel.Location = new System.Drawing.Point(159, 1961);
+            this.marketing_check_tableLayoutPanel.Location = new System.Drawing.Point(326, 1961);
             this.marketing_check_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.marketing_check_tableLayoutPanel.Name = "marketing_check_tableLayoutPanel";
             this.marketing_check_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2329,7 +2329,7 @@
             this.section31_label.Margin = new System.Windows.Forms.Padding(0, 16, 0, 8);
             this.section31_label.Name = "section31_label";
             this.section31_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.section31_label.Size = new System.Drawing.Size(939, 30);
+            this.section31_label.Size = new System.Drawing.Size(1106, 30);
             this.section31_label.TabIndex = 26;
             this.section31_label.Text = "المحور الثالث: المعدات والتجهيزات والتطورات التقنية";
             this.section31_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2342,7 +2342,7 @@
             this.section32_details_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.section32_details_label.Name = "section32_details_label";
             this.section32_details_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.section32_details_label.Size = new System.Drawing.Size(939, 42);
+            this.section32_details_label.Size = new System.Drawing.Size(1106, 42);
             this.section32_details_label.TabIndex = 27;
             this.section32_details_label.Text = "يتناول هذا المحور البنية التحتية المطلوبة لنجاح المشروع من معدات وأدوات، بالإضافة" +
     " إلى رصد أثر التطور التكنولوجي والتقنيات الحديثة على المهنة.";
@@ -2356,7 +2356,7 @@
             this.question33_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question33_label.Name = "question33_label";
             this.question33_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question33_label.Size = new System.Drawing.Size(939, 28);
+            this.question33_label.Size = new System.Drawing.Size(1106, 28);
             this.question33_label.TabIndex = 28;
             this.question33_label.Text = "12. ماهي المعدات الأساسية للبدء بالمهنة (مع ذكر المعدات الحديثة في حال وجد)؟";
             this.question33_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2378,7 +2378,7 @@
             this.equipment_dataGridView.Name = "equipment_dataGridView";
             this.equipment_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.equipment_dataGridView.RowHeadersVisible = false;
-            this.equipment_dataGridView.Size = new System.Drawing.Size(899, 210);
+            this.equipment_dataGridView.Size = new System.Drawing.Size(1066, 210);
             this.equipment_dataGridView.TabIndex = 29;
             // 
             // equipment_dataGridView_column0
@@ -2417,7 +2417,7 @@
             this.question34_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question34_label.Name = "question34_label";
             this.question34_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question34_label.Size = new System.Drawing.Size(939, 28);
+            this.question34_label.Size = new System.Drawing.Size(1106, 28);
             this.question34_label.TabIndex = 30;
             this.question34_label.Text = "13. ماهي التجهيزات الإضافية المطلوبة لافتتاح المشروع غير المعدات؟ ";
             this.question34_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2430,7 +2430,7 @@
             this.question39_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question39_label.Name = "question39_label";
             this.question39_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question39_label.Size = new System.Drawing.Size(939, 28);
+            this.question39_label.Size = new System.Drawing.Size(1106, 28);
             this.question39_label.TabIndex = 32;
             this.question39_label.Text = "14. ماهي المهارات الأساسية المطلوبة في المهنة ليستطيع الفرد مزاولة المهنة؟";
             this.question39_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2446,7 +2446,7 @@
             this.memo3_richTextBox.Name = "memo3_richTextBox";
             this.memo3_richTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.memo3_richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.memo3_richTextBox.Size = new System.Drawing.Size(899, 86);
+            this.memo3_richTextBox.Size = new System.Drawing.Size(1066, 86);
             this.memo3_richTextBox.TabIndex = 33;
             this.memo3_richTextBox.Text = "";
             this.memo3_richTextBox.Enter += new System.EventHandler(this.Memo_Enter);
@@ -2460,7 +2460,7 @@
             this.question40_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question40_label.Name = "question40_label";
             this.question40_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question40_label.Size = new System.Drawing.Size(939, 28);
+            this.question40_label.Size = new System.Drawing.Size(1106, 28);
             this.question40_label.TabIndex = 34;
             this.question40_label.Text = "15. ما هي أبرز التقنيات (المواد- أساليب الجديدة- برامج) التي دخلت على هذه المهنة " +
     "خلال السنوات الأخيرة؟";
@@ -2477,7 +2477,7 @@
             this.memo4_richTextBox.Name = "memo4_richTextBox";
             this.memo4_richTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.memo4_richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.memo4_richTextBox.Size = new System.Drawing.Size(899, 86);
+            this.memo4_richTextBox.Size = new System.Drawing.Size(1066, 86);
             this.memo4_richTextBox.TabIndex = 35;
             this.memo4_richTextBox.Text = "";
             this.memo4_richTextBox.Enter += new System.EventHandler(this.Memo_Enter);
@@ -2493,7 +2493,7 @@
             this.section41_label.Margin = new System.Windows.Forms.Padding(0, 16, 0, 8);
             this.section41_label.Name = "section41_label";
             this.section41_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.section41_label.Size = new System.Drawing.Size(939, 30);
+            this.section41_label.Size = new System.Drawing.Size(1106, 30);
             this.section41_label.TabIndex = 36;
             this.section41_label.Text = "المحور الرابع: التحديات والمشاكل والحلول المقترحة";
             this.section41_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2506,7 +2506,7 @@
             this.section42_details_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.section42_details_label.Name = "section42_details_label";
             this.section42_details_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.section42_details_label.Size = new System.Drawing.Size(939, 42);
+            this.section42_details_label.Size = new System.Drawing.Size(1106, 42);
             this.section42_details_label.TabIndex = 37;
             this.section42_details_label.Text = resources.GetString("section42_details_label.Text");
             this.section42_details_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2519,7 +2519,7 @@
             this.question43_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question43_label.Name = "question43_label";
             this.question43_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question43_label.Size = new System.Drawing.Size(939, 28);
+            this.question43_label.Size = new System.Drawing.Size(1106, 28);
             this.question43_label.TabIndex = 38;
             this.question43_label.Text = "16. ماهي المشاكل والصعوبات التي تواجهك في عملك بالمهنة؟";
             this.question43_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2542,7 +2542,7 @@
             this.challenges_dataGridView.Name = "challenges_dataGridView";
             this.challenges_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.challenges_dataGridView.RowHeadersVisible = false;
-            this.challenges_dataGridView.Size = new System.Drawing.Size(899, 270);
+            this.challenges_dataGridView.Size = new System.Drawing.Size(1066, 270);
             this.challenges_dataGridView.TabIndex = 40;
             // 
             // challenges_dataGridView_column0
@@ -2590,7 +2590,7 @@
             this.section44_label.Margin = new System.Windows.Forms.Padding(0, 16, 0, 8);
             this.section44_label.Name = "section44_label";
             this.section44_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.section44_label.Size = new System.Drawing.Size(939, 30);
+            this.section44_label.Size = new System.Drawing.Size(1106, 30);
             this.section44_label.TabIndex = 41;
             this.section44_label.Text = "المحور الخامس: التدريب، التطوير والمشاركة المجتمعية";
             this.section44_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2603,7 +2603,7 @@
             this.section45_details_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.section45_details_label.Name = "section45_details_label";
             this.section45_details_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.section45_details_label.Size = new System.Drawing.Size(939, 42);
+            this.section45_details_label.Size = new System.Drawing.Size(1106, 42);
             this.section45_details_label.TabIndex = 42;
             this.section45_details_label.Text = "يركز هذا القسم على رغبة المستفيد في نقل خبراته للآخرين عبر برامج التدريب، ومدى اس" +
     "تعداده لتطوير مهاراته الإدارية والتسويقية للمساهمة الفاعلة في المجتمع.";
@@ -2617,7 +2617,7 @@
             this.question46_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question46_label.Name = "question46_label";
             this.question46_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question46_label.Size = new System.Drawing.Size(939, 28);
+            this.question46_label.Size = new System.Drawing.Size(1106, 28);
             this.question46_label.TabIndex = 43;
             this.question46_label.Text = "17. ما هو الأسلوب الأفضل لتعليم وتدريب أساسيات المهنة؟ ";
             this.question46_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2637,7 +2637,7 @@
             this.countOptions6_tableLayoutPanel.Controls.Add(this.countOption22_numericUpDown, 3, 1);
             this.countOptions6_tableLayoutPanel.Controls.Add(this.countOption50_label, 0, 1);
             this.countOptions6_tableLayoutPanel.Controls.Add(this.countOption23_numericUpDown, 1, 1);
-            this.countOptions6_tableLayoutPanel.Location = new System.Drawing.Point(339, 3595);
+            this.countOptions6_tableLayoutPanel.Location = new System.Drawing.Point(506, 3595);
             this.countOptions6_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.countOptions6_tableLayoutPanel.Name = "countOptions6_tableLayoutPanel";
             this.countOptions6_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -2771,7 +2771,7 @@
             this.question51_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question51_label.Name = "question51_label";
             this.question51_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question51_label.Size = new System.Drawing.Size(939, 42);
+            this.question51_label.Size = new System.Drawing.Size(1106, 42);
             this.question51_label.TabIndex = 45;
             this.question51_label.Text = "18. في حال توفر برامج أو دورات تدريبية حديثة متخصصة لتطوير مهنتك فنيا أو تقنيا، م" +
     "ا هي أبرز هذه البرامج؟ وكيف يمكن أن تفيد في تحسين جودة عملك أو زيادة إنتاجيتك؟";
@@ -2788,7 +2788,7 @@
             this.memo6_richTextBox.Name = "memo6_richTextBox";
             this.memo6_richTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.memo6_richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.memo6_richTextBox.Size = new System.Drawing.Size(899, 86);
+            this.memo6_richTextBox.Size = new System.Drawing.Size(1066, 86);
             this.memo6_richTextBox.TabIndex = 46;
             this.memo6_richTextBox.Text = "";
             this.memo6_richTextBox.Enter += new System.EventHandler(this.Memo_Enter);
@@ -2802,7 +2802,7 @@
             this.question52_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question52_label.Name = "question52_label";
             this.question52_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question52_label.Size = new System.Drawing.Size(939, 28);
+            this.question52_label.Size = new System.Drawing.Size(1106, 28);
             this.question52_label.TabIndex = 47;
             this.question52_label.Text = "19. من لديه محتوى تدريبي او قادر على إعداد محتوى؟";
             this.question52_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2825,7 +2825,7 @@
             this.participant1_dataGridView.Name = "participant1_dataGridView";
             this.participant1_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.participant1_dataGridView.RowHeadersVisible = false;
-            this.participant1_dataGridView.Size = new System.Drawing.Size(899, 150);
+            this.participant1_dataGridView.Size = new System.Drawing.Size(1066, 150);
             this.participant1_dataGridView.TabIndex = 48;
             this.participant1_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.ParticipantDataGridView_CellValueChanged);
             // 
@@ -2874,7 +2874,7 @@
             this.question53_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question53_label.Name = "question53_label";
             this.question53_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question53_label.Size = new System.Drawing.Size(939, 28);
+            this.question53_label.Size = new System.Drawing.Size(1106, 28);
             this.question53_label.TabIndex = 49;
             this.question53_label.Text = "20. من لديه رغبة في أن يكون جزء من برنامج تدريب مهني منظم للمبتدئين؟";
             this.question53_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2897,7 +2897,7 @@
             this.participant2_dataGridView.Name = "participant2_dataGridView";
             this.participant2_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.participant2_dataGridView.RowHeadersVisible = false;
-            this.participant2_dataGridView.Size = new System.Drawing.Size(899, 150);
+            this.participant2_dataGridView.Size = new System.Drawing.Size(1066, 150);
             this.participant2_dataGridView.TabIndex = 50;
             // 
             // participant2_dataGridView_column0
@@ -2945,7 +2945,7 @@
             this.question54_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question54_label.Name = "question54_label";
             this.question54_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question54_label.Size = new System.Drawing.Size(939, 42);
+            this.question54_label.Size = new System.Drawing.Size(1106, 42);
             this.question54_label.TabIndex = 51;
             this.question54_label.Text = "21. من لديه الرغبة في الانضمام إلى دورة تدريبية تهدف إلى تطوير مهارته في الإدارة " +
     "المالية والقانونية والتسويقية لإدارة مشروعك الحالي؟ ";
@@ -2969,7 +2969,7 @@
             this.participant3_dataGridView.Name = "participant3_dataGridView";
             this.participant3_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.participant3_dataGridView.RowHeadersVisible = false;
-            this.participant3_dataGridView.Size = new System.Drawing.Size(899, 150);
+            this.participant3_dataGridView.Size = new System.Drawing.Size(1066, 150);
             this.participant3_dataGridView.TabIndex = 52;
             // 
             // participant3_dataGridView_column0
@@ -3017,7 +3017,7 @@
             this.question55_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question55_label.Name = "question55_label";
             this.question55_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question55_label.Size = new System.Drawing.Size(939, 28);
+            this.question55_label.Size = new System.Drawing.Size(1106, 28);
             this.question55_label.TabIndex = 53;
             this.question55_label.Text = "22. من لديه الرغبة للمشاركة في بازار أو معرض من تنظيم المركز؟ يُسأل في حال تتناسب" +
     " فكرة المعرض مع المهنة";
@@ -3041,7 +3041,7 @@
             this.participant4_dataGridView.Name = "participant4_dataGridView";
             this.participant4_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.participant4_dataGridView.RowHeadersVisible = false;
-            this.participant4_dataGridView.Size = new System.Drawing.Size(899, 150);
+            this.participant4_dataGridView.Size = new System.Drawing.Size(1066, 150);
             this.participant4_dataGridView.TabIndex = 54;
             // 
             // participant4_dataGridView_column0
@@ -3097,7 +3097,7 @@
             this.countOptions5_tableLayoutPanel.Controls.Add(this.countOption19_numericUpDown, 3, 1);
             this.countOptions5_tableLayoutPanel.Controls.Add(this.countOption17_numericUpDown, 3, 0);
             this.countOptions5_tableLayoutPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.countOptions5_tableLayoutPanel.Location = new System.Drawing.Point(339, 2637);
+            this.countOptions5_tableLayoutPanel.Location = new System.Drawing.Point(506, 2637);
             this.countOptions5_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 4, 20, 14);
             this.countOptions5_tableLayoutPanel.Name = "countOptions5_tableLayoutPanel";
             this.countOptions5_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -3230,7 +3230,7 @@
             this.minutes_tabPage.Name = "minutes_tabPage";
             this.minutes_tabPage.Padding = new System.Windows.Forms.Padding(3);
             this.minutes_tabPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.minutes_tabPage.Size = new System.Drawing.Size(1010, 477);
+            this.minutes_tabPage.Size = new System.Drawing.Size(1177, 477);
             this.minutes_tabPage.TabIndex = 1;
             this.minutes_tabPage.Text = "محضر الاجتماع";
             this.minutes_tabPage.UseVisualStyleBackColor = true;
@@ -3245,7 +3245,7 @@
             this.minutes_scrollPanel.Name = "minutes_scrollPanel";
             this.minutes_scrollPanel.Padding = new System.Windows.Forms.Padding(24, 28, 24, 18);
             this.minutes_scrollPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.minutes_scrollPanel.Size = new System.Drawing.Size(1004, 471);
+            this.minutes_scrollPanel.Size = new System.Drawing.Size(1171, 471);
             this.minutes_scrollPanel.TabIndex = 0;
             // 
             // minutesContent_tableLayoutPanel
@@ -3284,7 +3284,7 @@
             this.minutesContent_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.minutesContent_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.minutesContent_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.minutesContent_tableLayoutPanel.Size = new System.Drawing.Size(939, 1366);
+            this.minutesContent_tableLayoutPanel.Size = new System.Drawing.Size(1106, 1366);
             this.minutesContent_tableLayoutPanel.TabIndex = 0;
             // 
             // section56_label
@@ -3297,7 +3297,7 @@
             this.section56_label.Margin = new System.Windows.Forms.Padding(0, 16, 0, 8);
             this.section56_label.Name = "section56_label";
             this.section56_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.section56_label.Size = new System.Drawing.Size(939, 30);
+            this.section56_label.Size = new System.Drawing.Size(1106, 30);
             this.section56_label.TabIndex = 0;
             this.section56_label.Text = "أسماء الحضور";
             this.section56_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3320,7 +3320,7 @@
             this.attendees_dataGridView.Name = "attendees_dataGridView";
             this.attendees_dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.attendees_dataGridView.RowHeadersVisible = false;
-            this.attendees_dataGridView.Size = new System.Drawing.Size(899, 220);
+            this.attendees_dataGridView.Size = new System.Drawing.Size(1066, 220);
             this.attendees_dataGridView.TabIndex = 1;
             // 
             // attendeesProject_dataGridView_column
@@ -3368,7 +3368,7 @@
             this.question57_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question57_label.Name = "question57_label";
             this.question57_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question57_label.Size = new System.Drawing.Size(939, 30);
+            this.question57_label.Size = new System.Drawing.Size(1106, 30);
             this.question57_label.TabIndex = 2;
             this.question57_label.Text = "المحور الأول: الخبرة والممارسة المهنية";
             this.question57_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3384,7 +3384,7 @@
             this.memo7_richTextBox.Name = "memo7_richTextBox";
             this.memo7_richTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.memo7_richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.memo7_richTextBox.Size = new System.Drawing.Size(899, 150);
+            this.memo7_richTextBox.Size = new System.Drawing.Size(1066, 150);
             this.memo7_richTextBox.TabIndex = 3;
             this.memo7_richTextBox.Text = "";
             this.memo7_richTextBox.Enter += new System.EventHandler(this.Memo_Enter);
@@ -3400,7 +3400,7 @@
             this.question58_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question58_label.Name = "question58_label";
             this.question58_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question58_label.Size = new System.Drawing.Size(939, 30);
+            this.question58_label.Size = new System.Drawing.Size(1106, 30);
             this.question58_label.TabIndex = 4;
             this.question58_label.Text = "المحور الثاني: دراسة السوق والبيئة التنافسية";
             this.question58_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3416,7 +3416,7 @@
             this.memo8_richTextBox.Name = "memo8_richTextBox";
             this.memo8_richTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.memo8_richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.memo8_richTextBox.Size = new System.Drawing.Size(899, 150);
+            this.memo8_richTextBox.Size = new System.Drawing.Size(1066, 150);
             this.memo8_richTextBox.TabIndex = 5;
             this.memo8_richTextBox.Text = "";
             this.memo8_richTextBox.Enter += new System.EventHandler(this.Memo_Enter);
@@ -3432,7 +3432,7 @@
             this.question59_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question59_label.Name = "question59_label";
             this.question59_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question59_label.Size = new System.Drawing.Size(939, 30);
+            this.question59_label.Size = new System.Drawing.Size(1106, 30);
             this.question59_label.TabIndex = 6;
             this.question59_label.Text = "المحور الثالث: المعدات والتجهيزات والتطورات التقنية";
             this.question59_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3448,7 +3448,7 @@
             this.memo9_richTextBox.Name = "memo9_richTextBox";
             this.memo9_richTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.memo9_richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.memo9_richTextBox.Size = new System.Drawing.Size(899, 150);
+            this.memo9_richTextBox.Size = new System.Drawing.Size(1066, 150);
             this.memo9_richTextBox.TabIndex = 7;
             this.memo9_richTextBox.Text = "";
             this.memo9_richTextBox.Enter += new System.EventHandler(this.Memo_Enter);
@@ -3464,7 +3464,7 @@
             this.question60_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question60_label.Name = "question60_label";
             this.question60_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question60_label.Size = new System.Drawing.Size(939, 30);
+            this.question60_label.Size = new System.Drawing.Size(1106, 30);
             this.question60_label.TabIndex = 8;
             this.question60_label.Text = "المحور الرابع: التحديات والمشاكل والحلول المقترحة";
             this.question60_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3480,7 +3480,7 @@
             this.memo10_richTextBox.Name = "memo10_richTextBox";
             this.memo10_richTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.memo10_richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.memo10_richTextBox.Size = new System.Drawing.Size(899, 150);
+            this.memo10_richTextBox.Size = new System.Drawing.Size(1066, 150);
             this.memo10_richTextBox.TabIndex = 9;
             this.memo10_richTextBox.Text = "";
             this.memo10_richTextBox.Enter += new System.EventHandler(this.Memo_Enter);
@@ -3496,7 +3496,7 @@
             this.question61_label.Margin = new System.Windows.Forms.Padding(0, 8, 0, 4);
             this.question61_label.Name = "question61_label";
             this.question61_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.question61_label.Size = new System.Drawing.Size(939, 30);
+            this.question61_label.Size = new System.Drawing.Size(1106, 30);
             this.question61_label.TabIndex = 10;
             this.question61_label.Text = "المحور الخامس: التدريب والتطوير والمشاركة المجتمعية";
             this.question61_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3512,7 +3512,7 @@
             this.memo11_richTextBox.Name = "memo11_richTextBox";
             this.memo11_richTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.memo11_richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.memo11_richTextBox.Size = new System.Drawing.Size(899, 150);
+            this.memo11_richTextBox.Size = new System.Drawing.Size(1066, 150);
             this.memo11_richTextBox.TabIndex = 11;
             this.memo11_richTextBox.Text = "";
             this.memo11_richTextBox.Enter += new System.EventHandler(this.Memo_Enter);
@@ -3746,12 +3746,12 @@
             // meetingInfo_tableLayoutPanel
             // 
             this.meetingInfo_tableLayoutPanel.ColumnCount = 6;
-            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.33333F));
-            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.33333F));
-            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.33333F));
+            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
+            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 198F));
+            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.meetingInfo_tableLayoutPanel.Controls.Add(this.profession_label, 0, 0);
             this.meetingInfo_tableLayoutPanel.Controls.Add(this.professionSelector_tableLayoutPanel, 1, 0);
             this.meetingInfo_tableLayoutPanel.Controls.Add(this.meetingDate_label, 2, 0);
@@ -3778,17 +3778,19 @@
             this.meetingInfo_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.meetingInfo_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.meetingInfo_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.meetingInfo_tableLayoutPanel.Size = new System.Drawing.Size(1018, 112);
+            this.meetingInfo_tableLayoutPanel.Size = new System.Drawing.Size(1185, 112);
             this.meetingInfo_tableLayoutPanel.TabIndex = 1;
             // 
             // profession_label
             // 
+            this.profession_label.AutoSize = true;
             this.profession_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.profession_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.profession_label.Location = new System.Drawing.Point(910, 0);
+            this.profession_label.Location = new System.Drawing.Point(1017, 3);
+            this.profession_label.Margin = new System.Windows.Forms.Padding(2, 3, 6, 3);
             this.profession_label.Name = "profession_label";
             this.profession_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.profession_label.Size = new System.Drawing.Size(105, 37);
+            this.profession_label.Size = new System.Drawing.Size(166, 31);
             this.profession_label.TabIndex = 0;
             this.profession_label.Text = "المهنة:";
             this.profession_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3801,13 +3803,13 @@
             this.professionSelector_tableLayoutPanel.Controls.Add(this.professionSubCategory_comboBox, 1, 0);
             this.professionSelector_tableLayoutPanel.Controls.Add(this.professionCareer_comboBox, 0, 0);
             this.professionSelector_tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.professionSelector_tableLayoutPanel.Location = new System.Drawing.Point(683, 0);
-            this.professionSelector_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.professionSelector_tableLayoutPanel.Location = new System.Drawing.Point(791, 0);
+            this.professionSelector_tableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.professionSelector_tableLayoutPanel.Name = "professionSelector_tableLayoutPanel";
             this.professionSelector_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.professionSelector_tableLayoutPanel.RowCount = 1;
             this.professionSelector_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.professionSelector_tableLayoutPanel.Size = new System.Drawing.Size(221, 37);
+            this.professionSelector_tableLayoutPanel.Size = new System.Drawing.Size(220, 37);
             this.professionSelector_tableLayoutPanel.TabIndex = 1;
             // 
             // professionSubCategory_comboBox
@@ -3821,10 +3823,9 @@
             this.professionSubCategory_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.professionSubCategory_comboBox.FormattingEnabled = true;
             this.professionSubCategory_comboBox.Location = new System.Drawing.Point(113, 6);
-            this.professionSubCategory_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.professionSubCategory_comboBox.Name = "professionSubCategory_comboBox";
             this.professionSubCategory_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.professionSubCategory_comboBox.Size = new System.Drawing.Size(105, 25);
+            this.professionSubCategory_comboBox.Size = new System.Drawing.Size(104, 25);
             this.professionSubCategory_comboBox.TabIndex = 0;
             this.professionSubCategory_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.professionSubCategory_comboBox_DrawItem);
             this.professionSubCategory_comboBox.SelectedIndexChanged += new System.EventHandler(this.professionSubCategory_comboBox_SelectedIndexChanged);
@@ -3840,7 +3841,6 @@
             this.professionCareer_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.professionCareer_comboBox.FormattingEnabled = true;
             this.professionCareer_comboBox.Location = new System.Drawing.Point(3, 6);
-            this.professionCareer_comboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.professionCareer_comboBox.Name = "professionCareer_comboBox";
             this.professionCareer_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.professionCareer_comboBox.Size = new System.Drawing.Size(104, 25);
@@ -3850,24 +3850,26 @@
             // 
             // meetingDate_label
             // 
-            this.meetingDate_label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.meetingDate_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.meetingDate_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.meetingDate_label.Location = new System.Drawing.Point(572, 0);
+            this.meetingDate_label.Location = new System.Drawing.Point(599, 3);
+            this.meetingDate_label.Margin = new System.Windows.Forms.Padding(2, 3, 6, 3);
             this.meetingDate_label.Name = "meetingDate_label";
             this.meetingDate_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.meetingDate_label.Size = new System.Drawing.Size(105, 37);
+            this.meetingDate_label.Size = new System.Drawing.Size(180, 31);
             this.meetingDate_label.TabIndex = 2;
             this.meetingDate_label.Text = "تاريخ الاجتماع:";
             this.meetingDate_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // place_label
             // 
-            this.place_label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.place_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.place_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.place_label.Location = new System.Drawing.Point(234, 0);
+            this.place_label.Location = new System.Drawing.Point(229, 3);
+            this.place_label.Margin = new System.Windows.Forms.Padding(2, 3, 6, 3);
             this.place_label.Name = "place_label";
             this.place_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.place_label.Size = new System.Drawing.Size(105, 37);
+            this.place_label.Size = new System.Drawing.Size(118, 31);
             this.place_label.TabIndex = 4;
             this.place_label.Text = "المكان:";
             this.place_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3879,18 +3881,20 @@
             this.place_textBox.Location = new System.Drawing.Point(3, 6);
             this.place_textBox.Name = "place_textBox";
             this.place_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.place_textBox.Size = new System.Drawing.Size(225, 24);
+            this.place_textBox.Size = new System.Drawing.Size(217, 24);
             this.place_textBox.TabIndex = 5;
             this.place_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // invitedCount_label
             // 
+            this.invitedCount_label.AutoSize = true;
             this.invitedCount_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.invitedCount_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.invitedCount_label.Location = new System.Drawing.Point(910, 37);
+            this.invitedCount_label.Location = new System.Drawing.Point(1017, 40);
+            this.invitedCount_label.Margin = new System.Windows.Forms.Padding(2, 3, 6, 3);
             this.invitedCount_label.Name = "invitedCount_label";
             this.invitedCount_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.invitedCount_label.Size = new System.Drawing.Size(105, 37);
+            this.invitedCount_label.Size = new System.Drawing.Size(166, 31);
             this.invitedCount_label.TabIndex = 6;
             this.invitedCount_label.Text = "عدد المدعوين:";
             this.invitedCount_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3898,7 +3902,7 @@
             // invitedCount_numericUpDown
             // 
             this.invitedCount_numericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.invitedCount_numericUpDown.Location = new System.Drawing.Point(683, 43);
+            this.invitedCount_numericUpDown.Location = new System.Drawing.Point(794, 43);
             this.invitedCount_numericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -3906,30 +3910,32 @@
             0});
             this.invitedCount_numericUpDown.Name = "invitedCount_numericUpDown";
             this.invitedCount_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.invitedCount_numericUpDown.Size = new System.Drawing.Size(221, 24);
+            this.invitedCount_numericUpDown.Size = new System.Drawing.Size(214, 24);
             this.invitedCount_numericUpDown.TabIndex = 7;
             this.invitedCount_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // attendanceCount_label
             // 
-            this.attendanceCount_label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.attendanceCount_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.attendanceCount_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.attendanceCount_label.Location = new System.Drawing.Point(572, 37);
+            this.attendanceCount_label.Location = new System.Drawing.Point(599, 40);
+            this.attendanceCount_label.Margin = new System.Windows.Forms.Padding(2, 3, 6, 3);
             this.attendanceCount_label.Name = "attendanceCount_label";
             this.attendanceCount_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.attendanceCount_label.Size = new System.Drawing.Size(105, 37);
+            this.attendanceCount_label.Size = new System.Drawing.Size(180, 31);
             this.attendanceCount_label.TabIndex = 8;
             this.attendanceCount_label.Text = "عدد الحضور:";
             this.attendanceCount_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // absenceCount_label
             // 
-            this.absenceCount_label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.absenceCount_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.absenceCount_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.absenceCount_label.Location = new System.Drawing.Point(234, 37);
+            this.absenceCount_label.Location = new System.Drawing.Point(229, 40);
+            this.absenceCount_label.Margin = new System.Windows.Forms.Padding(2, 3, 6, 3);
             this.absenceCount_label.Name = "absenceCount_label";
             this.absenceCount_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.absenceCount_label.Size = new System.Drawing.Size(105, 37);
+            this.absenceCount_label.Size = new System.Drawing.Size(118, 31);
             this.absenceCount_label.TabIndex = 10;
             this.absenceCount_label.Text = "عدد الغياب:";
             this.absenceCount_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3945,18 +3951,20 @@
             0});
             this.absenceCount_numericUpDown.Name = "absenceCount_numericUpDown";
             this.absenceCount_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.absenceCount_numericUpDown.Size = new System.Drawing.Size(225, 24);
+            this.absenceCount_numericUpDown.Size = new System.Drawing.Size(217, 24);
             this.absenceCount_numericUpDown.TabIndex = 11;
             this.absenceCount_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // paperRegistrar_label
             // 
+            this.paperRegistrar_label.AutoSize = true;
             this.paperRegistrar_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.paperRegistrar_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.paperRegistrar_label.Location = new System.Drawing.Point(910, 74);
+            this.paperRegistrar_label.Location = new System.Drawing.Point(1017, 77);
+            this.paperRegistrar_label.Margin = new System.Windows.Forms.Padding(2, 3, 6, 3);
             this.paperRegistrar_label.Name = "paperRegistrar_label";
             this.paperRegistrar_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.paperRegistrar_label.Size = new System.Drawing.Size(105, 38);
+            this.paperRegistrar_label.Size = new System.Drawing.Size(166, 32);
             this.paperRegistrar_label.TabIndex = 12;
             this.paperRegistrar_label.Text = "مسجل الاستمارة (على الورق):";
             this.paperRegistrar_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3967,21 +3975,22 @@
             this.paperRegistrar_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.paperRegistrar_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.paperRegistrar_comboBox.FormattingEnabled = true;
-            this.paperRegistrar_comboBox.Location = new System.Drawing.Point(683, 82);
+            this.paperRegistrar_comboBox.Location = new System.Drawing.Point(794, 82);
             this.paperRegistrar_comboBox.Name = "paperRegistrar_comboBox";
             this.paperRegistrar_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.paperRegistrar_comboBox.Size = new System.Drawing.Size(221, 25);
+            this.paperRegistrar_comboBox.Size = new System.Drawing.Size(214, 25);
             this.paperRegistrar_comboBox.TabIndex = 13;
             this.paperRegistrar_comboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.paperRegistrar_comboBox_DrawItem);
             // 
             // programRegistrar_label
             // 
-            this.programRegistrar_label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.programRegistrar_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.programRegistrar_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.programRegistrar_label.Location = new System.Drawing.Point(572, 74);
+            this.programRegistrar_label.Location = new System.Drawing.Point(599, 77);
+            this.programRegistrar_label.Margin = new System.Windows.Forms.Padding(2, 3, 6, 3);
             this.programRegistrar_label.Name = "programRegistrar_label";
             this.programRegistrar_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.programRegistrar_label.Size = new System.Drawing.Size(105, 38);
+            this.programRegistrar_label.Size = new System.Drawing.Size(180, 32);
             this.programRegistrar_label.TabIndex = 14;
             this.programRegistrar_label.Text = "مسجل الاستمارة (على البرنامج):";
             this.programRegistrar_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3990,22 +3999,23 @@
             // 
             this.programRegistrar_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.programRegistrar_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.programRegistrar_textBox.Location = new System.Drawing.Point(345, 81);
+            this.programRegistrar_textBox.Location = new System.Drawing.Point(376, 81);
             this.programRegistrar_textBox.Name = "programRegistrar_textBox";
             this.programRegistrar_textBox.ReadOnly = true;
             this.programRegistrar_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.programRegistrar_textBox.Size = new System.Drawing.Size(221, 24);
+            this.programRegistrar_textBox.Size = new System.Drawing.Size(214, 24);
             this.programRegistrar_textBox.TabIndex = 15;
             this.programRegistrar_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // editedBy_label
             // 
-            this.editedBy_label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editedBy_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.editedBy_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.editedBy_label.Location = new System.Drawing.Point(234, 74);
+            this.editedBy_label.Location = new System.Drawing.Point(229, 77);
+            this.editedBy_label.Margin = new System.Windows.Forms.Padding(2, 3, 6, 3);
             this.editedBy_label.Name = "editedBy_label";
             this.editedBy_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.editedBy_label.Size = new System.Drawing.Size(105, 38);
+            this.editedBy_label.Size = new System.Drawing.Size(118, 32);
             this.editedBy_label.TabIndex = 16;
             this.editedBy_label.Text = "تم التعديل من قبل:";
             this.editedBy_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4018,7 +4028,7 @@
             this.editedBy_textBox.Name = "editedBy_textBox";
             this.editedBy_textBox.ReadOnly = true;
             this.editedBy_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.editedBy_textBox.Size = new System.Drawing.Size(225, 24);
+            this.editedBy_textBox.Size = new System.Drawing.Size(217, 24);
             this.editedBy_textBox.TabIndex = 17;
             this.editedBy_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -4031,18 +4041,18 @@
             this.dateTimePicker1.CustomFormat = "yyyy/MM/dd";
             this.dateTimePicker1.ForeColor = System.Drawing.Color.Black;
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(345, 6);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dateTimePicker1.Location = new System.Drawing.Point(376, 6);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePicker1.RightToLeftLayout = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(221, 24);
+            this.dateTimePicker1.Size = new System.Drawing.Size(214, 24);
             this.dateTimePicker1.TabIndex = 3;
+            this.dateTimePicker1.Tag = "CenterText";
             // 
             // attendanceCount_numericUpDown
             // 
             this.attendanceCount_numericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.attendanceCount_numericUpDown.Location = new System.Drawing.Point(345, 43);
+            this.attendanceCount_numericUpDown.Location = new System.Drawing.Point(376, 43);
             this.attendanceCount_numericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -4050,7 +4060,7 @@
             0});
             this.attendanceCount_numericUpDown.Name = "attendanceCount_numericUpDown";
             this.attendanceCount_numericUpDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.attendanceCount_numericUpDown.Size = new System.Drawing.Size(221, 24);
+            this.attendanceCount_numericUpDown.Size = new System.Drawing.Size(214, 24);
             this.attendanceCount_numericUpDown.TabIndex = 9;
             this.attendanceCount_numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -4062,7 +4072,7 @@
             this.title_label.Location = new System.Drawing.Point(83, 18);
             this.title_label.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.title_label.Name = "title_label";
-            this.title_label.Size = new System.Drawing.Size(1018, 32);
+            this.title_label.Size = new System.Drawing.Size(1185, 32);
             this.title_label.TabIndex = 0;
             this.title_label.Text = "لقاء أصحاب المهن";
             this.title_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4085,7 +4095,7 @@
             this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 118F));
             this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.mainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.mainLayoutPanel.Size = new System.Drawing.Size(1184, 785);
+            this.mainLayoutPanel.Size = new System.Drawing.Size(1351, 785);
             this.mainLayoutPanel.TabIndex = 0;
             // 
             // saveButtons_tableLayoutPanel
@@ -4101,7 +4111,7 @@
             this.saveButtons_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.saveButtons_tableLayoutPanel.RowCount = 1;
             this.saveButtons_tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.saveButtons_tableLayoutPanel.Size = new System.Drawing.Size(1018, 50);
+            this.saveButtons_tableLayoutPanel.Size = new System.Drawing.Size(1185, 50);
             this.saveButtons_tableLayoutPanel.TabIndex = 3;
             // 
             // Save_button
@@ -4117,7 +4127,7 @@
             this.Save_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Save_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save_button.ForeColor = System.Drawing.Color.Black;
-            this.Save_button.Location = new System.Drawing.Point(462, 4);
+            this.Save_button.Location = new System.Drawing.Point(546, 4);
             this.Save_button.Name = "Save_button";
             this.Save_button.Size = new System.Drawing.Size(95, 42);
             this.Save_button.TabIndex = 0;
@@ -4311,7 +4321,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1184, 785);
+            this.ClientSize = new System.Drawing.Size(1351, 785);
             this.Controls.Add(this.mainLayoutPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
@@ -4641,19 +4651,16 @@
         private System.Windows.Forms.ComboBox professionSubCategory_comboBox;
         private System.Windows.Forms.ComboBox professionCareer_comboBox;
         private System.Windows.Forms.Label meetingDate_label;
-        private System.Windows.Forms.Label place_label;
         private System.Windows.Forms.TextBox place_textBox;
         private System.Windows.Forms.Label invitedCount_label;
         private System.Windows.Forms.NumericUpDown invitedCount_numericUpDown;
         private System.Windows.Forms.Label attendanceCount_label;
         private System.Windows.Forms.NumericUpDown attendanceCount_numericUpDown;
-        private System.Windows.Forms.Label absenceCount_label;
         private System.Windows.Forms.NumericUpDown absenceCount_numericUpDown;
         private System.Windows.Forms.Label paperRegistrar_label;
         private System.Windows.Forms.ComboBox paperRegistrar_comboBox;
         private System.Windows.Forms.Label programRegistrar_label;
         private System.Windows.Forms.TextBox programRegistrar_textBox;
-        private System.Windows.Forms.Label editedBy_label;
         private System.Windows.Forms.TextBox editedBy_textBox;
         private System.Windows.Forms.Label title_label;
         private System.Windows.Forms.TableLayoutPanel mainLayoutPanel;
@@ -4716,6 +4723,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private System.Windows.Forms.TextBox marketing_other_textBox;
+        private System.Windows.Forms.Label place_label;
+        private System.Windows.Forms.Label absenceCount_label;
+        private System.Windows.Forms.Label editedBy_label;
     }
 }
 
