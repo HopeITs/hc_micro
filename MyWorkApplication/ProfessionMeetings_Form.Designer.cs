@@ -1929,7 +1929,7 @@
             this.guildName_textBox.Name = "guildName_textBox";
             this.guildName_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.guildName_textBox.Size = new System.Drawing.Size(392, 24);
-            this.guildName_textBox.TabIndex = 2;
+            this.guildName_textBox.TabIndex = 1;
             this.guildName_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // guild_checkBox2
@@ -1941,7 +1941,7 @@
             this.guild_checkBox2.Name = "guild_checkBox2";
             this.guild_checkBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.guild_checkBox2.Size = new System.Drawing.Size(244, 64);
-            this.guild_checkBox2.TabIndex = 0;
+            this.guild_checkBox2.TabIndex = 2;
             this.guild_checkBox2.Text = "توجد مرجعيات أو شيوخ كار";
             this.guild_checkBox2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.guild_checkBox2.CheckedChanged += new System.EventHandler(this.GuildCheckBox_CheckedChanged);
@@ -1968,7 +1968,7 @@
             this.guildReferences_textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.guildReferences_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.guildReferences_textBox.Size = new System.Drawing.Size(392, 65);
-            this.guildReferences_textBox.TabIndex = 2;
+            this.guildReferences_textBox.TabIndex = 3;
             this.guildReferences_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // guild_checkBox3
@@ -1980,7 +1980,7 @@
             this.guild_checkBox3.Name = "guild_checkBox3";
             this.guild_checkBox3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.guild_checkBox3.Size = new System.Drawing.Size(244, 28);
-            this.guild_checkBox3.TabIndex = 0;
+            this.guild_checkBox3.TabIndex = 4;
             this.guild_checkBox3.Text = "لا توجد نقابة ولا مرجعية واضحة";
             this.guild_checkBox3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.guild_checkBox3.CheckedChanged += new System.EventHandler(this.GuildCheckBox_CheckedChanged);
@@ -3975,7 +3975,7 @@
             this.paperRegistrar_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.paperRegistrar_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.paperRegistrar_comboBox.FormattingEnabled = true;
-            this.paperRegistrar_comboBox.Location = new System.Drawing.Point(794, 82);
+            this.paperRegistrar_comboBox.Location = new System.Drawing.Point(794, 80);
             this.paperRegistrar_comboBox.Name = "paperRegistrar_comboBox";
             this.paperRegistrar_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.paperRegistrar_comboBox.Size = new System.Drawing.Size(214, 25);

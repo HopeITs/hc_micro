@@ -141,7 +141,11 @@ namespace MyWorkApplication
             foreach (Control control in parent.Controls)
             {
                 if (control is TextBoxBase)
+                {
                     ((TextBoxBase)control).TextChanged += ProfessionMeetingControl_Changed;
+                    if (control is TextBox)
+                        control.Enter += TextBox_SelectAllOnEnter;
+                }
                 else if (control is ComboBox)
                     ((ComboBox)control).SelectedIndexChanged += ProfessionMeetingControl_Changed;
                 else if (control is DateTimePicker)
@@ -163,6 +167,13 @@ namespace MyWorkApplication
                 if (control.HasChildren)
                     BindProfessionMeetingDirtyEvents(control);
             }
+        }
+
+        private void TextBox_SelectAllOnEnter(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null)
+                BeginInvoke((MethodInvoker)delegate { textBox.SelectAll(); });
         }
 
         private void ResetProfessionMeetingDirty()
@@ -2228,6 +2239,30 @@ ORDER BY Section_ID;";
                 return false;
             }
 
+            if (!ValidateQuestionTotal("1", new NumericUpDown[] { countOption1_numericUpDown, countOption2_numericUpDown, countOption3_numericUpDown }))
+                return false;
+
+            if (!ValidateQuestionTotal("2", new NumericUpDown[] { countOption4_numericUpDown, countOption5_numericUpDown, countOption6_numericUpDown }))
+                return false;
+
+            if (!ValidateQuestionTotal("3", new NumericUpDown[] { countOption7_numericUpDown, countOption8_numericUpDown, countOption9_numericUpDown }))
+                return false;
+
+            if (!ValidateQuestionTotal("6", new NumericUpDown[] { numericUpDown1, numericUpDown2, numericUpDown3 }))
+                return false;
+
+            if (!ValidateQuestionTotal("7", new NumericUpDown[] { countOption10_numericUpDown, countOption11_numericUpDown, countOption12_numericUpDown, countOption13_numericUpDown, countOption14_numericUpDown, countOption15_numericUpDown }))
+                return false;
+
+            if (!ValidateQuestionTotal("11", new NumericUpDown[] { marketingOption1_numericUpDown, marketingOption2_numericUpDown, marketingOption3_numericUpDown, marketingOption4_numericUpDown, marketingOption5_numericUpDown, marketingOption6_numericUpDown, marketingOption7_numericUpDown, marketingOption8_numericUpDown }))
+                return false;
+
+            if (!ValidateQuestionTotal("13", new NumericUpDown[] { countOption16_numericUpDown, countOption17_numericUpDown, countOption18_numericUpDown, countOption19_numericUpDown }))
+                return false;
+
+            if (!ValidateQuestionTotal("17", new NumericUpDown[] { countOption20_numericUpDown, countOption21_numericUpDown, countOption22_numericUpDown, countOption23_numericUpDown }))
+                return false;
+
             if (targetAudience_other_checkBox.Checked && string.IsNullOrWhiteSpace(targetAudience_other_textBox.Text))
             {
                 MessageBox.Show("الرجاء تحديد خيار غير ذلك في السؤال 4");
@@ -2255,6 +2290,22 @@ ORDER BY Section_ID;";
             if (guild_checkBox2.Checked && string.IsNullOrWhiteSpace(guildReferences_textBox.Text))
             {
                 MessageBox.Show("الرجاء إدخال أسماء المرجعيات أو شيوخ الكار");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidateQuestionTotal(string questionNumber, NumericUpDown[] controls)
+        {
+            int total = 0;
+            foreach (NumericUpDown control in controls)
+                total += Convert.ToInt32(control.Value);
+
+            int attendanceCount = Convert.ToInt32(attendanceCount_numericUpDown.Value);
+            if (total != attendanceCount)
+            {
+                MessageBox.Show("مجموع الأعداد في السؤال " + questionNumber + " يجب أن يساوي عدد الحضور");
                 return false;
             }
 
