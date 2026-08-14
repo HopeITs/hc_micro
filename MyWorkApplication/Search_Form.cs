@@ -3480,6 +3480,23 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                         Form Form = new SpecialCase_Form(SC_ID, main_form);
                         main_form.showNewTab(Form, "SpecialCase", 0);
                     }
+
+                // Profession Meetings //
+                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(21))
+                    if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
+                    {
+                        int meetingId = -1;
+                        SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
+                        if (SelectedDataRow != null)
+                        {
+                            if (SelectedDataRow["رقم الاجتماع"] != null &&
+                                SelectedDataRow["رقم الاجتماع"] != DBNull.Value)
+                                meetingId = int.Parse(SelectedDataRow["رقم الاجتماع"].ToString());
+                        }
+
+                        Form form = new ProfessionMeetings_Form(main_form, meetingId);
+                        main_form.showNewTab(form, "Profession Meetings", 0);
+                    }
             }
             catch (Exception ex)
             {

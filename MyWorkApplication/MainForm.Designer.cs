@@ -231,7 +231,7 @@
             this.Online_checkBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Online_checkBox.AutoSize = true;
             this.Online_checkBox.BackColor = System.Drawing.Color.Transparent;
-            this.Online_checkBox.Location = new System.Drawing.Point(0, 2);
+            this.Online_checkBox.Location = new System.Drawing.Point(0, 4);
             this.Online_checkBox.Margin = new System.Windows.Forms.Padding(0);
             this.Online_checkBox.Name = "Online_checkBox";
             this.Online_checkBox.Size = new System.Drawing.Size(69, 22);
@@ -851,7 +851,7 @@
             this.zero_ToolStripMenuItem,
             this.full_ToolStripMenuItem});
             this.newApp_ToolStripMenuItem.Name = "newApp_ToolStripMenuItem";
-            this.newApp_ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newApp_ToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.newApp_ToolStripMenuItem.Text = "New Application";
             // 
             // zero_ToolStripMenuItem
@@ -871,14 +871,14 @@
             // Checklist_toolStripMenuItem
             // 
             this.Checklist_toolStripMenuItem.Name = "Checklist_toolStripMenuItem";
-            this.Checklist_toolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.Checklist_toolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.Checklist_toolStripMenuItem.Text = "Check List";
             this.Checklist_toolStripMenuItem.Click += new System.EventHandler(this.newCheckListToolStripMenuItem_Click);
             // 
             // AdminPanel_toolStripMenuItem
             // 
             this.AdminPanel_toolStripMenuItem.Name = "AdminPanel_toolStripMenuItem";
-            this.AdminPanel_toolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AdminPanel_toolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.AdminPanel_toolStripMenuItem.Text = "ADMIN Panel";
             this.AdminPanel_toolStripMenuItem.Click += new System.EventHandler(this.adminPageToolStripMenuItem_Click);
             // 
@@ -894,7 +894,7 @@
             this.newPriest_ToolStripMenuItem,
             this.checklistMembersToolStripMenuItem});
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(176, 22);
             this.toolStripMenuItem4.Text = "ADMIN Tools";
             // 
             // newStreet_toolStripMenuItem
@@ -1183,6 +1183,7 @@
             this.NationalNum_toolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.NationalNum_toolStripMenuItem.Text = "Check ID Number";
             this.NationalNum_toolStripMenuItem.Click += new System.EventHandler(this.checkIDNumberToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {

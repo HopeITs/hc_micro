@@ -13,6 +13,10 @@ namespace MyWorkApplication
     public partial class ProfessionMeetings_Form : Form
     {
         private readonly MainForm mainForm;
+        private int currentMeetingId = -1;
+        private bool updateMode;
+        private bool userMode;
+        private bool professionMeeting_IsDirty;
         private bool updatingGuildOptions;
         private bool loadingProfessionProjects;
         private bool fillingParticipantProjectRow;
@@ -33,12 +37,22 @@ namespace MyWorkApplication
             InitializeComponent();
             PopulateDefaultChallengeRows();
             ConfigureDataGridViews();
+            BindProfessionMeetingDirtyEvents();
+        }
+
+        public ProfessionMeetings_Form(MainForm mainForm, int meetingId)
+            : this(mainForm)
+        {
+            currentMeetingId = meetingId;
+            updateMode = meetingId > 0;
         }
 
         private void ProfessionMeetings_Form_Load(object sender, EventArgs e)
         {
+            bool loadedSuccessfully = false;
             try
             {
+                userMode = false;
                 if (mainForm != null)
                 {
                     mainForm.Project_label.Visible = mainForm.TabName_label.Visible = true;
@@ -52,11 +66,51 @@ namespace MyWorkApplication
                 ConfigureParticipantProjectGrids();
                 ConfigureDataGridViews();
                 PopulateRegistrarFields();
-                BeginInvoke((MethodInvoker)ResetInitialScrollPosition);
+                if (updateMode)
+                    LoadProfessionMeeting(currentMeetingId);
+
+                ResetProfessionMeetingDirty();
+                BeginInvoke((MethodInvoker)delegate
+                {
+                    ResetInitialScrollPosition();
+                    ResetProfessionMeetingDirty();
+                    userMode = true;
+                });
+                loadedSuccessfully = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (!loadedSuccessfully)
+                    userMode = true;
+            }
+        }
+
+        private void ProfessionMeetings_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    CommitProfessionMeetingGridEdits();
+
+                    if (professionMeeting_IsDirty)
+                    {
+                        if (MessageBox.Show("يوجد بعض التعديلات غير المحفوظة، هل تود حفظها قبل إغلاق الصفحة؟؟", "Alert", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            e.Cancel = true;
+                            this.ActiveControl = Save_button;
+                            return;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("MySql") || ex.Message.Contains("MySQL")) { MessageBox.Show("please check your network and try again", "Error"); } else if (ex.Message.Contains("host")) { MessageBox.Show("please check the server or your network connection and try again", "Error"); } else { MessageBox.Show(ex.Message, "Error"); }
             }
         }
 
@@ -73,6 +127,126 @@ namespace MyWorkApplication
 
             survey_scrollPanel.AutoScrollPosition = Point.Empty;
             minutes_scrollPanel.AutoScrollPosition = Point.Empty;
+        }
+
+        private void BindProfessionMeetingDirtyEvents()
+        {
+            BindProfessionMeetingDirtyEvents(this);
+        }
+
+        private void BindProfessionMeetingDirtyEvents(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is TextBoxBase)
+                    ((TextBoxBase)control).TextChanged += ProfessionMeetingControl_Changed;
+                else if (control is ComboBox)
+                    ((ComboBox)control).SelectedIndexChanged += ProfessionMeetingControl_Changed;
+                else if (control is DateTimePicker)
+                    ((DateTimePicker)control).ValueChanged += ProfessionMeetingControl_Changed;
+                else if (control is NumericUpDown)
+                    ((NumericUpDown)control).ValueChanged += ProfessionMeetingControl_Changed;
+                else if (control is CheckBox)
+                    ((CheckBox)control).CheckedChanged += ProfessionMeetingControl_Changed;
+
+                if (control is DataGridView)
+                {
+                    DataGridView grid = control as DataGridView;
+                    grid.CellValueChanged += ProfessionMeetingGrid_CellValueChanged;
+                    grid.RowsAdded += ProfessionMeetingGrid_RowsAdded;
+                    grid.RowsRemoved += ProfessionMeetingGrid_RowsRemoved;
+                    grid.UserDeletedRow += ProfessionMeetingGrid_UserDeletedRow;
+                }
+
+                if (control.HasChildren)
+                    BindProfessionMeetingDirtyEvents(control);
+            }
+        }
+
+        private void ResetProfessionMeetingDirty()
+        {
+            professionMeeting_IsDirty = false;
+        }
+
+        private void SetProfessionMeetingDirty()
+        {
+            if (userMode)
+                professionMeeting_IsDirty = true;
+        }
+
+        private void ProfessionMeetingControl_Changed(object sender, EventArgs e)
+        {
+            SetProfessionMeetingDirty();
+        }
+
+        private void ProfessionMeetingGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                SetProfessionMeetingDirty();
+        }
+
+        private void ProfessionMeetingGrid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            SetProfessionMeetingDirty();
+        }
+
+        private void ProfessionMeetingGrid_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            SetProfessionMeetingDirty();
+        }
+
+        private void ProfessionMeetingGrid_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            SetProfessionMeetingDirty();
+        }
+
+        private void CommitProfessionMeetingGridEdits()
+        {
+            DataGridView[] grids =
+            {
+                season_dataGridView,
+                equipment_dataGridView,
+                challenges_dataGridView,
+                participant1_dataGridView,
+                participant2_dataGridView,
+                participant3_dataGridView,
+                participant4_dataGridView,
+                attendees_dataGridView
+            };
+
+            foreach (DataGridView grid in grids)
+            {
+                if (grid == null)
+                    continue;
+
+                if (grid.IsCurrentCellDirty)
+                    grid.CommitEdit(DataGridViewDataErrorContexts.Commit);
+
+                grid.EndEdit();
+            }
+        }
+
+        private bool HasCurrentDirtyGridCell()
+        {
+            DataGridView[] grids =
+            {
+                season_dataGridView,
+                equipment_dataGridView,
+                challenges_dataGridView,
+                participant1_dataGridView,
+                participant2_dataGridView,
+                participant3_dataGridView,
+                participant4_dataGridView,
+                attendees_dataGridView
+            };
+
+            foreach (DataGridView grid in grids)
+            {
+                if (grid != null && grid.IsCurrentCellDirty)
+                    return true;
+            }
+
+            return false;
         }
 
         private void ApplyTheme()
@@ -958,10 +1132,35 @@ namespace MyWorkApplication
 
         private void Save_button_Click(object sender, EventArgs e)
         {
+            bool suppressGridCommitDirty = updateMode && !professionMeeting_IsDirty && !HasCurrentDirtyGridCell();
+            bool previousUserMode = userMode;
+            if (suppressGridCommitDirty)
+                userMode = false;
+
+            try
+            {
+                CommitProfessionMeetingGridEdits();
+            }
+            finally
+            {
+                if (suppressGridCommitDirty)
+                {
+                    ResetProfessionMeetingDirty();
+                    userMode = previousUserMode;
+                }
+            }
+
+            if (updateMode && !professionMeeting_IsDirty)
+            {
+                MessageBox.Show("لا يوجد أي تغييرات لحفظها ", "Error");
+                return;
+            }
+
             if (!ValidateBeforeSave())
                 return;
 
-            int meetingId = -1;
+            bool wasUpdate = updateMode;
+            int meetingId = updateMode ? currentMeetingId : -1;
 
             try
             {
@@ -969,18 +1168,30 @@ namespace MyWorkApplication
                 using (MySqlTransaction transaction = Program.MyConn.BeginTransaction())
                 {
                     LoadProfessionSaveLookups(transaction);
-                    meetingId = InsertProfessionMeeting(transaction);
+                    if (updateMode)
+                    {
+                        UpdateProfessionMeeting(transaction, meetingId);
+                        DeleteProfessionMeetingDetails(transaction, meetingId);
+                    }
+                    else
+                    {
+                        meetingId = InsertProfessionMeeting(transaction);
+                        currentMeetingId = meetingId;
+                        updateMode = true;
+                    }
+
                     SaveSurveyAnswers(transaction, meetingId);
                     SaveMeetingMinutes(transaction, meetingId);
                     transaction.Commit();
                 }
 
                 Program.MyConn.Close();
+                ResetProfessionMeetingDirty();
 
                 try
                 {
                     Log log = new Log();
-                    log.Insert_Log("Insert profession meeting:" + meetingId, "Profession Meeting", Program.UserName, DateTime.Now);
+                    log.Insert_Log((wasUpdate ? "Update profession meeting:" : "Insert profession meeting:") + meetingId, "Profession Meeting", Program.UserName, DateTime.Now);
                 }
                 catch
                 {
@@ -997,6 +1208,519 @@ namespace MyWorkApplication
                 if (Program.MyConn.State == ConnectionState.Open)
                     Program.MyConn.Close();
             }
+        }
+
+        private void LoadProfessionMeeting(int meetingId)
+        {
+            if (meetingId <= 0)
+                return;
+
+            try
+            {
+                DataSet dataSet = SelectProfessionMeeting(meetingId);
+                if (dataSet.Tables.Count == 0 || dataSet.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("Profession meeting was not found");
+                    updateMode = false;
+                    currentMeetingId = -1;
+                    return;
+                }
+
+                ClearProfessionMeetingInputs();
+                LoadMeetingHeader(dataSet.Tables[0].Rows[0]);
+                LoadTextAnswers(dataSet.Tables[1]);
+                LoadOptionAnswers(dataSet.Tables[2]);
+                LoadCompetitionRows(dataSet.Tables[3]);
+                LoadSeasonRows(dataSet.Tables[4]);
+                LoadBrandRows(dataSet.Tables[5]);
+                LoadEquipmentRows(dataSet.Tables[6]);
+                LoadChallengeRows(dataSet.Tables[7]);
+                LoadParticipantRows(dataSet.Tables[8], "19", participant1_dataGridView);
+                LoadParticipantRows(dataSet.Tables[8], "20", participant2_dataGridView);
+                LoadParticipantRows(dataSet.Tables[8], "21", participant3_dataGridView);
+                LoadParticipantRows(dataSet.Tables[8], "22", participant4_dataGridView);
+                LoadAttendeeRows(dataSet.Tables[9]);
+                LoadMinuteRows(dataSet.Tables[10]);
+
+                currentMeetingId = meetingId;
+                updateMode = true;
+                UpdateGuildDetailsVisibility();
+                ConfigureDataGridViews();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (Program.MyConn.State == ConnectionState.Open)
+                    Program.MyConn.Close();
+            }
+        }
+
+        private DataSet SelectProfessionMeeting(int meetingId)
+        {
+            Program.buildConnection();
+
+            string query = @"
+SELECT pm.*,
+       paperUser.UserName AS PaperRegistrarName,
+       programUser.UserName AS ProgramRegistrarName,
+       editorUser.UserName AS EditedByName
+FROM profession_meeting pm
+LEFT JOIN `user` paperUser ON paperUser.UserID = pm.PaperRegistrar_UserID
+LEFT JOIN `user` programUser ON programUser.UserID = pm.ProgramRegistrar_UserID
+LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID
+WHERE pm.ID = @MeetingId;
+
+SELECT q.Number AS QuestionNumber, a.Value_Text, a.Value_Number
+FROM profession_meeting_answer a
+LEFT JOIN profession_question q ON q.ID = a.Question_ID
+WHERE a.Meeting_ID = @MeetingId;
+
+SELECT q.Number AS QuestionNumber, o.Sort_Order, oa.Is_Selected, oa.Rank_Value, oa.Other_Text
+FROM profession_meeting_option_answer oa
+LEFT JOIN profession_option o ON o.ID = oa.Option_ID
+LEFT JOIN profession_question q ON q.ID = o.Question_ID
+WHERE oa.Meeting_ID = @MeetingId;
+
+SELECT Competition_Level, CountValue, Reason, Sort_Order
+FROM profession_meeting_competition
+WHERE Meeting_ID = @MeetingId
+ORDER BY Sort_Order;
+
+SELECT Season_Count, From_Period, To_Period, Reason, Sort_Order
+FROM profession_meeting_season
+WHERE Meeting_ID = @MeetingId
+ORDER BY Sort_Order;
+
+SELECT Brand_Name, Sort_Order
+FROM profession_meeting_brand
+WHERE Meeting_ID = @MeetingId
+ORDER BY Sort_Order;
+
+SELECT Specialization, Equipment, Sort_Order
+FROM profession_meeting_equipment
+WHERE Meeting_ID = @MeetingId
+ORDER BY Sort_Order;
+
+SELECT Challenge, Challenge_Count, Suggested_Solution, Sort_Order
+FROM profession_meeting_challenge
+WHERE Meeting_ID = @MeetingId
+ORDER BY Sort_Order;
+
+SELECT q.Number AS QuestionNumber, p.MicroProject_ID, p.Person_ID, p.Person_Name, p.Speciality, p.Sort_Order
+FROM profession_meeting_participant p
+LEFT JOIN profession_question q ON q.ID = p.Question_ID
+WHERE p.Meeting_ID = @MeetingId
+ORDER BY q.Number, p.Sort_Order;
+
+SELECT MicroProject_ID, Person_ID, Attendee_Name, Speciality, Sort_Order
+FROM profession_meeting_attendee
+WHERE Meeting_ID = @MeetingId
+ORDER BY Sort_Order;
+
+SELECT Section_ID, Notes
+FROM profession_meeting_minute
+WHERE Meeting_ID = @MeetingId
+ORDER BY Section_ID;";
+
+            MySqlCommand command = new MySqlCommand(query, Program.MyConn);
+            command.Parameters.AddWithValue("@MeetingId", meetingId);
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            Program.MyConn.Close();
+            return dataSet;
+        }
+
+        private void ClearProfessionMeetingInputs()
+        {
+            countOption1_numericUpDown.Value = countOption2_numericUpDown.Value = countOption3_numericUpDown.Value = 0;
+            countOption4_numericUpDown.Value = countOption5_numericUpDown.Value = countOption6_numericUpDown.Value = 0;
+            countOption7_numericUpDown.Value = countOption8_numericUpDown.Value = countOption9_numericUpDown.Value = 0;
+            countOption10_numericUpDown.Value = countOption11_numericUpDown.Value = countOption12_numericUpDown.Value = 0;
+            countOption13_numericUpDown.Value = countOption14_numericUpDown.Value = countOption15_numericUpDown.Value = 0;
+            countOption16_numericUpDown.Value = countOption17_numericUpDown.Value = countOption18_numericUpDown.Value = countOption19_numericUpDown.Value = 0;
+            countOption20_numericUpDown.Value = countOption21_numericUpDown.Value = countOption22_numericUpDown.Value = countOption23_numericUpDown.Value = 0;
+            marketingOption1_numericUpDown.Value = marketingOption2_numericUpDown.Value = marketingOption3_numericUpDown.Value = marketingOption4_numericUpDown.Value = 0;
+            marketingOption5_numericUpDown.Value = marketingOption6_numericUpDown.Value = marketingOption7_numericUpDown.Value = marketingOption8_numericUpDown.Value = 0;
+            numericUpDown1.Value = numericUpDown2.Value = numericUpDown3.Value = 0;
+
+            CheckBox[] checkBoxes =
+            {
+                targetAudience_checkBox1, targetAudience_checkBox2, targetAudience_checkBox3,
+                targetAudience_checkBox4, targetAudience_checkBox5, targetAudience_checkBox6,
+                targetAudience_checkBox7, targetAudience_checkBox8, targetAudience_checkBox9,
+                targetAudience_other_checkBox, guild_checkBox1, guild_checkBox2, guild_checkBox3
+            };
+
+            foreach (CheckBox checkBox in checkBoxes)
+                checkBox.Checked = false;
+
+            targetAudience_other_textBox.Clear();
+            countOption15_other_textBox.Clear();
+            marketing_other_textBox.Clear();
+            guildName_textBox.Clear();
+            guildReferences_textBox.Clear();
+            competitionSevereReason_textBox.Clear();
+            competitionMediumReason_textBox.Clear();
+            competitionWeakReason_textBox.Clear();
+
+            memo1_richTextBox.Clear();
+            memo2_richTextBox.Clear();
+            memo3_richTextBox.Clear();
+            memo4_richTextBox.Clear();
+            memo6_richTextBox.Clear();
+            memo7_richTextBox.Clear();
+            memo8_richTextBox.Clear();
+            memo9_richTextBox.Clear();
+            memo10_richTextBox.Clear();
+            memo11_richTextBox.Clear();
+
+            season_dataGridView.Rows.Clear();
+            equipment_dataGridView.Rows.Clear();
+            challenges_dataGridView.Rows.Clear();
+            participant1_dataGridView.Rows.Clear();
+            participant2_dataGridView.Rows.Clear();
+            participant3_dataGridView.Rows.Clear();
+            participant4_dataGridView.Rows.Clear();
+            attendees_dataGridView.Rows.Clear();
+        }
+
+        private void LoadMeetingHeader(DataRow row)
+        {
+            dateTimePicker1.Value = GetDateValue(row, "MeetingDate", DateTime.Today);
+            place_textBox.Text = GetStringValue(row, "Place");
+            SetNumericValue(invitedCount_numericUpDown, GetIntValue(row, "InvitedCount"));
+            SetNumericValue(attendanceCount_numericUpDown, GetIntValue(row, "AttendanceCount"));
+            SetNumericValue(absenceCount_numericUpDown, GetIntValue(row, "AbsenceCount"));
+
+            loadingProfessionProjects = true;
+            try
+            {
+                int? subCategoryId = GetIntValue(row, "SubCategory_ID");
+                int? careerId = GetIntValue(row, "Career_ID");
+
+                SetComboBoxSelectedValue(professionSubCategory_comboBox, subCategoryId);
+                BindCareerComboBox(subCategoryId.HasValue ? subCategoryId.Value.ToString() : string.Empty);
+                SetComboBoxSelectedValue(professionCareer_comboBox, careerId);
+
+                if (careerId.HasValue)
+                    professionProjectsTable = GetProjectsByProfession(careerId.Value);
+                else
+                    professionProjectsTable = CreateProjectLookupTable();
+
+                ConfigureProjectComboColumns(professionProjectsTable);
+            }
+            finally
+            {
+                loadingProfessionProjects = false;
+            }
+
+            string paperRegistrarName = GetStringValue(row, "PaperRegistrarName");
+            if (!string.IsNullOrWhiteSpace(paperRegistrarName))
+            {
+                if (!paperRegistrar_comboBox.Items.Contains(paperRegistrarName))
+                    paperRegistrar_comboBox.Items.Add(paperRegistrarName);
+                paperRegistrar_comboBox.SelectedItem = paperRegistrarName;
+            }
+
+            programRegistrar_textBox.Text = GetStringValue(row, "ProgramRegistrarName");
+            if (string.IsNullOrWhiteSpace(programRegistrar_textBox.Text))
+                programRegistrar_textBox.Text = Program.UserName ?? string.Empty;
+
+            editedBy_textBox.Text = Program.UserName ?? string.Empty;
+        }
+
+        private void LoadTextAnswers(DataTable table)
+        {
+            memo1_richTextBox.Text = GetTextAnswer(table, "5");
+            memo3_richTextBox.Text = GetTextAnswer(table, "14");
+            memo4_richTextBox.Text = GetTextAnswer(table, "15");
+            memo6_richTextBox.Text = GetTextAnswer(table, "18");
+        }
+
+        private void LoadOptionAnswers(DataTable table)
+        {
+            LoadOptionNumbers(table, "1", new NumericUpDown[] { countOption1_numericUpDown, countOption2_numericUpDown, countOption3_numericUpDown });
+            LoadOptionNumbers(table, "2", new NumericUpDown[] { countOption4_numericUpDown, countOption5_numericUpDown, countOption6_numericUpDown });
+            LoadOptionNumbers(table, "3", new NumericUpDown[] { countOption7_numericUpDown, countOption8_numericUpDown, countOption9_numericUpDown });
+            LoadCheckOptions(table, "4",
+                new CheckBox[] { targetAudience_checkBox1, targetAudience_checkBox2, targetAudience_checkBox3, targetAudience_checkBox4, targetAudience_checkBox5, targetAudience_checkBox6, targetAudience_checkBox7, targetAudience_checkBox8, targetAudience_checkBox9 },
+                targetAudience_other_checkBox,
+                targetAudience_other_textBox,
+                10);
+            LoadOptionNumbers(table, "7", new NumericUpDown[] { countOption10_numericUpDown, countOption11_numericUpDown, countOption12_numericUpDown, countOption13_numericUpDown, countOption14_numericUpDown, countOption15_numericUpDown }, 6, countOption15_other_textBox);
+            LoadGuildOptions(table);
+            LoadOptionNumbers(table, "11", new NumericUpDown[] { marketingOption1_numericUpDown, marketingOption2_numericUpDown, marketingOption3_numericUpDown, marketingOption4_numericUpDown, marketingOption5_numericUpDown, marketingOption6_numericUpDown, marketingOption7_numericUpDown, marketingOption8_numericUpDown }, 8, marketing_other_textBox);
+            LoadOptionNumbers(table, "13", new NumericUpDown[] { countOption16_numericUpDown, countOption17_numericUpDown, countOption18_numericUpDown, countOption19_numericUpDown });
+            LoadOptionNumbers(table, "17", new NumericUpDown[] { countOption20_numericUpDown, countOption21_numericUpDown, countOption22_numericUpDown, countOption23_numericUpDown });
+        }
+
+        private void LoadOptionNumbers(DataTable table, string questionNumber, NumericUpDown[] controls)
+        {
+            LoadOptionNumbers(table, questionNumber, controls, -1, null);
+        }
+
+        private void LoadOptionNumbers(DataTable table, string questionNumber, NumericUpDown[] controls, int otherSortOrder, TextBox otherTextBox)
+        {
+            foreach (DataRow row in table.Rows)
+            {
+                if (GetStringValue(row, "QuestionNumber") != questionNumber)
+                    continue;
+
+                int? sortOrder = GetIntValue(row, "Sort_Order");
+                if (!sortOrder.HasValue || sortOrder.Value <= 0 || sortOrder.Value > controls.Length)
+                    continue;
+
+                SetNumericValue(controls[sortOrder.Value - 1], GetIntValue(row, "Rank_Value"));
+
+                if (otherSortOrder == sortOrder.Value && otherTextBox != null)
+                    otherTextBox.Text = GetStringValue(row, "Other_Text");
+            }
+        }
+
+        private void LoadCheckOptions(DataTable table, string questionNumber, CheckBox[] checkBoxes, CheckBox otherCheckBox, TextBox otherTextBox, int otherSortOrder)
+        {
+            foreach (DataRow row in table.Rows)
+            {
+                if (GetStringValue(row, "QuestionNumber") != questionNumber)
+                    continue;
+
+                int? sortOrder = GetIntValue(row, "Sort_Order");
+                if (!sortOrder.HasValue)
+                    continue;
+
+                if (sortOrder.Value >= 1 && sortOrder.Value <= checkBoxes.Length)
+                    checkBoxes[sortOrder.Value - 1].Checked = true;
+
+                if (sortOrder.Value == otherSortOrder)
+                {
+                    otherCheckBox.Checked = true;
+                    otherTextBox.Text = GetStringValue(row, "Other_Text");
+                }
+            }
+        }
+
+        private void LoadGuildOptions(DataTable table)
+        {
+            foreach (DataRow row in table.Rows)
+            {
+                if (GetStringValue(row, "QuestionNumber") != "9")
+                    continue;
+
+                int? sortOrder = GetIntValue(row, "Sort_Order");
+                if (!sortOrder.HasValue)
+                    continue;
+
+                if (sortOrder.Value == 1)
+                {
+                    guild_checkBox1.Checked = true;
+                    guildName_textBox.Text = GetStringValue(row, "Other_Text");
+                }
+                else if (sortOrder.Value == 2)
+                {
+                    guild_checkBox2.Checked = true;
+                    guildReferences_textBox.Text = GetStringValue(row, "Other_Text");
+                }
+                else if (sortOrder.Value == 3)
+                {
+                    guild_checkBox3.Checked = true;
+                }
+            }
+        }
+
+        private void LoadCompetitionRows(DataTable table)
+        {
+            foreach (DataRow row in table.Rows)
+            {
+                int? sortOrder = GetIntValue(row, "Sort_Order");
+                if (!sortOrder.HasValue)
+                    continue;
+
+                if (sortOrder.Value == 1)
+                {
+                    SetNumericValue(numericUpDown1, GetIntValue(row, "CountValue"));
+                    competitionSevereReason_textBox.Text = GetStringValue(row, "Reason");
+                }
+                else if (sortOrder.Value == 2)
+                {
+                    SetNumericValue(numericUpDown2, GetIntValue(row, "CountValue"));
+                    competitionMediumReason_textBox.Text = GetStringValue(row, "Reason");
+                }
+                else if (sortOrder.Value == 3)
+                {
+                    SetNumericValue(numericUpDown3, GetIntValue(row, "CountValue"));
+                    competitionWeakReason_textBox.Text = GetStringValue(row, "Reason");
+                }
+            }
+        }
+
+        private void LoadSeasonRows(DataTable table)
+        {
+            season_dataGridView.Rows.Clear();
+            foreach (DataRow row in table.Rows)
+                season_dataGridView.Rows.Add(GetStringValue(row, "Season_Count"), GetStringValue(row, "From_Period"), GetStringValue(row, "To_Period"), GetStringValue(row, "Reason"));
+        }
+
+        private void LoadBrandRows(DataTable table)
+        {
+            List<string> brands = new List<string>();
+            foreach (DataRow row in table.Rows)
+            {
+                string brand = GetStringValue(row, "Brand_Name");
+                if (!string.IsNullOrWhiteSpace(brand))
+                    brands.Add(brand);
+            }
+
+            memo2_richTextBox.Text = string.Join(Environment.NewLine, brands.ToArray());
+        }
+
+        private void LoadEquipmentRows(DataTable table)
+        {
+            equipment_dataGridView.Rows.Clear();
+            foreach (DataRow row in table.Rows)
+                equipment_dataGridView.Rows.Add(GetStringValue(row, "Specialization"), GetStringValue(row, "Equipment"));
+        }
+
+        private void LoadChallengeRows(DataTable table)
+        {
+            challenges_dataGridView.Rows.Clear();
+            foreach (DataRow row in table.Rows)
+                challenges_dataGridView.Rows.Add(GetStringValue(row, "Challenge"), GetStringValue(row, "Challenge_Count"), GetStringValue(row, "Suggested_Solution"));
+
+            if (challenges_dataGridView.Rows.Count <= 1)
+                PopulateDefaultChallengeRows();
+        }
+
+        private void LoadParticipantRows(DataTable table, string questionNumber, DataGridView grid)
+        {
+            grid.Rows.Clear();
+            foreach (DataRow row in table.Rows)
+            {
+                if (GetStringValue(row, "QuestionNumber") != questionNumber)
+                    continue;
+
+                AddPersonProjectRow(grid, GetIntValue(row, "MicroProject_ID"), GetIntValue(row, "Person_ID"), GetStringValue(row, "Person_Name"), GetStringValue(row, "Speciality"));
+            }
+        }
+
+        private void LoadAttendeeRows(DataTable table)
+        {
+            attendees_dataGridView.Rows.Clear();
+            foreach (DataRow row in table.Rows)
+                AddPersonProjectRow(attendees_dataGridView, GetIntValue(row, "MicroProject_ID"), GetIntValue(row, "Person_ID"), GetStringValue(row, "Attendee_Name"), GetStringValue(row, "Speciality"));
+        }
+
+        private void AddPersonProjectRow(DataGridView grid, int? projectId, int? personId, string personName, string speciality)
+        {
+            int rowIndex = grid.Rows.Add();
+            DataGridViewRow row = grid.Rows[rowIndex];
+
+            if (projectId.HasValue)
+                FillParticipantProjectRow(grid, rowIndex, projectId.Value);
+
+            if (personId.HasValue && row.Cells[1] is DataGridViewComboBoxCell)
+            {
+                row.Cells[1].Value = personId.Value;
+            }
+            else
+            {
+                row.Cells[1] = new DataGridViewTextBoxCell();
+                row.Cells[1].Value = personName;
+                row.Cells[1].Tag = personId.HasValue ? personId.Value.ToString() : null;
+                ApplyApplicationNewGridCellStyle(row.Cells[1].Style);
+            }
+
+            row.Cells[2].Value = speciality;
+            ApplyApplicationNewGridCellStyle(row.Cells[2].Style);
+        }
+
+        private void LoadMinuteRows(DataTable table)
+        {
+            foreach (DataRow row in table.Rows)
+            {
+                int? sectionId = GetIntValue(row, "Section_ID");
+                if (!sectionId.HasValue)
+                    continue;
+
+                string notes = GetStringValue(row, "Notes");
+                if (sectionId.Value == 1)
+                    memo7_richTextBox.Text = notes;
+                else if (sectionId.Value == 2)
+                    memo8_richTextBox.Text = notes;
+                else if (sectionId.Value == 3)
+                    memo9_richTextBox.Text = notes;
+                else if (sectionId.Value == 4)
+                    memo10_richTextBox.Text = notes;
+                else if (sectionId.Value == 5)
+                    memo11_richTextBox.Text = notes;
+            }
+        }
+
+        private string GetTextAnswer(DataTable table, string questionNumber)
+        {
+            foreach (DataRow row in table.Rows)
+            {
+                if (GetStringValue(row, "QuestionNumber") == questionNumber)
+                    return GetStringValue(row, "Value_Text");
+            }
+
+            return string.Empty;
+        }
+
+        private void SetComboBoxSelectedValue(ComboBox comboBox, int? value)
+        {
+            if (!value.HasValue)
+            {
+                comboBox.SelectedIndex = -1;
+                return;
+            }
+
+            comboBox.SelectedValue = value.Value;
+        }
+
+        private void SetNumericValue(NumericUpDown control, int? value)
+        {
+            decimal numericValue = value.HasValue ? value.Value : 0;
+            if (numericValue < control.Minimum)
+                numericValue = control.Minimum;
+            if (numericValue > control.Maximum)
+                numericValue = control.Maximum;
+
+            control.Value = numericValue;
+        }
+
+        private string GetStringValue(DataRow row, string columnName)
+        {
+            if (row == null || !row.Table.Columns.Contains(columnName) || row[columnName] == null || row[columnName] == DBNull.Value)
+                return string.Empty;
+
+            return row[columnName].ToString();
+        }
+
+        private int? GetIntValue(DataRow row, string columnName)
+        {
+            string value = GetStringValue(row, columnName);
+            int intValue;
+            if (int.TryParse(value, out intValue))
+                return intValue;
+
+            return null;
+        }
+
+        private DateTime GetDateValue(DataRow row, string columnName, DateTime defaultValue)
+        {
+            if (row == null || !row.Table.Columns.Contains(columnName) || row[columnName] == null || row[columnName] == DBNull.Value)
+                return defaultValue;
+
+            DateTime value;
+            if (DateTime.TryParse(row[columnName].ToString(), out value))
+                return value;
+
+            return defaultValue;
         }
 
         private void ApplyApplicationNewDataGridViewStyle(DataGridView grid)
@@ -1161,6 +1885,60 @@ VALUES
 
             using (MySqlCommand command = new MySqlCommand("SELECT LAST_INSERT_ID();", Program.MyConn, transaction))
                 return Convert.ToInt32(command.ExecuteScalar());
+        }
+
+        private void UpdateProfessionMeeting(MySqlTransaction transaction, int meetingId)
+        {
+            int careerId = Convert.ToInt32(professionCareer_comboBox.SelectedValue);
+            object subCategoryId = DbValue(GetSelectedIntValue(professionSubCategory_comboBox));
+            object paperRegistrarId = DbValue(GetUserIdByName(paperRegistrar_comboBox.Text));
+
+            string query = @"
+UPDATE profession_meeting SET
+    Career_ID = @CareerId,
+    SubCategory_ID = @SubCategoryId,
+    MeetingDate = @MeetingDate,
+    Place = @Place,
+    InvitedCount = @InvitedCount,
+    AttendanceCount = @AttendanceCount,
+    AbsenceCount = @AbsenceCount,
+    PaperRegistrar_UserID = @PaperRegistrarUserId,
+    Edited_By_UserID = @EditedByUserId,
+    Updated_At = @UpdatedAt
+WHERE ID = @MeetingId;";
+
+            ExecuteNonQuery(transaction, query,
+                Parameter("@CareerId", careerId),
+                Parameter("@SubCategoryId", subCategoryId),
+                Parameter("@MeetingDate", dateTimePicker1.Value.Date),
+                Parameter("@Place", DbString(place_textBox.Text)),
+                Parameter("@InvitedCount", Convert.ToInt32(invitedCount_numericUpDown.Value)),
+                Parameter("@AttendanceCount", Convert.ToInt32(attendanceCount_numericUpDown.Value)),
+                Parameter("@AbsenceCount", Convert.ToInt32(absenceCount_numericUpDown.Value)),
+                Parameter("@PaperRegistrarUserId", paperRegistrarId),
+                Parameter("@EditedByUserId", Program.userID),
+                Parameter("@UpdatedAt", DateTime.Now),
+                Parameter("@MeetingId", meetingId));
+        }
+
+        private void DeleteProfessionMeetingDetails(MySqlTransaction transaction, int meetingId)
+        {
+            string[] tables =
+            {
+                "profession_meeting_answer",
+                "profession_meeting_option_answer",
+                "profession_meeting_competition",
+                "profession_meeting_season",
+                "profession_meeting_brand",
+                "profession_meeting_equipment",
+                "profession_meeting_challenge",
+                "profession_meeting_participant",
+                "profession_meeting_attendee",
+                "profession_meeting_minute"
+            };
+
+            foreach (string table in tables)
+                ExecuteNonQuery(transaction, "DELETE FROM " + table + " WHERE Meeting_ID = @MeetingId;", Parameter("@MeetingId", meetingId));
         }
 
         private void SaveSurveyAnswers(MySqlTransaction transaction, int meetingId)

@@ -3746,12 +3746,12 @@
             // meetingInfo_tableLayoutPanel
             // 
             this.meetingInfo_tableLayoutPanel.ColumnCount = 6;
-            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11F));
-            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.33333F));
-            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11F));
-            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.33333F));
-            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11F));
-            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.33333F));
+            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.33333F));
+            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.33333F));
+            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.meetingInfo_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.33333F));
             this.meetingInfo_tableLayoutPanel.Controls.Add(this.profession_label, 0, 0);
             this.meetingInfo_tableLayoutPanel.Controls.Add(this.professionSelector_tableLayoutPanel, 1, 0);
             this.meetingInfo_tableLayoutPanel.Controls.Add(this.meetingDate_label, 2, 0);
@@ -3967,7 +3967,7 @@
             this.paperRegistrar_comboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.paperRegistrar_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.paperRegistrar_comboBox.FormattingEnabled = true;
-            this.paperRegistrar_comboBox.Location = new System.Drawing.Point(683, 81);
+            this.paperRegistrar_comboBox.Location = new System.Drawing.Point(683, 82);
             this.paperRegistrar_comboBox.Name = "paperRegistrar_comboBox";
             this.paperRegistrar_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.paperRegistrar_comboBox.Size = new System.Drawing.Size(221, 25);
@@ -4319,6 +4319,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "Profession Meetings";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProfessionMeetings_Form_FormClosing);
             this.Load += new System.EventHandler(this.ProfessionMeetings_Form_Load);
             this.content_tabControl.ResumeLayout(false);
             this.survey_tabPage.ResumeLayout(false);
