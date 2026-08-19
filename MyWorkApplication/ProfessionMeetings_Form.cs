@@ -41,6 +41,7 @@ namespace MyWorkApplication
             PopulateDefaultChallengeRows();
             ConfigureDataGridViews();
             BindProfessionMeetingDirtyEvents();
+            BindAbsenceCountCalculation();
         }
 
         public ProfessionMeetings_Form(MainForm mainForm, int meetingId)
@@ -179,6 +180,34 @@ namespace MyWorkApplication
             TextBox textBox = sender as TextBox;
             if (textBox != null)
                 BeginInvoke((MethodInvoker)delegate { textBox.SelectAll(); });
+        }
+
+        private void BindAbsenceCountCalculation()
+        {
+            invitedCount_numericUpDown.ValueChanged -= AttendanceCount_ValueChanged;
+            attendanceCount_numericUpDown.ValueChanged -= AttendanceCount_ValueChanged;
+            invitedCount_numericUpDown.ValueChanged += AttendanceCount_ValueChanged;
+            attendanceCount_numericUpDown.ValueChanged += AttendanceCount_ValueChanged;
+        }
+
+        private void AttendanceCount_ValueChanged(object sender, EventArgs e)
+        {
+            RecalculateAbsenceCount();
+        }
+
+        private void RecalculateAbsenceCount()
+        {
+            if (!userMode)
+                return;
+
+            decimal absenceCount = invitedCount_numericUpDown.Value - attendanceCount_numericUpDown.Value;
+            if (absenceCount < absenceCount_numericUpDown.Minimum)
+                absenceCount = absenceCount_numericUpDown.Minimum;
+            if (absenceCount > absenceCount_numericUpDown.Maximum)
+                absenceCount = absenceCount_numericUpDown.Maximum;
+
+            if (absenceCount_numericUpDown.Value != absenceCount)
+                absenceCount_numericUpDown.Value = absenceCount;
         }
 
         private void ResetProfessionMeetingDirty()
@@ -752,6 +781,7 @@ namespace MyWorkApplication
                 grid.CellEndEdit -= ParticipantDataGridView_CellEndEdit;
                 grid.EditingControlShowing -= ParticipantDataGridView_EditingControlShowing;
                 grid.CellContentClick -= ParticipantDataGridView_CellContentClick;
+                grid.CellParsing -= ParticipantDataGridView_CellParsing;
                 grid.DataError -= ParticipantDataGridView_DataError;
                 grid.CurrentCellDirtyStateChanged += ParticipantDataGridView_CurrentCellDirtyStateChanged;
                 grid.CellValueChanged += ParticipantDataGridView_CellValueChanged;
@@ -759,6 +789,7 @@ namespace MyWorkApplication
                 grid.CellEndEdit += ParticipantDataGridView_CellEndEdit;
                 grid.EditingControlShowing += ParticipantDataGridView_EditingControlShowing;
                 grid.CellContentClick += ParticipantDataGridView_CellContentClick;
+                grid.CellParsing += ParticipantDataGridView_CellParsing;
                 grid.DataError += ParticipantDataGridView_DataError;
             }
         }
@@ -917,13 +948,19 @@ namespace MyWorkApplication
 
         private void RefreshParticipantProjectCellOptions(DataGridView grid, int rowIndex)
         {
-            DataGridViewComboBoxCell projectCell = grid.Rows[rowIndex].Cells[0] as DataGridViewComboBoxCell;
-            if (projectCell == null)
-                return;
-
             refreshingParticipantOptions = true;
             try
             {
+                DataGridViewRow row = grid.Rows[rowIndex];
+                DataGridViewComboBoxCell projectCell = row.Cells[0] as DataGridViewComboBoxCell;
+                if (projectCell == null)
+                {
+                    object currentValue = row.Cells[0].Value;
+                    projectCell = new DataGridViewComboBoxCell();
+                    row.Cells[0] = projectCell;
+                    projectCell.Value = currentValue;
+                }
+
                 SetParticipantProjectCellItems(projectCell, GetAvailableProjectItems(grid, rowIndex));
             }
             catch
@@ -1119,7 +1156,20 @@ namespace MyWorkApplication
             if (comboBox == null)
                 return;
 
+            DataGridView grid = comboBox.EditingControlDataGridView;
+
             comboBox.SelectionChangeCommitted -= ParticipantProjectComboBox_SelectionChangeCommitted;
+            comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox.AutoCompleteMode = AutoCompleteMode.None;
+            comboBox.AutoCompleteSource = AutoCompleteSource.None;
+
+            if (grid != null && grid.CurrentCell != null && grid.CurrentCell.ColumnIndex == 0)
+            {
+                comboBox.DropDownStyle = ComboBoxStyle.DropDown;
+                comboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+            }
+
             comboBox.SelectionChangeCommitted += ParticipantProjectComboBox_SelectionChangeCommitted;
         }
 
@@ -1143,6 +1193,56 @@ namespace MyWorkApplication
 
             if (columnIndex == 0)
                 QueueFillParticipantProjectRow(grid, rowIndex, selectedValue);
+        }
+
+        private void ParticipantDataGridView_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
+        {
+            DataGridView grid = sender as DataGridView;
+            if (grid == null || e.RowIndex < 0 || e.RowIndex >= grid.Rows.Count || e.ColumnIndex != 0)
+                return;
+
+            DataGridViewComboBoxCell projectCell = grid.Rows[e.RowIndex].Cells[0] as DataGridViewComboBoxCell;
+            if (projectCell == null)
+                return;
+
+            string typedText = e.Value == null ? string.Empty : e.Value.ToString().Trim();
+            if (string.IsNullOrWhiteSpace(typedText))
+            {
+                e.Value = null;
+                e.ParsingApplied = true;
+                return;
+            }
+
+            object matchedItem = FindProjectItem(projectCell, typedText);
+
+            e.Value = matchedItem == null ? projectCell.Value : matchedItem;
+            e.ParsingApplied = true;
+        }
+
+        private object FindProjectItem(DataGridViewComboBoxCell projectCell, string typedText)
+        {
+            if (projectCell == null || string.IsNullOrWhiteSpace(typedText))
+                return null;
+
+            foreach (object item in projectCell.Items)
+            {
+                if (item != null && item.ToString() == typedText)
+                    return item;
+            }
+
+            object prefixMatch = null;
+            foreach (object item in projectCell.Items)
+            {
+                if (item == null || !item.ToString().StartsWith(typedText))
+                    continue;
+
+                if (prefixMatch != null)
+                    return null;
+
+                prefixMatch = item;
+            }
+
+            return prefixMatch;
         }
 
         private void UpdateParticipantProjectRowFromCell(DataGridView grid, int rowIndex, int columnIndex)
@@ -1306,12 +1406,32 @@ namespace MyWorkApplication
                     if (grid.IsDisposed || rowIndex >= grid.Rows.Count)
                         return;
 
+                    bool resumeCellEdit = IsEditingParticipantDependentCell(grid, rowIndex);
+                    if (resumeCellEdit)
+                        grid.EndEdit();
+
                     FillParticipantProjectRow(grid, rowIndex, selectedProjectId);
+
+                    if (resumeCellEdit && IsCurrentParticipantDependentCell(grid, rowIndex))
+                        grid.BeginEdit(true);
                 }
                 catch
                 {
                 }
             });
+        }
+
+        private bool IsCurrentParticipantDependentCell(DataGridView grid, int rowIndex)
+        {
+            if (grid == null || grid.CurrentCell == null || grid.CurrentCell.RowIndex != rowIndex)
+                return false;
+
+            return grid.CurrentCell.ColumnIndex == 1 || grid.CurrentCell.ColumnIndex == 2;
+        }
+
+        private bool IsEditingParticipantDependentCell(DataGridView grid, int rowIndex)
+        {
+            return IsCurrentParticipantDependentCell(grid, rowIndex) && grid.IsCurrentCellInEditMode;
         }
 
         private bool IsParticipantRowFilledFor(DataGridViewRow row, int projectId)
@@ -2332,13 +2452,22 @@ ORDER BY Section_ID;";
             if (!ValidateQuestionTotal("7", new NumericUpDown[] { countOption10_numericUpDown, countOption11_numericUpDown, countOption12_numericUpDown, countOption13_numericUpDown, countOption14_numericUpDown, countOption15_numericUpDown }))
                 return false;
 
+            if (!ValidateQuestionGridTotal("8", season_dataGridView, 0))
+                return false;
+
             if (!ValidateQuestionTotal("11", new NumericUpDown[] { marketingOption1_numericUpDown, marketingOption2_numericUpDown, marketingOption3_numericUpDown, marketingOption4_numericUpDown, marketingOption5_numericUpDown, marketingOption6_numericUpDown, marketingOption7_numericUpDown, marketingOption8_numericUpDown }))
                 return false;
 
             if (!ValidateQuestionTotal("13", new NumericUpDown[] { countOption16_numericUpDown, countOption17_numericUpDown, countOption18_numericUpDown, countOption19_numericUpDown }))
                 return false;
 
+            if (!ValidateQuestionGridTotal("16", challenges_dataGridView, 1))
+                return false;
+
             if (!ValidateQuestionTotal("17", new NumericUpDown[] { countOption20_numericUpDown, countOption21_numericUpDown, countOption22_numericUpDown, countOption23_numericUpDown }))
+                return false;
+
+            if (!ValidateAttendeeRowsTotal())
                 return false;
 
             if (targetAudience_other_checkBox.Checked && string.IsNullOrWhiteSpace(targetAudience_other_textBox.Text))
@@ -2368,6 +2497,68 @@ ORDER BY Section_ID;";
             if (guild_checkBox2.Checked && string.IsNullOrWhiteSpace(guildReferences_textBox.Text))
             {
                 MessageBox.Show("الرجاء إدخال أسماء المرجعيات أو شيوخ الكار");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidateQuestionGridTotal(string questionNumber, DataGridView grid, int countColumnIndex)
+        {
+            int total = 0;
+            foreach (DataGridViewRow row in grid.Rows)
+            {
+                if (row.IsNewRow)
+                    continue;
+
+                string value = GetCellText(row, countColumnIndex);
+                if (string.IsNullOrWhiteSpace(value))
+                    continue;
+
+                int countValue;
+                if (!int.TryParse(value, out countValue))
+                {
+                    MessageBox.Show("الرجاء إدخال أرقام صحيحة في السؤال " + questionNumber);
+                    return false;
+                }
+
+                total += countValue;
+            }
+
+            int attendanceCount = Convert.ToInt32(attendanceCount_numericUpDown.Value);
+            if (total != attendanceCount)
+            {
+                MessageBox.Show("مجموع الأعداد في السؤال " + questionNumber + " يجب أن يساوي عدد الحضور");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidateAttendeeRowsTotal()
+        {
+            int total = 0;
+            foreach (DataGridViewRow row in attendees_dataGridView.Rows)
+            {
+                if (row.IsNewRow)
+                    continue;
+
+                int? projectId = GetNullableIntFromCell(row, 0);
+                string attendeeName = GetCellText(row, 1);
+                string speciality = GetCellText(row, 2);
+
+                if (!projectId.HasValue &&
+                    string.IsNullOrWhiteSpace(attendeeName) &&
+                    string.IsNullOrWhiteSpace(speciality))
+                    continue;
+
+                total++;
+            }
+
+            int attendanceCount = Convert.ToInt32(attendanceCount_numericUpDown.Value);
+            if (total != attendanceCount)
+            {
+                MessageBox.Show("عدد الأسماء في جدول أسماء الحضور يجب أن يساوي عدد الحضور");
                 return false;
             }
 
