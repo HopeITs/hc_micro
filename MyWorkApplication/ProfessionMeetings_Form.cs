@@ -2431,6 +2431,15 @@ ORDER BY Section_ID;";
                 return false;
             }
 
+            if (string.IsNullOrWhiteSpace(place_textBox.Text))
+            {
+                MessageBox.Show("الرجاء إدخال مكان اللقاء");
+                return false;
+            }
+
+            if (!ValidateMeetingCounts())
+                return false;
+
             if (attendanceCount_numericUpDown.Value > invitedCount_numericUpDown.Value)
             {
                 MessageBox.Show("عدد الحضور لا يمكن أن يكون أكبر من عدد المدعوين");
@@ -2446,28 +2455,7 @@ ORDER BY Section_ID;";
             if (!ValidateQuestionTotal("3", new NumericUpDown[] { countOption7_numericUpDown, countOption8_numericUpDown, countOption9_numericUpDown }))
                 return false;
 
-            if (!ValidateQuestionTotal("6", new NumericUpDown[] { numericUpDown1, numericUpDown2, numericUpDown3 }))
-                return false;
-
-            if (!ValidateQuestionTotal("7", new NumericUpDown[] { countOption10_numericUpDown, countOption11_numericUpDown, countOption12_numericUpDown, countOption13_numericUpDown, countOption14_numericUpDown, countOption15_numericUpDown }))
-                return false;
-
-            if (!ValidateQuestionGridTotal("8", season_dataGridView, 0))
-                return false;
-
-            if (!ValidateQuestionTotal("11", new NumericUpDown[] { marketingOption1_numericUpDown, marketingOption2_numericUpDown, marketingOption3_numericUpDown, marketingOption4_numericUpDown, marketingOption5_numericUpDown, marketingOption6_numericUpDown, marketingOption7_numericUpDown, marketingOption8_numericUpDown }))
-                return false;
-
-            if (!ValidateQuestionTotal("13", new NumericUpDown[] { countOption16_numericUpDown, countOption17_numericUpDown, countOption18_numericUpDown, countOption19_numericUpDown }))
-                return false;
-
-            if (!ValidateQuestionGridTotal("16", challenges_dataGridView, 1))
-                return false;
-
-            if (!ValidateQuestionTotal("17", new NumericUpDown[] { countOption20_numericUpDown, countOption21_numericUpDown, countOption22_numericUpDown, countOption23_numericUpDown }))
-                return false;
-
-            if (!ValidateAttendeeRowsTotal())
+            if (!ValidateTargetAudienceAnswer())
                 return false;
 
             if (targetAudience_other_checkBox.Checked && string.IsNullOrWhiteSpace(targetAudience_other_textBox.Text))
@@ -2476,17 +2464,32 @@ ORDER BY Section_ID;";
                 return false;
             }
 
+            if (!ValidateRequiredRichTextAnswer("5", memo1_richTextBox))
+                return false;
+
+            if (!ValidateQuestionTotal("6", new NumericUpDown[] { numericUpDown1, numericUpDown2, numericUpDown3 }))
+                return false;
+
+            if (!ValidateCompetitionReasons())
+                return false;
+
+            if (!ValidateQuestionTotal("7", new NumericUpDown[] { countOption10_numericUpDown, countOption11_numericUpDown, countOption12_numericUpDown, countOption13_numericUpDown, countOption14_numericUpDown, countOption15_numericUpDown }))
+                return false;
+
             if (countOption15_numericUpDown.Value > 0 && string.IsNullOrWhiteSpace(countOption15_other_textBox.Text))
             {
                 MessageBox.Show("الرجاء تحديد خيار غير ذلك في السؤال 7");
                 return false;
             }
 
-            if (marketingOption8_numericUpDown.Value > 0 && string.IsNullOrWhiteSpace(marketing_other_textBox.Text))
-            {
-                MessageBox.Show("الرجاء تحديد خيار غير ذلك في السؤال 11");
+            if (!ValidateQuestionGridTotal("8", season_dataGridView, 0))
                 return false;
-            }
+
+            if (!ValidateSeasonRows())
+                return false;
+
+            if (!ValidateGuildAnswer())
+                return false;
 
             if (guild_checkBox1.Checked && string.IsNullOrWhiteSpace(guildName_textBox.Text))
             {
@@ -2498,6 +2501,240 @@ ORDER BY Section_ID;";
             {
                 MessageBox.Show("الرجاء إدخال أسماء المرجعيات أو شيوخ الكار");
                 return false;
+            }
+
+            if (!ValidateRequiredRichTextAnswer("10", memo2_richTextBox))
+                return false;
+
+            if (!ValidateQuestionTotal("11", new NumericUpDown[] { marketingOption1_numericUpDown, marketingOption2_numericUpDown, marketingOption3_numericUpDown, marketingOption4_numericUpDown, marketingOption5_numericUpDown, marketingOption6_numericUpDown, marketingOption7_numericUpDown, marketingOption8_numericUpDown }))
+                return false;
+
+            if (marketingOption8_numericUpDown.Value > 0 && string.IsNullOrWhiteSpace(marketing_other_textBox.Text))
+            {
+                MessageBox.Show("الرجاء تحديد خيار غير ذلك في السؤال 11");
+                return false;
+            }
+
+            if (!ValidateEquipmentRows())
+                return false;
+
+            if (!ValidateQuestionTotal("13", new NumericUpDown[] { countOption16_numericUpDown, countOption17_numericUpDown, countOption18_numericUpDown, countOption19_numericUpDown }))
+                return false;
+
+            if (!ValidateRequiredRichTextAnswer("14", memo3_richTextBox))
+                return false;
+
+            if (!ValidateRequiredRichTextAnswer("15", memo4_richTextBox))
+                return false;
+
+            if (!ValidateQuestionGridTotal("16", challenges_dataGridView, 1))
+                return false;
+
+            if (!ValidateChallengeRows())
+                return false;
+
+            if (!ValidateQuestionTotal("17", new NumericUpDown[] { countOption20_numericUpDown, countOption21_numericUpDown, countOption22_numericUpDown, countOption23_numericUpDown }))
+                return false;
+
+            if (!ValidateRequiredRichTextAnswer("18", memo6_richTextBox))
+                return false;
+
+            if (!ValidateAttendeeRowsTotal())
+                return false;
+
+            if (!ValidateMeetingMinuteAnswers())
+                return false;
+
+            return true;
+        }
+
+        private bool ValidateTargetAudienceAnswer()
+        {
+            if (!targetAudience_checkBox1.Checked &&
+                !targetAudience_checkBox2.Checked &&
+                !targetAudience_checkBox3.Checked &&
+                !targetAudience_checkBox4.Checked &&
+                !targetAudience_checkBox5.Checked &&
+                !targetAudience_checkBox6.Checked &&
+                !targetAudience_checkBox7.Checked &&
+                !targetAudience_checkBox8.Checked &&
+                !targetAudience_checkBox9.Checked &&
+                !targetAudience_other_checkBox.Checked)
+            {
+                MessageBox.Show("الرجاء الإجابة على السؤال 4");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidateGuildAnswer()
+        {
+            if (!guild_checkBox1.Checked &&
+                !guild_checkBox2.Checked &&
+                !guild_checkBox3.Checked)
+            {
+                MessageBox.Show("الرجاء الإجابة على السؤال 9");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidateRequiredRichTextAnswer(string questionNumber, RichTextBox richTextBox)
+        {
+            if (string.IsNullOrWhiteSpace(richTextBox.Text))
+            {
+                MessageBox.Show("الرجاء الإجابة على السؤال " + questionNumber);
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidateCompetitionReasons()
+        {
+            if (!ValidateCompetitionReason("6", numericUpDown1, competitionSevereReason_textBox))
+                return false;
+
+            if (!ValidateCompetitionReason("6", numericUpDown2, competitionMediumReason_textBox))
+                return false;
+
+            if (!ValidateCompetitionReason("6", numericUpDown3, competitionWeakReason_textBox))
+                return false;
+
+            return true;
+        }
+
+        private bool ValidateCompetitionReason(string questionNumber, NumericUpDown countControl, TextBox reasonTextBox)
+        {
+            if (countControl.Value > 0 && string.IsNullOrWhiteSpace(reasonTextBox.Text))
+            {
+                MessageBox.Show("عند إدخال عدد في السؤال " + questionNumber + " يجب إدخال السبب");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidateMeetingMinuteAnswers()
+        {
+            if (string.IsNullOrWhiteSpace(memo7_richTextBox.Text) ||
+                string.IsNullOrWhiteSpace(memo8_richTextBox.Text) ||
+                string.IsNullOrWhiteSpace(memo9_richTextBox.Text) ||
+                string.IsNullOrWhiteSpace(memo10_richTextBox.Text) ||
+                string.IsNullOrWhiteSpace(memo11_richTextBox.Text))
+            {
+                MessageBox.Show("الرجاء تعبئة محضر الاجتماع لكل المحاور");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidateMeetingCounts()
+        {
+            if (invitedCount_numericUpDown.Value <= 0)
+            {
+                MessageBox.Show("الرجاء إدخال عدد المدعوين");
+                return false;
+            }
+
+            if (attendanceCount_numericUpDown.Value <= 0)
+            {
+                MessageBox.Show("الرجاء إدخال عدد الحضور");
+                return false;
+            }
+
+            decimal expectedAbsenceCount = invitedCount_numericUpDown.Value - attendanceCount_numericUpDown.Value;
+            if (expectedAbsenceCount >= absenceCount_numericUpDown.Minimum &&
+                expectedAbsenceCount <= absenceCount_numericUpDown.Maximum &&
+                absenceCount_numericUpDown.Value != expectedAbsenceCount)
+            {
+                absenceCount_numericUpDown.Value = expectedAbsenceCount;
+            }
+
+            return true;
+        }
+
+        private bool ValidateSeasonRows()
+        {
+            foreach (DataGridViewRow row in season_dataGridView.Rows)
+            {
+                if (row.IsNewRow)
+                    continue;
+
+                string countValue = GetCellText(row, 0);
+                if (string.IsNullOrWhiteSpace(countValue))
+                    continue;
+
+                if (string.IsNullOrWhiteSpace(GetCellText(row, 1)) ||
+                    string.IsNullOrWhiteSpace(GetCellText(row, 2)) ||
+                    string.IsNullOrWhiteSpace(GetCellText(row, 3)))
+                {
+                    MessageBox.Show("عند إدخال العدد في السؤال 8 يجب إدخال من وإلى والسبب");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool ValidateEquipmentRows()
+        {
+            bool hasAnsweredRow = false;
+
+            foreach (DataGridViewRow row in equipment_dataGridView.Rows)
+            {
+                if (row.IsNewRow)
+                    continue;
+
+                string specialization = GetCellText(row, 0);
+                string equipment = GetCellText(row, 1);
+
+                if (string.IsNullOrWhiteSpace(specialization) && string.IsNullOrWhiteSpace(equipment))
+                    continue;
+
+                if (string.IsNullOrWhiteSpace(specialization) || string.IsNullOrWhiteSpace(equipment))
+                {
+                    MessageBox.Show("الرجاء إكمال الاختصاص والمعدات في السؤال 12");
+                    return false;
+                }
+
+                hasAnsweredRow = true;
+            }
+
+            if (!hasAnsweredRow)
+            {
+                MessageBox.Show("الرجاء الإجابة على السؤال 12");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidateChallengeRows()
+        {
+            foreach (DataGridViewRow row in challenges_dataGridView.Rows)
+            {
+                if (row.IsNewRow)
+                    continue;
+
+                string countValue = GetCellText(row, 1);
+                string solution = GetCellText(row, 2);
+
+                if (string.IsNullOrWhiteSpace(countValue))
+                    continue;
+
+                int count;
+                if (!int.TryParse(countValue, out count) || count <= 0)
+                    continue;
+
+                if (string.IsNullOrWhiteSpace(solution))
+                {
+                    MessageBox.Show("عند إدخال عدد في السؤال 16 يجب إدخال اقتراحات الحلول");
+                    return false;
+                }
             }
 
             return true;

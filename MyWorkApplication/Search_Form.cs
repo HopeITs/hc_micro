@@ -2449,9 +2449,10 @@ namespace MyWorkApplication
                 string query = @"
 SELECT pm.ID AS 'رقم الاجتماع',
        pm.MeetingDate AS 'تاريخ الاجتماع',
+       IFNULL(career.Name_en, '') AS 'Career',
        IFNULL(career.Name, '') AS 'المهنة',
-       IFNULL(sub.Name, '') AS 'التصنيف',
-       IFNULL(C.Name, '') AS 'الفئة',
+       IFNULL(C.Name, '') AS 'Category',
+       IFNULL(sub.Name, '') AS 'Sub Category',
        IFNULL(pm.Place, '') AS 'المكان',
        IFNULL(pm.InvitedCount, 0) AS 'عدد المدعوين',
        IFNULL(pm.AttendanceCount, 0) AS 'عدد الحضور',
