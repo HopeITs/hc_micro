@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.mainLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.title_label = new System.Windows.Forms.Label();
             this.result_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -40,6 +41,7 @@
             this.Sync_button = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.Sync_backgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.Sync_progress_timer = new System.Windows.Forms.Timer(this.components);
             this.mainLayoutPanel.SuspendLayout();
             this.result_tableLayoutPanel.SuspendLayout();
             this.bottom_tableLayoutPanel.SuspendLayout();
@@ -366,12 +368,18 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.progressBar1.Size = new System.Drawing.Size(550, 21);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 1;
             // 
             // Sync_backgroundWorker
             // 
             this.Sync_backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.Sync_backgroundWorker_DoWork);
             this.Sync_backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.Sync_backgroundWorker_RunWorkerCompleted);
+            // 
+            // Sync_progress_timer
+            // 
+            this.Sync_progress_timer.Interval = 120;
+            this.Sync_progress_timer.Tick += new System.EventHandler(this.Sync_progress_timer_Tick);
             // 
             // KoboSync_Form
             // 
@@ -387,7 +395,6 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "مزامنة زيارات كوبو";
             this.Load += new System.EventHandler(this.KoboSync_Form_Load);
             this.mainLayoutPanel.ResumeLayout(false);
             this.result_tableLayoutPanel.ResumeLayout(false);
@@ -422,5 +429,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button Sync_button;
         private System.ComponentModel.BackgroundWorker Sync_backgroundWorker;
+        private System.Windows.Forms.Timer Sync_progress_timer;
     }
 }

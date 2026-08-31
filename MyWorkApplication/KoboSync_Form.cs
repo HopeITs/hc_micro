@@ -3,14 +3,24 @@ using MyWorkApplication.Properties;
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace MyWorkApplication
 {
     public partial class KoboSync_Form : Form
     {
+        private const int PBM_SETBARCOLOR = 0x0409;
+        private const int PBM_SETBKCOLOR = 0x2001;
         private const string KoboServerUrl = "https://kf.kobotoolbox.org";
         private const string KoboToken = "a17ba83c2c73e6a7141e42a5b9553b1bc8c7c13a";
+
+        [DllImport("uxtheme.dll", CharSet = CharSet.Unicode)]
+        private static extern int SetWindowTheme(IntPtr hWnd, string pszSubAppName, string pszSubIdList);
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
+
         public KoboSync_Form(MainForm mainForm)
         {
             InitializeComponent();
@@ -22,6 +32,7 @@ namespace MyWorkApplication
             {
                 ApplyTheme();
                 Status_value_label.Text = "جاهز";
+                progressBar1.Value = 0;
             }
             catch (Exception ex)
             {
@@ -119,7 +130,27 @@ namespace MyWorkApplication
         {
             Sync_button.Enabled = !isSyncing;
             Status_value_label.Text = isSyncing ? "جاري المزامنة..." : Status_value_label.Text;
-            progressBar1.Style = isSyncing ? ProgressBarStyle.Marquee : ProgressBarStyle.Blocks;
+            progressBar1.Style = ProgressBarStyle.Continuous;
+            ApplyProgressBarColor();
+
+            if (isSyncing)
+            {
+                progressBar1.Value = 10;
+                Sync_progress_timer.Start();
+            }
+            else
+            {
+                Sync_progress_timer.Stop();
+                progressBar1.Value = 0;
+            }
+        }
+
+        private void Sync_progress_timer_Tick(object sender, EventArgs e)
+        {
+            if (progressBar1.Value >= 95)
+                progressBar1.Value = 10;
+            else
+                progressBar1.Value += 5;
         }
 
         private void ApplyTheme()
@@ -131,6 +162,7 @@ namespace MyWorkApplication
                 title_label.ForeColor = NewTheme.light_white;
                 Sync_button.BackColor = NewTheme.light_grey2;
                 Sync_button.ForeColor = NewTheme.dark_grey2;
+                ApplyProgressBarColor();
             }
             else
             {
@@ -139,7 +171,22 @@ namespace MyWorkApplication
                 title_label.ForeColor = NewTheme.light_red;
                 Sync_button.BackColor = NewTheme.light_red;
                 Sync_button.ForeColor = NewTheme.light_white;
+                ApplyProgressBarColor();
             }
+        }
+
+        private void ApplyProgressBarColor()
+        {
+            if (!progressBar1.IsHandleCreated)
+                progressBar1.CreateControl();
+
+            SetWindowTheme(progressBar1.Handle, "", "");
+            progressBar1.ForeColor = NewTheme.light_red;
+            progressBar1.BackColor = NewTheme.light_white;
+            SendMessage(progressBar1.Handle, PBM_SETBARCOLOR, IntPtr.Zero,
+                (IntPtr)ColorTranslator.ToWin32(NewTheme.light_red));
+            SendMessage(progressBar1.Handle, PBM_SETBKCOLOR, IntPtr.Zero,
+                (IntPtr)ColorTranslator.ToWin32(NewTheme.light_white));
         }
 
         private void ApplyThemeToControls(Control parent, Color backColor, Color foreColor, Color inputBackColor)

@@ -1,4 +1,4 @@
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -166,6 +166,174 @@ AND `Kobo_Is_Deleted` = 0");
                     }
 
                     return sc.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                Program.MyConn.Close();
+            }
+        }
+
+        public DataTable Get_Submissions_For_Local_Import()
+        {
+            return Get_Submissions_For_Local_Import("");
+        }
+
+        public DataTable Get_Submissions_For_Local_Import(string targetTable)
+        {
+            Program.buildConnection();
+            try
+            {
+                query = @"SELECT kobo_submission.`ID`,
+kobo_submission.`Kobo_Root_UUID`,
+kobo_submission.`Kobo_Current_UUID`,
+kobo_submission.`Kobo_Submission_ID`,
+kobo_submission.`Kobo_Form_ID`,
+kobo_submission.`Kobo_Form_Name`,
+kobo_submission.`Kobo_Submission_Time`,
+kobo_submission.`Sync_Status`,
+kobo_submission.`Local_Table_Name`,
+kobo_submission.`Local_Record_ID`,
+kobo_submission.`Raw_JSON`,
+kobo_form_mapping.`Visit_Type`,
+kobo_form_mapping.`Visit_Category`,
+kobo_form_mapping.`Target_Table`
+FROM `kobo_submission`
+JOIN `kobo_form_mapping`
+ON kobo_form_mapping.`Kobo_Form_UID` = kobo_submission.`Kobo_Form_ID`
+WHERE kobo_form_mapping.`LocalDatabase` = @LocalDatabase
+AND kobo_form_mapping.`Is_Active` = 1
+AND kobo_submission.`Kobo_Is_Deleted` = 0
+AND (kobo_submission.`Sync_Status` IN ('raw_imported', 'raw_updated', 'local_error')
+     OR kobo_submission.`Local_Record_ID` IS NULL)";
+
+                if (!string.IsNullOrWhiteSpace(targetTable))
+                    query += " AND kobo_form_mapping.`Target_Table` = @TargetTable";
+
+                query += @" ORDER BY kobo_submission.`Kobo_Submission_Time`,
+kobo_submission.`ID`";
+
+                using (MySqlCommand sc = new MySqlCommand(query, Program.MyConn))
+                {
+                    sc.Parameters.AddWithValue("@LocalDatabase", GetCurrentLocalDatabaseName());
+                    if (!string.IsNullOrWhiteSpace(targetTable))
+                        sc.Parameters.AddWithValue("@TargetTable", targetTable);
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(sc);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
+            }
+            finally
+            {
+                Program.MyConn.Close();
+            }
+        }
+
+        public DataTable Get_Deleted_Submissions_For_Local_Import()
+        {
+            Program.buildConnection();
+            try
+            {
+                query = @"SELECT `ID`,
+`Kobo_Root_UUID`,
+`Kobo_Form_ID`,
+`Kobo_Form_Name`,
+`Sync_Status`,
+`Local_Table_Name`,
+`Local_Record_ID`
+FROM `kobo_submission`
+WHERE `Kobo_Is_Deleted` = 1
+AND `Local_Table_Name` IS NOT NULL
+AND `Local_Record_ID` IS NOT NULL
+AND `Sync_Status` = 'deleted'
+ORDER BY `Kobo_Deleted_At`, `ID`";
+
+                using (MySqlCommand sc = new MySqlCommand(query, Program.MyConn))
+                {
+                    MySqlDataAdapter da = new MySqlDataAdapter(sc);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
+            }
+            finally
+            {
+                Program.MyConn.Close();
+            }
+        }
+
+        public void Mark_Local_Import_Success(int koboSubmissionId, string localTableName, int localRecordId, bool updated)
+        {
+            Program.buildConnection();
+            try
+            {
+                query = @"UPDATE `kobo_submission` SET
+`Sync_Status` = @Sync_Status,
+`Local_Table_Name` = @Local_Table_Name,
+`Local_Record_ID` = @Local_Record_ID,
+`Error_Message` = NULL,
+`Updated_At` = @Updated_At
+WHERE `ID` = @ID";
+
+                using (MySqlCommand sc = new MySqlCommand(query, Program.MyConn))
+                {
+                    sc.Parameters.AddWithValue("@ID", koboSubmissionId);
+                    sc.Parameters.AddWithValue("@Sync_Status", updated ? "local_updated" : "local_inserted");
+                    sc.Parameters.AddWithValue("@Local_Table_Name", DbString(localTableName));
+                    sc.Parameters.AddWithValue("@Local_Record_ID", localRecordId);
+                    sc.Parameters.AddWithValue("@Updated_At", DateTime.Now);
+                    sc.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                Program.MyConn.Close();
+            }
+        }
+
+        public void Mark_Local_Delete_Success(int koboSubmissionId)
+        {
+            Program.buildConnection();
+            try
+            {
+                query = @"UPDATE `kobo_submission` SET
+`Sync_Status` = 'local_deleted',
+`Error_Message` = NULL,
+`Updated_At` = @Updated_At
+WHERE `ID` = @ID";
+
+                using (MySqlCommand sc = new MySqlCommand(query, Program.MyConn))
+                {
+                    sc.Parameters.AddWithValue("@ID", koboSubmissionId);
+                    sc.Parameters.AddWithValue("@Updated_At", DateTime.Now);
+                    sc.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                Program.MyConn.Close();
+            }
+        }
+
+        public void Mark_Local_Import_Error(int koboSubmissionId, string errorMessage)
+        {
+            Program.buildConnection();
+            try
+            {
+                query = @"UPDATE `kobo_submission` SET
+`Sync_Status` = 'local_error',
+`Error_Message` = @Error_Message,
+`Updated_At` = @Updated_At
+WHERE `ID` = @ID";
+
+                using (MySqlCommand sc = new MySqlCommand(query, Program.MyConn))
+                {
+                    sc.Parameters.AddWithValue("@ID", koboSubmissionId);
+                    sc.Parameters.AddWithValue("@Error_Message", DbString(errorMessage));
+                    sc.Parameters.AddWithValue("@Updated_At", DateTime.Now);
+                    sc.ExecuteNonQuery();
                 }
             }
             finally
