@@ -138,6 +138,7 @@
             this.Restore_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Users_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NationalNum_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.KoboSync_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutUs_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FeedBack_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -892,7 +893,8 @@
             this.newAid_toolStripMenuItem,
             this.newAidSource_toolStripMenuItem,
             this.newPriest_ToolStripMenuItem,
-            this.checklistMembersToolStripMenuItem});
+            this.checklistMembersToolStripMenuItem,
+            this.KoboSync_toolStripMenuItem});
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(176, 22);
             this.toolStripMenuItem4.Text = "ADMIN Tools";
@@ -1184,6 +1186,13 @@
             this.NationalNum_toolStripMenuItem.Text = "Check ID Number";
             this.NationalNum_toolStripMenuItem.Click += new System.EventHandler(this.checkIDNumberToolStripMenuItem_Click);
             // 
+            // KoboSync_toolStripMenuItem
+            // 
+            this.KoboSync_toolStripMenuItem.Name = "KoboSync_toolStripMenuItem";
+            this.KoboSync_toolStripMenuItem.Size = new System.Drawing.Size(300, 22);
+            this.KoboSync_toolStripMenuItem.Text = "(مزامنة زيارات كوبو) Kobo Sync";
+            this.KoboSync_toolStripMenuItem.Click += new System.EventHandler(this.koboSyncToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1357,6 +1366,7 @@
         private System.Windows.Forms.ToolStripMenuItem Restore_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Users_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem NationalNum_toolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem KoboSync_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem AboutUs_toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FeedBack_toolStripMenuItem;

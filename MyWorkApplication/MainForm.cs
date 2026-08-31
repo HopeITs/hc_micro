@@ -205,6 +205,8 @@ namespace MyWorkApplication
 
                     if (form.Name == "ProfessionMeetings_Form")
                         ((ProfessionMeetings_Form)form).Check_Theme();
+                    if (form.Name == "KoboSync_Form")
+                        ((KoboSync_Form)form).Check_Theme();
 
                     if (form.Name == "AdminPanel_From") theme.AdminPanel_ToNight(form, false);
 
@@ -264,6 +266,8 @@ namespace MyWorkApplication
 
                     if (form.Name == "ProfessionMeetings_Form")
                         ((ProfessionMeetings_Form)form).Check_Theme();
+                    if (form.Name == "KoboSync_Form")
+                        ((KoboSync_Form)form).Check_Theme();
 
                     if (form.Name == "AdminPanel_From") theme.AdminPanel_ToLight(form, false);
 
@@ -721,6 +725,19 @@ namespace MyWorkApplication
             {
                 Form form = new ProfessionMeetings_Form(this);
                 showNewTab(form, "Profession Meetings", 0);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void koboSyncToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form form = new KoboSync_Form(this);
+                form.Show();
             }
             catch (Exception ex)
             {
