@@ -2,6 +2,7 @@ using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Security.Cryptography;
@@ -115,6 +116,57 @@ ORDER BY `Visit_Type`, `Visit_Category`, `Kobo_Form_Name`";
                     submissionTime, submittedBy, status, validationStatus, cleanJson, jsonHash);
                 LastSaveStatus = "inserted";
                 return id;
+            }
+            finally
+            {
+                Program.MyConn.Close();
+            }
+        }
+
+        public int Mark_Missing_Submissions_As_Deleted(string formUid, IList<string> activeRootUuids)
+        {
+            if (string.IsNullOrWhiteSpace(formUid))
+                return 0;
+
+            Program.buildConnection();
+            try
+            {
+                StringBuilder builder = new StringBuilder();
+                builder.Append(@"UPDATE `kobo_submission` SET
+`Kobo_Is_Deleted` = 1,
+`Kobo_Deleted_At` = @Kobo_Deleted_At,
+`Sync_Status` = @Sync_Status,
+`Updated_At` = @Updated_At
+WHERE `Kobo_Form_ID` = @Kobo_Form_ID
+AND `Kobo_Is_Deleted` = 0");
+
+                if (activeRootUuids != null && activeRootUuids.Count > 0)
+                {
+                    builder.Append(" AND `Kobo_Root_UUID` NOT IN (");
+                    for (int i = 0; i < activeRootUuids.Count; i++)
+                    {
+                        if (i > 0)
+                            builder.Append(", ");
+                        builder.Append("@RootUuid" + i);
+                    }
+                    builder.Append(")");
+                }
+
+                using (MySqlCommand sc = new MySqlCommand(builder.ToString(), Program.MyConn))
+                {
+                    sc.Parameters.AddWithValue("@Kobo_Form_ID", formUid);
+                    sc.Parameters.AddWithValue("@Kobo_Deleted_At", DateTime.Now);
+                    sc.Parameters.AddWithValue("@Sync_Status", "deleted");
+                    sc.Parameters.AddWithValue("@Updated_At", DateTime.Now);
+
+                    if (activeRootUuids != null)
+                    {
+                        for (int i = 0; i < activeRootUuids.Count; i++)
+                            sc.Parameters.AddWithValue("@RootUuid" + i, NormalizeUuid(activeRootUuids[i]));
+                    }
+
+                    return sc.ExecuteNonQuery();
+                }
             }
             finally
             {
