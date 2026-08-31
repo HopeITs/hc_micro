@@ -40,7 +40,6 @@
             this.ProjectNumber_label = new System.Windows.Forms.Label();
             this.MP_ID_label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ProfilePicture_pictureBox = new OvalPictureBox();
             this.BottomLine_panel = new System.Windows.Forms.Panel();
             this.TopLine_panel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -122,6 +121,7 @@
             this.VDates_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VResults_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VStatistics_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.KoboSync_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SpecialCase_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProfessionMeetings_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -138,14 +138,13 @@
             this.Restore_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Users_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NationalNum_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.KoboSync_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutUs_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FeedBack_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Manual_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ProfilePicture_pictureBox = new OvalPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_Large_pictureBox)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -153,6 +152,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Home_panel)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -342,21 +342,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1262, 87);
             this.panel1.TabIndex = 415;
-            // 
-            // ProfilePicture_pictureBox
-            // 
-            this.ProfilePicture_pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProfilePicture_pictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.ProfilePicture_pictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ProfilePicture_pictureBox.BackgroundImage")));
-            this.ProfilePicture_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ProfilePicture_pictureBox.Location = new System.Drawing.Point(952, 11);
-            this.ProfilePicture_pictureBox.MaximumSize = new System.Drawing.Size(68, 68);
-            this.ProfilePicture_pictureBox.MinimumSize = new System.Drawing.Size(64, 64);
-            this.ProfilePicture_pictureBox.Name = "ProfilePicture_pictureBox";
-            this.ProfilePicture_pictureBox.Size = new System.Drawing.Size(68, 64);
-            this.ProfilePicture_pictureBox.TabIndex = 427;
-            this.ProfilePicture_pictureBox.TabStop = false;
-            this.ProfilePicture_pictureBox.Click += new System.EventHandler(this.ProfilePicture_button_Click);
             // 
             // BottomLine_panel
             // 
@@ -893,8 +878,7 @@
             this.newAid_toolStripMenuItem,
             this.newAidSource_toolStripMenuItem,
             this.newPriest_ToolStripMenuItem,
-            this.checklistMembersToolStripMenuItem,
-            this.KoboSync_toolStripMenuItem});
+            this.checklistMembersToolStripMenuItem});
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(176, 22);
             this.toolStripMenuItem4.Text = "ADMIN Tools";
@@ -1026,6 +1010,7 @@
             this.VDates_toolStripMenuItem,
             this.VResults_toolStripMenuItem,
             this.VStatistics_toolStripMenuItem,
+            this.KoboSync_toolStripMenuItem,
             this.SpecialCase_toolStripMenuItem,
             this.ProfessionMeetings_toolStripMenuItem});
             this.mEToolStripMenuItem1.Name = "mEToolStripMenuItem1";
@@ -1036,35 +1021,42 @@
             // Visit_toolStripMenuItem
             // 
             this.Visit_toolStripMenuItem.Name = "Visit_toolStripMenuItem";
-            this.Visit_toolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.Visit_toolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.Visit_toolStripMenuItem.Text = "Visit Forms";
             this.Visit_toolStripMenuItem.Click += new System.EventHandler(this.monitoringVisitsToolStripMenuItem_Click);
             // 
             // VDates_toolStripMenuItem
             // 
             this.VDates_toolStripMenuItem.Name = "VDates_toolStripMenuItem";
-            this.VDates_toolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.VDates_toolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.VDates_toolStripMenuItem.Text = "Visit Dates Schedule";
             this.VDates_toolStripMenuItem.Click += new System.EventHandler(this.visitDatesSchedualToolStripMenuItem_Click);
             // 
             // VResults_toolStripMenuItem
             // 
             this.VResults_toolStripMenuItem.Name = "VResults_toolStripMenuItem";
-            this.VResults_toolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.VResults_toolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.VResults_toolStripMenuItem.Text = "Visit Results";
             this.VResults_toolStripMenuItem.Click += new System.EventHandler(this.monitorVisitResultsToolStripMenuItem_Click);
             // 
             // VStatistics_toolStripMenuItem
             // 
             this.VStatistics_toolStripMenuItem.Name = "VStatistics_toolStripMenuItem";
-            this.VStatistics_toolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.VStatistics_toolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.VStatistics_toolStripMenuItem.Text = "Visitors Statistics";
             this.VStatistics_toolStripMenuItem.Click += new System.EventHandler(this.visitorsStatisticsToolStripMenuItem_Click);
+            // 
+            // KoboSync_toolStripMenuItem
+            // 
+            this.KoboSync_toolStripMenuItem.Name = "KoboSync_toolStripMenuItem";
+            this.KoboSync_toolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.KoboSync_toolStripMenuItem.Text = "Sync Kobo visits";
+            this.KoboSync_toolStripMenuItem.Click += new System.EventHandler(this.koboSyncToolStripMenuItem_Click);
             // 
             // SpecialCase_toolStripMenuItem
             // 
             this.SpecialCase_toolStripMenuItem.Name = "SpecialCase_toolStripMenuItem";
-            this.SpecialCase_toolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.SpecialCase_toolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.SpecialCase_toolStripMenuItem.Text = "New Special Case";
             this.SpecialCase_toolStripMenuItem.Click += new System.EventHandler(this.specialCaseToolStripMenuItem_Click);
             // 
@@ -1186,13 +1178,6 @@
             this.NationalNum_toolStripMenuItem.Text = "Check ID Number";
             this.NationalNum_toolStripMenuItem.Click += new System.EventHandler(this.checkIDNumberToolStripMenuItem_Click);
             // 
-            // KoboSync_toolStripMenuItem
-            // 
-            this.KoboSync_toolStripMenuItem.Name = "KoboSync_toolStripMenuItem";
-            this.KoboSync_toolStripMenuItem.Size = new System.Drawing.Size(300, 22);
-            this.KoboSync_toolStripMenuItem.Text = "(مزامنة زيارات كوبو) Kobo Sync";
-            this.KoboSync_toolStripMenuItem.Click += new System.EventHandler(this.koboSyncToolStripMenuItem_Click);
-            // 
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1225,6 +1210,21 @@
             this.Manual_toolStripMenuItem.Text = "Read The Manual";
             this.Manual_toolStripMenuItem.Click += new System.EventHandler(this.readTheManualToolStripMenuItem_Click);
             // 
+            // ProfilePicture_pictureBox
+            // 
+            this.ProfilePicture_pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ProfilePicture_pictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.ProfilePicture_pictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ProfilePicture_pictureBox.BackgroundImage")));
+            this.ProfilePicture_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ProfilePicture_pictureBox.Location = new System.Drawing.Point(952, 11);
+            this.ProfilePicture_pictureBox.MaximumSize = new System.Drawing.Size(68, 68);
+            this.ProfilePicture_pictureBox.MinimumSize = new System.Drawing.Size(64, 64);
+            this.ProfilePicture_pictureBox.Name = "ProfilePicture_pictureBox";
+            this.ProfilePicture_pictureBox.Size = new System.Drawing.Size(68, 64);
+            this.ProfilePicture_pictureBox.TabIndex = 427;
+            this.ProfilePicture_pictureBox.TabStop = false;
+            this.ProfilePicture_pictureBox.Click += new System.EventHandler(this.ProfilePicture_button_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1250,7 +1250,6 @@
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.Logo_Large_pictureBox)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -1263,6 +1262,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Home_panel)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePicture_pictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }

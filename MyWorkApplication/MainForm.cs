@@ -382,8 +382,9 @@ namespace MyWorkApplication
                             ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[2], Keys.Alt | Keys.D);//v schedule
                             ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[3], Keys.Alt | Keys.R);//v results
                             ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[4], Keys.Alt | Keys.T); //visitors statistics
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[5], Keys.Alt | Keys.S);//v specialcase
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[6], Keys.None);//profession meetings
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[5], Keys.Alt | Keys.K);//sync kobo visits
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[6], Keys.Alt | Keys.S);//v specialcase
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[7], Keys.None);//profession meetings
 
                             // -------------------------------------------------------------------- 
 
@@ -430,8 +431,9 @@ namespace MyWorkApplication
                             ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[2], Keys.Alt | Keys.D);//v schedule
                             ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[3], Keys.Alt | Keys.R);//v results
                             HideMenuItemWithShortcut((ToolStripMenuItem)mEItems[4]); //visitors statistics
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[5], Keys.Alt | Keys.S);//v specialcase
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[6], Keys.None);//profession meetings
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[5], Keys.Alt | Keys.K);//sync kobo visits
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[6], Keys.Alt | Keys.S);//v specialcase
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[7], Keys.None);//profession meetings
 
                             // -------------------------------------------------------------------- 
 
