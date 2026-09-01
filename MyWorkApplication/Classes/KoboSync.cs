@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -58,6 +59,22 @@ namespace MyWorkApplication.Classes
             if (string.IsNullOrWhiteSpace(token))
                 throw new Exception("Kobo token is required.");
 
+            MySqlConnection lockConnection = null;
+            try
+            {
+                if (!TryAcquireSyncLock(out lockConnection))
+                    throw new KoboSyncAlreadyRunningException();
+
+                return Sync_Raw_Submissions_Without_Lock(baseUrl, token, mappings);
+            }
+            finally
+            {
+                ReleaseSyncLock(lockConnection);
+            }
+        }
+
+        private KoboSyncResult Sync_Raw_Submissions_Without_Lock(string baseUrl, string token, DataTable mappings)
+        {
             KoboSyncResult result = new KoboSyncResult();
             if (mappings == null)
                 return result;
@@ -86,6 +103,65 @@ namespace MyWorkApplication.Classes
 
             result.AfterSyncCount = koboSubmission.Count_Active_Submissions_For_Current_Database();
             return result;
+        }
+
+        private bool TryAcquireSyncLock(out MySqlConnection lockConnection)
+        {
+            lockConnection = new MySqlConnection(Program.ConnectionString);
+            lockConnection.Open();
+
+            using (MySqlCommand sc = new MySqlCommand("SELECT GET_LOCK(@LockName, 0)", lockConnection))
+            {
+                sc.Parameters.AddWithValue("@LockName", GetSyncLockName());
+                object value = sc.ExecuteScalar();
+                if (value == null || value == DBNull.Value)
+                {
+                    lockConnection.Close();
+                    lockConnection.Dispose();
+                    lockConnection = null;
+                    throw new Exception("لم يتمكن البرنامج من التحقق من حالة المزامنة الحالية.");
+                }
+
+                if (Convert.ToInt32(value) == 1)
+                    return true;
+            }
+
+            lockConnection.Close();
+            lockConnection.Dispose();
+            lockConnection = null;
+            return false;
+        }
+
+        private void ReleaseSyncLock(MySqlConnection lockConnection)
+        {
+            if (lockConnection == null)
+                return;
+
+            try
+            {
+                if (lockConnection.State == ConnectionState.Open)
+                {
+                    using (MySqlCommand sc = new MySqlCommand("SELECT RELEASE_LOCK(@LockName)", lockConnection))
+                    {
+                        sc.Parameters.AddWithValue("@LockName", GetSyncLockName());
+                        sc.ExecuteScalar();
+                    }
+                }
+            }
+            finally
+            {
+                lockConnection.Close();
+                lockConnection.Dispose();
+            }
+        }
+
+        private string GetSyncLockName()
+        {
+            string database = Program.selected_database;
+            if (string.IsNullOrWhiteSpace(database))
+                database = "unknown";
+
+            return "micro_kobo_visit_sync_" + database.Trim();
         }
 
         private void Sync_Form(string baseUrl, string token, string formUid, string formName,
@@ -187,6 +263,14 @@ namespace MyWorkApplication.Classes
             if (!string.IsNullOrWhiteSpace(result.ErrorMessages))
                 result.ErrorMessages += Environment.NewLine;
             result.ErrorMessages += message;
+        }
+    }
+
+    public class KoboSyncAlreadyRunningException : Exception
+    {
+        public KoboSyncAlreadyRunningException()
+            : base("توجد مزامنة زيارات قيد التنفيذ حالياً، يرجى الانتظار حتى تنتهي ثم المحاولة مرة أخرى.")
+        {
         }
     }
 }

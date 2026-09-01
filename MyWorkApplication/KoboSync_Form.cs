@@ -97,6 +97,15 @@ namespace MyWorkApplication
 
                 if (e.Error != null)
                 {
+                    if (e.Error is KoboSyncAlreadyRunningException)
+                    {
+                        Status_value_label.Text = "المزامنة قيد التنفيذ";
+                        if (!closeAfterSync)
+                            MessageBox.Show(e.Error.Message, "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning,
+                                MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                        return;
+                    }
+
                     Status_value_label.Text = "فشلت المزامنة";
                     if (closeAfterSync)
                     {
