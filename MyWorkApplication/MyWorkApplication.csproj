@@ -404,6 +404,9 @@
     <Compile Include="Controls\MenuColorTable_Dark.cs" />
     <Compile Include="Controls\MenuControl.cs" />
     <Compile Include="Controls\MenuStripRenderer.cs" />
+    <Compile Include="Controls\NoFocusButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Classes\NewTheme.cs" />
     <Compile Include="Controls\Selection Wrappers\ListSelectionWrapper.cs" />
     <Compile Include="Controls\Selection Wrappers\ObjectSelectionWrapper.cs" />

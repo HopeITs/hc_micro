@@ -174,6 +174,34 @@ AND `Kobo_Is_Deleted` = 0");
             }
         }
 
+        public int Count_Active_Submissions_For_Current_Database()
+        {
+            Program.buildConnection();
+            try
+            {
+                query = @"SELECT COUNT(DISTINCT kobo_submission.`ID`)
+FROM `kobo_submission`
+JOIN `kobo_form_mapping`
+ON kobo_form_mapping.`Kobo_Form_UID` = kobo_submission.`Kobo_Form_ID`
+WHERE kobo_form_mapping.`LocalDatabase` = @LocalDatabase
+AND kobo_form_mapping.`Is_Active` = 1
+AND kobo_submission.`Kobo_Is_Deleted` = 0";
+
+                using (MySqlCommand sc = new MySqlCommand(query, Program.MyConn))
+                {
+                    sc.Parameters.AddWithValue("@LocalDatabase", GetCurrentLocalDatabaseName());
+                    object value = sc.ExecuteScalar();
+                    if (value == null || value == DBNull.Value)
+                        return 0;
+                    return Convert.ToInt32(value);
+                }
+            }
+            finally
+            {
+                Program.MyConn.Close();
+            }
+        }
+
         public DataTable Get_Submissions_For_Local_Import()
         {
             return Get_Submissions_For_Local_Import("");

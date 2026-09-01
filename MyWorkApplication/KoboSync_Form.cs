@@ -14,6 +14,7 @@ namespace MyWorkApplication
         private const int PBM_SETBKCOLOR = 0x2001;
         private const string KoboServerUrl = "https://kf.kobotoolbox.org";
         private const string KoboToken = "a17ba83c2c73e6a7141e42a5b9553b1bc8c7c13a";
+        private bool closeAfterSync = false;
 
         [DllImport("uxtheme.dll", CharSet = CharSet.Unicode)]
         private static extern int SetWindowTheme(IntPtr hWnd, string pszSubAppName, string pszSubIdList);
@@ -33,11 +34,18 @@ namespace MyWorkApplication
                 ApplyTheme();
                 Status_value_label.Text = "جاهز";
                 progressBar1.Value = 0;
+                LoadExistingVisitsCount();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void LoadExistingVisitsCount()
+        {
+            KoboSubmission koboSubmission = new KoboSubmission();
+            Existing_value_label.Text = koboSubmission.Count_Active_Submissions_For_Current_Database().ToString();
         }
 
         public void Check_Theme()
@@ -90,23 +98,30 @@ namespace MyWorkApplication
                 if (e.Error != null)
                 {
                     Status_value_label.Text = "فشلت المزامنة";
+                    if (closeAfterSync)
+                    {
+                        Close();
+                        return;
+                    }
+
                     MessageBox.Show(e.Error.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 KoboSyncResult result = (KoboSyncResult)e.Result;
-                Forms_value_label.Text = result.FormsCount.ToString();
+                Existing_value_label.Text = result.ExistingCount.ToString();
                 Submissions_value_label.Text = result.SubmissionsCount.ToString();
                 Inserted_value_label.Text = result.InsertedCount.ToString();
                 Updated_value_label.Text = result.UpdatedCount.ToString();
-                Unchanged_value_label.Text = result.UnchangedCount.ToString();
                 Deleted_value_label.Text = result.DeletedCount.ToString();
+                AfterSync_value_label.Text = result.AfterSyncCount.ToString();
                 Errors_value_label.Text = result.ErrorCount.ToString();
 
                 if (result.ErrorCount > 0)
                 {
                     Status_value_label.Text = "تمت المزامنة مع وجود أخطاء";
-                    MessageBox.Show("تمت المزامنة مع وجود أخطاء، يرجى مراجعة مسؤول النظام.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (!closeAfterSync)
+                        MessageBox.Show("تمت المزامنة مع وجود أخطاء، يرجى مراجعة مسؤول النظام.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -119,15 +134,25 @@ namespace MyWorkApplication
                     l.Insert_Log("Sync Kobo raw submissions", "kobo_submission", Program.UserName, DateTime.Now);
                 }
                 catch { }
+
+                if (closeAfterSync)
+                    Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (closeAfterSync)
+                    Close();
+                else
+                    MessageBox.Show(ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void SetSyncState(bool isSyncing)
         {
+            if (isSyncing)
+                ActiveControl = null;
+
+            ApplySyncButtonStyle(false);
             Sync_button.Enabled = !isSyncing;
             Status_value_label.Text = isSyncing ? "جاري المزامنة..." : Status_value_label.Text;
             progressBar1.Style = ProgressBarStyle.Continuous;
@@ -142,6 +167,28 @@ namespace MyWorkApplication
             {
                 Sync_progress_timer.Stop();
                 progressBar1.Value = 0;
+            }
+        }
+
+        private void KoboSync_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Sync_backgroundWorker.IsBusy)
+            {
+                e.Cancel = true;
+
+                DialogResult result = MessageBox.Show(
+                    "المزامنة لا تزال قيد التنفيذ.\r\nإذا أغلقت النافذة الآن ستستمر المزامنة في الخلفية حتى تنتهي، ولن تظهر النتيجة في هذه النافذة.\r\n\r\nهل تريد إغلاق النافذة؟",
+                    "تنبيه",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning,
+                    MessageBoxDefaultButton.Button2,
+                    MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+
+                if (result == DialogResult.Yes)
+                {
+                    closeAfterSync = true;
+                    Hide();
+                }
             }
         }
 
@@ -160,8 +207,9 @@ namespace MyWorkApplication
                 BackColor = NewTheme.light_grey3;
                 ApplyThemeToControls(this, NewTheme.light_grey3, NewTheme.light_white, NewTheme.dark_grey2);
                 title_label.ForeColor = NewTheme.light_white;
-                Sync_button.BackColor = NewTheme.light_grey2;
-                Sync_button.ForeColor = NewTheme.dark_grey2;
+                ApplySectionHeaderStyle(NewTheme.light_grey2, NewTheme.dark_grey2);
+                ApplyValueLabelStyle(NewTheme.dark_grey2, NewTheme.light_white);
+                ApplySyncButtonStyle(false);
                 ApplyProgressBarColor();
             }
             else
@@ -169,10 +217,73 @@ namespace MyWorkApplication
                 BackColor = NewTheme.light_grey1;
                 ApplyThemeToControls(this, NewTheme.light_grey1, NewTheme.light_grey4, NewTheme.light_white);
                 title_label.ForeColor = NewTheme.light_red;
-                Sync_button.BackColor = NewTheme.light_red;
-                Sync_button.ForeColor = NewTheme.light_white;
+                ApplySectionHeaderStyle(NewTheme.light_red, NewTheme.light_white);
+                ApplyValueLabelStyle(NewTheme.light_white, NewTheme.light_grey4);
+                ApplySyncButtonStyle(false);
                 ApplyProgressBarColor();
             }
+        }
+
+        private void ApplySectionHeaderStyle(Color backColor, Color foreColor)
+        {
+            ServerSection_label.BackColor = backColor;
+            ServerSection_label.ForeColor = foreColor;
+            KoboSection_label.BackColor = backColor;
+            KoboSection_label.ForeColor = foreColor;
+            AfterSyncSection_label.BackColor = backColor;
+            AfterSyncSection_label.ForeColor = foreColor;
+        }
+
+        private void ApplyValueLabelStyle(Color backColor, Color foreColor)
+        {
+            Status_value_label.BackColor = backColor;
+            Status_value_label.ForeColor = foreColor;
+            Existing_value_label.BackColor = backColor;
+            Existing_value_label.ForeColor = foreColor;
+            Submissions_value_label.BackColor = backColor;
+            Submissions_value_label.ForeColor = foreColor;
+            Inserted_value_label.BackColor = backColor;
+            Inserted_value_label.ForeColor = foreColor;
+            Updated_value_label.BackColor = backColor;
+            Updated_value_label.ForeColor = foreColor;
+            Deleted_value_label.BackColor = backColor;
+            Deleted_value_label.ForeColor = foreColor;
+            AfterSync_value_label.BackColor = backColor;
+            AfterSync_value_label.ForeColor = foreColor;
+            Errors_value_label.BackColor = backColor;
+            Errors_value_label.ForeColor = foreColor;
+        }
+
+        private void Sync_button_MouseEnter(object sender, EventArgs e)
+        {
+            ApplySyncButtonStyle(true);
+        }
+
+        private void Sync_button_MouseLeave(object sender, EventArgs e)
+        {
+            ApplySyncButtonStyle(false);
+        }
+
+        private void ApplySyncButtonStyle(bool mouseOver)
+        {
+            Image image = null;
+            Color foreColor = new Color();
+
+            if (Settings.Default.theme == "Light")
+            {
+                image = mouseOver ? Resources.BtnBackground_L : Resources.BtnBackground_D;
+                foreColor = mouseOver ? NewTheme.dark_grey2 : NewTheme.light_grey11;
+            }
+            else
+            {
+                image = mouseOver ? Resources.BtnBackground_D : Resources.BtnBackground_L;
+                foreColor = mouseOver ? NewTheme.light_grey11 : NewTheme.dark_grey2;
+            }
+
+            Sync_button.BackColor = Color.Transparent;
+            Sync_button.BackgroundImage = image;
+            Sync_button.ForeColor = foreColor;
+            Sync_button.NotifyDefault(false);
         }
 
         private void ApplyProgressBarColor()
@@ -180,6 +291,7 @@ namespace MyWorkApplication
             if (!progressBar1.IsHandleCreated)
                 progressBar1.CreateControl();
 
+            progressBorder_panel.BackColor = NewTheme.light_white;
             SetWindowTheme(progressBar1.Handle, "", "");
             progressBar1.ForeColor = NewTheme.light_red;
             progressBar1.BackColor = NewTheme.light_white;
@@ -212,6 +324,11 @@ namespace MyWorkApplication
                 if (control.HasChildren)
                     ApplyThemeToControls(control, backColor, foreColor, inputBackColor);
             }
+        }
+
+        private void mainLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

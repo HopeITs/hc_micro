@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -11,22 +11,26 @@ namespace MyWorkApplication.Classes
     public class KoboSyncResult
     {
         public int FormsCount { get; set; }
+        public int ExistingCount { get; set; }
         public int SubmissionsCount { get; set; }
         public int InsertedCount { get; set; }
         public int UpdatedCount { get; set; }
         public int UnchangedCount { get; set; }
         public int DeletedCount { get; set; }
+        public int AfterSyncCount { get; set; }
         public int ErrorCount { get; set; }
         public string ErrorMessages { get; set; }
 
         public KoboSyncResult()
         {
             FormsCount = 0;
+            ExistingCount = 0;
             SubmissionsCount = 0;
             InsertedCount = 0;
             UpdatedCount = 0;
             UnchangedCount = 0;
             DeletedCount = 0;
+            AfterSyncCount = 0;
             ErrorCount = 0;
             ErrorMessages = "";
         }
@@ -58,6 +62,7 @@ namespace MyWorkApplication.Classes
             if (mappings == null)
                 return result;
 
+            result.ExistingCount = koboSubmission.Count_Active_Submissions_For_Current_Database();
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             foreach (DataRow row in mappings.Rows)
@@ -79,6 +84,7 @@ namespace MyWorkApplication.Classes
                 }
             }
 
+            result.AfterSyncCount = koboSubmission.Count_Active_Submissions_For_Current_Database();
             return result;
         }
 
