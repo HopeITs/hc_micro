@@ -2345,7 +2345,7 @@ namespace MyWorkApplication
                 var from = @" FROM person_family pf
   LEFT JOIN person P ON P.P_ID = pf.Person_ID
   LEFT JOIN person_microproject PMP ON PMP.Person_ID = pf.P_Provider_ID
-  LEFT JOIN person_education pe ON pe.Person_ID = pf.P_Provider_ID
+  LEFT JOIN person_education pe ON pe.Person_ID = pf.P_Provider_ID AND pf.Person_ID = pf.P_Provider_ID
   left JOIN `microproject` MP on MP.MP_ID = PMP.MicroProject_ID 
 
   left JOIN `category` C on MP.Category_ID = C.ID 
@@ -2361,10 +2361,8 @@ namespace MyWorkApplication
   LEFT JOIN `microprojecttype` on microprojecttype.ID = MP.MP_Type_ID
   LEFT JOIN `microprojectsubtype` on microprojectsubtype.ID = MP.MP_SubType_ID 
 ";
-                //Each subquery uses COALESCE(pf.Education_ID, pe.Education_ID)
-                //              or COALESCE(pf.EducationLevel_ID, pe.Level_ID) so:
-                //If the family member has their own education info → use that.
-                //Otherwise → use the beneficiary’s education info.
+                //Family members use their own education fields from person_family.
+                //The person_education fallback is only joined for the beneficiary's own row.
 
                 string query = @"SELECT PMP.MicroProject_ID as 'رقم المشروع'
  , CONCAT(P_FirstName, ' ', P_LastName) as 'الاسم' 
@@ -2386,8 +2384,7 @@ namespace MyWorkApplication
  , pf.Person_ID as 'رقم الفرد' ";
 
 
-                var i_cond = " where COALESCE(pf.Education_ID, pe.Education_ID) is not null " +
-                    " and Current_State = 1  ";
+                var i_cond = " where Current_State = 1  ";
                 Check_Conditions(i_cond);
 
                 query += from + condition;
