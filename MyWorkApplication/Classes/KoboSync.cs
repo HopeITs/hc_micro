@@ -102,7 +102,26 @@ namespace MyWorkApplication.Classes
             }
 
             result.AfterSyncCount = koboSubmission.Count_Active_Submissions_For_Current_Database();
+            Import_Opening_Visits(result);
             return result;
+        }
+
+        private void Import_Opening_Visits(KoboSyncResult result)
+        {
+            try
+            {
+                KoboLocalVisitImporter importer = new KoboLocalVisitImporter();
+                KoboLocalVisitImportResult importResult = importer.Import_Opening_Visits();
+                result.ErrorCount += importResult.ErrorCount;
+
+                if (!string.IsNullOrWhiteSpace(importResult.ErrorMessages))
+                    AddError(result, importResult.ErrorMessages);
+            }
+            catch (Exception ex)
+            {
+                result.ErrorCount++;
+                AddError(result, "Opening visits local import: " + ex.Message);
+            }
         }
 
         private bool TryAcquireSyncLock(out MySqlConnection lockConnection)

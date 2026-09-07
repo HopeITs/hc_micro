@@ -351,6 +351,7 @@
     <Compile Include="Classes\Encryption.cs" />
     <Compile Include="Classes\Images.cs" />
     <Compile Include="Classes\InputValidationHelpercs.cs" />
+    <Compile Include="Classes\KoboLocalVisitImporter.cs" />
     <Compile Include="Classes\KoboSubmission.cs" />
     <Compile Include="Classes\KoboSync.cs" />
     <Compile Include="Classes\PasswordHelper.cs" />
