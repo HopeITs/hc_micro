@@ -3642,7 +3642,6 @@ namespace MyWorkApplication
             this.final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             this.final_tableLayoutPanel.Controls.Add(this.PaperApplicationUser_comboBox, 4, 0);
             this.final_tableLayoutPanel.Controls.Add(this.label27, 5, 0);
-            this.final_tableLayoutPanel.Controls.Add(this.tableLayoutPanel4, 0, 2);
             this.final_tableLayoutPanel.Controls.Add(this.label33, 3, 0);
             this.final_tableLayoutPanel.Controls.Add(this.CreatedBy_User_label, 2, 0);
             this.final_tableLayoutPanel.Controls.Add(this.Visitors_label, 1, 0);
@@ -3696,11 +3695,7 @@ namespace MyWorkApplication
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel4.ColumnCount = 7;
-            this.final_tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel4, 6);
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
@@ -3713,14 +3708,14 @@ namespace MyWorkApplication
             this.tableLayoutPanel4.Controls.Add(this.AddExtention_button, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.Delete_MP_button, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.FullApp_button, 3, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 92);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 593);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tableLayoutPanel4.RowCount = 1;
-            this.final_tableLayoutPanel.SetRowSpan(this.tableLayoutPanel4, 2);
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1085, 80);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1262, 80);
             this.tableLayoutPanel4.TabIndex = 102;
             this.tableLayoutPanel4.TabStop = true;
             // 
@@ -10014,6 +10009,7 @@ namespace MyWorkApplication
             this.ClientSize = new System.Drawing.Size(1262, 673);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.Main_panel);
+            this.Controls.Add(this.tableLayoutPanel4);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
