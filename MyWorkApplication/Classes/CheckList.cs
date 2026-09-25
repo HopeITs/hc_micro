@@ -414,7 +414,7 @@ namespace MyWorkApplication.Classes
             }
         }
 
-        public DataSet Get_NewChecklist(string Person_ID, string cond, bool stateReason_IDs)
+        internal string BuildChecklistReportQuery(string Person_ID, string cond, bool stateReason_IDs)
         {
             string query1 = @" SELECT PMP.MicroProject_ID as 'رقم المشروع'
  , GROUP_CONCAT(CONCAT(P_FirstName, ' ', P_LastName)) as 'المستفيد'
@@ -591,6 +591,13 @@ namespace MyWorkApplication.Classes
             string group_by = " Group By PMP.Person_ID order by PMP.MicroProject_ID Desc ";
              
             query1 += from + condition + group_by + ";";
+
+            return query1;
+        }
+
+        public DataSet Get_NewChecklist(string Person_ID, string cond, bool stateReason_IDs)
+        {
+            string query1 = BuildChecklistReportQuery(Person_ID, cond, stateReason_IDs);
 
             // 
             string query2 = @"select person_checklistmembers.* 

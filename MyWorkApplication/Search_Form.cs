@@ -1,4 +1,5 @@
-﻿using ClosedXML.Excel;
+﻿using System.Threading.Tasks;
+using ClosedXML.Excel;
 using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.EMMA;
 using DocumentFormat.OpenXml.Math;
@@ -69,6 +70,7 @@ namespace MyWorkApplication
         {
             InitializeComponent();
             this.main_form = main_form;
+            reportingScope.InitializeCities(Program.User_In_Database, Program.selected_database);
         }
 
         public Search_Form(MainForm main_form
@@ -81,6 +83,7 @@ namespace MyWorkApplication
         {
             InitializeComponent();
             this.main_form = main_form;
+            reportingScope.InitializeCities(Program.User_In_Database, Program.selected_database);
 
             user_mode = false;
             FundType_comboBox.Text = FundType;
@@ -182,6 +185,7 @@ namespace MyWorkApplication
         #region search and filter functions 
         private void SearchBy_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (reportBusy) return;
             try
             {
                 Check_Visibility();
@@ -195,116 +199,125 @@ namespace MyWorkApplication
                 MessageBox.Show(ex.Message);
             }
         }
-        private void timer1_Tick(object sender, EventArgs e)
+        private async void timer1_Tick(object sender, EventArgs e)
         {
+            timer1.Stop();
+            if (reportBusy) return;
             if (tick == 0)
             {
-                user_mode = false;
-                // Set cursor as hourglass
-                Cursor.Current = Cursors.WaitCursor;
-                bs.Filter = bs.Sort = Original_Filter_String = "";
-                bs.DataSource = null;
-                user_mode = true;
-
-                // applications //
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
+                try
                 {
-                    bind_Applications();
-                }
-                // families //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(1))
-                {
-                    FamilyMember_bind();
-                }
-                // Loans //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(2))
-                {
-                    Loan_bind();
-                }
-                // Attachments //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(3))
-                {
-                    bind_Images();
-                }
-                // Visits //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
-                {
-                    bind_Visits();
-                }
-                // New Visit Forms //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(5))
-                {
-                    bind_NewVisits();
-                }
-                // Check Lists //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(6))
-                {
-                    bind_CheckList();
-                }
-                // Special Cases //
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(7))
-                {
-                    bind_SpecialCases();
-                }
-                // Materials Required //
-                //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
-                //{
-                //    bind_Materials();
-                //}
-                // Aid Sources //
-                //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
-                //{
-                //    bind_AidSources();
-                //}
+                    BeginReport();
+                    user_mode = false;
+                    // Set cursor as hourglass
+                    Cursor.Current = Cursors.WaitCursor;
+                    ResetSearchBinding();
+                    user_mode = true;
 
-                // Materials Purchased //
-                //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
-                //{
-                //    bind_Purchasing();
-                //}
+                    // applications //
+                    if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
+                    {
+                        await bind_Applications();
+                    }
+                    // families //
+                    else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(1))
+                    {
+                        await FamilyMember_bind();
+                    }
+                    // Loans //
+                    else if (!CrossCityReport && SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(2))
+                    {
+                        await Loan_bind();
+                    }
+                    // Attachments //
+                    else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(3))
+                    {
+                        await bind_Images();
+                    }
+                    // Visits //
+                    else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
+                    {
+                        await bind_Visits();
+                    }
+                    // New Visit Forms //
+                    else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(5))
+                    {
+                        await bind_NewVisits();
+                    }
+                    // Check Lists //
+                    else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(6))
+                    {
+                        await bind_CheckList();
+                    }
+                    // Special Cases //
+                    else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(7))
+                    {
+                        await bind_SpecialCases();
+                    }
+                    // Materials Required //
+                    //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
+                    //{
+                    //    bind_Materials();
+                    //}
+                    // Aid Sources //
+                    //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9))
+                    //{
+                    //    bind_AidSources();
+                    //}
 
-                //P. Project Required Materials
-                //P. Project Power Sources 
-                else if ((SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
-                     || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9)))
-                    bind_project_tables();
+                    // Materials Purchased //
+                    //else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
+                    //{
+                    //    bind_Purchasing();
+                    //}
 
-                //B. Aid Sources 
-                //B. Assets  //B. Cources     
-                //B. Goals   //B. Relief Aids //B. Illnes & Medical Needs 
-                //B. Losses  //B. Home Power Sources 
-                //B. Current Works //B. Work Experiences
-                else if ((SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
-                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(11))
-                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(12))
-                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(13))
-                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(14))
-                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(15))
-                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(16))
-                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(17))
-                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(18))
-                || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(19)))
-                    bind_person_tables();
-                //B. Educations 
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(20))
-                    bind_Educations();
-                else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(21))
-                    bind_ProfessionMeetings();
+                    //P. Project Required Materials
+                    //P. Project Power Sources
+                    else if ((SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(8))
+                         || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(9)))
+                        await bind_project_tables();
 
-                tick++;
-                // Use of the DataGridViewColumnSelector
-                cs = new DataGridViewColumnSelector(MP_dataGridView);
-                cs.MaxHeight = 100;
-                cs.Width = 150;
-                restore_visible_columns(SearchBy_comboBox.SelectedIndex);
+                    //B. Aid Sources
+                    //B. Assets  //B. Cources
+                    //B. Goals   //B. Relief Aids //B. Illnes & Medical Needs
+                    //B. Losses  //B. Home Power Sources
+                    //B. Current Works //B. Work Experiences
+                    else if ((SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(10))
+                    || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(11))
+                    || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(12))
+                    || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(13))
+                    || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(14))
+                    || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(15))
+                    || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(16))
+                    || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(17))
+                    || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(18))
+                    || (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(19)))
+                        await bind_person_tables();
+                    //B. Educations
+                    else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(20))
+                        await bind_Educations();
+                    else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(21))
+                        await bind_ProfessionMeetings();
 
-                SearchToolBar.SetColumns(MP_dataGridView.Columns);
-                Bind_Show_Hide_ToolStrip();
+                    tick++;
+                    // Use of the DataGridViewColumnSelector
+                    cs = new DataGridViewColumnSelector(MP_dataGridView);
+                    cs.MaxHeight = 100;
+                    cs.Width = 150;
+                    restore_visible_columns(SearchBy_comboBox.SelectedIndex);
 
-                Color_Duplicate_Beneficiaries();
+                    SearchToolBar.SetColumns(MP_dataGridView.Columns);
+                    Bind_Show_Hide_ToolStrip();
 
-                // Set cursor as default arrow
-                Cursor.Current = Cursors.Default;
+                    Color_Duplicate_Beneficiaries();
+
+                    // Set cursor as default arrow
+                    Cursor.Current = Cursors.Default;
+                    FinishSearchReport();
+                }
+                catch (OperationCanceledException) { ClearReport("Cancelled — run the report again."); }
+                catch (Exception ex) { ClearReport("Incomplete — " + ex.Message); }
+                finally { EndReport(); }
             }
             else
             {
@@ -874,7 +887,7 @@ namespace MyWorkApplication
             {
                 //condition += " and fundtype.Name like '" + FundType + "'";
                 condition += " and fundtype.Name in ("
-                    + Program.getSelectedItems_CheckboxComboBox(FundType_comboBox, true) + ")";
+                    + ReportSelected(FundType_comboBox) + ")";
             }
 
             //Type
@@ -882,7 +895,7 @@ namespace MyWorkApplication
             {
                 //condition += " and microprojecttype.Name like '" + Type + "'";
                 condition += " and microprojecttype.Name in ("
-                    + Program.getSelectedItems_CheckboxComboBox(Type_comboBox, true) + ")";
+                    + ReportSelected(Type_comboBox) + ")";
             }
 
             //Sub Type
@@ -890,7 +903,7 @@ namespace MyWorkApplication
             {
                 //condition += " and microprojectsubtype.Name like '" + SubType + "'";
                 condition += " and microprojectsubtype.Name in ("
-                    + Program.getSelectedItems_CheckboxComboBox(SubType_comboBox, true) + ")";
+                    + ReportSelected(SubType_comboBox) + ")";
             }
 
             //Partners
@@ -907,20 +920,20 @@ namespace MyWorkApplication
             if (MP_Status_comboBox.Text != "" && MP_Status_comboBox.Visible)
             {
                 condition += " and state.Name_Ar in ("
-                    + Program.getSelectedItems_CheckboxComboBox(MP_Status_comboBox, true) + ")";
+                    + ReportSelected(MP_Status_comboBox) + ")";
             }
             //Donor
             if (Donor_comboBox.Text != "" && Donor_comboBox.Visible)
             {
                 //condition += " and donor.Name like '" + Donor + "'";
                 condition += " and donor.Name in ("
-                    + Program.getSelectedItems_CheckboxComboBox(Donor_comboBox, true) + ")";
+                    + ReportSelected(Donor_comboBox) + ")";
             }
             //Donor Group
             if (DonorGroup_comboBox.Text != "" && DonorGroup_comboBox.Visible)
             {
                 condition += " and donorgroup.Name in ("
-                    + Program.getSelectedItems_CheckboxComboBox(DonorGroup_comboBox, true) + ")";
+                    + ReportSelected(DonorGroup_comboBox) + ")";
             }
             //Parish
             if (P_Parish_comboBox.Text != "" && P_Parish_comboBox.Visible)
@@ -929,32 +942,32 @@ namespace MyWorkApplication
                 //    condition += " and parish.Name_en not like  N'Muslim'";
                 //else condition += " and parish.Name_en like  N'" + Parish + "'";
                 condition += " and parish.Name_en in ("
-                    + Program.getSelectedItems_CheckboxComboBox(P_Parish_comboBox, true) + ")";
+                    + ReportSelected(P_Parish_comboBox) + ")";
             }
 
             //Category
             if (Category_comboBox.Text != "" && Category_comboBox.Visible)
             {
                 condition += " and C.Name in ("
-                    + Program.getSelectedItems_CheckboxComboBox(Category_comboBox, true) + ")";
+                    + ReportSelected(Category_comboBox) + ")";
             }
             //SUBCategory
             if (SubCategory_comboBox.Text != "" && SubCategory_comboBox.Visible)
             {
                 condition += " and sub.Name in ("
-                    + Program.getSelectedItems_CheckboxComboBox(SubCategory_comboBox, true) + ")";
+                    + ReportSelected(SubCategory_comboBox) + ")";
             }
             //Career
             if (Career_comboBox.Text != "" && Career_comboBox.Visible)
             {
                 condition += " and career.Name in ("
-                    + Program.getSelectedItems_CheckboxComboBox(Career_comboBox, true) + ")";
+                    + ReportSelected(Career_comboBox) + ")";
             }
             //Marital Status
             if (MaritalStatus_comboBox.Text != "" && MaritalStatus_comboBox.Visible)
             {
                 condition += " and maritalstatus.Name in ("
-                    + Program.getSelectedItems_CheckboxComboBox(MaritalStatus_comboBox, true) + ")";
+                    + ReportSelected(MaritalStatus_comboBox) + ")";
             }
 
             //Age 
@@ -978,14 +991,14 @@ namespace MyWorkApplication
             if (HomeStreet_comboBox.Text != "" && HomeStreet_comboBox.Visible)
             {
                 condition += " and h_street.Name in ("
-                    + Program.getSelectedItems_CheckboxComboBox(HomeStreet_comboBox, true) + ")";
+                    + ReportSelected(HomeStreet_comboBox) + ")";
             }
 
             //Project Street 
             if (ProjectStreet_comboBox.Text != "" && ProjectStreet_comboBox.Visible)
             {
                 condition += " and w_street.Name in ("
-                    + Program.getSelectedItems_CheckboxComboBox(ProjectStreet_comboBox, true) + ")";
+                    + ReportSelected(ProjectStreet_comboBox) + ")";
             }
 
             //Apply Date
@@ -1008,7 +1021,7 @@ namespace MyWorkApplication
         }
 
         #region bind queries 
-        private void bind_Applications()
+        private async Task bind_Applications()
         {
             try
             {
@@ -1179,13 +1192,7 @@ namespace MyWorkApplication
                 query += query1 + query2;
                 ////////////////////////////////////////////////////////////////////
 
-                Program.buildConnection();
-                MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-                sc.ExecuteNonQuery();
-                MySqlDataAdapter da = new MySqlDataAdapter(sc);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                Program.MyConn.Close();
+                DataSet ds = await ReadReportAsync(query);
 
                 MP_dataGridView.SuspendLayout();
 
@@ -1263,11 +1270,10 @@ namespace MyWorkApplication
                 MP_dataGridView.ColumnHeadersVisible = true;
                 MP_dataGridView.RowHeadersVisible = true;
             }
-            catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
+            catch { throw; }
         }
 
-        private void FamilyMember_bind()
+        private async Task FamilyMember_bind()
         {
             string query = @" select p.P_ID as 'رقم الفرد'
 , f.F_Number as 'رقم دفتر العائلة'
@@ -1302,13 +1308,7 @@ namespace MyWorkApplication
             Check_Conditions(i_cond);
             query += condition;
 
-            Program.buildConnection();
-            MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-            sc.ExecuteNonQuery();
-            MySqlDataAdapter da = new MySqlDataAdapter(sc);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            Program.MyConn.Close();
+            DataSet ds = await ReadReportAsync(query);
 
             MP_dataGridView.DataSource = null;
             MP_dataGridView.Columns.Clear();
@@ -1322,14 +1322,7 @@ namespace MyWorkApplication
             var dgC1 = MP_dataGridView.Columns["رقم المستفيد"];
             MP_dataGridView.Columns["تاريخ الولادة"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgC1.Visible = false;
-
-            Program.buildConnection();
-            //count rows
-            var sel = "select count(*) FROM `person`";
-            MySS.sc = new MySqlCommand(sel, Program.MyConn);
-            decimal count = Convert.ToDecimal(MySS.sc.ExecuteScalar());
-            Count_label.Text = "All: " + count.ToString("#,##0");
-            Program.MyConn.Close();
+            Count_label.Text = "All: " + ds.Tables[0].Rows.Count.ToString("#,##0");
 
             MP_dataGridView.Columns["رقم العائلة"].Width = 60;
             //MP_dataGridView.Columns["رقم دفتر العائلة"].Width = MP_dataGridView.Columns["اسم الأم"].Width =
@@ -1347,7 +1340,7 @@ namespace MyWorkApplication
             MP_dataGridView.RowHeadersVisible = true;
         }
 
-        private void Loan_bind()
+        private async Task Loan_bind()
         {
             MP_dataGridView.DataSource = null;
             MP_dataGridView.Columns.Clear();
@@ -1358,7 +1351,12 @@ namespace MyWorkApplication
             var i_cond = "where Current_State = 1 ";
             Check_Conditions(i_cond);
 
-            bs.DataSource = s.Select_Loan_All_Data("", condition);
+            string loanQuery = s.BuildLoanReportQuery("", condition);
+            if (CrossCityReport)
+                loanQuery += ";" + s.BuildFilteredLoanSummaryQuery(Donor_comboBox.Text == "" ? "" : ReportSelected(Donor_comboBox));
+            DataSet loanData = await ReadReportAsync(loanQuery);
+            if (CrossCityReport) BindLoanSummary(loanData.Tables[1]);
+            bs.DataSource = loanData.Tables[0];
             MP_dataGridView.DataSource = bs;
 
             MP_dataGridView.Columns["تاريخ استلام القرض"].DefaultCellStyle.Format
@@ -1380,7 +1378,7 @@ namespace MyWorkApplication
 
 
 
-            decimal count = Convert.ToDecimal(s.Count_Distinct_Loan_IDs());
+            decimal count = CountReportRows(loanData.Tables[0]);
             Count_label.Text = "All: " + count.ToString("#,##0");
 
             MP_dataGridView.Columns["رقم المشروع"].DefaultCellStyle.Alignment
@@ -1410,7 +1408,7 @@ namespace MyWorkApplication
             MP_dataGridView.RowHeadersVisible = true;
         }
 
-        private void bind_Images()
+        private async Task bind_Images()
         {
             var from = @" from `image` 
  left OUTER join `imagetype` on image.ImageType_ID = imagetype.ID  
@@ -1471,13 +1469,7 @@ namespace MyWorkApplication
 
             query += from + condition + " order by image.MicroProject_ID asc ";
 
-            Program.buildConnection();
-            MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-            sc.ExecuteNonQuery();
-            MySqlDataAdapter da = new MySqlDataAdapter(sc);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            Program.MyConn.Close();
+            DataSet ds = await ReadReportAsync(query);
 
             MP_dataGridView.DataSource = null;
             MP_dataGridView.Columns.Clear();
@@ -1491,13 +1483,11 @@ namespace MyWorkApplication
             var dgC2 = MP_dataGridView.Columns["ID"];
             dgC2.Visible = false;
 
-            Program.buildConnection();
             //count rows
             var sel = "select count(DISTINCT MP_ID) " + from + condition;
-            MySS.sc = new MySqlCommand(sel, Program.MyConn);
-            decimal count = Convert.ToDecimal(MySS.sc.ExecuteScalar());
+            decimal count = CountReportRows(ds.Tables[0]);
             Count_label.Text = "Projects Count: " + count.ToString("#,##0");
-            Program.MyConn.Close();
+
 
             MP_dataGridView.Columns["رقم المشروع"].Width = MP_dataGridView.Columns["النوع"].Width = 80;
             MP_dataGridView.Columns["الصورة"].Width = 200;
@@ -1517,7 +1507,7 @@ namespace MyWorkApplication
             MP_dataGridView.RowHeadersVisible = true;
         }
 
-        private void bind_Visits()
+        private async Task bind_Visits()
         {
             try
             {
@@ -1614,13 +1604,7 @@ namespace MyWorkApplication
 
                 string all_query = query + visit_query + mevisit_query;
 
-                Program.buildConnection();
-                MySqlCommand sc = new MySqlCommand(all_query, Program.MyConn);
-                sc.ExecuteNonQuery();
-                MySqlDataAdapter da = new MySqlDataAdapter(sc);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                Program.MyConn.Close();
+                DataSet ds = await ReadReportAsync(all_query);
 
                 MP_dataGridView.DataSource = null;
                 MP_dataGridView.Columns.Clear();
@@ -1640,12 +1624,10 @@ namespace MyWorkApplication
                     MP_dataGridView.Columns["Closing"].DefaultCellStyle.Format = "dd/MM/yyyy";
 
                 //count rows
-                Program.buildConnection();
                 var sel = "select count(DISTINCT MP_ID) " + from + condition;
-                MySqlCommand sc1 = new MySqlCommand(sel, Program.MyConn);
-                decimal count = Convert.ToDecimal(sc1.ExecuteScalar());
+                decimal count = CountReportRows(ds.Tables[0]);
                 Count_label.Text = "Projects Count: " + count.ToString("#,##0");
-                Program.MyConn.Close();
+
 
                 MP_dataGridView.Columns["رقم المشروع"].DefaultCellStyle.Alignment =
                     MP_dataGridView.Columns["Opening"].DefaultCellStyle.Alignment
@@ -1672,13 +1654,10 @@ namespace MyWorkApplication
                     Convert.ToDecimal(ds.Tables[2].Rows[0]["total mevisit"]);
                 sumAll_label.Text = total.ToString("#,##0");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch { throw; }
         }
 
-        private void bind_NewVisits()
+        private async Task bind_NewVisits()
         {
             try
             {
@@ -1742,13 +1721,7 @@ namespace MyWorkApplication
                       + condition + mevisitDate_condition + lastvisit_condition
                       + orderby;
 
-                Program.buildConnection();
-                MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-                sc.ExecuteNonQuery();
-                MySqlDataAdapter da = new MySqlDataAdapter(sc);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                Program.MyConn.Close();
+                DataSet ds = await ReadReportAsync(query);
 
                 MP_dataGridView.DataSource = null;
                 MP_dataGridView.Columns.Clear();
@@ -1778,11 +1751,9 @@ namespace MyWorkApplication
                     outer_sel = " SELECT COUNT(*) from ( " + sel + lastvisit_condition + " ) AS subQuery; ";
                     sel = outer_sel;
                 }
-                Program.buildConnection();
-                MySS.sc = new MySqlCommand(sel, Program.MyConn);
-                decimal count = Convert.ToDecimal(MySS.sc.ExecuteScalar());
+                decimal count = CountReportRows(ds.Tables[0]);
                 Count_label.Text = "All: " + count.ToString("#,##0");
-                Program.MyConn.Close();
+
 
                 MP_dataGridView.Columns["رقم المشروع"].Width = 80;
 
@@ -1798,20 +1769,17 @@ namespace MyWorkApplication
                 MP_dataGridView.ColumnHeadersVisible = true;
                 MP_dataGridView.RowHeadersVisible = true;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch { throw; }
         }
 
-        private void bind_CheckList()
+        private async Task bind_CheckList()
         {
             try
             {
                 var i_cond = " where Current_State = 1 ";
                 Check_Conditions(i_cond);
 
-                ds = cl.Get_NewChecklist("", condition, false);
+                ds = await ReadReportAsync(cl.BuildChecklistReportQuery("", condition, false));
 
                 MP_dataGridView.DataSource = null;
                 MP_dataGridView.Columns.Clear();
@@ -1830,13 +1798,10 @@ namespace MyWorkApplication
                 MP_dataGridView.ColumnHeadersVisible = true;
                 MP_dataGridView.RowHeadersVisible = true;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch { throw; }
         }
 
-        private void bind_SpecialCases()
+        private async Task bind_SpecialCases()
         {
             try
             {
@@ -1885,12 +1850,7 @@ namespace MyWorkApplication
                 query += from + condition;
                 query += " order by sc.Date Desc; ";
 
-                Program.buildConnection();
-                MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-                sc.ExecuteNonQuery();
-                MySqlDataAdapter da = new MySqlDataAdapter(sc);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
+                DataSet ds = await ReadReportAsync(query);
 
                 MP_dataGridView.DataSource = null;
                 MP_dataGridView.Columns.Clear();
@@ -1922,10 +1882,7 @@ namespace MyWorkApplication
                 MP_dataGridView.ColumnHeadersVisible = true;
                 MP_dataGridView.RowHeadersVisible = true;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch { throw; }
         }
 
         //private void bind_Purchasing()
@@ -2015,7 +1972,7 @@ namespace MyWorkApplication
         //    }
         //}
 
-        private void bind_project_tables()
+        private async Task bind_project_tables()
         {
             try
             {
@@ -2101,12 +2058,7 @@ namespace MyWorkApplication
                 query += from + condition;
                 query += " order by PMP.MicroProject_ID Desc; ";
 
-                Program.buildConnection();
-                MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-                sc.ExecuteNonQuery();
-                MySqlDataAdapter da = new MySqlDataAdapter(sc);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
+                DataSet ds = await ReadReportAsync(query);
 
                 MP_dataGridView.DataSource = null;
                 MP_dataGridView.Columns.Clear();
@@ -2126,13 +2078,10 @@ namespace MyWorkApplication
                 MP_dataGridView.ColumnHeadersVisible = true;
                 MP_dataGridView.RowHeadersVisible = true;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch { throw; }
         }
 
-        private void bind_person_tables()
+        private async Task bind_person_tables()
         {
             try
             {
@@ -2304,12 +2253,7 @@ namespace MyWorkApplication
                 query += from + condition;
                 query += " order by PMP.MicroProject_ID Desc; ";
 
-                Program.buildConnection();
-                MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-                sc.ExecuteNonQuery();
-                MySqlDataAdapter da = new MySqlDataAdapter(sc);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
+                DataSet ds = await ReadReportAsync(query);
 
                 MP_dataGridView.DataSource = null;
                 MP_dataGridView.Columns.Clear();
@@ -2332,13 +2276,10 @@ namespace MyWorkApplication
                 MP_dataGridView.ColumnHeadersVisible = true;
                 MP_dataGridView.RowHeadersVisible = true;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch { throw; }
         }
 
-        private void bind_Educations()
+        private async Task bind_Educations()
         {
             try
             {
@@ -2390,12 +2331,7 @@ namespace MyWorkApplication
                 query += from + condition;
                 query += " order by PMP.MicroProject_ID Desc; ";
                 
-                Program.buildConnection();
-                MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-                sc.ExecuteNonQuery();
-                MySqlDataAdapter da = new MySqlDataAdapter(sc);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
+                DataSet ds = await ReadReportAsync(query);
 
                 MP_dataGridView.DataSource = null;
                 MP_dataGridView.Columns.Clear();
@@ -2415,26 +2351,23 @@ namespace MyWorkApplication
                 MP_dataGridView.ColumnHeadersVisible = true;
                 MP_dataGridView.RowHeadersVisible = true;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch { throw; }
         }
 
-        private void bind_ProfessionMeetings()
+        private async Task bind_ProfessionMeetings()
         {
             try
             {
                 string condition = " WHERE 1 = 1 ";
 
                 if (Category_comboBox.Text != "" && Category_comboBox.Visible)
-                    condition += " and C.Name in (" + Program.getSelectedItems_CheckboxComboBox(Category_comboBox, true) + ")";
+                    condition += " and C.Name in (" + ReportSelected(Category_comboBox) + ")";
 
                 if (SubCategory_comboBox.Text != "" && SubCategory_comboBox.Visible)
-                    condition += " and sub.Name in (" + Program.getSelectedItems_CheckboxComboBox(SubCategory_comboBox, true) + ")";
+                    condition += " and sub.Name in (" + ReportSelected(SubCategory_comboBox) + ")";
 
                 if (Career_comboBox.Text != "" && Career_comboBox.Visible)
-                    condition += " and career.Name in (" + Program.getSelectedItems_CheckboxComboBox(Career_comboBox, true) + ")";
+                    condition += " and career.Name in (" + ReportSelected(Career_comboBox) + ")";
 
                 if (ApplyDate_checkBox.Checked)
                 {
@@ -2467,12 +2400,7 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                     + condition +
 @" ORDER BY pm.MeetingDate DESC, pm.ID DESC;";
 
-                Program.buildConnection();
-                MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-                sc.ExecuteNonQuery();
-                MySqlDataAdapter da = new MySqlDataAdapter(sc);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
+                DataSet ds = await ReadReportAsync(query);
 
                 MP_dataGridView.DataSource = null;
                 MP_dataGridView.Columns.Clear();
@@ -2497,15 +2425,7 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                 MP_dataGridView.ColumnHeadersVisible = true;
                 MP_dataGridView.RowHeadersVisible = true;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (Program.MyConn.State == ConnectionState.Open)
-                    Program.MyConn.Close();
-            }
+            catch { throw; }
         }
 
 
@@ -2536,13 +2456,13 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
             query += @"SELECT ID, Name from `street` as h_street order by Name ASC; "; //12 
             query += @"SELECT ID, Name from `street` as w_street order by Name ASC; "; //13 
 
-            Program.buildConnection();
-            MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-            sc.ExecuteNonQuery();
-            var da = new MySqlDataAdapter(sc);
-            combo_ds = new DataSet();
-            da.Fill(combo_ds);
-            Program.MyConn.Close();
+            using (var lookupConnection = new MySqlConnection(Program.ConnectionString))
+            using (var command = new MySqlCommand(query, lookupConnection))
+            using (var adapter = new MySqlDataAdapter(command))
+            {
+                combo_ds = new DataSet();
+                adapter.Fill(combo_ds);
+            }
 
             //Set_comboBox_datasource(Category_comboBox, combo_ds.Tables[0]);
             //Set_comboBox_datasource(SubCategory_comboBox, combo_ds.Tables[1]);
@@ -2729,6 +2649,7 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
 
         private void Calculate_ImportExportMoney(string str)
         {
+            if (CrossCityReport || reportReadOnly || reportBusy) return;
             string donor = "";
             if (Donor_comboBox.Text != "")
             {
@@ -2737,6 +2658,11 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
             }
 
             var dt2 = s.Select_Loan_Sum(str, donor);
+            BindLoanSummary(dt2);
+        }
+
+        private void BindLoanSummary(DataTable dt2)
+        {
             if (dt2.Rows.Count != 0)
             {
                 Export_sp_label.Text = //"Loans: " +
@@ -2804,7 +2730,7 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
 
             //color duplicate rows//
             var allrows = MP_dataGridView.Rows.OfType<DataGridViewRow>().Reverse().Skip(1);//ignore the last empty line
-            var dupRos = allrows.GroupBy(r => r.Cells["المستفيد"].Value.ToString())
+            var dupRos = allrows.GroupBy(r => (MP_dataGridView.Columns.Contains("City") ? r.Cells["City"].Value + "|" : "") + r.Cells["المستفيد"].Value)
                                 .Where(g => g.Count() > 1)
                                 .SelectMany(r => r.ToList());
             foreach (var r in dupRos)
@@ -3044,34 +2970,79 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
             SearchBy_comboBox_SelectedIndexChanged(sender, e);
         }
 
-        private void Delete_button_Click(object sender, EventArgs e)
+        private async void Delete_button_Click(object sender, EventArgs e)
         {
+            if (CrossCityReport || reportReadOnly || reportBusy || !reportReady || CurrentReportType != 1) return;
             try
             {
-                if (Program.role != 1 && Program.role != 8) throw new InvalidOperationException("You don't have permession for this action.");
-                var dialogResult = MessageBox.Show("Are you sure you want to delete ??", "Delete",
-                    MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                var rows = MP_dataGridView.SelectedRows.Cast<DataGridViewRow>()
+                    .Where(row => !row.IsNewRow && row.DataBoundItem is DataRowView)
+                    .Select(row => ((DataRowView)row.DataBoundItem).Row).ToArray();
+                if (rows.Length == 0) return;
+                var groups = rows.GroupBy(RecordCity).ToDictionary(group => group.Key,
+                    group => group.Select(row => Convert.ToInt64(row["رقم الفرد"])).Distinct().ToArray());
+                string summary = string.Join(Environment.NewLine, groups.Select(group => group.Key + ": " + group.Value.Length + " people"));
+                if (MessageBox.Show(this, "Delete the selected people?" + Environment.NewLine + summary,
+                    "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+                string connection = reportConnection;
+                string username = Program.UserName;
+                BeginReport();
+                try
                 {
-
-                    Program.buildConnection();
-                    var str = "(" + string.Join(", ",
-                        Array.ConvertAll(PIDs_array, v => v.ToString(CultureInfo.InvariantCulture))) + ")";
-                    var name_str = string.Join(", ",
-                        Array.ConvertAll(P_Names_array, v => v.ToString(CultureInfo.InvariantCulture)));
-
-                    var query = "DELETE FROM `person` WHERE `P_ID` in" + str;
-                    var sc = new MySqlCommand(query, Program.MyConn);
-                    sc.ExecuteNonQuery();
-                    Program.MyConn.Close();
-                    l.Insert_Log("Delete from Persons: " + name_str, "Person", Program.UserName, DateTime.Now);
-                    FamilyMember_bind();
+                    var outcomes = await Task.Run(() =>
+                    {
+                        var messages = new List<string>();
+                        foreach (var group in groups)
+                        {
+                            try
+                            {
+                                using (var cityConnection = new MySqlConnection(CityRecordWindow.ConnectionFor(connection, group.Key)))
+                                {
+                                    cityConnection.Open();
+                                    using (var permission = new MySqlCommand("SELECT UserRoleID FROM `user` WHERE UserName=@user", cityConnection))
+                                    {
+                                        permission.Parameters.AddWithValue("@user", username);
+                                        object role = permission.ExecuteScalar();
+                                        if (role == null || (Convert.ToInt32(role) != 1 && Convert.ToInt32(role) != 8))
+                                            throw new InvalidOperationException("Your role in this city does not permit deletion.");
+                                    }
+                                    using (var transaction = cityConnection.BeginTransaction())
+                                    using (var command = new MySqlCommand("", cityConnection, transaction))
+                                    {
+                                        var names = new List<string>();
+                                        for (int i = 0; i < group.Value.Length; i++)
+                                        {
+                                            string parameter = "@id" + i;
+                                            names.Add(parameter);
+                                            command.Parameters.AddWithValue(parameter, group.Value[i]);
+                                        }
+                                        command.CommandText = "DELETE FROM person WHERE P_ID IN (" + string.Join(",", names) + ")";
+                                        int deleted = command.ExecuteNonQuery();
+                                        command.Parameters.Clear();
+                                        command.CommandText = "INSERT INTO `log` (Log_Type,Log_OnTable,Log_User,Log_Date,Log_Seen) VALUES (@text,'Person',@user,@date,0)";
+                                        command.Parameters.AddWithValue("@text", "Delete from Persons: " + string.Join(",", group.Value));
+                                        command.Parameters.AddWithValue("@user", username);
+                                        command.Parameters.AddWithValue("@date", DateTime.Now);
+                                        command.ExecuteNonQuery();
+                                        transaction.Commit();
+                                        messages.Add(group.Key + ": deleted " + deleted + " people.");
+                                    }
+                                }
+                            }
+                            catch (Exception error)
+                            {
+                                messages.Add(group.Key + ": deletion was not confirmed. Refresh before retrying. " +
+                                    (CityReportingService.IsCityFailure(error) ? CityReportingService.DescribeFailure(error) : error.Message));
+                            }
+                        }
+                        return string.Join(Environment.NewLine, messages);
+                    });
+                    if (!IsDisposed && !Disposing) MessageBox.Show(this, outcomes, "Deletion results");
                 }
+                finally { EndReport(); }
+                if (!IsDisposed && !Disposing) SearchBy_comboBox_SelectedIndexChanged(sender, e);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception error) { if (!IsDisposed) MessageBox.Show(this, error.Message, "Delete"); }
         }
 
         private void ExportToExcel_button_MouseDown(object sender, MouseEventArgs e)
@@ -3091,6 +3062,7 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
 
         private void ExportToExcel_button_Click(object sender, EventArgs e)
         {
+            if (!reportReady || reportBusy) return;
             try
             {
                 //if Guest - Out of service - lawful - Media//
@@ -3100,10 +3072,7 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                     Program.role == 9)
                     throw new InvalidOperationException("Sorry ! You Don't have the permission for this action.");
 
-                Thread myTh = new Thread(SaveCallDialog);
-                myTh.SetApartmentState(ApartmentState.STA);
-                myTh.Start();
-                myTh.Join();
+                SaveCallDialog();
             }
             catch (Exception ex)
             {
@@ -3111,8 +3080,9 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
             }
         }
 
-        private void export_applications_ToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void export_applications_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!reportReady || reportBusy) return;
             try
             {
                 //if Guest - Out of service - lawful - Media//
@@ -3122,10 +3092,7 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                     Program.role == 9)
                     throw new InvalidOperationException("Sorry ! You Don't have the permission for this action.");
 
-                Thread myTh = new Thread(SaveCallDialog_2);
-                myTh.SetApartmentState(ApartmentState.STA);
-                myTh.Start();
-                myTh.Join();
+                await ExportSelectedCityApplicationsAsync();
             }
             catch (Exception ex)
             {
@@ -3157,12 +3124,13 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                     //Remove invisible columns//
                     for (var j = 0; j <= MP_dataGridView.ColumnCount - 1; j++)
                     {
-                        if (MP_dataGridView.Columns[j].Name == "StateHistory") continue;
+                        if (MP_dataGridView.Columns[j].Name == "StateHistory" || MP_dataGridView.Columns[j].Name == "City") continue;
                         if (MP_dataGridView.Columns[j].Visible == false)
                             ex_dt.Columns.Remove(MP_dataGridView.Columns[j].Name.ToString());
                     }
                     wb.Worksheets.Add(ex_dt, "Exported from App");
 
+                    AddReportCoverage(wb);
                     wb.SaveAs(filename);
                     wb.Dispose();
 
@@ -3213,6 +3181,7 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
 
                     wb.Worksheets.Add(ex_dt, "Exported from App");
 
+                    AddReportCoverage(wb);
                     wb.SaveAs(filename);
                     wb.Dispose();
 
@@ -3230,45 +3199,26 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
         #endregion
 
         #region datagridview functions 
-        private void MP_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void MP_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (CrossCityReport || reportReadOnly || reportBusy || !reportReady || e == null || e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            if (SearchBy_comboBox.SelectedIndex != 0 || MP_dataGridView.Columns[e.ColumnIndex].Name != "StateHistory") return;
             try
             {
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
-                { //Check if click is on specific column 
-                    if (e.ColumnIndex == MP_dataGridView.Columns["StateHistory"].Index)
-                    {
-                        var MP_ID = Convert.ToInt32(MP_dataGridView.Rows[e.RowIndex].Cells["رقم المشروع"].Value.ToString());
-                        //, statereason.Name as 'سبب الحالة'
-                        //, `Note` as 'ملاحظة الحالة'
-                        string query = @" SELECT `MicroProject_ID` as 'رقم المشروع'
-, state.Name_ar as 'الحالة'  
-, `Date` as 'تاريخ الحالة' 
- FROM `microproject_state` mps left join state on mps.State_ID = state.ID
- left join statereason on mps.StateReason_ID = statereason.ID
- WHERE MicroProject_ID = " + MP_ID + " Order By Date DESC;";
-
-                        Program.buildConnection();
-                        MySqlCommand sc = new MySqlCommand(query, Program.MyConn);
-                        sc.ExecuteNonQuery();
-                        var da = new MySqlDataAdapter(sc);
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-                        Program.MyConn.Close();
-
-
-                        Form form = new ShowDetails_Form(dt, "حالات المشروع");
-                        form.ShowDialog();
-                    }
-                }
+                var row = ((DataRowView)MP_dataGridView.Rows[e.RowIndex].DataBoundItem).Row;
+                string city = RecordCity(row);
+                var parameters = new Dictionary<string, object> { { "@project", row["رقم المشروع"] } };
+                var report = await new CityReportingService().QueryAsync(reportConnection, Program.User_In_Database,
+                    new[] { city }, "SELECT MicroProject_ID AS 'رقم المشروع', state.Name_ar AS 'الحالة', Date AS 'تاريخ الحالة' FROM microproject_state mps LEFT JOIN state ON mps.State_ID=state.ID WHERE MicroProject_ID=@project ORDER BY Date DESC", parameters, CancellationToken.None);
+                if (IsDisposed || Disposing) return;
+                if (report.FailedCities.Count > 0) throw new InvalidOperationException(report.Coverage);
+                using (var details = new ShowDetails_Form(report.Cities[city].Tables[0], "حالات المشروع - " + city)) details.ShowDialog(this);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception error) { if (!IsDisposed) MessageBox.Show(this, error.Message, "Project history"); }
         }
         private void MP_dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
+            if (reportBusy) return;
             try
             {
                 if (SearchBy_comboBox.SelectedIndex != 0) //just when search applications
@@ -3300,10 +3250,11 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
         }
         private void dataGridView_FilterStringChanged(object sender, Zuby.ADGV.AdvancedDataGridView.FilterEventArgs e)
         {
+            if (reportResetting || bs.DataSource == null) return;
             try
             {
                 Original_Filter_String = MP_dataGridView.FilterString;
-                // bs.Filter = Original_Filter_String; 
+                bs.Filter = Original_Filter_String;
             }
             catch (Exception ex)
             {
@@ -3312,6 +3263,7 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
         }
         private void dataGridView_SortStringChanged(object sender, Zuby.ADGV.AdvancedDataGridView.SortEventArgs e)
         {
+            if (reportResetting || bs.DataSource == null) return;
             try
             {
                 bs.Sort = MP_dataGridView.SortString;
@@ -3323,14 +3275,32 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
         }
         private void MP_dataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (CrossCityReport || reportReadOnly || reportBusy || !reportReady || e == null || e.RowIndex < 0) return;
+            if (!new[] { 0, 1, 3, 4, 5, 6, 7, 21 }.Contains(CurrentReportType)) return;
+            try
+            {
+                var view = MP_dataGridView.Rows[e.RowIndex].DataBoundItem as DataRowView;
+                if (view == null) return;
+                string city = RecordCity(view.Row);
+                if (city != Program.selected_database)
+                    openCityRecord(city, CurrentReportType, view.Row);
+                else OpenReportRecord(view.Row, CurrentReportType);
+            }
+            catch (Exception error) { MessageBox.Show(this, error.Message, "Open record"); }
+        }
+
+        internal void OpenReportRecord(DataRow record, int reportType)
+        {
+            if (record == null) return;
+            s = s ?? new Select();
             try
             {
                 // Applications //
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
-                    if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
+                if (reportType == 0)
+                    if (record != null)
                     {
                         string ApplicationState = "";
-                        SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
+                        SelectedDataRow = record;
                         if (SelectedDataRow != null)
                         {
                             if (SelectedDataRow["رقم المشروع"] == null ||
@@ -3355,9 +3325,9 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                     }
 
                 // families //
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(1))
+                if (reportType == 1)
                 {
-                    SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
+                    SelectedDataRow = record;
                     if (SelectedDataRow != null)
                     {
                         if (SelectedDataRow["رقم العائلة"].ToString() == "" ||
@@ -3376,10 +3346,10 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                 }
 
                 // Attachments //
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(3))
-                    if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
+                if (reportType == 3)
+                    if (record != null)
                     {
-                        SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
+                        SelectedDataRow = record;
                         if (SelectedDataRow != null)
                         {
                             if (SelectedDataRow["رقم المشروع"] == null ||
@@ -3390,6 +3360,7 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                             if (SelectedDataRow["ID"] == null || SelectedDataRow["ID"] == DBNull.Value)
                                 Image_ID = -1;
                             else Image_ID = int.Parse(SelectedDataRow["ID"].ToString());
+                            MicroProject_ID = Convert.ToInt32(SelectedDataRow["رقم المشروع"]);
                         }
 
                         Form attachments_Form = new Attachments_Form(MicroProject_ID, Image_ID, main_form);
@@ -3397,10 +3368,10 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                     }
 
                 // Visits //
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(4))
-                    if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
+                if (reportType == 4)
+                    if (record != null)
                     {
-                        SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
+                        SelectedDataRow = record;
                         if (SelectedDataRow != null)
                         {
                             if (SelectedDataRow["رقم المشروع"] == null ||
@@ -3415,9 +3386,9 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                     }
 
                 //New visit forms
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(5))
+                if (reportType == 5)
                 {
-                    SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
+                    SelectedDataRow = record;
                     if (SelectedDataRow != null)
                     {
                         var V_ID = int.Parse(SelectedDataRow["V_ID"].ToString());
@@ -3445,10 +3416,10 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                 }
 
                 // Checklists //
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(6))
-                    if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
+                if (reportType == 6)
+                    if (record != null)
                     {
-                        SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
+                        SelectedDataRow = record;
                         if (SelectedDataRow != null)
                         {
                             if (SelectedDataRow["رقم المشروع"] == null ||
@@ -3462,11 +3433,11 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                     }
 
                 // SpecialCase //
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(7))
-                    if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
+                if (reportType == 7)
+                    if (record != null)
                     {
                         int SC_ID = -1;
-                        SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
+                        SelectedDataRow = record;
                         if (SelectedDataRow != null)
                         {
                             if (SelectedDataRow["ID"] == null || SelectedDataRow["ID"] == DBNull.Value)
@@ -3480,11 +3451,11 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                     }
 
                 // Profession Meetings //
-                if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(21))
-                    if (MP_dataGridView.RowCount > 0 && MP_dataGridView.CurrentRow != null)
+                if (reportType == 21)
+                    if (record != null)
                     {
                         int meetingId = -1;
-                        SelectedDataRow = ((DataRowView)MP_dataGridView.CurrentRow.DataBoundItem).Row;
+                        SelectedDataRow = record;
                         if (SelectedDataRow != null)
                         {
                             if (SelectedDataRow["رقم الاجتماع"] != null &&
@@ -3501,14 +3472,19 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                 MessageBox.Show(ex.Message);
             }
         }
-        private void MP_dataGridView_SelectionChanged(object sender, EventArgs e)
+        private async void MP_dataGridView_SelectionChanged(object sender, EventArgs e)
         {
+            int SelectedRowCount = MP_dataGridView.SelectedRows.Cast<DataGridViewRow>().Count(row => !row.IsNewRow);
+            Selected_label.Text = "Selected: " + SelectedRowCount;
+            if (selectionCancellation != null) selectionCancellation.Cancel();
+            Sum_FamilyMembers_label.Text = "";
+            PIDs_array = new int[0];
+            P_Names_array = new string[0];
+            if (reportBusy || reportResetting || !reportReady) return;
             try
             {
-                if (user_mode)
+                if (user_mode && searchBy_list != null && SearchBy_comboBox.SelectedItem != null)
                 {
-                    var SelectedRowCount = MP_dataGridView.Rows.GetRowCount(DataGridViewElementStates.Selected);
-                    Selected_label.Text = "Selected: " + SelectedRowCount;
 
                     // Applications //
                     if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
@@ -3519,7 +3495,7 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                             for (var i = 0; i < SelectedRowCount; i++)
                             {
                                 var SelectedDataRow = ((DataRowView)MP_dataGridView.SelectedRows[i].DataBoundItem).Row;
-                                sum += double.Parse(SelectedDataRow["عدد أفراد المقيمين في المنزل"].ToString());
+                                if (!SelectedDataRow.IsNull("عدد أفراد المقيمين في المنزل")) sum += Convert.ToDouble(SelectedDataRow["عدد أفراد المقيمين في المنزل"]);
                             }
 
                             Sum_FamilyMembers_label.Text = "Num At Home: " + sum.ToString("#,##0");
@@ -3541,8 +3517,11 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
                             }
                         }
 
+                    // Keep each selected loan tied to its city before calculating totals.
+                    if (CrossCityReport && CurrentReportType == 2)
+                        await UpdateSelectedLoanSummaryAsync();
                     // Loans //
-                    if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(2))
+                    if (!CrossCityReport && SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(2))
                     {
                         if (SelectedRowCount >= 1)
                         {
@@ -3577,53 +3556,14 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
         }
         private void SearchToolBar_Search(object sender, Zuby.ADGV.AdvancedDataGridViewSearchToolBarSearchEventArgs e)
         {
+            if (reportBusy || bs.DataSource == null) return;
             try
             {
-                if (String.IsNullOrWhiteSpace(e.ValueToSearch))
-                {
-                    bs.Filter = Original_Filter_String;
-                }
-                else
-                {
-                    string NewFilter = "";
-
-                    if (e.ColumnToSearch != null)
-                    {
-                        if (e.WholeWord)
-                            NewFilter += "convert(`" + e.ColumnToSearch.Name + "`,'System.String') = '" + e.ValueToSearch + "'";
-                        else
-                            NewFilter += "convert(`" + e.ColumnToSearch.Name + "`,'System.String') like '%" + e.ValueToSearch + "%'";
-                    }
-                    else
-                    {
-                        //Colunms.GetRowCount(DataGridViewElementStates.Visible);
-                        int VisibleColumnsCount = MP_dataGridView.Columns.GetColumnCount(DataGridViewElementStates.Visible);
-                        int i = 0;
-                        foreach (DataGridViewColumn C in MP_dataGridView.Columns)
-                        {
-                            if (C.Visible == true)
-                            {
-                                if (C.Name != "StateHistory")
-                                {
-                                    if (e.WholeWord)
-                                        NewFilter += "convert(`" + C.Name + "`,'System.String') = '" + e.ValueToSearch + "'";
-                                    else
-                                        NewFilter += "convert(`" + C.Name + "`,'System.String') like '%" + e.ValueToSearch + "%'";
-
-                                    if (i < VisibleColumnsCount - 1)
-                                        NewFilter += " or ";
-                                }
-                                i++;
-                            }
-                        }
-                    }
-                    string All_Filters = Original_Filter_String == "" ? NewFilter : Original_Filter_String + " and (" + NewFilter + ")";
-                    //remove unnessecary 'or' at the end of the string
-                    if (All_Filters.EndsWith("or "))
-                        All_Filters = All_Filters.Substring(0, All_Filters.Length - 3);
-
-                    bs.Filter = All_Filters;
-                }
+                var columns = e.ColumnToSearch != null
+                    ? new[] { e.ColumnToSearch.Name }
+                    : MP_dataGridView.Columns.Cast<DataGridViewColumn>().Where(column => column.Visible && column.Name != "StateHistory")
+                        .Select(column => column.Name).ToArray();
+                bs.Filter = ReportFilterParameters.GridText(columns, e.ValueToSearch, e.WholeWord, Original_Filter_String);
 
                 /*
                            bool restartsearch = true;
@@ -3682,6 +3622,7 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
         }
         private void bs_ListChanged(object sender, System.ComponentModel.ListChangedEventArgs e)
         {
+            if (reportResetting || bs.DataSource == null) return;
             try
             {
                 if (MP_dataGridView.DataSource != null && MP_dataGridView.Rows.Count != 0)
@@ -3691,12 +3632,12 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
 
                     if (MP_dataGridView.Columns.Contains("رقم الاجتماع"))
                     {
-                        filtered_dt = ((DataTable)f_bs.DataSource).DefaultView.ToTable(true, "رقم الاجتماع");
+                        filtered_dt = ((DataTable)f_bs.DataSource).DefaultView.ToTable(true, ReportIdentityColumns("رقم الاجتماع"));
                         Count_label.Text = "Meetings Count: " + filtered_dt.Rows.Count.ToString("#,##0");
                     }
                     else if (MP_dataGridView.Columns.Contains("رقم المشروع"))
                     {
-                        filtered_dt = ((DataTable)f_bs.DataSource).DefaultView.ToTable(true, "رقم المشروع");
+                        filtered_dt = ((DataTable)f_bs.DataSource).DefaultView.ToTable(true, ReportIdentityColumns("رقم المشروع"));
                         Count_label.Text = "Projects Count: " + filtered_dt.Rows.Count.ToString("#,##0");
                     }
                     else
@@ -3791,6 +3732,7 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
         #region right click menu 
         private void showHideProfileImagesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (CrossCityReport || reportReadOnly || reportBusy || !reportReady) return;
             try
             {
                 if (show_images)
@@ -4083,6 +4025,7 @@ LEFT JOIN `user` editorUser ON editorUser.UserID = pm.Edited_By_UserID"
 
         private void Search_Form_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (reportCancellation != null) reportCancellation.Cancel();
             save_visible_columns(SearchBy_comboBox.SelectedIndex);
         }
 

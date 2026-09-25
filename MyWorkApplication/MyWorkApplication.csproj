@@ -498,6 +498,20 @@
     <Compile Include="QR_Form.Designer.cs">
       <DependentUpon>QR_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ReportingCityComboBox.cs"><SubType>Component</SubType></Compile>
+    <Compile Include="Classes\ReportBinding.cs" />
+    <Compile Include="Classes\StatisticsReportQuery.cs" />
+    <Compile Include="Classes\CityRecordWindow.cs" />
+    <Compile Include="Classes\CityReportingService.cs" />
+    <Compile Include="Classes\ReportFilterParameters.cs" />
+    <Compile Include="Search_Form.Reporting.cs">
+      <DependentUpon>Search_Form.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statistics_Form.Reporting.cs">
+      <DependentUpon>Statistics_Form.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Search_Form.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -228,12 +228,17 @@ namespace MyWorkApplication
 
 
         [STAThread]
-        private static void Main()
+        private static void Main(string[] args)
         {
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
             Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
 
+            if (args.Length == 2 && args[0] == "--city-record")
+            {
+                CityRecordWindow.Run(args[1]);
+                return;
+            }
             close_app = false;
             Login_Form login_Form = new Login_Form();
             DialogResult result = login_Form.ShowDialog();

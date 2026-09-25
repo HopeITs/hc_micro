@@ -531,10 +531,8 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
             return ds;
         }
 
-        public DataTable Select_Loan_All_Data(string Loan_ID, string cond)
+        internal string BuildLoanReportQuery(string Loan_ID, string cond)
         {
-            try
-            {
                 var from = @" from `loan` L 
      LEFT OUTER join `microproject` MP on L.MicroProject_ID = MP.MP_ID  
      LEFT OUTER join `person_microproject` PMP on PMP.MicroProject_ID = MP.MP_ID  
@@ -638,6 +636,15 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
                 Loan_from = from;
                 Loan_condition = condition;
 
+            return query;
+        }
+
+        public DataTable Select_Loan_All_Data(string Loan_ID, string cond)
+        {
+            try
+            {
+                string query = BuildLoanReportQuery(Loan_ID, cond);
+
                 Program.buildConnection();
                 var sc = new MySqlCommand(query, Program.MyConn);
                 sc.ExecuteNonQuery();
@@ -655,7 +662,7 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
             }
         }
 
-        public DataTable Select_Loan_Sum(string id_loan_str, string donor)
+        internal string BuildLoanSummaryQuery(string id_loan_str, string donor, bool filterRepaymentLoans = false)
         {
             //Exports:Loans(SP) : مجموع القروض بالسوري (يتضمن القروض بالليرة السورية + القروض بالدولار مضروبة بسعر الصرف بحسب كل قرض)
             //Exports:Loans(USD): مجموع القروض بالدولار (يتضمن القروض بالدولار + القروض بالليرة السورية مقسمة على سعر الصرف بحسب كل قرض) 
@@ -734,7 +741,8 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
             left join donor on donor.ID = m.MP_Donor 
             left join donorgroup on donorgroup.ID = m.DonorGroup_ID 
             where donorgroup.Name like '%Installment%' " +
-            (donor == "" ? "" : " and donor.Name in (" + donor + ")") ;
+            (donor == "" ? "" : " and donor.Name in (" + donor + ")")
+            + (filterRepaymentLoans ? " and lulu.Loan_ID in " + id_loan_str : "");
 
             repay_loans_sp_query = @" IFNULL((select SUM(
                 CASE 
@@ -830,6 +838,17 @@ WHERE person_family.P_Provider_ID = person.P_ID and person_family.Relation like 
 + " from `loan` left join `microproject` on loan.MicroProject_ID = microproject.MP_ID "
 + (id_loan_str == "" ? "" : " where `Loan_ID` in " + id_loan_str) + ";" ;
 
+            return query;
+        }
+
+        internal string BuildFilteredLoanSummaryQuery(string donor)
+        {
+            return BuildLoanSummaryQuery("(SELECT DISTINCT L.Loan_ID " + Loan_from + Loan_condition + ")", donor, true);
+        }
+
+        public DataTable Select_Loan_Sum(string id_loan_str, string donor)
+        {
+            string query = BuildLoanSummaryQuery(id_loan_str, donor);
             Program.buildConnection();
             var sc = new MySqlCommand(query, Program.MyConn);
             sc.ExecuteNonQuery();

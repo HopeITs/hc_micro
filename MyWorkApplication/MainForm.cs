@@ -31,6 +31,12 @@ namespace MyWorkApplication
             if (Program.close_app) { Application.ExitThread(); this.Dispose(); }
         }
 
+        internal void LockCityContext()
+        {
+            DataBase_comboBox.Enabled = false;
+            Online_checkBox.Enabled = false;
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             try
@@ -222,8 +228,8 @@ namespace MyWorkApplication
                     //if (form.Name == "ExecutiveFiles_Form") theme.Loan_ToNight(form);
 
                     if (form.Name == "Timeline_Form") theme.Timeline_ToNight(form);
-                    if (form.Name == "Search_Form") theme.Search_ToNight(form, false);
-                    if (form.Name == "Statistics_Form") theme.Statistics_ToNight(form, false);
+                    if (form.Name == "Search_Form") ((Search_Form)form).Check_Theme();
+                    if (form.Name == "Statistics_Form") ((Statistics_Form)form).Check_Theme();
                     if (form.Name == "TaskBoard_Form") theme.Tasks_ToNight(form);
 
                     if (form.Name == "Visits_Schedule_Form" || form.Name == "Payments_Form"
@@ -281,8 +287,8 @@ namespace MyWorkApplication
                     //if (form.Name == "ExecutiveFiles_Form") theme.Loan_ToLight(form);
 
                     if (form.Name == "Timeline_Form") theme.Timeline_ToLight(form);
-                    if (form.Name == "Search_Form") theme.Search_ToLight(form, false);
-                    if (form.Name == "Statistics_Form") theme.Statistics_ToLight(form, false);
+                    if (form.Name == "Search_Form") ((Search_Form)form).Check_Theme();
+                    if (form.Name == "Statistics_Form") ((Statistics_Form)form).Check_Theme();
                     if (form.Name == "TaskBoard_Form") theme.Tasks_ToLight(form);
 
                     if (form.Name == "Visits_Schedule_Form" || form.Name == "Payments_Form"
