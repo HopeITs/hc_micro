@@ -45,7 +45,7 @@ namespace MyWorkApplication.Classes
 
         private void Import_Active_Opening_Visits(KoboLocalVisitImportResult result)
         {
-            DataTable submissions = koboSubmission.Get_Submissions_For_Local_Import("visit");
+            DataTable submissions = koboSubmission.Get_Submissions_For_Local_Import("visit", true);
             foreach (DataRow row in submissions.Rows)
             {
                 if (!IsOpeningVisit(row))
@@ -94,7 +94,7 @@ namespace MyWorkApplication.Classes
         {
             int koboSubmissionId = Convert.ToInt32(row["ID"]);
             JObject submission = JObject.Parse(row["Raw_JSON"].ToString());
-            int microProjectId = GetProjectNumber(submission);
+            int microProjectId = GetProjectNumber(submission, row);
             if (microProjectId <= 0)
                 throw new Exception("لا يوجد رقم مشروع صالح ضمن بيانات كوبو.");
 
@@ -116,21 +116,39 @@ namespace MyWorkApplication.Classes
                             visitId = FindExistingOpeningVisit(connection, transaction, microProjectId, kind);
 
                         bool updated = visitId > 0;
-                        if (updated)
+                        string syncStatus = row["Sync_Status"].ToString();
+                        bool visitorsOnly = updated && (syncStatus == "local_inserted" || syncStatus == "local_updated");
+                        if (updated && !visitorsOnly)
                             UpdateVisit(connection, transaction, visitId, visitDate, vehicleNumber);
-                        else
+                        else if (!updated)
                             visitId = InsertVisit(connection, transaction, microProjectId, kind, visitDate, vehicleNumber);
 
-                        List<int> visitorUserIds = GetVisitorUserIds(connection, transaction, submission);
-                        RefreshVisitUsers(connection, transaction, visitId, visitorUserIds);
-                        MarkOpeningTask(connection, transaction, microProjectId, true);
-                        MarkVisitNotificationsSeen(connection, transaction, microProjectId, kind);
-                        MarkSubmissionSuccess(connection, transaction, koboSubmissionId, visitId, updated);
+                        List<string> unmatchedNames;
+                        List<int> visitorUserIds = GetVisitorUserIds(connection, transaction, submission, row, out unmatchedNames);
+                        if (unmatchedNames.Count == 0)
+                            RefreshVisitUsers(connection, transaction, visitId, visitorUserIds);
+                        if (!visitorsOnly)
+                        {
+                            MarkOpeningTask(connection, transaction, microProjectId, true);
+                            MarkVisitNotificationsSeen(connection, transaction, microProjectId, kind);
+                            MarkSubmissionSuccess(connection, transaction, koboSubmissionId, visitId, updated);
+                        }
+                        string visitorError = "";
+                        if (unmatchedNames.Count > 0)
+                        {
+                            visitorError = "تعذر ربط أسماء زوار كوبو بمستخدمي البرنامج: " + string.Join("، ", unmatchedNames);
+                            MarkVisitorImportError(connection, transaction, koboSubmissionId, visitorError);
+                        }
                         transaction.Commit();
 
-                        if (updated)
+                        if (unmatchedNames.Count > 0)
+                        {
+                            result.ErrorCount++;
+                            AddError(result, row["Kobo_Form_Name"] + " / " + microProjectId + ": " + visitorError);
+                        }
+                        if (updated && !visitorsOnly)
                             result.UpdatedCount++;
-                        else
+                        else if (!updated)
                             result.ImportedCount++;
                     }
                     catch
@@ -224,9 +242,11 @@ WHERE `ID` = @ID";
                 Parameter("@Edited_By", KoboCreatedBy));
         }
 
-        private List<int> GetVisitorUserIds(MySqlConnection connection, MySqlTransaction transaction, JObject submission)
+        private List<int> GetVisitorUserIds(MySqlConnection connection, MySqlTransaction transaction,
+            JObject submission, DataRow row, out List<string> unmatchedNames)
         {
-            List<string> visitorNames = GetVisitorNameCandidates(submission);
+            List<string> visitorNames = GetVisitorNameCandidates(submission, row);
+            unmatchedNames = new List<string>();
             List<int> userIds = new List<int>();
             if (visitorNames.Count == 0)
                 return userIds;
@@ -237,31 +257,35 @@ WHERE `ID` = @ID";
                 int userId = FindVisitorUserId(users, visitorNames[i]);
                 if (userId > 0 && !userIds.Contains(userId))
                     userIds.Add(userId);
+                if (userId <= 0)
+                    unmatchedNames.Add(visitorNames[i]);
             }
 
             return userIds;
         }
 
-        private List<string> GetVisitorNameCandidates(JObject submission)
+        private List<string> GetVisitorNameCandidates(JObject submission, DataRow row)
         {
             List<string> visitorNames = new List<string>();
 
-            AddVisitorNameCandidate(visitorNames, GetValue(submission, "_submitted_by"));
-            AddVisitorNameCandidate(visitorNames, GetValue(submission, "username"));
+            AddVisitorNameCandidate(visitorNames, GetFirstValue(submission, new string[] { "username", "_submitted_by" }));
 
-            AddVisitorChoiceCandidates(visitorNames, GetValue(submission, "select_one_vt8tw79"));
-            AddVisitorChoiceCandidates(visitorNames, GetValue(submission, "__006"));
-
-            AddVisitorTextCandidates(visitorNames, GetValue(submission, "text_xt6wd52"));
-            AddVisitorTextCandidates(visitorNames, GetValue(submission, "__007"));
-            AddVisitorTextCandidates(visitorNames, GetValue(submission, "__005"));
+            if (GetOpeningVisitKind(row) == "V-op" || IsAgricultureOpeningVisit(row))
+            {
+                AddVisitorChoiceCandidates(visitorNames, GetValue(submission, "__006"));
+                AddVisitorTextCandidates(visitorNames, GetValue(submission, "__007"));
+            }
+            else
+            {
+                AddVisitorChoiceCandidates(visitorNames, GetValue(submission, "select_one_vt8tw79"));
+                AddVisitorTextCandidates(visitorNames, GetValue(submission, IsLivestockOpeningVisit(row) ? "__005" : "text_xt6wd52"));
+            }
 
             return visitorNames;
         }
 
         private void AddVisitorChoiceCandidates(List<string> visitorNames, string value)
         {
-            AddVisitorNameCandidate(visitorNames, value);
             if (string.IsNullOrWhiteSpace(value))
                 return;
 
@@ -272,7 +296,6 @@ WHERE `ID` = @ID";
 
         private void AddVisitorTextCandidates(List<string> visitorNames, string value)
         {
-            AddVisitorNameCandidate(visitorNames, value);
             if (string.IsNullOrWhiteSpace(value))
                 return;
 
@@ -285,7 +308,8 @@ WHERE `ID` = @ID";
         private void AddVisitorNameCandidate(List<string> visitorNames, string value)
         {
             string normalizedValue = NormalizeName(value);
-            if (string.IsNullOrWhiteSpace(normalizedValue))
+            if (string.IsNullOrWhiteSpace(normalizedValue) || normalizedValue == "no compa" ||
+                normalizedValue == "لا يوجد مرافق")
                 return;
 
             for (int i = 0; i < visitorNames.Count; i++)
@@ -325,6 +349,25 @@ WHERE `IsVisitor` = 1";
                     return Convert.ToInt32(users.Rows[i]["UserID"]);
             }
 
+            // Choice codes and labels from the supplied Opening XLSForms.
+            string choiceLabel = "";
+            switch (normalizedVisitorName)
+            {
+                case "simon": choiceLabel = "سيمون حجل"; break;
+                case "kabi": choiceLabel = "كابي دايخ"; break;
+                case "cloud": choiceLabel = "كلوديت كيروز"; break;
+                case "fadi": choiceLabel = "فادي بغدصار"; break;
+                case "dabbagh": choiceLabel = "فادي دباغ"; break;
+            }
+            if (choiceLabel.Length > 0)
+            {
+                for (int i = 0; i < users.Rows.Count; i++)
+                {
+                    if (NormalizeName(users.Rows[i]["UserName"].ToString()) == NormalizeName(choiceLabel))
+                        return Convert.ToInt32(users.Rows[i]["UserID"]);
+                }
+            }
+
             return -1;
         }
 
@@ -345,6 +388,20 @@ WHERE `IsVisitor` = 1";
             if (userIds.Count == 0)
                 return;
 
+            using (MySqlCommand command = new MySqlCommand(
+                "SELECT `User_ID` FROM `visit_user` WHERE `Visit_ID` = @Visit_ID", connection, transaction))
+            {
+                command.Parameters.Add(Parameter("@Visit_ID", visitId));
+                List<int> existingIds = new List<int>();
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                        existingIds.Add(Convert.ToInt32(reader["User_ID"]));
+                }
+                if (existingIds.Count == userIds.Count && existingIds.TrueForAll(userIds.Contains))
+                    return;
+            }
+
             ExecuteNonQuery(connection, transaction,
                 "DELETE FROM `visit_user` WHERE `Visit_ID` = @Visit_ID",
                 Parameter("@Visit_ID", visitId));
@@ -356,6 +413,17 @@ WHERE `IsVisitor` = 1";
                     Parameter("@Visit_ID", visitId),
                     Parameter("@User_ID", userIds[i]));
             }
+        }
+
+        private void MarkVisitorImportError(MySqlConnection connection, MySqlTransaction transaction,
+            int koboSubmissionId, string message)
+        {
+            ExecuteNonQuery(connection, transaction, @"UPDATE `kobo_submission` SET
+`Sync_Status` = 'local_error', `Error_Message` = @Error_Message, `Updated_At` = @Updated_At
+WHERE `ID` = @ID",
+                Parameter("@ID", koboSubmissionId),
+                Parameter("@Error_Message", message),
+                Parameter("@Updated_At", DateTime.Now));
         }
 
         private void MarkOpeningTask(MySqlConnection connection, MySqlTransaction transaction,
@@ -418,13 +486,31 @@ WHERE `ID` = @ID";
                 Parameter("@Updated_At", DateTime.Now));
         }
 
-        private int GetProjectNumber(JObject submission)
+        private int GetProjectNumber(JObject submission, DataRow row)
         {
             int result;
-            string value = GetFirstValue(submission, new string[] { "text_fw08u96", "__003", "__001" });
+            string fieldName = "text_fw08u96";
+            if (GetOpeningVisitKind(row) == "V-op")
+                fieldName = "__003";
+            else if (IsAgricultureOpeningVisit(row) || IsLivestockOpeningVisit(row))
+                fieldName = "__001";
+            string value = GetValue(submission, fieldName);
             if (int.TryParse(value, out result))
                 return result;
             return -1;
+        }
+
+        private bool IsAgricultureOpeningVisit(DataRow row)
+        {
+            string formName = row["Kobo_Form_Name"].ToString().ToLowerInvariant();
+            string category = row["Visit_Category"].ToString().ToLowerInvariant();
+            return formName.Contains("agre") || formName.Contains("agri") || category.Contains("agr");
+        }
+
+        private bool IsLivestockOpeningVisit(DataRow row)
+        {
+            return row["Kobo_Form_Name"].ToString().ToLowerInvariant().Contains("livestock") ||
+                row["Visit_Category"].ToString().ToLowerInvariant().Contains("livestock");
         }
 
         private string GetVisitDate(JObject submission)

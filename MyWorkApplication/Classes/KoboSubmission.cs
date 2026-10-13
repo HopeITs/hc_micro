@@ -209,6 +209,11 @@ AND kobo_submission.`Kobo_Is_Deleted` = 0";
 
         public DataTable Get_Submissions_For_Local_Import(string targetTable)
         {
+            return Get_Submissions_For_Local_Import(targetTable, false);
+        }
+
+        public DataTable Get_Submissions_For_Local_Import(string targetTable, bool includeImported)
+        {
             Program.buildConnection();
             try
             {
@@ -231,8 +236,10 @@ JOIN `kobo_form_mapping`
 ON kobo_form_mapping.`Kobo_Form_UID` = kobo_submission.`Kobo_Form_ID`
 WHERE kobo_form_mapping.`LocalDatabase` = @LocalDatabase
 AND kobo_form_mapping.`Is_Active` = 1
-AND kobo_submission.`Kobo_Is_Deleted` = 0
-AND (kobo_submission.`Sync_Status` IN ('raw_imported', 'raw_updated', 'local_error')
+AND kobo_submission.`Kobo_Is_Deleted` = 0";
+
+                if (!includeImported)
+                    query += @" AND (kobo_submission.`Sync_Status` IN ('raw_imported', 'raw_updated', 'local_error')
      OR kobo_submission.`Local_Record_ID` IS NULL)";
 
                 if (!string.IsNullOrWhiteSpace(targetTable))
