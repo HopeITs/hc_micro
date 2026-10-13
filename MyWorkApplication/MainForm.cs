@@ -384,7 +384,7 @@ namespace MyWorkApplication
                             ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[4], Keys.Alt | Keys.T); //visitors statistics
                             ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[5], Keys.Alt | Keys.K);//sync kobo visits
                             ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[6], Keys.Alt | Keys.S);//v specialcase
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[7], Keys.None);//profession meetings
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[7], Keys.Alt | Keys.Shift | Keys.P);//profession meetings
 
                             // -------------------------------------------------------------------- 
 
@@ -433,7 +433,7 @@ namespace MyWorkApplication
                             HideMenuItemWithShortcut((ToolStripMenuItem)mEItems[4]); //visitors statistics
                             ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[5], Keys.Alt | Keys.K);//sync kobo visits
                             ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[6], Keys.Alt | Keys.S);//v specialcase
-                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[7], Keys.None);//profession meetings
+                            ShowMenuItemWithShortcut((ToolStripMenuItem)mEItems[7], Keys.Alt | Keys.Shift | Keys.P);//profession meetings
 
                             // -------------------------------------------------------------------- 
 

@@ -748,17 +748,17 @@ namespace MyWorkApplication
             // أول زيارة M&E
             //في الشهر الاقرب للافتتاحية اما رابع او حادي عشر 
 
-            OpeningVisit_date = OpeningVisit_date.AddMonths(2); // كرمال تكون ابعد
-            DateTime M1_Visit_date = OpeningVisit_date;
+            DateTime MEVisit_reference_date = OpeningVisit_date.AddMonths(2); // كرمال تكون ابعد
+            DateTime M1_Visit_date = MEVisit_reference_date;
             DateTime M2_Visit_date, M3_Visit_date, M4_Visit_date, M5_Visit_date;
             M2_Visit_date = M3_Visit_date = M4_Visit_date = M5_Visit_date = DateTime.Now;
 
             string day, month, year;
-            day = OpeningVisit_date.Day.ToString();
-            if (OpeningVisit_date.Day == 31) day = "30";
-            year = OpeningVisit_date.Year.ToString();
+            day = MEVisit_reference_date.Day.ToString();
+            if (MEVisit_reference_date.Day == 31) day = "30";
+            year = MEVisit_reference_date.Year.ToString();
 
-            if (OpeningVisit_date.Month >= 1 && OpeningVisit_date.Month < 4)
+            if (MEVisit_reference_date.Month >= 1 && MEVisit_reference_date.Month < 4)
             {
                 month = "04";
                 string dateString = year + "-" + month + "-" + day;
@@ -769,7 +769,7 @@ namespace MyWorkApplication
                 M4_Visit_date = M3_Visit_date.AddMonths(7); //11
                 M5_Visit_date = M4_Visit_date.AddMonths(5); //4 
             }
-            else if (OpeningVisit_date.Month >= 4 && OpeningVisit_date.Month < 11)
+            else if (MEVisit_reference_date.Month >= 4 && MEVisit_reference_date.Month < 11)
             {
                 month = "11";
                 string dateString = year + "-" + month + "-" + day;
@@ -780,11 +780,11 @@ namespace MyWorkApplication
                 M4_Visit_date = M3_Visit_date.AddMonths(5); //4
                 M5_Visit_date = M4_Visit_date.AddMonths(7); //11 
             }
-            else if (OpeningVisit_date.Month >= 11) //should turn to the next year
+            else if (MEVisit_reference_date.Month >= 11) //should turn to the next year
             {
                 month = "04";
-                OpeningVisit_date = OpeningVisit_date.AddYears(1);
-                year = OpeningVisit_date.Year.ToString();
+                MEVisit_reference_date = MEVisit_reference_date.AddYears(1);
+                year = MEVisit_reference_date.Year.ToString();
                 string dateString = year + "-" + month + "-" + day;
                 M1_Visit_date = DateTime.Parse(dateString);
 

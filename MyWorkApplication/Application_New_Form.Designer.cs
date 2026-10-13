@@ -261,12 +261,6 @@ namespace MyWorkApplication
             this.final_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.PaperApplicationUser_comboBox = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.Save_button = new System.Windows.Forms.Button();
-            this.AddPartner_button = new System.Windows.Forms.Button();
-            this.AddExtention_button = new System.Windows.Forms.Button();
-            this.Delete_MP_button = new System.Windows.Forms.Button();
-            this.FullApp_button = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
             this.CreatedBy_User_label = new System.Windows.Forms.Label();
             this.Visitors_label = new System.Windows.Forms.Label();
@@ -608,6 +602,12 @@ namespace MyWorkApplication
             this.label14 = new System.Windows.Forms.Label();
             this.P_Goal_textBox = new System.Windows.Forms.TextBox();
             this.P_Goals_panel = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.Save_button = new System.Windows.Forms.Button();
+            this.AddPartner_button = new System.Windows.Forms.Button();
+            this.AddExtention_button = new System.Windows.Forms.Button();
+            this.Delete_MP_button = new System.Windows.Forms.Button();
+            this.FullApp_button = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.delete_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.delete_person_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -755,7 +755,6 @@ namespace MyWorkApplication
             this.Main_panel.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.final_tableLayoutPanel.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.t12_tableLayoutPanel.SuspendLayout();
             this.t11_tableLayoutPanel.SuspendLayout();
             this.P_HasIncomeSource_flowLayoutPanel.SuspendLayout();
@@ -814,6 +813,7 @@ namespace MyWorkApplication
             this.t2_tableLayoutPanel.SuspendLayout();
             this.flowLayoutPanel25.SuspendLayout();
             this.flowLayoutPanel26.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.delete_contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -3580,7 +3580,7 @@ namespace MyWorkApplication
             this.Main_panel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Main_panel.Name = "Main_panel";
             this.Main_panel.Padding = new System.Windows.Forms.Padding(75, 0, 75, 0);
-            this.Main_panel.Size = new System.Drawing.Size(1262, 673);
+            this.Main_panel.Size = new System.Drawing.Size(1262, 593);
             this.Main_panel.TabIndex = 411;
             // 
             // contextMenuStrip1
@@ -3642,7 +3642,6 @@ namespace MyWorkApplication
             this.final_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 302F));
             this.final_tableLayoutPanel.Controls.Add(this.PaperApplicationUser_comboBox, 4, 0);
             this.final_tableLayoutPanel.Controls.Add(this.label27, 5, 0);
-            this.final_tableLayoutPanel.Controls.Add(this.tableLayoutPanel4, 0, 2);
             this.final_tableLayoutPanel.Controls.Add(this.label33, 3, 0);
             this.final_tableLayoutPanel.Controls.Add(this.CreatedBy_User_label, 2, 0);
             this.final_tableLayoutPanel.Controls.Add(this.Visitors_label, 1, 0);
@@ -3693,162 +3692,6 @@ namespace MyWorkApplication
             this.label27.Size = new System.Drawing.Size(116, 18);
             this.label27.TabIndex = 564;
             this.label27.Text = "مسجّل الطلب (ورقياً):";
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel4.ColumnCount = 7;
-            this.final_tableLayoutPanel.SetColumnSpan(this.tableLayoutPanel4, 6);
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.Save_button, 4, 0);
-            this.tableLayoutPanel4.Controls.Add(this.AddPartner_button, 5, 0);
-            this.tableLayoutPanel4.Controls.Add(this.AddExtention_button, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.Delete_MP_button, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.FullApp_button, 3, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 92);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tableLayoutPanel4.RowCount = 1;
-            this.final_tableLayoutPanel.SetRowSpan(this.tableLayoutPanel4, 2);
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1089, 80);
-            this.tableLayoutPanel4.TabIndex = 102;
-            this.tableLayoutPanel4.TabStop = true;
-            // 
-            // Save_button
-            // 
-            this.Save_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Save_button.BackColor = System.Drawing.Color.Transparent;
-            this.Save_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.BtnBackground_D;
-            this.Save_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Save_button.FlatAppearance.BorderSize = 0;
-            this.Save_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Save_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Save_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Save_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Save_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Save_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Save_button.Location = new System.Drawing.Point(617, 4);
-            this.Save_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Save_button.MaximumSize = new System.Drawing.Size(125, 40);
-            this.Save_button.MinimumSize = new System.Drawing.Size(125, 40);
-            this.Save_button.Name = "Save_button";
-            this.Save_button.Size = new System.Drawing.Size(125, 40);
-            this.Save_button.TabIndex = 1;
-            this.Save_button.Text = " Save";
-            this.Save_button.UseVisualStyleBackColor = false;
-            this.Save_button.Click += new System.EventHandler(this.Save_button_Click);
-            this.Save_button.MouseEnter += new System.EventHandler(this.Save_button_MouseEnter);
-            this.Save_button.MouseLeave += new System.EventHandler(this.Save_button_MouseLeave);
-            // 
-            // AddPartner_button
-            // 
-            this.AddPartner_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.AddPartner_button.BackColor = System.Drawing.Color.Transparent;
-            this.AddPartner_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.BtnBackground_D;
-            this.AddPartner_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.AddPartner_button.FlatAppearance.BorderSize = 0;
-            this.AddPartner_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.AddPartner_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.AddPartner_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.AddPartner_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddPartner_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.AddPartner_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.AddPartner_button.Location = new System.Drawing.Point(752, 4);
-            this.AddPartner_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AddPartner_button.MaximumSize = new System.Drawing.Size(125, 40);
-            this.AddPartner_button.MinimumSize = new System.Drawing.Size(125, 40);
-            this.AddPartner_button.Name = "AddPartner_button";
-            this.AddPartner_button.Size = new System.Drawing.Size(125, 40);
-            this.AddPartner_button.TabIndex = 3;
-            this.AddPartner_button.Text = " Add Partner";
-            this.AddPartner_button.UseVisualStyleBackColor = false;
-            this.AddPartner_button.Click += new System.EventHandler(this.AddPartner_button_Click);
-            this.AddPartner_button.MouseEnter += new System.EventHandler(this.AddPartner_button_MouseEnter);
-            this.AddPartner_button.MouseLeave += new System.EventHandler(this.AddPartner_button_MouseLeave);
-            // 
-            // AddExtention_button
-            // 
-            this.AddExtention_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.AddExtention_button.BackColor = System.Drawing.Color.Transparent;
-            this.AddExtention_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.BtnBackground_D;
-            this.AddExtention_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.AddExtention_button.FlatAppearance.BorderSize = 0;
-            this.AddExtention_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.AddExtention_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.AddExtention_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.AddExtention_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddExtention_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.AddExtention_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.AddExtention_button.Location = new System.Drawing.Point(212, 4);
-            this.AddExtention_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AddExtention_button.MaximumSize = new System.Drawing.Size(125, 40);
-            this.AddExtention_button.MinimumSize = new System.Drawing.Size(125, 40);
-            this.AddExtention_button.Name = "AddExtention_button";
-            this.AddExtention_button.Size = new System.Drawing.Size(125, 40);
-            this.AddExtention_button.TabIndex = 4;
-            this.AddExtention_button.Text = "Extention";
-            this.AddExtention_button.UseVisualStyleBackColor = false;
-            this.AddExtention_button.MouseEnter += new System.EventHandler(this.Extention_button_MouseEnter);
-            this.AddExtention_button.MouseLeave += new System.EventHandler(this.Extention_button_MouseLeave);
-            // 
-            // Delete_MP_button
-            // 
-            this.Delete_MP_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Delete_MP_button.BackColor = System.Drawing.Color.Transparent;
-            this.Delete_MP_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.Delete2_D;
-            this.Delete_MP_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Delete_MP_button.FlatAppearance.BorderSize = 0;
-            this.Delete_MP_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Delete_MP_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Delete_MP_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Delete_MP_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Delete_MP_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.Delete_MP_button.Location = new System.Drawing.Point(347, 4);
-            this.Delete_MP_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Delete_MP_button.MaximumSize = new System.Drawing.Size(125, 40);
-            this.Delete_MP_button.MinimumSize = new System.Drawing.Size(125, 40);
-            this.Delete_MP_button.Name = "Delete_MP_button";
-            this.Delete_MP_button.Size = new System.Drawing.Size(125, 40);
-            this.Delete_MP_button.TabIndex = 5;
-            this.Delete_MP_button.UseVisualStyleBackColor = false;
-            this.Delete_MP_button.Click += new System.EventHandler(this.Delete_MP_button_Click);
-            this.Delete_MP_button.MouseEnter += new System.EventHandler(this.Delete_MP_button_MouseEnter);
-            this.Delete_MP_button.MouseLeave += new System.EventHandler(this.Delete_MP_button_MouseLeave);
-            // 
-            // FullApp_button
-            // 
-            this.FullApp_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.FullApp_button.BackColor = System.Drawing.Color.Transparent;
-            this.FullApp_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.BtnBackground_D;
-            this.FullApp_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.FullApp_button.FlatAppearance.BorderSize = 0;
-            this.FullApp_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.FullApp_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.FullApp_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.FullApp_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FullApp_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.FullApp_button.Location = new System.Drawing.Point(482, 4);
-            this.FullApp_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.FullApp_button.MaximumSize = new System.Drawing.Size(125, 40);
-            this.FullApp_button.MinimumSize = new System.Drawing.Size(125, 40);
-            this.FullApp_button.Name = "FullApp_button";
-            this.FullApp_button.Size = new System.Drawing.Size(125, 40);
-            this.FullApp_button.TabIndex = 2;
-            this.FullApp_button.Text = " Full App";
-            this.FullApp_button.UseVisualStyleBackColor = false;
-            this.FullApp_button.Click += new System.EventHandler(this.FullApp_button_Click);
-            this.FullApp_button.MouseEnter += new System.EventHandler(this.FullApp_button_MouseEnter);
-            this.FullApp_button.MouseLeave += new System.EventHandler(this.FullApp_button_MouseLeave);
             // 
             // label33
             // 
@@ -4577,9 +4420,9 @@ namespace MyWorkApplication
             // 
             this.t10_tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.t10_tableLayoutPanel.ColumnCount = 3;
-            this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
+            this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.37214F));
+            this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.61586F));
+            this.t10_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.012F));
             this.t10_tableLayoutPanel.Controls.Add(this.SubHeader9_label, 1, 1);
             this.t10_tableLayoutPanel.Controls.Add(this.AidSource_dataGridView, 0, 3);
             this.t10_tableLayoutPanel.Controls.Add(this.P_HasAidSource_flowLayoutPanel, 0, 1);
@@ -4610,10 +4453,10 @@ namespace MyWorkApplication
             this.SubHeader9_label.AutoSize = true;
             this.SubHeader9_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.SubHeader9_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(54)))), ((int)(((byte)(48)))));
-            this.SubHeader9_label.Location = new System.Drawing.Point(238, 58);
+            this.SubHeader9_label.Location = new System.Drawing.Point(237, 58);
             this.SubHeader9_label.Name = "SubHeader9_label";
             this.SubHeader9_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SubHeader9_label.Size = new System.Drawing.Size(701, 24);
+            this.SubHeader9_label.Size = new System.Drawing.Size(635, 24);
             this.SubHeader9_label.TabIndex = 498;
             this.SubHeader9_label.Text = "الاستفادة من جهة أخرى (من مشروع صغير)";
             this.SubHeader9_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4805,7 +4648,7 @@ namespace MyWorkApplication
             this.P_AidSourceNote_textBox.Margin = new System.Windows.Forms.Padding(0);
             this.P_AidSourceNote_textBox.Name = "P_AidSourceNote_textBox";
             this.P_AidSourceNote_textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.P_AidSourceNote_textBox.Size = new System.Drawing.Size(942, 24);
+            this.P_AidSourceNote_textBox.Size = new System.Drawing.Size(875, 24);
             this.P_AidSourceNote_textBox.TabIndex = 90;
             this.P_AidSourceNote_textBox.Enter += new System.EventHandler(this.MP_OtherDonors_textBox_Enter);
             this.P_AidSourceNote_textBox.Leave += new System.EventHandler(this.MP_OtherDonors_textBox_Leave);
@@ -9062,6 +8905,158 @@ namespace MyWorkApplication
             this.P_Goals_panel.TabIndex = 14;
             this.P_Goals_panel.TabStop = true;
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 7;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.Save_button, 4, 0);
+            this.tableLayoutPanel4.Controls.Add(this.AddPartner_button, 5, 0);
+            this.tableLayoutPanel4.Controls.Add(this.AddExtention_button, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.Delete_MP_button, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.FullApp_button, 3, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 593);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1262, 80);
+            this.tableLayoutPanel4.TabIndex = 102;
+            this.tableLayoutPanel4.TabStop = true;
+            // 
+            // Save_button
+            // 
+            this.Save_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Save_button.BackColor = System.Drawing.Color.Transparent;
+            this.Save_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.BtnBackground_D;
+            this.Save_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Save_button.FlatAppearance.BorderSize = 0;
+            this.Save_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.Save_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Save_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Save_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Save_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Save_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Save_button.Location = new System.Drawing.Point(703, 4);
+            this.Save_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Save_button.MaximumSize = new System.Drawing.Size(125, 40);
+            this.Save_button.MinimumSize = new System.Drawing.Size(125, 40);
+            this.Save_button.Name = "Save_button";
+            this.Save_button.Size = new System.Drawing.Size(125, 40);
+            this.Save_button.TabIndex = 1;
+            this.Save_button.Text = " Save";
+            this.Save_button.UseVisualStyleBackColor = false;
+            this.Save_button.Click += new System.EventHandler(this.Save_button_Click);
+            this.Save_button.MouseEnter += new System.EventHandler(this.Save_button_MouseEnter);
+            this.Save_button.MouseLeave += new System.EventHandler(this.Save_button_MouseLeave);
+            // 
+            // AddPartner_button
+            // 
+            this.AddPartner_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.AddPartner_button.BackColor = System.Drawing.Color.Transparent;
+            this.AddPartner_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.BtnBackground_D;
+            this.AddPartner_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AddPartner_button.FlatAppearance.BorderSize = 0;
+            this.AddPartner_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.AddPartner_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.AddPartner_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.AddPartner_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddPartner_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.AddPartner_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.AddPartner_button.Location = new System.Drawing.Point(838, 4);
+            this.AddPartner_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AddPartner_button.MaximumSize = new System.Drawing.Size(125, 40);
+            this.AddPartner_button.MinimumSize = new System.Drawing.Size(125, 40);
+            this.AddPartner_button.Name = "AddPartner_button";
+            this.AddPartner_button.Size = new System.Drawing.Size(125, 40);
+            this.AddPartner_button.TabIndex = 3;
+            this.AddPartner_button.Text = " Add Partner";
+            this.AddPartner_button.UseVisualStyleBackColor = false;
+            this.AddPartner_button.Click += new System.EventHandler(this.AddPartner_button_Click);
+            this.AddPartner_button.MouseEnter += new System.EventHandler(this.AddPartner_button_MouseEnter);
+            this.AddPartner_button.MouseLeave += new System.EventHandler(this.AddPartner_button_MouseLeave);
+            // 
+            // AddExtention_button
+            // 
+            this.AddExtention_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.AddExtention_button.BackColor = System.Drawing.Color.Transparent;
+            this.AddExtention_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.BtnBackground_D;
+            this.AddExtention_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AddExtention_button.FlatAppearance.BorderSize = 0;
+            this.AddExtention_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.AddExtention_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.AddExtention_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.AddExtention_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddExtention_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.AddExtention_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.AddExtention_button.Location = new System.Drawing.Point(298, 4);
+            this.AddExtention_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AddExtention_button.MaximumSize = new System.Drawing.Size(125, 40);
+            this.AddExtention_button.MinimumSize = new System.Drawing.Size(125, 40);
+            this.AddExtention_button.Name = "AddExtention_button";
+            this.AddExtention_button.Size = new System.Drawing.Size(125, 40);
+            this.AddExtention_button.TabIndex = 4;
+            this.AddExtention_button.Text = "Extention";
+            this.AddExtention_button.UseVisualStyleBackColor = false;
+            this.AddExtention_button.MouseEnter += new System.EventHandler(this.Extention_button_MouseEnter);
+            this.AddExtention_button.MouseLeave += new System.EventHandler(this.Extention_button_MouseLeave);
+            // 
+            // Delete_MP_button
+            // 
+            this.Delete_MP_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Delete_MP_button.BackColor = System.Drawing.Color.Transparent;
+            this.Delete_MP_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.Delete2_D;
+            this.Delete_MP_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Delete_MP_button.FlatAppearance.BorderSize = 0;
+            this.Delete_MP_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.Delete_MP_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Delete_MP_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Delete_MP_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Delete_MP_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Delete_MP_button.Location = new System.Drawing.Point(433, 4);
+            this.Delete_MP_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Delete_MP_button.MaximumSize = new System.Drawing.Size(125, 40);
+            this.Delete_MP_button.MinimumSize = new System.Drawing.Size(125, 40);
+            this.Delete_MP_button.Name = "Delete_MP_button";
+            this.Delete_MP_button.Size = new System.Drawing.Size(125, 40);
+            this.Delete_MP_button.TabIndex = 5;
+            this.Delete_MP_button.UseVisualStyleBackColor = false;
+            this.Delete_MP_button.Click += new System.EventHandler(this.Delete_MP_button_Click);
+            this.Delete_MP_button.MouseEnter += new System.EventHandler(this.Delete_MP_button_MouseEnter);
+            this.Delete_MP_button.MouseLeave += new System.EventHandler(this.Delete_MP_button_MouseLeave);
+            // 
+            // FullApp_button
+            // 
+            this.FullApp_button.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.FullApp_button.BackColor = System.Drawing.Color.Transparent;
+            this.FullApp_button.BackgroundImage = global::MyWorkApplication.Properties.Resources.BtnBackground_D;
+            this.FullApp_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.FullApp_button.FlatAppearance.BorderSize = 0;
+            this.FullApp_button.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.FullApp_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.FullApp_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.FullApp_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FullApp_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.FullApp_button.Location = new System.Drawing.Point(568, 4);
+            this.FullApp_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FullApp_button.MaximumSize = new System.Drawing.Size(125, 40);
+            this.FullApp_button.MinimumSize = new System.Drawing.Size(125, 40);
+            this.FullApp_button.Name = "FullApp_button";
+            this.FullApp_button.Size = new System.Drawing.Size(125, 40);
+            this.FullApp_button.TabIndex = 2;
+            this.FullApp_button.Text = " Full App";
+            this.FullApp_button.UseVisualStyleBackColor = false;
+            this.FullApp_button.Click += new System.EventHandler(this.FullApp_button_Click);
+            this.FullApp_button.MouseEnter += new System.EventHandler(this.FullApp_button_MouseEnter);
+            this.FullApp_button.MouseLeave += new System.EventHandler(this.FullApp_button_MouseLeave);
+            // 
             // delete_contextMenuStrip
             // 
             this.delete_contextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -10014,6 +10009,7 @@ namespace MyWorkApplication
             this.ClientSize = new System.Drawing.Size(1262, 673);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.Main_panel);
+            this.Controls.Add(this.tableLayoutPanel4);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -10065,7 +10061,6 @@ namespace MyWorkApplication
             this.contextMenuStrip1.ResumeLayout(false);
             this.final_tableLayoutPanel.ResumeLayout(false);
             this.final_tableLayoutPanel.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
             this.t12_tableLayoutPanel.ResumeLayout(false);
             this.t12_tableLayoutPanel.PerformLayout();
             this.t11_tableLayoutPanel.ResumeLayout(false);
@@ -10169,6 +10164,7 @@ namespace MyWorkApplication
             this.flowLayoutPanel25.PerformLayout();
             this.flowLayoutPanel26.ResumeLayout(false);
             this.flowLayoutPanel26.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.delete_contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 

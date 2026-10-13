@@ -717,7 +717,8 @@ namespace MyWorkApplication
                 }
                 else if (ApplicationState == "project")
                 {
-                    Delete_MP_button.Visible = Save_button.Visible = AddPartner_button.Visible = true;
+                    Delete_MP_button.Visible = Save_button.Visible = true;
+                    AddPartner_button.Visible = MicroProject_ID > 0 && Person_ID > 0;
                 }
 
                 AddImage_button.Visible = Download_button.Visible = DeleteImage_button.Visible = true;
@@ -738,7 +739,8 @@ namespace MyWorkApplication
                 }
                 else if (ApplicationState == "project")
                 {
-                    AddExtention_button.Visible = Delete_MP_button.Visible = Save_button.Visible = AddPartner_button.Visible = true;
+                    Delete_MP_button.Visible = Save_button.Visible = true;
+                    AddPartner_button.Visible = MicroProject_ID > 0 && Person_ID > 0;
                 }
 
                 AddImage_button.Visible = Download_button.Visible = DeleteImage_button.Visible = true;
