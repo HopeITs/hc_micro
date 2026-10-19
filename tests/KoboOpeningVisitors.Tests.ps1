@@ -1,4 +1,4 @@
-param([Parameter(Mandatory = $true)][string]$AssemblyPath)
+﻿param([Parameter(Mandatory = $true)][string]$AssemblyPath)
 
 $ErrorActionPreference = 'Stop'
 $assemblyFile = (Resolve-Path -LiteralPath $AssemblyPath).Path
@@ -6,66 +6,184 @@ $assemblyDirectory = Split-Path -Parent $assemblyFile
 [void][Reflection.Assembly]::LoadFrom((Join-Path $assemblyDirectory 'MySql.Data.dll'))
 $jsonAssembly = [Reflection.Assembly]::LoadFrom((Join-Path $assemblyDirectory 'Newtonsoft.Json.dll'))
 $appAssembly = [Reflection.Assembly]::LoadFrom($assemblyFile)
-$importerType = $appAssembly.GetType('MyWorkApplication.Classes.KoboLocalVisitImporter', $true)
-$importer = [Activator]::CreateInstance($importerType)
-$flags = [Reflection.BindingFlags]'Instance, NonPublic'
-$candidatesMethod = $importerType.GetMethod('GetVisitorNameCandidates', $flags)
-$matchMethod = $importerType.GetMethod('FindVisitorUserId', $flags)
-$projectMethod = $importerType.GetMethod('GetProjectNumber', $flags)
+$mapperType = $appAssembly.GetType('MyWorkApplication.Classes.KoboVisitorMapping', $true)
+$displayType = $appAssembly.GetType('MyWorkApplication.Classes.KoboVisitVisitorDisplay', $true)
 $parseMethod = $jsonAssembly.GetType('Newtonsoft.Json.Linq.JObject').GetMethod('Parse', [type[]]@([string]))
+$fixture = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'fixtures/kobo-opening-visitors.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+$flags = [Reflection.BindingFlags]'Instance, NonPublic'
 $script:checks = 0
 
-function Assert-Candidates([string]$formName, [string]$json, [string[]]$expected) {
-    $table = New-Object System.Data.DataTable
-    [void]$table.Columns.Add('Kobo_Form_Name', [string])
-    [void]$table.Columns.Add('Visit_Category', [string])
-    $row = $table.NewRow()
-    $row['Kobo_Form_Name'] = $formName
-    $row['Visit_Category'] = ''
-    $submission = $parseMethod.Invoke($null, @($json))
-    $actual = $candidatesMethod.Invoke($importer, @($submission, $row))
-    if (($actual -join '|') -cne ($expected -join '|')) {
-        throw "$formName candidates: expected '$($expected -join '|')', got '$($actual -join '|')'"
+function Assert-True([bool]$condition, [string]$message) {
+    if (!$condition) { throw $message }
+    $script:checks++
+}
+
+function New-Context([string]$database) {
+    $mapper = [Activator]::CreateInstance($mapperType)
+    $fields = New-Object System.Data.DataTable
+    foreach ($column in @('Kobo_Form_UID','Project_Number_Field','Visitor_Choice_Field','Visitor_Text_Field','Vehicle_Number_Field')) {
+        [void]$fields.Columns.Add($column, [string])
     }
-    $script:checks++
+    foreach ($form in $fixture.forms | Where-Object { $_.Database -eq $database }) {
+        [void]$fields.Rows.Add($form.UID, $form.Fields.Project, $form.Fields.Choice, $form.Fields.Text, [string]$form.Fields.Vehicle)
+    }
+    $users = New-Object System.Data.DataTable
+    [void]$users.Columns.Add('UserID', [int])
+    [void]$users.Columns.Add('UserName', [string])
+    $ids = @{}
+    $nextId = 100
+    foreach ($alias in $fixture.aliases | Where-Object { $_.database -eq $database -and $_.localUserName }) {
+        if (!$ids.ContainsKey($alias.localUserName)) {
+            $ids[$alias.localUserName] = $nextId
+            [void]$users.Rows.Add($nextId, $alias.localUserName)
+            $nextId++
+        }
+    }
+    [void]$users.Rows.Add(999, 'Primary Visitor')
+    if ($database -eq 'hcsyria_micro_d') { [void]$users.Rows.Add(89, 'Rawia') }
+    if ($database -eq 'hcsyria_micro') { [void]$users.Rows.Add(65, 'Fadi') }
+    $mappings = New-Object System.Data.DataTable
+    foreach ($column in @('Kobo_Form_UID','Kobo_Name','Display_Name')) { [void]$mappings.Columns.Add($column, [string]) }
+    [void]$mappings.Columns.Add('Is_Ignored', [int])
+    [void]$mappings.Columns.Add('User_ID', [int])
+    foreach ($alias in $fixture.aliases | Where-Object { $_.database -eq $database }) {
+        $id = [DBNull]::Value
+        if ($alias.localUserName) { $id = $ids[$alias.localUserName] }
+        [void]$mappings.Rows.Add($alias.formUid, $alias.koboName, $alias.displayName, $alias.ignored, $id)
+    }
+    $mapperType.GetField('fields', $flags).SetValue($mapper, $fields.PSObject.BaseObject)
+    $mapperType.GetField('mappings', $flags).SetValue($mapper, $mappings.PSObject.BaseObject)
+    $mapperType.GetField('users', $flags).SetValue($mapper, $users.PSObject.BaseObject)
+    return @{ Mapper=$mapper; Ids=$ids; Mappings=$mappings }
 }
 
-Assert-Candidates 'Opening Visit-2025-Aleppo' '{"username":"Visitor","_submitted_by":"Uploader","group/select_one_vt8tw79":"kabi","text_xt6wd52":"First Person, Second Person","__006":"debt","__007":"reason","__005":"other job"}' @('Visitor', 'kabi', 'First Person', 'Second Person')
-Assert-Candidates 'Opening Viste - Agre - 2026 - Aleppo' '{"_submitted_by":"Visitor","group/__006":"Simon","__007":"Guest","__005":"address"}' @('Visitor', 'Simon', 'Guest')
-Assert-Candidates 'Opining visits - livestock- 2026 - Aleppo' '{"username":"Visitor","select_one_vt8tw79":"Fadi","__005":"Guest","__007":"not a visitor"}' @('Visitor', 'Fadi', 'Guest')
-Assert-Candidates 'Vehicles Projects - Opening Visit - Aleppo' '{"username":"Visitor","group/__006":"Cloud","group/__007":"Guest","__005":"address"}' @('Visitor', 'Cloud', 'Guest')
-Assert-Candidates 'Opening Visit-2025-Aleppo' '{"username":"First_Person","select_one_vt8tw79":"No_compa","text_xt6wd52":"first person"}' @('First_Person')
-Assert-Candidates 'Opening Visit-2025-Aleppo' '{}' @()
-
-$users = New-Object System.Data.DataTable
-[void]$users.Columns.Add('UserID', [int])
-[void]$users.Columns.Add('UserName', [string])
-[void]$users.Rows.Add(1, '  First Person  ')
-# Labels are escaped so this test script works in Windows PowerShell without a BOM.
-$kabiLabel = -join ([char[]]@(0x643,0x627,0x628,0x64A,0x20,0x62F,0x627,0x64A,0x62E))
-[void]$users.Rows.Add(2, $kabiLabel)
-foreach ($case in @(@('FIRST_PERSON', 1), @('kabi', 2), @('Unknown', -1), @('First', -1))) {
-    $actual = $matchMethod.Invoke($importer, @($users.PSObject.BaseObject, $case[0]))
-    if ($actual -ne $case[1]) { throw "Visitor '$($case[0])': expected $($case[1]), got $actual" }
-    $script:checks++
+function Get-Visitors($context, $form, $data) {
+    $json = ConvertTo-Json -InputObject $data -Depth 8 -Compress
+    $submission = $parseMethod.Invoke($null, @($json.PSObject.BaseObject))
+    return ,$mapperType.GetMethod('GetVisitors').Invoke($context.Mapper, @($submission, [string]$form.UID))
 }
-Write-Output "Passed $script:checks Opening visitor regression checks. No database connection was used."
+
+foreach ($form in $fixture.forms) {
+    $context = New-Context $form.Database
+    $data = @{ username='Primary Visitor'; _submitted_by='Uploader'; '__005'='address'; '__008'='34.8036238'; '__006'='debt'; '__007'='reason' }
+    $data[$form.Fields.Text] = 'Former Employee'
+    foreach ($choice in $form.Choices) {
+        $data[$form.Fields.Choice] = $choice.name
+        $visitors = Get-Visitors $context $form $data
+        $alias = $fixture.aliases | Where-Object { $_.database -eq $form.Database -and $_.formUid -eq $form.UID -and $_.koboName -eq $choice.name }
+        $expectedCount = if ($alias.ignored) { 2 } else { 3 }
+        Assert-True ($visitors.Count -eq $expectedCount) "$($form.UID) / $($choice.name): wrong visitors or unrelated fields included"
+        Assert-True ($visitors[0].UserId -eq 999) 'Primary visitor must use username before uploader'
+        Assert-True ($visitors[$visitors.Count-1].DisplayName -eq 'Former Employee') 'Unlinked name was lost'
+        Assert-True ($null -eq $visitors[$visitors.Count-1].UserId) 'Former employee must not get a fake account'
+        if (!$alias.ignored) {
+            Assert-True ($visitors[1].DisplayName -eq $alias.displayName) 'Choice code should display its source label'
+            $expectedId = if ($alias.localUserName) { $context.Ids[$alias.localUserName] } else { $null }
+            Assert-True ($visitors[1].UserId -eq $expectedId) 'Choice mapped to wrong local account'
+        }
+    }
+    $data = @{}
+    $data[$form.Fields.Project] = '123'
+    if ($form.Fields.Vehicle) { $data[$form.Fields.Vehicle] = '456' }
+    $json = ConvertTo-Json -InputObject $data -Compress
+    $submission = $parseMethod.Invoke($null, @($json.PSObject.BaseObject))
+    $valueMethod = $mapperType.GetMethod('GetValue')
+    Assert-True ($valueMethod.Invoke($null, @($submission, [string]$form.Fields.Project)) -eq '123') 'Project field path did not resolve'
+    if ($form.Fields.Vehicle) {
+        Assert-True ($valueMethod.Invoke($null, @($submission, [string]$form.Fields.Vehicle)) -eq '456') 'Vehicle field path did not resolve'
+    }
+}
+
+foreach ($database in @('hcsyria_micro','hcsyria_micro_h','hcsyria_micro_w','hcsyria_micro_d','hcsyria_micro_l')) {
+    $context = New-Context $database
+    $form = $fixture.forms | Where-Object { $_.Database -eq $database } | Select-Object -First 1
+    foreach ($alias in $fixture.aliases | Where-Object { $_.database -eq $database -and $_.formUid -eq '' -and !$_.ignored }) {
+        $visitors = Get-Visitors $context $form @{ username=$alias.koboName }
+        Assert-True ($visitors.Count -eq 1) 'Account alias did not produce a visitor'
+        Assert-True ($visitors[0].DisplayName -eq $alias.displayName) 'Alias lost its display name'
+        $expectedId = if ($alias.localUserName) { $context.Ids[$alias.localUserName] } else { $null }
+        Assert-True ($visitors[0].UserId -eq $expectedId) 'Account alias mapped to the wrong local user'
+    }
+    $visitors = Get-Visitors $context $form @{ _submitted_by='Primary Visitor' }
+    Assert-True ($visitors[0].UserId -eq 999) 'Missing username should fall back to submitted_by'
+    $visitors = Get-Visitors $context $form @{ username='Brand_New_User' }
+    Assert-True ($null -eq $visitors[0].UserId -and $visitors[0].DisplayName -eq 'Brand_New_User') 'Unknown user must remain visible and unlinked'
+    $data = @{ username='Primary Visitor' }
+    $data[$form.Fields.Text] = 'Primary Visitor'
+    $visitors = Get-Visitors $context $form $data
+    Assert-True ($visitors.Count -eq 1) 'Duplicate visitor links should be removed'
+    $data[$form.Fields.Text] = 'First Person, Second Person'
+    $visitors = Get-Visitors $context $form $data
+    Assert-True ($visitors.Count -eq 3) 'Separate names should not become a fourth combined name'
+}
+
+$context = New-Context 'hcsyria_micro_d'
+$form = $fixture.forms | Where-Object { $_.Database -eq 'hcsyria_micro_d' } | Select-Object -First 1
+$visitors = Get-Visitors $context $form @{ username='rawan_maksoud' }
+Assert-True ($visitors[0].UserId -eq $context.Ids['Rawan'] -and $visitors[0].UserId -ne 89) 'Rawan must link to her historical account, never Rawia'
+$visitors = Get-Visitors $context $form @{ username='sandra_jreige' }
+Assert-True ($visitors[0].UserId -eq $context.Ids['Sandra']) 'Out of Service Sandra must retain historical credit'
+foreach ($form in $fixture.forms | Where-Object { $_.Database -eq 'hcsyria_micro_d' }) {
+    $data = @{ username='sandra_jreige' }
+    $data[$form.Fields.Text] = 'داني حنا وراما ميخائيل'
+    $visitors = Get-Visitors $context $form $data
+    Assert-True ($visitors.Count -eq 3) 'Primary and both accompanying visitors must be retained'
+    Assert-True (@($visitors | Where-Object { $null -ne $_.UserId }).Count -eq 3) 'All three participants must be linked for statistics'
+}
+# Simulate a deleted local user: LEFT JOIN in Load returns NULL while keeping the name.
+$mapping = $context.Mappings.Rows | Where-Object { $_.Kobo_Name -eq 'omran_alnasser' }
+$mapping['User_ID'] = [DBNull]::Value
+$visitors = Get-Visitors $context $form @{ username='omran_alnasser' }
+Assert-True ($null -eq $visitors[0].UserId -and $visitors[0].DisplayName) 'Deleted account must retain display name'
 
 foreach ($case in @(
-    @('Opening Visit-2025-Aleppo', '{"text_fw08u96":"123","__001":"__1"}', 123),
-    @('Vehicles Projects - Opening Visit - Aleppo', '{"group/__003":"124","__001":"_"}', 124),
-    @('Opening Viste - Agre - 2026 - Aleppo', '{"group/__001":"125","__003":"Farmer"}', 125),
-    @('Opining visits - livestock- 2026 - Aleppo', '{"__001":"126","__003":"999"}', 126),
-    @('Opening Visit-2025-Aleppo', '{"__001":"127"}', -1)
+    @('hcsyria_micro', 'ماريو ارسلان جورج يشوع', 2, 2),
+    @('hcsyria_micro', 'جورج تيلو وطوني عربجي', 2, 2),
+    @('hcsyria_micro', 'ايفانتيا سلوم و جورج تيللو', 2, 1),
+    @('hcsyria_micro_d', 'داني حنا وراما ميخائيل', 2, 2),
+    @('hcsyria_micro_d', 'داني و راما', 2, 2),
+    @('hcsyria_micro_d', 'راما . داني', 2, 2),
+    @('hcsyria_micro_d', 'دانيال', 1, 0),
+    @('hcsyria_micro_h', 'ميشيل سكروج - فارس مرضعة', 2, 0),
+    @('hcsyria_micro_w', 'ميرفت دهام وغيث اسعد', 2, 1),
+    @('hcsyria_micro_l', 'بشار صائغ وادونيس مواس.', 2, 2),
+    @('hcsyria_micro_l', 'عبدالله جبور وبشار صايغ', 2, 2),
+    @('hcsyria_micro_l', 'بشار صائغ واديب خال', 2, 1)
 )) {
-    $table = New-Object System.Data.DataTable
-    [void]$table.Columns.Add('Kobo_Form_Name', [string])
-    [void]$table.Columns.Add('Visit_Category', [string])
-    $row = $table.NewRow()
-    $row['Kobo_Form_Name'] = $case[0]
-    $row['Visit_Category'] = ''
-    $submission = $parseMethod.Invoke($null, @($case[1]))
-    $actual = $projectMethod.Invoke($importer, @($submission, $row))
-    if ($actual -ne $case[2]) { throw "$($case[0]) project: expected $($case[2]), got $actual" }
+    $context = New-Context $case[0]
+    $form = $fixture.forms | Where-Object { $_.Database -eq $case[0] } | Select-Object -First 1
+    $data = @{}; $data[$form.Fields.Text] = $case[1]
+    $visitors = Get-Visitors $context $form $data
+    Assert-True ($visitors.Count -eq $case[2]) "Combined companions count: $($case[1])"
+    Assert-True (@($visitors | Where-Object { $null -ne $_.UserId }).Count -eq $case[3]) "Combined companions links: $($case[1])"
 }
-Write-Output 'Passed 5 Opening project-number regression checks.'
+
+$names = New-Object 'System.Collections.Generic.List[string]'
+foreach ($name in @('One','Two','Three','Four','Five')) { $names.Add($name) }
+$slots = $displayType.GetMethod('GetDisplaySlots').Invoke($null, @($names.PSObject.BaseObject, 4))
+Assert-True ($slots.Count -eq 4 -and $slots[3].Contains('Four') -and $slots[3].Contains('Five')) 'Display must preserve names beyond four slots'
+
+Add-Type -AssemblyName System.Windows.Forms
+$controls = New-Object 'System.Windows.Forms.ComboBox[]' 4
+$lookup = New-Object System.Data.DataTable
+[void]$lookup.Columns.Add('U_ID', [int])
+[void]$lookup.Columns.Add('Visitors', [string])
+[void]$lookup.Rows.Add(999, 'Local Visitor')
+try {
+    for ($i=0; $i -lt 4; $i++) {
+        $controls[$i] = New-Object System.Windows.Forms.ComboBox
+        $controls[$i].DisplayMember = 'Visitors'
+        $controls[$i].ValueMember = 'U_ID'
+        $controls[$i].DataSource = $lookup
+    }
+    $bindMethod = $displayType.GetMethod('BindNames', [Reflection.BindingFlags]'Static, NonPublic')
+    [void]$bindMethod.Invoke($null, @($names.PSObject.BaseObject, $controls.PSObject.BaseObject))
+    for ($i=0; $i -lt 4; $i++) {
+        Assert-True (!$controls[$i].Enabled) 'Kobo visitor controls must be read-only'
+        Assert-True ($controls[$i].Text -eq $slots[$i]) 'Original combo bindings must not hide Kobo names'
+        Assert-True ($null -eq $controls[$i].DataSource) 'Display-only names must not create fake user IDs'
+    }
+} finally {
+    foreach ($control in $controls) { if ($control) { $control.Dispose() } }
+}
+Write-Output "Passed $script:checks checks across all 16 Opening forms and five databases. No database connection was used."

@@ -1,4 +1,4 @@
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -29,6 +29,7 @@ namespace MyWorkApplication.Classes
     {
         private const string KoboCreatedBy = "Kobo Sync";
         private KoboSubmission koboSubmission;
+        private KoboVisitorMapping visitorMapping;
 
         public KoboLocalVisitImporter()
         {
@@ -37,6 +38,8 @@ namespace MyWorkApplication.Classes
 
         public KoboLocalVisitImportResult Import_Opening_Visits()
         {
+            visitorMapping = new KoboVisitorMapping();
+            visitorMapping.Load();
             KoboLocalVisitImportResult result = new KoboLocalVisitImportResult();
             Import_Active_Opening_Visits(result);
             Import_Deleted_Opening_Visits(result);
@@ -102,7 +105,8 @@ namespace MyWorkApplication.Classes
             string visitDate = GetVisitDate(submission);
             string vehicleNumber = "";
             if (kind == "V-op")
-                vehicleNumber = GetValue(submission, "__008");
+                vehicleNumber = KoboVisitorMapping.GetValue(submission,
+                    visitorMapping.GetFields(row["Kobo_Form_ID"].ToString())["Vehicle_Number_Field"].ToString());
 
             using (MySqlConnection connection = new MySqlConnection(Program.ConnectionString))
             {
@@ -118,34 +122,30 @@ namespace MyWorkApplication.Classes
                         bool updated = visitId > 0;
                         string syncStatus = row["Sync_Status"].ToString();
                         bool visitorsOnly = updated && (syncStatus == "local_inserted" || syncStatus == "local_updated");
-                        if (updated && !visitorsOnly)
+                        if (updated)
                             UpdateVisit(connection, transaction, visitId, visitDate, vehicleNumber);
                         else if (!updated)
                             visitId = InsertVisit(connection, transaction, microProjectId, kind, visitDate, vehicleNumber);
 
-                        List<string> unmatchedNames;
-                        List<int> visitorUserIds = GetVisitorUserIds(connection, transaction, submission, row, out unmatchedNames);
-                        if (unmatchedNames.Count == 0)
+                        List<KoboVisitVisitor> visitors = visitorMapping.GetVisitors(submission, row["Kobo_Form_ID"].ToString());
+                        List<int> visitorUserIds = new List<int>();
+                        foreach (KoboVisitVisitor visitor in visitors)
+                        {
+                            if (visitor.UserId.HasValue && !visitorUserIds.Contains(visitor.UserId.Value))
+                                visitorUserIds.Add(visitor.UserId.Value);
+                        }
+                        SaveVisitorNames(connection, transaction, koboSubmissionId, visitors);
+                        if (visitors.Count > 0)
                             RefreshVisitUsers(connection, transaction, visitId, visitorUserIds);
                         if (!visitorsOnly)
                         {
                             MarkOpeningTask(connection, transaction, microProjectId, true);
                             MarkVisitNotificationsSeen(connection, transaction, microProjectId, kind);
+                        }
+                        if (!visitorsOnly)
                             MarkSubmissionSuccess(connection, transaction, koboSubmissionId, visitId, updated);
-                        }
-                        string visitorError = "";
-                        if (unmatchedNames.Count > 0)
-                        {
-                            visitorError = "تعذر ربط أسماء زوار كوبو بمستخدمي البرنامج: " + string.Join("، ", unmatchedNames);
-                            MarkVisitorImportError(connection, transaction, koboSubmissionId, visitorError);
-                        }
                         transaction.Commit();
 
-                        if (unmatchedNames.Count > 0)
-                        {
-                            result.ErrorCount++;
-                            AddError(result, row["Kobo_Form_Name"] + " / " + microProjectId + ": " + visitorError);
-                        }
                         if (updated && !visitorsOnly)
                             result.UpdatedCount++;
                         else if (!updated)
@@ -233,7 +233,7 @@ VALUES
 `Date` = @Date,
 `VehicleNumber` = @VehicleNumber,
 `Edited_By` = @Edited_By
-WHERE `ID` = @ID";
+WHERE `ID` = @ID AND NOT (`Date` <=> @Date AND `VehicleNumber` <=> @VehicleNumber)";
 
             ExecuteNonQuery(connection, transaction, query,
                 Parameter("@ID", visitId),
@@ -242,152 +242,45 @@ WHERE `ID` = @ID";
                 Parameter("@Edited_By", KoboCreatedBy));
         }
 
-        private List<int> GetVisitorUserIds(MySqlConnection connection, MySqlTransaction transaction,
-            JObject submission, DataRow row, out List<string> unmatchedNames)
+        private void SaveVisitorNames(MySqlConnection connection, MySqlTransaction transaction,
+            int submissionId, List<KoboVisitVisitor> visitors)
         {
-            List<string> visitorNames = GetVisitorNameCandidates(submission, row);
-            unmatchedNames = new List<string>();
-            List<int> userIds = new List<int>();
-            if (visitorNames.Count == 0)
-                return userIds;
-
-            DataTable users = GetVisitorUsers(connection, transaction);
-            for (int i = 0; i < visitorNames.Count; i++)
+            DataTable existing = new DataTable();
+            using (MySqlCommand command = new MySqlCommand(@"SELECT `Kobo_Name`, `Display_Name`, `User_ID`
+FROM `kobo_visit_visitor` WHERE `Submission_ID` = @ID ORDER BY `Visitor_Order`", connection, transaction))
+            using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
             {
-                int userId = FindVisitorUserId(users, visitorNames[i]);
-                if (userId > 0 && !userIds.Contains(userId))
-                    userIds.Add(userId);
-                if (userId <= 0)
-                    unmatchedNames.Add(visitorNames[i]);
+                command.Parameters.Add(Parameter("@ID", submissionId));
+                adapter.Fill(existing);
             }
-
-            return userIds;
-        }
-
-        private List<string> GetVisitorNameCandidates(JObject submission, DataRow row)
-        {
-            List<string> visitorNames = new List<string>();
-
-            AddVisitorNameCandidate(visitorNames, GetFirstValue(submission, new string[] { "username", "_submitted_by" }));
-
-            if (GetOpeningVisitKind(row) == "V-op" || IsAgricultureOpeningVisit(row))
+            bool unchanged = existing.Rows.Count == visitors.Count;
+            for (int i = 0; unchanged && i < visitors.Count; i++)
             {
-                AddVisitorChoiceCandidates(visitorNames, GetValue(submission, "__006"));
-                AddVisitorTextCandidates(visitorNames, GetValue(submission, "__007"));
+                DataRow row = existing.Rows[i];
+                unchanged = row["Kobo_Name"].ToString() == visitors[i].KoboName &&
+                    row["Display_Name"].ToString() == visitors[i].DisplayName &&
+                    (row["User_ID"] == DBNull.Value ? !visitors[i].UserId.HasValue :
+                        visitors[i].UserId == Convert.ToInt32(row["User_ID"]));
             }
-            else
-            {
-                AddVisitorChoiceCandidates(visitorNames, GetValue(submission, "select_one_vt8tw79"));
-                AddVisitorTextCandidates(visitorNames, GetValue(submission, IsLivestockOpeningVisit(row) ? "__005" : "text_xt6wd52"));
-            }
-
-            return visitorNames;
-        }
-
-        private void AddVisitorChoiceCandidates(List<string> visitorNames, string value)
-        {
-            if (string.IsNullOrWhiteSpace(value))
+            if (unchanged)
                 return;
 
-            string[] names = value.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            for (int i = 0; i < names.Length; i++)
-                AddVisitorNameCandidate(visitorNames, names[i]);
-        }
-
-        private void AddVisitorTextCandidates(List<string> visitorNames, string value)
-        {
-            if (string.IsNullOrWhiteSpace(value))
-                return;
-
-            string[] names = value.Split(new char[] { ',', '،', ';', '\r', '\n', '/', '+', '&' },
-                StringSplitOptions.RemoveEmptyEntries);
-            for (int i = 0; i < names.Length; i++)
-                AddVisitorNameCandidate(visitorNames, names[i]);
-        }
-
-        private void AddVisitorNameCandidate(List<string> visitorNames, string value)
-        {
-            string normalizedValue = NormalizeName(value);
-            if (string.IsNullOrWhiteSpace(normalizedValue) || normalizedValue == "no compa" ||
-                normalizedValue == "لا يوجد مرافق")
-                return;
-
-            for (int i = 0; i < visitorNames.Count; i++)
+            ExecuteNonQuery(connection, transaction, "DELETE FROM `kobo_visit_visitor` WHERE `Submission_ID` = @ID",
+                Parameter("@ID", submissionId));
+            for (int i = 0; i < visitors.Count; i++)
             {
-                if (NormalizeName(visitorNames[i]) == normalizedValue)
-                    return;
+                ExecuteNonQuery(connection, transaction, @"INSERT INTO `kobo_visit_visitor`
+(`Submission_ID`, `Visitor_Order`, `Kobo_Name`, `Display_Name`, `User_ID`)
+VALUES (@ID, @Visitor_Order, @Kobo_Name, @Display_Name, @User_ID)",
+                    Parameter("@ID", submissionId), Parameter("@Visitor_Order", i),
+                    Parameter("@Kobo_Name", visitors[i].KoboName), Parameter("@Display_Name", visitors[i].DisplayName),
+                    Parameter("@User_ID", visitors[i].UserId));
             }
-
-            visitorNames.Add(value.Trim());
-        }
-
-        private DataTable GetVisitorUsers(MySqlConnection connection, MySqlTransaction transaction)
-        {
-            string query = @"SELECT `UserID`, `UserName`
-FROM `user`
-WHERE `IsVisitor` = 1";
-
-            using (MySqlCommand command = new MySqlCommand(query, connection, transaction))
-            {
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                return table;
-            }
-        }
-
-        private int FindVisitorUserId(DataTable users, string visitorName)
-        {
-            string normalizedVisitorName = NormalizeName(visitorName);
-            if (string.IsNullOrWhiteSpace(normalizedVisitorName))
-                return -1;
-
-            for (int i = 0; i < users.Rows.Count; i++)
-            {
-                string userName = users.Rows[i]["UserName"].ToString();
-                if (NormalizeName(userName) == normalizedVisitorName)
-                    return Convert.ToInt32(users.Rows[i]["UserID"]);
-            }
-
-            // Choice codes and labels from the supplied Opening XLSForms.
-            string choiceLabel = "";
-            switch (normalizedVisitorName)
-            {
-                case "simon": choiceLabel = "سيمون حجل"; break;
-                case "kabi": choiceLabel = "كابي دايخ"; break;
-                case "cloud": choiceLabel = "كلوديت كيروز"; break;
-                case "fadi": choiceLabel = "فادي بغدصار"; break;
-                case "dabbagh": choiceLabel = "فادي دباغ"; break;
-            }
-            if (choiceLabel.Length > 0)
-            {
-                for (int i = 0; i < users.Rows.Count; i++)
-                {
-                    if (NormalizeName(users.Rows[i]["UserName"].ToString()) == NormalizeName(choiceLabel))
-                        return Convert.ToInt32(users.Rows[i]["UserID"]);
-                }
-            }
-
-            return -1;
-        }
-
-        private string NormalizeName(string value)
-        {
-            if (value == null)
-                return "";
-
-            string name = value.Trim().Replace("_", " ");
-            string[] parts = name.Split(new char[] { ' ', '\t', '\r', '\n' },
-                StringSplitOptions.RemoveEmptyEntries);
-            return string.Join(" ", parts).ToLowerInvariant();
         }
 
         private void RefreshVisitUsers(MySqlConnection connection, MySqlTransaction transaction,
             int visitId, List<int> userIds)
         {
-            if (userIds.Count == 0)
-                return;
-
             using (MySqlCommand command = new MySqlCommand(
                 "SELECT `User_ID` FROM `visit_user` WHERE `Visit_ID` = @Visit_ID", connection, transaction))
             {
@@ -413,17 +306,6 @@ WHERE `IsVisitor` = 1";
                     Parameter("@Visit_ID", visitId),
                     Parameter("@User_ID", userIds[i]));
             }
-        }
-
-        private void MarkVisitorImportError(MySqlConnection connection, MySqlTransaction transaction,
-            int koboSubmissionId, string message)
-        {
-            ExecuteNonQuery(connection, transaction, @"UPDATE `kobo_submission` SET
-`Sync_Status` = 'local_error', `Error_Message` = @Error_Message, `Updated_At` = @Updated_At
-WHERE `ID` = @ID",
-                Parameter("@ID", koboSubmissionId),
-                Parameter("@Error_Message", message),
-                Parameter("@Updated_At", DateTime.Now));
         }
 
         private void MarkOpeningTask(MySqlConnection connection, MySqlTransaction transaction,
@@ -488,29 +370,11 @@ WHERE `ID` = @ID";
 
         private int GetProjectNumber(JObject submission, DataRow row)
         {
+            DataRow fields = visitorMapping.GetFields(row["Kobo_Form_ID"].ToString());
             int result;
-            string fieldName = "text_fw08u96";
-            if (GetOpeningVisitKind(row) == "V-op")
-                fieldName = "__003";
-            else if (IsAgricultureOpeningVisit(row) || IsLivestockOpeningVisit(row))
-                fieldName = "__001";
-            string value = GetValue(submission, fieldName);
-            if (int.TryParse(value, out result))
+            if (int.TryParse(KoboVisitorMapping.GetValue(submission, fields["Project_Number_Field"].ToString()), out result))
                 return result;
             return -1;
-        }
-
-        private bool IsAgricultureOpeningVisit(DataRow row)
-        {
-            string formName = row["Kobo_Form_Name"].ToString().ToLowerInvariant();
-            string category = row["Visit_Category"].ToString().ToLowerInvariant();
-            return formName.Contains("agre") || formName.Contains("agri") || category.Contains("agr");
-        }
-
-        private bool IsLivestockOpeningVisit(DataRow row)
-        {
-            return row["Kobo_Form_Name"].ToString().ToLowerInvariant().Contains("livestock") ||
-                row["Visit_Category"].ToString().ToLowerInvariant().Contains("livestock");
         }
 
         private string GetVisitDate(JObject submission)

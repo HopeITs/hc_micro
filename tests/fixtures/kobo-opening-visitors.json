@@ -1,0 +1,2288 @@
+{
+  "forms": [
+    {
+      "UID": "a8Vh8j6CTzHkPezChub5Ez",
+      "Database": "hcsyria_micro",
+      "Governorate": "Aleppo",
+      "Category": "vehicle",
+      "Fields": {
+        "Project": "group_mo5jr41/__003",
+        "Text": "group_mo5jr41/__007",
+        "Choice": "group_mo5jr41/__006",
+        "Vehicle": "group_vz9zl11/__008",
+        "TextCondition": "${__001} = '_'"
+      },
+      "Choices": [
+        {
+          "name": "Simon",
+          "LabelText": "سيمون حجل "
+        },
+        {
+          "name": "kabi",
+          "LabelText": "كابي دايخ"
+        },
+        {
+          "name": "Cloud",
+          "LabelText": "كلوديت كيروز"
+        },
+        {
+          "name": "Fadi",
+          "LabelText": "فادي بغدصار "
+        },
+        {
+          "name": "No_compa",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    },
+    {
+      "UID": "aMhoH9jiVXwWSTYacGFeEX",
+      "Database": "hcsyria_micro",
+      "Governorate": "Aleppo",
+      "Category": "general",
+      "Fields": {
+        "Project": "group_mo5jr41/text_fw08u96",
+        "Text": "group_mo5jr41/text_xt6wd52",
+        "Choice": "group_mo5jr41/select_one_vt8tw79",
+        "TextCondition": "${__001} = '_'"
+      },
+      "Choices": [
+        {
+          "name": "Simon",
+          "LabelText": "سيمون حجل "
+        },
+        {
+          "name": "kabi",
+          "LabelText": "كابي دايخ"
+        },
+        {
+          "name": "Cloud",
+          "LabelText": "كلوديت كيروز"
+        },
+        {
+          "name": "Fadi",
+          "LabelText": "فادي بغدصار "
+        },
+        {
+          "name": "dabbagh",
+          "LabelText": "فادي دباغ"
+        },
+        {
+          "name": "No_compa",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    },
+    {
+      "UID": "a6yNApUu9Jqph4RumUzxAw",
+      "Database": "hcsyria_micro",
+      "Governorate": "Aleppo",
+      "Category": "agriculture",
+      "Fields": {
+        "Project": "group_vv6uu79/__001",
+        "Text": "group_vv6uu79/__007",
+        "Choice": "group_vv6uu79/__006",
+        "TextCondition": "${_} = 'y'"
+      },
+      "Choices": [
+        {
+          "name": "Simon",
+          "LabelText": "سيمون حجل "
+        },
+        {
+          "name": "kabi",
+          "LabelText": "كابي دايخ"
+        },
+        {
+          "name": "Cloud",
+          "LabelText": "كلوديت كيروز"
+        },
+        {
+          "name": "Fadi",
+          "LabelText": "فادي بغدصار "
+        },
+        {
+          "name": "dabbagh",
+          "LabelText": "فادي دباغ"
+        },
+        {
+          "name": "No_compa",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    },
+    {
+      "UID": "aPLm9ggZu2a6qryEZ2HPoY",
+      "Database": "hcsyria_micro",
+      "Governorate": "Aleppo",
+      "Category": "livestock",
+      "Fields": {
+        "Project": "group_vv6uu79/__001",
+        "Text": "group_vv6uu79/__005",
+        "Choice": "group_vv6uu79/select_one_vt8tw79",
+        "TextCondition": "${_} = 'y'"
+      },
+      "Choices": [
+        {
+          "name": "Simon",
+          "LabelText": "سيمون حجل "
+        },
+        {
+          "name": "kabi",
+          "LabelText": "كابي دايخ"
+        },
+        {
+          "name": "Cloud",
+          "LabelText": "كلوديت كيروز"
+        },
+        {
+          "name": "Fadi",
+          "LabelText": "فادي بغدصار "
+        },
+        {
+          "name": "dabbagh",
+          "LabelText": "فادي دباغ"
+        },
+        {
+          "name": "No_compa",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    },
+    {
+      "UID": "aEmjzQjAX8vDxCnPGdRgC6",
+      "Database": "hcsyria_micro_h",
+      "Governorate": "Homs",
+      "Category": "vehicle",
+      "Fields": {
+        "Project": "group_mo5jr41/__003",
+        "Text": "group_mo5jr41/__007",
+        "Choice": "group_mo5jr41/__006",
+        "Vehicle": "group_vz9zl11/__008",
+        "TextCondition": "${__001} = '_'"
+      },
+      "Choices": [
+        {
+          "name": "nameH_01",
+          "LabelText": "بانا زينون"
+        },
+        {
+          "name": "nameH_02",
+          "LabelText": "طوني عازار"
+        },
+        {
+          "name": "nameH_03",
+          "LabelText": "فادي الزغريني"
+        },
+        {
+          "name": "nameH_04",
+          "LabelText": "فارس اخرس"
+        },
+        {
+          "name": "nameH_05",
+          "LabelText": "فوزي طعمه"
+        },
+        {
+          "name": "nameH_06",
+          "LabelText": "ميرنا حارس"
+        },
+        {
+          "name": "nameH_07",
+          "LabelText": "ندى بربر"
+        },
+        {
+          "name": "nameH_09",
+          "LabelText": "هاشم الطحش "
+        },
+        {
+          "name": "____",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    },
+    {
+      "UID": "agEWgTGdefWAVHQk6y4URo",
+      "Database": "hcsyria_micro_h",
+      "Governorate": "Homs",
+      "Category": "general",
+      "Fields": {
+        "Project": "group_mo5jr41/text_fw08u96",
+        "Text": "group_mo5jr41/text_xt6wd52",
+        "Choice": "group_mo5jr41/select_one_nj2ys51",
+        "TextCondition": "${__001} = '_'"
+      },
+      "Choices": [
+        {
+          "name": "nameH_01",
+          "LabelText": "بانا زينون"
+        },
+        {
+          "name": "nameH_02",
+          "LabelText": "طوني عازار"
+        },
+        {
+          "name": "nameH_03",
+          "LabelText": "فادي الزغريني"
+        },
+        {
+          "name": "nameH_04",
+          "LabelText": "فارس اخرس"
+        },
+        {
+          "name": "nameH_05",
+          "LabelText": "فوزي طعمه"
+        },
+        {
+          "name": "nameH_06",
+          "LabelText": "ميرنا حارس"
+        },
+        {
+          "name": "nameH_07",
+          "LabelText": "ندى بربر"
+        },
+        {
+          "name": "nameH_010",
+          "LabelText": "هاشم الطحش"
+        },
+        {
+          "name": "____",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    },
+    {
+      "UID": "aVUHHAAwimqitimU72PUhW",
+      "Database": "hcsyria_micro_h",
+      "Governorate": "Homs",
+      "Category": "agriculture",
+      "Fields": {
+        "Project": "group_vv6uu79/__001",
+        "Text": "group_vv6uu79/__007",
+        "Choice": "group_vv6uu79/__006",
+        "TextCondition": "${_} = 'y'"
+      },
+      "Choices": [
+        {
+          "name": "nameH_01",
+          "LabelText": "بانا زينون"
+        },
+        {
+          "name": "nameH_02",
+          "LabelText": "طوني عازار"
+        },
+        {
+          "name": "nameH_03",
+          "LabelText": "فادي الزغريني"
+        },
+        {
+          "name": "nameH_04",
+          "LabelText": "فارس اخرس"
+        },
+        {
+          "name": "nameH_05",
+          "LabelText": "فوزي طعمه"
+        },
+        {
+          "name": "nameH_06",
+          "LabelText": "ميرنا حارس"
+        },
+        {
+          "name": "nameH_07",
+          "LabelText": "ندى بربر"
+        },
+        {
+          "name": "nameH_010",
+          "LabelText": "هاشم الطحش"
+        },
+        {
+          "name": "____",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    },
+    {
+      "UID": "abzp2dHhbqLhbA9qnjVWRW",
+      "Database": "hcsyria_micro_h",
+      "Governorate": "Homs",
+      "Category": "livestock",
+      "Fields": {
+        "Project": "group_vv6uu79/__001",
+        "Text": "group_vv6uu79/__007",
+        "Choice": "group_vv6uu79/__006",
+        "TextCondition": "${_} = 'y'"
+      },
+      "Choices": [
+        {
+          "name": "nameH_01",
+          "LabelText": "بانا زينون"
+        },
+        {
+          "name": "nameH_02",
+          "LabelText": "طوني عازار"
+        },
+        {
+          "name": "nameH_03",
+          "LabelText": "فادي الزغريني"
+        },
+        {
+          "name": "nameH_04",
+          "LabelText": "فارس اخرس"
+        },
+        {
+          "name": "nameH_05",
+          "LabelText": "فوزي طعمه"
+        },
+        {
+          "name": "nameH_06",
+          "LabelText": "ميرنا حارس"
+        },
+        {
+          "name": "nameH_07",
+          "LabelText": "ندى بربر"
+        },
+        {
+          "name": "nameH_010",
+          "LabelText": "هاشم الطحش"
+        },
+        {
+          "name": "____",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    },
+    {
+      "UID": "aR5vim9CNZiQrMfKuY6gfZ",
+      "Database": "hcsyria_micro_w",
+      "Governorate": "Wadi",
+      "Category": "livestock",
+      "Fields": {
+        "Project": "group_vv6uu79/__001",
+        "Text": "group_vv6uu79/__007",
+        "Choice": "group_vv6uu79/__006",
+        "TextCondition": "${_} = 'y'"
+      },
+      "Choices": [
+        {
+          "name": "nameW_01",
+          "LabelText": "طوني وسوف"
+        },
+        {
+          "name": "nameW_02",
+          "LabelText": "مارسيل سليمان"
+        },
+        {
+          "name": "nameW_04",
+          "LabelText": "هبة يازجي "
+        },
+        {
+          "name": "nameW_05",
+          "LabelText": "طارق كرم "
+        },
+        {
+          "name": "nameW_00",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    },
+    {
+      "UID": "agqrEypcTf9VvouBJwTF3x",
+      "Database": "hcsyria_micro_w",
+      "Governorate": "Wadi",
+      "Category": "agriculture",
+      "Fields": {
+        "Project": "group_vv6uu79/__001",
+        "Text": "group_vv6uu79/__007",
+        "Choice": "group_vv6uu79/__006",
+        "TextCondition": "${_} = 'y'"
+      },
+      "Choices": [
+        {
+          "name": "nameW_01",
+          "LabelText": "طوني وسوف"
+        },
+        {
+          "name": "nameW_02",
+          "LabelText": "مارسيل سليمان"
+        },
+        {
+          "name": "nameW_04",
+          "LabelText": "هبة يازجي "
+        },
+        {
+          "name": "nameW_05",
+          "LabelText": "طارق كرم "
+        },
+        {
+          "name": "nameW_00",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    },
+    {
+      "UID": "aHif7QqLBVEYZr2oKWu3eD",
+      "Database": "hcsyria_micro_w",
+      "Governorate": "Wadi",
+      "Category": "general",
+      "Fields": {
+        "Project": "group_mo5jr41/text_fw08u96",
+        "Text": "group_mo5jr41/text_xt6wd52",
+        "Choice": "group_mo5jr41/select_one_bs4vl84",
+        "TextCondition": "${__001} = '_'"
+      },
+      "Choices": [
+        {
+          "name": "nameW_01",
+          "LabelText": "طوني وسوف"
+        },
+        {
+          "name": "nameW_02",
+          "LabelText": "مارسيل سليمان"
+        },
+        {
+          "name": "nameW_04",
+          "LabelText": "هبة يازجي "
+        },
+        {
+          "name": "nameW_05",
+          "LabelText": "طارق كرم "
+        },
+        {
+          "name": "nameW_00",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    },
+    {
+      "UID": "aAeDhFGNredqJ4uw56iebX",
+      "Database": "hcsyria_micro_w",
+      "Governorate": "Wadi",
+      "Category": "vehicle",
+      "Fields": {
+        "Project": "group_mo5jr41/__003",
+        "Text": "group_mo5jr41/__008",
+        "Choice": "group_mo5jr41/__007",
+        "Vehicle": "group_vz9zl11/__009",
+        "TextCondition": "${__001} = '_'"
+      },
+      "Choices": [
+        {
+          "name": "nameW_01",
+          "LabelText": "طوني وسوف"
+        },
+        {
+          "name": "nameW_02",
+          "LabelText": "مارسيل سليمان"
+        },
+        {
+          "name": "nameW_04",
+          "LabelText": "هبة يازجي "
+        },
+        {
+          "name": "nameW_05",
+          "LabelText": "طارق كرم "
+        },
+        {
+          "name": "nameW_00",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    },
+    {
+      "UID": "aFAaQVePpXeKJTGU89zGgV",
+      "Database": "hcsyria_micro_d",
+      "Governorate": "Damascus",
+      "Category": "general",
+      "Fields": {
+        "Project": "group_mo5jr41/text_fw08u96",
+        "Text": "group_mo5jr41/text_xt6wd52",
+        "Choice": "group_mo5jr41/select_one_ms1dv75",
+        "TextCondition": "${__001} = '_'"
+      },
+      "Choices": [
+        {
+          "name": "nameD_01",
+          "LabelText": "إيهاب حداد"
+        },
+        {
+          "name": "nameD_02",
+          "LabelText": "جليل ثعلب"
+        },
+        {
+          "name": "nameD_03",
+          "LabelText": "روان مقصود"
+        },
+        {
+          "name": "nameD_04",
+          "LabelText": "سامر أبو عراج"
+        },
+        {
+          "name": "nameD_05",
+          "LabelText": "ساندرا جريج"
+        },
+        {
+          "name": "nameD_06",
+          "LabelText": "عمران الناصر"
+        },
+        {
+          "name": "nameD_07",
+          "LabelText": "نور الظواهر"
+        },
+        {
+          "name": "nameD_08",
+          "LabelText": "ميريل حنا "
+        },
+        {
+          "name": "____",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    },
+    {
+      "UID": "akQA4KSvPFy3Bt9LnCjnBw",
+      "Database": "hcsyria_micro_d",
+      "Governorate": "Damascus",
+      "Category": "vehicle",
+      "Fields": {
+        "Project": "group_mo5jr41/__003",
+        "Text": "group_mo5jr41/__007",
+        "Choice": "group_mo5jr41/__006",
+        "Vehicle": "group_vz9zl11/__008",
+        "TextCondition": "${__001} = '_'"
+      },
+      "Choices": [
+        {
+          "name": "nameD_01",
+          "LabelText": "إيهاب حداد"
+        },
+        {
+          "name": "nameD_02",
+          "LabelText": "جليل ثعلب"
+        },
+        {
+          "name": "nameD_03",
+          "LabelText": "روان مقصود"
+        },
+        {
+          "name": "nameD_04",
+          "LabelText": "سامر أبو عراج"
+        },
+        {
+          "name": "nameD_05",
+          "LabelText": "ساندرا جريج"
+        },
+        {
+          "name": "nameD_06",
+          "LabelText": "عمران الناصر"
+        },
+        {
+          "name": "nameD_07",
+          "LabelText": "نور الظواهر"
+        },
+        {
+          "name": "nameD_08",
+          "LabelText": "ميريل حنا "
+        },
+        {
+          "name": "____",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    },
+    {
+      "UID": "as82uKKeJQM3uivD4sn5WA",
+      "Database": "hcsyria_micro_l",
+      "Governorate": "Latakia",
+      "Category": "general",
+      "Fields": {
+        "Project": "group_mo5jr41/text_fw08u96",
+        "Text": "group_mo5jr41/text_xt6wd52",
+        "Choice": "group_mo5jr41/select_one_ic7gu52",
+        "TextCondition": "${__001} = '_'"
+      },
+      "Choices": [
+        {
+          "name": "nameL_02",
+          "LabelText": "سيلين خوري"
+        },
+        {
+          "name": "nameL_04",
+          "LabelText": "آنا جبور"
+        },
+        {
+          "name": "nameL_05",
+          "LabelText": "ميريل سعود "
+        },
+        {
+          "name": "nameL_06",
+          "LabelText": "عيسى عبدوش"
+        },
+        {
+          "name": "nameL_07",
+          "LabelText": "عبدالله جبور "
+        },
+        {
+          "name": "nameL_08",
+          "LabelText": "ادونيس مواس "
+        },
+        {
+          "name": "nameL_00",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    },
+    {
+      "UID": "akVk2vuomrPc3buQUsxfNa",
+      "Database": "hcsyria_micro_l",
+      "Governorate": "Latakia",
+      "Category": "vehicle",
+      "Fields": {
+        "Project": "group_mo5jr41/__003",
+        "Text": "group_mo5jr41/__007",
+        "Choice": "group_mo5jr41/__006",
+        "Vehicle": "group_vz9zl11/__008",
+        "TextCondition": "${__001} = '_'"
+      },
+      "Choices": [
+        {
+          "name": "nameL_02",
+          "LabelText": "سيلين خوري"
+        },
+        {
+          "name": "nameL_04",
+          "LabelText": "آنا جبور"
+        },
+        {
+          "name": "nameL_05",
+          "LabelText": "ميريل سعود"
+        },
+        {
+          "name": "nameL_06",
+          "LabelText": "عيسى عبدوش"
+        },
+        {
+          "name": "nameL_07",
+          "LabelText": "عبدالله جبور "
+        },
+        {
+          "name": "nameL_09",
+          "LabelText": "أدونيس مواس "
+        },
+        {
+          "name": "nameL_00",
+          "LabelText": "لا يوجد مرافق "
+        }
+      ]
+    }
+  ],
+  "aliases": [
+    {
+      "database": "hcsyria_micro",
+      "formUid": "a8Vh8j6CTzHkPezChub5Ez",
+      "koboName": "Simon",
+      "displayName": "سيمون حجل",
+      "localUserName": "Simon",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "a8Vh8j6CTzHkPezChub5Ez",
+      "koboName": "kabi",
+      "displayName": "كابي دايخ",
+      "localUserName": "Gabi",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "a8Vh8j6CTzHkPezChub5Ez",
+      "koboName": "Cloud",
+      "displayName": "كلوديت كيروز",
+      "localUserName": "Claudette",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "a8Vh8j6CTzHkPezChub5Ez",
+      "koboName": "Fadi",
+      "displayName": "فادي بغدصار",
+      "localUserName": "Fadi Baghdassar",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "a8Vh8j6CTzHkPezChub5Ez",
+      "koboName": "No_compa",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "aMhoH9jiVXwWSTYacGFeEX",
+      "koboName": "Simon",
+      "displayName": "سيمون حجل",
+      "localUserName": "Simon",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "aMhoH9jiVXwWSTYacGFeEX",
+      "koboName": "kabi",
+      "displayName": "كابي دايخ",
+      "localUserName": "Gabi",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "aMhoH9jiVXwWSTYacGFeEX",
+      "koboName": "Cloud",
+      "displayName": "كلوديت كيروز",
+      "localUserName": "Claudette",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "aMhoH9jiVXwWSTYacGFeEX",
+      "koboName": "Fadi",
+      "displayName": "فادي بغدصار",
+      "localUserName": "Fadi Baghdassar",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "aMhoH9jiVXwWSTYacGFeEX",
+      "koboName": "dabbagh",
+      "displayName": "فادي دباغ",
+      "localUserName": "fadi dabagh",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "aMhoH9jiVXwWSTYacGFeEX",
+      "koboName": "No_compa",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "a6yNApUu9Jqph4RumUzxAw",
+      "koboName": "Simon",
+      "displayName": "سيمون حجل",
+      "localUserName": "Simon",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "a6yNApUu9Jqph4RumUzxAw",
+      "koboName": "kabi",
+      "displayName": "كابي دايخ",
+      "localUserName": "Gabi",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "a6yNApUu9Jqph4RumUzxAw",
+      "koboName": "Cloud",
+      "displayName": "كلوديت كيروز",
+      "localUserName": "Claudette",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "a6yNApUu9Jqph4RumUzxAw",
+      "koboName": "Fadi",
+      "displayName": "فادي بغدصار",
+      "localUserName": "Fadi Baghdassar",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "a6yNApUu9Jqph4RumUzxAw",
+      "koboName": "dabbagh",
+      "displayName": "فادي دباغ",
+      "localUserName": "fadi dabagh",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "a6yNApUu9Jqph4RumUzxAw",
+      "koboName": "No_compa",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "aPLm9ggZu2a6qryEZ2HPoY",
+      "koboName": "Simon",
+      "displayName": "سيمون حجل",
+      "localUserName": "Simon",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "aPLm9ggZu2a6qryEZ2HPoY",
+      "koboName": "kabi",
+      "displayName": "كابي دايخ",
+      "localUserName": "Gabi",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "aPLm9ggZu2a6qryEZ2HPoY",
+      "koboName": "Cloud",
+      "displayName": "كلوديت كيروز",
+      "localUserName": "Claudette",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "aPLm9ggZu2a6qryEZ2HPoY",
+      "koboName": "Fadi",
+      "displayName": "فادي بغدصار",
+      "localUserName": "Fadi Baghdassar",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "aPLm9ggZu2a6qryEZ2HPoY",
+      "koboName": "dabbagh",
+      "displayName": "فادي دباغ",
+      "localUserName": "fadi dabagh",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "aPLm9ggZu2a6qryEZ2HPoY",
+      "koboName": "No_compa",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aEmjzQjAX8vDxCnPGdRgC6",
+      "koboName": "nameH_01",
+      "displayName": "بانا زينون",
+      "localUserName": "Bana",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aEmjzQjAX8vDxCnPGdRgC6",
+      "koboName": "nameH_02",
+      "displayName": "طوني عازار",
+      "localUserName": "TonyAzar",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aEmjzQjAX8vDxCnPGdRgC6",
+      "koboName": "nameH_03",
+      "displayName": "فادي الزغريني",
+      "localUserName": "Fadi",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aEmjzQjAX8vDxCnPGdRgC6",
+      "koboName": "nameH_04",
+      "displayName": "فارس اخرس",
+      "localUserName": "Fares",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aEmjzQjAX8vDxCnPGdRgC6",
+      "koboName": "nameH_05",
+      "displayName": "فوزي طعمه",
+      "localUserName": "Fouzy",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aEmjzQjAX8vDxCnPGdRgC6",
+      "koboName": "nameH_06",
+      "displayName": "ميرنا حارس",
+      "localUserName": "Mirna",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aEmjzQjAX8vDxCnPGdRgC6",
+      "koboName": "nameH_07",
+      "displayName": "ندى بربر",
+      "localUserName": "Nada",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aEmjzQjAX8vDxCnPGdRgC6",
+      "koboName": "nameH_09",
+      "displayName": "هاشم الطحش",
+      "localUserName": "Hachem",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aEmjzQjAX8vDxCnPGdRgC6",
+      "koboName": "____",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "agEWgTGdefWAVHQk6y4URo",
+      "koboName": "nameH_01",
+      "displayName": "بانا زينون",
+      "localUserName": "Bana",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "agEWgTGdefWAVHQk6y4URo",
+      "koboName": "nameH_02",
+      "displayName": "طوني عازار",
+      "localUserName": "TonyAzar",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "agEWgTGdefWAVHQk6y4URo",
+      "koboName": "nameH_03",
+      "displayName": "فادي الزغريني",
+      "localUserName": "Fadi",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "agEWgTGdefWAVHQk6y4URo",
+      "koboName": "nameH_04",
+      "displayName": "فارس اخرس",
+      "localUserName": "Fares",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "agEWgTGdefWAVHQk6y4URo",
+      "koboName": "nameH_05",
+      "displayName": "فوزي طعمه",
+      "localUserName": "Fouzy",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "agEWgTGdefWAVHQk6y4URo",
+      "koboName": "nameH_06",
+      "displayName": "ميرنا حارس",
+      "localUserName": "Mirna",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "agEWgTGdefWAVHQk6y4URo",
+      "koboName": "nameH_07",
+      "displayName": "ندى بربر",
+      "localUserName": "Nada",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "agEWgTGdefWAVHQk6y4URo",
+      "koboName": "nameH_010",
+      "displayName": "هاشم الطحش",
+      "localUserName": "Hachem",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "agEWgTGdefWAVHQk6y4URo",
+      "koboName": "____",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aVUHHAAwimqitimU72PUhW",
+      "koboName": "nameH_01",
+      "displayName": "بانا زينون",
+      "localUserName": "Bana",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aVUHHAAwimqitimU72PUhW",
+      "koboName": "nameH_02",
+      "displayName": "طوني عازار",
+      "localUserName": "TonyAzar",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aVUHHAAwimqitimU72PUhW",
+      "koboName": "nameH_03",
+      "displayName": "فادي الزغريني",
+      "localUserName": "Fadi",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aVUHHAAwimqitimU72PUhW",
+      "koboName": "nameH_04",
+      "displayName": "فارس اخرس",
+      "localUserName": "Fares",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aVUHHAAwimqitimU72PUhW",
+      "koboName": "nameH_05",
+      "displayName": "فوزي طعمه",
+      "localUserName": "Fouzy",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aVUHHAAwimqitimU72PUhW",
+      "koboName": "nameH_06",
+      "displayName": "ميرنا حارس",
+      "localUserName": "Mirna",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aVUHHAAwimqitimU72PUhW",
+      "koboName": "nameH_07",
+      "displayName": "ندى بربر",
+      "localUserName": "Nada",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aVUHHAAwimqitimU72PUhW",
+      "koboName": "nameH_010",
+      "displayName": "هاشم الطحش",
+      "localUserName": "Hachem",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "aVUHHAAwimqitimU72PUhW",
+      "koboName": "____",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "abzp2dHhbqLhbA9qnjVWRW",
+      "koboName": "nameH_01",
+      "displayName": "بانا زينون",
+      "localUserName": "Bana",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "abzp2dHhbqLhbA9qnjVWRW",
+      "koboName": "nameH_02",
+      "displayName": "طوني عازار",
+      "localUserName": "TonyAzar",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "abzp2dHhbqLhbA9qnjVWRW",
+      "koboName": "nameH_03",
+      "displayName": "فادي الزغريني",
+      "localUserName": "Fadi",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "abzp2dHhbqLhbA9qnjVWRW",
+      "koboName": "nameH_04",
+      "displayName": "فارس اخرس",
+      "localUserName": "Fares",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "abzp2dHhbqLhbA9qnjVWRW",
+      "koboName": "nameH_05",
+      "displayName": "فوزي طعمه",
+      "localUserName": "Fouzy",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "abzp2dHhbqLhbA9qnjVWRW",
+      "koboName": "nameH_06",
+      "displayName": "ميرنا حارس",
+      "localUserName": "Mirna",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "abzp2dHhbqLhbA9qnjVWRW",
+      "koboName": "nameH_07",
+      "displayName": "ندى بربر",
+      "localUserName": "Nada",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "abzp2dHhbqLhbA9qnjVWRW",
+      "koboName": "nameH_010",
+      "displayName": "هاشم الطحش",
+      "localUserName": "Hachem",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "abzp2dHhbqLhbA9qnjVWRW",
+      "koboName": "____",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "aR5vim9CNZiQrMfKuY6gfZ",
+      "koboName": "nameW_01",
+      "displayName": "طوني وسوف",
+      "localUserName": "Tony_Wassouf",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "aR5vim9CNZiQrMfKuY6gfZ",
+      "koboName": "nameW_02",
+      "displayName": "مارسيل سليمان",
+      "localUserName": "Marcelle",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "aR5vim9CNZiQrMfKuY6gfZ",
+      "koboName": "nameW_04",
+      "displayName": "هبة يازجي",
+      "localUserName": "Hiba",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "aR5vim9CNZiQrMfKuY6gfZ",
+      "koboName": "nameW_05",
+      "displayName": "طارق كرم",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "aR5vim9CNZiQrMfKuY6gfZ",
+      "koboName": "nameW_00",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "agqrEypcTf9VvouBJwTF3x",
+      "koboName": "nameW_01",
+      "displayName": "طوني وسوف",
+      "localUserName": "Tony_Wassouf",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "agqrEypcTf9VvouBJwTF3x",
+      "koboName": "nameW_02",
+      "displayName": "مارسيل سليمان",
+      "localUserName": "Marcelle",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "agqrEypcTf9VvouBJwTF3x",
+      "koboName": "nameW_04",
+      "displayName": "هبة يازجي",
+      "localUserName": "Hiba",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "agqrEypcTf9VvouBJwTF3x",
+      "koboName": "nameW_05",
+      "displayName": "طارق كرم",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "agqrEypcTf9VvouBJwTF3x",
+      "koboName": "nameW_00",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "aHif7QqLBVEYZr2oKWu3eD",
+      "koboName": "nameW_01",
+      "displayName": "طوني وسوف",
+      "localUserName": "Tony_Wassouf",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "aHif7QqLBVEYZr2oKWu3eD",
+      "koboName": "nameW_02",
+      "displayName": "مارسيل سليمان",
+      "localUserName": "Marcelle",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "aHif7QqLBVEYZr2oKWu3eD",
+      "koboName": "nameW_04",
+      "displayName": "هبة يازجي",
+      "localUserName": "Hiba",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "aHif7QqLBVEYZr2oKWu3eD",
+      "koboName": "nameW_05",
+      "displayName": "طارق كرم",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "aHif7QqLBVEYZr2oKWu3eD",
+      "koboName": "nameW_00",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "aAeDhFGNredqJ4uw56iebX",
+      "koboName": "nameW_01",
+      "displayName": "طوني وسوف",
+      "localUserName": "Tony_Wassouf",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "aAeDhFGNredqJ4uw56iebX",
+      "koboName": "nameW_02",
+      "displayName": "مارسيل سليمان",
+      "localUserName": "Marcelle",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "aAeDhFGNredqJ4uw56iebX",
+      "koboName": "nameW_04",
+      "displayName": "هبة يازجي",
+      "localUserName": "Hiba",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "aAeDhFGNredqJ4uw56iebX",
+      "koboName": "nameW_05",
+      "displayName": "طارق كرم",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "aAeDhFGNredqJ4uw56iebX",
+      "koboName": "nameW_00",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "aFAaQVePpXeKJTGU89zGgV",
+      "koboName": "nameD_01",
+      "displayName": "إيهاب حداد",
+      "localUserName": "Ehab",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "aFAaQVePpXeKJTGU89zGgV",
+      "koboName": "nameD_02",
+      "displayName": "جليل ثعلب",
+      "localUserName": "Jalil",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "aFAaQVePpXeKJTGU89zGgV",
+      "koboName": "nameD_03",
+      "displayName": "روان مقصود",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "aFAaQVePpXeKJTGU89zGgV",
+      "koboName": "nameD_04",
+      "displayName": "سامر أبو عراج",
+      "localUserName": "Samer",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "aFAaQVePpXeKJTGU89zGgV",
+      "koboName": "nameD_05",
+      "displayName": "ساندرا جريج",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "aFAaQVePpXeKJTGU89zGgV",
+      "koboName": "nameD_06",
+      "displayName": "عمران الناصر",
+      "localUserName": "Omran",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "aFAaQVePpXeKJTGU89zGgV",
+      "koboName": "nameD_07",
+      "displayName": "نور الظواهر",
+      "localUserName": "Nour",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "aFAaQVePpXeKJTGU89zGgV",
+      "koboName": "nameD_08",
+      "displayName": "ميريل حنا",
+      "localUserName": "Merreil",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "aFAaQVePpXeKJTGU89zGgV",
+      "koboName": "____",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "akQA4KSvPFy3Bt9LnCjnBw",
+      "koboName": "nameD_01",
+      "displayName": "إيهاب حداد",
+      "localUserName": "Ehab",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "akQA4KSvPFy3Bt9LnCjnBw",
+      "koboName": "nameD_02",
+      "displayName": "جليل ثعلب",
+      "localUserName": "Jalil",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "akQA4KSvPFy3Bt9LnCjnBw",
+      "koboName": "nameD_03",
+      "displayName": "روان مقصود",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "akQA4KSvPFy3Bt9LnCjnBw",
+      "koboName": "nameD_04",
+      "displayName": "سامر أبو عراج",
+      "localUserName": "Samer",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "akQA4KSvPFy3Bt9LnCjnBw",
+      "koboName": "nameD_05",
+      "displayName": "ساندرا جريج",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "akQA4KSvPFy3Bt9LnCjnBw",
+      "koboName": "nameD_06",
+      "displayName": "عمران الناصر",
+      "localUserName": "Omran",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "akQA4KSvPFy3Bt9LnCjnBw",
+      "koboName": "nameD_07",
+      "displayName": "نور الظواهر",
+      "localUserName": "Nour",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "akQA4KSvPFy3Bt9LnCjnBw",
+      "koboName": "nameD_08",
+      "displayName": "ميريل حنا",
+      "localUserName": "Merreil",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "akQA4KSvPFy3Bt9LnCjnBw",
+      "koboName": "____",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "as82uKKeJQM3uivD4sn5WA",
+      "koboName": "nameL_02",
+      "displayName": "سيلين خوري",
+      "localUserName": "celine",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "as82uKKeJQM3uivD4sn5WA",
+      "koboName": "nameL_04",
+      "displayName": "آنا جبور",
+      "localUserName": "Anna",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "as82uKKeJQM3uivD4sn5WA",
+      "koboName": "nameL_05",
+      "displayName": "ميريل سعود",
+      "localUserName": "Mirelle",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "as82uKKeJQM3uivD4sn5WA",
+      "koboName": "nameL_06",
+      "displayName": "عيسى عبدوش",
+      "localUserName": "Issa",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "as82uKKeJQM3uivD4sn5WA",
+      "koboName": "nameL_07",
+      "displayName": "عبدالله جبور",
+      "localUserName": "abdullah",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "as82uKKeJQM3uivD4sn5WA",
+      "koboName": "nameL_08",
+      "displayName": "ادونيس مواس",
+      "localUserName": "adonis",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "as82uKKeJQM3uivD4sn5WA",
+      "koboName": "nameL_00",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "akVk2vuomrPc3buQUsxfNa",
+      "koboName": "nameL_02",
+      "displayName": "سيلين خوري",
+      "localUserName": "celine",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "akVk2vuomrPc3buQUsxfNa",
+      "koboName": "nameL_04",
+      "displayName": "آنا جبور",
+      "localUserName": "Anna",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "akVk2vuomrPc3buQUsxfNa",
+      "koboName": "nameL_05",
+      "displayName": "ميريل سعود",
+      "localUserName": "Mirelle",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "akVk2vuomrPc3buQUsxfNa",
+      "koboName": "nameL_06",
+      "displayName": "عيسى عبدوش",
+      "localUserName": "Issa",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "akVk2vuomrPc3buQUsxfNa",
+      "koboName": "nameL_07",
+      "displayName": "عبدالله جبور",
+      "localUserName": "abdullah",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "akVk2vuomrPc3buQUsxfNa",
+      "koboName": "nameL_09",
+      "displayName": "أدونيس مواس",
+      "localUserName": "adonis",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "akVk2vuomrPc3buQUsxfNa",
+      "koboName": "nameL_00",
+      "displayName": "لا يوجد مرافق",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "",
+      "koboName": "سيمون حجل",
+      "displayName": "سيمون حجل",
+      "localUserName": "Simon",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "",
+      "koboName": "كابي دايخ",
+      "displayName": "كابي دايخ",
+      "localUserName": "Gabi",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "",
+      "koboName": "كلوديت كيروز",
+      "displayName": "كلوديت كيروز",
+      "localUserName": "Claudette",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "",
+      "koboName": "فادي بغدصار",
+      "displayName": "فادي بغدصار",
+      "localUserName": "Fadi Baghdassar",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "",
+      "koboName": "فادي دباغ",
+      "displayName": "فادي دباغ",
+      "localUserName": "fadi dabagh",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "بانا زينون",
+      "displayName": "بانا زينون",
+      "localUserName": "Bana",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "طوني عازار",
+      "displayName": "طوني عازار",
+      "localUserName": "TonyAzar",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "فادي الزغريني",
+      "displayName": "فادي الزغريني",
+      "localUserName": "Fadi",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "فارس اخرس",
+      "displayName": "فارس اخرس",
+      "localUserName": "Fares",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "فوزي طعمه",
+      "displayName": "فوزي طعمه",
+      "localUserName": "Fouzy",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "ميرنا حارس",
+      "displayName": "ميرنا حارس",
+      "localUserName": "Mirna",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "ندى بربر",
+      "displayName": "ندى بربر",
+      "localUserName": "Nada",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "هاشم الطحش",
+      "displayName": "هاشم الطحش",
+      "localUserName": "Hachem",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "",
+      "koboName": "طوني وسوف",
+      "displayName": "طوني وسوف",
+      "localUserName": "Tony_Wassouf",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "",
+      "koboName": "مارسيل سليمان",
+      "displayName": "مارسيل سليمان",
+      "localUserName": "Marcelle",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "",
+      "koboName": "هبة يازجي",
+      "displayName": "هبة يازجي",
+      "localUserName": "Hiba",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "",
+      "koboName": "طارق كرم",
+      "displayName": "طارق كرم",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "إيهاب حداد",
+      "displayName": "إيهاب حداد",
+      "localUserName": "Ehab",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "جليل ثعلب",
+      "displayName": "جليل ثعلب",
+      "localUserName": "Jalil",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "روان مقصود",
+      "displayName": "روان مقصود",
+      "localUserName": "Rawan",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "سامر أبو عراج",
+      "displayName": "سامر أبو عراج",
+      "localUserName": "Samer",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "ساندرا جريج",
+      "displayName": "ساندرا جريج",
+      "localUserName": "Sandra",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "عمران الناصر",
+      "displayName": "عمران الناصر",
+      "localUserName": "Omran",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "نور الظواهر",
+      "displayName": "نور الظواهر",
+      "localUserName": "Nour",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "ميريل حنا",
+      "displayName": "ميريل حنا",
+      "localUserName": "Merreil",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "سيلين خوري",
+      "displayName": "سيلين خوري",
+      "localUserName": "celine",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "آنا جبور",
+      "displayName": "آنا جبور",
+      "localUserName": "Anna",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "ميريل سعود",
+      "displayName": "ميريل سعود",
+      "localUserName": "Mirelle",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "عيسى عبدوش",
+      "displayName": "عيسى عبدوش",
+      "localUserName": "Issa",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "عبدالله جبور",
+      "displayName": "عبدالله جبور",
+      "localUserName": "abdullah",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "أدونيس مواس",
+      "displayName": "أدونيس مواس",
+      "localUserName": "adonis",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "",
+      "koboName": "claudette_kayrouz",
+      "displayName": "كلوديت كيروز",
+      "localUserName": "Claudette",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "",
+      "koboName": "gabriel_dayekh",
+      "displayName": "كابي دايخ",
+      "localUserName": "Gabi",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "",
+      "koboName": "simon_alhajal",
+      "displayName": "سيمون حجل",
+      "localUserName": "Simon",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "bana_zainoun",
+      "displayName": "بانا زينون",
+      "localUserName": "Bana",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "fadi_alzaghrini",
+      "displayName": "فادي الزغريني",
+      "localUserName": "Fadi",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "fares_akhras",
+      "displayName": "فارس اخرس",
+      "localUserName": "Fares",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "fouzy_altoumeh",
+      "displayName": "فوزي طعمه",
+      "localUserName": "Fouzy",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "hachem_altahch",
+      "displayName": "هاشم الطحش",
+      "localUserName": "Hachem",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "mirna_hares",
+      "displayName": "ميرنا حارس",
+      "localUserName": "Mirna",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "nada_barbar",
+      "displayName": "ندى بربر",
+      "localUserName": "Nada",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "",
+      "koboName": "badeh_qailouh",
+      "displayName": "Badeh",
+      "localUserName": "Badeh",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "",
+      "koboName": "hiba_yaziji",
+      "displayName": "هبة يازجي",
+      "localUserName": "Hiba",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "",
+      "koboName": "marcelle_sleman",
+      "displayName": "مارسيل سليمان",
+      "localUserName": "Marcelle",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "",
+      "koboName": "tarek_karam",
+      "displayName": "طارق كرم",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "sandra_jreige",
+      "displayName": "ساندرا جريج",
+      "localUserName": "Sandra",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "samer_abouarraj",
+      "displayName": "سامر أبو عراج",
+      "localUserName": "Samer",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "rawan_maksoud",
+      "displayName": "روان مقصود",
+      "localUserName": "Rawan",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "omran_alnasser",
+      "displayName": "عمران الناصر",
+      "localUserName": "Omran",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "nour_alzawahra",
+      "displayName": "نور الظواهر",
+      "localUserName": "Nour",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "jalil_thalab",
+      "displayName": "جليل ثعلب",
+      "localUserName": "Jalil",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "abdullah_jabbour",
+      "displayName": "عبدالله جبور",
+      "localUserName": "abdullah",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "adonis_mowas",
+      "displayName": "أدونيس مواس",
+      "localUserName": "adonis",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "annamicro25",
+      "displayName": "آنا جبور",
+      "localUserName": "Anna",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "celine_khoury",
+      "displayName": "سيلين خوري",
+      "localUserName": "celine",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "issa_abdoush",
+      "displayName": "عيسى عبدوش",
+      "localUserName": "Issa",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "mirellemicro25",
+      "displayName": "ميريل سعود",
+      "localUserName": "Mirelle",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "rabeh_skeif",
+      "displayName": "rabeh_skeif",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "داني حنا",
+      "displayName": "داني حنا",
+      "localUserName": "Dani",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "راما ميخائيل",
+      "displayName": "راما ميخائيل",
+      "localUserName": "Rama",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "راما مخائيل",
+      "displayName": "راما ميخائيل",
+      "localUserName": "Rama",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "",
+      "koboName": "جورج تيللو",
+      "displayName": "جورج تيللو",
+      "localUserName": "George Tello",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "",
+      "koboName": "جورج تيلو",
+      "displayName": "جورج تيللو",
+      "localUserName": "George Tello",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "ادونيس مواس",
+      "displayName": "أدونيس مواس",
+      "localUserName": "adonis",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "جميل صويلح",
+      "displayName": "جميل صويلح",
+      "localUserName": "Jameel",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "",
+      "koboName": "username not found",
+      "displayName": "",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "username not found",
+      "displayName": "",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "",
+      "koboName": "username not found",
+      "displayName": "",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "username not found",
+      "displayName": "",
+      "localUserName": null,
+      "ignored": 1
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "username not found",
+      "displayName": "",
+      "localUserName": null,
+      "ignored": 1
+    }
+    ,
+    {
+      "database": "hcsyria_micro",
+      "formUid": "",
+      "koboName": "جورج يشوع",
+      "displayName": "جورج يشوع",
+      "localUserName": "George Y",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "",
+      "koboName": "طوني عربجي",
+      "displayName": "طوني عربجي",
+      "localUserName": "Tony",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro",
+      "formUid": "",
+      "koboName": "ماريو ارسلان",
+      "displayName": "ماريو ارسلان",
+      "localUserName": "Mario",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "داني",
+      "displayName": "داني حنا",
+      "localUserName": "Dani",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_d",
+      "formUid": "",
+      "koboName": "راما",
+      "displayName": "راما ميخائيل",
+      "localUserName": "Rama",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "بشار صائغ",
+      "displayName": "بشار صائغ",
+      "localUserName": "Bashar",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "بشار صايغ",
+      "displayName": "بشار صائغ",
+      "localUserName": "Bashar",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_l",
+      "formUid": "",
+      "koboName": "بشار صابغ",
+      "displayName": "بشار صائغ",
+      "localUserName": "Bashar",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "مرفت دهام",
+      "displayName": "ميرفت دهام",
+      "localUserName": "Mirvat",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "ميرفت دهام",
+      "displayName": "ميرفت دهام",
+      "localUserName": "Mirvat",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "ميرفت دحام",
+      "displayName": "ميرفت دهام",
+      "localUserName": "Mirvat",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "ميشل سكروج",
+      "displayName": "ميشيل سكروج",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "ميشيل سكروج",
+      "displayName": "ميشيل سكروج",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_h",
+      "formUid": "",
+      "koboName": "ميشو سكروج",
+      "displayName": "ميشيل سكروج",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "",
+      "koboName": "مرفت دهام",
+      "displayName": "ميرفت دهام",
+      "localUserName": "Mirvat",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "",
+      "koboName": "ميرفت دهام",
+      "displayName": "ميرفت دهام",
+      "localUserName": "Mirvat",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "",
+      "koboName": "ميرفت دحام",
+      "displayName": "ميرفت دهام",
+      "localUserName": "Mirvat",
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "",
+      "koboName": "ميشل سكروج",
+      "displayName": "ميشيل سكروج",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "",
+      "koboName": "ميشيل سكروج",
+      "displayName": "ميشيل سكروج",
+      "localUserName": null,
+      "ignored": 0
+    },
+    {
+      "database": "hcsyria_micro_w",
+      "formUid": "",
+      "koboName": "ميشو سكروج",
+      "displayName": "ميشيل سكروج",
+      "localUserName": null,
+      "ignored": 0
+    }
+  ]
+}

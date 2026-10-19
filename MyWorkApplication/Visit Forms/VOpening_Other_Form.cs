@@ -27,6 +27,7 @@ namespace MyWorkApplication.Visit_Forms
         private Visit v;
         private User user;
         private DataTable Visit_Users_dt;
+        private bool koboVisitorNames;
         private readonly List<int> User_IDs = new List<int>();
         private bool mevisits_generated = false;
         private string Type;
@@ -271,9 +272,10 @@ namespace MyWorkApplication.Visit_Forms
                         V1_comboBox.SelectedIndex = V2_comboBox.SelectedIndex =
                             V3_comboBox.SelectedIndex = V4_comboBox.SelectedIndex = -1;
 
+                        ResetKoboVisitors();
                         Visit_Users_dt = v.Get_Visit_Users(V_ID);
                         if (Visit_Users_dt.Rows.Count != 0)
-                            for (var i = 0; i < Visit_Users_dt.Rows.Count; i++)
+                            for (var i = 0; i < Visit_Users_dt.Rows.Count && i < 4; i++)
                             {
                                 var u_id = Visit_Users_dt.Rows[i].Field<int>(0);
                                 var V = "V";
@@ -282,6 +284,8 @@ namespace MyWorkApplication.Visit_Forms
                                 var cbx = Controls.Find(fullName, true).FirstOrDefault() as ComboBox;
                                 cbx.SelectedValue = u_id;
                             }
+                        koboVisitorNames = KoboVisitVisitorDisplay.Bind(V_ID,
+                            V1_comboBox, V2_comboBox, V3_comboBox, V4_comboBox);
                     }
                 }
             }
@@ -673,33 +677,34 @@ namespace MyWorkApplication.Visit_Forms
                         , get_office_radioButtons_values(5), get_office_radioButtons_values(6));
 
                     //remove all users of this visit from database
-                    v.Delete_Visit_Users(V_ID);
+                    if (!koboVisitorNames)
+                        v.Delete_Visit_Users(V_ID);
                 }
 
                 var users_of_visit = "";
                 //check user comboBoxs and insert
-                if (V1_comboBox.Text != "")
+                if (!koboVisitorNames && V1_comboBox.Text != "")
                 {
                     User_ID = Convert.ToInt32(V1_comboBox.SelectedValue);
                     v.Insert_Visit_User(V_ID, User_ID);
                     users_of_visit += V1_comboBox.Text + " ";
                 }
 
-                if (V2_comboBox.Text != "")
+                if (!koboVisitorNames && V2_comboBox.Text != "")
                 {
                     User_ID = Convert.ToInt32(V2_comboBox.SelectedValue);
                     v.Insert_Visit_User(V_ID, User_ID);
                     users_of_visit += V2_comboBox.Text + " ";
                 }
 
-                if (V3_comboBox.Text != "")
+                if (!koboVisitorNames && V3_comboBox.Text != "")
                 {
                     User_ID = Convert.ToInt32(V3_comboBox.SelectedValue);
                     v.Insert_Visit_User(V_ID, User_ID);
                     users_of_visit += V3_comboBox.Text + " ";
                 }
 
-                if (V4_comboBox.Text != "")
+                if (!koboVisitorNames && V4_comboBox.Text != "")
                 {
                     User_ID = Convert.ToInt32(V4_comboBox.SelectedValue);
                     v.Insert_Visit_User(V_ID, User_ID);
@@ -781,8 +786,21 @@ namespace MyWorkApplication.Visit_Forms
             }
         }
 
+        private void ResetKoboVisitors()
+        {
+            if (!koboVisitorNames)
+                return;
+            foreach (ComboBox control in new ComboBox[] { V1_comboBox, V2_comboBox, V3_comboBox, V4_comboBox })
+            {
+                users_bind(control);
+                control.Enabled = true;
+            }
+            koboVisitorNames = false;
+        }
+
         private void clear_Visit_boxes(int j)
         {
+            ResetKoboVisitors();
             V_ID = -1;
 
             V1_comboBox.Text = V2_comboBox.Text = V3_comboBox.Text = V4_comboBox.Text = Place_Note_textBox.Text = "";
