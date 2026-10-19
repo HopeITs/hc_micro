@@ -103,7 +103,23 @@ namespace MyWorkApplication.Classes
 
             result.AfterSyncCount = koboSubmission.Count_Active_Submissions_For_Current_Database();
             Import_Opening_Visits(result);
+            Import_Monitoring_Visits(result);
             return result;
+        }
+
+        private void Import_Monitoring_Visits(KoboSyncResult result)
+        {
+            try
+            {
+                KoboLocalVisitImportResult imported = new KoboMonitoringImporter().Import();
+                result.ErrorCount += imported.ErrorCount;
+                if (!string.IsNullOrWhiteSpace(imported.ErrorMessages)) AddError(result, imported.ErrorMessages);
+            }
+            catch (Exception ex)
+            {
+                result.ErrorCount++;
+                AddError(result, "M&E local import: " + ex.Message);
+            }
         }
 
         private void Import_Opening_Visits(KoboSyncResult result)

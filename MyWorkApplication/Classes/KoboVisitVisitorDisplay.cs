@@ -9,6 +9,31 @@ namespace MyWorkApplication.Classes
     {
         public static bool Bind(int visitId, params ComboBox[] controls)
         {
+            return BindTable(visitId, "visit", controls);
+        }
+
+        public static bool BindMonitoring(int visitId, TextBox notes, params ComboBox[] controls)
+        {
+            using (MySqlConnection connection = new MySqlConnection(Program.ConnectionString))
+            using (MySqlCommand command = new MySqlCommand(@"SELECT Raw_JSON FROM kobo_submission
+WHERE Local_Table_Name = 'mevisit' AND Local_Record_ID = @id
+ORDER BY Kobo_Submission_Time DESC, ID DESC LIMIT 1", connection))
+            {
+                connection.Open();
+                command.Parameters.AddWithValue("@id", visitId);
+                object raw;
+                try { raw = command.ExecuteScalar(); }
+                catch (MySqlException ex) { if (ex.Number == 1146) return false; throw; }
+                if (raw == null || raw == DBNull.Value) return false;
+                notes.Text = KoboMonitoringImporter.ParseSubmission(raw.ToString()).ToString();
+                notes.ReadOnly = true;
+            }
+            BindTable(visitId, "mevisit", controls);
+            return true;
+        }
+
+        private static bool BindTable(int visitId, string table, ComboBox[] controls)
+        {
             List<string> names = new List<string>();
             using (MySqlConnection connection = new MySqlConnection(Program.ConnectionString))
             {
@@ -17,14 +42,15 @@ namespace MyWorkApplication.Classes
 FROM `kobo_visit_visitor` v
 WHERE v.`Submission_ID` = (
   SELECT s.`ID` FROM `kobo_submission` s
-  WHERE s.`Local_Table_Name` = 'visit' AND s.`Local_Record_ID` = @Visit_ID
-    AND s.`Kobo_Is_Deleted` = 0
+  WHERE s.`Local_Table_Name` = @Table AND s.`Local_Record_ID` = @Visit_ID
+    AND (s.`Kobo_Is_Deleted` = 0 OR @Table = 'mevisit')
     AND EXISTS (SELECT 1 FROM `kobo_visit_visitor` names WHERE names.`Submission_ID` = s.`ID`)
   ORDER BY s.`Kobo_Submission_Time` DESC, s.`ID` DESC LIMIT 1
 )
 ORDER BY v.`Visitor_Order`", connection))
                 {
                     command.Parameters.AddWithValue("@Visit_ID", visitId);
+                    command.Parameters.AddWithValue("@Table", table);
                     try
                     {
                         using (MySqlDataReader reader = command.ExecuteReader())

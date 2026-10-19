@@ -32,6 +32,8 @@ namespace MyWorkApplication.Visit_Forms
         private bool Update_Mood;
         private string V_Num;
         private DataTable Visit_Users_dt;
+        private bool koboReadOnly;
+        private bool saveWasEnabled, deleteWasEnabled;
 
         public V_ME_Other_Form(MainForm mainForm)
         {
@@ -214,6 +216,7 @@ namespace MyWorkApplication.Visit_Forms
 
         private void Save_button_Click(object sender, EventArgs e)
         {
+            if (koboReadOnly) return;
             try
             {
                 CheckUserPermission();
@@ -402,6 +405,7 @@ namespace MyWorkApplication.Visit_Forms
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
+            if (koboReadOnly) return;
             try
             {
                 CheckUserPermission();
@@ -457,6 +461,16 @@ namespace MyWorkApplication.Visit_Forms
 
         private void clear_Visit_boxes(int j)
         {
+            if (koboReadOnly)
+            {
+                users_bind(V1_comboBox);
+                users_bind(V2_comboBox);
+                V1_comboBox.Enabled = V2_comboBox.Enabled = true;
+                Notes_textBox.ReadOnly = false;
+                Save_button.Enabled = saveWasEnabled;
+                Delete_button.Enabled = deleteWasEnabled;
+                koboReadOnly = false;
+            }
             V_ID = -1;
             SelectedDataRow = null;
 
@@ -533,6 +547,18 @@ namespace MyWorkApplication.Visit_Forms
                     Notes_textBox.Text = (string)dt.Rows[0]["Notes"];
 
                     Visit_Num_textBox.Text = dt.Rows[0]["Number"].ToString();
+                    if (KoboVisitVisitorDisplay.BindMonitoring(V_ID, Notes_textBox, V1_comboBox, V2_comboBox))
+                    {
+                        if (!koboReadOnly)
+                        {
+                            saveWasEnabled = Save_button.Enabled;
+                            deleteWasEnabled = Delete_button.Enabled;
+                        }
+                        koboReadOnly = true;
+                        Save_button.Enabled = Delete_button.Enabled = false;
+                        Profit_textBox.Text = "";
+                        return;
+                    }
 
                     ///////////////////////////////////////////////////////////////////
                     // fill answers of questions // 

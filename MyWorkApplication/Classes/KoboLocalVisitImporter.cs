@@ -242,7 +242,7 @@ WHERE `ID` = @ID AND NOT (`Date` <=> @Date AND `VehicleNumber` <=> @VehicleNumbe
                 Parameter("@Edited_By", KoboCreatedBy));
         }
 
-        private void SaveVisitorNames(MySqlConnection connection, MySqlTransaction transaction,
+        internal void SaveVisitorNames(MySqlConnection connection, MySqlTransaction transaction,
             int submissionId, List<KoboVisitVisitor> visitors)
         {
             DataTable existing = new DataTable();

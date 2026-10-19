@@ -1,0 +1,152 @@
+[
+  {
+    "database": "hcsyria_micro",
+    "uid": "ay2c9afff5StTkQdneHHUS",
+    "field": "__010",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro",
+    "uid": "a3BwzyULUpD3P8jh9B8ADn",
+    "field": "vist_no",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro",
+    "uid": "ai6SnMT3dqZAEELCfesSqp",
+    "field": "vist_",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro",
+    "uid": "aDGPm94uwS7HYk4LcG46oh",
+    "field": "",
+    "fixedStage": 4
+  },
+  {
+    "database": "hcsyria_micro",
+    "uid": "aL3TGhp5wAhuPseTMhEksd",
+    "field": "",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro",
+    "uid": "aRwMM45vMjfL7Y5jSYnVsD",
+    "field": "",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro_d",
+    "uid": "aFqwLzjDcQ4gczMdfUaXNq",
+    "field": "__010",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro_d",
+    "uid": "atB8PhFWVmYQskk5rNnehB",
+    "field": "vist_no",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro_d",
+    "uid": "aZzfVwdN9sFyBCWDzBVqaU",
+    "field": "vist_",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro_d",
+    "uid": "aYCc7VCGeP77BE9zUTMceV",
+    "field": "",
+    "fixedStage": 4
+  },
+  {
+    "database": "hcsyria_micro_h",
+    "uid": "ayz6LYxMSyePXdfs27cJja",
+    "field": "__010",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro_h",
+    "uid": "acHufLsXu5jQQscMhtyeLt",
+    "field": "vist_no",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro_h",
+    "uid": "aj4fsVSAoDQDtpt4act3mP",
+    "field": "vist_",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro_h",
+    "uid": "a3DSoAPvHiuEuXzPbVPaJD",
+    "field": "",
+    "fixedStage": 4
+  },
+  {
+    "database": "hcsyria_micro_h",
+    "uid": "aBk3WrFmRbWuZrPgU3Jcya",
+    "field": "",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro_h",
+    "uid": "akPJmrm2KVbs4LoKzYF623",
+    "field": "",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro_l",
+    "uid": "a9yjLmEjdpvxcSuUzbEu3m",
+    "field": "vist_no",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro_l",
+    "uid": "aMdK7mGpanWHyF39Reu498",
+    "field": "vist_",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro_l",
+    "uid": "a4bFkLTC2iRwht3vkTdbuo",
+    "field": "",
+    "fixedStage": 4
+  },
+  {
+    "database": "hcsyria_micro_w",
+    "uid": "aRwLqiUq5LKhjF4bWH4tcp",
+    "field": "__010",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro_w",
+    "uid": "aZjS5bHmMPARXPRp5Hbr5d",
+    "field": "vist_no",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro_w",
+    "uid": "arvdKcen8mFrYkYcWKYRmJ",
+    "field": "vist_",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro_w",
+    "uid": "aLiFSfoPAHBjFQRD7eswrL",
+    "field": "",
+    "fixedStage": 4
+  },
+  {
+    "database": "hcsyria_micro_w",
+    "uid": "aqN95K2Zoja2iywSYXfqQT",
+    "field": "",
+    "fixedStage": null
+  },
+  {
+    "database": "hcsyria_micro_w",
+    "uid": "ajYnR9RaUjDb9GSFPbWa25",
+    "field": "",
+    "fixedStage": null
+  }
+]

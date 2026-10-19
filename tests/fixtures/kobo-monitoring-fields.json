@@ -1,0 +1,1595 @@
+[
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro",
+    "stageField": "vist_no",
+    "uid": "a3BwzyULUpD3P8jh9B8ADn",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "__003",
+        "path": "group_mo5jr41/__003",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "سيمون حجل ",
+            "code": "Simon"
+          },
+          {
+            "label": "كابي دايخ",
+            "code": "kabi"
+          },
+          {
+            "label": "كلوديت كيروز",
+            "code": "Cloud"
+          },
+          {
+            "label": "فادي بغدصار",
+            "code": "Fadi"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "No_comp"
+          }
+        ],
+        "label": " المرافقين ",
+        "name": "__006",
+        "path": "group_mo5jr41/__006",
+        "type": "select_one vo2li17"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "__007",
+        "path": "group_mo5jr41/__007",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": 4,
+    "database": "hcsyria_micro",
+    "stageField": "",
+    "uid": "aDGPm94uwS7HYk4LcG46oh",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "سيمون حجل ",
+            "code": "Simon"
+          },
+          {
+            "label": "كابي دايخ",
+            "code": "Kabi"
+          },
+          {
+            "label": "كلوديت كيروز",
+            "code": "Cloud"
+          },
+          {
+            "label": "فادي بغدصار",
+            "code": "Fadi"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "No_comp"
+          }
+        ],
+        "label": " المرافقين ",
+        "name": "select_one_vt8tw79",
+        "path": "group_mo5jr41/select_one_vt8tw79",
+        "type": "select_one vo2li17"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro",
+    "stageField": "vist_",
+    "uid": "ai6SnMT3dqZAEELCfesSqp",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "سيمون حجل ",
+            "code": "Smon"
+          },
+          {
+            "label": "كابي دايخ",
+            "code": "Kabi"
+          },
+          {
+            "label": "كلوديت كيروز",
+            "code": "Cloud"
+          },
+          {
+            "label": "فادي بغدصار ",
+            "code": "Fadi"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "NO_comp"
+          }
+        ],
+        "label": " المرافقين ",
+        "name": "select_one_vt8tw79",
+        "path": "group_mo5jr41/select_one_vt8tw79",
+        "type": "select_one vo2li17"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro",
+    "stageField": "",
+    "uid": "aL3TGhp5wAhuPseTMhEksd",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "سيمون حجل ",
+            "code": "Simon"
+          },
+          {
+            "label": "كابي دايخ",
+            "code": "kabi"
+          },
+          {
+            "label": "كلوديت كيروز",
+            "code": "Cloud"
+          },
+          {
+            "label": "فادي بغدصار ",
+            "code": "Fadi"
+          },
+          {
+            "label": "فادي دباغ",
+            "code": "dabbagh"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "No_compa"
+          }
+        ],
+        "label": " المرافقين ",
+        "name": "select_one_vt8tw79",
+        "path": "group_mo5jr41/select_one_vt8tw79",
+        "type": "select_one vo2li17"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      },
+      {
+        "choices": [],
+        "label": "هل أنتجت الأرض المحصول أو الثمار المتوقعة لهذا الموسم حتى الآن؟",
+        "name": "production_achieved",
+        "path": "production_data/production_achieved",
+        "type": "select_one yes_no"
+      },
+      {
+        "choices": [],
+        "label": "ما هو السبب الرئيسي لعدم الإنتاج؟",
+        "name": "no_production_cause",
+        "path": "production_data/no_production_cause",
+        "type": "select_one no_prod_reason"
+      },
+      {
+        "choices": [],
+        "label": "تفاصيل الإنتاج (يضاف لكل صنف منتج)",
+        "name": "production_repeat",
+        "path": "production_data/production_repeat",
+        "type": "begin_repeat"
+      },
+      {
+        "choices": [],
+        "label": "كمية الإنتاج الكلية (كغ):",
+        "name": "total_production_kg",
+        "path": "production_data/total_production_kg",
+        "type": "integer"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro",
+    "stageField": "",
+    "uid": "aRwMM45vMjfL7Y5jSYnVsD",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "سيمون حجل ",
+            "code": "Simon"
+          },
+          {
+            "label": "كابي دايخ",
+            "code": "kabi"
+          },
+          {
+            "label": "كلوديت كيروز",
+            "code": "Cloud"
+          },
+          {
+            "label": "فادي بغدصار ",
+            "code": "Fadi"
+          },
+          {
+            "label": "فادي دباغ",
+            "code": "dabbagh"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "No_compa"
+          }
+        ],
+        "label": " المرافقين ",
+        "name": "select_one_vt8tw79",
+        "path": "group_mo5jr41/select_one_vt8tw79",
+        "type": "select_one vo2li17"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      },
+      {
+        "choices": [],
+        "label": "هل بدأ الإنتاج (حليب، بيض، عسل، مواليد جديدة)؟",
+        "name": "production_started",
+        "path": "production_data/production_started",
+        "type": "select_one yes_no"
+      },
+      {
+        "choices": [],
+        "label": "تفاصيل الإنتاج اليومي/الدوري",
+        "name": "production_repeat",
+        "path": "production_data/production_repeat",
+        "type": "begin_repeat"
+      },
+      {
+        "choices": [],
+        "label": "كمية الإنتاج الكلية:",
+        "name": "total_prod_qty",
+        "path": "production_data/total_prod_qty",
+        "type": "integer"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro",
+    "stageField": "__010",
+    "uid": "ay2c9afff5StTkQdneHHUS",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "سيمون حجل ",
+            "code": "Simon"
+          },
+          {
+            "label": "كابي دايخ",
+            "code": "kabi"
+          },
+          {
+            "label": "كلوديت كيروز",
+            "code": "Cloud"
+          },
+          {
+            "label": "فادي بغدصار",
+            "code": "Fadi"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "No_comp"
+          }
+        ],
+        "label": " المرافقين ",
+        "name": "select_one_vt8tw79",
+        "path": "group_mo5jr41/select_one_vt8tw79",
+        "type": "select_one vo2li17"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro_d",
+    "stageField": "__010",
+    "uid": "aFqwLzjDcQ4gczMdfUaXNq",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "إيهاب حداد",
+            "code": "nameD_01"
+          },
+          {
+            "label": "جليل ثعلب",
+            "code": "nameD_02"
+          },
+          {
+            "label": "روان مقصود",
+            "code": "nameD_03"
+          },
+          {
+            "label": "سامر أبو عراج",
+            "code": "nameD_04"
+          },
+          {
+            "label": "ساندرا جريج",
+            "code": "nameD_05"
+          },
+          {
+            "label": "عمران الناصر",
+            "code": "nameD_06"
+          },
+          {
+            "label": "نور الظواهر",
+            "code": "nameD_07"
+          },
+          {
+            "label": "ميريل حنا ",
+            "code": "nameD_08"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "____"
+          }
+        ],
+        "label": "مرافقين ",
+        "name": "select_one_ms1dv75",
+        "path": "group_mo5jr41/select_one_ms1dv75",
+        "type": "select_one Names_D"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro_d",
+    "stageField": "vist_no",
+    "uid": "atB8PhFWVmYQskk5rNnehB",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "__003",
+        "path": "group_mo5jr41/__003",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "إيهاب حداد",
+            "code": "nameD_01"
+          },
+          {
+            "label": "جليل ثعلب",
+            "code": "nameD_02"
+          },
+          {
+            "label": "روان مقصود",
+            "code": "nameD_03"
+          },
+          {
+            "label": "سامر أبو عراج",
+            "code": "nameD_04"
+          },
+          {
+            "label": "ساندرا جريج",
+            "code": "nameD_05"
+          },
+          {
+            "label": "عمران الناصر",
+            "code": "nameD_06"
+          },
+          {
+            "label": "نور الظواهر",
+            "code": "nameD_07"
+          },
+          {
+            "label": "ميريل حنا ",
+            "code": "nameD_09"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "____"
+          }
+        ],
+        "label": "مرافقين ",
+        "name": "__006",
+        "path": "group_mo5jr41/__006",
+        "type": "select_one Names_D"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "__007",
+        "path": "group_mo5jr41/__007",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": 4,
+    "database": "hcsyria_micro_d",
+    "stageField": "",
+    "uid": "aYCc7VCGeP77BE9zUTMceV",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "إيهاب حداد",
+            "code": "nameD_01"
+          },
+          {
+            "label": "جليل ثعلب",
+            "code": "nameD_02"
+          },
+          {
+            "label": "روان مقصود",
+            "code": "nameD_03"
+          },
+          {
+            "label": "سامر أبو عراج",
+            "code": "nameD_04"
+          },
+          {
+            "label": "ساندرا جريج",
+            "code": "nameD_05"
+          },
+          {
+            "label": "عمران الناصر",
+            "code": "nameD_06"
+          },
+          {
+            "label": "نور الظواهر",
+            "code": "nameD_07"
+          },
+          {
+            "label": "ميريل حنا ",
+            "code": "nameD_08"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "____"
+          }
+        ],
+        "label": "مرافقين ",
+        "name": "select_one_ms1dv75",
+        "path": "group_mo5jr41/select_one_ms1dv75",
+        "type": "select_one Names_D"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro_d",
+    "stageField": "vist_",
+    "uid": "aZzfVwdN9sFyBCWDzBVqaU",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "إيهاب حداد",
+            "code": "nameD_01"
+          },
+          {
+            "label": "جليل ثعلب",
+            "code": "nameD_02"
+          },
+          {
+            "label": "روان مقصود",
+            "code": "nameD_03"
+          },
+          {
+            "label": "سامر أبو عراج",
+            "code": "nameD_04"
+          },
+          {
+            "label": "ساندرا جريج",
+            "code": "nameD_05"
+          },
+          {
+            "label": "عمران الناصر",
+            "code": "nameD_06"
+          },
+          {
+            "label": "نور الظواهر",
+            "code": "nameD_07"
+          },
+          {
+            "label": "ميريل حنا ",
+            "code": "nameD_08"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "____"
+          }
+        ],
+        "label": "مرافقين ",
+        "name": "select_one_ms1dv75",
+        "path": "group_mo5jr41/select_one_ms1dv75",
+        "type": "select_one Names_D"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": 4,
+    "database": "hcsyria_micro_h",
+    "stageField": "",
+    "uid": "a3DSoAPvHiuEuXzPbVPaJD",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "بانا زينون",
+            "code": "nameH_01"
+          },
+          {
+            "label": "طوني عازار",
+            "code": "nameH_02"
+          },
+          {
+            "label": "فادي الزغريني",
+            "code": "nameH_03"
+          },
+          {
+            "label": "فارس اخرس",
+            "code": "nameH_04"
+          },
+          {
+            "label": "فوزي طعمه",
+            "code": "nameH_05"
+          },
+          {
+            "label": "ميرنا حارس",
+            "code": "nameH_06"
+          },
+          {
+            "label": "ندى بربر",
+            "code": "nameH_07"
+          },
+          {
+            "label": "هاشم الطحش",
+            "code": "nameH_09"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "____"
+          },
+          {
+            "label": "Option 11",
+            "code": "option_11"
+          }
+        ],
+        "label": "مرافقين ",
+        "name": "select_one_nj2ys51",
+        "path": "group_mo5jr41/select_one_nj2ys51",
+        "type": "select_one Names_H"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro_h",
+    "stageField": "",
+    "uid": "aBk3WrFmRbWuZrPgU3Jcya",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "بانا زينون",
+            "code": "nameH_01"
+          },
+          {
+            "label": "طوني عازار",
+            "code": "nameH_02"
+          },
+          {
+            "label": "فادي الزغريني",
+            "code": "nameH_03"
+          },
+          {
+            "label": "فارس اخرس",
+            "code": "nameH_04"
+          },
+          {
+            "label": "فوزي طعمه",
+            "code": "nameH_05"
+          },
+          {
+            "label": "ميرنا حارس",
+            "code": "nameH_06"
+          },
+          {
+            "label": "ندى بربر",
+            "code": "nameH_07"
+          },
+          {
+            "label": "هاشم الطحش",
+            "code": "nameH_010"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "____"
+          }
+        ],
+        "label": "المرافقين",
+        "name": "select_one_nj2ys51",
+        "path": "group_mo5jr41/select_one_nj2ys51",
+        "type": "select_one Names_H"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      },
+      {
+        "choices": [],
+        "label": "هل أنتجت الأرض المحصول أو الثمار المتوقعة لهذا الموسم حتى الآن؟",
+        "name": "production_achieved",
+        "path": "production_data/production_achieved",
+        "type": "select_one yes_no"
+      },
+      {
+        "choices": [],
+        "label": "ما هو السبب الرئيسي لعدم الإنتاج؟",
+        "name": "no_production_cause",
+        "path": "production_data/no_production_cause",
+        "type": "select_one no_prod_reason"
+      },
+      {
+        "choices": [],
+        "label": "تفاصيل الإنتاج (يضاف لكل صنف منتج)",
+        "name": "production_repeat",
+        "path": "production_data/production_repeat",
+        "type": "begin_repeat"
+      },
+      {
+        "choices": [],
+        "label": "كمية الإنتاج الكلية (كغ):",
+        "name": "total_production_kg",
+        "path": "production_data/total_production_kg",
+        "type": "integer"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro_h",
+    "stageField": "vist_no",
+    "uid": "acHufLsXu5jQQscMhtyeLt",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "__003",
+        "path": "group_mo5jr41/__003",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "بانا زينون",
+            "code": "nameH_01"
+          },
+          {
+            "label": "طوني عازار",
+            "code": "nameH_02"
+          },
+          {
+            "label": "فادي الزغريني",
+            "code": "nameH_03"
+          },
+          {
+            "label": "فارس اخرس",
+            "code": "nameH_04"
+          },
+          {
+            "label": "فوزي طعمه",
+            "code": "nameH_05"
+          },
+          {
+            "label": "ميرنا حارس",
+            "code": "nameH_06"
+          },
+          {
+            "label": "ندى بربر",
+            "code": "nameH_07"
+          },
+          {
+            "label": "هاشم الطحش",
+            "code": "nameH_010"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "____"
+          }
+        ],
+        "label": "مرافقين ",
+        "name": "__006",
+        "path": "group_mo5jr41/__006",
+        "type": "select_one Names_H"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "__007",
+        "path": "group_mo5jr41/__007",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro_h",
+    "stageField": "vist_",
+    "uid": "aj4fsVSAoDQDtpt4act3mP",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "بانا زينون",
+            "code": "nameH_01"
+          },
+          {
+            "label": "طوني عازار",
+            "code": "nameH_02"
+          },
+          {
+            "label": "فادي الزغريني",
+            "code": "nameH_03"
+          },
+          {
+            "label": "فارس اخرس",
+            "code": "nameH_04"
+          },
+          {
+            "label": "فوزي طعمه",
+            "code": "nameH_05"
+          },
+          {
+            "label": "ميرنا حارس",
+            "code": "nameH_06"
+          },
+          {
+            "label": "ندى بربر",
+            "code": "nameH_07"
+          },
+          {
+            "label": "هاشم الطحش ",
+            "code": "nameH_09"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "____"
+          }
+        ],
+        "label": "مرافقين ",
+        "name": "select_one_nj2ys51",
+        "path": "group_mo5jr41/select_one_nj2ys51",
+        "type": "select_one Names_H"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro_h",
+    "stageField": "",
+    "uid": "akPJmrm2KVbs4LoKzYF623",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "بانا زينون",
+            "code": "nameH_01"
+          },
+          {
+            "label": "طوني عازار",
+            "code": "nameH_02"
+          },
+          {
+            "label": "فادي الزغريني",
+            "code": "nameH_03"
+          },
+          {
+            "label": "فارس اخرس",
+            "code": "nameH_04"
+          },
+          {
+            "label": "فوزي طعمه",
+            "code": "nameH_05"
+          },
+          {
+            "label": "ميرنا حارس",
+            "code": "nameH_06"
+          },
+          {
+            "label": "ندى بربر",
+            "code": "nameH_07"
+          },
+          {
+            "label": "هاشم الطحش",
+            "code": "nameH_010"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "____"
+          }
+        ],
+        "label": "المرافقين",
+        "name": "select_one_nj2ys51",
+        "path": "group_mo5jr41/select_one_nj2ys51",
+        "type": "select_one Names_H"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      },
+      {
+        "choices": [],
+        "label": "هل بدأ الإنتاج (حليب، بيض، عسل، مواليد جديدة)؟",
+        "name": "production_started",
+        "path": "production_data/production_started",
+        "type": "select_one yes_no"
+      },
+      {
+        "choices": [],
+        "label": "تفاصيل الإنتاج اليومي/الدوري",
+        "name": "production_repeat",
+        "path": "production_data/production_repeat",
+        "type": "begin_repeat"
+      },
+      {
+        "choices": [],
+        "label": "كمية الإنتاج الكلية:",
+        "name": "total_prod_qty",
+        "path": "production_data/total_prod_qty",
+        "type": "integer"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro_h",
+    "stageField": "__010",
+    "uid": "ayz6LYxMSyePXdfs27cJja",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "بانا زينون",
+            "code": "nameH_01"
+          },
+          {
+            "label": "طوني عازار",
+            "code": "nameH_02"
+          },
+          {
+            "label": "فادي الزغريني",
+            "code": "nameH_03"
+          },
+          {
+            "label": "فارس اخرس",
+            "code": "nameH_04"
+          },
+          {
+            "label": "فوزي طعمه",
+            "code": "nameH_05"
+          },
+          {
+            "label": "ميرنا حارس",
+            "code": "nameH_06"
+          },
+          {
+            "label": "ندى بربر",
+            "code": "nameH_07"
+          },
+          {
+            "label": "هاشم الطحش ",
+            "code": "nameH_010"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "____"
+          }
+        ],
+        "label": "مرافقين ",
+        "name": "select_one_nj2ys51",
+        "path": "group_mo5jr41/select_one_nj2ys51",
+        "type": "select_one Names_H"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": 4,
+    "database": "hcsyria_micro_l",
+    "stageField": "",
+    "uid": "a4bFkLTC2iRwht3vkTdbuo",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "سيلين خوري",
+            "code": "nameL_02"
+          },
+          {
+            "label": "آنا جبور",
+            "code": "nameL_04"
+          },
+          {
+            "label": "ميريل سعود",
+            "code": "nameL_05"
+          },
+          {
+            "label": "عيسى عبدوش",
+            "code": "nameL_06"
+          },
+          {
+            "label": "عبدالله جبور ",
+            "code": "nameL_07"
+          },
+          {
+            "label": "أدونيس مواس ",
+            "code": "nameL_09"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "nameL_00"
+          }
+        ],
+        "label": "مرافقين - الاذقية",
+        "name": "select_one_ic7gu52",
+        "path": "group_mo5jr41/select_one_ic7gu52",
+        "type": "select_one Names_L"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro_l",
+    "stageField": "vist_no",
+    "uid": "a9yjLmEjdpvxcSuUzbEu3m",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "__003",
+        "path": "group_mo5jr41/__003",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "سيلين خوري",
+            "code": "nameL_02"
+          },
+          {
+            "label": "آنا جبور",
+            "code": "nameL_04"
+          },
+          {
+            "label": "ميريل سعود",
+            "code": "nameL_05"
+          },
+          {
+            "label": "عيسى عبدوش",
+            "code": "nameL_06"
+          },
+          {
+            "label": "عبدالله جبور ",
+            "code": "nameL_07"
+          },
+          {
+            "label": "ادونيس مواس ",
+            "code": "nameL_08"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "nameL_00"
+          }
+        ],
+        "label": "مرافقين ",
+        "name": "__006",
+        "path": "group_mo5jr41/__006",
+        "type": "select_one Names_L"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "__007",
+        "path": "group_mo5jr41/__007",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro_l",
+    "stageField": "vist_",
+    "uid": "aMdK7mGpanWHyF39Reu498",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "سيلين خوري",
+            "code": "nameL_02"
+          },
+          {
+            "label": "آنا جبور",
+            "code": "nameL_04"
+          },
+          {
+            "label": "ميريل سعود",
+            "code": "nameL_05"
+          },
+          {
+            "label": "عيسى عبدوش",
+            "code": "nameL_06"
+          },
+          {
+            "label": "عبدالله جبور",
+            "code": "nameL_07"
+          },
+          {
+            "label": "أدونيس مواس ",
+            "code": "nameL_08"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "nameL_00"
+          }
+        ],
+        "label": "مرافقين - الاذقية",
+        "name": "select_one_ic7gu52",
+        "path": "group_mo5jr41/select_one_ic7gu52",
+        "type": "select_one Names_L"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro_w",
+    "stageField": "",
+    "uid": "ajYnR9RaUjDb9GSFPbWa25",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "طوني وسوف",
+            "code": "nameW_01"
+          },
+          {
+            "label": "مارسيل سليمان",
+            "code": "nameW_02"
+          },
+          {
+            "label": "هبة يازجي ",
+            "code": "nameW_04"
+          },
+          {
+            "label": "طارق كرم ",
+            "code": "nameW_05"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "nameW_00"
+          }
+        ],
+        "label": "المرافقين",
+        "name": "select_one_bs4vl84",
+        "path": "group_mo5jr41/select_one_bs4vl84",
+        "type": "select_one Names_W"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      },
+      {
+        "choices": [],
+        "label": "هل بدأ الإنتاج (حليب، بيض، عسل، مواليد جديدة)؟",
+        "name": "production_started",
+        "path": "production_data/production_started",
+        "type": "select_one yes_no"
+      },
+      {
+        "choices": [],
+        "label": "تفاصيل الإنتاج اليومي/الدوري",
+        "name": "production_repeat",
+        "path": "production_data/production_repeat",
+        "type": "begin_repeat"
+      },
+      {
+        "choices": [],
+        "label": "كمية الإنتاج الكلية:",
+        "name": "total_prod_qty",
+        "path": "production_data/total_prod_qty",
+        "type": "integer"
+      }
+    ]
+  },
+  {
+    "fixedStage": 4,
+    "database": "hcsyria_micro_w",
+    "stageField": "",
+    "uid": "aLiFSfoPAHBjFQRD7eswrL",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "طوني وسوف",
+            "code": "nameW_01"
+          },
+          {
+            "label": "مارسيل سليمان",
+            "code": "nameW_02"
+          },
+          {
+            "label": "هبة يازجي",
+            "code": "nameW_03"
+          },
+          {
+            "label": "طارق كرم ",
+            "code": "nameW_05"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "nameW_00"
+          }
+        ],
+        "label": "مرافقين ",
+        "name": "select_one_bs4vl84",
+        "path": "group_mo5jr41/select_one_bs4vl84",
+        "type": "select_one Names_W"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro_w",
+    "stageField": "",
+    "uid": "aqN95K2Zoja2iywSYXfqQT",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "طوني وسوف",
+            "code": "nameW_01"
+          },
+          {
+            "label": "مارسيل سليمان",
+            "code": "nameW_02"
+          },
+          {
+            "label": "هبة يازجي ",
+            "code": "nameW_04"
+          },
+          {
+            "label": "طارق كرم ",
+            "code": "nameW_05"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "nameW_00"
+          }
+        ],
+        "label": "مرافقين ",
+        "name": "select_one_bs4vl84",
+        "path": "group_mo5jr41/select_one_bs4vl84",
+        "type": "select_one Names_W"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      },
+      {
+        "choices": [],
+        "label": "هل أنتجت الأرض المحصول أو الثمار المتوقعة لهذا الموسم حتى الآن؟",
+        "name": "production_achieved",
+        "path": "production_data/production_achieved",
+        "type": "select_one yes_no"
+      },
+      {
+        "choices": [],
+        "label": "ما هو السبب الرئيسي لعدم الإنتاج؟",
+        "name": "no_production_cause",
+        "path": "production_data/no_production_cause",
+        "type": "select_one no_prod_reason"
+      },
+      {
+        "choices": [],
+        "label": "تفاصيل الإنتاج (يضاف لكل صنف منتج)",
+        "name": "production_repeat",
+        "path": "production_data/production_repeat",
+        "type": "begin_repeat"
+      },
+      {
+        "choices": [],
+        "label": "كمية الإنتاج الكلية (كغ):",
+        "name": "total_production_kg",
+        "path": "production_data/total_production_kg",
+        "type": "integer"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro_w",
+    "stageField": "vist_",
+    "uid": "arvdKcen8mFrYkYcWKYRmJ",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "طوني وسوف",
+            "code": "nameW_01"
+          },
+          {
+            "label": "مارسيل سليمان",
+            "code": "nameW_02"
+          },
+          {
+            "label": "هبة يازجي",
+            "code": "nameW_03"
+          },
+          {
+            "label": "طارق كرم ",
+            "code": "nameW_05"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "nameW_00"
+          }
+        ],
+        "label": "مرافقين - الوادي ",
+        "name": "select_one_bs4vl84",
+        "path": "group_mo5jr41/select_one_bs4vl84",
+        "type": "select_one Names_W"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro_w",
+    "stageField": "__010",
+    "uid": "aRwLqiUq5LKhjF4bWH4tcp",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "text_fw08u96",
+        "path": "group_mo5jr41/text_fw08u96",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "طوني وسوف",
+            "code": "nameW_01"
+          },
+          {
+            "label": "مارسيل سليمان",
+            "code": "nameW_02"
+          },
+          {
+            "label": "هبة يازجي ",
+            "code": "nameW_03"
+          },
+          {
+            "label": "طارق كرم ",
+            "code": "nameW_05"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "nameW_00"
+          }
+        ],
+        "label": "مرافقين ",
+        "name": "select_one_bs4vl84",
+        "path": "group_mo5jr41/select_one_bs4vl84",
+        "type": "select_one Names_W"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "text_xt6wd52",
+        "path": "group_mo5jr41/text_xt6wd52",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "fixedStage": null,
+    "database": "hcsyria_micro_w",
+    "stageField": "vist_no",
+    "uid": "aZjS5bHmMPARXPRp5Hbr5d",
+    "fields": [
+      {
+        "choices": [],
+        "label": "رقم المشروع",
+        "name": "__003",
+        "path": "group_mo5jr41/__003",
+        "type": "text"
+      },
+      {
+        "choices": [
+          {
+            "label": "طوني وسوف",
+            "code": "nameW_01"
+          },
+          {
+            "label": "مارسيل سليمان",
+            "code": "nameW_02"
+          },
+          {
+            "label": "هبة يازجي ",
+            "code": "nameW_04"
+          },
+          {
+            "label": "طارق كرم ",
+            "code": "nameW_05"
+          },
+          {
+            "label": "لا يوجد مرافق ",
+            "code": "nameW_00"
+          }
+        ],
+        "label": "مرافقين ",
+        "name": "__007",
+        "path": "group_mo5jr41/__007",
+        "type": "select_one Names_W"
+      },
+      {
+        "choices": [],
+        "label": "اسم المرافقين",
+        "name": "__008",
+        "path": "group_mo5jr41/__008",
+        "type": "text"
+      }
+    ]
+  }
+]

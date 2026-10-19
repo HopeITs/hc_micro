@@ -352,6 +352,9 @@
     <Compile Include="Classes\Images.cs" />
     <Compile Include="Classes\InputValidationHelpercs.cs" />
     <Compile Include="Classes\KoboLocalVisitImporter.cs" />
+    <Compile Include="Classes\KoboMonitoringStageMapping.cs" />
+    <Compile Include="Classes\KoboMonitoringImporter.cs" />
+    <Compile Include="Classes\KoboMonitoringIdentity.cs" />
     <Compile Include="Classes\KoboVisitorMapping.cs" />
     <Compile Include="Classes\KoboVisitVisitorDisplay.cs" />
     <Compile Include="Classes\KoboSubmission.cs" />

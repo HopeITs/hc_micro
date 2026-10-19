@@ -21,12 +21,18 @@ namespace MyWorkApplication.Classes
 
         public void Load()
         {
+            Load(false);
+        }
+
+        public void Load(bool monitoring)
+        {
             using (MySqlConnection connection = new MySqlConnection(Program.ConnectionString))
             {
                 connection.Open();
                 try
                 {
-                    fields = ReadTable(connection, @"SELECT f.* FROM `kobo_opening_field_mapping` f
+                    fields = ReadTable(connection, "SELECT f.* FROM `" +
+                        (monitoring ? "kobo_monitoring_field_mapping" : "kobo_opening_field_mapping") + @"` f
 JOIN `kobo_form_mapping` m ON BINARY m.`Kobo_Form_UID` = BINARY f.`Kobo_Form_UID`
 WHERE m.`LocalDatabase` = DATABASE() AND m.`Is_Active` = 1");
                     mappings = ReadTable(connection, @"SELECT m.`Kobo_Form_UID`, m.`Kobo_Name`, m.`Display_Name`,
@@ -39,7 +45,8 @@ WHERE m.`Is_Active` = 1");
                 catch (MySqlException ex)
                 {
                     if (ex.Number == 1146)
-                        throw new Exception("يرجى تطبيق ملف KoboVisitorMapping_Upgrade.sql على قاعدة البيانات قبل المزامنة.", ex);
+                        throw new Exception(monitoring ? "Apply KoboMonitoringImport_Upgrade.sql to the selected database before M&E import."
+                            : "يرجى تطبيق ملف KoboVisitorMapping_Upgrade.sql على قاعدة البيانات قبل المزامنة.", ex);
                     throw;
                 }
             }
