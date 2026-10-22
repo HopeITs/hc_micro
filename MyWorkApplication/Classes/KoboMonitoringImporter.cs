@@ -1,4 +1,4 @@
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -17,12 +17,19 @@ namespace MyWorkApplication.Classes
         private readonly KoboMonitoringStageMapping stages = new KoboMonitoringStageMapping();
 
         public KoboLocalVisitImportResult Import()
+        { return Import(null); }
+
+        public KoboLocalVisitImportResult ImportConflict(int submissionId)
+        { return Import(submissionId); }
+
+        private KoboLocalVisitImportResult Import(int? onlySubmission)
         {
             KoboLocalVisitImportResult result = new KoboLocalVisitImportResult();
             DataTable rows = submissions.Get_Submissions_For_Local_Import(null, true);
             bool loaded = false;
             foreach (DataRow row in rows.Rows)
             {
+                if (onlySubmission.HasValue && Convert.ToInt32(row["ID"]) != onlySubmission.Value) continue;
                 string type = row["Visit_Type"].ToString().ToLowerInvariant();
                 if (type != "monitoring" && type != "final") continue;
                 try
@@ -37,13 +44,31 @@ namespace MyWorkApplication.Classes
                 }
                 catch (Exception ex)
                 {
-                    submissions.Mark_Local_Import_Error(Convert.ToInt32(row["ID"]), ex.Message);
+                    KoboPersonReviewRequiredException personReview = ex as KoboPersonReviewRequiredException;
+                    KoboDuplicateReviewException conflict = ex as KoboDuplicateReviewException;
+                    string reviewError = "";
+                    if (personReview != null)
+                    {
+                        try { KoboPersonReview.Register(Convert.ToInt32(row["ID"]), personReview.Project, personReview.Name, row["Raw_JSON"].ToString()); }
+                        catch(Exception registerError) { reviewError = " Person review: " + registerError.Message + " Apply KoboPersonReview_Upgrade.sql."; }
+                    }
+                    if (conflict != null)
+                    {
+                        try
+                        {
+                            KoboConflictReview.Register(Convert.ToInt32(row["ID"]), conflict.ExistingId, conflict.VisitId);
+                            result.ReviewConflictCount++;
+                        }
+                        catch (Exception registerError) { reviewError = " Review queue: " + registerError.Message + " Apply KoboSyncConflicts_Upgrade.sql if missing."; }
+                    }
+                    submissions.Mark_Local_Import_Error(Convert.ToInt32(row["ID"]), ex.Message + reviewError);
                     result.ErrorCount++;
                     result.ErrorMessages += row["Kobo_Form_Name"] + " [" + row["Kobo_Submission_ID"] + "]: " + ex.Message + Environment.NewLine;
                     if (!loaded) break;
                 }
             }
             // Keep historical visits on source deletion until their removal is explicitly reviewed.
+            if (onlySubmission.HasValue) return result;
             foreach (DataRow row in submissions.Get_Deleted_Submissions_For_Local_Import().Rows)
             {
                 if (row["Local_Table_Name"].ToString() != "mevisit" &&
@@ -71,6 +96,8 @@ namespace MyWorkApplication.Classes
             string kind = category == "vehicle" ? "v" : "o";
             DateTime date = ResolveDate(data);
             List<KoboVisitVisitor> people = visitors.GetVisitors(data, uid);
+            // Verified beneficiary-name field in all 25 supplied monitoring/Final definitions.
+            string beneficiaryName = KoboVisitorMapping.GetValue(data, "group_mo5jr41/bene_name");
 
             using (MySqlConnection connection = new MySqlConnection(Program.ConnectionString))
             {
@@ -79,14 +106,19 @@ namespace MyWorkApplication.Classes
                 {
                     try
                     {
-                        DataTable relationships = Query(connection, transaction, @"SELECT DISTINCT Person_ID, PersonType
-FROM person_microproject WHERE MicroProject_ID = @project", "@project", project);
-                        DataRow participant = KoboMonitoringIdentity.ResolveParticipant(relationships);
+                        if (KoboConflictImport.Before(connection, transaction, submissionId))
+                        { transaction.Commit(); return; }
+                        DataTable relationships = Query(connection, transaction, @"SELECT DISTINCT pmp.Person_ID, pmp.PersonType,
+p.P_FirstName, p.P_LastName, p.P_FatherName
+FROM person_microproject pmp LEFT JOIN person p ON p.P_ID=pmp.Person_ID
+WHERE pmp.MicroProject_ID = @project", "@project", project);
+                        DataRow participant = KoboPersonReview.Resolve(connection, transaction, submissionId, project, beneficiaryName, row["Raw_JSON"].ToString(), relationships);
                         int person = Convert.ToInt32(participant["Person_ID"]);
                         string role = participant["PersonType"].ToString().Trim();
                         DataTable projects = Query(connection, transaction, @"SELECT DISTINCT MicroProject_ID
 FROM person_microproject WHERE Person_ID = @person", "@person", person);
                         bool isolated = KoboMonitoringIdentity.RequiresProjectIsolation(projects, project);
+                        if (!isolated) KoboConflictImport.PrepareReplacement(connection, transaction, submissionId, project, person, number, kind, date);
                         DataTable link = Query(connection, transaction, @"SELECT Local_Table_Name, Local_Record_ID
 FROM kobo_submission WHERE ID = @id FOR UPDATE", "@id", submissionId);
                         object linkedId = link.Rows[0]["Local_Record_ID"];
@@ -135,10 +167,11 @@ Local_Record_ID = @id, Sync_Status = @status, Error_Message = NULL WHERE ID = @i
                             if (answers.Rows.Count > 0)
                                 throw new InvalidOperationException("Visit has legacy questionnaire answers; review required before updating it.");
                             DataTable conflicts = Query(connection, transaction, @"SELECT ID FROM mevisit
-WHERE Person_ID = @person AND Kind = @kind AND Number = @number AND Date = @date AND ID <> @id LIMIT 1",
+WHERE Person_ID = @person AND Kind = @kind AND Number = @number AND Date = @date AND ID <> @id",
                                 "@person", person, "@kind", kind, "@number", number, "@date", date, "@id", visitId);
-                            if (conflicts.Rows.Count > 0)
-                                throw new InvalidOperationException("Corrected visit date/stage conflicts with another visit. Review required.");
+                            foreach (DataRow conflictRow in conflicts.Rows)
+                                if (!KoboConflictImport.AllowsDuplicate(connection, transaction, submissionId, Convert.ToInt32(conflictRow["ID"])))
+                                    throw new InvalidOperationException("Corrected visit date/stage conflicts with another visit. Review required.");
                             Write(connection, transaction, @"UPDATE mevisit SET Number = @number, Date = @date, Edited_By = @source
 WHERE ID = @id AND NOT (Number <=> @number AND Date <=> @date)",
                                 "@number", number, "@date", date, "@source", Source, "@id", visitId);
@@ -148,8 +181,21 @@ WHERE ID = @id AND NOT (Number <=> @number AND Date <=> @date)",
                             DataTable duplicates = Query(connection, transaction, @"SELECT ID FROM mevisit
 WHERE Person_ID = @person AND Kind = @kind AND Number = @number AND Date = @date",
                                 "@person", person, "@kind", kind, "@number", number, "@date", date);
-                            if (duplicates.Rows.Count > 0)
-                                throw new InvalidOperationException(DescribeDuplicates(connection, transaction, duplicates));
+                            bool allowed = duplicates.Rows.Count > 0;
+                            foreach (DataRow duplicate in duplicates.Rows)
+                                allowed &= KoboConflictImport.AllowsDuplicate(connection, transaction, submissionId, Convert.ToInt32(duplicate["ID"]));
+                            if (duplicates.Rows.Count > 0 && !allowed)
+                            {
+                                string message = DescribeDuplicates(connection, transaction, duplicates);
+                                if (duplicates.Rows.Count == 1)
+                                {
+                                    int candidate = Convert.ToInt32(duplicates.Rows[0]["ID"]);
+                                    DataTable owners = Query(connection, transaction, @"SELECT ID FROM kobo_submission
+WHERE Local_Table_Name='mevisit' AND Local_Record_ID=@id AND Kobo_Is_Deleted=0", "@id", candidate);
+                                    if (owners.Rows.Count == 1) throw new KoboDuplicateReviewException(message, Convert.ToInt32(owners.Rows[0]["ID"]), candidate);
+                                }
+                                throw new InvalidOperationException(message);
+                            }
                             Write(connection, transaction, @"INSERT INTO mevisit
 (Person_ID, Number, Kind, Type, Date, Profit, Ans1, Ans2, Indicators, Notes, Result, Created_By, Edited_By)
 VALUES (@person, @number, @kind, '', @date, 0, '', '', '', '', 0, @source, '')",
@@ -167,6 +213,7 @@ WHERE Local_Table_Name = 'mevisit' AND Local_Record_ID = @visit AND ID <> @submi
                         Write(connection, transaction, @"UPDATE kobo_submission SET Local_Table_Name = 'mevisit',
 Local_Record_ID = @visit, Sync_Status = @status, Error_Message = NULL
 WHERE ID = @id", "@visit", visitId, "@status", updated ? "local_updated" : "local_inserted", "@id", submissionId);
+                        KoboConflictImport.Finish(connection, transaction, submissionId);
                         transaction.Commit();
                         if (updated) result.UpdatedCount++; else result.ImportedCount++;
                     }
@@ -253,7 +300,7 @@ FROM kobo_submission WHERE Local_Table_Name = 'mevisit' AND Local_Record_ID = @i
                 Write(connection, transaction, "INSERT INTO mevisit_user (Visit_ID, User_ID, Mark) VALUES (@id, @user, '')", "@id", id, "@user", userId);
         }
 
-        private static DataTable Query(MySqlConnection connection, MySqlTransaction transaction, string sql, params object[] args)
+        internal static DataTable Query(MySqlConnection connection, MySqlTransaction transaction, string sql, params object[] args)
         {
             using (MySqlCommand command = Command(connection, transaction, sql, args))
             using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
@@ -262,7 +309,7 @@ FROM kobo_submission WHERE Local_Table_Name = 'mevisit' AND Local_Record_ID = @i
             }
         }
 
-        private static void Write(MySqlConnection connection, MySqlTransaction transaction, string sql, params object[] args)
+        internal static void Write(MySqlConnection connection, MySqlTransaction transaction, string sql, params object[] args)
         {
             using (MySqlCommand command = Command(connection, transaction, sql, args)) command.ExecuteNonQuery();
         }

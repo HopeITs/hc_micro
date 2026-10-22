@@ -20,6 +20,7 @@ namespace MyWorkApplication.Classes
         public int DeletedCount { get; set; }
         public int AfterSyncCount { get; set; }
         public int ErrorCount { get; set; }
+        public int ReviewConflictCount { get; set; }
         public string ErrorMessages { get; set; }
 
         public KoboSyncResult()
@@ -113,6 +114,7 @@ namespace MyWorkApplication.Classes
             {
                 KoboLocalVisitImportResult imported = new KoboMonitoringImporter().Import();
                 result.ErrorCount += imported.ErrorCount;
+                result.ReviewConflictCount += imported.ReviewConflictCount;
                 if (!string.IsNullOrWhiteSpace(imported.ErrorMessages)) AddError(result, imported.ErrorMessages);
             }
             catch (Exception ex)

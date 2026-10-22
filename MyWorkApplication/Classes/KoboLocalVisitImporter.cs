@@ -13,6 +13,7 @@ namespace MyWorkApplication.Classes
         public int UpdatedCount { get; set; }
         public int DeletedCount { get; set; }
         public int ErrorCount { get; set; }
+        public int ReviewConflictCount { get; set; }
         public string ErrorMessages { get; set; }
 
         public KoboLocalVisitImportResult()

@@ -207,6 +207,10 @@ namespace MyWorkApplication
                         ((ProfessionMeetings_Form)form).Check_Theme();
                     if (form.Name == "KoboSync_Form")
                         ((KoboSync_Form)form).Check_Theme();
+                    if (form.Name == "KoboSyncConflicts_Form")
+                        ((KoboSyncConflicts_Form)form).Check_Theme();
+                    if (form.Name == "KoboPersonReview_Form")
+                        ((KoboPersonReview_Form)form).Check_Theme();
 
                     if (form.Name == "AdminPanel_From") theme.AdminPanel_ToNight(form, false);
 
@@ -268,6 +272,10 @@ namespace MyWorkApplication
                         ((ProfessionMeetings_Form)form).Check_Theme();
                     if (form.Name == "KoboSync_Form")
                         ((KoboSync_Form)form).Check_Theme();
+                    if (form.Name == "KoboSyncConflicts_Form")
+                        ((KoboSyncConflicts_Form)form).Check_Theme();
+                    if (form.Name == "KoboPersonReview_Form")
+                        ((KoboPersonReview_Form)form).Check_Theme();
 
                     if (form.Name == "AdminPanel_From") theme.AdminPanel_ToLight(form, false);
 

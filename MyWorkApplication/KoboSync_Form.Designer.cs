@@ -42,6 +42,7 @@
             this.Errors_value_label = new System.Windows.Forms.Label();
             this.bottom_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Sync_button = new MyWorkApplication.Controls.NoFocusButton();
+            this.Review_button = new System.Windows.Forms.Button();
             this.progressBorder_panel = new System.Windows.Forms.Panel();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.Sync_backgroundWorker = new System.ComponentModel.BackgroundWorker();
@@ -401,11 +402,18 @@
             // 
             // bottom_tableLayoutPanel
             // 
-            this.bottom_tableLayoutPanel.ColumnCount = 2;
+            this.bottom_tableLayoutPanel.ColumnCount = 3;
+            this.bottom_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
+            this.bottom_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
             this.bottom_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.bottom_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 556F));
             this.bottom_tableLayoutPanel.Controls.Add(this.Sync_button, 0, 0);
-            this.bottom_tableLayoutPanel.Controls.Add(this.progressBorder_panel, 1, 0);
+            this.bottom_tableLayoutPanel.Controls.Add(this.Review_button, 1, 0);
+            this.bottom_tableLayoutPanel.Controls.Add(this.progressBorder_panel, 2, 0);
+            this.Review_button.Text = "مراجعة التعارضات";
+            this.Review_button.Name = "Review_button";
+            this.Review_button.Size = new System.Drawing.Size(150, 36);
+            this.Review_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Review_button.Click += new System.EventHandler(this.Review_button_Click);
             this.bottom_tableLayoutPanel.Location = new System.Drawing.Point(58, 438);
             this.bottom_tableLayoutPanel.Name = "bottom_tableLayoutPanel";
             this.bottom_tableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -528,6 +536,7 @@
         private System.Windows.Forms.Panel progressBorder_panel;
         private System.Windows.Forms.ProgressBar progressBar1;
         private MyWorkApplication.Controls.NoFocusButton Sync_button;
+        private System.Windows.Forms.Button Review_button;
         private System.ComponentModel.BackgroundWorker Sync_backgroundWorker;
         private System.Windows.Forms.Timer Sync_progress_timer;
     }

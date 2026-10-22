@@ -72,14 +72,25 @@ WHERE m.`Is_Active` = 1");
             AddVisitor(visitors, "", username);
 
             string choice = GetValue(submission, form["Visitor_Choice_Field"].ToString());
-            foreach (string name in choice.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
-                AddVisitor(visitors, formUid, name);
+            if (!IsNoCompanionChoice(formUid, choice))
+                foreach (string name in choice.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
+                    AddVisitor(visitors, formUid, name);
 
+            // This field is independent: it can name a visitor from another team even when the
+            // selected companion choice says that no same-team companion joined the visit.
             string text = GetValue(submission, form["Visitor_Text_Field"].ToString());
             foreach (string name in text.Split(new char[] { ',', '،', ';', '\r', '\n', '/', '+', '&', '-', '_', '.' },
                 StringSplitOptions.RemoveEmptyEntries))
                 AddCompanions(visitors, name);
             return visitors;
+        }
+
+        private bool IsNoCompanionChoice(string formUid, string value)
+        {
+            if (NormalizeName(value) == NormalizeName("لا يوجد مرافق")) return true;
+            DataRow mapping = FindMapping(formUid, NormalizeName(value));
+            return mapping != null && (Convert.ToInt32(mapping["Is_Ignored"]) == 1 ||
+                NormalizeName(mapping["Display_Name"].ToString()) == NormalizeName("لا يوجد مرافق"));
         }
 
         private void AddCompanions(List<KoboVisitVisitor> visitors, string value)

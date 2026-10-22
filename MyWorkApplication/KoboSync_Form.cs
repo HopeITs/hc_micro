@@ -53,6 +53,12 @@ namespace MyWorkApplication
             ApplyTheme();
         }
 
+        private void Review_button_Click(object sender, EventArgs e)
+        {
+            if (Sync_backgroundWorker.IsBusy) return;
+            using (KoboSyncConflicts_Form form = new KoboSyncConflicts_Form()) form.ShowDialog(this);
+        }
+
         private void Sync_button_Click(object sender, EventArgs e)
         {
             try
@@ -130,7 +136,9 @@ namespace MyWorkApplication
                 {
                     Status_value_label.Text = "تمت المزامنة مع وجود أخطاء";
                     if (!closeAfterSync)
-                        MessageBox.Show("تمت المزامنة مع وجود أخطاء، يرجى مراجعة مسؤول النظام.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(KoboSyncUserMessages.Summary(result.ErrorCount,result.ReviewConflictCount),
+                            "نتيجة المزامنة", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1,
+                            MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
                 }
                 else
                 {

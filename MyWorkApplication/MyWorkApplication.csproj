@@ -355,6 +355,14 @@
     <Compile Include="Classes\KoboMonitoringStageMapping.cs" />
     <Compile Include="Classes\KoboMonitoringImporter.cs" />
     <Compile Include="Classes\KoboMonitoringIdentity.cs" />
+    <Compile Include="Classes\KoboConflictPolicy.cs" />
+    <Compile Include="Classes\KoboSyncUserMessages.cs" />
+    <Compile Include="Classes\KoboReviewLabels.cs" />
+    <Compile Include="Classes\KoboConflictReview.cs" />
+    <Compile Include="Classes\KoboPersonReview.cs" />
+    <Compile Include="KoboPersonReview_Form.cs"><SubType>Form</SubType></Compile>
+    <Compile Include="KoboPersonReview_Form.Designer.cs"><DependentUpon>KoboPersonReview_Form.cs</DependentUpon></Compile>
+    <Compile Include="Classes\KoboConflictImport.cs" />
     <Compile Include="Classes\KoboVisitorMapping.cs" />
     <Compile Include="Classes\KoboVisitVisitorDisplay.cs" />
     <Compile Include="Classes\KoboSubmission.cs" />
@@ -452,6 +460,12 @@
     </Compile>
     <Compile Include="KoboSync_Form.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KoboSyncConflicts_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KoboSyncConflicts_Form.Designer.cs">
+      <DependentUpon>KoboSyncConflicts_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="KoboSync_Form.Designer.cs">
       <DependentUpon>KoboSync_Form.cs</DependentUpon>
@@ -769,6 +783,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KoboSync_Form.resx">
       <DependentUpon>KoboSync_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KoboMonitoringFieldLabels.json" />
+    <EmbeddedResource Include="KoboSyncConflicts_Form.resx">
+      <DependentUpon>KoboSyncConflicts_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KoboPersonReview_Form.resx">
+      <DependentUpon>KoboPersonReview_Form.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfessionMeetings_Form.resx">
