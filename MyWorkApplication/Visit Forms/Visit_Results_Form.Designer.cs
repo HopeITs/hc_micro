@@ -68,6 +68,12 @@
             this.ShowHide_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.SearchBy_comboBox = new System.Windows.Forms.ComboBox();
+            this.KoboFilters_panel = new System.Windows.Forms.TableLayoutPanel();
+            this.KoboForm_label = new System.Windows.Forms.Label();
+            this.KoboForm_comboBox = new System.Windows.Forms.ComboBox();
+            this.KoboVersion_label = new System.Windows.Forms.Label();
+            this.KoboVersion_comboBox = new System.Windows.Forms.ComboBox();
+            this.KoboSummary_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Answers_dataGridView)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -75,6 +81,7 @@
             this.Search_panel.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.KoboFilters_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Answers_dataGridView
@@ -670,6 +677,75 @@
             this.SearchBy_comboBox.TabIndex = 563;
             this.SearchBy_comboBox.SelectedIndexChanged += new System.EventHandler(this.SearchBy_comboBox_SelectedIndexChanged);
             // 
+            // KoboFilters_panel
+            //
+            this.KoboFilters_panel.ColumnCount = 4;
+            this.KoboFilters_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.KoboFilters_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.KoboFilters_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.KoboFilters_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.KoboFilters_panel.Controls.Add(this.KoboForm_label, 0, 0);
+            this.KoboFilters_panel.Controls.Add(this.KoboForm_comboBox, 1, 0);
+            this.KoboFilters_panel.Controls.Add(this.KoboVersion_label, 2, 0);
+            this.KoboFilters_panel.Controls.Add(this.KoboVersion_comboBox, 3, 0);
+            this.KoboFilters_panel.Controls.Add(this.KoboSummary_label, 0, 1);
+            this.KoboFilters_panel.SetColumnSpan(this.KoboSummary_label, 4);
+            this.KoboFilters_panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.KoboFilters_panel.Name = "KoboFilters_panel";
+            this.KoboFilters_panel.Padding = new System.Windows.Forms.Padding(8, 2, 8, 2);
+            this.KoboFilters_panel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.KoboFilters_panel.RowCount = 2;
+            this.KoboFilters_panel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.KoboFilters_panel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.KoboFilters_panel.Size = new System.Drawing.Size(1262, 80);
+            this.KoboFilters_panel.Visible = false;
+            //
+            // KoboForm_label
+            //
+            this.KoboForm_label.AutoSize = true;
+            this.KoboForm_label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.KoboForm_label.Name = "KoboForm_label";
+            this.KoboForm_label.Margin = new System.Windows.Forms.Padding(8, 3, 8, 3);
+            this.KoboForm_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.KoboForm_label.Text = "النموذج (اختياري):";
+            this.KoboForm_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            //
+            // KoboForm_comboBox
+            //
+            this.KoboForm_comboBox.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.KoboForm_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.KoboForm_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.KoboForm_comboBox.Name = "KoboForm_comboBox";
+            this.KoboForm_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.KoboForm_comboBox.SelectionChangeCommitted += new System.EventHandler(this.KoboForm_comboBox_SelectionChangeCommitted);
+            //
+            // KoboVersion_label
+            //
+            this.KoboVersion_label.AutoSize = true;
+            this.KoboVersion_label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.KoboVersion_label.Name = "KoboVersion_label";
+            this.KoboVersion_label.Margin = new System.Windows.Forms.Padding(8, 3, 8, 3);
+            this.KoboVersion_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.KoboVersion_label.Text = "الإصدار:";
+            this.KoboVersion_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            //
+            // KoboVersion_comboBox
+            //
+            this.KoboVersion_comboBox.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.KoboVersion_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.KoboVersion_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.KoboVersion_comboBox.Name = "KoboVersion_comboBox";
+            this.KoboVersion_comboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.KoboVersion_comboBox.SelectionChangeCommitted += new System.EventHandler(this.KoboVersion_comboBox_SelectionChangeCommitted);
+            //
+            // KoboSummary_label
+            //
+            this.KoboSummary_label.AutoEllipsis = true;
+            this.KoboSummary_label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.KoboSummary_label.Name = "KoboSummary_label";
+            this.KoboSummary_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.KoboSummary_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            //
             // Visit_Results_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 27F);
@@ -682,6 +758,7 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.SearchToolBar);
             this.Controls.Add(this.Search_panel);
+            this.Controls.Add(this.KoboFilters_panel);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Rubik", 11F);
@@ -704,6 +781,8 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.KoboFilters_panel.ResumeLayout(false);
+            this.KoboFilters_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -743,5 +822,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button ShowHide_button;
         private System.Windows.Forms.Panel Search_panel;
+        private System.Windows.Forms.TableLayoutPanel KoboFilters_panel;
+        private System.Windows.Forms.Label KoboForm_label;
+        private System.Windows.Forms.ComboBox KoboForm_comboBox;
+        private System.Windows.Forms.Label KoboVersion_label;
+        private System.Windows.Forms.ComboBox KoboVersion_comboBox;
+        private System.Windows.Forms.Label KoboSummary_label;
     }
 }

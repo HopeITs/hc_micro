@@ -68,6 +68,8 @@ namespace MyWorkApplication.Visit_Forms
                 searchBy_list = new List<string>();
                 searchBy_list.Add("عدد إجابات كل سؤال");
                 searchBy_list.Add("إجابات المستفيدين");
+                searchBy_list.Add("عدد إجابات كل سؤال (كوبو)");
+                searchBy_list.Add("إجابات المستفيدين (كوبو)");
                 for (int i = 0; i < searchBy_list.Count; i++)
                     SearchBy_comboBox.Items.Add(searchBy_list.ElementAt<string>(i));
 
@@ -284,6 +286,7 @@ namespace MyWorkApplication.Visit_Forms
             {
                 if (user_mode)
                 {
+                    SetKoboMode(IsKoboMode);
                     // Set cursor as hourglass
                     Cursor.Current = Cursors.WaitCursor;
                     bs.Filter = bs.Sort = Original_Filter_String = "";
@@ -299,7 +302,11 @@ namespace MyWorkApplication.Visit_Forms
                     }
 
                     // البحث حسب عدد اجوبة كل سؤال
-                    if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
+                    if (IsKoboMode)
+                    {
+                        LoadKoboResults();
+                    }
+                    else if (SearchBy_comboBox.SelectedItem.ToString() == searchBy_list.ElementAt<string>(0))
                     {
                         Select_AnswersNum(onlyLastVisit
                             , visitKind, visitNum, DateFrom, DateTo
@@ -314,14 +321,15 @@ namespace MyWorkApplication.Visit_Forms
                     }
 
                     SearchToolBar.SetColumns(Answers_dataGridView.Columns);
-
-                    // Set cursor as default arrow
-                    Cursor.Current = Cursors.Default;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
             }
         }
 
@@ -384,6 +392,7 @@ namespace MyWorkApplication.Visit_Forms
             try
             {
                 Original_Filter_String = Answers_dataGridView.FilterString;
+                if (IsKoboMode) bs.Filter = Original_Filter_String;
             }
             catch (Exception ex)
             {
@@ -403,6 +412,12 @@ namespace MyWorkApplication.Visit_Forms
         }
         private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
+            if (koboBinding) return;
+            if (IsKoboMode)
+            {
+                UpdateKoboSelectionTotals();
+                return;
+            }
             try
             {
                 var selectedCellCount = Answers_dataGridView.GetCellCount(DataGridViewElementStates.Selected);
@@ -458,6 +473,11 @@ namespace MyWorkApplication.Visit_Forms
         {
             try
             {
+                if (IsKoboMode)
+                {
+                    SearchKoboResults(e.ValueToSearch, e.ColumnToSearch == null ? null : e.ColumnToSearch.Name, e.WholeWord);
+                    return;
+                }
                 if (String.IsNullOrWhiteSpace(e.ValueToSearch))
                 {
                     bs.Filter = Original_Filter_String;
@@ -512,6 +532,7 @@ namespace MyWorkApplication.Visit_Forms
 
         private void RefreshPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (IsKoboMode) koboReloadRequested = true;
             SearchBy_comboBox_SelectedIndexChanged(sender, e);
         }
 
@@ -563,6 +584,7 @@ namespace MyWorkApplication.Visit_Forms
                 else ShowHide_button.BackgroundImage = Resources.Show2_D;
                 Search_panel.Height = 0;
             }
+            KoboFilters_panel.Visible = IsKoboMode && !Hided;
         }
         private void ShowHide_button_MouseEnter(object sender, EventArgs e)
         {
@@ -600,6 +622,7 @@ namespace MyWorkApplication.Visit_Forms
         private void ClearAllFiltersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             clear_filters();
+            if (IsKoboMode) ResetKoboFilters();
             SearchBy_comboBox_SelectedIndexChanged(sender, e);
         }
 
@@ -655,6 +678,7 @@ namespace MyWorkApplication.Visit_Forms
                             ex_dt.Columns.Remove(Answers_dataGridView.Columns[j].Name.ToString());
                     }
 
+                    if (IsKoboMode) PrepareKoboExport(ex_dt);
                     wb.Worksheets.Add(ex_dt, "Exported from App");
 
                     wb.SaveAs(filename);

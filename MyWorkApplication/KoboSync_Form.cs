@@ -59,6 +59,12 @@ namespace MyWorkApplication
             using (KoboSyncConflicts_Form form = new KoboSyncConflicts_Form()) form.ShowDialog(this);
         }
 
+        private void Responses_button_Click(object sender, EventArgs e)
+        {
+            if (Sync_backgroundWorker.IsBusy) return;
+            using (KoboSubmissions_Form form = new KoboSubmissions_Form()) form.ShowDialog(this);
+        }
+
         private void Sync_button_Click(object sender, EventArgs e)
         {
             try
